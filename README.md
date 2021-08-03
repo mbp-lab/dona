@@ -1,6 +1,5 @@
-# HC RP Kalinka - Social Data Gathering Platform
-[Kalinka](https://www.youtube.com/watch?v=lOfvkmJ7AR0) is a prototype 
-developed to collect and de-identify Social Data to be later used as 
+# Dona - Social Data Gathering Platform
+Dona is a prototype developed to collect and de-identify Social Data to be later used as 
 part of a research effort to diagnose mental illnesses.
 
 ## Development Instructions
@@ -23,7 +22,7 @@ Below is detailed how these variables can be easily set depending on the
 environemnt you are running in. 
 
 ### Docker (easy start to see things running) 
-Kalinka is packaged in a docker container and has a dependency on 
+Dona is packaged in a docker container and has a dependency on 
 postgreSQL. 
 
 ### SBT Cache Container
@@ -46,7 +45,7 @@ docker-compose up
 or if you want to make sure the image is rebuilt you can add the 
 `--build` flag.
 
-This will bring up the kalinka service and a postgres database for it to 
+This will bring up the Dona service and a postgres database for it to 
 connect to. You can now access the [application](localhost:9000)
 
 For a deeper undersanding of the docker compose setup take a look at the
