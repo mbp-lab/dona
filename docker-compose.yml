@@ -1,0 +1,29 @@
+version: "3.3"
+services:
+  kalinka:
+    build: .
+    links:
+      - postgres
+    ports:
+      - "9000:9000"
+    environment:
+     - "APPLICATION_SECRET=testsecret"
+     - "DATABASE_HOST=postgres"
+     - "DATABASE_PORT=5432"
+     - "DATABASE_NAME=kalinka"
+     - "DATABASE_USER=kalinka"
+     - "DATABASE_PASSWORD=postgres"
+     - "KALINKA_HOST=localhost"
+     - "SOCIAL_DATA_SOURCE_ID=1234566"
+     - "SOCIAL_DATA_INGESTION_ENABLED=on"
+     - "DONOR_SURVEY_ENABLED=off"
+     - "DONOR_SURVEY_LINK="
+     - "SECURE_COOKIE=false"
+  postgres:
+    environment:
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_USER: "kalinka"
+      POSTGRES_DB: "kalinka"
+    image: postgres:12
+    ports:
+      - "5555:5432"
