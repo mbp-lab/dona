@@ -1,0 +1,127 @@
+@import play.api.libs.json.JsValue
+@import play.api.libs.json.Json
+@import models.api._
+
+@import models.domain.DataSourceDescription
+@import models.domain.DonationDataSourceType.DonationDataSourceType
+
+@(donorId: String, data: Map[String, GraphData])(implicit request: RequestHeader, messages: Messages)
+
+@mainNew("DonaForMe")() {
+<div class="justify-content-center">
+    <div class="top col-md text-center">
+        <span class="headline font-italic text-center"><strong>@messages("feedback.thanks.title")</strong></span>
+    </div>
+
+    @for((dataSource, GraphData(_, _, averageMessageNumber)) <- data) {
+        <div id="@{dataSource.toString}container">
+            @showStatistics(averageMessageNumber, dataSource)
+            @showSentReceivedPlot(dataSource)
+            @showResponseTimePlot(dataSource)
+        </div>
+    }
+
+</div>
+<script src="@routes.Assets.at("lib/jquery/jquery.min.js")" type="text/javascript"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script> const allData = @Html(Json.stringify(Json.toJson(data)));</script>
+<script> const i18n = {
+    time: "@messages("feedback.graph.time")",
+    numberOfMessages: "@messages("feedback.graph.number-of-messages")",
+    sent: "@messages("feedback.graph.sent")",
+    received: "@messages("feedback.graph.received")",
+    responseTime: "@messages("feedback.graph.response-time")",
+    medianResponseTime: "@messages("feedback.graph.median-response-time")",
+    overview: "@messages("feedback.graph.overview")",
+    detail: "@messages("feedback.graph.detail")",
+    you: "@messages("feedback.graph.you")",
+    friends: "@messages("feedback.graph.friends")"
+
+};
+</script>
+<script src="@routes.Assets.at("javascripts/plot.js")" type="text/javascript"></script>
+} {
+}
+
+@showSentReceivedPlot(name: String) = {
+    <div style="padding-top: 20px;">
+        <h3 class="insights-title big-top" align="center">@String.format(messages("feedback.graph.messages-over-time"), name)</h3>
+    </div>
+    <div id="@{name.toString}MessagesOverTime" class="d-none"
+    data-x-axis="@messages("feedback.graph.time")"
+    data-y-axis="@messages("feedback.graph.number-of-messages")"
+    data-sent-trace-name="@messages("feedback.graph.sent")"
+    data-received-trace-name="@messages("feedback.graph.received")"
+    >
+        <div class="card h-100">
+            <div class="m-auto">@messages("feedback.graph.loading")</div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+}
+
+@showResponseTimePlot(name: String) = {
+    <div style="padding-top: 20px;">
+        <h3 class="insights-title big-top" align="center">@String.format(messages("feedback.graph.response-times"), name)</h3>
+    </div>
+
+    <div id="@{name}ResponseTimePlot"></div>
+    <div class="clearfix"></div>
+}
+
+@showStatistics(averageNumberOfMessages: AverageNumberOfMessages, dataSource: String) = {
+    <div class="top">
+        <h4 class="text-center font-weight-bold insights-header">@String.format(messages("feedback.graph.title"), dataSource)</h4>
+    </div>
+    <div class="card-deck feedback-stats-deck">
+        <div class="card top feedback-stats-card">
+            <h3 class="insights-title text-center">@messages("feedback.graph.total-messages")</h3>
+            <p class="insights-text text-center">
+            @String.format(
+                messages("feedback.graph.active-years-explanation_format"),
+                averageNumberOfMessages.numberOfActiveYears.toString
+            )
+            </p>
+            <div class="container">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="text-left insights-box-white" align="center">
+                            <h3 class="insights-message-number">@averageNumberOfMessages.sentTotal</h3>
+                            <span class="insights-body">@messages("feedback.graph.messages").toUpperCase</span>
+                        </div>
+                        <span class="insights-caption">@messages("feedback.graph.sent")</span>
+                    </div>
+                    <div class="col-6">
+                        <div class="text-left insights-box-blue">
+                            <h3 class="insights-message-number">@averageNumberOfMessages.receivedTotal</h3>
+                            <span class="insights-body">@messages("feedback.graph.messages").toUpperCase</span>
+                        </div>
+                        <span class="insights-caption">@messages("feedback.graph.received")</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card top feedback-stats-card thanks-small-screen-margin">
+            <h3 class="insights-title text-center">@messages("feedback.graph.average-per-active-month")</h3>
+            <p class="insights-text text-center"> @String.format(messages("feedback.graph.active-months-explanation_format"), averageNumberOfMessages.numberOfActiveMonths.toString)</p>
+            <div class="container">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="text-left insights-box-white">
+                            <h3 class="insights-message-number">@averageNumberOfMessages.sentPerActiveMonth</h3>
+                            <span class="insights-body">@messages("feedback.graph.messages").toUpperCase</span>
+                        </div>
+                        <span class="insights-caption" >@messages("feedback.graph.sent")</span>
+                    </div>
+                    <div class="col-6">
+                        <div class="text-left insights-box-blue">
+                            <h3 class="insights-message-number">@averageNumberOfMessages.receivedPerActiveMonth</h3>
+                            <span class="insights-body">@messages("feedback.graph.messages").toUpperCase</span>
+                        </div>
+                        <span class="insights-caption">@messages("feedback.graph.received")</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

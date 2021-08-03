@@ -1,0 +1,66 @@
+@(title: String, designVersion : Option[String] = None)(header: Html = Html(""))(content: Html)(footer: Html = Html(""))(implicit messages: Messages)
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> @title </title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:thin,light,regular,medium,bold" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=PT+Serif:regular,medium,bold" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=PT+Sans:regular,medium,bold" rel="stylesheet">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("lib/bootstrap/css/bootstrap.min.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("lib/font-awesome/css/font-awesome.min.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/core.css")">
+        @if(designVersion.isDefined) {
+            <link rel="stylesheet" media="screen" href="@routes.Assets.at(s"stylesheets/${designVersion.get}.css")">
+        } else {
+            <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/default.css")">
+        }
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+        <!--
+        the  viewport metatag leaves a massive black area on the right of the screen.
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        seems to only scale parts of the page. so has been disabled
+        -->
+    </head>
+    <body class="bgImage">
+    <div class="main-container">
+        <div id="unsupported-browser-warning" class="d-none p-3 w-100 bg-danger text-white text-center">@messages("browser-warning.text")</div>
+        <div class="row mx-0 justify-content-center">
+            <div id="header-hpi-logo" class="col text-left mt-3 d-flex flex-column align-items-start">
+                <a href="/">
+                    <img src="@routes.Assets.at("images/hpi_logo_projekt_DHC_web80_neg.svg")" height="100px" class="main-dhc-logo">
+                </a>
+            </div>
+            <div id="header-uni-logo" class="col text-right">
+                <img class="mt-3 mr-3" src="@routes.Assets.at("images/Unilogo.svg")" height="160px">
+            </div>
+            <div id="header-content" class="col">
+                @header
+            </div>
+        </div>
+        <section class="ml-0 mr-0 pt-4 bg-white mt-4 mb-4 pb-5 w-100 main-body">
+            <div class="mx-auto main-body-column">
+            @content
+            </div>
+        </section>
+        <section class="w-100 position-relative footer-container">
+            @footer
+
+            <ul class="list-inline footer-links ml-4">
+                <li class="list-inline-item"><a href="@routes.AboutController.dataProtection" class="text-white">@messages("links.data-protection")</a></li>
+                <li class="list-inline-item text-white">&middot;</li>
+                <li class="list-inline-item"><a href="https://hpi.de/impressum.html" class="text-white">@messages("links.imprint")</a></li>
+            </ul>
+        <ul class="list-inline d4l-logo ml-4">
+            <a href="https://data4life.care">
+                <img class="mt-3 mr-3" src="@routes.Assets.at("images/logo_d4l.svg")" width="240px">
+            </a>
+        </ul>
+        </section>
+    </div>
+    <script src="@routes.Assets.at("lib/jquery/jquery.min.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.at("lib/bootstrap/js/bootstrap.min.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/bundle.js")" type="text/javascript"></script>
+
+    </body>
+</html>

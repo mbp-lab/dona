@@ -1,0 +1,157 @@
+@import models.domain.DataSourceDescription
+
+@(form: Form[SocialDataForm.SocialFormData], donorId: String, dataSourceDescriptions:List[DataSourceDescription])(implicit request: RequestHeader, messages: Messages)
+
+@displayJsonParseError(maybeErrorString: Option[String]) = @{
+    maybeErrorString match {
+        case Some(error) =>
+            <div class="alert alert-danger">{error}</div>
+        case None =>
+    }
+}
+
+@mainNew("Dona - ForMe")() {
+    <hr class="m-0 d-block d-md-none" />
+    <input type="hidden" id="donor_id" value="@{donorId}">
+
+<div class="row text-left ml-0 donation-page-body">
+    <div id="i18n-support"
+         data-anonymisation-successful="@messages("donation.successful")"
+         data-error="@messages("donation.error")"
+         data-donor="@messages("donation.anonymisation.donor")"
+         data-friend="@messages("donation.anonymisation.friend")"
+         data-sender="@messages("donation.preview-data.sender")"
+         data-receiver="@messages("donation.preview-data.receiver")"
+         data-word-count="@messages("donation.preview-data.word-count")"
+         data-timestamp="@messages("donation.preview-data.timestamp")"
+         data-message="@messages("donation.preview-data.message")"
+         data-group-conversation="@messages("donation.preview-data.group-conversation")"
+         data-previous="@messages("actions.previous")"
+         data-next="@messages("actions.next")"
+         data-yes="@messages("yes")"
+         data-no="@messages("no")"
+         data-error-no-profile="@messages("donation.errors.no-profile")"
+        data-error-no-alias="@messages("donation.errors.no-alias")"
+        data-error-not-enough-chats="@messages("donation.errors.not-enough-chats_format")">
+    </div>
+    <div class="p-2 pr-sm-4 pl-sm-4 pt-sm-4 p-lg-2 w-100">
+        <div class="headline text-center mb-3">@messages("donation.select-data.title")</div>
+        <p class="paragraph"> @messages("donation.select-data.body1") </p>
+        <p class="paragraph">@messages("donation.select-data.body2")</p>
+    </div>
+
+    <div class="mt-0 w-100">
+        <div class="p-2 pr-sm-4 pl-sm-4 pt-sm-4 p-lg-2">
+            <div class="mt-0 w-100" align="center">
+                @for(dataSourceDescription <- dataSourceDescriptions) {
+                @populateDataSourceList(dataSourceDescription)
+                }
+                <div id="donationprogress" class="mb-2 d-none">
+                    <span class="highlighted-instructions">@messages("donation.processing")</span>
+                    <div class="progress">
+                        <div class="progress-bar center-block progress-bar-striped progress-bar-animated"
+                             style="width: 100%"
+                             role="progressbar"
+                             aria-valuenow="100"
+                             aria-valuemin="0"
+                             aria-valuemax="100">
+                            @messages("donation.be-patient")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mt-0 w-100" align="center">
+        <div class="p-2 pr-sm-4 pl-sm-4 pt-sm-4 p-lg-2" align="center">
+            <div id="error" class="alert alert-danger d-none">
+            </div>
+            <div id="success" class="alert alert-success d-none">
+            </div>
+        </div>
+    </div>
+
+    <div class="show-on-anonymisation-success order-9 w-100 d-none">
+        <div class="w-100 text-align-center show-on-anonymisation-success"  align="center">
+            <h3>@messages("donation.preview-data.title")</h3>
+            <div id="info" class="alert alert-info">
+                <p>@messages("donation.preview-data.body1")</p>
+                <p>@messages("donation.preview-data.body2")</p>
+            </div>
+            <p class="pl-3 pr-3 pl-sm-4 pr-sm-4 pl-md-3 pr-md-3 pl-lg-5 pr-lg-5 show-on-anonymisation-success">
+                @Html(String.format(messages("donation.raw-data-explanation_format"), "<span id=\"display-preview-total\"></span>"))
+                <a id="viewRawJson" href="about:blank" target="_blank">@messages("donation.raw-data-link.text")</a>.
+            </p>
+        </div>
+        <div class="container-fluid show-on-anonymisation-success">
+            <div id="carousel-deidentified-preview" class="carousel slide" data-interval="false" data-ride="carousel">
+                <div class="carousel-inner row w-100 mx-auto">
+
+                </div>
+                <a class="carousel-control-prev" href="#carousel-deidentified-preview" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">@messages("donation.preview-data.previous")</span>
+                </a>
+                <a class="carousel-control-next" href="#carousel-deidentified-preview" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">@messages("donation.preview-data.next")</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+}{
+    <div class="show-on-anonymisation-success mt-3 d-none row justify-content-center mx-0">
+        <a class="btn footer-backward-button" href="/instructions">@messages("actions.previous")</a>
+        @helper.form(routes.SocialDataDonationController.postData()) {
+            @helper.CSRF.formField
+            <input type='hidden' name='inputJson' id='inputJson' />
+            <input type='submit' class="btn footer-forward-button mb-0" id='submit-de-identified' />
+        }
+    </div>
+}
+
+@populateDataSourceList(dataSourceDescription:DataSourceDescription) = {
+
+<div class="card">
+
+    <label class="card-header donation-file-selector btn btn-link w-100 " >
+        <input id="@{dataSourceDescription.name.toString}"
+               multiple
+               type="file"
+               class="donation-file-selector d-none"
+               @if(dataSourceDescription.requiresAlias) {
+                   data-requires-alias="true"
+               }
+               @if(dataSourceDescription.parsingDetails.specificFileExtensionAccepted.isDefined){
+               accept="@{dataSourceDescription.parsingDetails.specificFileExtensionAccepted}"
+               }
+        />
+        <span id="@{dataSourceDescription.name.toString}SelectText">
+            @if(dataSourceDescription.logo.isDefined){
+            <img class="logo mr-3" src="@{dataSourceDescription.logo}">
+            }
+            <span>@{dataSourceDescription.name.toString}</span>
+        </span>
+
+        <input id="@{dataSourceDescription.name}AliasInput"
+               type="text"
+               minlength="0"
+               maxlength="100"
+               size="12"
+               @if(dataSourceDescription.requiresAlias) {
+                 placeholder="@messages("donation.alias")"
+                 class="ml-5 mbt-2 w-25"
+               } else {
+                 placeholder="@messages("donation.alias-not-required")"
+                 disabled="true"
+                 class="ml-5 mbt-2 w-25 disabled-input"
+               }
+        >
+    </label>
+</div>
+
+}
