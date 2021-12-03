@@ -16,8 +16,8 @@ services:
      - "KALINKA_HOST=localhost"
      - "SOCIAL_DATA_SOURCE_ID=1234566"
      - "SOCIAL_DATA_INGESTION_ENABLED=on"
-     - "DONOR_SURVEY_ENABLED=off"
-     - "DONOR_SURVEY_LINK="
+     - "DONOR_SURVEY_ENABLED=on"
+     - "DONOR_SURVEY_LINK=https://www.soscisurvey.de/dona/"
      - "SECURE_COOKIE=false"
   postgres:
     environment:
