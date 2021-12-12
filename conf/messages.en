@@ -8,7 +8,7 @@ landing.header.title=Illuminate the darkness with your social media data
 landing.header.body=We are researching how to use digital methods to gain a better understanding of loneliness in order to help people. Support our mission by donating your social media data anonymously. As a gesture of appreciation for your efforts, we will grant you interesting insights into your data.
 
 landing.what.title=What is this about?
-landing.what.body1=Social interaction plays a significant role in our mental health. The Digital Health Center at the University of Potsdam is currently developing digital measurement tools in order to better understand it. In this ongoing study we are trying to answer a particular question: Can the social embeddedness of people be measured by utilizing their social media data?
+landing.what.body1=Social interaction plays a significant role in our mental health. The Multimodal Behavior Processing Group at the University of Bielefeld is currently developing digital measurement tools in order to better understand it. In this ongoing study we are trying to answer a particular question: Can the social embeddedness of people be measured by utilizing their social media data?
 landing.what.body2=If you want to participate in this study, you can request your data from a social media platform of your choice (currently supported: Facebook and WhatsApp). You can then anonymize this data on the website, upload it and donate it to our research platform.
 
 landing.why.title=Why should I participate?
@@ -16,12 +16,12 @@ landing.why.col1.title=Receive feedback
 landing.why.col1.body=As a gesture of appreciation for your efforts, you will receive meaningful insights and feedback to your online interaction behaviour and social embeddedness. We will generate graphical representations of your sent and received messages over the last months as well as evaluate your completed questionnaires. This study is not intended to be a clinical-psychological diagnosis.
 
 landing.why.col2.title=Support research
-landing.why.col2.body_html=In <a href="https://hpi.de/digital-health-center/research-projects/topics/predicting-psychological-crisis.html" target="_blank">this study</a>, we are trying to measure the participants'' social embeddedness using their interaction data (exchange of messages via Whatsapp or Facebook).  The results of this study will contribute to the overall goal of better understanding the effects of social interaction on mental health.
+landing.why.col2.body_html=In <a href="https://www.uni-bielefeld.de/fakultaeten/technische-fakultaet/arbeitsgruppen/multimodal-behavior-processing/index.xml" target="_blank">this study</a>, we are trying to measure the participants'' social embeddedness using their interaction data (exchange of messages via Whatsapp or Facebook).  The results of this study will contribute to the overall goal of better understanding the effects of social interaction on mental health.
 
 landing.why.col3.title=Stay anonymous
 landing.why.col3.body_html=When uploading your data, we will only process <strong><a href="/learn-more">anonymized data </a></strong> (message length, message timestamp and pseudonyms of the conversation participants) and <strong>no content</strong> (message text or the name of the participants). We can therefore assure you that we have no access to your actual messages. 
 
-landing.contact.body_html=The purpose of this website is to inform you about the background and process of this online study. If any questions or concerns arise during the process, please write to the principal investigator (Hanna Drimalla, Digital Health Center, Hasso-Plattner-Institut, Universität Potsdam, <a href="mailto:hanna.drimalla@hpi.de">hanna.drimalla@hpi.de</a>, Tel. 0331-55094829)
+landing.contact.body_html=The purpose of this website is to inform you about the background and process of this online study. If any questions or concerns arise during the process, please write to the principal investigator (Hanna Drimalla, AG Multimodal Behavior Processing, Technische Fakultät, Universität Bielefeld, <a href="mailto:drimalla@techfak.uni-bielefeld.de">drimalla@techfak.uni-bielefeld.de</a>, Tel. +49 521 106-12043)
 
 # Learn More page
 
@@ -77,8 +77,8 @@ consent.voluntary.title=Voluntary Participation
 consent.voluntary.body=The participation in this study is entirely voluntary. At any time you may revoke your consent concerning your participation in this study, without giving any reason and without any kind of negative consequences. Before uploading the data to our research platform, you may revoke, without giving reason, your consent concerning the storage of your anonymized data, without any negative consequences.
 
 consent.data-protection.title=Data Security
-consent.data-protection.body=Since we are not collecting any names or other person-specific data, we will not be able to associate you with your data once the study has been completed from your side - the donated data is anonymous. This means that your data cannot be deleted on your request after submission. Due to the completely anonymous data handling and processing, the General Data Protection Regulation (GDPR) does not apply. In case of questions or concerns, please contact the office for data protection at the University of Potsdam:
-consent.data-protection.address_html=Dr. Marek Kneis <br /> Universität Potsdam (Campus am Neuen Palais) <br />Am Neuen Palais 10 <br />  Haus 22 Raum 1.14 <br />14469 Potsdam <br />Telefon +49 331 977-124409 <br />Telefax +49 331 977-1297 <br /><a href="mailto:datenschutz@uni-potsdam.de">datenschutz@uni-potsdam.de</a>
+consent.data-protection.body=Since we are not collecting any names or other person-specific data, we will not be able to associate you with your data once the study has been completed from your side - the donated data is anonymous. This means that your data cannot be deleted on your request after submission. Due to the completely anonymous data handling and processing, the General Data Protection Regulation (GDPR) does not apply. In case of questions or concerns, please contact the office for data protection at the University of Bielefeld:
+consent.data-protection.address_html=Katharina Katzer <br /> Department of Human Resources and Organization <br /> Universität Bielefeld <br /> Universitätsstraße 25  <br />33501 Bielefeld  <br />Telefon +49 521 106-3446 <br /><a href="mailto:katharina.katzer@uni-bielefeld.de">katharina.katzer@uni-bielefeld.de</a>
 
 consent.data-purpose.title=Usage of data
 consent.data-purpose.body=The data and results of these surveys will be published in scientific journals. The published data will be anonymous, meaning that it cannot be associated with individuals. The fully anonymized data will be uploaded to a research data repository and qualified scientists will be granted access.
