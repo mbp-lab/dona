@@ -47,7 +47,7 @@ or if you want to make sure the image is rebuilt you can add the
 You also might consider using background mode, if you plan to leave the 
 process up while you are not working on it. 
 ```
-& docker-compose up
+docker-compose up &
 ```
 
 This will bring up the Dona service and a postgres database for it to 
