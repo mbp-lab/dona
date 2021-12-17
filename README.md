@@ -32,7 +32,7 @@ to do this a "cache container" is built. To build this cache container
 run the following.  
 
 ```
-docker build . --file Dockerfile.cache --tag alp-snapshots.hpsgc.de/hc-rp-kalinka-cache:1 
+docker build . --file Dockerfile.cache --tag dona.tf.uni-bielfeld.de/hc-rp-kalinka-cache:1 
 ```
 
 ### docker-compose
@@ -43,7 +43,12 @@ In order build and start the application locally using docker you can run
 docker-compose up
 ```
 or if you want to make sure the image is rebuilt you can add the 
-`--build` flag.
+`--build` flag. 
+You also might consider using background mode, if you plan to leave the 
+process up while you are not working on it. 
+```
+& docker-compose up
+```
 
 This will bring up the Dona service and a postgres database for it to 
 connect to. You can now access the [application](localhost:9000)
