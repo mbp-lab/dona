@@ -78,7 +78,8 @@ consent.voluntary.body=The participation in this study is entirely voluntary. At
 
 consent.data-protection.title=Data Security
 consent.data-protection.body=Since we are not collecting any names or other person-specific data, we will not be able to associate you with your data once the study has been completed from your side - the donated data is anonymous. This means that your data cannot be deleted on your request after submission. Due to the completely anonymous data handling and processing, the General Data Protection Regulation (GDPR) does not apply. In case of questions or concerns, please contact the office for data protection at the University of Bielefeld:
-consent.data-protection.address_html=Katharina Katzer <br /> Department of Human Resources and Organization <br /> Universität Bielefeld <br /> Universitätsstraße 25  <br />33501 Bielefeld  <br />Telefon +49 521 106-3446 <br /><a href="mailto:katharina.katzer@uni-bielefeld.de">katharina.katzer@uni-bielefeld.de</a>
+consent.data-protection.address_html=Anja Schmid<br /> Data protection officer <br /> Universität Bielefeld <br /> Büro: U8-105  <br />Telefon +49 521 106-5225 <br /><a href="mailto:anja.schmid@uni-bielefeld.de">anja.schmid@uni-bielefeld.de</a><br /><a href="mailto:datenschutzbeauftragte@uni-bielefeld.de">datenschutzbeauftragte@uni-bielefeld.de</a>
+
 
 consent.data-purpose.title=Usage of data
 consent.data-purpose.body=The data and results of these surveys will be published in scientific journals. The published data will be anonymous, meaning that it cannot be associated with individuals. The fully anonymized data will be uploaded to a research data repository and qualified scientists will be granted access.
