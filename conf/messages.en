@@ -67,7 +67,7 @@ consent.title=Informed Consent
 
 consent.about.title=Information about the Study
 consent.about.body1=The aim of this study is to measure social embeddedness of people by leveraging their social media data. This study is completely anonymous and online. It includes donation of your anonymized social media data as well as the completion of several online questionnaires. In addition to that, you may also ask a friend to assess you via a separate questionnaire. After having downloaded your interaction data from a platform of your choice, participation in the study will only take about 30 minutes.
-consent.about.body2_html=By agreeing, you confirm that you have read and understood the background and process of this online study. You may also download <a href="https://owncloud.hpi.de/index.php/s/cORU8DzRohDvJKz#pdfviewer">the complete overview</a>.
+consent.about.body2_html=By agreeing, you confirm that you have read and understood the background and process of this online study. 
 
 consent.data-storage.title=Collected Data
 
