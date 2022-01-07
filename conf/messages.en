@@ -16,7 +16,7 @@ landing.why.col1.title=Receive feedback
 landing.why.col1.body=As a gesture of appreciation for your efforts, you will receive meaningful insights and feedback to your online interaction behaviour and social embeddedness. We will generate graphical representations of your sent and received messages over the last months as well as evaluate your completed questionnaires. This study is not intended to be a clinical-psychological diagnosis.
 
 landing.why.col2.title=Support research
-landing.why.col2.body_html=In <a href="https://www.uni-bielefeld.de/fakultaeten/technische-fakultaet/arbeitsgruppen/multimodal-behavior-processing/index.xml" target="_blank">this study</a>, we are trying to measure the participants'' social embeddedness using their interaction data (exchange of messages via Whatsapp or Facebook).  The results of this study will contribute to the overall goal of better understanding the effects of social interaction on mental health.
+landing.why.col2.body_html=In this study</a>, we are trying to measure the participants'' social embeddedness using their interaction data (exchange of messages via Whatsapp or Facebook).  The results of this study will contribute to the overall goal of better understanding the effects of social interaction on mental health.
 
 landing.why.col3.title=Stay anonymous
 landing.why.col3.body_html=When uploading your data, we will only process <strong><a href="/learn-more">anonymized data </a></strong> (message length, message timestamp and pseudonyms of the conversation participants) and <strong>no content</strong> (message text or the name of the participants). We can therefore assure you that we have no access to your actual messages. 
