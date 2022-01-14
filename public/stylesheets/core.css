@@ -17,7 +17,7 @@
 .main-dhc-logo {
     border: 10px solid #FFFFFF;
     background: #FFFFFF;
-    margin-left: 100px;
+    margin-left: -100px;
 }
 
 .main-body {
