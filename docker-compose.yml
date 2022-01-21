@@ -13,7 +13,7 @@ services:
      - "DATABASE_NAME=kalinka"
      - "DATABASE_USER=kalinka"
      - "DATABASE_PASSWORD=postgres"
-     - "KALINKA_HOST=localhost"
+     - "KALINKA_HOST=dona.tf.uni-bielefeld.de"
      - "SOCIAL_DATA_SOURCE_ID=1234566"
      - "SOCIAL_DATA_INGESTION_ENABLED=on"
      - "DONOR_SURVEY_ENABLED=on"
