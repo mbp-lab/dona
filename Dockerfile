@@ -1,7 +1,7 @@
 # must not end with '/'
-ARG CACHE_DOCKER_REPO=alp-snapshots.hpsgc.de
+ARG CACHE_DOCKER_REPO=sjohannknecht
 ARG CACHE_IMAGE=hc-rp-kalinka-cache
-FROM ${CACHE_DOCKER_REPO}/${CACHE_IMAGE}:1 as builder
+FROM ${CACHE_DOCKER_REPO}/${CACHE_IMAGE}:latest as builder
 
 RUN apt-get update
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - && apt-get install -y nodejs
