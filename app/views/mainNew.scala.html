@@ -25,20 +25,16 @@
     <body class="bgImage">
     <div class="main-container">
         <div id="unsupported-browser-warning" class="d-none p-3 w-100 bg-danger text-white text-center">@messages("browser-warning.text")</div>
-        <div class="row mx-0 justify-content-center">
-            <div id="header-hpi-logo" class="col text-left mt-3 d-flex flex-column align-items-start">
-                <a href="https://www.uni-bielefeld.de/">
-                    <img src="@routes.Assets.at("images/UBF-logo_graustufen.svg")" height="75px" class="main-dhc-logo">
-                </a>
+        <div class="row mx-0 mt-3 justify-content-center">
+            <div id="header-hpi-logo" class="col">
+                <img src="@routes.Assets.at("images/UBF-logo_graustufen.svg")" height="75px" class="main-dhc-logo">
             </div>
-          
             <div id="header-content" class="col">
                 @header
             </div>
-            <div id="header-uni-logo" class="col text-right">
+            <div id="header-uni-logo" class="col">
                 
             </div>
-               
         </div>
         <section class="ml-0 mr-0 pt-4 bg-white mt-4 mb-4 pb-5 w-100 main-body">
             <div class="mx-auto main-body-column">
@@ -53,11 +49,14 @@
                 <li class="list-inline-item text-white">&middot;</li>
                 <li class="list-inline-item"><a href="https://www.uni-bielefeld.de/impressum/" class="text-white">@messages("links.imprint")</a></li>
             </ul>
-        <ul class="list-inline d4l-logo ml-4">
-            <a href="https://www.data4life.care/">
-                <img class="mt-3 mr-3" src="@routes.Assets.at("images/HPI_LOGO_OLYA.jpg")";  width="180px">
-            </a>
-        </ul>
+            <ul class="list-inline d4l-logo ml-4">
+                <a href="https://www.data4life.care/">
+                   <img class="mt-3 mr-3" src="@routes.Assets.at("images/logo_d4l.svg")";  width="180px">
+                </a>
+                <a href="https://www.hpi.de">
+                   <img class="mt-3 mr-3" src="@routes.Assets.at("images/HPI_LOGO_OLYA.jpg")";  width="180px">
+                </a>
+            </ul>
         </section>
     </div>
     <script src="@routes.Assets.at("lib/jquery/jquery.min.js")" type="text/javascript"></script>

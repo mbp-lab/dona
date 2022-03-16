@@ -53,12 +53,6 @@
     font-family: PT Sans;
 }
 
-#header-hpi-logo {
-
-    padding-top: 30px;
-}
-
-
 @media (min-width: 1294px) {
     #header-hpi-logo {
         order: 1
