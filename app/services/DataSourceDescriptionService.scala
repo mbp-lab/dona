@@ -45,7 +45,7 @@ object InMemoryDataSourceDescriptionService {
       name = DonationDataSourceType.Facebook,
       description = messages("facebook.description_html"),
       parsingDetails = ParsingDetails(script = "", specificFileExtensionAccepted = Some(".zip")),
-      animation = Some(AnimatedImage(messages("facebook.instruction.gif"), 555, 270)),
+      animation = Some(AnimatedImage(messages("facebook.instruction.gif"), 600, 840)),
       illustration = None,
       documentation = messages("facebook.external-documentation_html"),
       dataDownloadSteps = List(

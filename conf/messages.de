@@ -204,7 +204,7 @@ whatsapp.donation-procedure.5=Drücken Sie auf „Mehr“, um dann „Chat expor
 whatsapp.donation-procedure.6=Wählen Sie „Ohne Medien exportieren“ aus und suchen eine bevorzugte Datenübertragung aus (wir empfehlen Bluetooth oder einen sicheren E-Mail-Anbieter)
 whatsapp.donation-procedure.7=Starten Sie die Übertragung.
 whatsapp.donation-procedure.8=Wiederholen Sie die Schritte 3-7- für alle fünf Chats.
-whatsapp.instruction.gif = whatsapp_ger.gif
+whatsapp.instruction.gif = whatsapp_ger.mp4
 
 
 facebook.description_html=<strong>Bitte fordern Sie Ihre Nachrichtendaten von Facebook an. Wenn Sie die Daten heruntergeladen haben, können Sie mit der Teilnahme an der Studie beginnen.</strong>
@@ -219,4 +219,4 @@ facebook.donation-procedure.5=Scrollen Sie weiter nach unten und wechseln Sie da
 facebook.donation-procedure.6=Nach der Erstellung wird es noch etwas dauern, bis Sie die Daten von Facebook bereitgestellt bekommen.
 facebook.donation-procedure.7=Sobald der Download zur Verfügung steht, erhalten Sie eine E-Mail mit einem Link
 facebook.donation-procedure.8=Öffnen Sie diesen Link an Ihrem eigenen Computer und laden Sie die Daten herunter.
-facebook.instruction.gif = facebook_ger.gif
+facebook.instruction.gif = facebook_ger.mp4
