@@ -7,12 +7,12 @@ services:
     ports:
       - "9000:9000"
     environment:
-     - "APPLICATION_SECRET=testsecret"
+     - "APPLICATION_SECRET=${APPLICATION_SECRET}"
      - "DATABASE_HOST=postgres"
      - "DATABASE_PORT=5432"
      - "DATABASE_NAME=kalinka"
-     - "DATABASE_USER=kalinka"
-     - "DATABASE_PASSWORD=postgres"
+     - "DATABASE_USER=${DATABASE_USER}"
+     - "DATABASE_PASSWORD=${DATABASE_PASSWORD}"
      - "KALINKA_HOST=dona.tf.uni-bielefeld.de"
      - "SOCIAL_DATA_SOURCE_ID=1234566"
      - "SOCIAL_DATA_INGESTION_ENABLED=on"
@@ -21,9 +21,13 @@ services:
      - "SECURE_COOKIE=false"
   postgres:
     environment:
-      POSTGRES_PASSWORD: "postgres"
-      POSTGRES_USER: "kalinka"
+      POSTGRES_PASSWORD: "${DATABASE_PASSWORD}"
+      POSTGRES_USER: "${DATABASE_USER}"
       POSTGRES_DB: "kalinka"
     image: postgres:12
+    volumes:
+      - dona_data:/var/lib/postgresql/data
     ports:
       - "5555:5432"
+volumes:
+    dona_data:
