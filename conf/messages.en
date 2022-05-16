@@ -189,32 +189,30 @@ actions.next=Continue
 
 # Data source specific text
 
-whatsapp.description_html=<strong>Note: The chat export function is not supported by all WhatsApp versions!<br><br>Please choose the five conversations which are most important to you (group chats are possible too). Please bear in mind that the chats can only be downloaded one after the other. Multiple selection of chats is currently not supported.</strong>
+whatsapp.description_html=Note: The chat export function is not supported by all WhatsApp versions! <strong>Please use the WhatsApp app on iPhone if you are donating data as exporting and saving the data does not work with Android and the web version.</strong> <br><br>From time to time, most people discuss important matters with other people, and we need people we can depend on for help. These can be family, friends, people who have been really helpful to you – what we are interested in are the ones that you are most likely to talk about really important matters in your life. <br><br>Please choose <strong>5</strong> chats with people with whom you discuss important matters in your life (group chats are possible too). Please bear in mind that the chats can only be downloaded one after the other. Multiple selection of chats is currently not supported.
 whatsapp.external-documentation_html=The official documentation on how to download your data can be found here for <a href="https://faq.whatsapp.com/en/iphone/20888066#email" target="_blank">iOS</a> or <a href="https://faq.whatsapp.com/en/android/23756533" target="_blank">Android</a>.
 
 #Download and Donation procedure: whatsapp
 whatsapp.donation-procedure.1=Open WhatsApp on your smartphone.
 whatsapp.donation-procedure.2=Think about which five chats are most relevant to you (e.g. close friend, partner).
 whatsapp.donation-procedure.3=Pick one of the selected chats and open it.
-whatsapp.donation-procedure.4=Press the button in the top right with the three dots.
-whatsapp.donation-procedure.5=Select “More” to reach the option “Export chat”.
-whatsapp.donation-procedure.6=Click on export “Without media” and choose a medium for data transfer of your choice (we recommend Bluetooth or a secure email provider).
-whatsapp.donation-procedure.7=Start the data transfer.
-whatsapp.donation-procedure.8=Repeat the steps 3-7 for all five chats.
+whatsapp.donation-procedure.4=Click on the contact's name in the top center.
+whatsapp.donation-procedure.5=Scroll down and click on "Export chat". A window will open.
+whatsapp.donation-procedure.6=Scroll down and select "Save to Files" and then "On my iPhone". Then click "Save" in the upper right corner.
+whatsapp.donation-procedure.7=Repeat the steps 3-7 for all five chats.
 whatsapp.instruction.gif=whatsapp_eng.mp4
 
 
-facebook.description_html=<strong>Make a request to Facebook to download your Facebook data. After having downloaded a copy of your Facebook data, you may start participating in the study.</strong>
+facebook.description_html=Make a request to Facebook to download your Facebook data. You will receive a notification from Facebook once the data is available for download and can then start participating in the study. <strong>We recommend using a computer if donating from Facebook as the data size may be relatively large.</strong>
 facebook.external-documentation_html=The official documentation on how to download your data can be found <a href="https://www.facebook.com/help/contact/2032834846972583" target="_blank">here</a>.
 
 #Download and Donation procedure: Facebook
 facebook.donation-procedure.1=Open the Facebook App on your smartphone.
-facebook.donation-procedure.2=In the top right corner, click on “More” and choose “Settings & Privacy”.
-facebook.donation-procedure.3=Select “Settings”, scroll down and select “Download your Information”.
-facebook.donation-procedure.4=In the interest of data minimization, please first deselect all categories. Then, tick the fields “Post” and “Messages”.
-facebook.donation-procedure.5=Scroll down and change the format from HTML to JSON.
-facebook.donation-procedure.6=Pick a date range: We encourage you to request the data for 2-3 years but a shorter time span is possible as well.
-facebook.donation-procedure.7=After creating the file, you must wait until your data is ready to be downloaded.
-facebook.donation-procedure.8=As soon as the file is ready for download, you will receive an e-mail with a link.
-facebook.donation-procedure.9=On your own computer, you can open the link and download the data.
+facebook.donation-procedure.2=In the top right corner, click on the “Your Profile” button (arrowhead pointing down) and choose “Settings & Privacy”.
+facebook.donation-procedure.3=Select “Settings”. Then select "Privacy" in the navigation bar on the left. Then click on "Your Facebook information".
+facebook.donation-procedure.4=On the "Your Facebook information" page click on "Download profile information" and then change the format from HTML to JSON.
+facebook.donation-procedure.5=Pick a date range: We encourage you to request the data for 2-3 years but a shorter time span is possible as well.
+facebook.donation-procedure.6=In the interest of data minimization, please first deselect all categories. Then, tick the fields “Messages” and "Profile information".
+facebook.donation-procedure.7=Scroll down and click on "Request a download". As soon as the file is ready for download, you will receive a notification from Facebook. This may take a while.
+facebook.donation-procedure.8=Scroll back up and click on the "Available Files" tab. There you should see thr requested file and can download is as soon it is ready.
 facebook.instruction.gif=facebook_eng.mp4
