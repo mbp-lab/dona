@@ -6,12 +6,12 @@ landing.header.title=Bringen Sie Licht ins Dunkel mit Ihren Social-Online-Daten.
 landing.header.body=Wir forschen an digitalen Methoden, um Einsamkeit besser zu verstehen und so Menschen zu helfen. Unterstützen Sie uns durch die Spende Ihrer anonymisierten Social-Online-Daten. Erhalten Sie als Dank erhellendes Feedback!
 
 landing.what.title=Worum geht es?
-landing.what.body1=Soziale Interaktionen spielen eine wichtige Rolle für die mentale Gesundheit. Um diese Rolle besser zu verstehen, entwickeln wir an der Universität Bielefeld neue digitale Messmethoden. Mit der aktuellen Studie möchten wir die Frage beantworten: Können wir die soziale Einbettung von Menschen anhand Ihrer Social Media Nachrichten erfassen?
+landing.what.body1=Soziale Interaktionen spielen eine wichtige Rolle für die mentale Gesundheit. Um diese Rolle besser zu verstehen, entwickeln wir an der Universität Bielefeld neue digitale Messmethoden. Mit der aktuellen Studie möchten wir die Frage beantworten: Können wir die soziale Einbindung von Menschen anhand Ihrer Social Media Nachrichten erfassen?
 landing.what.body2=Wenn Sie uns bei unserer Forschung unterstützen möchten, können Sie Ihre Daten von einer Social Media Plattform anfordern (momentan: Facebook oder WhatsApp). Diese Daten können Sie dann auf unserer Webseite anonymisieren und für die Forschung spenden.
 
 landing.why.title=Warum sollte ich teilnehmen?
 landing.why.col1.title=Erhalten Sie Feedback
-landing.why.col1.body=Als Dankeschön für Ihre Teilnahme erhalten Sie am Ende ein Feedback zu Ihrem Online-Interaktionsverhalten und Ihrer Sozialen Einbettung. Wir zeigen Ihnen eine graphische Darstellung Ihrer gesendeten und empfangenen Nachrichten über die vergangenen Monate sowie Ihrer Fragebogenwerte. Diese Studie dient nicht der medizinischen oder psychologischen Diagnostik.
+landing.why.col1.body=Als Dankeschön für Ihre Teilnahme erhalten Sie am Ende ein Feedback zu Ihrem Online-Interaktionsverhalten und Ihrer Sozialen Einbindung. Wir zeigen Ihnen eine graphische Darstellung Ihrer gesendeten und empfangenen Nachrichten über die vergangenen Monate sowie Ihrer Fragebogenwerte. Diese Studie dient nicht der medizinischen oder psychologischen Diagnostik.
 
 landing.why.col2.title=Unterstützen Sie die Forschung
 landing.why.col2.body_html=In der Studie</a> möchten wir die soziale Einbindung der Teilnehmer anhand ihrer Online-Interaktionsdaten messen. Langfristig sollen die Studienergebnisse dazu beitragen, die Auswirkungen von sozialen Interaktionen auf die mentale Gesundheit besser zu verstehen.
@@ -24,7 +24,7 @@ landing.contact.body_html=Auf dieser Webseite erläutern wir Ihnen den Hintergru
 # Learn More page
 
 learn-more.how-to-participate.title=Wie kann ich teilnehmen?
-learn-more.how-to-participate.body=Die Studie findet komplett online und anonym statt.  Die Studie beinhaltet die Datenspende Ihrer anonymisierten Online-Nachrichten sowie das Ausfüllen einiger Online-Fragebögen. Wenn Sie möchten, können Sie zudem einen Freund bitten, einen Online-Fragebogen über Sie auszufüllen. Nachdem Sie Ihre Online-Interaktionsdaten heruntergeladen haben, dauert die Studie lediglich eine halbe Stunde.
+learn-more.how-to-participate.body=Die Studie findet komplett online und anonym statt.  Die Studie beinhaltet die Datenspende Ihrer anonymisierten Online-Nachrichten sowie das Ausfüllen einiger Online-Fragebögen. Nachdem Sie Ihre Online-Interaktionsdaten heruntergeladen haben, dauert die Studie lediglich eine halbe Stunde.
 
 learn-more.how-to-cancel.title=Und wenn ich abbrechen möchte?
 learn-more.how-to-cancel.body=Die Teilnahme an der Online-Studie ist freiwillig. Sie können jederzeit und ohne Angabe von Gründen Ihre Einwilligung zur Teilnahme an dieser Studie widerrufen, ohne dass Ihnen daraus Nachteile entstehen. Bis zum Ende der Datenerhebung können Sie zudem Ihre Einwilligung zur Speicherung der Daten widerrufen, ohne dass Ihnen daraus Nachteile entstehen.
@@ -34,8 +34,7 @@ learn-more.data-storage.title=Welche Daten werden gespeichert?
 # data storage text body is reused, see below
 
 learn-more.storage.body1_html=<strong><em>Datenspende: </strong></em>Bei der Datenspende ihrer Social-Media-Daten erfassen wir ausschließlich <strong>Metadaten</strong> (Nachrichtenlänge und Nachrichtenzeitpunkt und Pseudonyme der Unterhaltungsteilnehmer) und <strong>keine Inhalte</strong> (Nachrichtentext oder Name der Unterhaltungsteilnehmer).  Ihre Online-Interaktions-Daten werden bereits auf Ihrem Rechner anonymisiert. Wir sehen also niemals Ihre Nachrichten. Bevor wir Ihre anonymisierten Nachrichten speichern, können Sie diese begutachten. So können Sie sich davon überzeugen, dass diese ausreichend anonymisiert sind.
-learn-more.storage.body2_html=<strong><em>Fragebögen: </strong></em>Im Anschluss an die Datenspende füllen Sie einen Fragebogen aus, der demographische Informationen erfasst. Danach erhalten Sie zusätzlich zwei weitere Fragebögen mit Fragen zu Ihrer Gefühlswelt und zu Ihren sozialen Kontakten. Anschließend erhalten Sie noch einen Fragebogen zu konstanten Merkmalen Ihrer Persönlichkeit sowie einen weiteren Fragebogen zur Erfassung Ihrer psychischen Widerstandsfähigkeit. Diese Erhebung findet ebenfalls komplett anonym auf der Plattform <a href="https://www.soscisurvey.de/de/data-protection">SoSci Survey</a> statt.
-learn-more.storage.body3_html=<em>Fremdeinschätzung: </strong></em>Wenn Sie zusätzlich einen Freund bitten Sie einzuschätzen, erhalten wir noch bessere Daten. Am Ende der Studie erhalten Sie einen Link mit einem Code, den Sie an einen Freund weitergeben können. Unter diesem Link kann der Freund Ihre soziale Einbettung, Ihre psychische Widerstandsfähigkeit und Ihre Persönlichkeitsdimensionen einschätzen. Der Code verbindet die Datensätze und wird danach automatisch gelöscht, so dass die Daten voll-anonymisiert sind. Dies geschieht spätestens zu Beginn der Datenauswertung.  Ihre Daten kann Ihr Freund nicht sehen.
+learn-more.storage.body2_html=<strong><em>Fragebögen: </strong></em>Vor der Datenspende füllen Sie einen Fragebogen aus, der demographische Informationen erfasst. Danach erhalten Sie zusätzlich zwei weitere Fragebögen mit Fragen zu Ihrer Gefühlswelt und zu Ihren sozialen Kontakten. Anschließend erhalten Sie noch einen Fragebogen zu konstanten Merkmalen Ihrer Persönlichkeit sowie einen weiteren Fragebogen zur Erfassung Ihrer psychischen Widerstandsfähigkeit. Diese Erhebung findet ebenfalls komplett anonym auf der Plattform <a href="https://www.soscisurvey.de/de/data-protection">SoSci Survey</a> statt.
 
 learn-more.data-handling.title=Was passiert später mit meinen Daten?
 learn-more.data-handling.body1=Da wir weder Ihren Namen oder andere personenbezogenen Daten erheben, können wir nach Abschluss der Studie Ihre Daten nicht mehr Ihrer Person zuordnen – der Datensatz ist anonym. Entsprechend können wir Ihren Datensatz jedoch auch nicht gezielt löschen.
@@ -49,14 +48,13 @@ instructions.about.title=Wie erhalte ich meine Daten?
 instructions.about.body_html=Bevor Sie an der Studie teilnehmen, fordern Sie bitte Ihre Daten direkt von Facebook und/oder Whatsapp an. Bitte beachten Sie, dass Sie die Daten auf einem Gerät speichern, auf das niemand außer Ihnen Zugriff hat. Außerdem empfehlen wir Ihnen ausdrücklich die Original-Daten nach dem Abschluss der Spende zu löschen.
 instructions.datasource.title_format = Anleitung zum Erhalten von %sdaten
 instructions.download-procedure.title=Übersicht über den Download & Datenspende Prozess:
-instructions.multiple-donation-info.body=Sie können Daten von beiden Plattformen spenden. Falls Sie nur von einer Plattform spenden möchten, wählen Sie bitte die Plattform, die für Sie wichtiger ist. Wenn Sie möchten, können Sie den Zeitraum der Datenspende auf bis zu sechs Monate begrenzen.
+instructions.multiple-donation-info.body=Sie können Daten von beiden Plattformen spenden. Falls Sie nur von einer Plattform spenden möchten, wählen Sie bitte die Plattform, die für Sie wichtiger ist.
 
 # Donation info page
 
 donation-info.title=Wie spende ich meine Daten?
 donation-info.data-request=<strong>Datenanfrage: </strong>Sie fordern Ihre Online-Nachrichten-Daten vom Online-Netzwerk (z.B. Facebook) an und laden diese auf Ihren Rechner. 
 donation-info.anonymisation=<strong> Anonymisierung: </strong>Wir entfernen den Inhalt aus diesen Daten und reduzieren die Daten auf sogenannte Meta-Informationen (z.B. Länge und Zeitpunkt der Nachrichten). Ihr Name sowie die Namen aller Ihrer Kontakte werden durch zufällige Pseudonyme (z.B. „Tim“ &rarr;„anonymous13“) ersetzt. Sie können den Inhalt der anonymisierten Datei vor dem Upload begutachten. 
-donation-info.data-connection=<strong> Verbindung: </strong>Um Ihre Fragebögen und die Fragebögen Ihres Freundes (Fremdeinschätzung) mit Ihren Daten zu verbinden, wird Ihr Pseudonym genutzt (z.B.  X834N). Das Pseudonym verbindet die Datensätze und wird danach automatisch gelöscht.
 donation-info.storage=<strong> Speicherung: </strong>Nur diese anonymisierten und reduzierten Daten werden hochgeladen und von uns auf einem sicheren Server gespeichert.
 
 # Consent pop-up
@@ -64,7 +62,7 @@ donation-info.storage=<strong> Speicherung: </strong>Nur diese anonymisierten un
 consent.title=Einwilligungserklärung
 
 consent.about.title=Information zur Studie
-consent.about.body1=Ziel der Studie ist es, die soziale Einbettung von Menschen anhand ihrer Social Media Nachrichten zu erfassen. Die Studie findet komplett online und anonym statt. Die Studie beinhaltet die Datenspende Ihrer anonymisierten Online-Nachrichten sowie das Ausfüllen einiger Online-Fragebögen. Wenn Sie möchten, können Sie zudem einen Freund bitten, einen Online-Fragebogen über Sie auszufüllen. Nachdem Sie Ihre Online-Interaktionsdaten heruntergeladen haben, dauert die Studie lediglich eine halbe Stunde.
+consent.about.body1=Ziel der Studie ist es, die soziale Einbindung von Menschen anhand ihrer Social Media Nachrichten zu erfassen. Die Studie findet komplett online und anonym statt. Die Studie beinhaltet die Datenspende Ihrer anonymisierten Online-Nachrichten sowie das Ausfüllen einiger Online-Fragebögen. Nachdem Sie Ihre Online-Interaktionsdaten heruntergeladen haben, dauert die Studie lediglich eine halbe Stunde.
 consent.about.body2_html=Mit Ihrer Einwilligung bestätigten Sie, dass Sie die vorherige Informationswebseite zum Zweck, Ablauf und Umfang der Online-Studie gelesen und verstanden haben. 
 
 consent.data-storage.title=Erhobene Daten
@@ -175,7 +173,6 @@ browser-warning.text=Sie benutzen einen Browser, der nicht unterstützt wird. Es
 
 data-storage.body1_html=<em>Datenspende: </em>Bei der Datenspende ihrer Social-Media-Daten erfassen wir ausschließlich Metadaten (e.g. Nachrichtenlänge und Nachrichtenzeitpunkt und Pseudonyme der Unterhaltungsteilnehmer) und keine Inhalte (e.g. Nachrichtentext oder Name der Unterhaltungsteilnehmer).  Ihre Online-Interaktions-Daten werden bereits auf Ihrem Rechner anonymisiert. Wir sehen also niemals Ihre Nachrichten. Bevor wir Ihre anonymisierten Nachrichten speichern, können Sie diese begutachten. So können Sie sich davon überzeugen, dass diese ausreichend anonymisiert sind.
 data-storage.body2_html=<em>Fragebögen: </em>Im Anschluss an die Datenspende füllen Sie einen Fragebogen aus, der demographische Informationen erfasst. Danach erhalten Sie zusätzlich zwei weitere Fragebögen mit Fragen zu Ihrer Gefühlswelt und zu Ihren sozialen Kontakten. Anschließend erhalten Sie noch einen Fragebogen zu konstanten Merkmalen Ihrer Persönlichkeit sowie einen weiteren Fragebogen zur Erfassung Ihrer psychischen Widerstandsfähigkeit. Diese Erhebung findet ebenfalls komplett anonym auf der Plattform <a href="https://www.soscisurvey.de/de/data-protection">SoSci Survey</a> statt.
-data-storage.body3_html=<em>Fremdeinschätzung: </em>Wenn Sie zusätzlich einen Freund bitten Sie einzuschätzen, erhalten wir noch bessere Daten. Am Ende der Studie erhalten Sie einen Link mit Code, den Sie an einen Freund weitergeben können. Unter diesem Link kann der Freund Ihre soziale Einbettung, Ihre psychische Widerstandsfähigkeit und Ihre Persönlichkeitsdimensionen einschätzen. Der Code verbindet die Datensätze und wird danach automatisch gelöscht, so dass die Daten voll-anonymisiert sind. Dies geschieht spätestens zu Beginn der Datenauswertung.  Ihre Daten kann Ihr Freund nicht sehen.
 
 links.learn-more=Mehr Erfahren
 links.instructions=Daten Erhalten
@@ -216,7 +213,8 @@ facebook.donation-procedure.2=Klicken Sie oben rechts auf „Mehr“ und wählen
 facebook.donation-procedure.3=Drücken Sie auf „Einstellungen“ und scrollen Sie nach unten, um dann auf „Deine Informationen herunterladen“ zu klicken.
 facebook.donation-procedure.4=Wählen Sie im Sinne der Datensparsamkeit zunächst alle Kategorien ab und setzten Sie dann bei „Beiträge“ und „Nachrichten“ einen Haken.
 facebook.donation-procedure.5=Scrollen Sie weiter nach unten und wechseln Sie das Format von „HTML“ zu „JSON“.
-facebook.donation-procedure.6=Nach der Erstellung wird es noch etwas dauern, bis Sie die Daten von Facebook bereitgestellt bekommen.
-facebook.donation-procedure.7=Sobald der Download zur Verfügung steht, erhalten Sie eine E-Mail mit einem Link
-facebook.donation-procedure.8=Öffnen Sie diesen Link an Ihrem eigenen Computer und laden Sie die Daten herunter.
+facebook.donation-procedure.6=Wählen Sie einen Datumsbereich: Wir würden Sie bitten idealerweise einen Zeitraum von 2 - 3 Jahren auszuwählen, aber ein kürzerer Zeitraum ist auch möglich.
+facebook.donation-procedure.7=Nach der Erstellung wird es noch etwas dauern, bis Sie die Daten von Facebook bereitgestellt bekommen.
+facebook.donation-procedure.8=Sobald der Download zur Verfügung steht, erhalten Sie eine E-Mail mit einem Link
+facebook.donation-procedure.9=Öffnen Sie diesen Link an Ihrem eigenen Computer und laden Sie die Daten herunter.
 facebook.instruction.gif = facebook_ger.mp4
