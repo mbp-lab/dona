@@ -25,7 +25,7 @@ describe('Sorting graph data points', function () {
     ];
 
     it('should sort by year then month', function () {
-        return sortGraphDataPoints(unsortedGraphDataPoints).then(output => {
+        return sortGraphDataPoints(unsortedGraphDataPoints, false, false).then(output => {
             expect(output).to.deep.equal([
                 {
                     month: 3,

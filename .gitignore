@@ -285,3 +285,5 @@ dona.iml
 conf/project
 conf/target
 conf/local.conf
+/.bsp/
+/null/

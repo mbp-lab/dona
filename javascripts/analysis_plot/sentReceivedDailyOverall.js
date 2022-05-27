@@ -1,7 +1,8 @@
 var sortGraphDataPoints = require('./utils/sortGraphDataPointsTimeWise');
-var formInputDataForMessagesPlot = require('./utils/formInputDataForMessagesPlot');
+const formInputDataForMessagesPlot = require("./utils/formInputDataForMessagesPlot");
 
-function sentReceived(data, plotId) {
+function sentReceivedDailyOverall(data, plotId) {
+
 
     const plotContainer = $(`#${plotId}`)
     plotContainer.removeClass('d-none');
@@ -9,31 +10,35 @@ function sentReceived(data, plotId) {
     const yAxis = plotContainer.attr("data-y-axis");
     const sent = plotContainer.attr("data-sent-trace-name");
     const received = plotContainer.attr("data-received-trace-name");
+
     const layout = {
+        /*
         legend: {
             x: -.1,
             y: 1.2
         },
+
+         */
         xaxis: {
             title: xAxis,
-            tickangle: 45,
+            tickangle: 45
         },
         yaxis: {
             title: yAxis
         },
     };
 
-    sortGraphDataPoints(data, false, false)
+    sortGraphDataPoints(data, true, false)
         .then((sortedDataPoints) => {
-            return formInputDataForMessagesPlot(sortedDataPoints, false);
-        })
+        return formInputDataForMessagesPlot(sortedDataPoints, true);
+    })
         .then((plotInputData) => {
             const sentMessagesTrace = {
                 x: plotInputData.xAxis,
                 y: plotInputData.yAxisSentMessages,
                 mode: 'lines+markers',
                 name: sent,
-                marker: {size: 12}
+                marker: { size: 4 }
             };
 
             const receivedMessagesTrace = {
@@ -41,15 +46,18 @@ function sentReceived(data, plotId) {
                 y: plotInputData.yAxisReceivedMessages,
                 mode: 'lines+markers',
                 name: received,
-                marker: {size: 12}
+                marker: { size: 4 }
             };
 
             const data = [sentMessagesTrace, receivedMessagesTrace];
             plotContainer.html("");
-            Plotly.newPlot(plotId, data, layout, {responsive: true});
+            Plotly.newPlot(plotId, data, layout, { responsive: true });
 
         })
-        .catch((err) => console.log(err));
+        .catch((err) => console.log(err))
+
+
 }
 
-module.exports = sentReceived;
+module.exports = sentReceivedDailyOverall;
+

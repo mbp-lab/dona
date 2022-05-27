@@ -145,6 +145,7 @@ feedback.graph.overview=Overview
 feedback.graph.detail=Detail
 feedback.graph.you=You
 feedback.graph.friends=Friends
+feedback.graph.testPlot=This is a testplot
 
 # provided by Astrid
 feedback.graph.loading=Loading graph...

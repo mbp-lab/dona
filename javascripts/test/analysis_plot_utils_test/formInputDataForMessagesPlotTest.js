@@ -18,7 +18,7 @@ describe('Forming input data for message numbers plot', function() {
         }
     ];
     it('should provide a JSON with x and y data', function () {
-        return formInputDataForMessagesPlot(validSortedGraphDataPoints).then((output) => {
+        return formInputDataForMessagesPlot(validSortedGraphDataPoints, false).then((output) => {
             expect(output).to.deep.equal({
                 xAxis: ["3-2018", "3-2019"],
                 yAxisSentMessages: [10, 12],
