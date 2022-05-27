@@ -6,6 +6,7 @@ const whatsappTxtFileHandler = require('./parsing/whatsapp/whatsappTxtFileHandle
 const transformJson = require('./transformJson');
 const progressBar = require('./progressBar')
 const renderTable = require('./showResultsInTable');
+const renderUserIDMapping = require('./showUserIdMapping')
 const hammerJs = require('hammerjs');
 const messageService = require('./messageService');
 
@@ -124,8 +125,10 @@ function setUpFileHandler() {
 
         handler
             .then((deIdentifiedJson) => {
-                renderTable(deIdentifiedJson);
-                return transformJson(deIdentifiedJson, donorId, dataSource);
+                //console.log(deIdentifiedJson.participantNameToRandomIds)
+                renderTable(deIdentifiedJson.deIdentifiedJsonContents);
+                renderUserIDMapping(deIdentifiedJson.participantNameToRandomIds)
+                return transformJson(deIdentifiedJson.deIdentifiedJsonContents, donorId, dataSource);
             })
             .then((transformedJson) => {
                 donaForMEDonation.conversations = donaForMEDonation.conversations.concat(transformedJson.conversations);

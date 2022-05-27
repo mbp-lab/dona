@@ -80,6 +80,15 @@
                 <p>@messages("donation.preview-data.body1")</p>
                 <p>@messages("donation.preview-data.body2")</p>
             </div>
+
+            <div>
+                This needs to be internationalized through the messages conf... and needs to be made nicer... Evtl muss auch "Spender" umbenannt werden...
+                Hier sind die FriendMappings..:
+                    <p class="pl-3 pr-3 pl-sm-4 pr-sm-4 pl-md-3 pr-md-3 pl-lg-5 pr-lg-5 show-on-anonymisation-success">
+                        @Html("<span id=\"display-userIDMapping\"></span>")
+                    </p>
+            </div>
+
             <p class="pl-3 pr-3 pl-sm-4 pr-sm-4 pl-md-3 pr-md-3 pl-lg-5 pr-lg-5 show-on-anonymisation-success">
                 @Html(String.format(messages("donation.raw-data-explanation_format"), "<span id=\"display-preview-total\"></span>"))
                 <a id="viewRawJson" href="about:blank" target="_blank">@messages("donation.raw-data-link.text")</a>.
