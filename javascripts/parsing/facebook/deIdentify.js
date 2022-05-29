@@ -50,7 +50,16 @@ async function deIdentify(zipFiles, messagesRelativePath, donorName) {
         if (jsonContent.messages.length > 0)
             deIdentifiedJsonContents.push(jsonContent);
     });
-    return deIdentifiedJsonContents;
+
+    // TODO: is this okay like this?
+
+    let result = {
+        deIdentifiedJsonContents: deIdentifiedJsonContents,
+        participantNameToRandomIds: participantNameToRandomIds
+    }
+
+    //return deIdentifiedJsonContents;
+    return result;
 };
 
 module.exports = deIdentify
