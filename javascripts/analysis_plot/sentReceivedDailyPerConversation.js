@@ -3,7 +3,7 @@ const formInputDataForMessagesPlot = require("./utils/formInputDataForMessagesPl
 
 
 
-function sentReceivedDailyPerConversation(data, plotId) {
+function sentReceivedDailyPerConversation(data, plotId, selectorID, conversationsFriends) {
 
     const plotContainer = $(`#${plotId}`)
     plotContainer.removeClass('d-none');
@@ -87,10 +87,10 @@ function sentReceivedDailyPerConversation(data, plotId) {
 
     let listOfConversations = []
     for (let i = 0; i < data.length; i++) {
-        listOfConversations.push("Conversation " + i)
+        listOfConversations.push("Conversation with " + conversationsFriends[i].filter((participant) => participant !== "donor"))
     }
 
-    let conversationSelector = document.querySelector('.conversationsSentReceivedDaily')
+    let conversationSelector = document.querySelector(selectorID)
 
     let assignOptions = (options, selector) => {
         for (var i = 0; i < options.length;  i++) {

@@ -14,10 +14,10 @@ $(document).ready(function () {
     sentReceived(graphData.sentReceived, `${dataSourceType}MessagesOverTime`);
     sentReceivedDailyOverall(graphData.dailySentReceived, `${dataSourceType}SentReceivedOverall`);
     sentReceivedSevenDayAverages(graphData.dailySentReceived, `${dataSourceType}SentReceivedSevenDayAverages`);
-    sentReceivedDailyPerConversation(graphData.dailySentReceivedPerConversation, `${dataSourceType}DailySentReceivedPerConversation`)
+    sentReceivedDailyPerConversation(graphData.dailySentReceivedPerConversation, `${dataSourceType}DailySentReceivedPerConversation`, `.${dataSourceType}ConversationsSentReceivedDaily`, graphData.conversationsFriends)
     dailyActivityTimes(graphData.dailySentHourMinutesPerConversation, graphData.dailyReceivedHourMinutesPerConversation, `${dataSourceType}DailyActivityTimes`);
     dailyActivityTimesMean(graphData.dailySentHourMinutesPerConversation, graphData.dailyReceivedHourMinutesPerConversation, `${dataSourceType}DailyActivityTimesMean`);
-    dailyActivityTimesPerConversation(graphData.dailySentHourMinutesPerConversation, graphData.dailyReceivedHourMinutesPerConversation, `${dataSourceType}DailySentTimesPerConversation`)
+    dailyActivityTimesPerConversation(graphData.dailySentHourMinutesPerConversation, graphData.dailyReceivedHourMinutesPerConversation, `${dataSourceType}DailySentTimesPerConversation`, `.${dataSourceType}ConversationsDailySentTimes`, graphData.conversationsFriends)
     responseTime(graphData.responseTimes, `${dataSourceType}ResponseTimePlot`);
     console.log(graphData)
   })

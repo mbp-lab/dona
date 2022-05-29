@@ -2,7 +2,7 @@ var sortGraphDataPoints = require('./utils/sortGraphDataPointsTimeWise');
 const formInputDataForDailyActivityPlot = require("./utils/formInputDataForDailyActivityPlot");
 
 
-function dailyActivityTimesPerConversation(dataSent, dataReceived, plotId) {
+function dailyActivityTimesPerConversation(dataSent, dataReceived, plotId, selectorId, conversationsFriends) {
 
     const plotContainer = $(`#${plotId}`)
     plotContainer.removeClass('d-none');
@@ -113,10 +113,10 @@ function dailyActivityTimesPerConversation(dataSent, dataReceived, plotId) {
 
     let listOfConversations = []
     for (let i = 0; i < dataSent.length; i++) {
-        listOfConversations.push("Conversation " + i)
+        listOfConversations.push("Conversation with " + conversationsFriends[i].filter((participant) => participant !== "donor"))
     }
 
-    let conversationSelector = document.querySelector('.conversationsDailySentTimes')
+    let conversationSelector = document.querySelector(selectorId)
 
     let assignOptions = (options, selector) => {
         for (var i = 0; i < options.length; i++) {

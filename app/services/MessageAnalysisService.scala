@@ -26,8 +26,18 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
         val dailyReceivedHourMinutesPerConversation = conversations.map(conversation => produceDailyHourMinutesPerConversation(socialData.donorId, conversation, false))
         val average = produceAverageNumberOfMessages(messageGraphData)
         val answerTimes = produceAnswerTimes(socialData.donorId, conversations)
-        println(conversations.map(c => c.participants)) // pass this through so that donor can know "conversation with friend0, 1, 2 ...
-        GraphData(messageGraphData, dailyMessageGraphData, dailyMessageGraphDataPerConversation, dailySentHourMinutesPerConversation, dailyReceivedHourMinutesPerConversation, answerTimes, average)
+        val conversationsFriends = conversations.map(c => {
+          c.participants.map((participant) => {
+            // dont pass donorId to front end, instead just pass "donor"
+            if (participant == socialData.donorId) {
+              "donor"
+            } else {
+              participant
+            }
+          })
+        })
+        //println(conversations.map(c => c.participants)) // pass this through so that donor can know "conversation with friend0, 1, 2 ...
+        GraphData(messageGraphData, dailyMessageGraphData, dailyMessageGraphDataPerConversation, dailySentHourMinutesPerConversation, dailyReceivedHourMinutesPerConversation, answerTimes, average, conversationsFriends)
       }
   }
 

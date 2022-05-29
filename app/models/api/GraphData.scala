@@ -10,7 +10,7 @@ case class GraphData(
   dailyReceivedHourMinutesPerConversation: List[List[DailyHourPoint]],
   responseTimes: List[AnswerTimePoint],
   averageNumberOfMessages: AverageNumberOfMessages,
-  //conversationsFriends: List[List[String]],
+  conversationsFriends: List[List[String]],
 )
 
 object GraphData {
