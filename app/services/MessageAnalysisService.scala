@@ -20,6 +20,7 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
       .mapValues { conversations =>
         val messageGraphData = produceMessageGraphData(socialData.donorId, conversations)
         val dailyMessageGraphData = produceDailyMessageGraphData(socialData.donorId, conversations)
+        val dailyWordsGraphData = produceDailyWordsGraphData(socialData.donorId, conversations)
         // this here might be redundant... rather only do smallest and then reassemble in javascript? e.g. per conversation could be easily added up to overall daily
         val dailyMessageGraphDataPerConversation = conversations.map(conversation => produceDailyMessageGraphDataPerConversation(socialData.donorId, conversation))
         //val dailySentHourMinutesPerConversation = conversations.map(conversation => produceDailyHourMinutesPerConversation(socialData.donorId, conversation, true))
@@ -40,7 +41,17 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
           })
         })
         //println(conversations.map(c => c.participants)) // pass this through so that donor can know "conversation with friend0, 1, 2 ...
-        GraphData(messageGraphData, dailyMessageGraphData, dailyMessageGraphDataPerConversation, dailySentHoursPerConversation, dailyReceivedHoursPerConversation, answerTimes, average, conversationsFriends)
+        GraphData(
+          messageGraphData,
+          dailyMessageGraphData,
+          dailyWordsGraphData,
+          dailyMessageGraphDataPerConversation,
+          dailySentHoursPerConversation,
+          dailyReceivedHoursPerConversation,
+          answerTimes,
+          average,
+          conversationsFriends
+        )
       }
   }
 
@@ -85,6 +96,33 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
           val newValue = message.sender match {
             case Some(sender) if sender == donorId => (oldSent + 1, oldReceived)
             case _                                 => (oldSent, oldReceived + 1)
+          }
+          map.updated(mapKey, newValue)
+      }
+      .map {
+        case (TimeFrameWithDays(year, month, day), (sent, received)) =>
+          DailySentReceivedPoint(year, month.getValue, day, sent, received)
+      }
+      .toList
+      .sorted
+      .reverse
+  }
+
+  private def produceDailyWordsGraphData(
+                                            donorId: String,
+                                            conversations: List[Conversation]
+                                          ): List[DailySentReceivedPoint] = {
+
+    conversations
+      .flatMap(_.messages)
+      .foldRight(Map[TimeFrameWithDays, (Int, Int)]()) {
+        case (message, map) =>
+          val timestamp = LocalDateTime.ofInstant(Instant.ofEpochMilli(message.timestampMs), ZoneOffset.UTC)
+          val mapKey = TimeFrameWithDays(timestamp.getYear, timestamp.getMonth, timestamp.getDayOfMonth)
+          val (oldSent, oldReceived) = map.getOrElse(mapKey, (0, 0))
+          val newValue = message.sender match {
+            case Some(sender) if sender == donorId => (oldSent + message.wordCount, oldReceived)
+            case _                                 => (oldSent, oldReceived + message.wordCount)
           }
           map.updated(mapKey, newValue)
       }

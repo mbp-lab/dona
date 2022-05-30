@@ -13,7 +13,7 @@
             <span class="headline font-italic text-center"><strong>@messages("feedback.thanks.title")</strong></span>
         </div>
 
-        @for((dataSource, GraphData(_, _, _, _, _, _, averageMessageNumber, _)) <- data) {
+        @for((dataSource, GraphData(_, _, _, _, _, _, _, averageMessageNumber, _)) <- data) {
             <div id="@{
                 dataSource.toString
             }container">
@@ -21,6 +21,7 @@
                 @showSentReceivedPlot(dataSource)
                 @showSentReceivedOverallGraphPlot(dataSource)
                 @showSentReceivedSevenDayAveragesGraphPlot(dataSource)
+                @showSentReceivedWordsGraphPlot(dataSource)
                 @showSentReceivedDailyPerConversationGraphPlot(dataSource)
                 @showDailyActivityTimes(dataSource)
                 @showDailyActivityTimesMean(dataSource)
@@ -99,6 +100,27 @@
     <div id="@{
         name
     }SentReceivedSevenDayAverages" class="d-none"
+    data-x-axis="@messages("feedback.graph.time")"
+    data-y-axis="@messages("feedback.graph.number-of-messages")"
+    data-sent-trace-name="@messages("feedback.graph.sent")"
+    data-received-trace-name="@messages("feedback.graph.received")"
+    >
+        <div class="card h-100">
+            <div class="m-auto">@messages("feedback.graph.loading")</div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+}
+
+@showSentReceivedWordsGraphPlot(name: String) = {
+    <div style="padding-top: 20px;">
+        <h3 class="insights-title big-top" align="center">@String.format(messages("feedback.graph.testPlot"), name)</h3>
+    </div>
+
+    <div id="@{
+        name
+    }WordsSentReceivedOverall" class="d-none"
     data-x-axis="@messages("feedback.graph.time")"
     data-y-axis="@messages("feedback.graph.number-of-messages")"
     data-sent-trace-name="@messages("feedback.graph.sent")"

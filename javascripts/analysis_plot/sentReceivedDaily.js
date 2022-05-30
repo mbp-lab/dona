@@ -1,7 +1,7 @@
 var sortGraphDataPoints = require('./utils/sortGraphDataPointsTimeWise');
 const formInputDataForMessagesPlot = require("./utils/formInputDataForMessagesPlot");
 
-function sentReceivedDailyOverall(data, plotId) {
+function sentReceivedDaily(data, plotId) {
 
 
     const plotContainer = $(`#${plotId}`)
@@ -59,5 +59,5 @@ function sentReceivedDailyOverall(data, plotId) {
 
 }
 
-module.exports = sentReceivedDailyOverall;
+module.exports = sentReceivedDaily;
 

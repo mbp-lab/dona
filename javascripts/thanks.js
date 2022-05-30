@@ -1,6 +1,6 @@
 var responseTime = require('./analysis_plot/responseTime');
 var sentReceived = require('./analysis_plot/sentReceived');
-var sentReceivedDailyOverall = require('./analysis_plot/sentReceivedDailyOverall');
+var sentReceivedDaily = require('./analysis_plot/sentReceivedDaily');
 var sentReceivedDailyPerConversation = require('./analysis_plot/sentReceivedDailyPerConversation')
 var dailyActivityTimesPerConversation = require('./analysis_plot/dailyActivityTimesPerConversation')
 var sentReceivedSevenDayAverages = require('./analysis_plot/sentReceivedSevenDayAverages')
@@ -12,7 +12,8 @@ $(document).ready(function () {
     Object.keys(allData).forEach(function (dataSourceType) {
         const graphData = allData[dataSourceType];
         sentReceived(graphData.sentReceived, `${dataSourceType}MessagesOverTime`);
-        sentReceivedDailyOverall(graphData.dailySentReceived, `${dataSourceType}SentReceivedOverall`);
+        sentReceivedDaily(graphData.dailySentReceived, `${dataSourceType}SentReceivedOverall`);
+        sentReceivedDaily(graphData.dailyWordsSentReceived, `${dataSourceType}WordsSentReceivedOverall`);
         sentReceivedSevenDayAverages(graphData.dailySentReceived, `${dataSourceType}SentReceivedSevenDayAverages`);
         sentReceivedDailyPerConversation(
             graphData.dailySentReceivedPerConversation,
