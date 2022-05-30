@@ -9,16 +9,27 @@ var dailyActivityTimesMean = require('./analysis_plot/dailyActivityTimesMean')
 
 
 $(document).ready(function () {
-  Object.keys(allData).forEach(function (dataSourceType) {
-    const graphData = allData[dataSourceType];
-    sentReceived(graphData.sentReceived, `${dataSourceType}MessagesOverTime`);
-    sentReceivedDailyOverall(graphData.dailySentReceived, `${dataSourceType}SentReceivedOverall`);
-    sentReceivedSevenDayAverages(graphData.dailySentReceived, `${dataSourceType}SentReceivedSevenDayAverages`);
-    sentReceivedDailyPerConversation(graphData.dailySentReceivedPerConversation, `${dataSourceType}DailySentReceivedPerConversation`, `.${dataSourceType}ConversationsSentReceivedDaily`, graphData.conversationsFriends)
-    dailyActivityTimes(graphData.dailySentHourMinutesPerConversation, graphData.dailyReceivedHourMinutesPerConversation, `${dataSourceType}DailyActivityTimes`);
-    dailyActivityTimesMean(graphData.dailySentHourMinutesPerConversation, graphData.dailyReceivedHourMinutesPerConversation, `${dataSourceType}DailyActivityTimesMean`);
-    dailyActivityTimesPerConversation(graphData.dailySentHourMinutesPerConversation, graphData.dailyReceivedHourMinutesPerConversation, `${dataSourceType}DailySentTimesPerConversation`, `.${dataSourceType}ConversationsDailySentTimes`, graphData.conversationsFriends)
-    responseTime(graphData.responseTimes, `${dataSourceType}ResponseTimePlot`);
-    console.log(graphData)
-  })
+    Object.keys(allData).forEach(function (dataSourceType) {
+        const graphData = allData[dataSourceType];
+        sentReceived(graphData.sentReceived, `${dataSourceType}MessagesOverTime`);
+        sentReceivedDailyOverall(graphData.dailySentReceived, `${dataSourceType}SentReceivedOverall`);
+        sentReceivedSevenDayAverages(graphData.dailySentReceived, `${dataSourceType}SentReceivedSevenDayAverages`);
+        sentReceivedDailyPerConversation(
+            graphData.dailySentReceivedPerConversation,
+            `${dataSourceType}DailySentReceivedPerConversation`,
+            `.${dataSourceType}ConversationsSentReceivedDaily`,
+            graphData.conversationsFriends
+        )
+        dailyActivityTimes(graphData.dailySentHoursPerConversation, graphData.dailyReceivedHoursPerConversation, `${dataSourceType}DailyActivityTimes`);
+        dailyActivityTimesMean(graphData.dailySentHoursPerConversation, graphData.dailyReceivedHoursPerConversation, `${dataSourceType}DailyActivityTimesMean`);
+        dailyActivityTimesPerConversation(
+            graphData.dailySentHoursPerConversation,
+            graphData.dailyReceivedHoursPerConversation,
+            `${dataSourceType}DailySentTimesPerConversation`,
+            `.${dataSourceType}ConversationsDailySentTimes`,
+            graphData.conversationsFriends
+        )
+        responseTime(graphData.responseTimes, `${dataSourceType}ResponseTimePlot`);
+        console.log(graphData)
+    })
 });

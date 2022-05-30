@@ -1,6 +1,7 @@
 var sortGraphDataPoints = require('./utils/sortGraphDataPointsTimeWise');
 const formInputDataForDailyActivityPlot = require("./utils/formInputDataForDailyActivityPlot");
 
+
 function dailyActivityTimes(dataSent, dataReceived, plotId) {
 
     const plotContainer = $(`#${plotId}`)
@@ -10,15 +11,9 @@ function dailyActivityTimes(dataSent, dataReceived, plotId) {
     const sent = plotContainer.attr("data-sent-trace-name");
     const received = plotContainer.attr("data-received-trace-name");
 
-    /*
-    let listOfConversations = []
-    for (let i = 0; i < dataSent.length; i++) {
-        listOfConversations.push("Conversation " + i)
-    }
-
-     */
 
     let layout = {
+        plot_bgcolor: "#2e4482",
         autosize: true,
         height: 700,
         /*
@@ -48,13 +43,17 @@ function dailyActivityTimes(dataSent, dataReceived, plotId) {
             return formInputDataForDailyActivityPlot(sortedDataPoints);
         })
         .then((plotInputData) => {
+
             const trace1 = {
                 x: plotInputData.xAxis,
                 y: plotInputData.yAxis,
                 type: 'scatter',
                 mode: 'markers',
                 name: sent,
-                marker: {size: 8}
+                marker: {
+                    size: 12,
+                    color:"#fff767",
+                }
             };
             
             return trace1;

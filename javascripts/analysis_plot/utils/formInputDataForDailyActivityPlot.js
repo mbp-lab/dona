@@ -6,6 +6,7 @@ function formInputDataForDailyActivityPlot(sortedGraphDataPoints) {
         let year = point.year
         let month = point.month
         let date = point.date
+
         if (month < 10) {
             month = "0" + month
         }
@@ -16,8 +17,19 @@ function formInputDataForDailyActivityPlot(sortedGraphDataPoints) {
     });
 
 
+
     const yTimes = sortedGraphDataPoints.map(point => {
-        return '2022-05-21 ' + point.hour + ":" + point.minute + ":00"
+        let hour = point.hour
+        let minute = point.hour
+
+        if (hour < 10) {
+            hour = "0" + hour
+        }
+        if (minute < 10) {
+            minute = "0" + minute
+        }
+
+        return '2022-05-21 ' + hour + ":" + minute + ":00"
     });
 
 

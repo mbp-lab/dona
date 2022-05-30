@@ -22,8 +22,10 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
         val dailyMessageGraphData = produceDailyMessageGraphData(socialData.donorId, conversations)
         // this here might be redundant... rather only do smallest and then reassemble in javascript? e.g. per conversation could be easily added up to overall daily
         val dailyMessageGraphDataPerConversation = conversations.map(conversation => produceDailyMessageGraphDataPerConversation(socialData.donorId, conversation))
-        val dailySentHourMinutesPerConversation = conversations.map(conversation => produceDailyHourMinutesPerConversation(socialData.donorId, conversation, true))
-        val dailyReceivedHourMinutesPerConversation = conversations.map(conversation => produceDailyHourMinutesPerConversation(socialData.donorId, conversation, false))
+        //val dailySentHourMinutesPerConversation = conversations.map(conversation => produceDailyHourMinutesPerConversation(socialData.donorId, conversation, true))
+        //val dailyReceivedHourMinutesPerConversation = conversations.map(conversation => produceDailyHourMinutesPerConversation(socialData.donorId, conversation, false))
+        val dailySentHoursPerConversation = conversations.map(conversation => produceDailyHoursPerConversation(socialData.donorId, conversation, true))
+        val dailyReceivedHoursPerConversation = conversations.map(conversation => produceDailyHoursPerConversation(socialData.donorId, conversation, false))
         val average = produceAverageNumberOfMessages(messageGraphData)
         val answerTimes = produceAnswerTimes(socialData.donorId, conversations)
         val conversationsFriends = conversations.map(c => {
@@ -31,13 +33,14 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
             // dont pass donorId to front end, instead just pass "donor"
             if (participant == socialData.donorId) {
               "donor"
-            } else {
+            }
+            else {
               participant
             }
           })
         })
         //println(conversations.map(c => c.participants)) // pass this through so that donor can know "conversation with friend0, 1, 2 ...
-        GraphData(messageGraphData, dailyMessageGraphData, dailyMessageGraphDataPerConversation, dailySentHourMinutesPerConversation, dailyReceivedHourMinutesPerConversation, answerTimes, average, conversationsFriends)
+        GraphData(messageGraphData, dailyMessageGraphData, dailyMessageGraphDataPerConversation, dailySentHoursPerConversation, dailyReceivedHoursPerConversation, answerTimes, average, conversationsFriends)
       }
   }
 
@@ -144,6 +147,37 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
       .map(message => {
         val timestamp = LocalDateTime.ofInstant(Instant.ofEpochMilli(message.timestampMs), ZoneOffset.UTC)
         TimeFrameWithDaysHourMinute(timestamp.getYear, timestamp.getMonth, timestamp.getDayOfMonth, timestamp.getHour, timestamp.getMinute)
+      })
+      .distinct
+      .map {
+        case (TimeFrameWithDaysHourMinute(year, month, date, hour, minute)) =>
+          DailyHourPoint(year, month.getValue, date, hour, minute)
+      }
+
+  }
+
+  private def produceDailyHoursPerConversation(
+                                                      donorId: String,
+                                                      conversation: Conversation,
+                                                      sent: Boolean,
+                                                    ): List[DailyHourPoint] = {
+    conversation.messages
+      .filter(message => {
+        if (sent) {
+          message.sender match {
+            case Some(sender) if sender == donorId => true
+            case _ => false
+          }
+        } else {
+          message.sender match {
+            case Some(sender) if sender != donorId => true
+            case _ => false
+          }
+        }
+      })
+      .map(message => {
+        val timestamp = LocalDateTime.ofInstant(Instant.ofEpochMilli(message.timestampMs), ZoneOffset.UTC)
+        TimeFrameWithDaysHourMinute(timestamp.getYear, timestamp.getMonth, timestamp.getDayOfMonth, timestamp.getHour, 0)
       })
       .distinct
       .map {
