@@ -6,11 +6,13 @@ var dailyActivityTimesPerConversation = require('./analysis_plot/dailyActivityTi
 var sentReceivedSevenDayAverages = require('./analysis_plot/sentReceivedSevenDayAverages')
 var dailyActivityTimes = require('./analysis_plot/dailyActivityTimes')
 var dailyActivityTimesMean = require('./analysis_plot/dailyActivityTimesMean')
+var polarPlot = require('./analysis_plot/polarPlot')
 
 
 $(document).ready(function () {
     Object.keys(allData).forEach(function (dataSourceType) {
         const graphData = allData[dataSourceType];
+        polarPlot(graphData.conversationsFriends, `${dataSourceType}PolarPlot`);
         sentReceived(graphData.sentReceived, `${dataSourceType}MessagesOverTime`);
         sentReceivedDaily(graphData.dailySentReceived, `${dataSourceType}SentReceivedOverall`);
         sentReceivedDaily(graphData.dailyWordsSentReceived, `${dataSourceType}WordsSentReceivedOverall`);

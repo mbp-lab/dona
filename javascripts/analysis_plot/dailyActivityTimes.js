@@ -13,7 +13,7 @@ function dailyActivityTimes(dataSent, dataReceived, plotId) {
 
 
     let layout = {
-        plot_bgcolor: "#2e4482",
+        //plot_bgcolor: "#2e4482",
         autosize: true,
         height: 700,
         /*
@@ -27,14 +27,32 @@ function dailyActivityTimes(dataSent, dataReceived, plotId) {
             title: "Datum", //xAxis,
             tickangle: 45,
             tickformat: '%d-%m-%Y',
+            color: "white"
         },
         yaxis: {
             title: "Uhrzeit", //yAxis,
             fixedrange: true,
             range: ['2022-05-21 00:00:00', '2022-05-21 23:59:59'],
             tickformat: '%H:%M',
-            nticks: 12
+            nticks: 12,
+            color: "white"
         },
+        images: [
+            {
+                source: backGroundImages["activityHoursBackground"],
+                xref: "paper",
+                yref: "paper",
+                x: 0.5,
+                y: 0.5,
+                sizex: 1.5,
+                sizey: 1.5,
+                xanchor: "center",
+                yanchor: "middle",
+                sizing: "fill",
+                opacity: 1,
+                layer: "below"
+            }
+        ]
     };
 
 
