@@ -12,7 +12,7 @@ var polarPlot = require('./analysis_plot/polarPlot')
 $(document).ready(function () {
     Object.keys(allData).forEach(function (dataSourceType) {
         const graphData = allData[dataSourceType];
-        polarPlot(graphData.conversationsFriends, `${dataSourceType}PolarPlot`);
+        polarPlot(graphData.sentPerFriendPerMonth, graphData.conversationsFriends, `${dataSourceType}PolarPlot`);
         sentReceived(graphData.sentReceived, `${dataSourceType}MessagesOverTime`);
         sentReceivedDaily(graphData.dailySentReceived, `${dataSourceType}SentReceivedOverall`);
         sentReceivedDaily(graphData.dailyWordsSentReceived, `${dataSourceType}WordsSentReceivedOverall`);

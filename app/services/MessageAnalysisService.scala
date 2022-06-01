@@ -11,6 +11,8 @@ import models.domain.DonationDataSourceType.DonationDataSourceType
 class MessageAnalysisService @Inject()(config: FeedbackConfig) {
 
   private case class TimeFrame(year: Int, month: Month)
+  private case class FriendTimeFrame(friend: Option[String], year: Int, month: Month)
+  private case class FromToTimeFrame(from: String, to: String, year: Int, month: Int)
   private case class TimeFrameWithDays(year: Int, month: Month, date: Int)
   private case class TimeFrameWithDaysHourMinute(year: Int, month: Month, date: Int, hour: Int, minute: Int)
 
@@ -30,19 +32,17 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
         val average = produceAverageNumberOfMessages(messageGraphData)
         val answerTimes = produceAnswerTimes(socialData.donorId, conversations)
         val conversationsFriends = conversations.map(c => {
-          c.participants.map((participant) => {
-            // dont pass donorId to front end, instead just pass "donor"
-            if (participant == socialData.donorId) {
-              "donor"
-            }
-            else {
-              participant
-            }
+          c.participants.filter(
+            participant => {
+              participant != socialData.donorId
           })
         })
-        //println(conversations.map(c => c.participants)) // pass this through so that donor can know "conversation with friend0, 1, 2 ...
+        val sentPerFriendPerMonth = produceAggregatedSentPerFriend(socialData.donorId, conversations)
+
+
         GraphData(
           messageGraphData,
+          sentPerFriendPerMonth,
           dailyMessageGraphData,
           dailyWordsGraphData,
           dailyMessageGraphDataPerConversation,
@@ -80,6 +80,100 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
       .sorted
       .reverse
   }
+
+  private def produceMonthlySentPerFriendInConversation(
+                                          donorId: String,
+                                          conversation: Conversation
+                                        ): List[FromToListYearMonthSentCount] = {
+
+    val conversationFriends = conversation.participants.filter(participant => {
+      participant != donorId
+    })
+
+    conversation.messages
+      .foldRight(Map[FriendTimeFrame, (Int)]()) {
+        case (message, map) =>
+          val timestamp = LocalDateTime.ofInstant(Instant.ofEpochMilli(message.timestampMs), ZoneOffset.UTC)
+          val mapKey = FriendTimeFrame(message.sender, timestamp.getYear, timestamp.getMonth)
+          // weird behavior here when testing files with only a few entries -> date and month gets confused (probably an international problem?)
+          // maybe does not matter, as small files like that wont actually appear
+          //println("HERE IS SENDER: " + message.sender)
+          //println("HERE IS GETMONTH:" + timestamp.getMonth)
+          //println("HERE IS GetValue:" + timestamp.getMonth.getValue)
+          val oldSent = map.getOrElse(mapKey, 0)
+          val newValue = oldSent + message.wordCount
+          map.updated(mapKey, newValue)
+      }
+      .map {
+        case (FriendTimeFrame(friend, year, month), (sent)) =>
+
+          friend match {
+            case Some(friend) if friend == donorId => FromToListYearMonthSentCount("donor", conversationFriends, year, month.getValue, sent)
+            case Some(friend)                      => FromToListYearMonthSentCount(friend, conversationFriends, year, month.getValue, sent)
+          }
+      }
+      .toList
+      .sorted
+      .reverse
+  }
+
+
+  private def produceAggregatedSentPerFriend(
+                                                         donorId: String,
+                                                         conversations: List[Conversation]
+                                                       ): List[FromToYearMonthSentCount] = {
+
+
+    conversations
+      .flatMap(c => produceMonthlySentPerFriendInConversation(donorId, c))
+      .foldRight(Map[FromToTimeFrame, Int]()) {
+        case (friendSent, map) => {
+
+          friendSent.from match {
+            case sender if sender == "donor" => {
+              /*
+              friendSent.to.foldRight(Map[FromToTimeFrame, Int]()) {
+                case (receiver, innerMap) => {
+                    val mapKey = FromToTimeFrame("donor", receiver, friendSent.year, friendSent.month)
+                    val oldSent = map.getOrElse((mapKey), 0)
+                    val newValue = oldSent + friendSent.sentCount
+                    map.updated(mapKey, newValue)
+                }
+
+              }
+              */
+              println(friendSent.to)
+              var mapToReturn = map
+              friendSent.to.foreach((receiver) => {
+                println(receiver)
+                val mapKey = FromToTimeFrame("donor", receiver, friendSent.year, friendSent.month)
+                val oldSent = mapToReturn.getOrElse((mapKey), 0)
+                val newValue = oldSent + friendSent.sentCount
+                println("mapKey: " + mapKey)
+                println("newValue: " + newValue)
+                mapToReturn = mapToReturn.updated(mapKey, newValue)
+              })
+              println(mapToReturn)
+              mapToReturn
+            }
+            case sender if sender != "donor"   => {
+              val mapKey = FromToTimeFrame(sender, "donor", friendSent.year, friendSent.month)
+              val oldSent = map.getOrElse((mapKey), 0)
+              val newValue = oldSent + friendSent.sentCount
+              map.updated(mapKey, newValue)
+            }
+          }
+        }
+      }
+      .map {
+      case (FromToTimeFrame(from, to, year, month), (sent)) =>
+        FromToYearMonthSentCount(from, to, year, month, sent)
+    }
+      .toList
+      .sorted
+      .reverse
+  }
+
 
   private def produceDailyMessageGraphData(
                                        donorId: String,
