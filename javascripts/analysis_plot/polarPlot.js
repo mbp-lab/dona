@@ -29,8 +29,8 @@ function polarPlot(data, allFriendsData, plotId) {
 
     let layout = {
         //paper_bgcolor: "#141852",
-        hovermode: true,
-        showlegend: true,
+        hovermode: false,
+        showlegend: false,
         polar: {
             //hole: 0.1,
             bgcolor: "rgba(255, 255, 255, 0",

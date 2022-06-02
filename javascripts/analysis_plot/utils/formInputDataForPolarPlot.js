@@ -50,6 +50,10 @@ function formInputDataForPolarPlot(sortedGraphDataPoints, allFriends, yearToExcl
     })
 
 
+    averageValues = averageValues.map((value) => Math.sqrt(value))
+    valuesExcludedMonth = valuesExcludedMonth.map((value) => Math.sqrt(value))
+
+
     return new Promise((resolve) => {
         const plotInputData = {
             theta: friends,
