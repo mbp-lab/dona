@@ -2,7 +2,7 @@ var sortGraphDataPoints = require('./utils/sortGraphDataPointsTimeWise');
 const formInputDataForPolarPlot = require("./utils/formInputDataForPolarPlot");
 const _ = require("lodash");
 
-function animatedHorizontalBarChart(data, allFriendsData, sentReceivedWordsMonthlyTotal, plotId) {
+function animatedHorizontalBarChart(data, allFriendsData, sentReceivedWordsMonthlyTotal, plotId, buttonID) {
 
     console.log(data);
     console.log(sentReceivedWordsMonthlyTotal)
@@ -154,6 +154,11 @@ function animatedHorizontalBarChart(data, allFriendsData, sentReceivedWordsMonth
             });
 
         })
+
+
+    let startAnimationButton = document.querySelector(buttonID)
+
+    startAnimationButton.addEventListener('click', () => startAnimation(null, 'afterall'))
 
 
 }
