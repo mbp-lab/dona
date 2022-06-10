@@ -24,7 +24,13 @@ function polarPlot(data, allFriendsData, plotId) {
     let layout = {
         //paper_bgcolor: "#141852",
         hovermode: false,
-        showlegend: false,
+        showlegend: true,
+        legend: {
+            bgcolor: "#13223C",
+            font: {color: "white"},
+            x: 0.9,
+            y: 1,
+        },
         polar: {
             //hole: 0.1,
             bgcolor: "rgba(255, 255, 255, 0",
@@ -82,6 +88,7 @@ function polarPlot(data, allFriendsData, plotId) {
         })
         .then((plotInputData) => {
             const traceAverages = {
+                name: "Sent Averages",
                 type: "scatterpolar",
                 mode: "markers",
                 r: plotInputData.r,
@@ -97,6 +104,7 @@ function polarPlot(data, allFriendsData, plotId) {
             }
 
             const traceLastMonth = {
+                name: "Sent Last Month",
                 type: "scatterpolar",
                 mode: "markers",
                 r: plotInputData.rExcludedMonth,
@@ -121,6 +129,7 @@ function polarPlot(data, allFriendsData, plotId) {
 
 
             traces.push({
+                name: "Donor/Spender",
                 type: "scatterpolar",
                 mode: "markers",
                 r: [max],

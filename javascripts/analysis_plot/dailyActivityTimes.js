@@ -16,13 +16,12 @@ function dailyActivityTimes(dataSent, dataReceived, plotId) {
         //plot_bgcolor: "#2e4482",
         autosize: true,
         height: 700,
-        /*
         legend: {
-            x: -.1,
-            y: 1.2
+            bgcolor: "#13223C",
+            font: {color: "white"},
+            x: 1.01,
+            y: 1.16,
         },
-
-         */
         xaxis: {
             title: "Datum", //xAxis,
             tickangle: 45,

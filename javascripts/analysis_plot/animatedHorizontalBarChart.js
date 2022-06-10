@@ -4,8 +4,8 @@ const _ = require("lodash");
 
 function animatedHorizontalBarChart(data, allFriendsData, sentReceivedWordsMonthlyTotal, plotId) {
 
-    console.log(data);
-    console.log(sentReceivedWordsMonthlyTotal)
+    //console.log(data);
+    //console.log(sentReceivedWordsMonthlyTotal)
 
     // find maximum for range of plot
     let sumSent = 0
@@ -23,9 +23,12 @@ function animatedHorizontalBarChart(data, allFriendsData, sentReceivedWordsMonth
     //console.log(allFriends)
 
     let sentFromDonor = data.filter(obj => obj.from === "donor")
-    //let sentToDonor = data.filter(obj => obj.from !== "donor")
+    let sentToDonor = data.filter(obj => obj.from !== "donor")
 
-    console.log(sentFromDonor)
+    //console.log("SENT FROM DONOR:")
+    //console.log(sentFromDonor)
+
+    //console.log("SENT TO DONOR:")
     //console.log(sentToDonor)
 
     const plotContainer = $(`#${plotId}`)
@@ -37,6 +40,14 @@ function animatedHorizontalBarChart(data, allFriendsData, sentReceivedWordsMonth
 
     let layout = {
         height: 600,
+        howlegend: true,
+        barmode: 'overlay',
+        legend: {
+            bgcolor: "#13223C",
+            font: {color: "white"},
+            x: 1.01,
+            y: 1.16,
+        },
         yaxis: {
             color: "white"
         },
@@ -122,50 +133,78 @@ function animatedHorizontalBarChart(data, allFriendsData, sentReceivedWordsMonth
     let frames = []
     let sliderSteps = []
     let name;
-    let x = []
-    let y = []
+    let xSent = []
+    let ySent = []
+    let xReceived = []
+    let yReceived = []
     let initialX = []
 
     let friendsSentObj = {}
+    let friendsReceivedObj = {}
 
     allFriends.forEach((friend) => {
         friendsSentObj[friend] = 0
+        friendsReceivedObj[friend] = 0
         initialX.push(0)
     })
 
-
-    sortGraphDataPoints(sentFromDonor, false, false)
+    sortGraphDataPoints(data, false, false)
         .then(sortedData => {
-            let groupedByYearAndMonth = _.groupBy(sortedData, (obj) => {
+            return _.groupBy(sortedData, (obj) => {
                 return obj.year + "-" + obj.month
             })
+        })
+        .then(groupedData => {
 
-            for (const [key, value] of Object.entries(groupedByYearAndMonth)) {
+            for (const [key, value] of Object.entries(groupedData)) {
 
                 value.forEach((fromToSent) => {
-                    friendsSentObj[fromToSent.to] = friendsSentObj[fromToSent.to] + fromToSent.sentCount
+                    if (fromToSent.from === "donor" && fromToSent.to !== "donor") {
+                        friendsSentObj[fromToSent.to] = friendsSentObj[fromToSent.to] + fromToSent.sentCount
+                    } else if (fromToSent.from !== "donor" && fromToSent.to === "donor") {
+                        friendsReceivedObj[fromToSent.from] = friendsReceivedObj[fromToSent.from] + fromToSent.sentCount
+                    }
                 })
 
                 name = key
 
-                x = []
-                y = []
+                xSent = []
+                ySent = []
                 for (const [key, value] of Object.entries(friendsSentObj)) {
-                    x.push(value)
-                    y.push(key)
+                    xSent.push(value)
+                    ySent.push(key)
+                }
+
+                xReceived = []
+                yReceived = []
+                for (const [key, value] of Object.entries(friendsReceivedObj)) {
+                    xReceived.push(value)
+                    yReceived.push(key)
                 }
 
                 frames.push({
                     name: name,
                     data: [
                         {
-                            x: x,
-                            y: y,
+                            name: "Sent words",
+                            x: xSent,
+                            y: ySent,
                             marker: {
                                 color: "white",
                                 //color: "00d2ff"
-                            }
-                        }],
+                            },
+                            width: _.fill(Array(allFriends.length), 0.8)
+                        },
+                        {
+                            name: "Received words",
+                            x: xReceived,
+                            y: yReceived,
+                            marker: {
+                                color: "orange",
+                            },
+                            width: _.fill(Array(allFriends.length), 0.3)
+                        }
+                    ],
                 })
 
                 sliderSteps.push({
@@ -173,12 +212,12 @@ function animatedHorizontalBarChart(data, allFriendsData, sentReceivedWordsMonth
                     label: name,
                     args: [[name], {
                         mode: "immediate",
-                        transition: { duration: 300 },
-                        frame: { duration: 300, redraw: false }
+                        transition: {duration: 300},
+                        frame: {duration: 300, redraw: false}
                     }]
                 })
-
             }
+
 
             layout["xaxis"] = {
                 range: [0, Math.max(...Object.values(friendsSentObj))],
@@ -197,17 +236,31 @@ function animatedHorizontalBarChart(data, allFriendsData, sentReceivedWordsMonth
             }]
 
 
-
             plotContainer.html("");
-            Plotly.newPlot(plotId, [{
-                x: initialX,
-                y: allFriends,
-                type: "bar",
-                orientation: 'h',
-                marker: {
-                    color: "00d2ff",
+            Plotly.newPlot(plotId, [
+                {
+                    name: "Sent words",
+                    x: initialX,
+                    y: allFriends,
+                    type: "bar",
+                    orientation: 'h',
+                    marker: {
+                        color: "white",
+                    },
+                    width: _.fill(Array(allFriends.length), 0.8)
+                },
+                {
+                    name: "Received words",
+                    x: initialX,
+                    y: allFriends,
+                    type: "bar",
+                    orientation: 'h',
+                    marker: {
+                        color: "orange",
+                    },
+                    width: _.fill(Array(allFriends.length), 0.3)
                 }
-            }], layout, {responsive: true}).then(() => {
+            ], layout, {responsive: true}).then(() => {
                 Plotly.addFrames(plotId, frames)
 
                 startAnimation(null, 'afterall')
