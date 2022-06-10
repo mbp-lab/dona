@@ -16,11 +16,14 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
   private case class TimeFrameWithDays(year: Int, month: Month, date: Int)
   private case class TimeFrameWithDaysHourMinute(year: Int, month: Month, date: Int, hour: Int, minute: Int)
 
+
+  // produces the GraphData object by calling all the different data transformation functions
   def produceGraphData(socialData: SocialData): Map[DonationDataSourceType, GraphData] = {
     socialData.conversations
       .groupBy(_.donationDataSourceType)
       .mapValues { conversations =>
         val messageGraphData = produceMessageGraphData(socialData.donorId, conversations)
+        val sentReceivedWords = produceSentReceivedWordsGraphData(socialData.donorId, conversations)
         val dailyMessageGraphData = produceDailyMessageGraphData(socialData.donorId, conversations)
         val dailyWordsGraphData = produceDailyWordsGraphData(socialData.donorId, conversations)
         // this here might be redundant... rather only do smallest and then reassemble in javascript? e.g. per conversation could be easily added up to overall daily
@@ -42,6 +45,7 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
 
         GraphData(
           messageGraphData,
+          sentReceivedWords,
           sentPerFriendPerMonth,
           dailyMessageGraphData,
           dailyWordsGraphData,
@@ -55,6 +59,7 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
       }
   }
 
+  // counts total received and sent messages per month
   private def produceMessageGraphData(
     donorId: String,
     conversations: List[Conversation]
@@ -81,6 +86,37 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
       .reverse
   }
 
+  // counts total received and sent words per month
+  private def produceSentReceivedWordsGraphData(
+                                       donorId: String,
+                                       conversations: List[Conversation]
+                                     ): List[SentReceivedPoint] = {
+    conversations
+      .flatMap(_.messages)
+      .foldRight(Map[TimeFrame, (Int, Int)]()) {
+        case (message, map) =>
+          val timestamp = LocalDateTime.ofInstant(Instant.ofEpochMilli(message.timestampMs), ZoneOffset.UTC)
+          val mapKey = TimeFrame(timestamp.getYear, timestamp.getMonth)
+          val (oldSent, oldReceived) = map.getOrElse(mapKey, (0, 0))
+          val newValue = message.sender match {
+            case Some(sender) if sender == donorId => (oldSent + message.wordCount, oldReceived)
+            case _                                 => (oldSent, oldReceived + message.wordCount)
+          }
+          map.updated(mapKey, newValue)
+      }
+      .map {
+        case (TimeFrame(year, month), (sent, received)) =>
+          SentReceivedPoint(year, month.getValue, sent, received)
+      }
+      .toList
+      .sorted
+      .reverse
+  }
+
+  // helper for produceAggregatedSentPerFriend function
+  // produces a list of FromToListYearMonthSentCount objects
+  // One object per sender and per month contains the information:
+  // from: sender, to: List[receivers], year, month, sentWords
   private def produceMonthlySentPerFriendInConversation(
                                           donorId: String,
                                           conversation: Conversation
@@ -118,6 +154,10 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
   }
 
 
+  // aggregates the information returned from produceMonthlySentPerFriendInConversation
+  // in the end the information is a List of FromToYearMonthSentCount objects
+  // that is: per month per sender - receiver pair the amount of sent words
+  // List[{form: sender, to: receiver, year, month, sentWords}]
   private def produceAggregatedSentPerFriend(
                                                          donorId: String,
                                                          conversations: List[Conversation]
@@ -142,18 +182,18 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
 
               }
               */
-              println(friendSent.to)
+              //println(friendSent.to)
               var mapToReturn = map
               friendSent.to.foreach((receiver) => {
-                println(receiver)
+                //println(receiver)
                 val mapKey = FromToTimeFrame("donor", receiver, friendSent.year, friendSent.month)
                 val oldSent = mapToReturn.getOrElse((mapKey), 0)
                 val newValue = oldSent + friendSent.sentCount
-                println("mapKey: " + mapKey)
-                println("newValue: " + newValue)
+                //println("mapKey: " + mapKey)
+                //println("newValue: " + newValue)
                 mapToReturn = mapToReturn.updated(mapKey, newValue)
               })
-              println(mapToReturn)
+              //println(mapToReturn)
               mapToReturn
             }
             case sender if sender != "donor"   => {

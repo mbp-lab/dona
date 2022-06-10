@@ -104,7 +104,6 @@ function sentReceivedDailyPerConversation(data, plotId, selectorID, conversation
     assignOptions(listOfConversations, conversationSelector)
 
     let updateConversation = () => {
-        console.log(conversationSelector.value)
         plot(conversationSelector.value)
         Plotly.relayout(plotId, {
             'xaxis.autorange': true,

@@ -8,7 +8,7 @@ function formInputDataForPolarPlot(sortedGraphDataPoints, allFriends, yearToExcl
     let filteredData;
     let sumSent;
 
-    console.log(allFriends)
+    //console.log(allFriends)
 
     allFriends.forEach((friend) => {
         sumSent = 0;
@@ -16,8 +16,8 @@ function formInputDataForPolarPlot(sortedGraphDataPoints, allFriends, yearToExcl
         filteredData = sortedGraphDataPoints.filter((obj) => {
             return (obj.from === friend || obj.to === friend) && (obj.year !== yearToExclude && obj.month !== monthToExclude)
         })
-        console.log("friend: " + friend)
-        console.log(filteredData)
+        //console.log("friend: " + friend)
+        //console.log(filteredData)
 
         friends.push(friend)
 
@@ -36,8 +36,8 @@ function formInputDataForPolarPlot(sortedGraphDataPoints, allFriends, yearToExcl
             return (obj.from === friend || obj.to === friend) && (obj.year === yearToExclude && obj.month === monthToExclude)
         })
 
-        console.log("friend: " + friend)
-        console.log(filteredData)
+        //console.log("friend: " + friend)
+        //console.log(filteredData)
 
         friendsExcludedMonth.push(friend)
 

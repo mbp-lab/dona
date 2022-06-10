@@ -21,7 +21,7 @@ describe('DeIdentifying a zip file', function () {
     })
     it('should return messages with random IDs instead of sender_name', function () {
         return handleFile([zipFile]).then(deIdentifiedJson => {
-        console.log(deIdentifiedJson[0].participants);
+        //console.log(deIdentifiedJson[0].participants);
             deIdentifiedJson[0].messages.forEach((message) => {
                 expect(message.sender_name).to.not.equal('Blah Blah');
                 expect(message.sender_name).to.not.equal('Some Person');

@@ -3,18 +3,12 @@ const formInputDataForPolarPlot = require("./utils/formInputDataForPolarPlot");
 
 function polarPlot(data, allFriendsData, plotId) {
 
-    //console.log(data);
 
     let allFriends = [...new Set(allFriendsData.flat())]
-    //let indexDonor = allFriends.indexOf("donor")
-    //allFriends.splice(indexDonor, 1)
-    //console.log(allFriends)
 
     let sentFromDonor = data.filter(obj => obj.from === "donor")
     let sentToDonor = data.filter(obj => obj.from !== "donor")
 
-    console.log(sentFromDonor)
-    //console.log(sentToDonor)
 
 
     const plotContainer = $(`#${plotId}`)
@@ -83,7 +77,7 @@ function polarPlot(data, allFriendsData, plotId) {
             let lastYear = sortedData[sortedData.length -1].year
             let lastMonth = sortedData[sortedData.length -1].month
 
-            console.log("LastYear: " + lastYear + ", lastMonth: " + lastMonth)
+            //console.log("LastYear: " + lastYear + ", lastMonth: " + lastMonth)
             return formInputDataForPolarPlot(sortedData, allFriends, lastYear, lastMonth)
         })
         .then((plotInputData) => {
@@ -120,10 +114,10 @@ function polarPlot(data, allFriendsData, plotId) {
 
             let max;
             let allRDataFlat = plotInputData.rExcludedMonth.concat(plotInputData.r)
-            console.log(allRDataFlat)
+            //console.log(allRDataFlat)
             max = Math.max(...allRDataFlat)
             max = max + 0.2*max
-            console.log("MAX: " + max)
+            //console.log("MAX: " + max)
 
 
             traces.push({
@@ -147,106 +141,6 @@ function polarPlot(data, allFriendsData, plotId) {
 
         })
 
-
-
-
-    /*
-        let traces = [];
-        let rLastMonth = []
-        let rAverages = []
-        let theta = []
-        allFriends.forEach((friend) => {
-            theta.push(friend)
-            rLastMonth.push(Math.floor(Math.random() * (4000 - 100 + 1) + 100))
-            rAverages.push(Math.floor(Math.random() * (4000 - 100 + 1) + 100))
-        })
-
-
-        allFriends.forEach((friend) => {
-            traces.push({
-                type: "scatterpolar",
-                mode: "lines+markers",
-                r: [Math.floor(Math.random() * (4000 - 100 + 1) + 100)],
-                theta: [friend],
-                marker: {
-                    color: 'white',
-                    size: 14,
-                },
-                line: {
-                    color: 'white',
-                }
-            })
-        })
-
-        allFriends.forEach((friend) => {
-            traces.push({
-                type: "scatterpolar",
-                mode: "lines+markers",
-                r: [Math.floor(Math.random() * (4000 - 100 + 1) + 100)],
-                theta: [friend],
-                marker: {
-                    color: '#f5f5f5',
-                    size: 10,
-                    opacity: 0.55
-                },
-                line: {
-                    color: 'white',
-                }
-            })
-        })
-
-         */
-
-    /*
-    traces.push({
-        type: "scatterpolar",
-        mode: "markers",
-        r: rLastMonth,
-        theta: theta,
-        marker: {
-            color: 'white',
-            size: 14,
-        },
-        line: {
-            color: 'white',
-        }
-    })
-
-    traces.push({
-        type: "scatterpolar",
-        mode: "markers",
-        r: rAverages,
-        theta: theta,
-        marker: {
-            color: '#f5f5f5',
-            size: 10,
-            opacity: 0.55
-        },
-        line: {
-            color: 'white',
-        }
-    })
-
-     */
-
-    /*
-    traces.push({
-        type: "scatterpolar",
-        mode: "markers",
-        r: [5000],
-        theta: [allFriends[0]],
-        marker: {
-            color: 'yellow',
-            size: 25,
-            opacity: 0.9
-        },
-    })
-
-
-    plotContainer.html("");
-    Plotly.newPlot(plotId, traces, layout, { responsive: true });
-
-     */
 
 
 }

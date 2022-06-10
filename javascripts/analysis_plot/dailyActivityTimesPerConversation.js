@@ -130,7 +130,6 @@ function dailyActivityTimesPerConversation(dataSent, dataReceived, plotId, selec
     assignOptions(listOfConversations, conversationSelector)
 
     let updateConversation = () => {
-        console.log(conversationSelector.value)
         plot(conversationSelector.value)
     }
 

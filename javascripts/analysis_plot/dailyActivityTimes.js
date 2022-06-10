@@ -70,7 +70,8 @@ function dailyActivityTimes(dataSent, dataReceived, plotId) {
                 name: sent,
                 marker: {
                     size: 12,
-                    color:"#fff767",
+                    //color: "00d2ff",
+                    color: "white"
                 }
             };
             
@@ -99,13 +100,14 @@ function dailyActivityTimes(dataSent, dataReceived, plotId) {
                             count: 1,
                             label: '1m',
                             step: 'month',
-                            stepmode: 'backward'
+                            stepmode: 'backward',
+                            active: true
                         },
                         {
                             count: 6,
                             label: '6m',
                             step: 'month',
-                            stepmode: 'backward'
+                            stepmode: 'backward',
                         },
                         {
                             step: 'all',

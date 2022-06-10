@@ -7,12 +7,15 @@ var sentReceivedSevenDayAverages = require('./analysis_plot/sentReceivedSevenDay
 var dailyActivityTimes = require('./analysis_plot/dailyActivityTimes')
 var dailyActivityTimesMean = require('./analysis_plot/dailyActivityTimesMean')
 var polarPlot = require('./analysis_plot/polarPlot')
+var animatedHorizontalBarChart = require('./analysis_plot/animatedHorizontalBarChart')
 
 
 $(document).ready(function () {
     Object.keys(allData).forEach(function (dataSourceType) {
         const graphData = allData[dataSourceType];
+        console.log(graphData)
         polarPlot(graphData.sentPerFriendPerMonth, graphData.conversationsFriends, `${dataSourceType}PolarPlot`);
+        animatedHorizontalBarChart(graphData.sentPerFriendPerMonth, graphData.conversationsFriends, graphData.sentReceivedWords,`${dataSourceType}AnimatedHorizontalBarChart`);
         sentReceived(graphData.sentReceived, `${dataSourceType}MessagesOverTime`);
         sentReceivedDaily(graphData.dailySentReceived, `${dataSourceType}SentReceivedOverall`);
         sentReceivedDaily(graphData.dailyWordsSentReceived, `${dataSourceType}WordsSentReceivedOverall`);
@@ -33,6 +36,5 @@ $(document).ready(function () {
             graphData.conversationsFriends
         )
         responseTime(graphData.responseTimes, `${dataSourceType}ResponseTimePlot`);
-        console.log(graphData)
     })
 });

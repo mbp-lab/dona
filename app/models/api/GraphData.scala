@@ -4,6 +4,7 @@ import play.api.libs.json.{Format, Json}
 
 case class GraphData(
                       sentReceived: List[SentReceivedPoint],
+                      sentReceivedWords: List[SentReceivedPoint],
                       sentPerFriendPerMonth: List[FromToYearMonthSentCount],
                       dailySentReceived: List[DailySentReceivedPoint],
                       dailyWordsSentReceived: List[DailySentReceivedPoint],
