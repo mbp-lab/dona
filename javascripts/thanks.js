@@ -15,7 +15,7 @@ $(document).ready(function () {
         const graphData = allData[dataSourceType];
         console.log(graphData)
         polarPlot(graphData.sentPerFriendPerMonth, graphData.conversationsFriends, `${dataSourceType}PolarPlot`);
-        animatedHorizontalBarChart(graphData.sentPerFriendPerMonth, graphData.conversationsFriends, graphData.sentReceivedWords,`${dataSourceType}AnimatedHorizontalBarChart`, `.${dataSourceType}HorizontalBarChartAnimation`);
+        animatedHorizontalBarChart(graphData.sentPerFriendPerMonth, graphData.conversationsFriends, graphData.sentReceivedWords,`${dataSourceType}AnimatedHorizontalBarChart`);
         sentReceived(graphData.sentReceived, `${dataSourceType}MessagesOverTime`);
         sentReceivedDaily(graphData.dailySentReceived, `${dataSourceType}SentReceivedOverall`);
         sentReceivedDaily(graphData.dailyWordsSentReceived, `${dataSourceType}WordsSentReceivedOverall`);

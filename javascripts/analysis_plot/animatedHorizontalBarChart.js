@@ -2,7 +2,7 @@ var sortGraphDataPoints = require('./utils/sortGraphDataPointsTimeWise');
 const formInputDataForPolarPlot = require("./utils/formInputDataForPolarPlot");
 const _ = require("lodash");
 
-function animatedHorizontalBarChart(data, allFriendsData, sentReceivedWordsMonthlyTotal, plotId, buttonID) {
+function animatedHorizontalBarChart(data, allFriendsData, sentReceivedWordsMonthlyTotal, plotId) {
 
     console.log(data);
     console.log(sentReceivedWordsMonthlyTotal)
@@ -36,9 +36,47 @@ function animatedHorizontalBarChart(data, allFriendsData, sentReceivedWordsMonth
     const received = plotContainer.attr("data-received-trace-name");
 
     let layout = {
+        height: 600,
         yaxis: {
             color: "white"
         },
+        hovermode: 'closest',
+        updatemenus: [
+            {
+                x: 0,
+                y: 0,
+                yanchor: 'top',
+                xanchor: 'left',
+                showactive: false,
+                direction: 'left',
+                type: 'buttons',
+                pad: {t: 127, r: 10},
+                buttons: [
+                    {
+                        method: "animate",
+                        args: [
+                            null,
+                            {
+                                mode: 'immediate',
+                                fromcurrent: true,
+                                transition: {duration: 300, easing: 'linear'},
+                                frame: {duration: 300, redraw: false}
+                            }
+                        ],
+                        label: "Start"
+                    },
+                    {
+                        method: 'animate',
+                        args: [[null], {
+                            mode: 'immediate',
+                            transition: {duration: 0},
+                            frame: {duration: 0, redraw: false}
+                        }],
+                        label: 'Pause'
+                    }
+                ]
+            }
+        ],
         images: [
             {
                 source: backGroundImages["horizontalBarChartBackground"],
@@ -82,6 +120,7 @@ function animatedHorizontalBarChart(data, allFriendsData, sentReceivedWordsMonth
 
 
     let frames = []
+    let sliderSteps = []
     let name;
     let x = []
     let y = []
@@ -129,13 +168,34 @@ function animatedHorizontalBarChart(data, allFriendsData, sentReceivedWordsMonth
                         }],
                 })
 
+                sliderSteps.push({
+                    method: 'animate',
+                    label: name,
+                    args: [[name], {
+                        mode: "immediate",
+                        transition: { duration: 300 },
+                        frame: { duration: 300, redraw: false }
+                    }]
+                })
+
             }
-            console.log(frames)
 
             layout["xaxis"] = {
                 range: [0, Math.max(...Object.values(friendsSentObj))],
                 color: "white"
             }
+
+            layout["sliders"] = [{
+                pad: {l: 130, t: 95},
+                currentvalue: {
+                    visible: true,
+                    prefix: 'Year-Month:',
+                    xanchor: 'right',
+                    font: {size: 20, color: 'black'}
+                },
+                steps: sliderSteps
+            }]
+
 
 
             plotContainer.html("");
@@ -154,11 +214,6 @@ function animatedHorizontalBarChart(data, allFriendsData, sentReceivedWordsMonth
             });
 
         })
-
-
-    let startAnimationButton = document.querySelector(buttonID)
-
-    startAnimationButton.addEventListener('click', () => startAnimation(null, 'afterall'))
 
 
 }
