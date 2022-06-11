@@ -20,16 +20,19 @@ function formInputDataForDailyActivityPlot(sortedGraphDataPoints) {
 
     const yTimes = sortedGraphDataPoints.map(point => {
         let hour = point.hour
-        let minute = point.hour
+        //let minute = point.hour
 
         if (hour < 10) {
             hour = "0" + hour
         }
+        /*
         if (minute < 10) {
             minute = "0" + minute
         }
 
-        return '2022-05-21 ' + hour + ":" + minute + ":00"
+         */
+        // as only one point per hour is being displayed, set default minute 00
+        return '2022-05-21 ' + hour + ":" + "00" + ":00"
     });
 
 

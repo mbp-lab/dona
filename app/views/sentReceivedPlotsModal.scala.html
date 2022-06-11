@@ -1,0 +1,143 @@
+@import play.api.libs.json.JsValue
+@import play.api.libs.json.Json
+@import models.api._
+
+@import models.domain.DataSourceDescription
+@import models.domain.DonationDataSourceType.DonationDataSourceType
+
+@(donorId: String, data: Map[String, GraphData])(implicit request: RequestHeader, messages: Messages)
+
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header bgmain">
+            <h3 class="data-protection-headline">More...</h3>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            @for((dataSource, GraphData(_, _, _, _, _, _, _, _, _, averageMessageNumber, _)) <- data) {
+                <div id="@{
+                    dataSource.toString
+                }ModalContainer">
+                    @showSentReceivedPlot(dataSource)
+                    @showSentReceivedOverallGraphPlot(dataSource)
+                    @showSentReceivedSevenDayAveragesGraphPlot(dataSource)
+                    @showSentReceivedWordsGraphPlot(dataSource)
+                    @showSentReceivedDailyPerConversationGraphPlot(dataSource)
+                </div>
+            }
+
+        <div class="d-flex justify-content-end align-items-center">
+            <button type="button" class="btn footer-backward-button consent-button" data-dismiss="modal">@messages("consent.buttons.close.caption")</button>
+
+        </div>
+        </div>
+    </div>
+
+    @showSentReceivedPlot(name: String) = {
+        <div style="padding-top: 20px;">
+            <h3 class="insights-title big-top" align="center">@String.format(messages("feedback.graph.messages-over-time"), name)</h3>
+        </div>
+        <div id="@{
+            name.toString
+        }MessagesOverTime" class="d-none"
+        data-x-axis="@messages("feedback.graph.time")"
+        data-y-axis="@messages("feedback.graph.number-of-messages")"
+        data-sent-trace-name="@messages("feedback.graph.sent")"
+        data-received-trace-name="@messages("feedback.graph.received")"
+        >
+            <div class="card h-100">
+                <div class="m-auto">@messages("feedback.graph.loading")</div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    }
+
+    @showSentReceivedOverallGraphPlot(name: String) = {
+        <div style="padding-top: 20px;">
+            <h3 class="insights-title big-top" align="center">@String.format(messages("feedback.graph.testPlot"), name)</h3>
+        </div>
+
+        <div id="@{
+            name
+        }SentReceivedOverall" class="d-none"
+        data-x-axis="@messages("feedback.graph.time")"
+        data-y-axis="@messages("feedback.graph.number-of-messages")"
+        data-sent-trace-name="@messages("feedback.graph.sent")"
+        data-received-trace-name="@messages("feedback.graph.received")"
+        >
+            <div class="card h-100">
+                <div class="m-auto">@messages("feedback.graph.loading")</div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+    }
+
+    @showSentReceivedSevenDayAveragesGraphPlot(name: String) = {
+        <div style="padding-top: 20px;">
+            <h3 class="insights-title big-top" align="center">@String.format(messages("feedback.graph.testPlot"), name)</h3>
+        </div>
+
+        <div id="@{
+            name
+        }SentReceivedSevenDayAverages" class="d-none"
+        data-x-axis="@messages("feedback.graph.time")"
+        data-y-axis="@messages("feedback.graph.number-of-messages")"
+        data-sent-trace-name="@messages("feedback.graph.sent")"
+        data-received-trace-name="@messages("feedback.graph.received")"
+        >
+            <div class="card h-100">
+                <div class="m-auto">@messages("feedback.graph.loading")</div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+    }
+
+    @showSentReceivedWordsGraphPlot(name: String) = {
+        <div style="padding-top: 20px;">
+            <h3 class="insights-title big-top" align="center">@String.format(messages("feedback.graph.testPlot"), name)</h3>
+        </div>
+
+        <div id="@{
+            name
+        }WordsSentReceivedOverall" class="d-none"
+        data-x-axis="@messages("feedback.graph.time")"
+        data-y-axis="@messages("feedback.graph.number-of-messages")"
+        data-sent-trace-name="@messages("feedback.graph.sent")"
+        data-received-trace-name="@messages("feedback.graph.received")"
+        >
+            <div class="card h-100">
+                <div class="m-auto">@messages("feedback.graph.loading")</div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+    }
+
+
+    @showSentReceivedDailyPerConversationGraphPlot(name: String) = {
+        <div style="padding-top: 20px;">
+            <h3 class="insights-title big-top" align="center">@String.format(messages("feedback.graph.testPlot"), name)</h3>
+        </div>
+
+        <div id="@{
+            name
+        }DailySentReceivedPerConversation" class="d-none"
+        data-x-axis="@messages("feedback.graph.time")"
+        data-y-axis="@messages("feedback.graph.number-of-messages")"
+        data-sent-trace-name="@messages("feedback.graph.sent")"
+        data-received-trace-name="@messages("feedback.graph.received")"
+        >
+            <div class="card h-100">
+                <div class="m-auto">@messages("feedback.graph.loading")</div>
+            </div>
+        </div>
+        <div class="control-row">
+            Conversation: <select class="@{name}ConversationsSentReceivedDaily">
+        </select>
+        </div>
+
+        <div class="clearfix"></div>
+    }
+</div>

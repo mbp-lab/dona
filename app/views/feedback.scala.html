@@ -21,6 +21,7 @@
                 @showPolarPlot(dataSource)
                 @showAnimatedHorizontalBarChart(dataSource)
                 @showDailyActivityTimes(dataSource)
+                @*
                 @showDailyActivityTimesMean(dataSource)
                 @showDailySentTimesPerConversationGraphPlot(dataSource)
                 @showSentReceivedPlot(dataSource)
@@ -28,6 +29,7 @@
                 @showSentReceivedSevenDayAveragesGraphPlot(dataSource)
                 @showSentReceivedWordsGraphPlot(dataSource)
                 @showSentReceivedDailyPerConversationGraphPlot(dataSource)
+                *@
                 @showResponseTimePlot(dataSource)
             </div>
         }
@@ -95,6 +97,10 @@
             <div class="m-auto">@messages("feedback.graph.loading")</div>
         </div>
     </div>
+    <div class="modal fade" id="sentReceivedModal"  role="dialog">
+    @sentReceivedPlotsModal(donorId, data)
+    </div>
+    <button class="btn btn-outline footer-forward-button text-center" data-toggle="modal" data-target="#sentReceivedModal">More about sent/received</button>
     <div class="clearfix"></div>
 }
 
@@ -224,6 +230,11 @@
             <div class="m-auto">@messages("feedback.graph.loading")</div>
         </div>
     </div>
+
+    <div class="modal fade" id="dailyActivityModal"  role="dialog">
+    @dailyActivityPlotsModal(donorId, data)
+    </div>
+    <button class="btn btn-outline footer-forward-button text-center" data-toggle="modal" data-target="#dailyActivityModal">More about daily activity times</button>
 
     <div class="clearfix"></div>
 }

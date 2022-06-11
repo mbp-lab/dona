@@ -13,7 +13,7 @@ function dailyActivityTimes(dataSent, dataReceived, plotId) {
 
 
     let layout = {
-        //plot_bgcolor: "#2e4482",
+        hovermode: "closest",
         autosize: true,
         height: 700,
         legend: {
@@ -68,12 +68,13 @@ function dailyActivityTimes(dataSent, dataReceived, plotId) {
                 mode: 'markers',
                 name: sent,
                 marker: {
-                    size: 12,
+                    size: 18,
                     //color: "00d2ff",
-                    color: "white"
+                    color: "white",
+                    symbol: "square"
                 }
             };
-            
+
             return trace1;
 
         }).then((trace1) => {
@@ -88,11 +89,32 @@ function dailyActivityTimes(dataSent, dataReceived, plotId) {
                     type: 'scatter',
                     mode: 'markers',
                     name: received,
-                    marker: {size: 4},
+                    marker: {
+                        size: 14,
+                        symbol: "square"
+                    },
                     visible: 'legendonly'
                 }
 
-                layout.xaxis.range = [trace1.x[0], trace1.x[trace1.x.length - 1]]
+                // determine initial range for plot to show (last month)
+                let oneMonthInMilliseconds = 2.628e+9
+                let oneMonthBeforeLastDate = new Date(trace1.x[trace1.x.length - 1]).getTime() - oneMonthInMilliseconds
+                let dateOneMonthBefore = new Date(oneMonthBeforeLastDate)
+                let startRange = ""
+                let year = dateOneMonthBefore.getFullYear()
+                let month = dateOneMonthBefore.getMonth() + 1 // first month is 0...
+                let date = dateOneMonthBefore.getDate()
+                if (month < 10) {
+                    month = "0" + month
+                }
+                if (date < 10) {
+                    date = "0" + date
+                }
+                startRange += year + "-" + month + "-" + date
+
+                layout.xaxis.range = [startRange, trace1.x[trace1.x.length - 1]]
+                console.log(layout.xaxis.range)
+
                 layout.xaxis.rangeselector = {
                     buttons: [
                         {
@@ -110,6 +132,7 @@ function dailyActivityTimes(dataSent, dataReceived, plotId) {
                         },
                         {
                             step: 'all',
+                            active: false,
                         },
                     ]
                 }
@@ -121,7 +144,7 @@ function dailyActivityTimes(dataSent, dataReceived, plotId) {
                 plotContainer.html("");
                 Plotly.newPlot(plotId, data, layout, {responsive: true});
                 Plotly.relayout(plotId, {
-                    "xaxis.range": [trace1.x[0], trace1.x[trace1.x.length - 1]]
+                    "xaxis.range": [startRange, trace1.x[trace1.x.length - 1]]
                 })
 
             })
