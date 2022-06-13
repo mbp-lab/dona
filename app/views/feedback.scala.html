@@ -21,15 +21,6 @@
                 @showPolarPlot(dataSource)
                 @showAnimatedHorizontalBarChart(dataSource)
                 @showDailyActivityTimes(dataSource)
-                @*
-                @showDailyActivityTimesMean(dataSource)
-                @showDailySentTimesPerConversationGraphPlot(dataSource)
-                @showSentReceivedPlot(dataSource)
-                @showSentReceivedOverallGraphPlot(dataSource)
-                @showSentReceivedSevenDayAveragesGraphPlot(dataSource)
-                @showSentReceivedWordsGraphPlot(dataSource)
-                @showSentReceivedDailyPerConversationGraphPlot(dataSource)
-                *@
                 @showResponseTimePlot(dataSource)
             </div>
         }
@@ -63,9 +54,7 @@
 }
 
 @showPolarPlot(name: String) = {
-    <div style="padding-top: 20px;">
-        <h3 class="insights-title big-top" align="center">@String.format(messages("feedback.graph.testPlot"), name)</h3>
-    </div>
+@showExplanationText("Polar Plot", "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.")
     <div id="@{
         name.toString
     }PolarPlot" class="d-none"
@@ -82,9 +71,8 @@
 }
 
 @showAnimatedHorizontalBarChart(name: String) = {
-    <div style="padding-top: 20px;">
-        <h3 class="insights-title big-top" align="center">@String.format(messages("feedback.graph.testPlot"), name)</h3>
-    </div>
+@showExplanationText("Animated Horizontal Bar Chart", "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.")
+
     <div id="@{
         name.toString
     }AnimatedHorizontalBarChart" class="d-none"
@@ -97,126 +85,18 @@
             <div class="m-auto">@messages("feedback.graph.loading")</div>
         </div>
     </div>
-    <div class="modal fade" id="sentReceivedModal"  role="dialog">
+    <div class="modal fade" id="sentReceivedModal" role="dialog">
     @sentReceivedPlotsModal(donorId, data)
     </div>
-    <button class="btn btn-outline footer-forward-button text-center" data-toggle="modal" data-target="#sentReceivedModal">More about sent/received</button>
-    <div class="clearfix"></div>
-}
-
-
-@showSentReceivedPlot(name: String) = {
-    <div style="padding-top: 20px;">
-        <h3 class="insights-title big-top" align="center">@String.format(messages("feedback.graph.messages-over-time"), name)</h3>
-    </div>
-    <div id="@{
-        name.toString
-    }MessagesOverTime" class="d-none"
-    data-x-axis="@messages("feedback.graph.time")"
-    data-y-axis="@messages("feedback.graph.number-of-messages")"
-    data-sent-trace-name="@messages("feedback.graph.sent")"
-    data-received-trace-name="@messages("feedback.graph.received")"
-    >
-        <div class="card h-100">
-            <div class="m-auto">@messages("feedback.graph.loading")</div>
-        </div>
-    </div>
-    <div class="clearfix"></div>
-}
-
-@showSentReceivedOverallGraphPlot(name: String) = {
-    <div style="padding-top: 20px;">
-        <h3 class="insights-title big-top" align="center">@String.format(messages("feedback.graph.testPlot"), name)</h3>
-    </div>
-
-    <div id="@{
-        name
-    }SentReceivedOverall" class="d-none"
-    data-x-axis="@messages("feedback.graph.time")"
-    data-y-axis="@messages("feedback.graph.number-of-messages")"
-    data-sent-trace-name="@messages("feedback.graph.sent")"
-    data-received-trace-name="@messages("feedback.graph.received")"
-    >
-        <div class="card h-100">
-            <div class="m-auto">@messages("feedback.graph.loading")</div>
-        </div>
-    </div>
-
-    <div class="clearfix"></div>
-}
-
-@showSentReceivedSevenDayAveragesGraphPlot(name: String) = {
-    <div style="padding-top: 20px;">
-        <h3 class="insights-title big-top" align="center">@String.format(messages("feedback.graph.testPlot"), name)</h3>
-    </div>
-
-    <div id="@{
-        name
-    }SentReceivedSevenDayAverages" class="d-none"
-    data-x-axis="@messages("feedback.graph.time")"
-    data-y-axis="@messages("feedback.graph.number-of-messages")"
-    data-sent-trace-name="@messages("feedback.graph.sent")"
-    data-received-trace-name="@messages("feedback.graph.received")"
-    >
-        <div class="card h-100">
-            <div class="m-auto">@messages("feedback.graph.loading")</div>
-        </div>
-    </div>
-
-    <div class="clearfix"></div>
-}
-
-@showSentReceivedWordsGraphPlot(name: String) = {
-    <div style="padding-top: 20px;">
-        <h3 class="insights-title big-top" align="center">@String.format(messages("feedback.graph.testPlot"), name)</h3>
-    </div>
-
-    <div id="@{
-        name
-    }WordsSentReceivedOverall" class="d-none"
-    data-x-axis="@messages("feedback.graph.time")"
-    data-y-axis="@messages("feedback.graph.number-of-messages")"
-    data-sent-trace-name="@messages("feedback.graph.sent")"
-    data-received-trace-name="@messages("feedback.graph.received")"
-    >
-        <div class="card h-100">
-            <div class="m-auto">@messages("feedback.graph.loading")</div>
-        </div>
-    </div>
-
-    <div class="clearfix"></div>
-}
-
-
-@showSentReceivedDailyPerConversationGraphPlot(name: String) = {
-    <div style="padding-top: 20px;">
-        <h3 class="insights-title big-top" align="center">@String.format(messages("feedback.graph.testPlot"), name)</h3>
-    </div>
-
-    <div id="@{
-        name
-    }DailySentReceivedPerConversation" class="d-none"
-    data-x-axis="@messages("feedback.graph.time")"
-    data-y-axis="@messages("feedback.graph.number-of-messages")"
-    data-sent-trace-name="@messages("feedback.graph.sent")"
-    data-received-trace-name="@messages("feedback.graph.received")"
-    >
-        <div class="card h-100">
-            <div class="m-auto">@messages("feedback.graph.loading")</div>
-        </div>
-    </div>
-    <div class="control-row">
-        Conversation: <select class="@{name}ConversationsSentReceivedDaily">
-    </select>
-    </div>
-
+    <button class="btn btn-outline footer-forward-button text-center" data-toggle="modal" data-target="#sentReceivedModal">
+        More about sent/received</button>
     <div class="clearfix"></div>
 }
 
 @showDailyActivityTimes(name: String) = {
-    <div style="padding-top: 20px;">
-        <h3 class="insights-title big-top" align="center">@String.format(messages("feedback.graph.testPlot"), name)</h3>
-    </div>
+
+@showExplanationText("Daily Activity Plot", "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.")
+
 
     <div id="@{
         name
@@ -231,71 +111,40 @@
         </div>
     </div>
 
-    <div class="modal fade" id="dailyActivityModal"  role="dialog">
+    <div class="modal fade" id="dailyActivityModal" role="dialog">
     @dailyActivityPlotsModal(donorId, data)
     </div>
-    <button class="btn btn-outline footer-forward-button text-center" data-toggle="modal" data-target="#dailyActivityModal">More about daily activity times</button>
+    <button class="btn btn-outline footer-forward-button text-center" data-toggle="modal" data-target="#dailyActivityModal">
+        More about daily activity times</button>
 
     <div class="clearfix"></div>
 }
 
-@showDailyActivityTimesMean(name: String) = {
-    <div style="padding-top: 20px;">
-        <h3 class="insights-title big-top" align="center">@String.format(messages("feedback.graph.testPlot"), name)</h3>
-    </div>
-
-    <div id="@{
-        name
-    }DailyActivityTimesMean" class="d-none"
-    data-x-axis="@messages("feedback.graph.time")"
-    data-y-axis="@messages("feedback.graph.number-of-messages")"
-    data-sent-trace-name="@messages("feedback.graph.sent")"
-    data-received-trace-name="@messages("feedback.graph.received")"
-    >
-        <div class="card h-100">
-            <div class="m-auto">@messages("feedback.graph.loading")</div>
-        </div>
-    </div>
-
-    <div class="clearfix"></div>
-}
-
-
-@showDailySentTimesPerConversationGraphPlot(name: String) = {
-    <div style="padding-top: 20px;">
-        <h3 class="insights-title big-top" align="center">@String.format(messages("feedback.graph.testPlot"), name)</h3>
-    </div>
-
-    <div id="@{
-        name
-    }DailySentTimesPerConversation" class="d-none"
-    data-x-axis="@messages("feedback.graph.time")"
-    data-y-axis="@messages("feedback.graph.number-of-messages")"
-    data-sent-trace-name="@messages("feedback.graph.sent")"
-    data-received-trace-name="@messages("feedback.graph.received")"
-    >
-        <div class="card h-100">
-            <div class="m-auto">@messages("feedback.graph.loading")</div>
-        </div>
-    </div>
-    <div class="control-row">
-        Conversation: <select class="@{name}ConversationsDailySentTimes">
-    </select>
-    </div>
-
-    <div class="clearfix"></div>
-}
 
 
 @showResponseTimePlot(name: String) = {
-    <div style="padding-top: 20px;">
-        <h3 class="insights-title big-top" align="center">@String.format(messages("feedback.graph.response-times"), name)</h3>
-    </div>
+@showExplanationText("Response Time Plot", "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.")
+
 
     <div id="@{
         name
     }ResponseTimePlot"></div>
     <div class="clearfix"></div>
+}
+
+@showExplanationText(title: String, body: String) = {
+    <div class="top">
+        <h4 class="text-center font-weight-bold insights-header">@title</h4>
+    </div>
+    <div class="card-deck feedback-stats-deck">
+
+        <div class="card top feedback-stats-card">
+            <p class="insights-text text-center">
+            @body
+            </p>
+        </div>
+
+    </div>
 }
 
 

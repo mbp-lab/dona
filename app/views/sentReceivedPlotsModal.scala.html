@@ -14,17 +14,20 @@
             <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
+
             @for((dataSource, GraphData(_, _, _, _, _, _, _, _, _, averageMessageNumber, _)) <- data) {
-                <div id="@{
-                    dataSource.toString
-                }ModalContainer">
+                <div
+                id="@{dataSource.toString}ModalContainer"
+                >
                     @showSentReceivedPlot(dataSource)
                     @showSentReceivedOverallGraphPlot(dataSource)
-                    @showSentReceivedSevenDayAveragesGraphPlot(dataSource)
+                    @showSentReceivedSlidingWindowMeanGraphPlot(dataSource)
                     @showSentReceivedWordsGraphPlot(dataSource)
                     @showSentReceivedDailyPerConversationGraphPlot(dataSource)
                 </div>
             }
+
+
 
         <div class="d-flex justify-content-end align-items-center">
             <button type="button" class="btn footer-backward-button consent-button" data-dismiss="modal">@messages("consent.buttons.close.caption")</button>
@@ -33,10 +36,23 @@
         </div>
     </div>
 
-    @showSentReceivedPlot(name: String) = {
-        <div style="padding-top: 20px;">
-            <h3 class="insights-title big-top" align="center">@String.format(messages("feedback.graph.messages-over-time"), name)</h3>
+    @showExplanationText(title: String, body: String) = {
+        <div class="top">
+            <h4 class="text-center font-weight-bold insights-header">@title</h4>
         </div>
+        <div class="card-deck feedback-stats-deck">
+
+            <div class="card top feedback-stats-card">
+                <p class="insights-text text-center">
+                @body
+                </p>
+            </div>
+
+        </div>
+    }
+
+    @showSentReceivedPlot(name: String) = {
+    @showExplanationText("Monthly Sent Received Messages", "This was one of the two plots already implemented in Dona. (As I will focus on sent/received words rather than messages -> maybe remove this? Or keep it?)")
         <div id="@{
             name.toString
         }MessagesOverTime" class="d-none"
@@ -53,9 +69,7 @@
     }
 
     @showSentReceivedOverallGraphPlot(name: String) = {
-        <div style="padding-top: 20px;">
-            <h3 class="insights-title big-top" align="center">@String.format(messages("feedback.graph.testPlot"), name)</h3>
-        </div>
+    @showExplanationText("Daily Sent Received Messages", "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.")
 
         <div id="@{
             name
@@ -73,10 +87,8 @@
         <div class="clearfix"></div>
     }
 
-    @showSentReceivedSevenDayAveragesGraphPlot(name: String) = {
-        <div style="padding-top: 20px;">
-            <h3 class="insights-title big-top" align="center">@String.format(messages("feedback.graph.testPlot"), name)</h3>
-        </div>
+    @showSentReceivedSlidingWindowMeanGraphPlot(name: String) = {
+    @showExplanationText("Daily Sent Received Messages Sliding Window Mean", "Calculating the sliding window mean (window size 29 days) for sent/received messages. THIS MIGHT BE BROKEN RIGHT NOW!")
 
         <div id="@{
             name
@@ -95,9 +107,8 @@
     }
 
     @showSentReceivedWordsGraphPlot(name: String) = {
-        <div style="padding-top: 20px;">
-            <h3 class="insights-title big-top" align="center">@String.format(messages("feedback.graph.testPlot"), name)</h3>
-        </div>
+    @showExplanationText("Daily Sent Received Words", "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.")
+
 
         <div id="@{
             name
@@ -117,9 +128,8 @@
 
 
     @showSentReceivedDailyPerConversationGraphPlot(name: String) = {
-        <div style="padding-top: 20px;">
-            <h3 class="insights-title big-top" align="center">@String.format(messages("feedback.graph.testPlot"), name)</h3>
-        </div>
+    @showExplanationText("Daily Sent Received Messages (with conversation selector)", "TODO: Implement selector with plotly.js instead of html... also change to count of words instead of messages... maybe make one plot with options: Total, conv1, conv2, ...")
+
 
         <div id="@{
             name

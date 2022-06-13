@@ -3,7 +3,7 @@ var sentReceived = require('./analysis_plot/sentReceived');
 var sentReceivedDaily = require('./analysis_plot/sentReceivedDaily');
 var sentReceivedDailyPerConversation = require('./analysis_plot/sentReceivedDailyPerConversation')
 var dailyActivityTimesPerConversation = require('./analysis_plot/dailyActivityTimesPerConversation')
-var sentReceivedSevenDayAverages = require('./analysis_plot/sentReceivedSevenDayAverages')
+var sentReceivedSlidingWindowMean = require('./analysis_plot/sentReceivedSlidingWindowMean')
 var dailyActivityTimes = require('./analysis_plot/dailyActivityTimes')
 var dailyActivityTimesMean = require('./analysis_plot/dailyActivityTimesMean')
 var polarPlot = require('./analysis_plot/polarPlot')
@@ -19,7 +19,7 @@ $(document).ready(function () {
         sentReceived(graphData.sentReceived, `${dataSourceType}MessagesOverTime`);
         sentReceivedDaily(graphData.dailySentReceived, `${dataSourceType}SentReceivedOverall`);
         sentReceivedDaily(graphData.dailyWordsSentReceived, `${dataSourceType}WordsSentReceivedOverall`);
-        sentReceivedSevenDayAverages(graphData.dailySentReceived, `${dataSourceType}SentReceivedSevenDayAverages`);
+        sentReceivedSlidingWindowMean(graphData.dailySentReceived, `${dataSourceType}SentReceivedSevenDayAverages`);
         sentReceivedDailyPerConversation(
             graphData.dailySentReceivedPerConversation,
             `${dataSourceType}DailySentReceivedPerConversation`,

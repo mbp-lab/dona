@@ -1,7 +1,7 @@
 var sortGraphDataPoints = require('./utils/sortGraphDataPointsTimeWise');
 const formInputDataForMessagesPlot = require("./utils/formInputDataForMessagesPlot");
 
-function sentReceivedSevenDayAverages(dataTotal, plotId) {
+function sentReceivedSlidingWindowMean(dataTotal, plotId) {
 
     // the area under the curves could be filled with bar charts,
     // that show for each day what each conversation is adding to the resulting total
@@ -14,20 +14,39 @@ function sentReceivedSevenDayAverages(dataTotal, plotId) {
     const received = plotContainer.attr("data-received-trace-name");
 
     const layout = {
-        /*
-        legend: {
-            x: -.1,
-            y: 1.2
-        },
-
-         */
         xaxis: {
             title: xAxis,
-            tickangle: 45
+            tickangle: 45,
+            color: "white",
+            showgrid: false
         },
         yaxis: {
-            title: yAxis
+            title: yAxis,
+            color: "white",
+            showgrid: false
         },
+        legend: {
+            bgcolor: "#13223C",
+            font: {color: "white"},
+            x: 1.01,
+            y: 1.16,
+        },
+        images: [
+            {
+                source: backGroundImages["horizontalBarChartBackground"],
+                xref: "paper",
+                yref: "paper",
+                x: 0.5,
+                y: 0.5,
+                sizex: 1.5,
+                sizey: 1.5,
+                xanchor: "center",
+                yanchor: "middle",
+                sizing: "fill",
+                opacity: 1,
+                layer: "below"
+            }
+        ]
     };
 
 
@@ -55,16 +74,16 @@ function sentReceivedSevenDayAverages(dataTotal, plotId) {
                 x: plotInputData.xAxis,
                 y: getXDayMeanData(plotInputData.yAxisSentMessages, 29),
                 mode: 'lines+markers',
-                name: sent + " x Day Mean",
-                marker: { size: 4 }
+                name: sent,
+                marker: { size: 4, color: "white" }
             };
 
             const receivedMessagesTrace = {
                 x: plotInputData.xAxis,
                 y: getXDayMeanData(plotInputData.yAxisReceivedMessages, 29),
                 mode: 'lines+markers',
-                name: received + " x Day Mean",
-                marker: { size: 4 }
+                name: received,
+                marker: { size: 4, color: "orange" }
             };
 
 
@@ -78,5 +97,5 @@ function sentReceivedSevenDayAverages(dataTotal, plotId) {
 
 }
 
-module.exports = sentReceivedSevenDayAverages;
+module.exports = sentReceivedSlidingWindowMean;
 

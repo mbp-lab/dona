@@ -12,20 +12,39 @@ function sentReceivedDaily(data, plotId) {
     const received = plotContainer.attr("data-received-trace-name");
 
     const layout = {
-        /*
-        legend: {
-            x: -.1,
-            y: 1.2
-        },
-
-         */
         xaxis: {
             title: xAxis,
-            tickangle: 45
+            tickangle: 45,
+            color: "white",
+            showgrid: false
         },
         yaxis: {
-            title: yAxis
+            title: yAxis,
+            color: "white",
+            showgrid: false
         },
+        legend: {
+            bgcolor: "#13223C",
+            font: {color: "white"},
+            x: 1.01,
+            y: 1.16,
+        },
+        images: [
+            {
+                source: backGroundImages["horizontalBarChartBackground"],
+                xref: "paper",
+                yref: "paper",
+                x: 0.5,
+                y: 0.5,
+                sizex: 1.5,
+                sizey: 1.5,
+                xanchor: "center",
+                yanchor: "middle",
+                sizing: "fill",
+                opacity: 1,
+                layer: "below"
+            }
+        ]
     };
 
     sortGraphDataPoints(data, true, false)
@@ -38,7 +57,7 @@ function sentReceivedDaily(data, plotId) {
                 y: plotInputData.yAxisSentMessages,
                 mode: 'lines+markers',
                 name: sent,
-                marker: { size: 4 }
+                marker: { size: 4, color: "white" }
             };
 
             const receivedMessagesTrace = {
@@ -46,7 +65,7 @@ function sentReceivedDaily(data, plotId) {
                 y: plotInputData.yAxisReceivedMessages,
                 mode: 'lines+markers',
                 name: received,
-                marker: { size: 4 }
+                marker: { size: 4, color: "orange" }
             };
 
             const data = [sentMessagesTrace, receivedMessagesTrace];

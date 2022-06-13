@@ -10,6 +10,7 @@ function sentReceived(data, plotId) {
     const sent = plotContainer.attr("data-sent-trace-name");
     const received = plotContainer.attr("data-received-trace-name");
     const layout = {
+        autosize: true,
         legend: {
             x: -.1,
             y: 1.2
