@@ -21,6 +21,14 @@ The following need to be set up in the environment to run the application
 Below is detailed how these variables can be easily set depending on the
 environemnt you are running in. 
 
+### the .env-file
+
+`APPLICATION_SECRET`, `DATABASE_USER` and `DATABASE_PASSWORD` do not directly get assigned a value in docker-compose.yml because
+we do not want to publish secret information in the remote repository. Thats why you have to create a file called ".env"
+in your local project-root-directory which sets those environment variables, which in turn are referenced in
+docker-compose.yml. You can find a template called ".env.example" in the remote repository. Just change the values as
+you like (passwords should be strong for production), rename it to ".env" and copy it into your local project-root-directory.
+
 ### Docker (easy start to see things running) 
 Dona is packaged in a docker container and has a dependency on 
 postgreSQL. 
