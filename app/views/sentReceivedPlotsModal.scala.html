@@ -5,9 +5,9 @@
 @import models.domain.DataSourceDescription
 @import models.domain.DonationDataSourceType.DonationDataSourceType
 
-@(dataSource: String)(implicit request: RequestHeader, messages: Messages)
+@(dataSource: String, data: Map[String, GraphData])(implicit request: RequestHeader, messages: Messages)
 
-<div class="modal-dialog modal-lg">
+<div class="modal-dialog modal-xl">
     <div class="modal-content">
         <div class="modal-header bgmain">
             <h3 class="data-protection-headline">More... Blue background good or distracting?</h3>
@@ -19,12 +19,13 @@
             id="@{
                 dataSource.toString
             }ModalContainer"
+                style="width: 100%"
             >
                 @showSentReceivedPlot(dataSource)
-                @showSentReceivedOverallGraphPlot(dataSource)
+                @* @showSentReceivedOverallGraphPlot(dataSource) *@
+                @showSentReceivedDailyPerConversationGraphPlot(dataSource)
                 @showSentReceivedSlidingWindowMeanGraphPlot(dataSource)
                 @showSentReceivedWordsGraphPlot(dataSource)
-                @showSentReceivedDailyPerConversationGraphPlot(dataSource)
             </div>
 
 
@@ -34,6 +35,7 @@
             </div>
         </div>
     </div>
+
 
     @showExplanationText(title: String, body: String) = {
         <div class="top">

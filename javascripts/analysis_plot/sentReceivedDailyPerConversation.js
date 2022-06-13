@@ -3,7 +3,7 @@ const formInputDataForMessagesPlot = require("./utils/formInputDataForMessagesPl
 
 
 
-function sentReceivedDailyPerConversation(data, plotId, selectorID, conversationsFriends) {
+function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plotId, selectorID, conversationsFriends) {
 
     const plotContainer = $(`#${plotId}`)
     plotContainer.removeClass('d-none');
@@ -13,11 +13,13 @@ function sentReceivedDailyPerConversation(data, plotId, selectorID, conversation
     const received = plotContainer.attr("data-received-trace-name");
 
     const layout = {
+        //width: 1100, this could work.. but badly
         xaxis: {
             title: xAxis,
             tickangle: 45,
+            tickformat: '%d-%m-%Y',
             color: "white",
-            showgrid: false
+            showgrid: false,
         },
         yaxis: {
             title: yAxis,
@@ -56,7 +58,14 @@ function sentReceivedDailyPerConversation(data, plotId, selectorID, conversation
     }
 
     let plot = (conversationIndex) => {
-        sortGraphDataPoints(data[conversationIndex], true, false)
+        let dataToShow;
+        if (conversationIndex == 0) {
+            dataToShow = dataOverall
+        } else {
+            dataToShow = dataPerConversation[conversationIndex-1]
+        }
+
+        sortGraphDataPoints(dataToShow, true, false)
             .then((sortedDataPoints) => {
                 return formInputDataForMessagesPlot(sortedDataPoints, true);
             })
@@ -65,7 +74,7 @@ function sentReceivedDailyPerConversation(data, plotId, selectorID, conversation
                     x: plotInputData.xAxis,
                     y: plotInputData.yAxisSentMessages,
                     mode: 'lines+markers',
-                    name: sent,
+                    name: "sent words",
                     marker: { size: 4, color: "white" }
                 };
 
@@ -73,7 +82,7 @@ function sentReceivedDailyPerConversation(data, plotId, selectorID, conversation
                     x: plotInputData.xAxis,
                     y: getMeanData(plotInputData.yAxisSentMessages),
                     mode: 'lines',
-                    name: sent,
+                    name: "mean of sent messages", // internationalize !
                     visible: 'legendonly'
                 };
 
@@ -81,7 +90,7 @@ function sentReceivedDailyPerConversation(data, plotId, selectorID, conversation
                     x: plotInputData.xAxis,
                     y: plotInputData.yAxisReceivedMessages,
                     mode: 'lines+markers',
-                    name: received,
+                    name: "received words",
                     marker: { size: 4, color: "orange" }
                 };
 
@@ -89,7 +98,7 @@ function sentReceivedDailyPerConversation(data, plotId, selectorID, conversation
                     x: plotInputData.xAxis,
                     y: getMeanData(plotInputData.yAxisReceivedMessages),
                     mode: 'lines',
-                    name: received,
+                    name: "mean of received words",
                     visible: 'legendonly'
                 };
 
@@ -105,7 +114,8 @@ function sentReceivedDailyPerConversation(data, plotId, selectorID, conversation
     plot(0)
 
     let listOfConversations = []
-    for (let i = 0; i < data.length; i++) {
+    listOfConversations.push("Overall/Everything")
+    for (let i = 0; i < dataPerConversation.length; i++) {
         listOfConversations.push("Conversation with " + conversationsFriends[i].filter((participant) => participant !== "donor"))
     }
 

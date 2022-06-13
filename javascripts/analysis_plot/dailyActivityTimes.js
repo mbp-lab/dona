@@ -113,7 +113,6 @@ function dailyActivityTimes(dataSent, dataReceived, plotId) {
                 startRange += year + "-" + month + "-" + date
 
                 layout.xaxis.range = [startRange, trace1.x[trace1.x.length - 1]]
-                console.log(layout.xaxis.range)
 
                 layout.xaxis.rangeselector = {
                     buttons: [

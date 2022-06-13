@@ -2,7 +2,18 @@ function formInputDataForMessagesPlot(sortedGraphDataPoints, hasDate) {
     let x;
     if (hasDate) {
         x = sortedGraphDataPoints.map(point => {
-            return point.date + "-" + point.month + "-" + point.year;
+            //return point.date + "-" + point.month + "-" + point.year;
+            let year = point.year
+            let month = point.month
+            let date = point.date
+
+            if (month < 10) {
+                month = "0" + month
+            }
+            if (date < 10) {
+                date = "0" + date
+            }
+            return year + "-" + month + "-" + date
         });
     } else {
         x = sortedGraphDataPoints.map(point => {

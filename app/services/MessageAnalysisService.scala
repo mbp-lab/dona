@@ -269,7 +269,8 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
       .reverse
   }
 
-
+  // calculates sent and received words for a conversation
+  // -> so map this over all conversations
   private def produceDailyMessageGraphDataPerConversation(
                                             donorId: String,
                                             conversation: Conversation
@@ -282,8 +283,8 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
             val mapKey = TimeFrameWithDays(timestamp.getYear, timestamp.getMonth, timestamp.getDayOfMonth)
             val (oldSent, oldReceived) = map.getOrElse(mapKey, (0, 0))
             val newValue = message.sender match {
-              case Some(sender) if sender == donorId => (oldSent + 1, oldReceived)
-              case _                                 => (oldSent, oldReceived + 1)
+              case Some(sender) if sender == donorId => (oldSent + message.wordCount, oldReceived)
+              case _                                 => (oldSent, oldReceived + message.wordCount)
             }
             map.updated(mapKey, newValue)
         }

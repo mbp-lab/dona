@@ -15,6 +15,7 @@ function sentReceivedDaily(data, plotId) {
         xaxis: {
             title: xAxis,
             tickangle: 45,
+            tickformat: '%d-%m-%Y',
             color: "white",
             showgrid: false
         },
