@@ -2,8 +2,7 @@ var sortGraphDataPoints = require('./utils/sortGraphDataPointsTimeWise');
 const formInputDataForMessagesPlot = require("./utils/formInputDataForMessagesPlot");
 
 
-
-function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plotId, selectorID, conversationsFriends) {
+function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plotId, conversationsFriends) {
 
     const plotContainer = $(`#${plotId}`)
     plotContainer.removeClass('d-none');
@@ -13,16 +12,15 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
     const received = plotContainer.attr("data-received-trace-name");
 
     const layout = {
-        //width: 1100, this could work.. but badly
+        hovermode: "closest",
         xaxis: {
-            title: xAxis,
             tickangle: 45,
             tickformat: '%d-%m-%Y',
             color: "white",
             showgrid: false,
         },
         yaxis: {
-            title: yAxis,
+            title: "Words",
             color: "white",
             showgrid: false
         },
@@ -57,90 +55,172 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
         return y.map((entry) => mean)
     }
 
-    let plot = (conversationIndex) => {
-        let dataToShow;
-        if (conversationIndex == 0) {
-            dataToShow = dataOverall
-        } else {
-            dataToShow = dataPerConversation[conversationIndex-1]
-        }
-
-        sortGraphDataPoints(dataToShow, true, false)
-            .then((sortedDataPoints) => {
-                return formInputDataForMessagesPlot(sortedDataPoints, true);
-            })
-            .then((plotInputData) => {
-                const sentMessagesTrace = {
-                    x: plotInputData.xAxis,
-                    y: plotInputData.yAxisSentMessages,
-                    mode: 'lines+markers',
-                    name: "sent words",
-                    marker: { size: 4, color: "white" }
-                };
-
-                const meanSentMessagesTrace = {
-                    x: plotInputData.xAxis,
-                    y: getMeanData(plotInputData.yAxisSentMessages),
-                    mode: 'lines',
-                    name: "mean of sent messages", // internationalize !
-                    visible: 'legendonly'
-                };
-
-                const receivedMessagesTrace = {
-                    x: plotInputData.xAxis,
-                    y: plotInputData.yAxisReceivedMessages,
-                    mode: 'lines+markers',
-                    name: "received words",
-                    marker: { size: 4, color: "orange" }
-                };
-
-                const meanReceivedMessagesTrace = {
-                    x: plotInputData.xAxis,
-                    y: getMeanData(plotInputData.yAxisReceivedMessages),
-                    mode: 'lines',
-                    name: "mean of received words",
-                    visible: 'legendonly'
-                };
-
-                const data = [sentMessagesTrace, receivedMessagesTrace, meanSentMessagesTrace, meanReceivedMessagesTrace];
-                plotContainer.html("");
-                Plotly.newPlot(plotId, data, layout, { responsive: true });
-
-            })
-            .catch((err) => console.log(err))
-    }
-
-    // plot default
-    plot(0)
-
     let listOfConversations = []
     listOfConversations.push("Overall/Everything")
     for (let i = 0; i < dataPerConversation.length; i++) {
         listOfConversations.push("Conversation with " + conversationsFriends[i].filter((participant) => participant !== "donor"))
     }
 
-    let conversationSelector = document.querySelector(selectorID)
 
-    let assignOptions = (options, selector) => {
-        for (var i = 0; i < options.length;  i++) {
-            var currentOption = document.createElement('option');
-            currentOption.text = options[i];
-            currentOption.value = i;
-            selector.appendChild(currentOption);
+    let makeTraces = () => {
+
+        // combine all options (overall data and every single conversation)
+        let allDataOptions = [dataOverall, ...dataPerConversation]
+
+        // initialize updatemenus
+        layout["updatemenus"] = [{
+            active: 0,
+            buttons: [],
+            pad: {'r': 10, 't': 10},
+            x: 0.05,
+            xanchor: 'left',
+            y: 1.25,
+            yanchor: 'top'
+        }]
+
+
+        let traces = []
+        for (let i = 0; i < allDataOptions.length; i++) {
+
+            //make visibility true/false array for this button option
+            let visibilityBooleans = []
+            let numberTracesEach = 2
+            for (let j = 0; j < allDataOptions.length * numberTracesEach; j++) {
+                if (j >= numberTracesEach * i && j < numberTracesEach * (i + 1)) {
+                    visibilityBooleans.push(true)
+                } else {
+                    visibilityBooleans.push(false)
+                }
+            }
+
+
+            // add menu for this conversation
+            layout["updatemenus"][0]["buttons"].push({
+                method: 'restyle',
+                args: ['visible', visibilityBooleans],
+                label: listOfConversations[i]
+            })
+
+            let dataToShow = allDataOptions[i]
+
+            // sort data
+            let sortedData = dataToShow.sort(function (current, next) {
+                return new Date(current.year, current.month, current.date) - new Date(next.year, next.month, next.date)
+            });
+
+            // format data to needed format
+            let x;
+            x = sortedData.map(point => {
+                //return point.date + "-" + point.month + "-" + point.year;
+                let year = point.year
+                let month = point.month
+                let date = point.date
+
+                if (month < 10) {
+                    month = "0" + month
+                }
+                if (date < 10) {
+                    date = "0" + date
+                }
+                return year + "-" + month + "-" + date
+            });
+
+            const ySentMessages = sortedData.map(point => point.sentCount);
+            const yReceivedMessages = sortedData.map(point => point.receivedCount);
+            const plotInputData = {
+                xAxis: x,
+                yAxisSentMessages: ySentMessages,
+                yAxisReceivedMessages: yReceivedMessages
+            }
+
+
+            const sentMessagesTrace = {
+                x: plotInputData.xAxis,
+                y: plotInputData.yAxisSentMessages,
+                mode: 'lines+markers',
+                name: "sent words",
+                marker: {size: 4, color: "white"},
+                visible: i === 0,
+            };
+
+            /*
+                                    const meanSentMessagesTrace = {
+                                        x: plotInputData.xAxis,
+                                        y: getMeanData(plotInputData.yAxisSentMessages),
+                                        mode: 'lines',
+                                        //name: "mean of sent messages", // internationalize !
+                                        //visible: 'legendonly',
+                                        visible: i === 0,
+                                    };
+
+             */
+
+
+            const receivedMessagesTrace = {
+                x: plotInputData.xAxis,
+                y: plotInputData.yAxisReceivedMessages,
+                mode: 'lines+markers',
+                name: "received words",
+                marker: {size: 4, color: "orange"},
+                visible: i === 0,
+            };
+
+            /*
+                                    const meanReceivedMessagesTrace = {
+                                        x: plotInputData.xAxis,
+                                        y: getMeanData(plotInputData.yAxisReceivedMessages),
+                                        mode: 'lines',
+                                        //name: "mean of received words",
+                                        //visible: 'legendonly',
+                                        visible: i === 0,
+                                    };
+
+             */
+
+
+            traces.push(sentMessagesTrace, receivedMessagesTrace)//, meanSentMessagesTrace, meanReceivedMessagesTrace)
+
         }
+        return traces
+
     }
 
-    assignOptions(listOfConversations, conversationSelector)
 
-    let updateConversation = () => {
-        plot(conversationSelector.value)
-        Plotly.relayout(plotId, {
-            'xaxis.autorange': true,
-            'yaxis.autorange': true
-        })
+    let resultTraces = makeTraces()
+
+    layout.xaxis.range = [resultTraces[0].x[0], resultTraces[0].x[resultTraces[0].x.length - 1]]
+
+    /*
+    layout.xaxis.rangeselector = {
+        buttons: [
+            {
+                count: 1,
+                label: '1m',
+                step: 'month',
+                stepmode: 'backward',
+                active: true
+            },
+            {
+                count: 6,
+                label: '6m',
+                step: 'month',
+                stepmode: 'backward',
+            },
+            {
+                step: 'all',
+                active: false,
+            },
+        ]
     }
 
-    conversationSelector.addEventListener('change', updateConversation, false)
+     */
+
+    layout.xaxis.rangeslider = {}
+    layout.height = 700
+
+    plotContainer.html("");
+    Plotly.newPlot(plotId, resultTraces, layout, {responsive: true});
+
 
 
 }

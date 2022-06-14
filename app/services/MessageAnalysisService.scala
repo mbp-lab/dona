@@ -27,7 +27,7 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
         val dailyMessageGraphData = produceDailyMessageGraphData(socialData.donorId, conversations)
         val dailyWordsGraphData = produceDailyWordsGraphData(socialData.donorId, conversations)
         // this here might be redundant... rather only do smallest and then reassemble in javascript? e.g. per conversation could be easily added up to overall daily
-        val dailyMessageGraphDataPerConversation = conversations.map(conversation => produceDailyMessageGraphDataPerConversation(socialData.donorId, conversation))
+        val dailyWordsGraphDataPerConversation = conversations.map(conversation => produceDailyWordsGraphDataPerConversation(socialData.donorId, conversation))
         //val dailySentHourMinutesPerConversation = conversations.map(conversation => produceDailyHourMinutesPerConversation(socialData.donorId, conversation, true))
         //val dailyReceivedHourMinutesPerConversation = conversations.map(conversation => produceDailyHourMinutesPerConversation(socialData.donorId, conversation, false))
         val dailySentHoursPerConversation = conversations.map(conversation => produceDailyHoursPerConversation(socialData.donorId, conversation, true))
@@ -49,7 +49,7 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
           sentPerFriendPerMonth,
           dailyMessageGraphData,
           dailyWordsGraphData,
-          dailyMessageGraphDataPerConversation,
+          dailyWordsGraphDataPerConversation,
           dailySentHoursPerConversation,
           dailyReceivedHoursPerConversation,
           answerTimes,
@@ -271,7 +271,7 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
 
   // calculates sent and received words for a conversation
   // -> so map this over all conversations
-  private def produceDailyMessageGraphDataPerConversation(
+  private def produceDailyWordsGraphDataPerConversation(
                                             donorId: String,
                                             conversation: Conversation
                                           ): List[DailySentReceivedPoint] = {

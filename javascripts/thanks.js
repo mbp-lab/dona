@@ -28,10 +28,9 @@ $(document).ready(function () {
             sentReceivedSlidingWindowMean(graphData.dailySentReceived, `${dataSourceType}SentReceivedSevenDayAverages`);
 
             sentReceivedDailyPerConversation(
-                graphData.dailySentReceived,
+                graphData.dailyWordsSentReceived,
                 graphData.dailySentReceivedPerConversation,
                 `${dataSourceType}DailySentReceivedPerConversation`,
-                `.${dataSourceType}ConversationsSentReceivedDaily`,
                 graphData.conversationsFriends
             )
         })
