@@ -1,5 +1,7 @@
 var sortGraphDataPoints = require('./utils/sortGraphDataPointsTimeWise');
 const formInputDataForMessagesPlot = require("./utils/formInputDataForMessagesPlot");
+const sortGraphDataPointsSync = require("./utils/sortGraphDataPointsSync");
+const formInputDataForWordsPlotSync = require("./utils/formInputDataForWordsPlotSync");
 
 
 function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plotId, conversationsFriends) {
@@ -104,34 +106,10 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
             let dataToShow = allDataOptions[i]
 
             // sort data
-            let sortedData = dataToShow.sort(function (current, next) {
-                return new Date(current.year, current.month, current.date) - new Date(next.year, next.month, next.date)
-            });
+            let sortedData = sortGraphDataPointsSync(dataToShow, true, false);
 
             // format data to needed format
-            let x;
-            x = sortedData.map(point => {
-                //return point.date + "-" + point.month + "-" + point.year;
-                let year = point.year
-                let month = point.month
-                let date = point.date
-
-                if (month < 10) {
-                    month = "0" + month
-                }
-                if (date < 10) {
-                    date = "0" + date
-                }
-                return year + "-" + month + "-" + date
-            });
-
-            const ySentMessages = sortedData.map(point => point.sentCount);
-            const yReceivedMessages = sortedData.map(point => point.receivedCount);
-            const plotInputData = {
-                xAxis: x,
-                yAxisSentMessages: ySentMessages,
-                yAxisReceivedMessages: yReceivedMessages
-            }
+            let plotInputData = formInputDataForWordsPlotSync(sortedData, true)
 
 
             const sentMessagesTrace = {
@@ -143,7 +121,7 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
                 visible: i === 0,
             };
 
-            /*
+            /* meanTrace?
                                     const meanSentMessagesTrace = {
                                         x: plotInputData.xAxis,
                                         y: getMeanData(plotInputData.yAxisSentMessages),
@@ -165,7 +143,7 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
                 visible: i === 0,
             };
 
-            /*
+            /* meanTrace?
                                     const meanReceivedMessagesTrace = {
                                         x: plotInputData.xAxis,
                                         y: getMeanData(plotInputData.yAxisReceivedMessages),

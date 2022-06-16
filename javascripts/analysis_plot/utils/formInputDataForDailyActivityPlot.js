@@ -17,7 +17,6 @@ function formInputDataForDailyActivityPlot(sortedGraphDataPoints) {
     });
 
 
-
     const yTimes = sortedGraphDataPoints.map(point => {
         let hour = point.hour
         //let minute = point.hour
@@ -36,13 +35,11 @@ function formInputDataForDailyActivityPlot(sortedGraphDataPoints) {
     });
 
 
-    return new Promise((resolve) => {
-        const plotInputData = {
-            xAxis: x,
-            yAxis: yTimes
-        }
-        resolve(plotInputData);
-    });
+    return {
+        xAxis: x,
+        yAxis: yTimes
+    }
+
 };
 
 

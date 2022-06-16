@@ -16,7 +16,7 @@ $(document).ready(function () {
         console.log(graphData)
         polarPlot(graphData.sentPerFriendPerMonth, graphData.conversationsFriends, `${dataSourceType}PolarPlot`);
         animatedHorizontalBarChart(graphData.sentPerFriendPerMonth, graphData.conversationsFriends, graphData.sentReceivedWords,`${dataSourceType}AnimatedHorizontalBarChart`);
-        dailyActivityTimes(graphData.dailySentHoursPerConversation, graphData.dailyReceivedHoursPerConversation, `${dataSourceType}DailyActivityTimes`);
+        dailyActivityTimes(graphData.dailySentHoursPerConversation, graphData.dailyReceivedHoursPerConversation, graphData.conversationsFriends, `${dataSourceType}DailyActivityTimes`);
         responseTime(graphData.responseTimes, `${dataSourceType}ResponseTimePlot`);
 
         // when modal is opened the first time, render plots...
@@ -37,13 +37,6 @@ $(document).ready(function () {
 
         $(`#${dataSourceType}dailyActivityModal`).on('shown.bs.modal', () => {
             dailyActivityTimesMean(graphData.dailySentHoursPerConversation, graphData.dailyReceivedHoursPerConversation, `${dataSourceType}DailyActivityTimesMean`);
-            dailyActivityTimesPerConversation(
-                graphData.dailySentHoursPerConversation,
-                graphData.dailyReceivedHoursPerConversation,
-                `${dataSourceType}DailySentTimesPerConversation`,
-                `.${dataSourceType}ConversationsDailySentTimes`,
-                graphData.conversationsFriends
-            )
         })
     })
 });

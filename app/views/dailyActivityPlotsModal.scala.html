@@ -21,7 +21,6 @@
             }ModalContainer"
             >
                 @showDailyActivityTimesMean(dataSource)
-                @showDailySentTimesPerConversationGraphPlot(dataSource)
             </div>
 
             <div class="d-flex justify-content-end align-items-center">
@@ -68,28 +67,4 @@
     }
 
 
-    @showDailySentTimesPerConversationGraphPlot(name: String) = {
-    @showExplanationText("Daily Activity Times Per Conversation", "This could be combined with the overall plot... like for sent/received")
-
-        <div id="@{
-            name
-        }DailySentTimesPerConversation" class="d-none"
-        data-x-axis="@messages("feedback.graph.time")"
-        data-y-axis="@messages("feedback.graph.number-of-messages")"
-        data-sent-trace-name="@messages("feedback.graph.sent")"
-        data-received-trace-name="@messages("feedback.graph.received")"
-        >
-            <div class="card h-100">
-                <div class="m-auto">@messages("feedback.graph.loading")</div>
-            </div>
-        </div>
-        <div class="control-row">
-            Conversation: <select class="@{
-            name
-        }ConversationsDailySentTimes">
-        </select>
-        </div>
-
-        <div class="clearfix"></div>
-    }
 </div>
