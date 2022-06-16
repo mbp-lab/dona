@@ -19,12 +19,14 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
             tickangle: 45,
             tickformat: '%d-%m-%Y',
             color: "white",
-            showgrid: false,
+            showgrid: true,
+            gridcolor: "grey"
         },
         yaxis: {
             title: "Words",
             color: "white",
-            showgrid: false
+            showgrid: true,
+            gridcolor: "grey"
         },
         legend: {
             bgcolor: "#13223C",
@@ -50,6 +52,8 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
         ]
     };
 
+
+
     let getMeanData = (y) => {
         let sum = 0;
         y.forEach((entry) => sum += entry)
@@ -62,7 +66,7 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
         resultArray = []
 
         for (let i = 0; i < y.length; i++) {
-            if (i+days <= y.length) {
+            if (i + days <= y.length) {
                 let sliced = y.slice(i, i + days)
                 sum = 0
                 sliced.forEach((entry) => sum += entry)
@@ -89,15 +93,17 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
         let allDataOptions = [dataOverall, ...dataPerConversation]
 
         // initialize updatemenus
-        layout["updatemenus"] = [{
-            active: 0,
-            buttons: [],
-            pad: {'r': 10, 't': 10},
-            x: 0.05,
-            xanchor: 'left',
-            y: 1.25,
-            yanchor: 'top'
-        }]
+        layout["updatemenus"] = [
+            {
+                active: 0,
+                buttons: [],
+                pad: {'r': 10, 't': 10},
+                x: 0.05,
+                xanchor: 'left',
+                y: 1.25,
+                yanchor: 'top'
+            }
+        ]
 
 
         let traces = []
@@ -194,6 +200,50 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
     layout.xaxis.range = [resultTraces[0].x[0], resultTraces[0].x[resultTraces[0].x.length - 1]]
 
     /*
+    let gridOnOff = (onOrOff) => {
+        return [{
+            xaxis: {
+                tickangle: 45,
+                tickformat: '%d-%m-%Y',
+                color: "white",
+                gridcolor: "grey",
+                showgrid: onOrOff,
+                range: [resultTraces[0].x[0], resultTraces[0].x[resultTraces[0].x.length - 1]]
+            },
+            yaxis: {
+                title: "Words",
+                color: "white",
+                gridcolor: "grey",
+                showgrid: onOrOff,
+            },
+        }]
+    }
+
+    layout.updatemenus.push(
+        {
+            buttons: [
+                {
+                    args: gridOnOff(false),
+                    label: 'Grid off',
+                    method: 'relayout',
+                },
+                {
+                    args: gridOnOff(true),
+                    label: 'Grid on',
+                    method: 'relayout'
+                }
+            ],
+            pad: {'r': 10, 't': 10},
+            x: -0.05,
+            xanchor: 'left',
+            y: 1.25,
+            yanchor: 'top'
+        }
+    )
+
+     */
+
+    /*
     layout.xaxis.rangeselector = {
         buttons: [
             {
@@ -223,7 +273,6 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
 
     plotContainer.html("");
     Plotly.newPlot(plotId, resultTraces, layout, {responsive: true});
-
 
 
 }

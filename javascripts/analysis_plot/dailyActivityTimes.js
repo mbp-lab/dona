@@ -27,15 +27,20 @@ function dailyActivityTimes(dataSent, dataReceived, conversationsFriends, plotId
             title: "Datum", //xAxis,
             tickangle: 45,
             tickformat: '%d-%m-%Y',
-            color: "white"
+            color: "white",
+            showgrid: true,
+            gridcolor: "grey"
         },
         yaxis: {
             title: "Uhrzeit", //yAxis,
             fixedrange: true,
+            // 2022-05-21 is hard coded, because it doesn't work as nicely with just hour:minute
             range: ['2022-05-21 00:00:00', '2022-05-21 23:59:59'],
             tickformat: '%H:%M',
             nticks: 12,
-            color: "white"
+            color: "white",
+            showgrid: true,
+            gridcolor: "grey"
         },
         images: [
             {
