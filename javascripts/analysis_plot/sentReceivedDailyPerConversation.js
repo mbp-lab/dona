@@ -4,7 +4,7 @@ const sortGraphDataPointsSync = require("./utils/sortGraphDataPointsSync");
 const formInputDataForWordsPlotSync = require("./utils/formInputDataForWordsPlotSync");
 
 
-function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plotId, conversationsFriends) {
+function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plotId, conversationsFriends, slidingWindowMean) {
 
     const plotContainer = $(`#${plotId}`)
     plotContainer.removeClass('d-none');
@@ -55,6 +55,25 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
         y.forEach((entry) => sum += entry)
         let mean = sum / y.length
         return y.map((entry) => mean)
+    }
+
+    let getXDayMeanData = (y, days) => {
+        let sum, mean;
+        resultArray = []
+
+        for (let i = 0; i < y.length; i++) {
+            if (i+days <= y.length) {
+                let sliced = y.slice(i, i + days)
+                sum = 0
+                sliced.forEach((entry) => sum += entry)
+                mean = sum / sliced.length
+                resultArray.push(mean)
+            } else {
+                return resultArray
+            }
+        }
+
+        return resultArray
     }
 
     let listOfConversations = []
@@ -110,6 +129,12 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
 
             // format data to needed format
             let plotInputData = formInputDataForWordsPlotSync(sortedData, true)
+
+            // if this is supposed to be a sliding window mean plot then change y to the mean values
+            if (slidingWindowMean) {
+                plotInputData.yAxisSentMessages = getXDayMeanData(plotInputData.yAxisSentMessages, 30)
+                plotInputData.yAxisReceivedMessages = getXDayMeanData(plotInputData.yAxisReceivedMessages, 30)
+            }
 
 
             const sentMessagesTrace = {

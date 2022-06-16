@@ -24,14 +24,23 @@ $(document).ready(function () {
         $(`#${dataSourceType}sentReceivedModal`).on('shown.bs.modal', () => {
             sentReceived(graphData.sentReceived, `${dataSourceType}MessagesOverTime`);
             //sentReceivedDaily(graphData.dailySentReceived, `${dataSourceType}SentReceivedOverall`);
-            sentReceivedDaily(graphData.dailyWordsSentReceived, `${dataSourceType}WordsSentReceivedOverall`);
-            sentReceivedSlidingWindowMean(graphData.dailySentReceived, `${dataSourceType}SentReceivedSevenDayAverages`);
+            //sentReceivedDaily(graphData.dailyWordsSentReceived, `${dataSourceType}WordsSentReceivedOverall`);
+            //sentReceivedSlidingWindowMean(graphData.dailyWordsSentReceived, graphData.dailySentReceivedPerConversation, graphData.conversationsFriends, `${dataSourceType}SentReceivedSlidingWindowMean`);
+
+            sentReceivedDailyPerConversation(
+                graphData.dailyWordsSentReceived,
+                graphData.dailySentReceivedPerConversation,
+                `${dataSourceType}SentReceivedSlidingWindowMean`,
+                graphData.conversationsFriends,
+                true
+            )
 
             sentReceivedDailyPerConversation(
                 graphData.dailyWordsSentReceived,
                 graphData.dailySentReceivedPerConversation,
                 `${dataSourceType}DailySentReceivedPerConversation`,
-                graphData.conversationsFriends
+                graphData.conversationsFriends,
+                false
             )
         })
 

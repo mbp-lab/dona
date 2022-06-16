@@ -22,10 +22,8 @@
                 style="width: 100%"
             >
                 @showSentReceivedPlot(dataSource)
-                @* @showSentReceivedOverallGraphPlot(dataSource) *@
-                @showSentReceivedDailyPerConversationGraphPlot(dataSource)
                 @showSentReceivedSlidingWindowMeanGraphPlot(dataSource)
-                @showSentReceivedWordsGraphPlot(dataSource)
+                @showSentReceivedDailyPerConversationGraphPlot(dataSource)
             </div>
 
 
@@ -69,51 +67,13 @@
         <div class="clearfix"></div>
     }
 
-    @showSentReceivedOverallGraphPlot(name: String) = {
-    @showExplanationText("Daily Sent Received Messages", "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.")
-
-        <div id="@{
-            name
-        }SentReceivedOverall" class="d-none"
-        data-x-axis="@messages("feedback.graph.time")"
-        data-y-axis="@messages("feedback.graph.number-of-messages")"
-        data-sent-trace-name="@messages("feedback.graph.sent")"
-        data-received-trace-name="@messages("feedback.graph.received")"
-        >
-            <div class="card h-100">
-                <div class="m-auto">@messages("feedback.graph.loading")</div>
-            </div>
-        </div>
-
-        <div class="clearfix"></div>
-    }
 
     @showSentReceivedSlidingWindowMeanGraphPlot(name: String) = {
-    @showExplanationText("Daily Sent Received Messages Sliding Window Mean", "Calculating the sliding window mean (window size 29 days) for sent/received messages. THIS MIGHT BE BROKEN RIGHT NOW!")
+    @showExplanationText("Sliding Window Mean: Daily Sent Received Words", "Calculating the sliding window mean (window size 30 days) for sent/received messages.")
 
         <div id="@{
             name
-        }SentReceivedSevenDayAverages" class="d-none"
-        data-x-axis="@messages("feedback.graph.time")"
-        data-y-axis="@messages("feedback.graph.number-of-messages")"
-        data-sent-trace-name="@messages("feedback.graph.sent")"
-        data-received-trace-name="@messages("feedback.graph.received")"
-        >
-            <div class="card h-100">
-                <div class="m-auto">@messages("feedback.graph.loading")</div>
-            </div>
-        </div>
-
-        <div class="clearfix"></div>
-    }
-
-    @showSentReceivedWordsGraphPlot(name: String) = {
-    @showExplanationText("Daily Sent Received Words", "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.")
-
-
-        <div id="@{
-            name
-        }WordsSentReceivedOverall" class="d-none"
+        }SentReceivedSlidingWindowMean" class="d-none"
         data-x-axis="@messages("feedback.graph.time")"
         data-y-axis="@messages("feedback.graph.number-of-messages")"
         data-sent-trace-name="@messages("feedback.graph.sent")"
