@@ -177,23 +177,21 @@ function dailyActivityTimes(dataSent, dataReceived, conversationsFriends, plotId
     layout.xaxis.range = [startRange, resultTraces[0].x[resultTraces[0].x.length - 1]]
 
     layout.xaxis.rangeselector = {
+        x: -0.1,
+        y: 1.16,
         buttons: [
             {
                 count: 1,
                 label: '1m',
                 step: 'month',
-                stepmode: 'backward',
+                stepmode: 'todate',
                 active: true
             },
             {
                 count: 6,
                 label: '6m',
                 step: 'month',
-                stepmode: 'backward',
-            },
-            {
-                step: 'all',
-                active: false,
+                stepmode: 'todate',
             },
         ]
     }
@@ -204,103 +202,6 @@ function dailyActivityTimes(dataSent, dataReceived, conversationsFriends, plotId
     plotContainer.html("");
     Plotly.newPlot(plotId, resultTraces, layout, {responsive: true});
 
-    /*
-            sortGraphDataPoints(dataSent.flat(), true, true)
-                .then((sortedDataPoints) => {
-                    return formInputDataForDailyActivityPlot(sortedDataPoints);
-                })
-                .then((plotInputData) => {
-
-                    const trace1 = {
-                        x: plotInputData.xAxis,
-                        y: plotInputData.yAxis,
-                        type: 'scatter',
-                        mode: 'markers',
-                        name: sent,
-                        marker: {
-                            size: 18,
-                            //color: "00d2ff",
-                            color: "white",
-                            symbol: "square"
-                        }
-                    };
-
-                    return trace1;
-
-                }).then((trace1) => {
-                sortGraphDataPoints(dataReceived.flat(), true, true)
-                    .then((sortedDataPoints) => {
-                        return formInputDataForDailyActivityPlot(sortedDataPoints)
-                    })
-                    .then((plotInputData) => {
-                        const trace2 = {
-                            x: plotInputData.xAxis,
-                            y: plotInputData.yAxis,
-                            type: 'scatter',
-                            mode: 'markers',
-                            name: received,
-                            marker: {
-                                size: 14,
-                                symbol: "square"
-                            },
-                            visible: 'legendonly'
-                        }
-
-                        // determine initial range for plot to show (last month)
-                        let oneMonthInMilliseconds = 2.628e+9
-                        let oneMonthBeforeLastDate = new Date(trace1.x[trace1.x.length - 1]).getTime() - oneMonthInMilliseconds
-                        let dateOneMonthBefore = new Date(oneMonthBeforeLastDate)
-                        let startRange = ""
-                        let year = dateOneMonthBefore.getFullYear()
-                        let month = dateOneMonthBefore.getMonth() + 1 // first month is 0...
-                        let date = dateOneMonthBefore.getDate()
-                        if (month < 10) {
-                            month = "0" + month
-                        }
-                        if (date < 10) {
-                            date = "0" + date
-                        }
-                        startRange += year + "-" + month + "-" + date
-
-                        layout.xaxis.range = [startRange, trace1.x[trace1.x.length - 1]]
-
-                        layout.xaxis.rangeselector = {
-                            buttons: [
-                                {
-                                    count: 1,
-                                    label: '1m',
-                                    step: 'month',
-                                    stepmode: 'backward',
-                                    active: true
-                                },
-                                {
-                                    count: 6,
-                                    label: '6m',
-                                    step: 'month',
-                                    stepmode: 'backward',
-                                },
-                                {
-                                    step: 'all',
-                                    active: false,
-                                },
-                            ]
-                        }
-
-                        layout.xaxis.rangeslider = {}
-                        layout.height = 700
-
-                        const data = [trace1, trace2];
-                        plotContainer.html("");
-                        Plotly.newPlot(plotId, data, layout, {responsive: true});
-                        Plotly.relayout(plotId, {
-                            "xaxis.range": [startRange, trace1.x[trace1.x.length - 1]]
-                        })
-
-                    })
-            })
-                .catch((err) => console.log(err))
-
-     */
 
 
 }
