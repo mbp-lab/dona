@@ -39,10 +39,15 @@ function formInputDataForDailyActivityPlot(sortedGraphDataPoints) {
         return '2022-05-21 ' + hour + ":" + "00" + ":00"
     });
 
+    const wordCount = sortedGraphDataPoints.map(point => {
+        return point.wordCount;
+    })
+
 
     return {
         xAxis: x,
-        yAxis: yTimes
+        yAxis: yTimes,
+        wordCount: wordCount
     }
 
 };

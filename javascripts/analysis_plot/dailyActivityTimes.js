@@ -66,12 +66,16 @@ function dailyActivityTimes(dataSent, dataReceived, conversationsFriends, plotId
         listOfConversations.push("Conversation with " + conversationsFriends[i].filter((participant) => participant !== "donor"))
     }
 
-    // TODO
-    let transformToColor = (yAxis) => {
+    let transformWordCount = (wordCounts) => {
+        let max = Math.max(...wordCounts)
+
+        console.log(wordCounts)
+
         let result = []
-        for (let i = 0; i < yAxis.length; i++) {
-            result.push(i)
-        };
+        for (let i = 0; i < wordCounts.length; i++) {
+            result.push(wordCounts[i]/max)
+        }
+        console.log(Math.max(...result), Math.min(...result))
         return result;
     }
 
@@ -136,9 +140,21 @@ function dailyActivityTimes(dataSent, dataReceived, conversationsFriends, plotId
                 marker: {
                     size: 18,
                     //color: "white",
-                    color: transformToColor(plotInputDataSent.yAxis), // TODO this needs to be a numerical array
-                    colorscale: 'Greens',
-                    symbol: "square"
+                    color: transformWordCount(plotInputDataSent.wordCount),
+                    colorscale: [
+                        [0.000, "#FFFF00"],
+                        [0.111, "#FFDD00"],
+                        [0.222, "#FFBB00"],
+                        [0.333, "#FF9900"],
+                        [0.444, "#FF7700"],
+                        [0.556, "#FF5500"],
+                        [0.667, "#FF3300"],
+                        [0.778, "#FF2200"],
+                        [0.889, "#FF1100"],
+                        [1.000, "#FF0000"]
+                    ],
+                    symbol: "square",
+                    colorbar: {}
                 },
                 visible: i === 0
             };
@@ -160,7 +176,10 @@ function dailyActivityTimes(dataSent, dataReceived, conversationsFriends, plotId
                 name: received,
                 marker: {
                     size: 14,
+                    color: transformWordCount(plotInputDataReceived.wordCount),
+                    colorscale: 'YlGnBu',
                     symbol: "square",
+                    colorbar: {}
                 },
                 visible: visibleReceived()
             }

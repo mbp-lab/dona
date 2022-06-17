@@ -31,8 +31,10 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
         val dailyWordsGraphDataPerConversation = conversations.map(conversation => produceDailyWordsGraphDataPerConversation(socialData.donorId, conversation))
         //val dailySentHourMinutesPerConversation = conversations.map(conversation => produceDailyHourMinutesPerConversation(socialData.donorId, conversation, true))
         //val dailyReceivedHourMinutesPerConversation = conversations.map(conversation => produceDailyHourMinutesPerConversation(socialData.donorId, conversation, false))
-        val dailySentHoursPerConversation = conversations.map(conversation => produceDailyHoursPerConversation(socialData.donorId, conversation, true))
-        val dailyReceivedHoursPerConversation = conversations.map(conversation => produceDailyHoursPerConversation(socialData.donorId, conversation, false))
+        //val dailySentHoursPerConversation = conversations.map(conversation => produceDailyHoursPerConversation(socialData.donorId, conversation, true))
+        val dailyWordCountSentHoursPerConversation = conversations.map(conversation => produceWordCountDailyHoursPerConversation(socialData.donorId, conversation, true))
+        //val dailyReceivedHoursPerConversation = conversations.map(conversation => produceDailyHoursPerConversation(socialData.donorId, conversation, false))
+        val dailyWordCountReceivedHoursPerConversation = conversations.map(conversation => produceWordCountDailyHoursPerConversation(socialData.donorId, conversation, false))
         println(produceWordCountDailyHoursPerConversation(socialData.donorId, conversations.head, true))
         val average = produceAverageNumberOfMessages(messageGraphData)
         val answerTimes = produceAnswerTimes(socialData.donorId, conversations)
@@ -52,8 +54,8 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
           dailyMessageGraphData,
           dailyWordsGraphData,
           dailyWordsGraphDataPerConversation,
-          dailySentHoursPerConversation,
-          dailyReceivedHoursPerConversation,
+          dailyWordCountSentHoursPerConversation,
+          dailyWordCountReceivedHoursPerConversation,
           answerTimes,
           average,
           conversationsFriends
@@ -333,6 +335,13 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
 
   }
 
+  /**
+   *
+   * @param donorId is the donor's id
+   * @param conversation is the current conversation -> so the method can be used to map over all conversations
+   * @param sent determines if sent or received should be calculated
+   * @return Per day, per hour one point if at least one message was sent/received
+   */
   private def produceDailyHoursPerConversation(
                                                       donorId: String,
                                                       conversation: Conversation,
@@ -364,6 +373,13 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
 
   }
 
+  /**
+   *
+   * @param donorId is the donor's id
+   * @param conversation is the current conversation -> so the method can be used to map over all conversations
+   * @param sent determines if sent or received should be calculated
+   * @return Per day, per hour the sent or received word count
+   */
   private def produceWordCountDailyHoursPerConversation(
                                                 donorId: String,
                                                 conversation: Conversation,
