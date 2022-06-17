@@ -2,10 +2,12 @@ function formInputDataForDailyActivityPlot(sortedGraphDataPoints) {
     let x;
 
     x = sortedGraphDataPoints.map(point => {
+
+        let dateObj = new Date(point.epochSeconds * 1000)
         //return point.date + "-" + point.month + "-" + point.year;
-        let year = point.year
-        let month = point.month
-        let date = point.date
+        let year = dateObj.getFullYear()
+        let month = dateObj.getMonth() + 1
+        let date = dateObj.getDate()
 
         if (month < 10) {
             month = "0" + month
@@ -18,7 +20,10 @@ function formInputDataForDailyActivityPlot(sortedGraphDataPoints) {
 
 
     const yTimes = sortedGraphDataPoints.map(point => {
-        let hour = point.hour
+
+        let dateObj = new Date(point.epochSeconds * 1000)
+
+        let hour = dateObj.getHours()
         //let minute = point.hour
 
         if (hour < 10) {

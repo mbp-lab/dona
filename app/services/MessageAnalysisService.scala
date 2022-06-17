@@ -1,11 +1,12 @@
 package services
 
-import java.time.{Instant, LocalDateTime, Month, ZoneOffset}
-
+import java.time.{Instant, LocalDate, LocalDateTime, Month, ZoneOffset}
 import config.FeedbackConfig
+
 import javax.inject.{Inject, Singleton}
 import models.api._
 import models.domain.DonationDataSourceType.DonationDataSourceType
+
 
 @Singleton
 class MessageAnalysisService @Inject()(config: FeedbackConfig) {
@@ -32,6 +33,7 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
         //val dailyReceivedHourMinutesPerConversation = conversations.map(conversation => produceDailyHourMinutesPerConversation(socialData.donorId, conversation, false))
         val dailySentHoursPerConversation = conversations.map(conversation => produceDailyHoursPerConversation(socialData.donorId, conversation, true))
         val dailyReceivedHoursPerConversation = conversations.map(conversation => produceDailyHoursPerConversation(socialData.donorId, conversation, false))
+        println(produceWordCountDailyHoursPerConversation(socialData.donorId, conversations.head, true))
         val average = produceAverageNumberOfMessages(messageGraphData)
         val answerTimes = produceAnswerTimes(socialData.donorId, conversations)
         val conversationsFriends = conversations.map(c => {
@@ -235,7 +237,8 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
       }
       .map {
         case (TimeFrameWithDays(year, month, day), (sent, received)) =>
-          DailySentReceivedPoint(year, month.getValue, day, sent, received)
+          //hour and minute do not matter here, but are needed for providing epochSeconds
+          DailySentReceivedPoint(year, month.getValue, day, sent, received, LocalDateTime.of(year, month, day, 12, 30).toEpochSecond(ZoneOffset.UTC))
       }
       .toList
       .sorted
@@ -262,7 +265,8 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
       }
       .map {
         case (TimeFrameWithDays(year, month, day), (sent, received)) =>
-          DailySentReceivedPoint(year, month.getValue, day, sent, received)
+          //hour and minute do not matter here, but are needed for providing epochSeconds
+          DailySentReceivedPoint(year, month.getValue, day, sent, received, LocalDateTime.of(year, month, day, 12, 30).toEpochSecond(ZoneOffset.UTC))
       }
       .toList
       .sorted
@@ -290,7 +294,7 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
         }
         .map {
           case (TimeFrameWithDays(year, month, date), (sent, received)) =>
-            DailySentReceivedPoint(year, month.getValue, date, sent, received)
+            DailySentReceivedPoint(year, month.getValue, date, sent, received, LocalDateTime.of(year, month, date, 12, 30).toEpochSecond(ZoneOffset.UTC))
         }
         .toList
         .sorted
@@ -324,7 +328,7 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
       .distinct
       .map {
         case (TimeFrameWithDaysHourMinute(year, month, date, hour, minute)) =>
-          DailyHourPoint(year, month.getValue, date, hour, minute)
+          DailyHourPoint(year, month.getValue, date, hour, minute, 1, LocalDateTime.of(year, month, date, hour, minute).toEpochSecond(ZoneOffset.UTC))
       }
 
   }
@@ -355,8 +359,46 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
       .distinct
       .map {
         case (TimeFrameWithDaysHourMinute(year, month, date, hour, minute)) =>
-          DailyHourPoint(year, month.getValue, date, hour, minute)
+          DailyHourPoint(year, month.getValue, date, hour, minute, 1, LocalDateTime.of(year, month, date, hour, minute).toEpochSecond(ZoneOffset.UTC))
       }
+
+  }
+
+  private def produceWordCountDailyHoursPerConversation(
+                                                donorId: String,
+                                                conversation: Conversation,
+                                                sent: Boolean,
+                                              ): List[DailyHourPoint] = {
+
+    conversation.messages
+      .filter(message => {
+        if (sent) {
+          message.sender match {
+            case Some(sender) if sender == donorId => true
+            case _ => false
+          }
+        } else {
+          message.sender match {
+            case Some(sender) if sender != donorId => true
+            case _ => false
+          }
+        }
+      })
+      .foldRight(Map[TimeFrameWithDaysHourMinute, (Int)]()) {
+        case (message, map) =>
+          val timestamp = LocalDateTime.ofInstant(Instant.ofEpochMilli(message.timestampMs), ZoneOffset.UTC)
+          val mapKey = TimeFrameWithDaysHourMinute(timestamp.getYear, timestamp.getMonth, timestamp.getDayOfMonth, timestamp.getHour, timestamp.getMinute)
+          val oldWordCount = map.getOrElse(mapKey, 0)
+          val newWordCount = oldWordCount + message.wordCount
+          map.updated(mapKey, newWordCount)
+      }
+      .map {
+        case (TimeFrameWithDaysHourMinute(year, month, date, hour, minute), wordCount) =>
+          DailyHourPoint(year, month.getValue, date, hour, minute, wordCount, (LocalDateTime.of(year, month, date, hour, minute).toEpochSecond(ZoneOffset.UTC)))
+      }
+      .toList
+      .sorted
+      .reverse
 
   }
 

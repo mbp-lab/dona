@@ -7,7 +7,8 @@ case class DailySentReceivedPoint(
                                    month: Int,
                                    date: Int,
                                    sentCount: Int,
-                                   receivedCount: Int
+                                   receivedCount: Int,
+                                   epochSeconds: Long,
 ) extends Ordered[DailySentReceivedPoint] {
 
   override def compare(x: DailySentReceivedPoint): Int = {

@@ -66,6 +66,15 @@ function dailyActivityTimes(dataSent, dataReceived, conversationsFriends, plotId
         listOfConversations.push("Conversation with " + conversationsFriends[i].filter((participant) => participant !== "donor"))
     }
 
+    // TODO
+    let transformToColor = (yAxis) => {
+        let result = []
+        for (let i = 0; i < yAxis.length; i++) {
+            result.push(i)
+        };
+        return result;
+    }
+
 
     let makeTraces = () => {
 
@@ -121,13 +130,14 @@ function dailyActivityTimes(dataSent, dataReceived, conversationsFriends, plotId
             const traceSent = {
                 x: plotInputDataSent.xAxis,
                 y: plotInputDataSent.yAxis,
-                type: 'scatter',
+                type: 'scattergl',
                 mode: 'markers',
                 name: sent,
                 marker: {
                     size: 18,
-                    //color: "00d2ff",
-                    color: "white",
+                    //color: "white",
+                    color: transformToColor(plotInputDataSent.yAxis), // TODO this needs to be a numerical array
+                    colorscale: 'Greens',
                     symbol: "square"
                 },
                 visible: i === 0
@@ -145,12 +155,12 @@ function dailyActivityTimes(dataSent, dataReceived, conversationsFriends, plotId
             const traceReceived = {
                 x: plotInputDataReceived.xAxis,
                 y: plotInputDataReceived.yAxis,
-                type: 'scatter',
+                type: 'scattergl',
                 mode: 'markers',
                 name: received,
                 marker: {
                     size: 14,
-                    symbol: "square"
+                    symbol: "square",
                 },
                 visible: visibleReceived()
             }

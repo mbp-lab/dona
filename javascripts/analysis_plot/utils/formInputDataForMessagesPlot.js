@@ -2,10 +2,12 @@ function formInputDataForMessagesPlot(sortedGraphDataPoints, hasDate) {
     let x;
     if (hasDate) {
         x = sortedGraphDataPoints.map(point => {
+
+            let dateObj = new Date(point.epochSeconds * 1000)
             //return point.date + "-" + point.month + "-" + point.year;
-            let year = point.year
-            let month = point.month
-            let date = point.date
+            let year = dateObj.getFullYear()
+            let month = dateObj.getMonth() + 1
+            let date = dateObj.getDate()
 
             if (month < 10) {
                 month = "0" + month
@@ -17,6 +19,10 @@ function formInputDataForMessagesPlot(sortedGraphDataPoints, hasDate) {
         });
     } else {
         x = sortedGraphDataPoints.map(point => {
+            let dateObj = new Date(point.epochSeconds * 1000)
+            //return point.date + "-" + point.month + "-" + point.year;
+            let year = dateObj.getFullYear()
+            let month = dateObj.getMonth() + 1
             return point.month + "-" + point.year;
         });
     }

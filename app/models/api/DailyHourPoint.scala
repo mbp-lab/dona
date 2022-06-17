@@ -7,9 +7,12 @@ case class DailyHourPoint(
                               month: Int,
                               date: Int,
                               hour: Int,
-                              minute: Int
+                              minute: Int,
+                              wordCount: Int,
+                              epochSeconds: Long,
                             ) extends Ordered[DailyHourPoint] {
 
+  // TODO: change this to compare timestampMilli -> way easier
   override def compare(x: DailyHourPoint): Int = {
     if (x.year < year) -1
     else if (x.year > year) 1
