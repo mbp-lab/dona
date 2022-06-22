@@ -1,7 +1,7 @@
 var sortGraphDataPoints = require('./utils/sortGraphDataPointsTimeWise');
 const formInputDataForPolarPlot = require("./utils/formInputDataForPolarPlot");
 
-function polarPlot(data, allFriendsData, plotId) {
+function polarPlot(data, dataMonthlyPerConversation, allFriendsData, plotId) {
 
 
     let allFriends = [...new Set(allFriendsData.flat())]
@@ -23,13 +23,13 @@ function polarPlot(data, allFriendsData, plotId) {
 
     let layout = {
         //paper_bgcolor: "#141852",
-        hovermode: false,
+        hovermode: true,
         showlegend: true,
         legend: {
             bgcolor: "#13223C",
             font: {color: "white"},
             x: 0.9,
-            y: 1,
+            y: 1.2,
         },
         polar: {
             //hole: 0.1,
@@ -54,6 +54,7 @@ function polarPlot(data, allFriendsData, plotId) {
                 gridcolor: "#f5f5f5",
                 gridwidth: 0.1,
                 griddash: 'dash',
+                //tickformat: '>'
             }
         },
 
@@ -77,6 +78,106 @@ function polarPlot(data, allFriendsData, plotId) {
     }
 
 
+
+    let findLastYearMonth = (sortedData) => {
+        let lastYear = 0;
+        let lastMonth = 0;
+        for (let i = 0; i < sortedData.length; i++) {
+            let curData = sortedData[i]
+            if (lastYear < curData[curData.length - 1].year) {
+                lastYear = curData[curData.length - 1].year
+            }
+        }
+
+        for (let i = 0; i < sortedData.length; i++) {
+            let curData = sortedData[i]
+            if (lastMonth < curData[curData.length - 1].month && lastYear === curData[curData.length - 1].year) {
+                lastMonth = curData[curData.length - 1].month
+            }
+        }
+
+
+        return [lastYear, lastMonth];
+    }
+
+
+    sortGraphDataPoints(dataMonthlyPerConversation, false, false)
+        .then(sortedData => {
+
+            let lastYearAndMonth = findLastYearMonth(sortedData)
+            let lastYear = lastYearAndMonth[0]
+            let lastMonth = lastYearAndMonth[1]
+
+            return formInputDataForPolarPlot(sortedData, allFriendsData, lastYear, lastMonth, 12)
+        })
+        .then(plotInputData => {
+
+            const traceAverages = {
+                name: "Sent Averages",
+                type: "scatterpolar",
+                mode: "markers",
+                r: plotInputData.r,
+                theta: plotInputData.theta,
+                marker: {
+                    color: '#f5f5f5',
+                    size: 14,
+                    opacity: 0.55
+                },
+                line: {
+                    color: 'white',
+                }
+            }
+
+            const traceLastMonth = {
+                name: "Sent Last Month",
+                type: "scatterpolar",
+                mode: "markers",
+                r: plotInputData.rExcludedMonth,
+                theta: plotInputData.thetaExcludedMonth,
+                marker: {
+                    color: 'white',
+                    size: 18,
+                },
+                line: {
+                    color: 'white',
+                }
+            }
+
+            let traces = [traceAverages, traceLastMonth]
+
+            let max;
+            let allRDataFlat = plotInputData.rExcludedMonth.concat(plotInputData.r)
+            console.log(allRDataFlat)
+            max = Math.max(...allRDataFlat)
+            max = max + 0.25*max // for some distance to the circle for the donor
+            //console.log("MAX: " + max)
+
+
+            traces.push({
+                name: "Donor/Spender",
+                type: "scatterpolar",
+                mode: "markers",
+                r: [max],
+                theta: [plotInputData.theta[0]],
+                marker: {
+                    color: 'yellow',
+                    size: 32,
+                    opacity: 0.9
+                },
+            })
+
+            layout.polar.radialaxis.range = [max,0]
+
+
+            plotContainer.html("");
+            Plotly.newPlot(plotId, traces, layout, { responsive: true });
+
+
+        })
+
+
+
+/*
     sortGraphDataPoints(sentFromDonor, false, false)
         .then(sortedData => {
             // for full points: last month
@@ -149,6 +250,10 @@ function polarPlot(data, allFriendsData, plotId) {
 
 
         })
+
+
+
+ */
 
 
 

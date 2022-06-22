@@ -14,10 +14,32 @@ $(document).ready(function () {
     Object.keys(allData).forEach(function (dataSourceType) {
         const graphData = allData[dataSourceType];
         console.log(graphData)
-        polarPlot(graphData.sentPerFriendPerMonth, graphData.conversationsFriends, `${dataSourceType}PolarPlot`);
-        animatedHorizontalBarChart(graphData.sentPerFriendPerMonth, graphData.conversationsFriends, graphData.sentReceivedWords,`${dataSourceType}AnimatedHorizontalBarChart`);
-        dailyActivityTimes(graphData.dailySentHoursPerConversation, graphData.dailyReceivedHoursPerConversation, graphData.conversationsFriends, `${dataSourceType}DailyActivityTimes`);
-        responseTime(graphData.responseTimes, `${dataSourceType}ResponseTimePlot`);
+
+        polarPlot(
+            graphData.sentPerFriendPerMonth,
+            graphData.sentReceivedPerMonthPerConversation,
+            graphData.conversationsFriends,
+            `${dataSourceType}PolarPlot`
+        );
+
+        animatedHorizontalBarChart(
+            graphData.sentPerFriendPerMonth,
+            graphData.sentPerFriendInConversationPerMonth,
+            graphData.conversationsFriends,
+            `${dataSourceType}AnimatedHorizontalBarChart`
+        );
+
+        dailyActivityTimes(
+            graphData.dailySentHoursPerConversation,
+            graphData.dailyReceivedHoursPerConversation,
+            graphData.conversationsFriends,
+            `${dataSourceType}DailyActivityTimes`
+        );
+
+        responseTime(
+            graphData.responseTimes,
+            `${dataSourceType}ResponseTimePlot`
+        );
 
         // when modal is opened the first time, render plots...
         // if this is done before the modal is opened, the width of the plots isnt correct
@@ -45,7 +67,11 @@ $(document).ready(function () {
         })
 
         $(`#${dataSourceType}dailyActivityModal`).on('shown.bs.modal', () => {
-            dailyActivityTimesMean(graphData.dailySentHoursPerConversation, graphData.dailyReceivedHoursPerConversation, `${dataSourceType}DailyActivityTimesMean`);
+            dailyActivityTimesMean(
+                graphData.dailySentHoursPerConversation,
+                graphData.dailyReceivedHoursPerConversation,
+                `${dataSourceType}DailyActivityTimesMean`
+            );
         })
     })
 });

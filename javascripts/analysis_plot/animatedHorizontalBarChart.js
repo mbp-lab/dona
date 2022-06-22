@@ -1,35 +1,17 @@
 var sortGraphDataPoints = require('./utils/sortGraphDataPointsTimeWise');
 const formInputDataForPolarPlot = require("./utils/formInputDataForPolarPlot");
 const _ = require("lodash");
+const sortGraphDataPointsSync = require("./utils/sortGraphDataPointsSync");
 
-function animatedHorizontalBarChart(data, allFriendsData, sentReceivedWordsMonthlyTotal, plotId) {
+function animatedHorizontalBarChart(dataPerFriend, dataPerConversation, conversationsFriends, plotId) {
 
-    //console.log(data);
-    //console.log(sentReceivedWordsMonthlyTotal)
+    let allFriends = [...new Set(conversationsFriends.flat())]
 
-    // find maximum for range of plot
-    let sumSent = 0
-    let findMaximum = () => {
-        return sentReceivedWordsMonthlyTotal.reduce((total, currValue) => {
-            return total + currValue.sentCount
-        }, sumSent)
+    let listOfConversations = []
+    listOfConversations.push("Overall/Everything")
+    for (let i = 0; i < conversationsFriends.length; i++) {
+        listOfConversations.push("Conversation with " + conversationsFriends[i].filter((participant) => participant !== "donor"))
     }
-
-    let maxRange = findMaximum();
-
-    let allFriends = [...new Set(allFriendsData.flat())]
-    //let indexDonor = allFriends.indexOf("donor")
-    //allFriends.splice(indexDonor, 1)
-    //console.log(allFriends)
-
-    let sentFromDonor = data.filter(obj => obj.from === "donor")
-    let sentToDonor = data.filter(obj => obj.from !== "donor")
-
-    //console.log("SENT FROM DONOR:")
-    //console.log(sentFromDonor)
-
-    //console.log("SENT TO DONOR:")
-    //console.log(sentToDonor)
 
     const plotContainer = $(`#${plotId}`)
     plotContainer.removeClass('d-none');
@@ -40,7 +22,7 @@ function animatedHorizontalBarChart(data, allFriendsData, sentReceivedWordsMonth
 
     let layout = {
         height: 600,
-        howlegend: true,
+        showlegend: true,
         barmode: 'overlay',
         legend: {
             bgcolor: "#13223C",
@@ -129,6 +111,357 @@ function animatedHorizontalBarChart(data, allFriendsData, sentReceivedWordsMonth
 
     }
 
+    /*
+    let allTraces = []
+    let groupedFrames = [];
+    let groupedSliderSteps = []
+    let allXAxisSettings = []
+    let allSliderSettings = []
+
+
+    let makeTraces = () => {
+
+        //reset these variables
+        allTraces = []
+        groupedFrames = [];
+        groupedSliderSteps = []
+
+        let allDataOptions = [dataPerFriend, ...dataPerConversation]
+
+        layout["updatemenus"].push({
+            type: 'dropdown',
+            direction: "down",
+            active: 0,
+            buttons: [],
+            pad: {'r': 10, 't': 10},
+            x: 0.05,
+            xanchor: 'left',
+            y: 1.25,
+            yanchor: 'top'
+        })
+
+        for (let i = 0; i < allDataOptions.length; i++) {
+
+            // make visibility booleans for updatemenus
+            let visibilityBooleans = []
+            for (let j = 0; j < allDataOptions.length; j++) {
+                if (i === 0 && j === 0) {
+                    visibilityBooleans.push(true, true)
+                } else if (i !== 0 && j === 0) {
+                    visibilityBooleans.push(false, false)
+                } else if (j === i) {
+                    visibilityBooleans.push(true)
+                } else {
+                    visibilityBooleans.push(false)
+                }
+            }
+
+
+            let dataToShow = allDataOptions[i]
+
+            let sortedData = sortGraphDataPointsSync(dataToShow)
+
+            let groupedData = _.groupBy(sortedData, (obj) => {
+                return obj.year + "-" + obj.month
+            })
+
+            // helper object to keep track of who sent how many words
+            let friendsSentObj = {}
+            let friendsReceivedObj = {}
+
+            // helper variables
+            let frames = []
+            let sliderSteps = []
+            let name;
+            let xSent = []
+            let ySent = []
+            let xReceived = []
+            let yReceived = []
+            let initialX = []
+
+
+            // prepare friendsObjects
+            let friends = []
+            if (i === 0) {
+                friends = allFriends;
+            } else {
+                friends = conversationsFriends[i - 1]
+                friends.push("donor")
+            }
+
+
+            friends.forEach((friend) => {
+                friendsSentObj[friend] = 0
+                friendsReceivedObj[friend] = 0
+                initialX.push(0)
+            })
+
+            // create frames
+            for (const [key, value] of Object.entries(groupedData)) {
+
+                if (i === 0) {
+                    value.forEach((fromToSent) => {
+                        if (fromToSent.from === "donor" && fromToSent.to !== "donor") {
+                            friendsSentObj[fromToSent.to] = friendsSentObj[fromToSent.to] + fromToSent.sentCount
+                        } else if (fromToSent.from !== "donor" && fromToSent.to === "donor") {
+                            friendsReceivedObj[fromToSent.from] = friendsReceivedObj[fromToSent.from] + fromToSent.sentCount
+                        }
+                    })
+                } else {
+                    value.forEach((fromToSent) => {
+                        friendsSentObj[fromToSent.from] = friendsSentObj[fromToSent.from] + fromToSent.sentCount
+                    })
+                }
+
+                // set the name for this frame
+                name = key
+
+
+                xSent = []
+                ySent = []
+                for (const [key, value] of Object.entries(friendsSentObj)) {
+                    xSent.push(value)
+                    ySent.push(key)
+                }
+                xReceived = []
+                yReceived = []
+                for (const [key, value] of Object.entries(friendsReceivedObj)) {
+                    xReceived.push(value)
+                    yReceived.push(key)
+                }
+
+                // add frame to frames
+                frames.push({
+                    name: name,
+                    data: [
+                        {
+                            name: "Sent words",
+                            x: xSent,
+                            y: ySent,
+                            marker: {
+                                color: "white",
+                                //color: "00d2ff"
+                            },
+                            width: _.fill(Array(allFriends.length), 0.8)
+                        },
+                        {
+                            name: "Received words",
+                            x: xReceived,
+                            y: yReceived,
+                            marker: {
+                                color: "orange",
+                            },
+                            width: _.fill(Array(allFriends.length), 0.3)
+                        }
+                    ],
+                })
+
+                // add sliderstep for this frame
+                sliderSteps.push({
+                    method: 'animate',
+                    label: name,
+                    args: [[name], {
+                        mode: "immediate",
+                        transition: {duration: 300},
+                        frame: {duration: 300, redraw: false}
+                    }]
+                })
+            }
+
+            console.log(i, initialX)
+            // add traces to allTraces
+            if (i === 0) {
+                allTraces.push({
+                        name: "Sent words",
+                        x: initialX,
+                        y: friends,
+                        type: "bar",
+                        orientation: 'h',
+                        marker: {
+                            color: "white",
+                        },
+                        width: _.fill(Array(friends.length), 0.8)
+                    },
+                    {
+                        name: "Received words",
+                        x: initialX,
+                        y: friends,
+                        type: "bar",
+                        orientation: 'h',
+                        marker: {
+                            color: "orange",
+                        },
+                        width: _.fill(Array(friends.length), 0.3)
+                    })
+            } else {
+                allTraces.push({
+                    name: "Sent words",
+                    x: initialX,
+                    y: friends,
+                    type: "bar",
+                    orientation: 'h',
+                    marker: {
+                        color: "white",
+                    },
+                    width: _.fill(Array(friends.length), 0.8),
+                    visible: false,
+                })
+            }
+
+            // add frames to groupedFrames
+            groupedFrames.push(frames)
+
+            // add sliderSteps to groupedSliderSteps
+            groupedSliderSteps.push(sliderSteps)
+
+
+            // set range
+            allXAxisSettings.push({
+                range: [0, Math.max(...Object.values(friendsSentObj))],
+                color: "white"
+            })
+
+            // add slider for this data
+            allSliderSettings.push([{
+                pad: {l: 130, t: 95},
+                currentvalue: {
+                    visible: true,
+                    prefix: 'Year-Month:',
+                    xanchor: 'right',
+                    font: {size: 20, color: 'black'}
+                },
+                steps: sliderSteps
+            }])
+
+
+            // add menu for this conversation
+            layout["updatemenus"][1]["buttons"].push({
+                method: 'update',
+                args: [
+                    {'visible': visibilityBooleans},
+                    {
+                        updatemenus: [
+                            {
+                                x: 0,
+                                y: 0,
+                                yanchor: 'top',
+                                xanchor: 'left',
+                                showactive: false,
+                                direction: 'left',
+                                type: 'buttons',
+                                pad: {t: 127, r: 10},
+                                buttons: [
+                                    {
+                                        method: "animate",
+                                        args: [
+                                            frames, // THIS HERE IS WHAT IS IMPORTANT
+                                            {
+                                                mode: 'immediate',
+                                                fromcurrent: true,
+                                                transition: {duration: 300, easing: 'linear'},
+                                                frame: {duration: 300, redraw: false}
+                                            }
+                                        ],
+                                        label: "Start"
+                                    },
+                                    {
+                                        method: 'animate',
+                                        args: [[null], {
+                                            mode: 'immediate',
+                                            transition: {duration: 0},
+                                            frame: {duration: 0, redraw: false}
+                                        }],
+                                        label: 'Pause'
+                                    }
+                                ]
+                            }
+                        ],
+                        "xaxis": {
+                            range: [0, Math.max(...Object.values(friendsSentObj))],
+                            color: "white"
+                        },
+                        "sliders": [{
+                            method: "animate",
+                            pad: {l: 130, t: 95},
+                            currentvalue: {
+                                visible: true,
+                                prefix: 'Year-Month:',
+                                xanchor: 'right',
+                                font: {size: 20, color: 'black'}
+                            },
+                            steps: sliderSteps
+                        }]
+                    }
+                ],
+                label: listOfConversations[i]
+            })
+
+        }
+
+    }
+
+
+    makeTraces();
+
+    console.log("ALL TRACES: ", allTraces)
+    console.log("All FRAMES:", groupedFrames)
+    console.log("ALL SLIDERSTEPS:", groupedSliderSteps)
+
+    // set range
+    layout["xaxis"] = allXAxisSettings[0]
+
+    // add slider for this data
+    layout["sliders"] = allSliderSettings[0]
+    console.log("sliders:", layout["sliders"])
+
+    //layout["updatemenus"][0]["buttons"][0].args[0] = groupedFrames[0]
+    //layout["sliders"][0].steps = groupedFrames[0]
+    console.log("slider after change", layout["sliders"])
+
+
+    plotContainer.html("");
+    Plotly.newPlot(
+        plotId,
+        allTraces,
+        layout,
+        {responsive: true}
+    )
+        .then(() => {
+            Plotly.addFrames(plotId, groupedFrames.flat())
+
+            console.log("HERE is the buttons arg")
+            console.log(layout["updatemenus"][0]["buttons"][0][0])
+            layout["updatemenus"][0]["buttons"][0].args[0] = groupedFrames[0]
+            console.log(layout["updatemenus"][0]["buttons"])
+
+            startAnimation(groupedFrames[0], 'afterall')
+        });
+
+     */
+
+    /*
+    var myPlot = document.getElementById(plotId)
+
+    myPlot.on('plotly_update', (event) => {
+        console.log(event.data[0].visible)
+        console.log(myPlot)
+        console.log(myPlot._transitionData._frames)
+        for (let i = 0; i < event.data[0].visible.length; i++){
+            if (event.data[0].visible[i] && (i === 0 || i === 1)) {
+                console.log("OVERALL")
+                myPlot._transitionData._frames = groupedFrames[0]
+                startAnimation(groupedFrames[0], 'afterall')
+            } else if (event.data[0].visible[i] && i > 1) {
+                console.log("adding frames...")
+                myPlot._transitionData._frames = groupedFrames[i+1]
+                startAnimation(groupedFrames[i+1], 'afterall')
+            }
+        }
+    })
+
+     */
+
+
 
     let frames = []
     let sliderSteps = []
@@ -142,13 +475,14 @@ function animatedHorizontalBarChart(data, allFriendsData, sentReceivedWordsMonth
     let friendsSentObj = {}
     let friendsReceivedObj = {}
 
+
     allFriends.forEach((friend) => {
         friendsSentObj[friend] = 0
         friendsReceivedObj[friend] = 0
         initialX.push(0)
     })
 
-    sortGraphDataPoints(data, false, false)
+    sortGraphDataPoints(dataPerFriend, false, false)
         .then(sortedData => {
             return _.groupBy(sortedData, (obj) => {
                 return obj.year + "-" + obj.month
@@ -157,6 +491,7 @@ function animatedHorizontalBarChart(data, allFriendsData, sentReceivedWordsMonth
         .then(groupedData => {
 
             for (const [key, value] of Object.entries(groupedData)) {
+
 
                 value.forEach((fromToSent) => {
                     if (fromToSent.from === "donor" && fromToSent.to !== "donor") {
@@ -267,6 +602,8 @@ function animatedHorizontalBarChart(data, allFriendsData, sentReceivedWordsMonth
             });
 
         })
+
+
 
 
 }

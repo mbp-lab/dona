@@ -6,6 +6,8 @@ case class GraphData(
                       sentReceived: List[SentReceivedPoint],
                       sentReceivedWords: List[SentReceivedPoint],
                       sentPerFriendPerMonth: List[FromToYearMonthSentCount],
+                      sentPerFriendInConversationPerMonth: List[List[FromToListYearMonthSentCount]],
+                      sentReceivedPerMonthPerConversation: List[List[SentReceivedPoint]],
                       dailySentReceived: List[DailySentReceivedPoint],
                       dailyWordsSentReceived: List[DailySentReceivedPoint],
                       dailySentReceivedPerConversation: List[List[DailySentReceivedPoint]],

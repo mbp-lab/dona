@@ -69,13 +69,11 @@ function dailyActivityTimes(dataSent, dataReceived, conversationsFriends, plotId
     let transformWordCount = (wordCounts) => {
         let max = Math.max(...wordCounts)
 
-        console.log(wordCounts)
 
         let result = []
         for (let i = 0; i < wordCounts.length; i++) {
             result.push(wordCounts[i]/max)
         }
-        console.log(Math.max(...result), Math.min(...result))
         return result;
     }
 

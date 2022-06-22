@@ -12,9 +12,13 @@ import models.domain.DonationDataSourceType.DonationDataSourceType
 class MessageAnalysisService @Inject()(config: FeedbackConfig) {
 
   private case class TimeFrame(year: Int, month: Month)
+
   private case class FriendTimeFrame(friend: Option[String], year: Int, month: Month)
+
   private case class FromToTimeFrame(from: String, to: String, year: Int, month: Int)
+
   private case class TimeFrameWithDays(year: Int, month: Month, date: Int)
+
   private case class TimeFrameWithDaysHourMinute(year: Int, month: Month, date: Int, hour: Int, minute: Int)
 
 
@@ -35,23 +39,26 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
         val dailyWordCountSentHoursPerConversation = conversations.map(conversation => produceWordCountDailyHoursPerConversation(socialData.donorId, conversation, true))
         //val dailyReceivedHoursPerConversation = conversations.map(conversation => produceDailyHoursPerConversation(socialData.donorId, conversation, false))
         val dailyWordCountReceivedHoursPerConversation = conversations.map(conversation => produceWordCountDailyHoursPerConversation(socialData.donorId, conversation, false))
-        println(produceWordCountDailyHoursPerConversation(socialData.donorId, conversations.head, true))
         val average = produceAverageNumberOfMessages(messageGraphData)
         val answerTimes = produceAnswerTimes(socialData.donorId, conversations)
         val conversationsFriends = conversations.map(c => {
           c.participants.filter(
             participant => {
               participant != socialData.donorId
-          })
+            })
         })
         val sentPerFriendPerMonth = produceAggregatedSentPerFriend(socialData.donorId, conversations)
+        val sentPerFriendInConversationPerMonth = conversations.map(c => produceMonthlySentPerFriendInConversation(socialData.donorId, c))
+        val sentReceivedPerMonthPerConversation = conversations.map(c => produceSentReceivedWordsPerMonthPerConversation(socialData.donorId, c))
 
 
         GraphData(
           messageGraphData,
           sentReceivedWords,
           sentPerFriendPerMonth,
-          dailyMessageGraphData,
+          sentPerFriendInConversationPerMonth,
+          sentReceivedPerMonthPerConversation,
+          dailyMessageGraphData, // does the "daily" stuff make sense here? The timezone will bring problems! Messages on the same day in this timezone here could be on different days in a different time zone...
           dailyWordsGraphData,
           dailyWordsGraphDataPerConversation,
           dailyWordCountSentHoursPerConversation,
@@ -65,9 +72,9 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
 
   // counts total received and sent messages per month
   private def produceMessageGraphData(
-    donorId: String,
-    conversations: List[Conversation]
-  ): List[SentReceivedPoint] = {
+                                       donorId: String,
+                                       conversations: List[Conversation]
+                                     ): List[SentReceivedPoint] = {
     conversations
       .flatMap(_.messages)
       .foldRight(Map[TimeFrame, (Int, Int)]()) {
@@ -77,7 +84,7 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
           val (oldSent, oldReceived) = map.getOrElse(mapKey, (0, 0))
           val newValue = message.sender match {
             case Some(sender) if sender == donorId => (oldSent + 1, oldReceived)
-            case _                                 => (oldSent, oldReceived + 1)
+            case _ => (oldSent, oldReceived + 1)
           }
           map.updated(mapKey, newValue)
       }
@@ -92,9 +99,9 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
 
   // counts total received and sent words per month
   private def produceSentReceivedWordsGraphData(
-                                       donorId: String,
-                                       conversations: List[Conversation]
-                                     ): List[SentReceivedPoint] = {
+                                                 donorId: String,
+                                                 conversations: List[Conversation]
+                                               ): List[SentReceivedPoint] = {
     conversations
       .flatMap(_.messages)
       .foldRight(Map[TimeFrame, (Int, Int)]()) {
@@ -104,7 +111,33 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
           val (oldSent, oldReceived) = map.getOrElse(mapKey, (0, 0))
           val newValue = message.sender match {
             case Some(sender) if sender == donorId => (oldSent + message.wordCount, oldReceived)
-            case _                                 => (oldSent, oldReceived + message.wordCount)
+            case _ => (oldSent, oldReceived + message.wordCount)
+          }
+          map.updated(mapKey, newValue)
+      }
+      .map {
+        case (TimeFrame(year, month), (sent, received)) =>
+          SentReceivedPoint(year, month.getValue, sent, received)
+      }
+      .toList
+      .sorted
+      .reverse
+  }
+
+  // counts total received and sent words per month
+  private def produceSentReceivedWordsPerMonthPerConversation(
+                                                          donorId: String,
+                                                          conversation: Conversation
+                                                        ): List[SentReceivedPoint] = {
+    conversation.messages
+      .foldRight(Map[TimeFrame, (Int, Int)]()) {
+        case (message, map) =>
+          val timestamp = LocalDateTime.ofInstant(Instant.ofEpochMilli(message.timestampMs), ZoneOffset.UTC)
+          val mapKey = TimeFrame(timestamp.getYear, timestamp.getMonth)
+          val (oldSent, oldReceived) = map.getOrElse(mapKey, (0, 0))
+          val newValue = message.sender match {
+            case Some(sender) if sender == donorId => (oldSent + message.wordCount, oldReceived)
+            case _ => (oldSent, oldReceived + message.wordCount)
           }
           map.updated(mapKey, newValue)
       }
@@ -122,9 +155,9 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
   // One object per sender and per month contains the information:
   // from: sender, to: List[receivers], year, month, sentWords
   private def produceMonthlySentPerFriendInConversation(
-                                          donorId: String,
-                                          conversation: Conversation
-                                        ): List[FromToListYearMonthSentCount] = {
+                                                         donorId: String,
+                                                         conversation: Conversation
+                                                       ): List[FromToListYearMonthSentCount] = {
 
     val conversationFriends = conversation.participants.filter(participant => {
       participant != donorId
@@ -149,7 +182,7 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
 
           friend match {
             case Some(friend) if friend == donorId => FromToListYearMonthSentCount("donor", conversationFriends, year, month.getValue, sent)
-            case Some(friend)                      => FromToListYearMonthSentCount(friend, conversationFriends, year, month.getValue, sent)
+            case Some(friend) => FromToListYearMonthSentCount(friend, conversationFriends, year, month.getValue, sent)
           }
       }
       .toList
@@ -158,14 +191,19 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
   }
 
 
-  // aggregates the information returned from produceMonthlySentPerFriendInConversation
-  // in the end the information is a List of FromToYearMonthSentCount objects
-  // that is: per month per sender - receiver pair the amount of sent words
-  // List[{form: sender, to: receiver, year, month, sentWords}]
+  /**
+   *
+   * @param donorId       is the donor's id
+   * @param conversations are the conversations
+   * @return aggregates the information returned from produceMonthlySentPerFriendInConversation
+   *         in the end the information is a List of FromToYearMonthSentCount objects
+   *         that is: per month per sender-receiver pair the amount of sent words
+   *         List[{form: sender, to: receiver, year, month, sentWords}]
+   */
   private def produceAggregatedSentPerFriend(
-                                                         donorId: String,
-                                                         conversations: List[Conversation]
-                                                       ): List[FromToYearMonthSentCount] = {
+                                              donorId: String,
+                                              conversations: List[Conversation]
+                                            ): List[FromToYearMonthSentCount] = {
 
 
     conversations
@@ -175,18 +213,6 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
 
           friendSent.from match {
             case sender if sender == "donor" => {
-              /*
-              friendSent.to.foldRight(Map[FromToTimeFrame, Int]()) {
-                case (receiver, innerMap) => {
-                    val mapKey = FromToTimeFrame("donor", receiver, friendSent.year, friendSent.month)
-                    val oldSent = map.getOrElse((mapKey), 0)
-                    val newValue = oldSent + friendSent.sentCount
-                    map.updated(mapKey, newValue)
-                }
-
-              }
-              */
-              //println(friendSent.to)
               var mapToReturn = map
               friendSent.to.foreach((receiver) => {
                 //println(receiver)
@@ -200,7 +226,7 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
               //println(mapToReturn)
               mapToReturn
             }
-            case sender if sender != "donor"   => {
+            case sender if sender != "donor" => {
               val mapKey = FromToTimeFrame(sender, "donor", friendSent.year, friendSent.month)
               val oldSent = map.getOrElse((mapKey), 0)
               val newValue = oldSent + friendSent.sentCount
@@ -210,9 +236,9 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
         }
       }
       .map {
-      case (FromToTimeFrame(from, to, year, month), (sent)) =>
-        FromToYearMonthSentCount(from, to, year, month, sent)
-    }
+        case (FromToTimeFrame(from, to, year, month), (sent)) =>
+          FromToYearMonthSentCount(from, to, year, month, sent)
+      }
       .toList
       .sorted
       .reverse
@@ -220,9 +246,9 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
 
 
   private def produceDailyMessageGraphData(
-                                       donorId: String,
-                                       conversations: List[Conversation]
-                                     ): List[DailySentReceivedPoint] = {
+                                            donorId: String,
+                                            conversations: List[Conversation]
+                                          ): List[DailySentReceivedPoint] = {
 
     conversations
       .flatMap(_.messages)
@@ -233,7 +259,7 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
           val (oldSent, oldReceived) = map.getOrElse(mapKey, (0, 0))
           val newValue = message.sender match {
             case Some(sender) if sender == donorId => (oldSent + 1, oldReceived)
-            case _                                 => (oldSent, oldReceived + 1)
+            case _ => (oldSent, oldReceived + 1)
           }
           map.updated(mapKey, newValue)
       }
@@ -248,9 +274,9 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
   }
 
   private def produceDailyWordsGraphData(
-                                            donorId: String,
-                                            conversations: List[Conversation]
-                                          ): List[DailySentReceivedPoint] = {
+                                          donorId: String,
+                                          conversations: List[Conversation]
+                                        ): List[DailySentReceivedPoint] = {
 
     conversations
       .flatMap(_.messages)
@@ -261,7 +287,7 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
           val (oldSent, oldReceived) = map.getOrElse(mapKey, (0, 0))
           val newValue = message.sender match {
             case Some(sender) if sender == donorId => (oldSent + message.wordCount, oldReceived)
-            case _                                 => (oldSent, oldReceived + message.wordCount)
+            case _ => (oldSent, oldReceived + message.wordCount)
           }
           map.updated(mapKey, newValue)
       }
@@ -278,37 +304,37 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
   // calculates sent and received words for a conversation
   // -> so map this over all conversations
   private def produceDailyWordsGraphDataPerConversation(
-                                            donorId: String,
-                                            conversation: Conversation
-                                          ): List[DailySentReceivedPoint] = {
+                                                         donorId: String,
+                                                         conversation: Conversation
+                                                       ): List[DailySentReceivedPoint] = {
 
-      conversation.messages
-        .foldRight(Map[TimeFrameWithDays, (Int, Int)]()) {
-          case (message, map) =>
-            val timestamp = LocalDateTime.ofInstant(Instant.ofEpochMilli(message.timestampMs), ZoneOffset.UTC)
-            val mapKey = TimeFrameWithDays(timestamp.getYear, timestamp.getMonth, timestamp.getDayOfMonth)
-            val (oldSent, oldReceived) = map.getOrElse(mapKey, (0, 0))
-            val newValue = message.sender match {
-              case Some(sender) if sender == donorId => (oldSent + message.wordCount, oldReceived)
-              case _                                 => (oldSent, oldReceived + message.wordCount)
-            }
-            map.updated(mapKey, newValue)
-        }
-        .map {
-          case (TimeFrameWithDays(year, month, date), (sent, received)) =>
-            DailySentReceivedPoint(year, month.getValue, date, sent, received, LocalDateTime.of(year, month, date, 12, 30).toEpochSecond(ZoneOffset.UTC))
-        }
-        .toList
-        .sorted
-        .reverse
+    conversation.messages
+      .foldRight(Map[TimeFrameWithDays, (Int, Int)]()) {
+        case (message, map) =>
+          val timestamp = LocalDateTime.ofInstant(Instant.ofEpochMilli(message.timestampMs), ZoneOffset.UTC)
+          val mapKey = TimeFrameWithDays(timestamp.getYear, timestamp.getMonth, timestamp.getDayOfMonth)
+          val (oldSent, oldReceived) = map.getOrElse(mapKey, (0, 0))
+          val newValue = message.sender match {
+            case Some(sender) if sender == donorId => (oldSent + message.wordCount, oldReceived)
+            case _ => (oldSent, oldReceived + message.wordCount)
+          }
+          map.updated(mapKey, newValue)
+      }
+      .map {
+        case (TimeFrameWithDays(year, month, date), (sent, received)) =>
+          DailySentReceivedPoint(year, month.getValue, date, sent, received, LocalDateTime.of(year, month, date, 12, 30).toEpochSecond(ZoneOffset.UTC))
+      }
+      .toList
+      .sorted
+      .reverse
 
-    }
+  }
 
   private def produceDailyHourMinutesPerConversation(
-                                                           donorId: String,
-                                                           conversation: Conversation,
-                                                           sent: Boolean,
-                                                         ): List[DailyHourPoint] = {
+                                                      donorId: String,
+                                                      conversation: Conversation,
+                                                      sent: Boolean,
+                                                    ): List[DailyHourPoint] = {
     conversation.messages
       .filter(message => {
         if (sent) {
@@ -337,16 +363,16 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
 
   /**
    *
-   * @param donorId is the donor's id
+   * @param donorId      is the donor's id
    * @param conversation is the current conversation -> so the method can be used to map over all conversations
-   * @param sent determines if sent or received should be calculated
+   * @param sent         determines if sent or received should be calculated
    * @return Per day, per hour one point if at least one message was sent/received
    */
   private def produceDailyHoursPerConversation(
-                                                      donorId: String,
-                                                      conversation: Conversation,
-                                                      sent: Boolean,
-                                                    ): List[DailyHourPoint] = {
+                                                donorId: String,
+                                                conversation: Conversation,
+                                                sent: Boolean,
+                                              ): List[DailyHourPoint] = {
     conversation.messages
       .filter(message => {
         if (sent) {
@@ -375,16 +401,16 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
 
   /**
    *
-   * @param donorId is the donor's id
+   * @param donorId      is the donor's id
    * @param conversation is the current conversation -> so the method can be used to map over all conversations
-   * @param sent determines if sent or received should be calculated
+   * @param sent         determines if sent or received should be calculated
    * @return Per day, per hour the sent or received word count
    */
   private def produceWordCountDailyHoursPerConversation(
-                                                donorId: String,
-                                                conversation: Conversation,
-                                                sent: Boolean,
-                                              ): List[DailyHourPoint] = {
+                                                         donorId: String,
+                                                         conversation: Conversation,
+                                                         sent: Boolean,
+                                                       ): List[DailyHourPoint] = {
 
     conversation.messages
       .filter(message => {
@@ -419,15 +445,11 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
   }
 
 
-
-
-
-
   private def produceAnswerTimes(donorId: String, conversations: List[Conversation]): List[AnswerTimePoint] = {
     def isAnswer(message1: ConversationMessage, message2: ConversationMessage) = {
       message1.sender != message2.sender &&
-      message2.timestampMs > message1.timestampMs &&
-      message2.timestampMs - message1.timestampMs < config.maximumResponseWait.toMillis
+        message2.timestampMs > message1.timestampMs &&
+        message2.timestampMs - message1.timestampMs < config.maximumResponseWait.toMillis
     }
 
     conversations
