@@ -18,8 +18,8 @@ function dailyActivityTimes(dataSent, dataReceived, conversationsFriends, plotId
         autosize: true,
         height: 700,
         legend: {
-            bgcolor: "#13223C",
-            font: {color: "white"},
+            //bgcolor: "#13223C",
+            //font: {color: "white"},
             x: 1.01,
             y: 1.16,
         },
@@ -27,9 +27,9 @@ function dailyActivityTimes(dataSent, dataReceived, conversationsFriends, plotId
             title: "Datum", //xAxis,
             tickangle: 45,
             tickformat: '%d-%m-%Y',
-            color: "white",
+            //color: "white",
             showgrid: true,
-            gridcolor: "grey"
+            //gridcolor: "grey"
         },
         yaxis: {
             title: "Uhrzeit", //yAxis,
@@ -38,26 +38,10 @@ function dailyActivityTimes(dataSent, dataReceived, conversationsFriends, plotId
             range: ['2022-05-21 00:00:00', '2022-05-21 23:59:59'],
             tickformat: '%H:%M',
             nticks: 12,
-            color: "white",
+            //color: "white",
             showgrid: true,
-            gridcolor: "grey"
+            //gridcolor: "grey"
         },
-        images: [
-            {
-                source: backGroundImages["activityHoursBackground"],
-                xref: "paper",
-                yref: "paper",
-                x: 0.5,
-                y: 0.5,
-                sizex: 1.5,
-                sizey: 1.5,
-                xanchor: "center",
-                yanchor: "middle",
-                sizing: "fill",
-                opacity: 1,
-                layer: "below"
-            }
-        ]
     };
 
     let listOfConversations = []
@@ -139,18 +123,7 @@ function dailyActivityTimes(dataSent, dataReceived, conversationsFriends, plotId
                     size: 18,
                     //color: "white",
                     color: transformWordCount(plotInputDataSent.wordCount),
-                    colorscale: [
-                        [0.000, "#FFFF00"],
-                        [0.111, "#FFDD00"],
-                        [0.222, "#FFBB00"],
-                        [0.333, "#FF9900"],
-                        [0.444, "#FF7700"],
-                        [0.556, "#FF5500"],
-                        [0.667, "#FF3300"],
-                        [0.778, "#FF2200"],
-                        [0.889, "#FF1100"],
-                        [1.000, "#FF0000"]
-                    ],
+                    colorscale: 'YlGnBu',
                     symbol: "square",
                     colorbar: {}
                 },
@@ -175,7 +148,18 @@ function dailyActivityTimes(dataSent, dataReceived, conversationsFriends, plotId
                 marker: {
                     size: 14,
                     color: transformWordCount(plotInputDataReceived.wordCount),
-                    colorscale: 'YlGnBu',
+                    colorscale: [
+                        [0.000, "#FFBB00"],
+                        [0.111, "#FFAA00"],
+                        [0.222, "#FF9900"],
+                        [0.333, "#FF8800"],
+                        [0.444, "#FF7700"],
+                        [0.556, "#FF5500"],
+                        [0.667, "#FF3300"],
+                        [0.778, "#FF2200"],
+                        [0.889, "#FF1100"],
+                        [1.000, "#FF0000"]
+                    ],
                     symbol: "square",
                     colorbar: {}
                 },
