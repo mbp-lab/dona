@@ -3,15 +3,9 @@ const formInputDataForPolarPlot = require("./utils/formInputDataForPolarPlot");
 const _ = require("lodash");
 const sortGraphDataPointsSync = require("./utils/sortGraphDataPointsSync");
 
-function animatedHorizontalBarChart(dataPerFriend, dataPerConversation, conversationsFriends, plotId) {
+function animatedHorizontalBarChart(sentReceivedPerConversation, dataPerFriend, dataPerConversation, conversationsFriends, plotId) {
 
     let allFriends = [...new Set(conversationsFriends.flat())]
-
-    let listOfConversations = []
-    listOfConversations.push("Overall/Everything")
-    for (let i = 0; i < conversationsFriends.length; i++) {
-        listOfConversations.push("Conversation with " + conversationsFriends[i].filter((participant) => participant !== "donor"))
-    }
 
     const plotContainer = $(`#${plotId}`)
     plotContainer.removeClass('d-none');
@@ -25,13 +19,12 @@ function animatedHorizontalBarChart(dataPerFriend, dataPerConversation, conversa
         showlegend: true,
         barmode: 'overlay',
         legend: {
-            bgcolor: "#13223C",
-            font: {color: "white"},
             x: 1.01,
             y: 1.16,
         },
         yaxis: {
-            color: "white"
+            automargin: true,
+            color: "black",
         },
         hovermode: 'closest',
         updatemenus: [
@@ -68,22 +61,6 @@ function animatedHorizontalBarChart(dataPerFriend, dataPerConversation, conversa
                         label: 'Pause'
                     }
                 ]
-            }
-        ],
-        images: [
-            {
-                source: backGroundImages["horizontalBarChartBackground"],
-                xref: "paper",
-                yref: "paper",
-                x: 0.5,
-                y: 0.5,
-                sizex: 1.5,
-                sizey: 1.5,
-                xanchor: "center",
-                yanchor: "middle",
-                sizing: "fill",
-                opacity: 1,
-                layer: "below"
             }
         ]
     }
@@ -462,6 +439,186 @@ function animatedHorizontalBarChart(dataPerFriend, dataPerConversation, conversa
      */
 
 
+    let listOfConversations = []
+    for (let i = 0; i < conversationsFriends.length; i++) {
+        listOfConversations.push("Chat with: <br>" + conversationsFriends[i][0]);
+        if (conversationsFriends[i].length === 1) {
+            listOfConversations[i] += "  "
+        }
+        for (let j = 1; j < conversationsFriends[i].length; j++) {
+            if (conversationsFriends[i][j] !== "donor") {
+                if (j % 2 === 0) {
+                    listOfConversations[i] += ", <br>" + conversationsFriends[i][j]
+                } else {
+                    listOfConversations[i] += ", " + conversationsFriends[i][j]
+                }
+                if (j === conversationsFriends[i].length - 1) {
+                    listOfConversations[i] += "  "
+                }
+                if (j > 5) {
+                    listOfConversations[i] += ", ..."
+                    break;
+                }
+            }
+        }
+    }
+
+
+    let frames = []
+    let sliderSteps = []
+    let name;
+    let xSent = []
+    let ySent = []
+    let xReceived = []
+    let yReceived = []
+    let initialX = []
+
+    let conversationSentObj = {}
+    let conversationReceivedObj = {}
+
+
+    listOfConversations.forEach((conv) => {
+        conversationSentObj[conv] = 0
+        conversationReceivedObj[conv] = 0
+        initialX.push(0)
+    })
+
+    let flattenedSentReceived = sentReceivedPerConversation.map((array, i) => {
+        array.forEach(obj => {
+            obj["conversation"] = listOfConversations[i]
+            return obj;
+        })
+        return array;
+    })
+
+
+    sortGraphDataPoints(flattenedSentReceived.flat(), false, false)
+        .then(sortedData => {
+            return _.groupBy(sortedData, (obj) => {
+                return obj.year + "-" + obj.month
+            })
+        })
+        .then(groupedData => {
+
+
+            for (const [key, value] of Object.entries(groupedData)) {
+
+
+                value.forEach((sentReceivedObj) => {
+                    conversationSentObj[sentReceivedObj.conversation] = conversationSentObj[sentReceivedObj.conversation] + sentReceivedObj.sentCount
+                    conversationReceivedObj[sentReceivedObj.conversation] = conversationReceivedObj[sentReceivedObj.conversation] + sentReceivedObj.receivedCount
+                })
+
+                name = key
+
+                xSent = []
+                ySent = []
+                for (const [key, value] of Object.entries(conversationSentObj)) {
+                    xSent.push(value)
+                    ySent.push(key)
+                }
+
+                xReceived = []
+                yReceived = []
+                for (const [key, value] of Object.entries(conversationReceivedObj)) {
+                    xReceived.push(value)
+                    yReceived.push(key)
+                }
+
+                frames.push({
+                    name: name,
+                    data: [
+                        {
+                            name: "Sent words",
+                            x: xSent,
+                            y: ySent,
+                            marker: {
+                                color: "#1A467B",
+                                //color: "00d2ff"
+                            },
+                            width: _.fill(Array(listOfConversations.length), 0.8)
+                        },
+                        {
+                            name: "Received words",
+                            x: xReceived,
+                            y: yReceived,
+                            marker: {
+                                color: "#FF8800",
+                            },
+                            width: _.fill(Array(listOfConversations.length), 0.3)
+                        }
+                    ],
+                })
+
+                sliderSteps.push({
+                    method: 'animate',
+                    label: name,
+                    args: [[name], {
+                        mode: "immediate",
+                        transition: {duration: 300},
+                        frame: {duration: 300, redraw: false}
+                    }]
+                })
+            }
+
+
+            // find max for range, so that bars dont get cut off
+            let maxForRange = Math.max(...Object.values(conversationSentObj))
+            let maxReceived = Math.max(...Object.values(conversationReceivedObj))
+            if (maxForRange < maxReceived) {
+                maxForRange = maxReceived
+            }
+
+            layout["xaxis"] = {
+                range: [0, maxForRange],
+                color: "black"
+            }
+
+            layout["sliders"] = [{
+                pad: {l: 130, t: 95},
+                currentvalue: {
+                    visible: true,
+                    prefix: 'Year-Month:',
+                    xanchor: 'right',
+                    font: {size: 20, color: 'black'}
+                },
+                steps: sliderSteps
+            }]
+
+
+            plotContainer.html("");
+            Plotly.newPlot(plotId, [
+                {
+                    name: "Sent words",
+                    x: initialX,
+                    y: listOfConversations,
+                    type: "bar",
+                    orientation: 'h',
+                    marker: {
+                        color: "#1A467B",
+                    },
+                    width: _.fill(Array(listOfConversations.length), 0.8)
+                },
+                {
+                    name: "Received words",
+                    x: initialX,
+                    y: listOfConversations,
+                    type: "bar",
+                    orientation: 'h',
+                    marker: {
+                        color: "#FF8800",
+                    },
+                    width: _.fill(Array(listOfConversations.length), 0.3)
+                }
+            ], layout, {responsive: true}).then(() => {
+                Plotly.addFrames(plotId, frames)
+
+                startAnimation(null, 'afterall')
+            });
+
+        })
+
+/*
 
     let frames = []
     let sliderSteps = []
@@ -603,6 +760,8 @@ function animatedHorizontalBarChart(dataPerFriend, dataPerConversation, conversa
 
         })
 
+
+ */
 
 
 

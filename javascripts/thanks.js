@@ -23,6 +23,7 @@ $(document).ready(function () {
         );
 
         animatedHorizontalBarChart(
+            graphData.sentReceivedPerMonthPerConversation,
             graphData.sentPerFriendPerMonth,
             graphData.sentPerFriendInConversationPerMonth,
             graphData.conversationsFriends,

@@ -13,7 +13,8 @@ function sortGraphDataPointsTimeWise(graphDataPoints, hasDate, hasHourAndMinute)
     }
 
 
-    if (graphDataPoints[0][0] != null) {
+
+    if (graphDataPoints[0][0] !== undefined) {
         return new Promise((resolve) => {
             let results = []
             for (let i = 0; i < graphDataPoints.length; i++) {
