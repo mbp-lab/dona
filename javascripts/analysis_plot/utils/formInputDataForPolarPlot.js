@@ -5,23 +5,6 @@ function formInputDataForPolarPlot(sortedGraphDataPoints, allFriends, yearToExcl
         let averageValues = []
         let valuesExcludedMonth = []
 
-        /*
-        let listOfConversations = []
-        for (let i = 0; i < allFriends.length; i++) {
-            listOfConversations.push("Chat with: <br>" + allFriends[i][0]);
-            for (let j = 1; j < allFriends[i].length; j++) {
-                if (allFriends[i][j] !== "donor") {
-                    listOfConversations[i] += ", " + allFriends[i][j]
-                    if (j > 5) {
-                        listOfConversations[i] += ", ..."
-                        break;
-                    }
-                }
-            }
-        }
-
-         */
-
         let listOfConversations = []
         for (let i = 0; i < allFriends.length; i++) {
             listOfConversations.push("Chat with: <br>" + allFriends[i][0]);

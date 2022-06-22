@@ -18,38 +18,23 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
         xaxis: {
             tickangle: 45,
             tickformat: '%d-%m-%Y',
-            color: "white",
+            //color: "white",
             showgrid: true,
-            gridcolor: "grey"
+            //gridcolor: "grey",
+            automargin: true,
         },
         yaxis: {
             title: "Words",
-            color: "white",
+            //color: "white",
             showgrid: true,
-            gridcolor: "grey"
+            //gridcolor: "grey"
         },
         legend: {
-            bgcolor: "#13223C",
-            font: {color: "white"},
+            //bgcolor: "#13223C",
+            //font: {color: "white"},
             x: 1.01,
             y: 1.16,
-        },
-        images: [
-            {
-                source: backGroundImages["horizontalBarChartBackground"],
-                xref: "paper",
-                yref: "paper",
-                x: 0.5,
-                y: 0.5,
-                sizex: 1.5,
-                sizey: 1.5,
-                xanchor: "center",
-                yanchor: "middle",
-                sizing: "fill",
-                opacity: 1,
-                layer: "below"
-            }
-        ]
+        }
     };
 
 
@@ -148,7 +133,7 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
                 y: plotInputData.yAxisSentMessages,
                 mode: 'lines+markers',
                 name: "sent words",
-                marker: {size: 4, color: "white"},
+                marker: {size: 4}, //, color: "white"},
                 visible: i === 0,
             };
 
@@ -170,7 +155,7 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
                 y: plotInputData.yAxisReceivedMessages,
                 mode: 'lines+markers',
                 name: "received words",
-                marker: {size: 4, color: "orange"},
+                marker: {size: 4}, //, color: "orange"},
                 visible: i === 0,
             };
 
