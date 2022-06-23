@@ -167,7 +167,6 @@ function dayPartsActivityPlot(dataSent, dataReceived, conversationsFriends, plot
         }
         let means = meansForDayParts(value)
 
-        console.log("MEANS:", means)
 
         means.forEach((mean) => {
             if (mean > globalMax) {
@@ -247,10 +246,6 @@ function dayPartsActivityPlot(dataSent, dataReceived, conversationsFriends, plot
         })
     }
 
-    console.log("FRAMES:", frames)
-    console.log("SliderSteps:", sliderSteps)
-
-    console.log("globalMax:", globalMax)
 
     layout["yaxis"] = {
         range: [0, globalMax],
