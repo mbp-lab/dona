@@ -32,8 +32,8 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
         legend: {
             //bgcolor: "#13223C",
             //font: {color: "white"},
-            x: 1.01,
-            y: 1.16,
+            x: -0.1,
+            y: 1.1,
         }
     };
 
@@ -83,7 +83,7 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
                 active: 0,
                 buttons: [],
                 pad: {'r': 10, 't': 10},
-                x: 0.05,
+                x: -0.1,
                 xanchor: 'left',
                 y: 1.25,
                 yanchor: 'top'

@@ -23,7 +23,7 @@ function polarPlot(data, dataMonthlyPerConversation, allFriendsData, plotId) {
 
     let layout = {
         //paper_bgcolor: "#141852",
-        hovermode: true,
+        hovermode: false,
         showlegend: true,
         legend: {
             bgcolor: "#13223C",
@@ -147,7 +147,7 @@ function polarPlot(data, dataMonthlyPerConversation, allFriendsData, plotId) {
 
             let max;
             let allRDataFlat = plotInputData.rExcludedMonth.concat(plotInputData.r)
-            console.log(allRDataFlat)
+            //console.log(allRDataFlat)
             max = Math.max(...allRDataFlat)
             max = max + 0.25*max // for some distance to the circle for the donor
             //console.log("MAX: " + max)

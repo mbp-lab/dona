@@ -19,8 +19,8 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, dataPerFriend, 
         showlegend: true,
         barmode: 'overlay',
         legend: {
-            x: 1.01,
-            y: 1.16,
+            x: -.1,
+            y: 1.2
         },
         yaxis: {
             automargin: true,
@@ -439,25 +439,37 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, dataPerFriend, 
      */
 
 
+    let shortenFriend = (friend) => {
+        //find index where number starts, all friends have the following form: "friend" + "i" where i is a number
+        let numberStart = friend.search(/\d+/)
+        return "F" + friend.substring(numberStart, friend.length)
+    }
+
+
     let listOfConversations = []
     for (let i = 0; i < conversationsFriends.length; i++) {
+
+        conversationsFriends[i] = conversationsFriends[i].map((friend) => shortenFriend(friend))
+
         listOfConversations.push("Chat with: <br>" + conversationsFriends[i][0]);
         if (conversationsFriends[i].length === 1) {
             listOfConversations[i] += "  "
         }
         for (let j = 1; j < conversationsFriends[i].length; j++) {
             if (conversationsFriends[i][j] !== "donor") {
-                if (j % 2 === 0) {
+
+                if (j > 7) {
+                    listOfConversations[i] += ", ..."
+                    break;
+                }
+
+                if (j % 4 === 0) {
                     listOfConversations[i] += ", <br>" + conversationsFriends[i][j]
                 } else {
                     listOfConversations[i] += ", " + conversationsFriends[i][j]
                 }
                 if (j === conversationsFriends[i].length - 1) {
                     listOfConversations[i] += "  "
-                }
-                if (j > 5) {
-                    listOfConversations[i] += ", ..."
-                    break;
                 }
             }
         }
