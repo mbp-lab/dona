@@ -20,6 +20,7 @@
                 dataSource.toString
             }ModalContainer"
             >
+                @showDayPartsActivityPlot(dataSource)
                 @showDailyActivityTimesMean(dataSource)
             </div>
 
@@ -43,6 +44,26 @@
             </div>
 
         </div>
+    }
+
+    @showDayPartsActivityPlot(name: String) = {
+    @showExplanationText("DayPartsActivity Plot", "Per Day part the average amount of messages")
+
+
+        <div id="@{
+            name
+        }DayPartsActivityPlot" class="d-none"
+        data-x-axis="@messages("feedback.graph.time")"
+        data-y-axis="@messages("feedback.graph.number-of-messages")"
+        data-sent-trace-name="@messages("feedback.graph.sent")"
+        data-received-trace-name="@messages("feedback.graph.received")"
+        >
+            <div class="card h-100">
+                <div class="m-auto">@messages("feedback.graph.loading")</div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
     }
 
 

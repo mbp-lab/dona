@@ -8,6 +8,7 @@ var dailyActivityTimes = require('./analysis_plot/dailyActivityTimes')
 var dailyActivityTimesMean = require('./analysis_plot/dailyActivityTimesMean')
 var polarPlot = require('./analysis_plot/polarPlot')
 var animatedHorizontalBarChart = require('./analysis_plot/animatedHorizontalBarChart')
+const dayPartsActivityPlot = require("./analysis_plot/dayPartsActivityPlot");
 
 
 $(document).ready(function () {
@@ -68,6 +69,12 @@ $(document).ready(function () {
         })
 
         $(`#${dataSourceType}dailyActivityModal`).on('shown.bs.modal', () => {
+            dayPartsActivityPlot(
+                graphData.dailySentHoursPerConversation,
+                graphData.dailyReceivedHoursPerConversation,
+                graphData.conversationsFriends,
+                `${dataSourceType}DayPartsActivityPlot`
+            )
             dailyActivityTimesMean(
                 graphData.dailySentHoursPerConversation,
                 graphData.dailyReceivedHoursPerConversation,
