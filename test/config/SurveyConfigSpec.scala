@@ -12,16 +12,16 @@ final class SurveyConfigSpec extends FreeSpec with Matchers {
       val donorId = ExternalDonorId("testId")
 
       "should add their ID as a query parameter and language english" in {
-        config.createDonorLink(donorId, "eng").query() should contain theSameElementsAs List(
-          "r" -> "testId",
-          "l" -> "eng"
+        config.createDonorLink(donorId, "en").query() should contain theSameElementsAs List(
+          "UID" -> "testId",
+          "lang" -> "en"
         )
       }
 
       "should add their ID as a query parameter and language german" in {
-        config.createDonorLink(donorId, "deu").query() should contain theSameElementsAs List(
-          "r" -> "testId",
-          "l" -> "deu"
+        config.createDonorLink(donorId, "de").query() should contain theSameElementsAs List(
+          "UID" -> "testId",
+          "lang" -> "de"
         )
       }
     }
@@ -31,10 +31,10 @@ final class SurveyConfigSpec extends FreeSpec with Matchers {
         val url = Uri("http://survey-host.com/survey?act=1234")
         val config = SurveyConfig(url)
         val donorId = ExternalDonorId("testId")
-        config.createDonorLink(donorId, "eng").query() should contain theSameElementsAs List(
-          "r" -> "testId",
+        config.createDonorLink(donorId, "en").query() should contain theSameElementsAs List(
+          "UID" -> "testId",
           "act" -> "1234",
-          "l" -> "eng"
+          "lang" -> "en"
         )
       }
     }

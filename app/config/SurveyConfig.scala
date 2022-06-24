@@ -9,7 +9,7 @@ case class SurveyConfig(baseUrl: Uri, surveyEnabled: Boolean = true) {
 
   def createDonorLink(donorId: ExternalDonorId, iso3localeString: String): Uri = {
     if (surveyEnabled) {
-      baseUrl.withQuery(("l" -> iso3localeString) +: ("r" -> donorId.toString) +: baseUrl.query())
+      baseUrl.withQuery(("lang" -> iso3localeString) +: ("UID" -> donorId.toString) +: baseUrl.query())
     } else {
       routes.SocialDataDonationController.showDataDonationPage().url
     }
