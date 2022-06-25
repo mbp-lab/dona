@@ -192,25 +192,6 @@ function dailyActivityTimes(dataSent, dataReceived, conversationsFriends, plotId
 
     layout.xaxis.range = [startRange, resultTraces[0].x[resultTraces[0].x.length - 1]]
 
-    layout.xaxis.rangeselector = {
-        x: -0.1,
-        y: 1.16,
-        buttons: [
-            {
-                count: 1,
-                label: '1m',
-                step: 'month',
-                stepmode: 'todate',
-                active: true
-            },
-            {
-                count: 6,
-                label: '6m',
-                step: 'month',
-                stepmode: 'todate',
-            },
-        ]
-    }
 
     layout.xaxis.rangeslider = {}
     layout.height = 700

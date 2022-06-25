@@ -17,16 +17,14 @@ $(document).ready(function () {
         console.log(graphData)
 
         polarPlot(
-            graphData.sentPerFriendPerMonth,
             graphData.sentReceivedPerMonthPerConversation,
             graphData.conversationsFriends,
-            `${dataSourceType}PolarPlot`
+            `${dataSourceType}PolarPlot`,
+            `#${dataSourceType}PolarPlotYearSelector`
         );
 
         animatedHorizontalBarChart(
             graphData.sentReceivedPerMonthPerConversation,
-            graphData.sentPerFriendPerMonth,
-            graphData.sentPerFriendInConversationPerMonth,
             graphData.conversationsFriends,
             `${dataSourceType}AnimatedHorizontalBarChart`
         );

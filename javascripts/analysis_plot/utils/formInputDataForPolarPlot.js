@@ -50,15 +50,47 @@ function formInputDataForPolarPlot(sortedGraphDataPoints, allFriends, yearToExcl
         let earliestYear = earliestMonthYearBefore.getFullYear()
         let earliestMonth = earliestMonthYearBefore.getMonth() + 1 // +1 for same reason as - 1
 
+        console.log("earliestYear: ", earliestYear)
+        console.log("earliestMonth: ", earliestMonth)
+
+
         for (let i = 0; i < allFriends.length; i++) {
 
             // get data without the selected month and only months in range before the selected month
             let filteredData = sortedGraphDataPoints[i].filter((obj) => {
-                return !(obj.year === yearToExclude && obj.month === monthToExclude) // is not in the excluded month
-                    && ((obj.year > earliestYear && obj.year < yearToExclude) // if is between earliest and year to exclude -> then its in range
-                        || (obj.year === yearToExclude && obj.month < monthToExclude) // or if the year is the same as year to exlude, then the month needs to be smaller
-                        || (obj.year === earliestYear && obj.month >= earliestMonth)) // or if its the same year as the earliest year, then the month needs to be bigger or equal
+
+
+
+                let yearMonthExcluded = (obj.year === yearToExclude && obj.month === monthToExclude) // is not in the excluded month
+                let isInBetweenYears = (obj.year > earliestYear && obj.year < yearToExclude)
+                let earliestEqualsExcludedYear = yearToExclude === earliestYear && yearToExclude === obj.year
+
+                console.log("obj::", obj)
+                //console.log(yearMonthExcluded)
+                //console.log(isInBetweenYears)
+                //console.log(earliestEqualsExcludedYear)
+
+                if (yearMonthExcluded || obj.year > yearToExclude || obj.year < earliestYear) { // is not the excluded month and year and is in range of years
+                    return false
+                } else if (isInBetweenYears) { // if it is between earliest and year to exclude -> then it is in range
+                    return true
+                } else if(earliestEqualsExcludedYear) { // if earliest year equals excluded year
+                    console.log("HELLO", (obj.month < monthToExclude) && (obj.month >= earliestMonth))
+                    return (obj.month < monthToExclude) && (obj.month >= earliestMonth) // month needs to be in between
+                } else if (obj.year === yearToExclude) { // if year is the year to exclude, then month needs to be smaller
+                    console.log("case 2")
+                    return obj.month < monthToExclude
+                } else { // else the year is the same as earliest year, then month needs to be bigger or equal than earliest month
+                    console.log("case 3")
+                    return obj.month >= earliestMonth
+                }
+
             })
+
+            console.log("earliestYear: ", earliestYear)
+            console.log("earliestMonth: ", earliestMonth)
+            console.log("yearToExclude: ", yearToExclude)
+            console.log("filtered Data:", filteredData)
 
             // get all sent counts from those objects and sum them up to calculate the average
             let sentCounts = filteredData.map(obj => obj.sentCount)
@@ -85,6 +117,9 @@ function formInputDataForPolarPlot(sortedGraphDataPoints, allFriends, yearToExcl
 
         averageValues = averageValues.map((value) => Math.sqrt(value))
         valuesExcludedMonth = valuesExcludedMonth.map((value) => Math.sqrt(value))
+
+        console.log("AVERAGE values:", averageValues)
+        console.log("valuesExcluded:", valuesExcludedMonth)
 
 
         return new Promise((resolve) => {

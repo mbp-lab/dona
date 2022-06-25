@@ -3,7 +3,7 @@ const formInputDataForPolarPlot = require("./utils/formInputDataForPolarPlot");
 const _ = require("lodash");
 const sortGraphDataPointsSync = require("./utils/sortGraphDataPointsSync");
 
-function animatedHorizontalBarChart(sentReceivedPerConversation, dataPerFriend, dataPerConversation, conversationsFriends, plotId) {
+function animatedHorizontalBarChart(sentReceivedPerConversation, conversationsFriends, plotId) {
 
     let allFriends = [...new Set(conversationsFriends.flat())]
 

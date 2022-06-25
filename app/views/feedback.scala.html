@@ -55,6 +55,14 @@
 
 @showPolarPlot(name: String) = {
 @showExplanationText("Polar Plot", "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.")
+    <div>
+        Year: <select
+    class="form-select"
+    id="@{
+        name.toString
+    }PolarPlotYearSelector"></select>
+    </div>
+
     <div id="@{
         name.toString
     }PolarPlot" class="d-none"
@@ -91,7 +99,7 @@
         <div class="modal fade" id="@{
             name.toString
         }sentReceivedModal" role="dialog">
-        @sentReceivedPlotsModal(name, data)
+        @feedback_sentReceivedPlotsModal(name, data)
         </div>
         <button class="btn btn-outline footer-forward-button text-center" data-toggle="modal" data-target="#@{
             name.toString
@@ -123,7 +131,7 @@
         <div class="modal fade" id="@{
             name
         }dailyActivityModal" role="dialog">
-        @dailyActivityPlotsModal(name)
+        @feedback_dailyActivityPlotsModal(name)
         </div>
         <button class="btn btn-outline footer-forward-button text-center" data-toggle="modal" data-target="#@{
             name
@@ -149,7 +157,7 @@
         <div class="modal fade" id="@{
             name.toString
         }responseTimeModal" role="dialog">
-        @sentReceivedPlotsModal(name, data)
+        @feedback_sentReceivedPlotsModal(name, data)
         </div>
         <button class="btn btn-outline footer-forward-button text-center" data-toggle="modal" data-target="#@{
             name.toString

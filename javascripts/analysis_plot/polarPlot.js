@@ -1,14 +1,8 @@
 var sortGraphDataPoints = require('./utils/sortGraphDataPointsTimeWise');
 const formInputDataForPolarPlot = require("./utils/formInputDataForPolarPlot");
+const _ = require("lodash");
 
-function polarPlot(data, dataMonthlyPerConversation, allFriendsData, plotId) {
-
-
-    let allFriends = [...new Set(allFriendsData.flat())]
-
-    let sentFromDonor = data.filter(obj => obj.from === "donor")
-    let sentToDonor = data.filter(obj => obj.from !== "donor")
-
+function polarPlot(dataMonthlyPerConversation, allFriendsData, plotId, yearSelectorId) {
 
 
     const plotContainer = $(`#${plotId}`)
@@ -19,6 +13,22 @@ function polarPlot(data, dataMonthlyPerConversation, allFriendsData, plotId) {
     const received = plotContainer.attr("data-received-trace-name");
 
 
+    // TODO: put this in math helper .js file
+    let transformToZScores = (convData) => {
+
+        let allSentCounts = convData.flat().map((obj) => obj.sentCount)
+
+        // get standard deviation
+        const n = allSentCounts.length
+        const mean = allSentCounts.reduce((a, b) => a + b) / n
+        const stdDeviation = Math.sqrt(allSentCounts.map(x => Math.pow(x - mean, 2)).reduce((a, b) => a + b) / n)
+
+        for (let i = 0; i < convData.length; i++) {
+            convData[i].forEach((obj) => {
+                obj["zScore"] = (obj.sentCount - mean) / stdDeviation
+            })
+        }
+    }
 
 
     let layout = {
@@ -78,7 +88,6 @@ function polarPlot(data, dataMonthlyPerConversation, allFriendsData, plotId) {
     }
 
 
-
     let findLastYearMonth = (sortedData) => {
         let lastYear = 0;
         let lastMonth = 0;
@@ -100,15 +109,107 @@ function polarPlot(data, dataMonthlyPerConversation, allFriendsData, plotId) {
         return [lastYear, lastMonth];
     }
 
+    let assignOptions = (yearsAndMonths, yearSelector) => {
+
+        for (let i = 0; i < yearsAndMonths.length; i++) {
+            let currentOption = document.createElement('option');
+            currentOption.text = yearsAndMonths[i];
+            currentOption.value = yearsAndMonths[i];
+            yearSelector.appendChild(currentOption);
+        }
+    }
+
+    // initialize updatemenus
+    layout["updatemenus"] = [{
+        active: 0,
+        buttons: [],
+        pad: {'r': 10, 't': 10},
+        x: 0.05,
+        xanchor: 'left',
+        y: 1.25,
+        yanchor: 'top'
+    }]
+
+    // need this to assing options for selectors to make sense
+    let sortedDataGlobal = []
+
+    // get selector
+    let yearSelector = document.querySelector(yearSelectorId)
+
 
     sortGraphDataPoints(dataMonthlyPerConversation, false, false)
         .then(sortedData => {
+
+            // this will be used in the update method for the selector
+            sortedDataGlobal = sortedData
+
+            //console.log(sortedData.flat())
+            // do update menu stuff
+            let groupedData = _.groupBy(sortedData.flat(), (obj) => {
+                return obj.year + "-" + obj.month
+            })
+
+
+            //let allYears = sortedData.flat().map((obj) => obj.year)
+            //allDistinctYears = [... new Set(allYears)]
+
+            // selector handling
+            //let monthSelector = document.querySelector(monthSelectorId)
+            assignOptions(Object.keys(groupedData), yearSelector)
+            yearSelector.addEventListener('change', updateConversation, false)
+
+
+
+
+            /*
+            for (const [key, value] of Object.entries(groupedData)) {
+
+                formInputDataForPolarPlot(sortedData, allFriendsData, 2019, 11, 6)
+                    .then((dataForMenu) => {
+
+                        let r = dataForMenu.r
+                        let rExcludedMonth = dataForMenu.rExcludedMonth
+                        let max;
+                        let allRDataFlat = dataForMenu.rExcludedMonth.concat(dataForMenu.r)
+                        //console.log(allRDataFlat)
+                        max = Math.max(...allRDataFlat)
+                        max = max + 0.25 * max // for some distance to the circle for the donor
+                        console.log("MAX:", max)
+
+                        // add menu for this year-month
+                        layout["updatemenus"][0]["buttons"].push({
+                            method: 'update',
+                            args: [{
+                                'r': [
+                                    r,
+                                    rExcludedMonth,
+                                    [120]
+                                ]
+                            },
+                            ],
+                            label: key
+                        })
+                    })
+
+
+            }
+            */
+
+            /*
+            console.log("sortedData before:", sortedData)
+            console.log("HERE ARE THE ZScores:")
+            transformToZScores(sortedData)
+            console.log(sortedData)
+            */
 
             let lastYearAndMonth = findLastYearMonth(sortedData)
             let lastYear = lastYearAndMonth[0]
             let lastMonth = lastYearAndMonth[1]
 
-            return formInputDataForPolarPlot(sortedData, allFriendsData, lastYear, lastMonth, 12)
+            // set initial selector value
+            yearSelector.value = lastYear + "-" + lastMonth
+
+            return formInputDataForPolarPlot(sortedData, allFriendsData, lastYear, lastMonth, 6)
         })
         .then(plotInputData => {
 
@@ -149,7 +250,7 @@ function polarPlot(data, dataMonthlyPerConversation, allFriendsData, plotId) {
             let allRDataFlat = plotInputData.rExcludedMonth.concat(plotInputData.r)
             //console.log(allRDataFlat)
             max = Math.max(...allRDataFlat)
-            max = max + 0.25*max // for some distance to the circle for the donor
+            max = max + 0.25 * max // for some distance to the circle for the donor
             //console.log("MAX: " + max)
 
 
@@ -166,94 +267,52 @@ function polarPlot(data, dataMonthlyPerConversation, allFriendsData, plotId) {
                 },
             })
 
-            layout.polar.radialaxis.range = [max,0]
+            layout.polar.radialaxis.range = [max, 0]
 
 
             plotContainer.html("");
-            Plotly.newPlot(plotId, traces, layout, { responsive: true });
+            Plotly.newPlot(plotId, traces, layout, {responsive: true});
 
 
         })
 
 
 
-/*
-    sortGraphDataPoints(sentFromDonor, false, false)
-        .then(sortedData => {
-            // for full points: last month
-            let lastYear = sortedData[sortedData.length -1].year
-            let lastMonth = sortedData[sortedData.length -1].month
 
-            //console.log("LastYear: " + lastYear + ", lastMonth: " + lastMonth)
-            return formInputDataForPolarPlot(sortedData, allFriends, lastYear, lastMonth)
-        })
-        .then((plotInputData) => {
-            const traceAverages = {
-                name: "Sent Averages",
-                type: "scatterpolar",
-                mode: "markers",
-                r: plotInputData.r,
-                theta: plotInputData.theta,
-                marker: {
-                    color: '#f5f5f5',
-                    size: 10,
-                    opacity: 0.55
-                },
-                line: {
-                    color: 'white',
-                }
-            }
+    //assignOptions(yearsAndMonths, yearSelector, monthSelector)
 
-            const traceLastMonth = {
-                name: "Sent Last Month",
-                type: "scatterpolar",
-                mode: "markers",
-                r: plotInputData.rExcludedMonth,
-                theta: plotInputData.thetaExcludedMonth,
-                marker: {
-                    color: 'white',
-                    size: 14,
-                },
-                line: {
-                    color: 'white',
-                }
-            }
+    let updateConversation = () => {
 
-            let traces = [traceAverages, traceLastMonth]
+        let yearMonth = yearSelector.value
+        let split = yearMonth.split("-")
+        let year = parseInt(split[0])
+        let month = parseInt(split[1])
+        console.log(split)
 
-            let max;
-            let allRDataFlat = plotInputData.rExcludedMonth.concat(plotInputData.r)
-            //console.log(allRDataFlat)
-            max = Math.max(...allRDataFlat)
-            max = max + 0.2*max
-            //console.log("MAX: " + max)
+        formInputDataForPolarPlot(sortedDataGlobal, allFriendsData, year, month, 6)
+            .then((dataForMenu) => {
+
+                let r = dataForMenu.r
+                let rExcludedMonth = dataForMenu.rExcludedMonth
+                let max;
+                let allRDataFlat = dataForMenu.rExcludedMonth.concat(dataForMenu.r)
+                //console.log(allRDataFlat)
+                max = Math.max(...allRDataFlat)
+                max = max + 0.25 * max // for some distance to the circle for the donor
+                console.log("MAX:", max)
 
 
-            traces.push({
-                name: "Donor/Spender",
-                type: "scatterpolar",
-                mode: "markers",
-                r: [max],
-                theta: [allFriends[0]],
-                marker: {
-                    color: 'yellow',
-                    size: 25,
-                    opacity: 0.9
-                },
+                Plotly.update(plotId, {
+                    'r': [
+                        r,
+                        rExcludedMonth,
+                        [120]
+                    ]
+                })
             })
 
-            layout.polar.radialaxis.range = [max,0]
+    }
 
-
-            plotContainer.html("");
-            Plotly.newPlot(plotId, traces, layout, { responsive: true });
-
-
-        })
-
-
-
- */
 
 
 
