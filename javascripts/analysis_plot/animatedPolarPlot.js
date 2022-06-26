@@ -4,7 +4,7 @@ const _ = require("lodash");
 
 function animatedPolarPlot(dataMonthlyPerConversation, allFriends, plotId, yearSelectorId) {
 
-    console.log(dataMonthlyPerConversation)
+    //console.log(dataMonthlyPerConversation)
 
     //this should be put into a separate helper file
     let shortenFriend = (friend) => {
@@ -71,8 +71,8 @@ function animatedPolarPlot(dataMonthlyPerConversation, allFriends, plotId, yearS
 
     let layout = {
         //paper_bgcolor: "#141852",
-        height: 600,
-        hovermode: true,
+        height: 550,
+        hovermode: false,
         showlegend: true,
         legend: {
             bgcolor: "#13223C",
@@ -164,11 +164,11 @@ function animatedPolarPlot(dataMonthlyPerConversation, allFriends, plotId, yearS
 
         Plotly.animate(plotId, groupOrFrames, {
             transition: {
-                duration: 100,
+                duration: 300,
                 easing: 'linear'
             },
             frame: {
-                duration: 100,
+                duration: 300,
                 redraw: true,
             },
             mode: mode
@@ -186,7 +186,7 @@ function animatedPolarPlot(dataMonthlyPerConversation, allFriends, plotId, yearS
                 }
             })
         }
-        return max;
+        return Math.sqrt(max);
     }
 
 
@@ -220,58 +220,56 @@ function animatedPolarPlot(dataMonthlyPerConversation, allFriends, plotId, yearS
                 })
             }
 
-            console.log(sortedData)
+            //transformToZScores(sortedData)
+
+
+            //console.log(sortedData)
 
             let groupedData = _.groupBy(sortedData.flat(), (obj) => {
                 return obj.year + "-" + obj.month
             })
 
-            console.log(groupedData)
+            //console.log(groupedData)
 
             for (const [key, value] of Object.entries(groupedData)) {
 
                 name = key;
 
-                console.log("key:", key)
-                console.log("value: ", value)
+                //console.log("key:", key)
+                //console.log("value: ", value)
 
                 let rValues = []
                 let thetaValues = []
+
+                let rValuesReceivedCount = []
 
                 let helper;
                 listOfConversations.forEach((conv) => {
                     helper = value.find(obj => obj.conversation === conv)
                     if (helper !== undefined) {
-                        rValues.push(helper.sentCount)
+                        rValues.push(Math.sqrt(helper.sentCount))
+                        rValuesReceivedCount.push(Math.sqrt(helper.receivedCount))
                     } else {
                         rValues.push(0)
+                        rValuesReceivedCount.push(0)
                     }
                     thetaValues.push(conv)
                 })
-                /*
-                value.forEach((obj) => {
-                    rValues.push(obj.sentCount)
-                    thetaValues.push(obj.conversation)
-                })
 
-                 */
 
                 frames.push({
                     name: name,
                     data: [
                         {
                             name: "Sent",
-                            r: [...rValues],
-                            theta: [...thetaValues],
+                            r: rValues,
+                            theta: thetaValues,
                         },
-                        /*
                         {
-                            name: "Donor/Spender",
-                            r: [max],
-                            theta: [listOfConversations[0]],
-                        }
-
-                         */
+                            name: "Received",
+                            r: rValuesReceivedCount,
+                            theta: thetaValues,
+                        },
                     ],
                 })
 
@@ -280,27 +278,21 @@ function animatedPolarPlot(dataMonthlyPerConversation, allFriends, plotId, yearS
                     label: name,
                     args: [[name], {
                         mode: "immediate",
-                        transition: {duration: 100},
-                        frame: {duration: 100, redraw: true}
+                        transition: {duration: 300},
+                        frame: {duration: 300, redraw: true}
                     }]
                 })
 
             }
 
 
-            console.log("FRAMES:", frames)
-            console.log("SliderSteps:", sliderSteps)
+            //console.log("FRAMES:", frames)
+            //console.log("SliderSteps:", sliderSteps)
 
-            /*
-            console.log("sortedData before:", sortedData)
-            console.log("HERE ARE THE ZScores:")
-            transformToZScores(sortedData)
-            console.log(sortedData)
-            */
 
             listOfConversations.forEach(() => initialR.push(0))
 
-            const traceInitial = {
+            const traceSentInitial = {
                 name: "Sent",
                 type: "scatterpolar",
                 mode: "markers",
@@ -315,7 +307,24 @@ function animatedPolarPlot(dataMonthlyPerConversation, allFriends, plotId, yearS
                 }
             }
 
-            let traces = [traceInitial]
+            const traceReceivedInitial = {
+                name: "Received",
+                type: "scatterpolar",
+                mode: "markers",
+                r: initialR,
+                theta: listOfConversations,
+                marker: {
+                    color: 'orange',
+                    size: 14,
+                    opacity: 0.9
+                },
+                line: {
+                    color: 'white',
+                },
+                visible: "legendonly"
+            }
+
+            let traces = [traceSentInitial, traceReceivedInitial]
 
             traces.push({
                 name: "Donor/Spender",
@@ -331,6 +340,71 @@ function animatedPolarPlot(dataMonthlyPerConversation, allFriends, plotId, yearS
             })
 
 
+
+            // add traces with low opacity for all months to create faded out way of marker
+            let traceOfRSent = []
+            let traceOfThetaSent = []
+            let traceOfRReceived = []
+            let traceOfThetaReceived = []
+            frames.forEach((frame) => {
+
+                for (let i = 0; i < frame.data[0].r.length; i++) {
+
+                    // dont push if r value is 0
+                    if (frame.data[0].r[i] > 0) {
+                        traceOfRSent.push(frame.data[0].r[i])
+                        traceOfThetaSent.push(frame.data[0].theta[i])
+                    }
+                }
+
+                for (let i = 0; i < frame.data[1].r.length; i++) {
+
+                    // dont push if r value is 0
+                    if (frame.data[1].r[i] > 0) {
+                        traceOfRReceived.push(frame.data[1].r[i])
+                        traceOfThetaReceived.push(frame.data[1].theta[i])
+                    }
+                }
+
+            })
+
+            traces.push(
+                {
+                    name: "traces of Sent",
+                    type: "scatterpolar",
+                    mode: "markers",
+                    r: traceOfRSent,
+                    theta: traceOfThetaSent,
+                    marker: {
+                        color: 'white',
+                        size: 10,
+                        opacity: 0.1
+                    },
+                }
+            )
+
+            traces.push(
+                {
+                    name: "traces of Received",
+                    type: "scatterpolar",
+                    mode: "markers",
+                    r: traceOfRReceived,
+                    theta: traceOfThetaReceived,
+                    marker: {
+                        color: 'orange',
+                        size: 8,
+                        opacity: 0.2
+                    },
+                    visible: "legendonly"
+                }
+            )
+
+            console.log(frames)
+
+
+
+
+
             layout.polar.radialaxis.range = [max, 0]
 
             layout["sliders"] = [{
@@ -344,7 +418,7 @@ function animatedPolarPlot(dataMonthlyPerConversation, allFriends, plotId, yearS
                 steps: sliderSteps
             }]
 
-            console.log("initial traces: ", traces)
+            //console.log("initial traces: ", traces)
 
 
             plotContainer.html("");
