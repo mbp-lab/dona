@@ -7,6 +7,7 @@ var sentReceivedSlidingWindowMean = require('./analysis_plot/sentReceivedSliding
 var dailyActivityTimes = require('./analysis_plot/dailyActivityTimes')
 var dailyActivityTimesMean = require('./analysis_plot/dailyActivityTimesMean')
 var polarPlot = require('./analysis_plot/polarPlot')
+var animatedPolarPlot = require('./analysis_plot/animatedPolarPlot')
 var animatedHorizontalBarChart = require('./analysis_plot/animatedHorizontalBarChart')
 const dayPartsActivityPlot = require("./analysis_plot/dayPartsActivityPlot");
 
@@ -15,6 +16,13 @@ $(document).ready(function () {
     Object.keys(allData).forEach(function (dataSourceType) {
         const graphData = allData[dataSourceType];
         console.log(graphData)
+
+        animatedPolarPlot(
+            graphData.sentReceivedPerMonthPerConversation,
+            graphData.conversationsFriends,
+            `${dataSourceType}AnimatedPolarPlot`,
+            `#${dataSourceType}AnimatedPolarPlotYearSelector`
+        );
 
         polarPlot(
             graphData.sentReceivedPerMonthPerConversation,
