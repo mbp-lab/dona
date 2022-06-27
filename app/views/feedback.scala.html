@@ -82,8 +82,9 @@
 
 
     @showAnimatedPolarPlot(name: String) = {
-    @showExplanationText("Animated Polar Plot", "take sqrt or log of wordCount or something? so that big differences dont make everybody else seem so far away...?"
-            + "And change range of plot? Right now the scale is kept the same to ensure comparability. -> But outliers then make everything else seem very far away..")
+    @showExplanationText("Animated Polar Plot", "This graph displays you as the big yellow dot in the middle. Around you are smaller white dots for your different chats. The more words you received in a chat in the below displayed month, the closer the white dot gets to the middle where you are. The white dots' movement over time always leaves a smaller transparent dot where they were before. So, you can see a trace of the dots' motion in the past months. With the start and pause buttons next to the time slider below the graph, you can start and pause the animation going through the months. You can also use the time slider to go through the months yourself. Click HERE to see an example with explanations (TODO)."
+            + "NOTES: Right now taking sqrt of wordCount... so that big differences dont make everybody else seem so far away (?)"
+    )
 
         <div id="@{
             name.toString
