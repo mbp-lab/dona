@@ -125,21 +125,9 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, conversationsFr
     let frames = []
     let sliderSteps = []
     let name;
-    let xSent = []
-    let ySent = []
-    //let xReceived = []
-    //let yReceived = []
-    let initialX = []
+    let sentCount = 0
+    let receivedCount = 0
 
-    let conversationSentObj = {}
-    //let conversationReceivedObj = {}
-
-
-    listOfConversations.forEach((conv) => {
-        conversationSentObj[conv] = 0
-        //conversationReceivedObj[conv] = 0
-        initialX.push(0)
-    })
 
     let flattenedSentReceived = sentReceivedPerConversation.map((array, i) => {
         array.forEach(obj => {
@@ -162,54 +150,38 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, conversationsFr
             for (const [key, value] of Object.entries(groupedData)) {
 
 
+
                 value.forEach((sentReceivedObj) => {
-                    conversationSentObj[sentReceivedObj.conversation] = conversationSentObj[sentReceivedObj.conversation] + sentReceivedObj.sentCount
-                    //conversationReceivedObj[sentReceivedObj.conversation] = conversationReceivedObj[sentReceivedObj.conversation] + sentReceivedObj.receivedCount
+                    sentCount += sentReceivedObj.sentCount
+                    receivedCount += sentReceivedObj.receivedCount
                 })
 
                 name = key
 
-                xSent = []
-                ySent = []
-                for (const [key, value] of Object.entries(conversationSentObj)) {
-                    xSent.push(value)
-                    ySent.push(key)
-                }
 
-                /*
-                xReceived = []
-                yReceived = []
-                for (const [key, value] of Object.entries(conversationReceivedObj)) {
-                    xReceived.push(value)
-                    yReceived.push(key)
-                }
-
-                 */
 
                 frames.push({
                     name: name,
                     data: [
                         {
                             name: "Sent words",
-                            x: xSent,
-                            y: ySent,
+                            x: [sentCount],
+                            y: ["Sent"],
                             marker: {
                                 //color: "#60BDFF"
                             },
-                            width: _.fill(Array(listOfConversations.length), 0.8)
                         },
-                        /*
+
                         {
                             name: "Received words",
-                            x: xReceived,
-                            y: yReceived,
+                            x: [receivedCount],
+                            y: ["Received"],
                             marker: {
                                 //color: "#FF8800",
                             },
-                            width: _.fill(Array(listOfConversations.length), 0.3)
                         }
 
-                         */
+
                     ],
                 })
 
@@ -226,13 +198,12 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, conversationsFr
 
 
             // find max for range, so that bars dont get cut off
-            let maxForRange = Math.max(...Object.values(conversationSentObj))
-            /*
-            let maxReceived = Math.max(...Object.values(conversationReceivedObj))
-            if (maxForRange < maxReceived) {
-                maxForRange = maxReceived
+            let maxForRange = sentCount
+
+            if (maxForRange < receivedCount) {
+                maxForRange = receivedCount
             }
-             */
+
 
             layout["xaxis"] = {
                 range: [0, maxForRange],
@@ -255,29 +226,21 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, conversationsFr
             Plotly.newPlot(plotId, [
                 {
                     name: "Sent words",
-                    x: initialX,
-                    y: listOfConversations,
+                    x: [0],
+                    y: ["Sent"],
                     type: "bar",
                     orientation: 'h',
-                    marker: {
-                        //color: "#60BDFF",
-                    },
-                    width: _.fill(Array(listOfConversations.length), 0.8)
                 },
-                /*
+
                 {
                     name: "Received words",
-                    x: initialX,
-                    y: listOfConversations,
+                    x: [0],
+                    y: ["Received"],
                     type: "bar",
                     orientation: 'h',
-                    marker: {
-                        //color: "#FF8800",
-                    },
-                    width: _.fill(Array(listOfConversations.length), 0.3)
                 }
 
-                 */
+
             ], layout, {responsive: true}).then(() => {
                 Plotly.addFrames(plotId, frames)
 

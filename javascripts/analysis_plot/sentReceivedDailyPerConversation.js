@@ -96,6 +96,22 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
 
             //make visibility true/false array for this button option
             let visibilityBooleans = []
+
+            for (let j = 0; j < allDataOptions.length; j++) {
+                // add two trues or falses for overall path as there are two traces, else always add true or false
+                if (j === 0) {
+                    if (i === 0) {
+                        visibilityBooleans.push(true, true)
+                    } else {
+                        visibilityBooleans.push(false, false)
+                    }
+                } else if (j === i) {
+                    visibilityBooleans.push(true)
+                } else {
+                    visibilityBooleans.push(false)
+                }
+            }
+
             let numberTracesEach = 2
             for (let j = 0; j < allDataOptions.length * numberTracesEach; j++) {
                 if (j >= numberTracesEach * i && j < numberTracesEach * (i + 1)) {
@@ -137,18 +153,6 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
                 visible: i === 0,
             };
 
-            /* meanTrace?
-                                    const meanSentMessagesTrace = {
-                                        x: plotInputData.xAxis,
-                                        y: getMeanData(plotInputData.yAxisSentMessages),
-                                        mode: 'lines',
-                                        //name: "mean of sent messages", // internationalize !
-                                        //visible: 'legendonly',
-                                        visible: i === 0,
-                                    };
-
-             */
-
 
             const receivedMessagesTrace = {
                 x: plotInputData.xAxis,
@@ -159,20 +163,13 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
                 visible: i === 0,
             };
 
-            /* meanTrace?
-                                    const meanReceivedMessagesTrace = {
-                                        x: plotInputData.xAxis,
-                                        y: getMeanData(plotInputData.yAxisReceivedMessages),
-                                        mode: 'lines',
-                                        //name: "mean of received words",
-                                        //visible: 'legendonly',
-                                        visible: i === 0,
-                                    };
 
-             */
-
-
-            traces.push(sentMessagesTrace, receivedMessagesTrace)//, meanSentMessagesTrace, meanReceivedMessagesTrace)
+            // if this is for the overall trace, then received should be added, else no received (because of ethics)
+            if (i === 0) {
+                traces.push(sentMessagesTrace, receivedMessagesTrace)
+            } else {
+                traces.push(sentMessagesTrace)
+            }
 
         }
         return traces
@@ -184,74 +181,6 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
 
     layout.xaxis.range = [resultTraces[0].x[0], resultTraces[0].x[resultTraces[0].x.length - 1]]
 
-    /*
-    let gridOnOff = (onOrOff) => {
-        return [{
-            xaxis: {
-                tickangle: 45,
-                tickformat: '%d-%m-%Y',
-                color: "white",
-                gridcolor: "grey",
-                showgrid: onOrOff,
-                range: [resultTraces[0].x[0], resultTraces[0].x[resultTraces[0].x.length - 1]]
-            },
-            yaxis: {
-                title: "Words",
-                color: "white",
-                gridcolor: "grey",
-                showgrid: onOrOff,
-            },
-        }]
-    }
-
-    layout.updatemenus.push(
-        {
-            buttons: [
-                {
-                    args: gridOnOff(false),
-                    label: 'Grid off',
-                    method: 'relayout',
-                },
-                {
-                    args: gridOnOff(true),
-                    label: 'Grid on',
-                    method: 'relayout'
-                }
-            ],
-            pad: {'r': 10, 't': 10},
-            x: -0.05,
-            xanchor: 'left',
-            y: 1.25,
-            yanchor: 'top'
-        }
-    )
-
-     */
-
-    /*
-    layout.xaxis.rangeselector = {
-        buttons: [
-            {
-                count: 1,
-                label: '1m',
-                step: 'month',
-                stepmode: 'backward',
-                active: true
-            },
-            {
-                count: 6,
-                label: '6m',
-                step: 'month',
-                stepmode: 'backward',
-            },
-            {
-                step: 'all',
-                active: false,
-            },
-        ]
-    }
-
-     */
 
     layout.xaxis.rangeslider = {}
     layout.height = 700

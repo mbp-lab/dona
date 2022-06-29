@@ -9,6 +9,7 @@ var dailyActivityTimesMean = require('./analysis_plot/dailyActivityTimesMean')
 var polarPlot = require('./analysis_plot/polarPlot')
 var animatedPolarPlot = require('./analysis_plot/animatedPolarPlot')
 var animatedHorizontalBarChart = require('./analysis_plot/animatedHorizontalBarChart')
+var animatedHorizontalBarChartOverall = require('./analysis_plot/animatedHorizontalBarChartOverall')
 const dayPartsActivityPlot = require("./analysis_plot/dayPartsActivityPlot");
 
 
@@ -22,13 +23,6 @@ $(document).ready(function () {
             graphData.conversationsFriends,
             `${dataSourceType}AnimatedPolarPlot`,
             `#${dataSourceType}AnimatedPolarPlotYearSelector`
-        );
-
-        polarPlot(
-            graphData.sentReceivedPerMonthPerConversation,
-            graphData.conversationsFriends,
-            `${dataSourceType}PolarPlot`,
-            `#${dataSourceType}PolarPlotYearSelector`
         );
 
         animatedHorizontalBarChart(
@@ -53,9 +47,12 @@ $(document).ready(function () {
         // if this is done before the modal is opened, the width of the plots isnt correct
         $(`#${dataSourceType}sentReceivedModal`).on('shown.bs.modal', () => {
             sentReceived(graphData.sentReceived, `${dataSourceType}MessagesOverTime`);
-            //sentReceivedDaily(graphData.dailySentReceived, `${dataSourceType}SentReceivedOverall`);
-            //sentReceivedDaily(graphData.dailyWordsSentReceived, `${dataSourceType}WordsSentReceivedOverall`);
-            //sentReceivedSlidingWindowMean(graphData.dailyWordsSentReceived, graphData.dailySentReceivedPerConversation, graphData.conversationsFriends, `${dataSourceType}SentReceivedSlidingWindowMean`);
+
+            animatedHorizontalBarChartOverall(
+                graphData.sentReceivedPerMonthPerConversation,
+                graphData.conversationsFriends,
+                `${dataSourceType}AnimatedHorizontalBarChartOverall`
+            )
 
             sentReceivedDailyPerConversation(
                 graphData.dailyWordsSentReceived,

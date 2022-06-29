@@ -50,14 +50,29 @@ function dailyActivityTimes(dataSent, dataReceived, conversationsFriends, plotId
         listOfConversations.push("Conversation with " + conversationsFriends[i].filter((participant) => participant !== "donor"))
     }
 
-    let transformWordCount = (wordCounts) => {
-        let max = Math.max(...wordCounts)
+    let zScoreLimit = 1.39
 
+    // TODO: put this in math helper .js file
+    let transformToZScores = (wordCounts) => {
+
+        const n = wordCounts.length
+        const mean = wordCounts.reduce((a, b) => a + b) / n
+        const stdDeviation = Math.sqrt(wordCounts.map(x => Math.pow(x - mean, 2)).reduce((a, b) => a + b) / n)
 
         let result = []
+        let zScore
         for (let i = 0; i < wordCounts.length; i++) {
-            result.push(wordCounts[i]/max)
+            zScore = (wordCounts[i] - mean) / stdDeviation
+            // colorscale needs a specific range -> zScores bigger than 4 and -4 will be set to 4 or -4 accordingly
+            if (zScore > zScoreLimit) {
+                zScore = zScoreLimit;
+            } else if (zScore < -zScoreLimit) {
+                zScore = -zScoreLimit
+            }
+            result.push(zScore)
         }
+
+
         return result;
     }
 
@@ -65,7 +80,7 @@ function dailyActivityTimes(dataSent, dataReceived, conversationsFriends, plotId
     let makeTraces = () => {
 
         let allDataOptionsSent = [dataSent.flat(), ...dataSent]
-        let allDataOptionsReceived = [dataReceived.flat(), ...dataReceived]
+        //let allDataOptionsReceived = [dataReceived.flat(), ...dataReceived]
 
         // initialize updatemenus
         layout["updatemenus"] = [{
@@ -84,6 +99,14 @@ function dailyActivityTimes(dataSent, dataReceived, conversationsFriends, plotId
 
             //make visibility true/false array for this button option
             let visibilityBooleans = []
+            for (let j = 0; j < allDataOptionsSent.length; j++) {
+                if (j === i) {
+                    visibilityBooleans.push(true)
+                } else {
+                    visibilityBooleans.push(false)
+                }
+            }
+            /* // this can be used if there are more than one trace per updatemenu - instead of the method above
             let numberTracesEach = 2
             for (let j = 0; j < allDataOptionsSent.length * numberTracesEach; j++) {
                 if (j >= numberTracesEach * i && j < numberTracesEach * (i + 1)) {
@@ -95,6 +118,8 @@ function dailyActivityTimes(dataSent, dataReceived, conversationsFriends, plotId
                 }
             }
 
+             */
+
             // add menu for this conversation
             layout["updatemenus"][0]["buttons"].push({
                 method: 'restyle',
@@ -103,15 +128,15 @@ function dailyActivityTimes(dataSent, dataReceived, conversationsFriends, plotId
             })
 
             let dataToShowSent = allDataOptionsSent[i]
-            let dataToShowReceived = allDataOptionsReceived[i]
+            //let dataToShowReceived = allDataOptionsReceived[i]
 
             // sort
             let sortedDataSent = sortGraphDataPointsSync(dataToShowSent)
-            let sortedDataReceived = sortGraphDataPointsSync(dataToShowReceived)
+            //let sortedDataReceived = sortGraphDataPointsSync(dataToShowReceived)
 
             // get correct format
             let plotInputDataSent = formInputDataForDailyActivityPlot(sortedDataSent)
-            let plotInputDataReceived = formInputDataForDailyActivityPlot(sortedDataReceived)
+            //let plotInputDataReceived = formInputDataForDailyActivityPlot(sortedDataReceived)
 
             const traceSent = {
                 x: plotInputDataSent.xAxis,
@@ -121,15 +146,23 @@ function dailyActivityTimes(dataSent, dataReceived, conversationsFriends, plotId
                 name: sent,
                 marker: {
                     size: 18,
-                    //color: "white",
-                    color: transformWordCount(plotInputDataSent.wordCount),
-                    colorscale: 'YlGnBu',
+                    autocolorscale: false,
+                    cmin: -zScoreLimit,
+                    cmax: zScoreLimit,
+                    color: transformToZScores(plotInputDataSent.wordCount),
+                    colorscale: "YlGnBu",
                     symbol: "square",
-                    colorbar: {}
+                    colorbar: {
+                        tickvals: [-zScoreLimit, 0 , zScoreLimit],
+                        ticktext: ["Less than average", "Average", "More than average"]
+                    }
                 },
                 visible: i === 0
             };
 
+
+            // this is all for received traces, not using it right now
+            /*
             // determine if received trace should be visible: legendonly or false
             let visibleReceived = () => {
                 if (i === 0) {
@@ -147,18 +180,21 @@ function dailyActivityTimes(dataSent, dataReceived, conversationsFriends, plotId
                 name: received,
                 marker: {
                     size: 14,
-                    color: transformWordCount(plotInputDataReceived.wordCount),
-                    colorscale: [
-                        [0.000, "#FFBB00"],
-                        [0.111, "#FFAA00"],
-                        [0.222, "#FF9900"],
-                        [0.333, "#FF8800"],
-                        [0.444, "#FF7700"],
-                        [0.556, "#FF5500"],
-                        [0.667, "#FF3300"],
-                        [0.778, "#FF2200"],
-                        [0.889, "#FF1100"],
-                        [1.000, "#FF0000"]
+                    color: transformToZScores(plotInputDataReceived.wordCount),
+                    autocolorscale: false,
+                    cmin: -zScoreLimit,
+                    cmax: zScoreLimit,
+                    colorscale: [ // colorscale need to be those ten values.. then they get stretched to cmin, cmax
+                        ['0.0', '#2c7fb8'],
+                        ['0.111111111111', '#2db4cd'],
+                        ['0.222222222222', '#39d7c8'],
+                        ['0.333333333333', '#48ddaa'],
+                        ['0.444444444444', '#59e391'],
+                        ['0.555555555556', '#69e87d'],
+                        ['0.666666666667', '#85ed7a'],
+                        ['0.777777777778', '#aff18c'],
+                        ['0.888888888889', '#d2f59e'],
+                        ['1.0', '#edf8b1']
                     ],
                     symbol: "square",
                     colorbar: {}
@@ -168,12 +204,16 @@ function dailyActivityTimes(dataSent, dataReceived, conversationsFriends, plotId
 
             traces.push(traceSent, traceReceived)
 
+             */
+            traces.push(traceSent)
+
         }
         return traces;
     }
 
     let resultTraces = makeTraces();
 
+    /*
     // determine initial range for plot to show (last month)
     let oneMonthInMilliseconds = 2.628e+9
     let oneMonthBeforeLastDate = new Date(resultTraces[0].x[resultTraces[0].x.length - 1]).getTime() - oneMonthInMilliseconds
@@ -190,11 +230,13 @@ function dailyActivityTimes(dataSent, dataReceived, conversationsFriends, plotId
     }
     startRange += year + "-" + month + "-" + date
 
-    layout.xaxis.range = [startRange, resultTraces[0].x[resultTraces[0].x.length - 1]]
+     */
+
+    //layout.xaxis.range = [startRange, resultTraces[0].x[resultTraces[0].x.length - 1]]
 
 
-    layout.xaxis.rangeslider = {}
-    layout.height = 700
+    //layout.xaxis.rangeslider = {}
+    layout.height = 550
 
     plotContainer.html("");
     Plotly.newPlot(plotId, resultTraces, layout, {responsive: true});

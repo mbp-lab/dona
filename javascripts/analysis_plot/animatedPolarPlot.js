@@ -51,28 +51,11 @@ function animatedPolarPlot(dataMonthlyPerConversation, allFriends, plotId, yearS
     const received = plotContainer.attr("data-received-trace-name");
 
 
-    // TODO: put this in math helper .js file
-    let transformToZScores = (convData) => {
-
-        let allSentCounts = convData.flat().map((obj) => obj.sentCount)
-
-        // get standard deviation
-        const n = allSentCounts.length
-        const mean = allSentCounts.reduce((a, b) => a + b) / n
-        const stdDeviation = Math.sqrt(allSentCounts.map(x => Math.pow(x - mean, 2)).reduce((a, b) => a + b) / n)
-
-        for (let i = 0; i < convData.length; i++) {
-            convData[i].forEach((obj) => {
-                obj["zScore"] = (obj.sentCount - mean) / stdDeviation
-            })
-        }
-    }
-
 
     let layout = {
         //paper_bgcolor: "#141852",
         height: 550,
-        hovermode: false,
+        hovermode: true,
         showlegend: true,
         legend: {
             bgcolor: "#13223C",
@@ -183,8 +166,9 @@ function animatedPolarPlot(dataMonthlyPerConversation, allFriends, plotId, yearS
         let max = 0;
         for (let i = 0; i < data.length; i++) {
             data[i].forEach((obj) => {
-                if (obj.receivedCount > max) {
-                    max = obj.receivedCount
+                let total = obj.receivedCount + obj.sentCount
+                if (total > max) {
+                    max = total
                 }
             })
         }
@@ -222,8 +206,6 @@ function animatedPolarPlot(dataMonthlyPerConversation, allFriends, plotId, yearS
                 })
             }
 
-            //transformToZScores(sortedData)
-
 
             //console.log(sortedData)
 
@@ -233,8 +215,10 @@ function animatedPolarPlot(dataMonthlyPerConversation, allFriends, plotId, yearS
 
             //console.log(groupedData)
 
-            let traceOfRReceived = []
-            let traceOfThetaReceived = []
+            //let traceOfRReceived = []
+            //let traceOfThetaReceived = []
+            let traceOfRTotal = []
+            let traceOfThetaTotal = []
 
             for (const [key, value] of Object.entries(groupedData)) {
 
@@ -243,25 +227,33 @@ function animatedPolarPlot(dataMonthlyPerConversation, allFriends, plotId, yearS
                 //console.log("key:", key)
                 //console.log("value: ", value)
 
-                let rValues = []
+                //let rValuesSent = []
+                let rValuesTotal = []
                 let thetaValues = []
 
-                let rValuesReceivedCount = []
+
+
+                //let rValuesReceivedCount = []
 
                 let helper;
                 listOfConversations.forEach((conv) => {
                     helper = value.find(obj => obj.conversation === conv)
                     if (helper !== undefined) {
-                        rValues.push(Math.sqrt(helper.sentCount))
-                        rValuesReceivedCount.push(Math.sqrt(helper.receivedCount))
+                        //rValuesSent.push(Math.sqrt(helper.sentCount))
+                        //rValuesReceivedCount.push(Math.sqrt(helper.receivedCount))
+                        rValuesTotal.push(Math.sqrt(helper.receivedCount + helper.sentCount))
 
                         // only add to trace if it wasnt undefined
-                        traceOfRReceived.push(Math.sqrt(helper.receivedCount))
-                        traceOfThetaReceived.push(conv)
+                        //traceOfRReceived.push(Math.sqrt(helper.receivedCount))
+                        //traceOfThetaReceived.push(conv)
+                        traceOfRTotal.push(Math.sqrt(helper.receivedCount + helper.sentCount))
+                        traceOfThetaTotal.push(conv)
+
 
                     } else {
-                        rValues.push(0)
-                        rValuesReceivedCount.push(0)
+                        //rValuesSent.push(0)
+                        //rValuesReceivedCount.push(0)
+                        rValuesTotal.push(0)
                     }
                     thetaValues.push(conv)
                 })
@@ -280,14 +272,17 @@ function animatedPolarPlot(dataMonthlyPerConversation, allFriends, plotId, yearS
                          */
                         {
                             name: "Chat Closeness",
-                            r: rValuesReceivedCount,
+                            //r: rValuesReceivedCount,
+                            r: rValuesTotal,
                             theta: thetaValues,
                         },
                         {},
                         {
                             name: "traces of Received",
-                            r: [...traceOfRReceived],
-                            theta: [...traceOfThetaReceived]
+                            //r: [...traceOfRReceived],
+                            //theta: [...traceOfThetaReceived]
+                            r: [...traceOfRTotal],
+                            theta: [...traceOfThetaTotal]
                         }
                     ],
                 })
@@ -327,9 +322,25 @@ function animatedPolarPlot(dataMonthlyPerConversation, allFriends, plotId, yearS
                 }
             }
 
+            const traceReceivedInitial = {
+                name: "Chat Closeness",
+                type: "scatterpolar",
+                mode: "markers",
+                r: initialR,
+                theta: listOfConversations,
+                marker: {
+                    color: 'white',
+                    size: 18,
+                },
+                line: {
+                    color: 'white',
+                },
+                //visible: "legendonly"
+            }
+
              */
 
-            const traceReceivedInitial = {
+            const traceTotalInitial = {
                 name: "Chat Closeness",
                 type: "scatterpolar",
                 mode: "markers",
@@ -348,7 +359,8 @@ function animatedPolarPlot(dataMonthlyPerConversation, allFriends, plotId, yearS
 
 
             //let traces = [traceSentInitial, traceReceivedInitial]
-            let traces = [traceReceivedInitial]
+            //let traces = [traceReceivedInitial]
+            let traces = [traceTotalInitial]
 
             traces.push({
                 name: "Donor/You",
