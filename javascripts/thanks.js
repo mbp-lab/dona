@@ -11,6 +11,8 @@ var animatedPolarPlot = require('./analysis_plot/animatedPolarPlot')
 var animatedHorizontalBarChart = require('./analysis_plot/animatedHorizontalBarChart')
 var animatedHorizontalBarChartOverall = require('./analysis_plot/animatedHorizontalBarChartOverall')
 const dayPartsActivityPlot = require("./analysis_plot/dayPartsActivityPlot");
+var responseTimeBarChart = require('./analysis_plot/responseTimeBarChart');
+let animatedResponseTimeBarChart = require('./analysis_plot/animatedResponseTimeBarChart')
 
 
 $(document).ready(function () {
@@ -38,10 +40,12 @@ $(document).ready(function () {
             `${dataSourceType}DailyActivityTimes`
         );
 
-        responseTime(
+
+        responseTimeBarChart(
             graphData.responseTimes,
-            `${dataSourceType}ResponseTimePlot`
+            `${dataSourceType}ResponseTimeBarChart`
         );
+
 
         // when modal is opened the first time, render plots...
         // if this is done before the modal is opened, the width of the plots isnt correct
@@ -82,6 +86,18 @@ $(document).ready(function () {
                 graphData.dailySentHoursPerConversation,
                 graphData.dailyReceivedHoursPerConversation,
                 `${dataSourceType}DailyActivityTimesMean`
+            );
+        })
+
+        $(`#${dataSourceType}responseTimeModal`).on('shown.bs.modal', () => {
+            animatedResponseTimeBarChart(
+                graphData.responseTimes,
+                `${dataSourceType}AnimatedResponseTimeBarChart`
+            );
+
+            responseTime(
+                graphData.responseTimes,
+                `${dataSourceType}ResponseTimePlot`
             );
         })
     })

@@ -446,10 +446,18 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
 
 
   private def produceAnswerTimes(donorId: String, conversations: List[Conversation]): List[AnswerTimePoint] = {
+    /* This was done before -> ignores answers in the same minute !
     def isAnswer(message1: ConversationMessage, message2: ConversationMessage) = {
       message1.sender != message2.sender &&
         message2.timestampMs > message1.timestampMs &&
         message2.timestampMs - message1.timestampMs < config.maximumResponseWait.toMillis
+    }
+
+     */
+
+    def isAnswer(message1: ConversationMessage, message2: ConversationMessage) = {
+      message1.sender != message2.sender &&
+        message2.timestampMs >= message1.timestampMs
     }
 
     conversations
@@ -457,7 +465,7 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
         conversation.messages.map(message => (message, conversation))
       }
       .sortBy { case (message, _) => -message.timestampMs }
-      .take(config.maximumSampleSize)
+      //.take(config.maximumSampleSize)
       .groupBy { case (_, conversation) => conversation }
       .mapValues(_.map { case (message, _) => message })
       .flatMap {
@@ -469,7 +477,8 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
               case message1 :: message2 :: Nil if isAnswer(message1, message2) =>
                 AnswerTimePoint(
                   (message2.timestampMs - message1.timestampMs).toInt,
-                  message1.sender.contains(donorId)
+                  message1.sender.contains(donorId),
+                  message1.timestampMs
                 )
             }
       }
