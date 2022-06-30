@@ -442,10 +442,6 @@ function animatedPolarPlot(dataMonthlyPerConversation, allFriends, plotId, yearS
                 }
             )
 
-            console.log("FRAMES: ", frames)
-
-
-
 
 
             layout.polar.radialaxis.range = [max, 0]

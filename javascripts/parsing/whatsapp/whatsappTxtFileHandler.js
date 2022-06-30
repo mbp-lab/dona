@@ -80,7 +80,7 @@ function deIdentification(parsedFiles, alias) {
         deIdentifiedJsonContents.push(jsonContent);
       });
 
-      // TODO: is this okay like this?
+      // TODO: is this okay like this? -> to display participantNameToRandomIds Mapping to user
 
       let result = {
         deIdentifiedJsonContents: deIdentifiedJsonContents,
