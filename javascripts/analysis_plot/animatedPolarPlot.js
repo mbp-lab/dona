@@ -2,17 +2,18 @@ var sortGraphDataPoints = require('./utils/sortGraphDataPointsTimeWise');
 const formInputDataForPolarPlot = require("./utils/formInputDataForPolarPlot");
 const _ = require("lodash");
 
-function animatedPolarPlot(dataMonthlyPerConversation, allFriends, plotId, yearSelectorId) {
+function animatedPolarPlot(dataMonthlyPerConversation, allFriends, plotId) {
 
     //console.log(dataMonthlyPerConversation)
 
-    //this should be put into a separate helper file
+    // TODO: this should be put into a separate helper file
     let shortenFriend = (friend) => {
         //find index where number starts, all friends have the following form: "friend" + "i" where i is a number
         let numberStart = friend.search(/\d+/)
         return "F" + friend.substring(numberStart, friend.length)
     }
 
+    // TODO: this could also be done in a separate helper file
     let listOfConversations = []
     for (let i = 0; i < allFriends.length; i++) {
 
@@ -53,7 +54,6 @@ function animatedPolarPlot(dataMonthlyPerConversation, allFriends, plotId, yearS
 
 
     let layout = {
-        //paper_bgcolor: "#141852",
         height: 550,
         hovermode: true,
         showlegend: true,
@@ -64,20 +64,15 @@ function animatedPolarPlot(dataMonthlyPerConversation, allFriends, plotId, yearS
             y: 1.2,
         },
         polar: {
-            //hole: 0.1,
-            bgcolor: "rgba(255, 255, 255, 0",
+            bgcolor: "rgba(255, 255, 255, 0)",
             radialaxis: {
                 showline: false,
                 showgrid: false,
                 gridwidth: 0.1,
-                griddash: 'dash', // it seems griddash might only work with a newer plotly.js version?
+                //griddash: 'dash', // it seems griddash might only work with a newer plotly.js version?
                 gridcolor: "#f5f5f5",
                 showticklabels: false,
                 ticks: "",
-                //tick0: 0,
-                //nticks: 2,
-                //color: 'yellow',
-                //range: [5000, 0]
                 fixedrange: true
             },
             angularaxis: {
@@ -87,7 +82,6 @@ function animatedPolarPlot(dataMonthlyPerConversation, allFriends, plotId, yearS
                 gridcolor: "#f5f5f5",
                 gridwidth: 0.1,
                 griddash: 'dash',
-                //tickformat: '>'
                 fixedrange: true
             }
         },
@@ -145,6 +139,7 @@ function animatedPolarPlot(dataMonthlyPerConversation, allFriends, plotId, yearS
         ]
     }
 
+    // only needed to start the animation when the plot is loaded
     let startAnimation = (groupOrFrames, mode) => {
 
         Plotly.animate(plotId, groupOrFrames, {
@@ -172,7 +167,7 @@ function animatedPolarPlot(dataMonthlyPerConversation, allFriends, plotId, yearS
                 }
             })
         }
-        return Math.sqrt(max);
+        return Math.log(max);
     }
 
 
@@ -183,10 +178,8 @@ function animatedPolarPlot(dataMonthlyPerConversation, allFriends, plotId, yearS
     let name;
 
 
-    // need this to assing options for selectors to make sense
-    let sortedDataGlobal = []
 
-
+    // determine max for the range of the axis
     let max = findGlobalMax(dataMonthlyPerConversation)
     max = max + 0.25 * max // for some distance between placement of donor at the max value
 
@@ -194,12 +187,7 @@ function animatedPolarPlot(dataMonthlyPerConversation, allFriends, plotId, yearS
     sortGraphDataPoints(dataMonthlyPerConversation, false, false)
         .then(sortedData => {
 
-            // this will be used in the update method for the selector
-            sortedDataGlobal = sortedData
-
-            //console.log(sortedData.flat())
-            // do update menu stuff
-
+            // add conversation property to each object, so that later all data can be handled flattened
             for (let i = 0; i < sortedData.length; i++) {
                 sortedData[i].forEach(obj => {
                     obj["conversation"] = listOfConversations[i]
@@ -207,25 +195,23 @@ function animatedPolarPlot(dataMonthlyPerConversation, allFriends, plotId, yearS
             }
 
 
-            //console.log(sortedData)
-
+            // group by year and month for animation over that time
             let groupedData = _.groupBy(sortedData.flat(), (obj) => {
                 return obj.year + "-" + obj.month
             })
 
-            //console.log(groupedData)
 
             //let traceOfRReceived = []
             //let traceOfThetaReceived = []
             let traceOfRTotal = []
             let traceOfThetaTotal = []
 
+            // create a frame and slideStep for each year-month
             for (const [key, value] of Object.entries(groupedData)) {
 
+                // key is year-month -> that is what will be displayed on the timeline
                 name = key;
 
-                //console.log("key:", key)
-                //console.log("value: ", value)
 
                 //let rValuesSent = []
                 let rValuesTotal = []
@@ -235,18 +221,20 @@ function animatedPolarPlot(dataMonthlyPerConversation, allFriends, plotId, yearS
 
                 //let rValuesReceivedCount = []
 
+
+                // get the data for each conversation in value -> value are all the data objects for this year-month
                 let helper;
                 listOfConversations.forEach((conv) => {
                     helper = value.find(obj => obj.conversation === conv)
                     if (helper !== undefined) {
                         //rValuesSent.push(Math.sqrt(helper.sentCount))
                         //rValuesReceivedCount.push(Math.sqrt(helper.receivedCount))
-                        rValuesTotal.push(Math.sqrt(helper.receivedCount + helper.sentCount))
+                        rValuesTotal.push(Math.log(helper.receivedCount + helper.sentCount))
 
                         // only add to trace if it wasnt undefined
                         //traceOfRReceived.push(Math.sqrt(helper.receivedCount))
                         //traceOfThetaReceived.push(conv)
-                        traceOfRTotal.push(Math.sqrt(helper.receivedCount + helper.sentCount))
+                        traceOfRTotal.push(Math.log(helper.receivedCount + helper.sentCount))
                         traceOfThetaTotal.push(conv)
 
 

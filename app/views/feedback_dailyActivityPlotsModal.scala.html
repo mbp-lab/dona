@@ -20,7 +20,8 @@
                 dataSource.toString
             }ModalContainer"
             >
-                @showDayPartsActivityPlot(dataSource)
+                @showDayPartsActivityOverallPlot(dataSource)
+                @showAnimatedDayPartsActivityPlot(dataSource)
                 @showDailyActivityTimesMean(dataSource)
             </div>
 
@@ -46,13 +47,33 @@
         </div>
     }
 
-    @showDayPartsActivityPlot(name: String) = {
+    @showAnimatedDayPartsActivityPlot(name: String) = {
     @showExplanationText("DayPartsActivity Plot", "Right now: for each month the amount of sent/ received words during the day parts is added up and divided by the daycount(actually active days) -> should this be divided be the total amount of days of the month?")
 
 
         <div id="@{
             name
         }DayPartsActivityPlot" class="d-none"
+        data-x-axis="@messages("feedback.graph.time")"
+        data-y-axis="@messages("feedback.graph.number-of-messages")"
+        data-sent-trace-name="@messages("feedback.graph.sent")"
+        data-received-trace-name="@messages("feedback.graph.received")"
+        >
+            <div class="card h-100">
+                <div class="m-auto">@messages("feedback.graph.loading")</div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+    }
+
+    @showDayPartsActivityOverallPlot(name: String) = {
+    @showExplanationText("DayPartsActivityOverall Plot", "Right now: for each month the amount of sent/ received words during the day parts is added up and divided by the daycount(actually active days) -> should this be divided be the total amount of days of the month?")
+
+
+        <div id="@{
+            name
+        }DayPartsActivityOverallPlot" class="d-none"
         data-x-axis="@messages("feedback.graph.time")"
         data-y-axis="@messages("feedback.graph.number-of-messages")"
         data-sent-trace-name="@messages("feedback.graph.sent")"

@@ -64,7 +64,7 @@ final class MessageAnalysisServiceTest extends FreeSpec with Matchers {
       result.keySet should contain theSameElementsAs List(DonationDataSourceType.Facebook)
 
       result(DonationDataSourceType.Facebook).responseTimes should contain theSameElementsAs List(
-        AnswerTimePoint(60 * 10 * 1000, false)
+        AnswerTimePoint(60 * 10 * 1000, false, instant1.toInstant(ZoneOffset.UTC).toEpochMilli())
       )
     }
 
@@ -148,7 +148,7 @@ final class MessageAnalysisServiceTest extends FreeSpec with Matchers {
         .produceGraphData(data)
         .values
         .flatMap(_.responseTimes) should contain theSameElementsAs List(
-        AnswerTimePoint(60 * 20 * 1000, false)
+        AnswerTimePoint(60 * 20 * 1000, false, instant3.toInstant(ZoneOffset.UTC).toEpochMilli)
       )
     }
   }

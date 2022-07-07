@@ -150,7 +150,18 @@ function dailyActivityTimes(dataSent, dataReceived, conversationsFriends, plotId
                     cmin: -zScoreLimit,
                     cmax: zScoreLimit,
                     color: transformToZScores(plotInputDataSent.wordCount),
-                    colorscale: "YlGnBu",
+                    colorscale: [ // colorscale need to be those ten values.. then they get stretched to cmin, cmax
+                        ['0.0', '#f7fbff'],
+                        ['0.111111111111', '#deebf7'],
+                        ['0.222222222222', '#c6dbef'],
+                        ['0.333333333333', '#9ecae1'],
+                        ['0.444444444444', '#6baed6'],
+                        ['0.555555555556', '#6baed6'],
+                        ['0.666666666667', '#4292c6'],
+                        ['0.777777777778', '#2171b5'],
+                        ['0.888888888889', '#08519c'],
+                        ['1.0', '#08306b']
+                    ],
                     symbol: "square",
                     colorbar: {
                         tickvals: [-zScoreLimit, 0 , zScoreLimit],
@@ -213,29 +224,7 @@ function dailyActivityTimes(dataSent, dataReceived, conversationsFriends, plotId
 
     let resultTraces = makeTraces();
 
-    /*
-    // determine initial range for plot to show (last month)
-    let oneMonthInMilliseconds = 2.628e+9
-    let oneMonthBeforeLastDate = new Date(resultTraces[0].x[resultTraces[0].x.length - 1]).getTime() - oneMonthInMilliseconds
-    let dateOneMonthBefore = new Date(oneMonthBeforeLastDate)
-    let startRange = ""
-    let year = dateOneMonthBefore.getFullYear()
-    let month = dateOneMonthBefore.getMonth() + 1 // first month is 0...
-    let date = dateOneMonthBefore.getDate()
-    if (month < 10) {
-        month = "0" + month
-    }
-    if (date < 10) {
-        date = "0" + date
-    }
-    startRange += year + "-" + month + "-" + date
 
-     */
-
-    //layout.xaxis.range = [startRange, resultTraces[0].x[resultTraces[0].x.length - 1]]
-
-
-    //layout.xaxis.rangeslider = {}
     layout.height = 550
 
     plotContainer.html("");

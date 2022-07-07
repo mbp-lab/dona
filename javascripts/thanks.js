@@ -10,7 +10,8 @@ var polarPlot = require('./analysis_plot/polarPlot')
 var animatedPolarPlot = require('./analysis_plot/animatedPolarPlot')
 var animatedHorizontalBarChart = require('./analysis_plot/animatedHorizontalBarChart')
 var animatedHorizontalBarChartOverall = require('./analysis_plot/animatedHorizontalBarChartOverall')
-const dayPartsActivityPlot = require("./analysis_plot/dayPartsActivityPlot");
+const animatedDayPartsActivityPlot = require("./analysis_plot/animatedDayPartsActivityPlot");
+const dayPartsActivityOverallPlot = require("./analysis_plot/dayPartsActivityOverallPlot");
 var responseTimeBarChart = require('./analysis_plot/responseTimeBarChart');
 let animatedResponseTimeBarChart = require('./analysis_plot/animatedResponseTimeBarChart')
 
@@ -24,7 +25,6 @@ $(document).ready(function () {
             graphData.sentReceivedPerMonthPerConversation,
             graphData.conversationsFriends,
             `${dataSourceType}AnimatedPolarPlot`,
-            `#${dataSourceType}AnimatedPolarPlotYearSelector`
         );
 
         animatedHorizontalBarChart(
@@ -76,7 +76,16 @@ $(document).ready(function () {
         })
 
         $(`#${dataSourceType}dailyActivityModal`).on('shown.bs.modal', () => {
-            dayPartsActivityPlot(
+
+
+            dayPartsActivityOverallPlot(
+                graphData.dailySentHoursPerConversation,
+                graphData.dailyReceivedHoursPerConversation,
+                graphData.conversationsFriends,
+                `${dataSourceType}DayPartsActivityOverallPlot`
+            )
+
+            animatedDayPartsActivityPlot(
                 graphData.dailySentHoursPerConversation,
                 graphData.dailyReceivedHoursPerConversation,
                 graphData.conversationsFriends,

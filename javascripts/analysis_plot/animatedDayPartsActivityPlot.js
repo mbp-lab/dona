@@ -4,7 +4,7 @@ const sortGraphDataPointsSync = require("./utils/sortGraphDataPointsSync");
 const _ = require("lodash");
 
 
-function dayPartsActivityPlot(dataSent, dataReceived, conversationsFriends, plotId) {
+function animatedDayPartsActivityPlot(dataSent, dataReceived, conversationsFriends, plotId) {
 
     const FIRST = "00:00-06:00"
     const SECOND = "06:00-12:00"
@@ -19,7 +19,7 @@ function dayPartsActivityPlot(dataSent, dataReceived, conversationsFriends, plot
     const received = plotContainer.attr("data-received-trace-name");
 
     let layout = {
-        height: 600,
+        height: 500,
         showlegend: true,
         barmode: 'overlay',
         legend: {
@@ -30,7 +30,7 @@ function dayPartsActivityPlot(dataSent, dataReceived, conversationsFriends, plot
             automargin: true,
             color: "black",
         },
-        hovermode: 'closest',
+        hovermode: 'x',
         updatemenus: [
             {
                 x: 0,
@@ -146,34 +146,42 @@ function dayPartsActivityPlot(dataSent, dataReceived, conversationsFriends, plot
             }
         })
 
+
         let dayPartsMeans = []
+        let dayPartsMeansInPercent = []
+        let totalOfMeans = 0
         Object.keys(dayParts).map((key) => {
-            dayPartsMeans.push(dayParts[key] / dayCounter) // TODO: Use day counter to divide? Or use 30 days in general?
+            dayPartsMeans.push(dayParts[key] / dayCounter)
+            totalOfMeans += dayParts[key] / dayCounter
         })
 
-        return dayPartsMeans
+        for (let i = 0; i < dayPartsMeans.length; i++) {
+            dayPartsMeansInPercent.push(dayPartsMeans[i] / totalOfMeans)
+        }
+
+        return dayPartsMeansInPercent
     }
+
 
     // find globalMax on the way, so that range can be set accordingly later
     let globalMax = 0;
 
     let monthlySentMeans = {}
 
-    // key is year-month, values are the objects for that month, with epoch seconds and wordcount
+    // key is year-month, values are the objects for that month, with epoch seconds timestamp and wordcount
     for (const [key, value] of Object.entries(groupedSentData)) {
 
         if (monthlySentMeans[key] === undefined) {
             monthlySentMeans[key] = []
         }
-        let means = meansForDayParts(value)
+        let meansPercent = meansForDayParts(value)
 
-
-        means.forEach((mean) => {
+        meansPercent.forEach((mean) => {
             if (mean > globalMax) {
                 globalMax = mean;
             }
         })
-        monthlySentMeans[key] = means
+        monthlySentMeans[key] = meansPercent
 
     }
 
@@ -183,13 +191,13 @@ function dayPartsActivityPlot(dataSent, dataReceived, conversationsFriends, plot
         if (monthlyReceivedMeans[key] === undefined) {
             monthlyReceivedMeans[key] = []
         }
-        let means = meansForDayParts(value)
-        means.forEach((mean) => {
+        let meansPercent = meansForDayParts(value)
+        meansPercent.forEach((mean) => {
             if (mean > globalMax) {
                 globalMax = mean;
             }
         })
-        monthlyReceivedMeans[key] = means
+        monthlyReceivedMeans[key] = meansPercent
 
     }
 
@@ -249,7 +257,9 @@ function dayPartsActivityPlot(dataSent, dataReceived, conversationsFriends, plot
 
     layout["yaxis"] = {
         range: [0, globalMax],
-        color: "black"
+        color: "black",
+        tickformat: "p",
+        hoverformat: ".2%"
     }
 
     layout["sliders"] = [{
@@ -304,5 +314,5 @@ function dayPartsActivityPlot(dataSent, dataReceived, conversationsFriends, plot
 
 }
 
-module.exports = dayPartsActivityPlot;
+module.exports = animatedDayPartsActivityPlot;
 
