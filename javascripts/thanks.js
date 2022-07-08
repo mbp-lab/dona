@@ -21,6 +21,17 @@ $(document).ready(function () {
         const graphData = allData[dataSourceType];
         console.log(graphData)
 
+        // reminders to also do the next questionnaire, after 1 min, after 5 min and after 15min
+        setTimeout(() => {
+            alert("Please don't forget to fill out the next questionnaire. Thanks :)")
+        }, 60000)
+        setTimeout(() => {
+            alert("Please don't forget to fill out the next questionnaire. Thanks :)")
+        }, 300000)
+        setTimeout(() => {
+            alert("Please don't forget to fill out the next questionnaire. Thanks :)")
+        }, 900000)
+
         animatedPolarPlot(
             graphData.sentReceivedPerMonthPerConversation,
             graphData.conversationsFriends,
