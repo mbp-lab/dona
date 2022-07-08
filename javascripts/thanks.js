@@ -91,11 +91,14 @@ $(document).ready(function () {
                 graphData.conversationsFriends,
                 `${dataSourceType}DayPartsActivityPlot`
             )
+            /*
             dailyActivityTimesMean(
                 graphData.dailySentHoursPerConversation,
                 graphData.dailyReceivedHoursPerConversation,
                 `${dataSourceType}DailyActivityTimesMean`
             );
+
+             */
         })
 
         $(`#${dataSourceType}responseTimeModal`).on('shown.bs.modal', () => {

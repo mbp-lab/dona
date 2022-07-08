@@ -118,7 +118,12 @@
         @helper.form(routes.SocialDataDonationController.postData()) {
             @helper.CSRF.formField
             <input type='hidden' name='inputJson' id='inputJson' />
-            <input type='submit' class="btn footer-forward-button mb-0" id='submit-de-identified' />
+            <input
+            type='submit'
+            class="btn footer-forward-button mb-0"
+            id='submit-de-identified'
+            title="Click to send data. Please wait... Sending the data might take a minute or two."
+            onclick="alert('This might take a few minutes... Please wait :)')"/>
         }
     </div>
 }
