@@ -14,7 +14,7 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
     const received = plotContainer.attr("data-received-trace-name");
 
     const layout = {
-        hovermode: "closest",
+        hovermode: "x",
         xaxis: {
             tickangle: 45,
             tickformat: '%d-%m-%Y',

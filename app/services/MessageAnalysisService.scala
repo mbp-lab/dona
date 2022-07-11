@@ -28,8 +28,8 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
       .groupBy(_.donationDataSourceType)
       .mapValues { conversations =>
         val messageGraphData = produceMessageGraphData(socialData.donorId, conversations)
-        val sentReceivedWords = produceSentReceivedWordsGraphData(socialData.donorId, conversations)
-        val dailyMessageGraphData = produceDailyMessageGraphData(socialData.donorId, conversations)
+        //val sentReceivedWords = produceSentReceivedWordsGraphData(socialData.donorId, conversations)
+        //val dailyMessageGraphData = produceDailyMessageGraphData(socialData.donorId, conversations)
         val dailyWordsGraphData = produceDailyWordsGraphData(socialData.donorId, conversations)
         // this here might be redundant... rather only do smallest and then reassemble in javascript? e.g. per conversation could be easily added up to overall daily
         val dailyWordsGraphDataPerConversation = conversations.map(conversation => produceDailyWordsGraphDataPerConversation(socialData.donorId, conversation))
@@ -47,18 +47,14 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
               participant != socialData.donorId
             })
         })
-        val sentPerFriendPerMonth = produceAggregatedSentPerFriend(socialData.donorId, conversations)
-        val sentPerFriendInConversationPerMonth = conversations.map(c => produceMonthlySentPerFriendInConversation(socialData.donorId, c))
+        //val sentPerFriendPerMonth = produceAggregatedSentPerFriend(socialData.donorId, conversations)
+        //val sentPerFriendInConversationPerMonth = conversations.map(c => produceMonthlySentPerFriendInConversation(socialData.donorId, c))
         val sentReceivedPerMonthPerConversation = conversations.map(c => produceSentReceivedWordsPerMonthPerConversation(socialData.donorId, c))
 
 
         GraphData(
           messageGraphData,
-          sentReceivedWords,
-          sentPerFriendPerMonth,
-          sentPerFriendInConversationPerMonth,
           sentReceivedPerMonthPerConversation,
-          dailyMessageGraphData, // does the "daily" stuff make sense here? The timezone will bring problems! Messages on the same day in this timezone here could be on different days in a different time zone...
           dailyWordsGraphData,
           dailyWordsGraphDataPerConversation,
           dailyWordCountSentHoursPerConversation,
