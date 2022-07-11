@@ -54,8 +54,8 @@ function dayPartsActivityOverallPlot(dataSent, dataReceived, conversationsFriend
 
 
     // make sure its sorted (maybe not necessary)
-    let sortedDataSent = sortGraphDataPointsSync(dataSentOverall)
-    let sortedDataReceived = sortGraphDataPointsSync(dataReceivedOverall)
+    //let sortedDataSent = sortGraphDataPointsSync(dataSentOverall)
+    //let sortedDataReceived = sortGraphDataPointsSync(dataReceivedOverall)
 
 
     // gets mean for each day part of the given data (many days)
@@ -112,8 +112,8 @@ function dayPartsActivityOverallPlot(dataSent, dataReceived, conversationsFriend
     }
 
 
-    let yValuesSent = meansForDayParts(sortedDataSent)
-    let yValuesReceived = meansForDayParts(sortedDataReceived)
+    let yValuesSent = meansForDayParts(dataSentOverall)
+    let yValuesReceived = meansForDayParts(dataReceivedOverall)
     // find globalMax on the way, so that range can be set accordingly later
     let globalMax = Math.max(...yValuesReceived.concat(yValuesSent))
 

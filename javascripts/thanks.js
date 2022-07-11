@@ -10,6 +10,7 @@ const animatedDayPartsActivityPlot = require("./analysis_plot/animatedDayPartsAc
 const dayPartsActivityOverallPlot = require("./analysis_plot/dayPartsActivityOverallPlot");
 var responseTimeBarChart = require('./analysis_plot/responseTimeBarChart');
 let animatedResponseTimeBarChart = require('./analysis_plot/animatedResponseTimeBarChart')
+const breaksInConvPlot = require("./analysis_plot/breaksInConvPlot");
 
 
 $(document).ready(function () {
@@ -112,6 +113,12 @@ $(document).ready(function () {
             animatedResponseTimeBarChart(
                 graphData.responseTimes,
                 `${dataSourceType}AnimatedResponseTimeBarChart`
+            );
+
+            breaksInConvPlot(
+                graphData.responseTimesPerConversation,
+                graphData.conversationsFriends,
+                `${dataSourceType}BreaksInConvPlot`
             );
 
             responseTime(

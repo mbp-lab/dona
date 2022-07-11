@@ -141,6 +141,13 @@ function animatedResponseTimeBarChart(responseTimes, plotId) {
             return responseTime.isDonor;
         })
 
+        if (groupedByIsDonor.false === undefined) {
+            groupedByIsDonor.false = []
+        }
+        if (groupedByIsDonor.true === undefined) {
+            groupedByIsDonor.true = []
+        }
+
 
         let countObjectDonor = {
             0: 0,

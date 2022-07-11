@@ -13,7 +13,7 @@
             <span class="headline font-italic text-center"><strong>@messages("feedback.thanks.title")</strong></span>
         </div>
 
-        @for((dataSource, GraphData(_, _, _, _, _, _, _, averageMessageNumber, _)) <- data) {
+        @for((dataSource, GraphData(_, _, _, _, _, _, _, _, averageMessageNumber, _)) <- data) {
             <div id="@{
                 dataSource.toString
             }container">

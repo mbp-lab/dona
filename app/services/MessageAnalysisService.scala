@@ -40,7 +40,12 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
         //val dailyReceivedHoursPerConversation = conversations.map(conversation => produceDailyHoursPerConversation(socialData.donorId, conversation, false))
         val dailyWordCountReceivedHoursPerConversation = conversations.map(conversation => produceWordCountDailyHoursPerConversation(socialData.donorId, conversation, false))
         val average = produceAverageNumberOfMessages(messageGraphData)
-        val answerTimes = produceAnswerTimes(socialData.donorId, conversations)
+
+
+        val answerTimesPerConversation = conversations.map(conversation => produceAnswerTimesPerConv(socialData.donorId, conversation))
+        val answerTimes = answerTimesPerConversation.flatten
+
+
         val conversationsFriends = conversations.map(c => {
           c.participants.filter(
             participant => {
@@ -60,6 +65,7 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
           dailyWordCountSentHoursPerConversation,
           dailyWordCountReceivedHoursPerConversation,
           answerTimes,
+          answerTimesPerConversation,
           average,
           conversationsFriends
         )
@@ -93,38 +99,12 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
       .reverse
   }
 
-  // counts total received and sent words per month
-  private def produceSentReceivedWordsGraphData(
-                                                 donorId: String,
-                                                 conversations: List[Conversation]
-                                               ): List[SentReceivedPoint] = {
-    conversations
-      .flatMap(_.messages)
-      .foldRight(Map[TimeFrame, (Int, Int)]()) {
-        case (message, map) =>
-          val timestamp = LocalDateTime.ofInstant(Instant.ofEpochMilli(message.timestampMs), ZoneOffset.UTC)
-          val mapKey = TimeFrame(timestamp.getYear, timestamp.getMonth)
-          val (oldSent, oldReceived) = map.getOrElse(mapKey, (0, 0))
-          val newValue = message.sender match {
-            case Some(sender) if sender == donorId => (oldSent + message.wordCount, oldReceived)
-            case _ => (oldSent, oldReceived + message.wordCount)
-          }
-          map.updated(mapKey, newValue)
-      }
-      .map {
-        case (TimeFrame(year, month), (sent, received)) =>
-          SentReceivedPoint(year, month.getValue, sent, received)
-      }
-      .toList
-      .sorted
-      .reverse
-  }
 
   // counts total received and sent words per month
   private def produceSentReceivedWordsPerMonthPerConversation(
-                                                          donorId: String,
-                                                          conversation: Conversation
-                                                        ): List[SentReceivedPoint] = {
+                                                               donorId: String,
+                                                               conversation: Conversation
+                                                             ): List[SentReceivedPoint] = {
     conversation.messages
       .foldRight(Map[TimeFrame, (Int, Int)]()) {
         case (message, map) =>
@@ -440,8 +420,8 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
 
   }
 
-
-  private def produceAnswerTimes(donorId: String, conversations: List[Conversation]): List[AnswerTimePoint] = {
+  /*
+  private def produceAnswerTimesPerConv(donorId: String, conversations: List[Conversation]): List[List[AnswerTimePoint]] = {
     /* This was done before -> ignores answers in the same minute !
     def isAnswer(message1: ConversationMessage, message2: ConversationMessage) = {
       message1.sender != message2.sender &&
@@ -464,7 +444,7 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
       //.take(config.maximumSampleSize)
       .groupBy { case (_, conversation) => conversation }
       .mapValues(_.map { case (message, _) => message })
-      .flatMap {
+      .map {
         case (_, list) =>
           list
             .sortBy(message => message.timestampMs)
@@ -474,12 +454,48 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
                 AnswerTimePoint(
                   (message2.timestampMs - message1.timestampMs).toInt,
                   message1.sender.contains(donorId),
-                  message1.timestampMs
+                  message1.timestampMs,
                 )
             }
+          .toList
       }
       .toList
   }
+
+   */
+
+  private def produceAnswerTimesPerConv(donorId: String, conversation: Conversation): List[AnswerTimePoint] = {
+    /* This was done before -> ignores answers in the same minute !
+    def isAnswer(message1: ConversationMessage, message2: ConversationMessage) = {
+      message1.sender != message2.sender &&
+        message2.timestampMs > message1.timestampMs &&
+        message2.timestampMs - message1.timestampMs < config.maximumResponseWait.toMillis
+    }
+
+     */
+
+    def isAnswer(message1: ConversationMessage, message2: ConversationMessage) = {
+      message1.sender != message2.sender &&
+        message2.timestampMs >= message1.timestampMs
+    }
+
+
+    conversation.messages
+      .sortBy(message => message.timestampMs)
+      .sliding(2)
+      .collect {
+        case message1 :: message2 :: Nil if isAnswer(message1, message2) =>
+          AnswerTimePoint(
+            (message2.timestampMs - message1.timestampMs).toInt,
+            message1.sender.contains(donorId),
+            message1.timestampMs,
+          )
+      }
+
+      .toList
+
+  }
+
 
   private def produceAverageNumberOfMessages(points: List[SentReceivedPoint]): AverageNumberOfMessages = {
     val overallSentMessages = points.map(_.sentCount).sum

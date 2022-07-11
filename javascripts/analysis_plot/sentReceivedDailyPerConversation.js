@@ -18,20 +18,14 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
         xaxis: {
             tickangle: 45,
             tickformat: '%d-%m-%Y',
-            //color: "white",
             showgrid: true,
-            //gridcolor: "grey",
             automargin: true,
         },
         yaxis: {
             title: "Words",
-            //color: "white",
             showgrid: true,
-            //gridcolor: "grey"
         },
         legend: {
-            //bgcolor: "#13223C",
-            //font: {color: "white"},
             x: -0.1,
             y: 1.1,
         }
@@ -39,12 +33,6 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
 
 
 
-    let getMeanData = (y) => {
-        let sum = 0;
-        y.forEach((entry) => sum += entry)
-        let mean = sum / y.length
-        return y.map((entry) => mean)
-    }
 
     let getXDayMeanData = (y, days) => {
         let sum, mean;
@@ -112,6 +100,7 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
                 }
             }
 
+            /*
             let numberTracesEach = 2
             for (let j = 0; j < allDataOptions.length * numberTracesEach; j++) {
                 if (j >= numberTracesEach * i && j < numberTracesEach * (i + 1)) {
@@ -120,6 +109,8 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
                     visibilityBooleans.push(false)
                 }
             }
+
+             */
 
 
             // add menu for this conversation
@@ -132,10 +123,10 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
             let dataToShow = allDataOptions[i]
 
             // sort data
-            let sortedData = sortGraphDataPointsSync(dataToShow, true, false);
+            //let sortedData = sortGraphDataPointsSync(dataToShow, true, false);
 
             // format data to needed format
-            let plotInputData = formInputDataForWordsPlotSync(sortedData, true)
+            let plotInputData = formInputDataForWordsPlotSync(dataToShow, true)
 
             // if this is supposed to be a sliding window mean plot then change y to the mean values
             if (slidingWindowMean) {

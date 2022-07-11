@@ -54,23 +54,26 @@ function dailyActivityTimes(dataSent, dataReceived, conversationsFriends, plotId
 
     // TODO: put this in math helper .js file
     let transformToZScores = (wordCounts) => {
+        let result = []
 
         const n = wordCounts.length
-        const mean = wordCounts.reduce((a, b) => a + b) / n
-        const stdDeviation = Math.sqrt(wordCounts.map(x => Math.pow(x - mean, 2)).reduce((a, b) => a + b) / n)
+        if (wordCounts.length > 0) {
+            const mean = wordCounts.reduce((a, b) => a + b) / n
+            const stdDeviation = Math.sqrt(wordCounts.map(x => Math.pow(x - mean, 2)).reduce((a, b) => a + b) / n)
 
-        let result = []
-        let zScore
-        for (let i = 0; i < wordCounts.length; i++) {
-            zScore = (wordCounts[i] - mean) / stdDeviation
-            // colorscale needs a specific range -> zScores bigger than 4 and -4 will be set to 4 or -4 accordingly
-            if (zScore > zScoreLimit) {
-                zScore = zScoreLimit;
-            } else if (zScore < -zScoreLimit) {
-                zScore = -zScoreLimit
+            let zScore
+            for (let i = 0; i < wordCounts.length; i++) {
+                zScore = (wordCounts[i] - mean) / stdDeviation
+                // colorscale needs a specific range -> zScores bigger than 4 and -4 will be set to 4 or -4 accordingly
+                if (zScore > zScoreLimit) {
+                    zScore = zScoreLimit;
+                } else if (zScore < -zScoreLimit) {
+                    zScore = -zScoreLimit
+                }
+                result.push(zScore)
             }
-            result.push(zScore)
         }
+
 
 
         return result;
@@ -131,11 +134,11 @@ function dailyActivityTimes(dataSent, dataReceived, conversationsFriends, plotId
             //let dataToShowReceived = allDataOptionsReceived[i]
 
             // sort
-            let sortedDataSent = sortGraphDataPointsSync(dataToShowSent)
+            //let sortedDataSent = sortGraphDataPointsSync(dataToShowSent)
             //let sortedDataReceived = sortGraphDataPointsSync(dataToShowReceived)
 
             // get correct format
-            let plotInputDataSent = formInputDataForDailyActivityPlot(sortedDataSent)
+            let plotInputDataSent = formInputDataForDailyActivityPlot(dataToShowSent)
             //let plotInputDataReceived = formInputDataForDailyActivityPlot(sortedDataReceived)
 
             const traceSent = {

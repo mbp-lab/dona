@@ -22,6 +22,7 @@
             style="width: 100%"
             >
                 @showAnimatedResponseTimeBarChart(dataSource)
+                @showBreaksInConvPlot(dataSource)
                 @showResponseTimePlot(dataSource)
             </div>
 
@@ -60,6 +61,20 @@
         }AnimatedResponseTimeBarChart"></div>
         <div class="clearfix"></div>
     }
+
+    @showBreaksInConvPlot(name: String) = {
+    @showExplanationText("Breaks in Conversations in Days Plot",
+        "Lorem ipsum dolor sit amet, consetetur sadipscing elitr,"
+                + "sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+                + "At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.")
+
+
+        <div id="@{
+            name
+        }BreaksInConvPlot"></div>
+        <div class="clearfix"></div>
+    }
+
 
     @showExplanationText(title: String, body: String) = {
         <div class="top">
