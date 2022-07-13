@@ -1,8 +1,11 @@
 function formInputDataForPolarPlot(sortedGraphDataPoints, allFriends, yearToExclude, monthToExclude, monthsBefore) {
 
-
+    // TODO: put this friends business in a separate helper file
     let shortenFriend = (friend) => {
         //find index where number starts, all friends have the following form: "friend" + "i" where i is a number
+        if (friend === "System") {
+            return "System"
+        }
         let numberStart = friend.search(/\d+/)
         return "F" + friend.substring(numberStart, friend.length)
     }

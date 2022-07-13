@@ -117,6 +117,7 @@ donation.error=An error occured:
 
 donation.anonymisation.donor=Donor
 donation.anonymisation.friend=Friend
+donation.anonymisation.system=System
 
 donation.errors.no-profile=The uploaded data does not include profile information.
 donation.errors.no-alias=Please enter your username

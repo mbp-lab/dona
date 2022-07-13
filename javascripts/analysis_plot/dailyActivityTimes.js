@@ -3,7 +3,7 @@ const formInputDataForDailyActivityPlot = require("./utils/formInputDataForDaily
 const sortGraphDataPointsSync = require("./utils/sortGraphDataPointsSync");
 
 
-function dailyActivityTimes(dataSent, dataReceived, conversationsFriends, plotId) {
+function dailyActivityTimes(dataSent, dataReceived, listOfConversations, plotId) {
 
     const plotContainer = $(`#${plotId}`)
     plotContainer.removeClass('d-none');
@@ -44,11 +44,9 @@ function dailyActivityTimes(dataSent, dataReceived, conversationsFriends, plotId
         },
     };
 
-    let listOfConversations = []
-    listOfConversations.push("Overall/Everything")
-    for (let i = 0; i < dataSent.length; i++) {
-        listOfConversations.push("Conversation with " + conversationsFriends[i].filter((participant) => participant !== "donor"))
-    }
+    let displayOptions = ["Overall/Everything"]
+    displayOptions = displayOptions.concat(listOfConversations)
+
 
     let zScoreLimit = 1.39
 
@@ -127,7 +125,7 @@ function dailyActivityTimes(dataSent, dataReceived, conversationsFriends, plotId
             layout["updatemenus"][0]["buttons"].push({
                 method: 'restyle',
                 args: ['visible', visibilityBooleans],
-                label: listOfConversations[i]
+                label: displayOptions[i]
             })
 
             let dataToShowSent = allDataOptionsSent[i]

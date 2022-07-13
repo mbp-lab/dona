@@ -4,7 +4,7 @@ const sortGraphDataPointsSync = require("./utils/sortGraphDataPointsSync");
 const formInputDataForWordsPlotSync = require("./utils/formInputDataForWordsPlotSync");
 
 
-function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plotId, conversationsFriends, slidingWindowMean) {
+function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plotId, listOfConversations, slidingWindowMean) {
 
     const plotContainer = $(`#${plotId}`)
     plotContainer.removeClass('d-none');
@@ -53,11 +53,8 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
         return resultArray
     }
 
-    let listOfConversations = []
-    listOfConversations.push("Overall/Everything")
-    for (let i = 0; i < dataPerConversation.length; i++) {
-        listOfConversations.push("Conversation with " + conversationsFriends[i].filter((participant) => participant !== "donor"))
-    }
+    let displayOptions = ["Overall/Everything"]
+    displayOptions = displayOptions.concat(listOfConversations)
 
 
     let makeTraces = () => {
@@ -117,7 +114,7 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
             layout["updatemenus"][0]["buttons"].push({
                 method: 'restyle',
                 args: ['visible', visibilityBooleans],
-                label: listOfConversations[i]
+                label: displayOptions[i]
             })
 
             let dataToShow = allDataOptions[i]

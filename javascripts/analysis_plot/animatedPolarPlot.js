@@ -1,48 +1,9 @@
 var sortGraphDataPoints = require('./utils/sortGraphDataPointsTimeWise');
 const formInputDataForPolarPlot = require("./utils/formInputDataForPolarPlot");
 const _ = require("lodash");
+const createListOfConversations = require("./utils/createListOfConversations");
 
-function animatedPolarPlot(dataMonthlyPerConversation, allFriends, plotId) {
-
-    //console.log(dataMonthlyPerConversation)
-
-    // TODO: this should be put into a separate helper file
-    let shortenFriend = (friend) => {
-        //find index where number starts, all friends have the following form: "friend" + "i" where i is a number
-        let numberStart = friend.search(/\d+/)
-        return "F" + friend.substring(numberStart, friend.length)
-    }
-
-    // TODO: this could also be done in a separate helper file
-    let listOfConversations = []
-    for (let i = 0; i < allFriends.length; i++) {
-
-        allFriends[i] = allFriends[i].map((friend) => shortenFriend(friend))
-
-        listOfConversations.push("Chat with: <br>" + allFriends[i][0]);
-        if (allFriends[i].length === 1) {
-            listOfConversations[i] += "  "
-        }
-        for (let j = 1; j < allFriends[i].length; j++) {
-            if (allFriends[i][j] !== "donor") {
-
-                if (j > 7) {
-                    listOfConversations[i] += ", ..."
-                    break;
-                }
-
-                if (j % 4 === 0) {
-                    listOfConversations[i] += ", <br>" + allFriends[i][j]
-                } else {
-                    listOfConversations[i] += ", " + allFriends[i][j]
-                }
-                if (j === allFriends[i].length - 1) {
-                    listOfConversations[i] += "  "
-                }
-            }
-        }
-    }
-
+function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plotId) {
 
     // TODO: put this in math helper .js file
     let zScoreLimit = 2

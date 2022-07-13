@@ -1,7 +1,7 @@
 const formInputDataForBreaksInConvPlot = require("./utils/formInputDataForBreaksInConvPlot");
 
 
-function breaksInConvPlot(responseTimesPerConv, conversationsFriends, plotId) {
+function breaksInConvPlot(responseTimesPerConv, listOfConversations, plotId) {
 
     const plotContainer = $(`#${plotId}`)
     plotContainer.removeClass('d-none');
@@ -24,16 +24,10 @@ function breaksInConvPlot(responseTimesPerConv, conversationsFriends, plotId) {
         },
         legend: {
             x: -0.1,
-            y: 1.1,
+            y: 1.15,
         }
     };
 
-
-
-    let listOfConversations = []
-    for (let i = 0; i < responseTimesPerConv.length; i++) {
-        listOfConversations.push("Conversation with " + conversationsFriends[i].filter((participant) => participant !== "donor"))
-    }
 
 
     let makeTraces = () => {
@@ -97,7 +91,7 @@ function breaksInConvPlot(responseTimesPerConv, conversationsFriends, plotId) {
     let resultTraces = makeTraces()
 
 
-    layout.yaxis.range = [0, 31]
+    layout.yaxis.range = [0, 32]
 
     plotContainer.html("");
     Plotly.newPlot(plotId, resultTraces, layout, {responsive: true});

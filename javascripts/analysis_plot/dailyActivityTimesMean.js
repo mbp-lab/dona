@@ -10,6 +10,7 @@ function dailyActivityTimesMean(dataSent, dataReceived, plotId) {
     const sent = plotContainer.attr("data-sent-trace-name");
     const received = plotContainer.attr("data-received-trace-name");
 
+
     /*
     let listOfConversations = []
     for (let i = 0; i < dataSent.length; i++) {

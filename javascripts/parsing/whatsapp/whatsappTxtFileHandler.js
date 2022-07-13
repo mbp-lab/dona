@@ -93,10 +93,17 @@ function deIdentification(parsedFiles, alias) {
 
   function getDeIdentifiedId(name) {
     const i18nSupport= $('#i18n-support'); // TODO: This file should not be allowed to access jquery
+    const systemName = i18nSupport.data("system")
+
     if (!(name in participantNameToRandomIds)) {
-      //console.log("Name: " + name + " and according anonymized ID: " + "friend" + i);
-      participantNameToRandomIds[name] = i18nSupport.data("friend") + i;
-      i++;
+      // TODO: I (Paul) modified this to not anonymize the system, but keep calling it system
+      if (name === systemName) {
+        participantNameToRandomIds[name] = systemName;
+      } else {
+        participantNameToRandomIds[name] = i18nSupport.data("friend") + i;
+        i++;
+      }
+      //console.log("Name: " + name + " and according anonymized ID: " + participantNameToRandomIds[name]);
     }
     return participantNameToRandomIds[name];
   }

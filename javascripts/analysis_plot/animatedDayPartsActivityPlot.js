@@ -4,7 +4,7 @@ const sortGraphDataPointsSync = require("./utils/sortGraphDataPointsSync");
 const _ = require("lodash");
 
 
-function animatedDayPartsActivityPlot(dataSent, dataReceived, conversationsFriends, plotId) {
+function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
 
     const FIRST = "00:00-06:00"
     const SECOND = "06:00-12:00"

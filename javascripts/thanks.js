@@ -11,12 +11,23 @@ const dayPartsActivityOverallPlot = require("./analysis_plot/dayPartsActivityOve
 var responseTimeBarChart = require('./analysis_plot/responseTimeBarChart');
 let animatedResponseTimeBarChart = require('./analysis_plot/animatedResponseTimeBarChart')
 const breaksInConvPlot = require("./analysis_plot/breaksInConvPlot");
+const createListOfConversations = require("./analysis_plot/utils/createListOfConversations");
 
 
 $(document).ready(function () {
     Object.keys(allData).forEach(function (dataSourceType) {
         const graphData = allData[dataSourceType];
         console.log(graphData)
+
+        // remove friend "System" from friends of conversations
+        const systemName = i18n.systemName
+        let conversationsWithoutSystem = []
+        graphData.conversationsFriends.forEach((conversation) => {
+            conversationsWithoutSystem.push(conversation.filter((friend) => friend !== systemName))
+        })
+        const listOfConversations = createListOfConversations(
+            conversationsWithoutSystem
+        )
 
         // reminders to also do the next questionnaire, after 1 min, after 5 min and after 15min
         setTimeout(() => {
@@ -31,20 +42,20 @@ $(document).ready(function () {
 
         animatedPolarPlot(
             graphData.sentReceivedPerMonthPerConversation,
-            graphData.conversationsFriends,
+            listOfConversations,
             `${dataSourceType}AnimatedPolarPlot`,
         );
 
         animatedHorizontalBarChart(
             graphData.sentReceivedPerMonthPerConversation,
-            graphData.conversationsFriends,
+            listOfConversations,
             `${dataSourceType}AnimatedHorizontalBarChart`
         );
 
         dailyActivityTimes(
             graphData.dailySentHoursPerConversation,
             graphData.dailyReceivedHoursPerConversation,
-            graphData.conversationsFriends,
+            listOfConversations,
             `${dataSourceType}DailyActivityTimes`
         );
 
@@ -62,7 +73,7 @@ $(document).ready(function () {
 
             animatedHorizontalBarChartOverall(
                 graphData.sentReceivedPerMonthPerConversation,
-                graphData.conversationsFriends,
+                listOfConversations,
                 `${dataSourceType}AnimatedHorizontalBarChartOverall`
             )
 
@@ -70,7 +81,7 @@ $(document).ready(function () {
                 graphData.dailyWordsSentReceived,
                 graphData.dailySentReceivedPerConversation,
                 `${dataSourceType}SentReceivedSlidingWindowMean`,
-                graphData.conversationsFriends,
+                listOfConversations,
                 true
             )
 
@@ -78,7 +89,7 @@ $(document).ready(function () {
                 graphData.dailyWordsSentReceived,
                 graphData.dailySentReceivedPerConversation,
                 `${dataSourceType}DailySentReceivedPerConversation`,
-                graphData.conversationsFriends,
+                listOfConversations,
                 false
             )
         })
@@ -89,14 +100,12 @@ $(document).ready(function () {
             dayPartsActivityOverallPlot(
                 graphData.dailySentHoursPerConversation,
                 graphData.dailyReceivedHoursPerConversation,
-                graphData.conversationsFriends,
                 `${dataSourceType}DayPartsActivityOverallPlot`
             )
 
             animatedDayPartsActivityPlot(
                 graphData.dailySentHoursPerConversation,
                 graphData.dailyReceivedHoursPerConversation,
-                graphData.conversationsFriends,
                 `${dataSourceType}DayPartsActivityPlot`
             )
             /*
@@ -117,7 +126,7 @@ $(document).ready(function () {
 
             breaksInConvPlot(
                 graphData.responseTimesPerConversation,
-                graphData.conversationsFriends,
+                listOfConversations,
                 `${dataSourceType}BreaksInConvPlot`
             );
 

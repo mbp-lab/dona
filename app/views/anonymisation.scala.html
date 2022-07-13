@@ -22,6 +22,7 @@
         data-error="@messages("donation.error")"
         data-donor="@messages("donation.anonymisation.donor")"
         data-friend="@messages("donation.anonymisation.friend")"
+        data-system="@messages("donation.anonymisation.system")"
         data-sender="@messages("donation.preview-data.sender")"
         data-receiver="@messages("donation.preview-data.receiver")"
         data-word-count="@messages("donation.preview-data.word-count")"
@@ -84,9 +85,9 @@
                 </div>
 
                 <div class="container-fluid show-on-anonymisation-success alert-warning">
-                    This needs to be internationalized through the messages conf... and needs to be made nicer... Evtl muss auch "Spender" umbenannt werden...
-                    Hier sind die FriendMappings..:
-                    PLEASE WRITE THIS DOWN -> THE INFORMATION WILL BE LOST ONCE YOU SEND THE DATA.
+                    <p style="color: darkblue; font-weight: bold">PLEASE WRITE THIS INFORMATION DOWN. </p>
+                        <p style="color: darkblue;">From now on this are the deidentified IDs for your friends.
+                        This information will not be saved.</p>
                     <p class="show-on-anonymisation-success" style="overflow: scroll;
                         height: 200px; margin-top: 10px;">
                     @Html("<span id=\"display-userIDMapping\"></span>")

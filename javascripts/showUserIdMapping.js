@@ -1,9 +1,11 @@
-function showUserIdMapping(userIdMapping) {
+function showUserIdMapping(userIdMapping, systemName) {
 
     clearPreviousRenderedMappings()
         .then(() => {
         Object.entries(userIdMapping).forEach((mapping) => {
-            $("#display-userIDMapping").append("<p class='mapping-item'>" + mapping[0] + " &rarr; " + mapping[1] + "</p>")
+            if (mapping[0] !== systemName) {
+                $("#display-userIDMapping").append("<p class='mapping-item' style='font-weight: bold'>" + mapping[0] + " &rarr; " + mapping[1] + "</p>")
+            }
         })
     })
 }

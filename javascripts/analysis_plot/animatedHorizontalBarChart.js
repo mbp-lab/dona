@@ -3,11 +3,7 @@ const formInputDataForPolarPlot = require("./utils/formInputDataForPolarPlot");
 const _ = require("lodash");
 const sortGraphDataPointsSync = require("./utils/sortGraphDataPointsSync");
 
-function animatedHorizontalBarChart(sentReceivedPerConversation, conversationsFriends, plotId) {
-
-    let allFriends = [...new Set(conversationsFriends.flat())]
-
-    // if I want to give this a conversation selector/updatemenu with frames: give frames different names for each conversation so they dont collide! so name: conversationI + counter and label: year-month ?
+function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversations, plotId) {
 
     const plotContainer = $(`#${plotId}`)
     plotContainer.removeClass('d-none');
@@ -82,43 +78,6 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, conversationsFr
             mode: mode
         });
 
-    }
-
-
-    let shortenFriend = (friend) => {
-        //find index where number starts, all friends have the following form: "friend" + "i" where i is a number
-        let numberStart = friend.search(/\d+/)
-        return "F" + friend.substring(numberStart, friend.length)
-    }
-
-
-    let listOfConversations = []
-    for (let i = 0; i < conversationsFriends.length; i++) {
-
-        conversationsFriends[i] = conversationsFriends[i].map((friend) => shortenFriend(friend))
-
-        listOfConversations.push("Chat with: <br>" + conversationsFriends[i][0]);
-        if (conversationsFriends[i].length === 1) {
-            listOfConversations[i] += "  "
-        }
-        for (let j = 1; j < conversationsFriends[i].length; j++) {
-            if (conversationsFriends[i][j] !== "donor") {
-
-                if (j > 7) {
-                    listOfConversations[i] += ", ..."
-                    break;
-                }
-
-                if (j % 4 === 0) {
-                    listOfConversations[i] += ", <br>" + conversationsFriends[i][j]
-                } else {
-                    listOfConversations[i] += ", " + conversationsFriends[i][j]
-                }
-                if (j === conversationsFriends[i].length - 1) {
-                    listOfConversations[i] += "  "
-                }
-            }
-        }
     }
 
 
