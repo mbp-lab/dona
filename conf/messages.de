@@ -77,7 +77,7 @@ consent.voluntary.body=Die Teilnahme an der Studie ist freiwillig. Sie können j
 
 consent.data-protection.title=Datenschutz
 consent.data-protection.body=Da wir weder Ihren Namen oder andere personenbezogenen Daten erheben, können wir nach Abschluss der Studie, Ihre Daten nicht mehr Ihrer Person zuordnen – der Datensatz ist anonym. Entsprechend können wir Ihren Datensatz jedoch auch nicht gezielt löschen. Aufgrund der von vornherein vollständig anonymisierter Verarbeitung findet außerdem die Datenschutzgrundverordnung keine Anwendung. Bei Fragen zum Datenschutz können Sie sich an den behördlichen Datenschutzbeauftragten der Universität wenden:
-consent.data-protection.address_html=Anja Schmid<br /> Datenschutzbeauftragte <br /> Universität Bielefeld <br /> Büro: U8-105  <br />Telefon +49 521 106-5225 <br /><a href="mailto:anja.schmid@uni-bielefeld.de">anja.schmid@uni-bielefeld.de</a><br /><a href="mailto:datenschutzbeauftragte@uni-bielefeld.de">datenschutzbeauftragte@uni-bielefeld.de</a>
+consent.data-protection.address_html=Behördliche Datenschutzbeauftragte <br /> Universität Bielefeld <br /> Büro: UHG T6-234  <br />Telefon +49 521 106-5225 <br /><a href="mailto:datenschutzbeauftragte@uni-bielefeld.de">datenschutzbeauftragte@uni-bielefeld.de</a>
 
 consent.data-purpose.title=Verwendung der anonymisierten Daten
 consent.data-purpose.body=Die Ergebnisse und Daten dieser Studie werden als wissenschaftliche Publikation veröffentlicht. Dies geschieht in anonymisierter Form, d. h. ohne dass die Daten einer spezifischen Person zugeordnet werden können. Die vollständig anonymisierten Daten dieser Studie werden online in einem Forschungsdaten-Repositorium gespeichert und qualifizierten Wissenschaftlern auf Antrag zugänglich gemacht.
