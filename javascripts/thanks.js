@@ -130,10 +130,13 @@ $(document).ready(function () {
                 `${dataSourceType}BreaksInConvPlot`
             );
 
+            /*
             responseTime(
                 graphData.responseTimes,
                 `${dataSourceType}ResponseTimePlot`
             );
+            
+             */
         })
     })
 });

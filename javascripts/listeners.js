@@ -126,7 +126,7 @@ function setUpFileHandler() {
         handler
             .then((deIdentifiedJson) => {
                 renderTable(deIdentifiedJson.deIdentifiedJsonContents);
-                renderUserIDMapping(deIdentifiedJson.participantNameToRandomIds, i18nSupport.data('system'))
+                renderUserIDMapping(deIdentifiedJson.participantNameToRandomIds, i18nSupport.data('system'), i18nSupport.data('donor'))
                 return transformJson(deIdentifiedJson.deIdentifiedJsonContents, donorId, dataSource);
             })
             .then((transformedJson) => {

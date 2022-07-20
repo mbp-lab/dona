@@ -139,6 +139,7 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
                 name: "sent words",
                 marker: {size: 4}, //, color: "white"},
                 visible: i === 0,
+                showlegend: true,
             };
 
 
@@ -149,6 +150,7 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
                 name: "received words",
                 marker: {size: 4}, //, color: "orange"},
                 visible: i === 0,
+                showlegend: true,
             };
 
 
