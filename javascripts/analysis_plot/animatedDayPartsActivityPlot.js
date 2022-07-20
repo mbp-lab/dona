@@ -19,7 +19,7 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
     const received = plotContainer.attr("data-received-trace-name");
 
     let layout = {
-        height: 500,
+        height: 700,
         showlegend: true,
         barmode: 'overlay',
         legend: {

@@ -18,7 +18,7 @@
                 dataSource.toString
             }container">
                 @showStatistics(averageMessageNumber, dataSource)
-                @showAnimatedPolarPlot(dataSource)
+                @showAnimatedPolarPlot(dataSource, messages("feedback.graph.animatedPolarPlot"))
                 @showAnimatedHorizontalBarChart(dataSource)
                 @showDailyActivityTimes(dataSource)
                 @showResponseTimeBarChart(dataSource)
@@ -52,10 +52,8 @@
 }
 
 
-@showAnimatedPolarPlot(name: String) = {
-@showExplanationText("Animated Polar Plot", "This graph displays you as the big yellow dot in the middle. Around you are smaller white dots for your different chats. The more words were written in a chat in the below displayed month, the closer the white dot gets to the middle where you are. The white dots' movement over time always leaves a smaller transparent dot where they were before. So, you can see a trace of the dots' motion in the past months. With the start and pause buttons next to the time slider below the graph, you can start and pause the animation going through the months. You can also use the time slider to go through the months yourself."
-        + "Click HERE to see an example with explanations (TODO)."
-)
+@showAnimatedPolarPlot(name: String, description: String) = {
+@showExplanationText("Animated Polar Plot", description)
 
     <div id="@{
         name.toString
@@ -168,14 +166,13 @@
         <h4 class="text-center font-weight-bold insights-header">@title</h4>
     </div>
     <div class="card-deck feedback-stats-deck">
-        <div class="modal fade" id="testing" role="dialog">
+        <div class="modal fade" id="polarPlotExplanation" role="dialog">
             @feedback_explanationModal("testing")
         </div>
 
         <div class="card top feedback-stats-card">
             <p class="insights-text text-center">
-            @body
-                <a style="font-weight:bold" href="#testing" data-toggle="modal" data-target="#testing">SHOW EXAMPLE</a>
+            @Html(body)
             </p>
         </div>
 
@@ -187,8 +184,6 @@
     <div class="top">
         <h4 class="text-center font-weight-bold insights-header">@String.format(messages("feedback.graph.title"), dataSource)</h4>
     </div>
-    <div>
-        Maybe also make this text part more "interactive" -> per conversation (and overall) show data for: daily, weekly, monthly, yearly... And more Infos: Hoy many media files</div>
     <div class="card-deck feedback-stats-deck">
         <div class="card top feedback-stats-card">
             <h3 class="insights-title text-center">@messages("feedback.graph.total-messages")</h3>

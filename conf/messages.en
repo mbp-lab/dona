@@ -146,7 +146,10 @@ feedback.graph.overview=Overview
 feedback.graph.detail=Detail
 feedback.graph.you=You
 feedback.graph.friends=Friends
-feedback.graph.testPlot=This is a testplot
+
+# plot descriptions
+feedback.graph.animatedPolarPlot=In this visualization, you are displayed as the bigger, yellow dot in the middle. The chats you donated are the smaller white dots around you. They are close to you if your interaction was higher and further away if it was less. Specifically, the interaction here is measured by the total amount of exchanged words in the chats. In the time-slider below you can see and select the month and year for which the data is shown. <br>Click <a style="font-weight:bold" href="#polarPlotExplanation" data-toggle="modal" data-target="#polarPlotExplanation">HERE</a> to see an explanation with an example.
+
 
 # provided by Astrid
 feedback.graph.loading=Loading graph...

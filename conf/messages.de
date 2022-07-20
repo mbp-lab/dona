@@ -148,6 +148,9 @@ feedback.graph.you=Sie
 feedback.graph.friends=Freunde
 feedback.graph.testPlot=Das ist ein Testplot
 
+# plot descriptions
+feedback.graph.animatedPolarPlot=In dieser Visualisierung werden Sie als der größere gelbe Punkt in der Mitte angezeigt. Die von Ihnen gespendeten Chats sind die kleineren weißen Punkte um sie herum. Diese sind näher zu Ihnen, wenn Ihre Interaktion intensiver war und weiter entfernt, wenn die Interaktion niedriger war. Die Interaktion wird hier an der Gesamtmenge der geschriebenen Wörter in den Chats gemessen. Im Zeitschieber unten können Sie den Monat und das Jahr, für welche aktuell die Daten angezeigt werden, sehen und selbst auswählen. <br> Klicken Sie <a style="font-weight:bold" href="#polarPlotExplanation" data-toggle="modal" data-target="#polarPlotExplanation">HIER</a>, um eine Erklärung mit einem Beispiel zu sehen.
+
 # provided by Astrid
 feedback.graph.loading=Graph wird geladen...
 feedback.buttons.complete-survey.caption=Fragebogen ausfüllen
