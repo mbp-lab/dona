@@ -1,7 +1,7 @@
 const formInputDataForBreaksInConvPlot = require("./utils/formInputDataForBreaksInConvPlot");
 
 
-function breaksInConvPlot(responseTimesPerConv, listOfConversations, plotId) {
+function breaksInConvPlot(wordsPerConv, listOfConversations, plotId) {
 
     const plotContainer = $(`#${plotId}`)
     plotContainer.removeClass('d-none');
@@ -47,12 +47,12 @@ function breaksInConvPlot(responseTimesPerConv, listOfConversations, plotId) {
 
 
         let traces = []
-        for (let i = 0; i < responseTimesPerConv.length; i++) {
+        for (let i = 0; i < wordsPerConv.length; i++) {
 
             //make visibility true/false array for this button option
             let visibilityBooleans = []
 
-            for (let j = 0; j < responseTimesPerConv.length; j++) {
+            for (let j = 0; j < wordsPerConv.length; j++) {
                 if (j === i) {
                     visibilityBooleans.push(true)
                 } else {
@@ -69,7 +69,7 @@ function breaksInConvPlot(responseTimesPerConv, listOfConversations, plotId) {
             })
 
 
-            let plotInputData = formInputDataForBreaksInConvPlot(responseTimesPerConv[i])
+            let plotInputData = formInputDataForBreaksInConvPlot(wordsPerConv[i])
 
             traces.push({
                 x: plotInputData.x,

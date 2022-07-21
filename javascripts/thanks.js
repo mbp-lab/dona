@@ -117,7 +117,7 @@ $(document).ready(function () {
             );
 
             breaksInConvPlot(
-                graphData.responseTimesPerConversation,
+                graphData.dailySentReceivedPerConversation,
                 listOfConversations,
                 `${dataSourceType}BreaksInConvPlot`
             );
