@@ -10,7 +10,7 @@
 <div class="modal-dialog modal-xl" style="max-width: 1140px">
     <div class="modal-content">
         <div class="modal-header bgmain">
-            <h3 class="data-protection-headline">More... Blue background good or distracting?</h3>
+            <h3 class="data-protection-headline">More about Interaction Intensity</h3>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
@@ -21,10 +21,12 @@
             }ModalContainer"
                 style="width: 100%"
             >
+                @showTitle("More about Sent and Received <u>Words</u>")
                 @showAnimatedHorizontalBarChartOverall(dataSource)
-                @showSentReceivedPlot(dataSource)
                 @showSentReceivedSlidingWindowMeanGraphPlot(dataSource)
                 @showSentReceivedDailyPerConversationGraphPlot(dataSource)
+                @showTitle("More about Sent and Received <u>Messages</u>")
+                @showSentReceivedPlot(dataSource)
             </div>
 
 
@@ -35,19 +37,25 @@
         </div>
     </div>
 
-
     @showExplanationText(title: String, body: String) = {
-        <div class="top">
-            <h4 class="text-center font-weight-bold insights-header">@title</h4>
-        </div>
+        <div style="margin-top: 3em"></div>
         <div class="card-deck feedback-stats-deck">
+            <div class="modal fade" id="polarPlotExplanation" role="dialog">
+            @feedback_explanationModal("testing")
+            </div>
 
             <div class="card top feedback-stats-card">
                 <p class="insights-text text-center">
-                @body
+                @Html(body)
                 </p>
             </div>
 
+        </div>
+    }
+
+    @showTitle(title: String) = {
+        <div class="top col-md text-center">
+            <span class="headline font-italic text-center"><strong>@Html(title)</strong></span>
         </div>
     }
 

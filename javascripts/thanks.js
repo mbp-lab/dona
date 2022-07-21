@@ -108,14 +108,6 @@ $(document).ready(function () {
                 graphData.dailyReceivedHoursPerConversation,
                 `${dataSourceType}DayPartsActivityPlot`
             )
-            /*
-            dailyActivityTimesMean(
-                graphData.dailySentHoursPerConversation,
-                graphData.dailyReceivedHoursPerConversation,
-                `${dataSourceType}DailyActivityTimesMean`
-            );
-
-             */
         })
 
         $(`#${dataSourceType}responseTimeModal`).on('shown.bs.modal', () => {
@@ -129,14 +121,6 @@ $(document).ready(function () {
                 listOfConversations,
                 `${dataSourceType}BreaksInConvPlot`
             );
-
-            /*
-            responseTime(
-                graphData.responseTimes,
-                `${dataSourceType}ResponseTimePlot`
-            );
-            
-             */
         })
     })
 });

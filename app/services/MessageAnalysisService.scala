@@ -27,7 +27,7 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
     socialData.conversations
       .groupBy(_.donationDataSourceType)
       .mapValues { conversations =>
-        val messageGraphData = produceMessageGraphData(socialData.donorId, conversations)
+        val sentReceivedMessagesMonthly = produceSentReceivedMessagedMonthly(socialData.donorId, conversations)
         //val sentReceivedWords = produceSentReceivedWordsGraphData(socialData.donorId, conversations)
         //val dailyMessageGraphData = produceDailyMessageGraphData(socialData.donorId, conversations)
         val dailyWordsGraphData = produceDailyWordsGraphData(socialData.donorId, conversations)
@@ -39,7 +39,7 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
         val dailyWordCountSentHoursPerConversation = conversations.map(conversation => produceWordCountDailyHoursPerConversation(socialData.donorId, conversation, true))
         //val dailyReceivedHoursPerConversation = conversations.map(conversation => produceDailyHoursPerConversation(socialData.donorId, conversation, false))
         val dailyWordCountReceivedHoursPerConversation = conversations.map(conversation => produceWordCountDailyHoursPerConversation(socialData.donorId, conversation, false))
-        val average = produceAverageNumberOfMessages(messageGraphData)
+        val average = produceAverageNumberOfMessages(sentReceivedMessagesMonthly)
 
 
         val answerTimesPerConversation = conversations.map(conversation => produceAnswerTimesPerConv(socialData.donorId, conversation))
@@ -58,7 +58,7 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
 
 
         GraphData(
-          messageGraphData,
+          sentReceivedMessagesMonthly,
           sentReceivedPerMonthPerConversation,
           dailyWordsGraphData,
           dailyWordsGraphDataPerConversation,
@@ -73,7 +73,7 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
   }
 
   // counts total received and sent messages per month
-  private def produceMessageGraphData(
+  private def produceSentReceivedMessagedMonthly(
                                        donorId: String,
                                        conversations: List[Conversation]
                                      ): List[SentReceivedPoint] = {
