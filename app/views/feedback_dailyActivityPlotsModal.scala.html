@@ -10,7 +10,7 @@
 <div class="modal-dialog modal-xl" style="max-width: 1140px">
     <div class="modal-content">
         <div class="modal-header bgmain">
-            <h3 class="data-protection-headline">More...</h3>
+            <h3 class="data-protection-headline">More about Daily Activity Times</h3>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
@@ -31,10 +31,8 @@
         </div>
     </div>
 
-    @showExplanationText(title: String, body: String) = {
-        <div class="top">
-            <h4 class="text-center font-weight-bold insights-header">@title</h4>
-        </div>
+    @showExplanationText(body: String) = {
+        <div style="margin-top: 3em"></div>
         <div class="card-deck feedback-stats-deck">
 
             <div class="card top feedback-stats-card">
@@ -47,7 +45,7 @@
     }
 
     @showAnimatedDayPartsActivityPlot(name: String) = {
-    @showExplanationText("DayPartsActivity Plot", "Right now: for each month the amount of sent/ received words during the day parts is added up and divided by the daycount(actually active days) -> should this be divided be the total amount of days of the month?")
+    @showExplanationText("In diesem Graphen können Sie sehen, wie sich die Wörter, die sie gesendet und empfangen haben auf verschiedene Teile des Tages im Durchschnitt über den gesamten Zeitraum Ihrer Datenspende verteilen. Klicken Sie HIER, um eine Erklärung mit einem Beispiel zu sehen.")
 
 
         <div id="@{
@@ -67,33 +65,11 @@
     }
 
     @showDayPartsActivityOverallPlot(name: String) = {
-    @showExplanationText("DayPartsActivityOverall Plot", "Right now: for each month the amount of sent/ received words during the day parts is added up and divided by the daycount(actually active days) -> should this be divided be the total amount of days of the month?")
-
+    @showExplanationText("In diesem Graphen können Sie pro Monat sehen, wie sich die Wörter, die sie gesendet und empfangen haben auf verschiedene Teile des Tages im Durchschnitt verteilen.")
 
         <div id="@{
             name
         }DayPartsActivityOverallPlot" class="d-none"
-        data-x-axis="@messages("feedback.graph.time")"
-        data-y-axis="@messages("feedback.graph.number-of-messages")"
-        data-sent-trace-name="@messages("feedback.graph.sent")"
-        data-received-trace-name="@messages("feedback.graph.received")"
-        >
-            <div class="card h-100">
-                <div class="m-auto">@messages("feedback.graph.loading")</div>
-            </div>
-        </div>
-
-        <div class="clearfix"></div>
-    }
-
-
-    @showDailyActivityTimesMean(name: String) = {
-    @showExplanationText("Sliding window mean of daily activity times", "This seems to be broken (not totally correct... There are holes in the plot where there shouldnt be any..)")
-
-
-        <div id="@{
-            name
-        }DailyActivityTimesMean" class="d-none"
         data-x-axis="@messages("feedback.graph.time")"
         data-y-axis="@messages("feedback.graph.number-of-messages")"
         data-sent-trace-name="@messages("feedback.graph.sent")"

@@ -35,8 +35,7 @@
 
 
     @showResponseTimePlot(name: String) = {
-    @showExplanationText("Response Time Plot",
-        "Lorem ipsum dolor sit amet, consetetur sadipscing elitr,"
+    @showExplanationText("Lorem ipsum dolor sit amet, consetetur sadipscing elitr,"
                 + "sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
                 + "At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.")
 
@@ -49,11 +48,7 @@
 
 
     @showAnimatedResponseTimeBarChart(name: String) = {
-    @showExplanationText("Animated Response Time Bar Chart",
-        "Lorem ipsum dolor sit amet, consetetur sadipscing elitr,"
-                + "sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
-                + "At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.")
-
+    @showExplanationText("Hier werden <b>pro Monat</b> Ihre und die Antwortzeiten Ihrer Freunde gezählt. Es wird der Prozentsatz aller Antworten (d.h. eine Nachricht, die Sie nach einer Nachricht von einem Freund gesendet haben oder umgekehrt) angezeigt, die in der angegebenen Zeit erfolgt sind. Sie können sehen, wie viel Prozent Ihrer Antworten Sie schneller als nach 1 Minute, nach 1–2 Minuten, 3–5 Minuten, 6–15 Minuten, 16–30 Minuten, 31–60 Minuten und langsamer als 60 Minuten gesendet haben. Der Balken für > 60 Minuten beinhaltet auch längere Gesprächspausen. Klicken Sie HIER, um eine Erklärung mit einem Beispiel zu sehen.")
 
         <div id="@{
             name
@@ -62,11 +57,7 @@
     }
 
     @showBreaksInConvPlot(name: String) = {
-    @showExplanationText("Breaks in Conversations in Days Plot",
-        "Lorem ipsum dolor sit amet, consetetur sadipscing elitr,"
-                + "sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
-                + "At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.")
-
+    @showExplanationText("Dieser Graph zeigt für den ausgewählten Chat pro Monat die längste zusammenhängende Zeitperiode in Tagen, in der keine Nachricht in diesem Chat geschrieben wurde.")
 
         <div id="@{
             name
@@ -75,15 +66,13 @@
     }
 
 
-    @showExplanationText(title: String, body: String) = {
-        <div class="top">
-            <h4 class="text-center font-weight-bold insights-header">@title</h4>
-        </div>
+    @showExplanationText(body: String) = {
+        <div style="margin-top: 3em"></div>
         <div class="card-deck feedback-stats-deck">
 
             <div class="card top feedback-stats-card">
                 <p class="insights-text text-center">
-                @body
+                @Html(body)
                 </p>
             </div>
 

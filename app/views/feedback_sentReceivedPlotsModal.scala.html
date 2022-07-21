@@ -37,13 +37,9 @@
         </div>
     </div>
 
-    @showExplanationText(title: String, body: String) = {
+    @showExplanationText(body: String) = {
         <div style="margin-top: 3em"></div>
         <div class="card-deck feedback-stats-deck">
-            <div class="modal fade" id="polarPlotExplanation" role="dialog">
-            @feedback_explanationModal("testing")
-            </div>
-
             <div class="card top feedback-stats-card">
                 <p class="insights-text text-center">
                 @Html(body)
@@ -60,7 +56,7 @@
     }
 
     @showAnimatedHorizontalBarChartOverall(name: String) = {
-    @showExplanationText("Animated Horizontal Bar Chart Overall", "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.")
+    @showExplanationText("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.")
 
         <div
         id="@{
@@ -80,7 +76,7 @@
     }
 
     @showSentReceivedPlot(name: String) = {
-    @showExplanationText("Monthly Sent Received Messages", "This was one of the two plots already implemented in Dona. (As I will focus on sent/received words rather than messages -> maybe remove this? Or keep it?)")
+    @showExplanationText("This was one of the two plots already implemented in Dona. (As I will focus on sent/received words rather than messages -> maybe remove this? Or keep it?)")
         <div id="@{
             name.toString
         }MessagesOverTime" class="d-none"
@@ -98,7 +94,7 @@
 
 
     @showSentReceivedSlidingWindowMeanGraphPlot(name: String) = {
-    @showExplanationText("Sliding Window Mean: Daily Sent Received Words", "Calculating the sliding window mean (window size 30 days) for sent/received messages.")
+    @showExplanationText("Calculating the sliding window mean (window size 30 days) for sent/received messages.")
 
         <div id="@{
             name
@@ -118,7 +114,7 @@
 
 
     @showSentReceivedDailyPerConversationGraphPlot(name: String) = {
-    @showExplanationText("Daily Sent Received Words", "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.")
+    @showExplanationText("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.")
 
 
         <div id="@{
