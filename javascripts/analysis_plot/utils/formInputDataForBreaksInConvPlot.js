@@ -73,7 +73,7 @@ function formInputDataForBreaksInConvPlot(sentReceivedWords) {
             let difference;
             // if there is only one entry, then the longest break in this month is either from beginning to this date
             // or from this date to end of month
-            // else go through days to find biggest gap in between them
+            // else go through days to find largest gap in between them
             // break times have to be subtracted by one, because for each day 12:30 is set as the time...
             // -> so if there is a message on first day and on second day, the difference is 1 -> but should be 0
             // -> if there is a message on first day and the next message on third day -> difference is 2 but should be 1
