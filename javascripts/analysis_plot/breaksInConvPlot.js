@@ -71,6 +71,7 @@ function breaksInConvPlot(wordsPerConv, listOfConversations, plotId) {
 
             let plotInputData = formInputDataForBreaksInConvPlot(wordsPerConv[i])
 
+
             traces.push({
                 x: plotInputData.x,
                 y: plotInputData.y,
@@ -86,17 +87,12 @@ function breaksInConvPlot(wordsPerConv, listOfConversations, plotId) {
     }
 
 
-
-
     let resultTraces = makeTraces()
-
 
     layout.yaxis.range = [0, 32]
 
     plotContainer.html("");
     Plotly.newPlot(plotId, resultTraces, layout, {responsive: true});
-
-
 
 }
 

@@ -153,10 +153,11 @@
     <div id="@{
         name
     }DailyActivityTimes" class="d-none"
-    data-x-axis="@messages("feedback.graph.time")"
-    data-y-axis="@messages("feedback.graph.number-of-messages")"
-    data-sent-trace-name="@messages("feedback.graph.sent")"
-    data-received-trace-name="@messages("feedback.graph.received")"
+    data-y-axis="@messages("feedback.graph.dailyActivityHoursPlot.yAxis")"
+    data-colorscale-moreThanAverage="@messages("feedback.graph.dailyActivityHoursPlot.moreThanAverage")"
+    data-colorscale-average="@messages("feedback.graph.dailyActivityHoursPlot.average")"
+    data-colorscale-lessThanAverage="@messages("feedback.graph.dailyActivityHoursPlot.lessThanAverage")"
+    data-overall="@messages("feedback.graph.overallData")"
     >
         <div class="card h-100">
             <div class="m-auto">@messages("feedback.graph.loading")</div>
@@ -184,7 +185,12 @@
 
     <div id="@{
         name
-    }ResponseTimeBarChart"></div>
+    }ResponseTimeBarChart"
+    data-x-axis="@messages("feedback.graph.responseTimeBarChart.xAxis")"
+    data-y-axis="@messages("feedback.graph.responseTimeBarChart.yAxis")"
+    data-legend-donor="@messages("feedback.graph.responseTimeBarChart.legend.donor")"
+    data-legend-friends="@messages("feedback.graph.responseTimeBarChart.legend.friends")"
+    ></div>
     <div class="top col-md text-right pt-2">
         <div class="modal fade" id="@{
             name.toString

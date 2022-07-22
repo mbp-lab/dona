@@ -17,6 +17,7 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
     const yAxis = plotContainer.attr("data-y-axis");
     const sent = plotContainer.attr("data-sent-trace-name");
     const received = plotContainer.attr("data-received-trace-name");
+    const yearMonth = plotContainer.attr("data-description-yearMonth");
 
     let layout = {
         height: 700,
@@ -29,6 +30,10 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
         yaxis: {
             automargin: true,
             color: "black",
+            title: yAxis
+        },
+        xaxis: {
+            title: xAxis
         },
         hovermode: 'x',
         updatemenus: [
@@ -87,11 +92,6 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
 
 
 
-    let shorterLength = dataSent.length
-    if (dataReceived.length < shorterLength) {
-        shorterLength = dataReceived.length
-    }
-
     let dataSentOverall = dataSent.flat()
     let dataReceivedOverall = dataReceived.flat()
 
@@ -118,9 +118,6 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
             THIRD: 0,
             FOURTH: 0,
         }
-
-
-
 
         let dayCounter = 0
         let dateBefore = 0
@@ -223,7 +220,7 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
             name: name,
             data: [
                 {
-                    name: "Mean sent words",
+                    name: sent,
                     x: x,
                     y: ySent,
                     marker: {
@@ -232,7 +229,7 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
                     width: _.fill(Array(4), 0.8)
                 },
                 {
-                    name: "Mean received words",
+                    name: received,
                     x: x,
                     y: yReceived,
                     marker: {
@@ -259,14 +256,15 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
         range: [0, globalMax],
         color: "black",
         tickformat: "p",
-        hoverformat: ".2%"
+        hoverformat: ".2%",
+        title: yAxis
     }
 
     layout["sliders"] = [{
         pad: {l: 130, t: 95},
         currentvalue: {
             visible: true,
-            prefix: 'Year-Month:',
+            prefix: yearMonth,
             xanchor: 'right',
             font: {size: 20, color: 'black'}
         },
@@ -281,7 +279,7 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
     plotContainer.html("");
     Plotly.newPlot(plotId, [
         {
-            name: "Mean sent words",
+            name: sent,
             x: x,
             y: initialY,
             type: "bar",
@@ -291,7 +289,7 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
             width: _.fill(Array(4), 0.8)
         },
         {
-            name: "Mean received words",
+            name: received,
             x: x,
             y: initialY,
             type: "bar",

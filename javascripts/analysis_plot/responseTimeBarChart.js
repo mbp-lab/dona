@@ -42,13 +42,12 @@ function responseTimeBarChart(responseTimes, plotId) {
 
     }
 
-
     const plotContainer = $(`#${plotId}`)
     plotContainer.removeClass('d-none');
     const xAxis = plotContainer.attr("data-x-axis");
     const yAxis = plotContainer.attr("data-y-axis");
-    const sent = plotContainer.attr("data-sent-trace-name");
-    const received = plotContainer.attr("data-received-trace-name");
+    const legendDonor = plotContainer.attr("data-legend-donor");
+    const legendFriends = plotContainer.attr("data-legend-friends");
 
     let layout = {
         height: 600,
@@ -59,6 +58,9 @@ function responseTimeBarChart(responseTimes, plotId) {
             y: 1.2
         },
         hovermode: 'x',
+        xaxis:{
+            title: xAxis
+        }
     }
 
 
@@ -121,7 +123,8 @@ function responseTimeBarChart(responseTimes, plotId) {
         range: [0, max],
         color: "black",
         tickformat: "p",
-        hoverformat: ".2%"
+        hoverformat: ".2%",
+        title: yAxis
     }
 
 
@@ -131,7 +134,7 @@ function responseTimeBarChart(responseTimes, plotId) {
     plotContainer.html("");
     Plotly.newPlot(plotId, [
         {
-            name: "Donor Response Times",
+            name: legendDonor,
             x: x,
             y: yDonor,
             type: "bar",
@@ -141,7 +144,7 @@ function responseTimeBarChart(responseTimes, plotId) {
             width: _.fill(Array(x.length), 0.8)
         },
         {
-            name: "Friends Response Times",
+            name: legendFriends,
             x: x,
             y: yFriends,
             type: "bar",

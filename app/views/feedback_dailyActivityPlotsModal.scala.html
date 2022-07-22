@@ -10,7 +10,7 @@
 <div class="modal-dialog modal-xl" style="max-width: 1140px">
     <div class="modal-content">
         <div class="modal-header bgmain">
-            <h3 class="data-protection-headline">More about Daily Activity Times</h3>
+            <h3 class="data-protection-headline">@messages("feedback.moreAbout.dailyActivityTimes.title")</h3>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
@@ -37,7 +37,7 @@
 
             <div class="card top feedback-stats-card">
                 <p class="insights-text text-center">
-                @body
+                @Html(body)
                 </p>
             </div>
 
@@ -45,16 +45,16 @@
     }
 
     @showAnimatedDayPartsActivityPlot(name: String) = {
-    @showExplanationText("In diesem Graphen können Sie sehen, wie sich die Wörter, die sie gesendet und empfangen haben auf verschiedene Teile des Tages im Durchschnitt über den gesamten Zeitraum Ihrer Datenspende verteilen. Klicken Sie HIER, um eine Erklärung mit einem Beispiel zu sehen.")
-
+    @showExplanationText(messages("feedback.graph.dayPartsMonthly.description"))
 
         <div id="@{
             name
         }DayPartsActivityPlot" class="d-none"
-        data-x-axis="@messages("feedback.graph.time")"
-        data-y-axis="@messages("feedback.graph.number-of-messages")"
-        data-sent-trace-name="@messages("feedback.graph.sent")"
-        data-received-trace-name="@messages("feedback.graph.received")"
+        data-x-axis="@messages("feedback.graph.dayPartsMonthly.xAxis")"
+        data-y-axis="@messages("feedback.graph.dayPartsMonthly.yAxis")"
+        data-sent-trace-name="@messages("feedback.graph.dayPartsMonthly.legend.sent")"
+        data-received-trace-name="@messages("feedback.graph.dayPartsMonthly.legend.received")"
+        data-description-yearMonth="@messages("feedback.graph.yearMonth")"
         >
             <div class="card h-100">
                 <div class="m-auto">@messages("feedback.graph.loading")</div>
@@ -65,15 +65,15 @@
     }
 
     @showDayPartsActivityOverallPlot(name: String) = {
-    @showExplanationText("In diesem Graphen können Sie pro Monat sehen, wie sich die Wörter, die sie gesendet und empfangen haben auf verschiedene Teile des Tages im Durchschnitt verteilen.")
+    @showExplanationText(messages("feedback.graph.dayPartsOverall.description"))
 
         <div id="@{
             name
         }DayPartsActivityOverallPlot" class="d-none"
-        data-x-axis="@messages("feedback.graph.time")"
-        data-y-axis="@messages("feedback.graph.number-of-messages")"
-        data-sent-trace-name="@messages("feedback.graph.sent")"
-        data-received-trace-name="@messages("feedback.graph.received")"
+        data-x-axis="@messages("feedback.graph.dayPartsOverall.xAxis")"
+        data-y-axis="@messages("feedback.graph.dayPartsOverall.yAxis")"
+        data-sent-trace-name="@messages("feedback.graph.dayPartsOverall.legend.sent")"
+        data-received-trace-name="@messages("feedback.graph.dayPartsOverall.legend.received")"
         >
             <div class="card h-100">
                 <div class="m-auto">@messages("feedback.graph.loading")</div>

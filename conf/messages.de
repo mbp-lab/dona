@@ -175,7 +175,7 @@ feedback.graph.chatWith=Chat mit:
 feedback.graph.overallData=Alle Chats
 
 # polar plot
-feedback.graph.animatedPolarPlot.description=In dieser Visualisierung werden Sie als der größere gelbe Punkt in der Mitte angezeigt. Die von Ihnen gespendeten Chats sind die kleineren weißen Punkte um sie herum. Diese sind näher zu Ihnen, wenn Ihre Interaktion intensiver war und weiter entfernt, wenn die Interaktion niedriger war. Die Interaktion wird hier an der Gesamtmenge der geschriebenen Wörter in den Chats gemessen. Im Zeitschieber unten können Sie den Monat und das Jahr, für welche aktuell die Daten angezeigt werden, sehen und selbst auswählen. <br> Klicken Sie <a style="font-weight:bold" href="#polarPlotExplanation" data-toggle="modal" data-target="#polarPlotExplanation">HIER</a>, um eine Erklärung mit einem Beispiel zu sehen.
+feedback.graph.animatedPolarPlot.description=In dieser Visualisierung werden Sie als der größere gelbe Punkt in der Mitte angezeigt. Die von Ihnen gespendeten Chats sind die kleineren weißen Punkte um sie herum. Diese sind näher zu Ihnen, wenn Ihre Interaktion intensiver war und weiter entfernt, wenn die Interaktion niedriger war. Die Interaktion wird hier an der Gesamtmenge der geschriebenen Wörter in den Chats gemessen. Im Zeitschieber unten können Sie den Monat und das Jahr, für welche aktuell die Daten angezeigt werden, sehen und selbst auswählen. Klicken Sie <a style="font-weight:bold" href="#polarPlotExplanation" data-toggle="modal" data-target="#polarPlotExplanation">HIER</a>, um eine Erklärung mit einem Beispiel zu sehen.
 feedback.graph.animatedPolarPlot.legend.donor=Sie
 feedback.graph.animatedPolarPlot.legend.others=Chat Intensität
 feedback.graph.animatedPolarPlot.closer=Näher
@@ -218,10 +218,32 @@ feedback.graph.monthlySentReceived.legend.received=Erhaltene Wörter
 feedback.graph.monthlySentReceived.yAxis=Anzahl Nachrichten
 
 # dailyActivityTimes plot
-feedback.graph.dailyActivityHoursPlot.description=In diesem Diagramm können Sie sehen, zu welchen Stunden des Tages Sie für während der gesamten Zeitspanne der von Ihnen gespendeten Daten aktiv waren. Wie Sie auf der Farbskala rechts sehen können, haben Sie in einer Stunde mehr Wörter gesendet als in Ihrer durchschnittlichen Stunde, wenn ein Quadrat im Diagramm eine dunklere Farbe hat. Wenn die Farbe heller ist, dann haben Sie weniger Wörter gesendet als im Durchschnitt. Wenn Sie sich einen bestimmten Zeitraum genauer ansehen möchten, können Sie hineinzoomen, indem Sie auf das Diagramm klicken und halten, während Sie die Maus nach links oder rechts bewegen, um das Zeitfenster zu erzeugen, in das Sie hineinzoomen möchten. Klicken Sie HIER, um eine Erklärung mit einem Beispiel zu sehen.
+feedback.graph.dailyActivityHoursPlot.description=In diesem Diagramm können Sie sehen, zu welchen Stunden des Tages Sie während der gesamten Zeitspanne der von Ihnen gespendeten Daten aktiv waren. Wie Sie auf der Farbskala rechts sehen können, haben Sie in einer Stunde mehr Wörter gesendet als in Ihrer durchschnittlichen Stunde, wenn ein Quadrat im Diagramm eine dunklere Farbe hat. Wenn die Farbe heller ist, dann haben Sie weniger Wörter gesendet als im Durchschnitt. Wenn Sie sich einen bestimmten Zeitraum genauer ansehen möchten, können Sie hineinzoomen, indem Sie auf das Diagramm klicken und halten, während Sie die Maus nach links oder rechts bewegen, um das Zeitfenster zu erzeugen, in das Sie hineinzoomen möchten. Klicken Sie HIER, um eine Erklärung mit einem Beispiel zu sehen.
+feedback.graph.dailyActivityHoursPlot.yAxis=Uhrzeit
+feedback.graph.dailyActivityHoursPlot.moreThanAverage=Mehr als Durchschnitt
+feedback.graph.dailyActivityHoursPlot.average=Ihr Durchschnitt
+feedback.graph.dailyActivityHoursPlot.lessThanAverage=Weniger als Durchschnitt
+
+# dayPartsPlot overall
+feedback.graph.dayPartsOverall.description=In diesem Graphen können Sie sehen, wie sich die Wörter, die sie gesendet und empfangen haben auf verschiedene Teile des Tages im Durchschnitt über den gesamten Zeitraum Ihrer Datenspende verteilen. Klicken Sie HIER, um eine Erklärung mit einem Beispiel zu sehen.
+feedback.graph.dayPartsOverall.legend.sent=Gesendete Wörter
+feedback.graph.dayPartsOverall.legend.received=Erhaltene Wörter
+feedback.graph.dayPartsOverall.yAxis=Prozentualer Anteil aller Wörter
+feedback.graph.dayPartsOverall.xAxis=Vier Teile des Tages
+
+# animatedDayPartsPlot monthly
+feedback.graph.dayPartsMonthly.description=Im Gegensatz zu dem Graphen oben, können Sie in diesem Graphen <u>pro Monat</u> sehen, wie sich die Wörter, die sie gesendet und empfangen haben auf verschiedene Teile des Tages im Durchschnitt verteilen.
+feedback.graph.dayPartsMonthly.legend.sent=Gesendete Wörter
+feedback.graph.dayPartsMonthly.legend.received=Erhaltene Wörter
+feedback.graph.dayPartsMonthly.yAxis=Prozentualer Anteil aller Wörter
+feedback.graph.dayPartsMonthly.xAxis=Vier Teile des Tages
 
 # responseTimeBarChart
 feedback.graph.responseTimeBarChart.description=Hier werden über den gesamten Zeitraum der von Ihnen gespendeten Daten Ihre und die Antwortzeiten Ihrer Freunde gezählt. Es wird der Prozentsatz aller Antworten (d.h. eine Nachricht, die Sie nach einer Nachricht von einem Freund gesendet haben oder umgekehrt) angezeigt, die in der angegebenen Zeit erfolgt sind. Sie können sehen, wie viel Prozent Ihrer Antworten Sie schneller als nach 1 Minute, nach 1–2 Minuten, 3–5 Minuten, 6–15 Minuten, 16–30 Minuten, 31–60 Minuten und langsamer als 60 Minuten gesendet haben. Der Balken für > 60 Minuten beinhaltet auch längere Gesprächspausen. Klicken Sie HIER, um eine Erklärung mit einem Beispiel zu sehen.
+feedback.graph.responseTimeBarChart.legend.donor=Ihre Reaktionszeiten
+feedback.graph.responseTimeBarChart.legend.friends=Reaktionszeiten Ihrer Freunde
+feedback.graph.responseTimeBarChart.yAxis=Prozentualer Anteil aller Antwortnachrichten
+feedback.graph.responseTimeBarChart.xAxis=Dauer der Antwort
 
 # provided by Astrid
 feedback.graph.loading=Graph wird geladen...

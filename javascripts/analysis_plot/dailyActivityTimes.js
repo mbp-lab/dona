@@ -5,12 +5,15 @@ const sortGraphDataPointsSync = require("./utils/sortGraphDataPointsSync");
 
 function dailyActivityTimes(dataSent, dataReceived, listOfConversations, plotId) {
 
+
     const plotContainer = $(`#${plotId}`)
     plotContainer.removeClass('d-none');
-    const xAxis = plotContainer.attr("data-x-axis");
     const yAxis = plotContainer.attr("data-y-axis");
-    const sent = plotContainer.attr("data-sent-trace-name");
-    const received = plotContainer.attr("data-received-trace-name");
+    const colorscaleMoreThanAverage = plotContainer.attr("data-colorscale-moreThanAverage");
+    const colorscaleAverage = plotContainer.attr("data-colorscale-average");
+    const colorscaleLessThanAverage = plotContainer.attr("data-colorscale-lessThanAverage");
+    const dataOverallName = plotContainer.attr("data-overall")
+
 
 
     let layout = {
@@ -18,33 +21,26 @@ function dailyActivityTimes(dataSent, dataReceived, listOfConversations, plotId)
         autosize: true,
         height: 700,
         legend: {
-            //bgcolor: "#13223C",
-            //font: {color: "white"},
             x: 1.01,
             y: 1.16,
         },
         xaxis: {
-            title: "Datum", //xAxis,
             tickangle: 45,
             tickformat: '%d-%m-%Y',
-            //color: "white",
             showgrid: true,
-            //gridcolor: "grey"
         },
         yaxis: {
-            title: "Uhrzeit", //yAxis,
+            title: yAxis,
             fixedrange: true,
             // 2022-05-21 is hard coded, because it doesn't work as nicely with just hour:minute
             range: ['2022-05-21 00:00:00', '2022-05-21 23:59:59'],
             tickformat: '%H:%M',
             nticks: 12,
-            //color: "white",
             showgrid: true,
-            //gridcolor: "grey"
         },
     };
 
-    let displayOptions = ["Overall/Everything"]
+    let displayOptions = [dataOverallName]
     displayOptions = displayOptions.concat(listOfConversations)
 
 
@@ -144,7 +140,7 @@ function dailyActivityTimes(dataSent, dataReceived, listOfConversations, plotId)
                 y: plotInputDataSent.yAxis,
                 type: 'scattergl',
                 mode: 'markers',
-                name: sent,
+                name: "traceSent",
                 marker: {
                     size: 18,
                     autocolorscale: false,
@@ -166,7 +162,7 @@ function dailyActivityTimes(dataSent, dataReceived, listOfConversations, plotId)
                     symbol: "square",
                     colorbar: {
                         tickvals: [-zScoreLimit, 0 , zScoreLimit],
-                        ticktext: ["Less than average", "Average", "More than average"]
+                        ticktext: [colorscaleLessThanAverage, colorscaleAverage, colorscaleMoreThanAverage]
                     }
                 },
                 visible: i === 0

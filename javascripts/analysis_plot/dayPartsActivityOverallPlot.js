@@ -27,24 +27,12 @@ function dayPartsActivityOverallPlot(dataSent, dataReceived, plotId) {
         yaxis: {
             automargin: true,
             color: "black",
+            title: yAxis
+        },
+        xaxis: {
+            title: xAxis
         },
         hovermode: 'x',
-    }
-
-    let startAnimation = (groupOrFrames, mode) => {
-
-        Plotly.animate(plotId, groupOrFrames, {
-            transition: {
-                duration: 300,
-                easing: 'linear'
-            },
-            frame: {
-                duration: 300,
-                redraw: false,
-            },
-            mode: mode
-        });
-
     }
 
 
@@ -52,10 +40,6 @@ function dayPartsActivityOverallPlot(dataSent, dataReceived, plotId) {
     let dataSentOverall = dataSent.flat()
     let dataReceivedOverall = dataReceived.flat()
 
-
-    // make sure its sorted (maybe not necessary)
-    //let sortedDataSent = sortGraphDataPointsSync(dataSentOverall)
-    //let sortedDataReceived = sortGraphDataPointsSync(dataReceivedOverall)
 
 
     // gets mean for each day part of the given data (many days)
@@ -67,9 +51,6 @@ function dayPartsActivityOverallPlot(dataSent, dataReceived, plotId) {
             THIRD: 0,
             FOURTH: 0,
         }
-
-
-
 
         let dayCounter = 0
         let dateBefore = 0
@@ -121,7 +102,8 @@ function dayPartsActivityOverallPlot(dataSent, dataReceived, plotId) {
         range: [0, globalMax],
         color: "black",
         tickformat: "p",
-        hoverformat: ".2%"
+        hoverformat: ".2%",
+        title: yAxis
     }
 
 
@@ -131,14 +113,14 @@ function dayPartsActivityOverallPlot(dataSent, dataReceived, plotId) {
     plotContainer.html("");
     Plotly.newPlot(plotId, [
         {
-            name: "Mean sent words",
+            name: sent,
             x: x,
             y: yValuesSent,
             type: "bar",
             width: _.fill(Array(4), 0.8)
         },
         {
-            name: "Mean received words",
+            name: received,
             x: x,
             y: yValuesReceived,
             type: "bar",

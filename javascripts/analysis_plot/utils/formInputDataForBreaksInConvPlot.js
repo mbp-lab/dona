@@ -46,8 +46,10 @@ function formInputDataForBreaksInConvPlot(sentReceivedWords) {
     // first and last month in data need special treatment
     let isFirstMonth = true
     let isLastMonth = false
-    // loop through all monhts from first to last
-    goThroughMonths: while (loopYearMonth <= lastYearMonth) {
+    // loop through all months from first to last
+
+
+    while (loopYearMonth.getTime() <= lastYearMonth.getTime()) {
         if (loopYearMonth.getFullYear() === lastYearMonth.getFullYear() && loopYearMonth.getMonth() === lastYearMonth.getMonth()) {
             isLastMonth = true
         }
@@ -83,12 +85,14 @@ function formInputDataForBreaksInConvPlot(sentReceivedWords) {
                     helperDay.setDate(getDays(helperDay.getFullYear(), helperDay.getMonth()))
                     longestBreak = helperDay.getTime() / 1000 - sortedGrouped[sortedGrouped.length - 1].epochSeconds - 1
                     isFirstMonth = false
-                    continue goThroughMonths
+                    loopYearMonth.setMonth(loopYearMonth.getMonth() + 1);
+                    continue
                 } else if (isLastMonth) {
                     // for distance to first date in the month
                     helperDay.setDate(1)
                     longestBreak = sortedGrouped[0].epochSeconds - helperDay.getTime() / 1000 - 1
-                    continue goThroughMonths
+                    loopYearMonth.setMonth(loopYearMonth.getMonth() + 1);
+                    continue
                 }
                 // for distance to first date in the month
                 helperDay.setDate(1)
@@ -113,7 +117,7 @@ function formInputDataForBreaksInConvPlot(sentReceivedWords) {
 
                 // for distance to first date in the month
                 // if clauses are for special cases of first and last month
-                if (!isFirstMonth){
+                if (!isFirstMonth) {
                     helperDay.setDate(1)
                     difference = sortedGrouped[0].epochSeconds - helperDay.getTime() / 1000 - 1
                     if (difference > longestBreak) {
@@ -132,8 +136,9 @@ function formInputDataForBreaksInConvPlot(sentReceivedWords) {
             yearMonthsMaxValues[key] = Math.floor(longestBreak / (60 * 60 * 24))
         }
 
-        let loopDate = loopYearMonth.setMonth(loopYearMonth.getMonth() + 1);
-        loopYearMonth = new Date(loopDate);
+        //let loopDate = loopYearMonth.setMonth(loopYearMonth.getMonth() + 1);
+        //loopYearMonth = new Date(loopDate);
+        loopYearMonth.setMonth(loopYearMonth.getMonth() + 1);
     }
 
     let x = []
