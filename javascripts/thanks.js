@@ -21,23 +21,26 @@ $(document).ready(function () {
 
         // remove friend "System" from friends of conversations
         const systemName = i18n.systemName
+        const chatWith = i18n.chatWith
         let conversationsWithoutSystem = []
         graphData.conversationsFriends.forEach((conversation) => {
             conversationsWithoutSystem.push(conversation.filter((friend) => friend !== systemName))
         })
         const listOfConversations = createListOfConversations(
-            conversationsWithoutSystem
+            conversationsWithoutSystem,
+            chatWith
         )
 
         // reminders to also do the next questionnaire, after 1 min, after 5 min and after 15min
+        const reminder = i18n.reminder
         setTimeout(() => {
-            alert("Please don't forget to fill out the next questionnaire. Thanks :)")
+            alert(reminder)
         }, 60000)
         setTimeout(() => {
-            alert("Please don't forget to fill out the next questionnaire. Thanks :)")
+            alert(reminder)
         }, 300000)
         setTimeout(() => {
-            alert("Please don't forget to fill out the next questionnaire. Thanks :)")
+            alert(reminder)
         }, 900000)
 
         animatedPolarPlot(

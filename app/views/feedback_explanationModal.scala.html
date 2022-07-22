@@ -1,16 +1,9 @@
-@import play.api.libs.json.JsValue
-@import play.api.libs.json.Json
-@import models.api._
-
-@import models.domain.DataSourceDescription
-@import models.domain.DonationDataSourceType.DonationDataSourceType
-
-@(dataSource: String)(implicit request: RequestHeader, messages: Messages)
+@(title: String, description: String, image: String)(implicit request: RequestHeader, messages: Messages)
 
 <div class="modal-dialog modal-xl" style="max-width: 1140px">
     <div class="modal-content">
         <div class="modal-header bgmain">
-            <h3 class="data-protection-headline">This is an EXAMPLE: (It has to be clear that it is not the participants data...)</h3>
+            <h3 class="data-protection-headline">@Html(title)</h3>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
@@ -19,16 +12,12 @@
                 <div class="card-deck feedback-stats-deck">
                     <div class="card top feedback-stats-card">
                         <p class="insights-text text-center">
-                            TEXT WILL GO HERE....
-                            (1) shows...
-                            (2) is...
-                            (3) Here you can see...
-                            (4) ...
+                            @Html(description)
                         </p>
                     </div>
 
                 </div>
-                <img src="@routes.Assets.at("images/testingExample.png")">
+                <img src="@routes.Assets.at(image)">
             </div>
 
             <div class="d-flex justify-content-end align-items-center">

@@ -12,7 +12,7 @@ function showUserIdMapping(userIdMapping, systemName, donor) {
 
                     let friendMapping
                     if (mapping[1] === donor) {
-                        friendMapping = "Sie (Datenspender:in)" // ToDo: internationalize this!
+                        friendMapping = donor
                     } else {
                         // create shortened Friend mappings: e.g.: Friend1 -> F1
                         friendMapping = mapping[1]
@@ -28,8 +28,7 @@ function showUserIdMapping(userIdMapping, systemName, donor) {
 
             // deidentify names to initials and stars
             for (let i = 0; i < names.length; i++) {
-                // ToDo: Internationalize this!
-                if (friendMappings[i] === "Sie (Datenspender:in)") {
+                if (friendMappings[i] === donor) {
                     deidentifiedNames.push(names[i])
                 } else {
                     let splitIntoWords = names[i].split(" ");

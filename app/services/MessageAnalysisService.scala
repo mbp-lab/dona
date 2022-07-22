@@ -65,7 +65,7 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
           dailyWordCountSentHoursPerConversation,
           dailyWordCountReceivedHoursPerConversation,
           answerTimes,
-          answerTimesPerConversation,
+          //answerTimesPerConversation,
           average,
           conversationsFriends
         )

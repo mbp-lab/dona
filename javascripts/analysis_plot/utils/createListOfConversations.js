@@ -1,4 +1,4 @@
-function createListOfConversations(conversationFriends) {
+function createListOfConversations(conversationFriends, chatWith) {
 
     let shortenFriend = (friend) => {
         //find index where number starts, all friends have the following form: "friend" + "i" where i is a number
@@ -11,7 +11,7 @@ function createListOfConversations(conversationFriends) {
 
         conversationFriends[i] = conversationFriends[i].map((friend) => shortenFriend(friend))
 
-        listOfConversations.push("Chat with: <br>" + conversationFriends[i][0]);
+        listOfConversations.push(chatWith + " <br>" + conversationFriends[i][0]);
         if (conversationFriends[i].length === 1) {
             listOfConversations[i] += "  "
         }

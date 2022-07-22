@@ -1,7 +1,6 @@
 var sortGraphDataPoints = require('./utils/sortGraphDataPointsTimeWise');
 const formInputDataForPolarPlot = require("./utils/formInputDataForPolarPlot");
 const _ = require("lodash");
-const createListOfConversations = require("./utils/createListOfConversations");
 
 function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plotId) {
 
@@ -49,11 +48,12 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
 
     const plotContainer = $(`#${plotId}`)
     plotContainer.removeClass('d-none');
-    const xAxis = plotContainer.attr("data-x-axis");
-    const yAxis = plotContainer.attr("data-y-axis");
-    const sent = plotContainer.attr("data-sent-trace-name");
-    const received = plotContainer.attr("data-received-trace-name");
-
+    const legendDonor = plotContainer.attr("data-legend-donor");
+    const legendOthers = plotContainer.attr("data-legend-others");
+    const closer = plotContainer.attr("data-description-closer");
+    const average = plotContainer.attr("data-description-average");
+    const lessClose = plotContainer.attr("data-description-lessClose");
+    const yearMonth = plotContainer.attr("data-description-yearMonth");
 
 
     let layout = {
@@ -81,7 +81,7 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
                 //dtick: 2,
                 tickmode: "array", // If "array", the placement of the ticks is set via `tickvals` and the tick text is `ticktext`.
                 tickvals: [-2, 0, 2],
-                ticktext: ["Less close", 'Average', 'Closer'],
+                ticktext: [lessClose, average, closer],
                 tickfont: {
                     size: 12,
                 },
@@ -170,32 +170,12 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
     }
 
 
-    let findGlobalMax = (data) => {
-        let max = 0;
-        for (let i = 0; i < data.length; i++) {
-            data[i].forEach((obj) => {
-                let total = obj.receivedCount + obj.sentCount
-                if (total > max) {
-                    max = total
-                }
-            })
-        }
-        return Math.log(max);
-    }
-
-
     // things needed for animation:
     let frames = []
     let sliderSteps = []
     let initialR = []
     let name;
 
-
-
-    // determine max for the range of the axis
-    //let max = findGlobalMax(dataMonthlyPerConversation)
-    //max = max + 0.25 * max // for some distance between placement of donor at the max value
-    let max = globalMax + 0.25 * globalMax
 
 
     sortGraphDataPoints(dataMonthlyPerConversation, false, false)
@@ -288,14 +268,14 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
 
                          */
                         {
-                            name: "Chat Closeness",
+                            name: legendOthers,
                             //r: rValuesReceivedCount,
                             r: rValuesTotal,
                             theta: thetaValues,
                         },
                         {},
                         {
-                            name: "traces of Received",
+                            name: "traces of " + legendOthers,
                             //r: [...traceOfRReceived],
                             //theta: [...traceOfThetaReceived]
                             r: [...traceOfRTotal],
@@ -358,7 +338,7 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
              */
 
             const traceTotalInitial = {
-                name: "Chat Closeness",
+                name: legendOthers,
                 type: "scatterpolar",
                 mode: "markers",
                 r: initialR,
@@ -380,7 +360,7 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
             let traces = [traceTotalInitial]
 
             traces.push({
-                name: "Donor/You",
+                name: legendDonor,
                 type: "scatterpolar",
                 mode: "markers",
                 r: [zScoreLimit + zScoreLimit * 0.5],
@@ -444,7 +424,7 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
 
             traces.push(
                 {
-                    name: "traces of Received",
+                    name: "traces of " + legendOthers,
                     type: "scatterpolar",
                     mode: "markers",
                     r: initialR,
@@ -469,7 +449,7 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
                 pad: {l: 130, t: 95},
                 currentvalue: {
                     visible: true,
-                    prefix: 'Year-Month:',
+                    prefix: yearMonth,
                     xanchor: 'right',
                     font: {size: 20, color: 'black'}
                 },

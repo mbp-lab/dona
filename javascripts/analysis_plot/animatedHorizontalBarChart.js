@@ -8,9 +8,8 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
     const plotContainer = $(`#${plotId}`)
     plotContainer.removeClass('d-none');
     const xAxis = plotContainer.attr("data-x-axis");
-    const yAxis = plotContainer.attr("data-y-axis");
     const sent = plotContainer.attr("data-sent-trace-name");
-    const received = plotContainer.attr("data-received-trace-name");
+    const yearMonth = plotContainer.attr("data-description-yearMonth");
 
     let layout = {
         height: 600,
@@ -149,7 +148,7 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
                     name: name,
                     data: [
                         {
-                            name: "Sent words",
+                            name: sent,
                             x: xSent,
                             y: ySent,
                             marker: {
@@ -195,14 +194,17 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
 
             layout["xaxis"] = {
                 range: [0, maxForRange],
-                color: "black"
+                color: "black",
+                title: {
+                    text: xAxis
+                }
             }
 
             layout["sliders"] = [{
                 pad: {l: 130, t: 95},
                 currentvalue: {
                     visible: true,
-                    prefix: 'Year-Month:',
+                    prefix: yearMonth,
                     xanchor: 'right',
                     font: {size: 20, color: 'black'}
                 },
@@ -213,7 +215,7 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
             plotContainer.html("");
             Plotly.newPlot(plotId, [
                 {
-                    name: "Sent words",
+                    name: sent,
                     x: initialX,
                     y: listOfConversations,
                     type: "bar",

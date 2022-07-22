@@ -14,28 +14,27 @@
         </div>
 
         <div class="alert alert-info">
-            @showTitle("Wichtige Hinweise:")
+            @showTitle(messages("feedback.importantMessage.title"))
             <div class="top col-md text-center">
-                Die angezeigten Graphen und Visualisierungen erlauben <b><u>keine</u> direkten Rückschlüsse</b> auf die Qualität Ihrer Sozialen Beziehungen. Beachten Sie, dass lediglich Zahlen Ihrer WhatsApp Chats dargestellt werden.
+                @Html(messages("feedback.importantMessage.disclaimer"))
             </div>
             <div class="top col-md text-center">
-                Bedienungshinweise: Sie können in einigen Graphen per Klicken und Gedrückt halten direkt im Graphen oder ggf. unten drunter im Zeitschieber Zeitfenster selbst zur Betrachtung auswählen.
-                Um die Ansicht zurückzusetzen machen Sie einen <b>Doppelklick</b> in den Graphen hinein. Außerdem können Sie in einigen Darstellungen oben links zwischen der Anzeige der insgesamten Daten und der Daten einzelner Chats wählen.
+                @Html(messages("feedback.importantMessage.instructions"))
             </div>
         </div>
 
-        @for((dataSource, GraphData(_, _, _, _, _, _, _, _, averageMessageNumber, _)) <- data) {
+        @for((dataSource, GraphData(_, _, _, _, _, _, _, averageMessageNumber, _)) <- data) {
             <div id="@{
                 dataSource.toString
             }container">
                 @showStatistics(averageMessageNumber, dataSource)
-                @showTitle("Interaction Intensity")
-                @showAnimatedPolarPlot(dataSource, messages("feedback.graph.animatedPolarPlot"))
-                @showAnimatedHorizontalBarChart(dataSource, messages("feedback.graph.animatedHorizontalBarChart"))
-                @showTitle("Daily Activity Times")
-                @showDailyActivityTimes(dataSource, messages("feedback.graph.dailyActivityHoursPlot"))
-                @showTitle("Response Times")
-                @showResponseTimeBarChart(dataSource, messages("feedback.graph.responseTimeBarChart"))
+                @showTitle(messages("feedback.title.interactionIntensity"))
+                @showAnimatedPolarPlot(dataSource, messages("feedback.graph.animatedPolarPlot.description"))
+                @showAnimatedHorizontalBarChart(dataSource, messages("feedback.graph.animatedHorizontalBarChart.description"))
+                @showTitle(messages("feedback.title.dailyActivityTimes"))
+                @showDailyActivityTimes(dataSource, messages("feedback.graph.dailyActivityHoursPlot.description"))
+                @showTitle(messages("feedback.title.responseTimes"))
+                @showResponseTimeBarChart(dataSource, messages("feedback.graph.responseTimeBarChart.description"))
             </div>
         }
 
@@ -47,16 +46,13 @@
     <script>
             let isNext = false;
             window.onbeforeunload = function (e) {
-                if (!isNext) {
-                    e = e || window.event;
-                    // For IE and Firefox prior to version 4
-                    if (e) {
-                        e.returnValue = 'Sure?';
-                    }
-                    // For Safari
-                    return 'Sure?';
-                };
-            }
+                if(isNext) return null
+                e = e || window.event;
+                //old browsers
+                if (e) {e.returnValue = 'Sure?';}
+                //safari, chrome(chrome ignores text)
+                return 'Sure?';
+            };
         function isNextButton () {
                 isNext = true
         }
@@ -77,6 +73,8 @@
         you: "@messages("feedback.graph.you")",
         friends: "@messages("feedback.graph.friends")",
         systemName: "@messages("donation.anonymisation.system")",
+        reminder: "@messages("feedback.reminder")",
+        chatWith: "@messages("feedback.graph.chatWith")",
     };
     </script>
     <script> const backGroundImages = {
@@ -94,15 +92,20 @@
 
 
 @showAnimatedPolarPlot(name: String, description: String) = {
-@showExplanationText(description)
+    <div class="modal fade" id="polarPlotExplanation" role="dialog">
+    @feedback_explanationModal("This is an <b>Example</b>: It does not use your data.", "testDescription", "images/testingExample.png")
+    </div>
+    @showExplanationText(description)
 
     <div id="@{
         name.toString
     }AnimatedPolarPlot" class="d-none"
-    data-x-axis="@messages("feedback.graph.time")"
-    data-y-axis="@messages("feedback.graph.number-of-messages")"
-    data-sent-trace-name="@messages("feedback.graph.sent")"
-    data-received-trace-name="@messages("feedback.graph.received")"
+    data-legend-donor="@messages("feedback.graph.animatedPolarPlot.legend.donor")"
+    data-legend-others="@messages("feedback.graph.animatedPolarPlot.legend.others")"
+    data-description-closer="@messages("feedback.graph.animatedPolarPlot.closer")"
+    data-description-average="@messages("feedback.graph.animatedPolarPlot.average")"
+    data-description-lessClose="@messages("feedback.graph.animatedPolarPlot.lessClose")"
+    data-description-yearMonth="@messages("feedback.graph.yearMonth")"
     >
         <div class="card h-100">
             <div class="m-auto">@messages("feedback.graph.loading")</div>
@@ -120,10 +123,9 @@
         name.toString
     }AnimatedHorizontalBarChart"
     class="d-none"
-    data-x-axis="@messages("feedback.graph.time")"
-    data-y-axis="@messages("feedback.graph.number-of-messages")"
-    data-sent-trace-name="@messages("feedback.graph.sent")"
-    data-received-trace-name="@messages("feedback.graph.received")"
+    data-x-axis="@messages("feedback.graph.animatedHorizontalBarChart.xAxis")"
+    data-sent-trace-name="@messages("feedback.graph.animatedHorizontalBarChart.legend")"
+    data-description-yearMonth="@messages("feedback.graph.yearMonth")"
     >
         <div class="card h-100">
             <div class="m-auto">@messages("feedback.graph.loading")</div>
@@ -138,7 +140,7 @@
         <button class="btn btn-outline footer-forward-button text-center" data-toggle="modal" data-target="#@{
             name.toString
         }sentReceivedModal">
-            More about Interaction Intensity</button>
+            @messages("feedback.moreAbout.interactionIntensity")</button>
     </div>
     <div class="clearfix"></div>
 }
@@ -170,7 +172,7 @@
         <button class="btn btn-outline footer-forward-button text-center" data-toggle="modal" data-target="#@{
             name
         }dailyActivityModal">
-            More about Daily Activity Times</button>
+        @messages("feedback.moreAbout.dailyActivityTimes")</button>
     </div>
 
     <div class="clearfix"></div>
@@ -192,7 +194,7 @@
         <button class="btn btn-outline footer-forward-button text-center" data-toggle="modal" data-target="#@{
             name.toString
         }responseTimeModal">
-            More about Response Times</button>
+        @messages("feedback.moreAbout.responseTimes")</button>
     </div>
     <div class="clearfix"></div>
 }
@@ -200,9 +202,6 @@
 
 @showExplanationText(body: String) = {
     <div class="card-deck feedback-stats-deck">
-        <div class="modal fade" id="polarPlotExplanation" role="dialog">
-        @feedback_explanationModal("testing")
-        </div>
 
         <div class="card top feedback-stats-card">
             <p class="insights-text text-center">
