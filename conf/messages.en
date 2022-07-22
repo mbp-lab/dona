@@ -163,6 +163,9 @@ feedback.graph.friends=Friends
 feedback.title.interactionIntensity=Interaction Intensity
 feedback.title.dailyActivityTimes=Daily Activity Times
 feedback.title.responseTimes=Response Times
+feedback.title.pleaseContinue=Please continue to the next and final questionnaire. Thanks a lot!
+
+feedback.nextButton=Next
 
 # plots more about titles
 feedback.moreAbout.interactionIntensity.title=More about Interaction Intensity
@@ -244,6 +247,18 @@ feedback.graph.responseTimeBarChart.legend.donor=Your Response Times
 feedback.graph.responseTimeBarChart.legend.friends=Friends Response Times
 feedback.graph.responseTimeBarChart.yAxis=Percentage of all responses
 feedback.graph.responseTimeBarChart.xAxis=Time until response
+
+# responseTimeBarChart monthly
+feedback.graph.responseTimeBarChartMonthly.description=Here <u>per month</u> your and your friends‘ response times are counted. So, the percentage of responses (i.e. a message that you sent after a message from a friend or the other way around) that took place in the specified amount of time is displayed. You can see what percentage of your responses you sent quicker than after 1 minute, after 1-2 minutes, 3-5 minutes, 6-15 minutes, 16-30 minutes, 31-60 minutes, and slower than 60 minutes. The bar for > 60 minutes includes longer breaks in the conversation. Click HERE to see an explanation with an example.
+feedback.graph.responseTimeBarChartMonthly.legend.donor=Your Response Times
+feedback.graph.responseTimeBarChartMonthly.legend.friends=Friends Response Times
+feedback.graph.responseTimeBarChartMonthly.yAxis=Percentage of all responses
+feedback.graph.responseTimeBarChartMonthly.xAxis=Time until response
+
+# breaksInConv plot
+feedback.graph.breaksInConv.description=This graph shows for the selected chat per month the longest consecutive period in days, in which no message was written in this chat. Click HERE to see an explanation with an example.
+feedback.graph.breaksInConv.yAxis=Longest period in days without a message
+feedback.graph.breaksInConv.days=Day/s
 
 # provided by Astrid
 feedback.graph.loading=Loading graph...

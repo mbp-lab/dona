@@ -163,6 +163,9 @@ feedback.graph.friends=Freunde
 feedback.title.interactionIntensity=Interaktionsintensität
 feedback.title.dailyActivityTimes=Tägliche Aktivitätszeiten
 feedback.title.responseTimes=Reaktionszeiten
+feedback.title.pleaseContinue=Bitte fahren Sie mit dem nächsten und letzten Fragebogen fort. Danke sehr!
+
+feedback.nextButton=Weiter
 
 # plots more about titles
 feedback.moreAbout.interactionIntensity.title=Mehr über Interaktionsintensität
@@ -238,12 +241,24 @@ feedback.graph.dayPartsMonthly.legend.received=Erhaltene Wörter
 feedback.graph.dayPartsMonthly.yAxis=Prozentualer Anteil aller Wörter
 feedback.graph.dayPartsMonthly.xAxis=Vier Teile des Tages
 
-# responseTimeBarChart
+# responseTimeBarChart overall
 feedback.graph.responseTimeBarChart.description=Hier werden über den gesamten Zeitraum der von Ihnen gespendeten Daten Ihre und die Antwortzeiten Ihrer Freunde gezählt. Es wird der Prozentsatz aller Antworten (d.h. eine Nachricht, die Sie nach einer Nachricht von einem Freund gesendet haben oder umgekehrt) angezeigt, die in der angegebenen Zeit erfolgt sind. Sie können sehen, wie viel Prozent Ihrer Antworten Sie schneller als nach 1 Minute, nach 1–2 Minuten, 3–5 Minuten, 6–15 Minuten, 16–30 Minuten, 31–60 Minuten und langsamer als 60 Minuten gesendet haben. Der Balken für > 60 Minuten beinhaltet auch längere Gesprächspausen. Klicken Sie HIER, um eine Erklärung mit einem Beispiel zu sehen.
 feedback.graph.responseTimeBarChart.legend.donor=Ihre Reaktionszeiten
 feedback.graph.responseTimeBarChart.legend.friends=Reaktionszeiten Ihrer Freunde
 feedback.graph.responseTimeBarChart.yAxis=Prozentualer Anteil aller Antwortnachrichten
 feedback.graph.responseTimeBarChart.xAxis=Dauer der Antwort
+
+# responseTimeBarChart monthly
+feedback.graph.responseTimeBarChartMonthly.description=Hier werden <u>pro Monat</u> Ihre und die Antwortzeiten Ihrer Freunde gezählt. Es wird der Prozentsatz aller Antworten (d.h. eine Nachricht, die Sie nach einer Nachricht von einem Freund gesendet haben oder umgekehrt) angezeigt, die in der angegebenen Zeit erfolgt sind. Sie können sehen, wie viel Prozent Ihrer Antworten Sie schneller als nach 1 Minute, nach 1–2 Minuten, 3–5 Minuten, 6–15 Minuten, 16–30 Minuten, 31–60 Minuten und langsamer als 60 Minuten gesendet haben. Der Balken für > 60 Minuten beinhaltet auch längere Gesprächspausen. Klicken Sie HIER, um eine Erklärung mit einem Beispiel zu sehen.
+feedback.graph.responseTimeBarChartMonthly.legend.donor=Ihre Reaktionszeiten
+feedback.graph.responseTimeBarChartMonthly.legend.friends=Reaktionszeiten Ihrer Freunde
+feedback.graph.responseTimeBarChartMonthly.yAxis=Prozentualer Anteil aller Antwortnachrichten
+feedback.graph.responseTimeBarChartMonthly.xAxis=Dauer der Antwort
+
+# breaksInConv plot
+feedback.graph.breaksInConv.description=Dieser Graph zeigt für den ausgewählten Chat pro Monat die längste zusammenhängende Zeitperiode in Tagen, in der keine Nachricht in diesem Chat geschrieben wurde. Klicken Sie HIER, um eine Erklärung mit einem Beispiel zu sehen.
+feedback.graph.breaksInConv.yAxis=Längste Zeitperiode in Tagen ohne Nachricht
+feedback.graph.breaksInConv.days=Tag/e
 
 # provided by Astrid
 feedback.graph.loading=Graph wird geladen...

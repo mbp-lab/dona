@@ -10,7 +10,7 @@
 <div class="modal-dialog modal-xl" style="max-width: 1140px">
     <div class="modal-content">
         <div class="modal-header bgmain">
-            <h3 class="data-protection-headline">More...</h3>
+            <h3 class="data-protection-headline">@messages("feedback.moreAbout.responseTimes.title")</h3>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
@@ -48,20 +48,28 @@
 
 
     @showAnimatedResponseTimeBarChart(name: String) = {
-    @showExplanationText("Hier werden <b>pro Monat</b> Ihre und die Antwortzeiten Ihrer Freunde gezählt. Es wird der Prozentsatz aller Antworten (d.h. eine Nachricht, die Sie nach einer Nachricht von einem Freund gesendet haben oder umgekehrt) angezeigt, die in der angegebenen Zeit erfolgt sind. Sie können sehen, wie viel Prozent Ihrer Antworten Sie schneller als nach 1 Minute, nach 1–2 Minuten, 3–5 Minuten, 6–15 Minuten, 16–30 Minuten, 31–60 Minuten und langsamer als 60 Minuten gesendet haben. Der Balken für > 60 Minuten beinhaltet auch längere Gesprächspausen. Klicken Sie HIER, um eine Erklärung mit einem Beispiel zu sehen.")
+    @showExplanationText(messages("feedback.graph.responseTimeBarChartMonthly.description"))
 
         <div id="@{
             name
-        }AnimatedResponseTimeBarChart"></div>
+        }AnimatedResponseTimeBarChart"
+        data-x-axis="@messages("feedback.graph.responseTimeBarChartMonthly.xAxis")"
+        data-y-axis="@messages("feedback.graph.responseTimeBarChartMonthly.yAxis")"
+        data-legend-donor="@messages("feedback.graph.responseTimeBarChartMonthly.legend.donor")"
+        data-legend-friends="@messages("feedback.graph.responseTimeBarChartMonthly.legend.friends")"
+        data-description-yearMonth="@messages("feedback.graph.yearMonth")"
+        ></div>
         <div class="clearfix"></div>
     }
 
     @showBreaksInConvPlot(name: String) = {
-    @showExplanationText("Dieser Graph zeigt für den ausgewählten Chat pro Monat die längste zusammenhängende Zeitperiode in Tagen, in der keine Nachricht in diesem Chat geschrieben wurde.")
-
+    @showExplanationText(messages("feedback.graph.breaksInConv.description"))
         <div id="@{
             name
-        }BreaksInConvPlot"></div>
+        }BreaksInConvPlot"
+        data-y-axis="@messages("feedback.graph.breaksInConv.yAxis")"
+        data-days-name="@messages("feedback.graph.breaksInConv.days")"
+        ></div>
         <div class="clearfix"></div>
     }
 

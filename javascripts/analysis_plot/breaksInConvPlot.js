@@ -5,10 +5,9 @@ function breaksInConvPlot(wordsPerConv, listOfConversations, plotId) {
 
     const plotContainer = $(`#${plotId}`)
     plotContainer.removeClass('d-none');
-    const xAxis = plotContainer.attr("data-x-axis");
     const yAxis = plotContainer.attr("data-y-axis");
-    const sent = plotContainer.attr("data-sent-trace-name");
-    const received = plotContainer.attr("data-received-trace-name");
+    const days = plotContainer.attr("data-days-name");
+
 
     const layout = {
         hovermode: "x",
@@ -19,12 +18,12 @@ function breaksInConvPlot(wordsPerConv, listOfConversations, plotId) {
             automargin: true,
         },
         yaxis: {
-            title: "Longest Period with no Response in Days",
+            title: yAxis,
             showgrid: true,
         },
         legend: {
             x: -0.1,
-            y: 1.15,
+            y: 1.25,
         }
     };
 
@@ -40,7 +39,7 @@ function breaksInConvPlot(wordsPerConv, listOfConversations, plotId) {
                 pad: {'r': 10, 't': 10},
                 x: -0.1,
                 xanchor: 'left',
-                y: 1.25,
+                y: 1.4,
                 yanchor: 'top'
             }
         ]
@@ -76,7 +75,7 @@ function breaksInConvPlot(wordsPerConv, listOfConversations, plotId) {
                 x: plotInputData.x,
                 y: plotInputData.y,
                 mode: 'lines+markers',
-                name: "no contact",
+                name: days,
                 marker: {size: 12},
                 visible: i === 0,
             })

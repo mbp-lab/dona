@@ -47,8 +47,9 @@ function animatedResponseTimeBarChart(responseTimes, plotId) {
     plotContainer.removeClass('d-none');
     const xAxis = plotContainer.attr("data-x-axis");
     const yAxis = plotContainer.attr("data-y-axis");
-    const sent = plotContainer.attr("data-sent-trace-name");
-    const received = plotContainer.attr("data-received-trace-name");
+    const legendDonor = plotContainer.attr("data-legend-donor");
+    const legendFriends = plotContainer.attr("data-legend-friends");
+    const yearMonth = plotContainer.attr("data-description-yearMonth");
 
     let layout = {
         height: 600,
@@ -58,6 +59,9 @@ function animatedResponseTimeBarChart(responseTimes, plotId) {
         legend: {
             x: -.1,
             y: 1.2
+        },
+        xaxis: {
+            title: xAxis
         },
         updatemenus: [
             {
@@ -207,13 +211,13 @@ function animatedResponseTimeBarChart(responseTimes, plotId) {
             name: name,
             data: [
                 {
-                    name: "Donor Response Times",
+                    name: legendDonor,
                     x: x,
                     y: yDonor,
                     width: _.fill(Array(x.length), 0.8)
                 },
                 {
-                    name: "Friends Response Times",
+                    name: legendFriends,
                     x: x,
                     y: yFriends,
                     width: _.fill(Array(x.length), 0.5)
@@ -241,14 +245,15 @@ function animatedResponseTimeBarChart(responseTimes, plotId) {
         range: [0, globalMax],
         color: "black",
         tickformat: "p",
-        hoverformat: ".2%"
+        hoverformat: ".2%",
+        title: yAxis,
     }
 
     layout["sliders"] = [{
         pad: {l: 130, t: 95},
         currentvalue: {
             visible: true,
-            prefix: 'Year-Month:',
+            prefix: yearMonth,
             xanchor: 'right',
             font: {size: 20, color: 'black'}
         },
@@ -260,14 +265,14 @@ function animatedResponseTimeBarChart(responseTimes, plotId) {
     plotContainer.html("");
     Plotly.newPlot(plotId, [
         {
-            name: "Donor Response Times",
+            name: legendDonor,
             x: x,
             y: _.fill(Array(x.length), 0),
             type: "bar",
             width: _.fill(Array(x.length), 0.8)
         },
         {
-            name: "Friends Response Times",
+            name: legendFriends,
             x: x,
             y: _.fill(Array(x.length), 0),
             type: "bar",

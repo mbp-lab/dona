@@ -31,11 +31,8 @@ $(document).ready(function () {
             chatWith
         )
 
-        // reminders to also do the next questionnaire, after 1 min, after 5 min and after 15min
+        // reminders to also do the next questionnaire, after 5 min and after 15min
         const reminder = i18n.reminder
-        setTimeout(() => {
-            alert(reminder)
-        }, 60000)
         setTimeout(() => {
             alert(reminder)
         }, 300000)
