@@ -165,14 +165,14 @@ feedback.title.dailyActivityTimes=Daily Activity Times
 feedback.title.responseTimes=Response Times
 
 # plots more about titles
-feedback.moreAbout.interactionIntensity=More about Interaction Intensity
-feedback.moreAbout.dailyActivityTimes=More about Daily Activity Times
-feedback.moreAbout.responseTimes=More about Response Times
+feedback.moreAbout.interactionIntensity.title=More about Interaction Intensity
+feedback.moreAbout.dailyActivityTimes.title=More about Daily Activity Times
+feedback.moreAbout.responseTimes.title=More about Response Times
 
 # plot descriptions
 feedback.graph.yearMonth=Year-Month:
 feedback.graph.chatWith=Chat with:
-feedback.graph.overallData=All together
+feedback.graph.overallData=All chats
 
 # polar plot
 feedback.graph.animatedPolarPlot.description=This visualization displays you as the bigger, yellow dot in the middle. The chats you donated are the smaller white dots around you. They are close to you if your interaction was higher and further away if it was less. Specifically, the interaction here is measured by the total amount of exchanged words in the chats. In the time-slider below you can see and select the month and year for which the data is shown. <br>Click <a style="font-weight:bold" href="#polarPlotExplanation" data-toggle="modal" data-target="#polarPlotExplanation">HERE</a> to see an explanation with an example.
@@ -187,7 +187,40 @@ feedback.graph.animatedHorizontalBarChart.description=Here you can see the total
 feedback.graph.animatedHorizontalBarChart.legend=Sent words
 feedback.graph.animatedHorizontalBarChart.xAxis=Number of sent words
 
+# more about interaction intensity modal
+feedback.moreAbout.interactionIntensity.wordsTitle=More about Sent and Received <u>Words</u>
+feedback.moreAbout.interactionIntensity.messagesTitle=More about Sent and Received <u>Messages</u>
+
+# animatedHorizontalBarChart overall
+feedback.graph.animatedHorizontalBarChartOverall.description=This graph shows the total number of words you received and sent across all your donated chats per month. In the time slider below you can see and choose the month and year.
+feedback.graph.animatedHorizontalBarChartOverall.legend.sent=Sent words
+feedback.graph.animatedHorizontalBarChartOverall.legend.received=Received words
+feedback.graph.animatedHorizontalBarChartOverall.xAxis=Number of words
+feedback.graph.animatedHorizontalBarChartOverall.yAxis.sent=Sent
+feedback.graph.animatedHorizontalBarChartOverall.yAxis.received=Received
+
+# slidingWindowMean of sent and received words plot
+feedback.graph.slidingWindowMean.description=Here you can see the average number of your sent and received words per day (more precisely, the so-called sliding window average with a window size of 30 days is calculated). At the top left you can also select your individual chats to see the graph of your sent words for the selected chat. Click HERE to see an explanation with an example.
+feedback.graph.slidingWindowMean.legend.sent=Sent words
+feedback.graph.slidingWindowMean.legend.received=Received words
+feedback.graph.slidingWindowMean.yAxis=Average number of words
+
+# dailySentReceivedWords plot
+feedback.graph.dailySentReceived.description=This graph shows the exact word count of your sent and received messages per day.
+feedback.graph.dailySentReceived.legend.sent=Sent words
+feedback.graph.dailySentReceived.legend.received=Received words
+feedback.graph.dailySentReceived.yAxis=Number of words
+
+# monthlySentReceivedWords plot
+feedback.graph.monthlySentReceived.description=This graph shows the exact word count of your sent and received messages per day. At the top left you can also select your individual chats to see the graph of your sent words for the selected chat.
+feedback.graph.monthlySentReceived.legend.sent=Sent messages
+feedback.graph.monthlySentReceived.legend.received=Received messages
+feedback.graph.monthlySentReceived.yAxis=Number of messages
+
+# dailyActivityTimes plot
 feedback.graph.dailyActivityHoursPlot.description=In this plot, you can see in which hours of the day you were active for the whole time span of the data you donated. As you can see on the colorscale on the right, if a square in the plot has a darker color, you sent more words in that hour than in your average hour. If the color is lighter, then you sent fewer words than in the average case. If you want to look closer at a specific time span you can zoom in by clicking on the graph and holding while you move your mouse to the left or the right to produce the time window you want to zoom into. Click HERE to see an explanation with an example.
+
+# responseTimesBarChart
 feedback.graph.responseTimeBarChart.description=Here over the whole time span of the data that you donated your and your friends‘ response times are counted. So, the percentage of all responses (i.e. a message that you sent after a message from a friend or the other way around) that took place in the specified amount of time is displayed. You can see what percentage of your responses you sent quicker than after 1 minute, after 1-2 minutes, 3-5 minutes, 6-15 minutes, 16-30 minutes, 31-60 minutes, and slower than 60 minutes. The bar for > 60 minutes includes longer breaks in the conversation. Click HERE to see an explanation with an example.
 
 # provided by Astrid

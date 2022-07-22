@@ -8,10 +8,10 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
 
     const plotContainer = $(`#${plotId}`)
     plotContainer.removeClass('d-none');
-    const xAxis = plotContainer.attr("data-x-axis");
     const yAxis = plotContainer.attr("data-y-axis");
     const sent = plotContainer.attr("data-sent-trace-name");
     const received = plotContainer.attr("data-received-trace-name");
+    const dataOverallName = plotContainer.attr("data-overall")
 
     const layout = {
         hovermode: "x",
@@ -22,7 +22,7 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
             automargin: true,
         },
         yaxis: {
-            title: "Words",
+            title: yAxis,
             showgrid: true,
         },
         legend: {
@@ -53,7 +53,7 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
         return resultArray
     }
 
-    let displayOptions = ["Overall/Everything"]
+    let displayOptions = [dataOverallName]
     displayOptions = displayOptions.concat(listOfConversations)
 
 
@@ -136,7 +136,7 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
                 x: plotInputData.xAxis,
                 y: plotInputData.yAxisSentMessages,
                 mode: 'lines+markers',
-                name: "sent words",
+                name: sent,
                 marker: {size: 4}, //, color: "white"},
                 visible: i === 0,
                 showlegend: true,
@@ -147,7 +147,7 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
                 x: plotInputData.xAxis,
                 y: plotInputData.yAxisReceivedMessages,
                 mode: 'lines+markers',
-                name: "received words",
+                name: received,
                 marker: {size: 4}, //, color: "orange"},
                 visible: i === 0,
                 showlegend: true,

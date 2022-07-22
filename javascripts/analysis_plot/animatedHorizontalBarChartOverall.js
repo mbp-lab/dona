@@ -5,14 +5,14 @@ const sortGraphDataPointsSync = require("./utils/sortGraphDataPointsSync");
 
 function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversations, plotId) {
 
-    // if I want to give this a conversation selector/updatemenu with frames: give frames different names for each conversation so they dont collide! so name: conversationI + counter and label: year-month ?
-
     const plotContainer = $(`#${plotId}`)
     plotContainer.removeClass('d-none');
     const xAxis = plotContainer.attr("data-x-axis");
-    const yAxis = plotContainer.attr("data-y-axis");
+    const yAxisReceived = plotContainer.attr("data-y-axis-received");
+    const yAxisSent = plotContainer.attr("data-y-axis-sent");
     const sent = plotContainer.attr("data-sent-trace-name");
     const received = plotContainer.attr("data-received-trace-name");
+    const yearMonth = plotContainer.attr("data-description-yearMonth");
 
     let layout = {
         height: 600,
@@ -125,18 +125,18 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
                     name: name,
                     data: [
                         {
-                            name: "Sent words",
+                            name: sent,
                             x: [sentCount],
-                            y: ["Sent"],
+                            y: [yAxisSent],
                             marker: {
                                 //color: "#60BDFF"
                             },
                         },
 
                         {
-                            name: "Received words",
+                            name: received,
                             x: [receivedCount],
-                            y: ["Received"],
+                            y: [yAxisReceived],
                             marker: {
                                 //color: "#FF8800",
                             },
@@ -168,14 +168,17 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
 
             layout["xaxis"] = {
                 range: [0, maxForRange],
-                color: "black"
+                color: "black",
+                title: {
+                    text: xAxis
+                }
             }
 
             layout["sliders"] = [{
                 pad: {l: 130, t: 95},
                 currentvalue: {
                     visible: true,
-                    prefix: 'Year-Month:',
+                    prefix: yearMonth,
                     xanchor: 'right',
                     font: {size: 20, color: 'black'}
                 },
@@ -186,17 +189,17 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
             plotContainer.html("");
             Plotly.newPlot(plotId, [
                 {
-                    name: "Sent words",
+                    name: sent,
                     x: [0],
-                    y: ["Sent"],
+                    y: [yAxisSent],
                     type: "bar",
                     orientation: 'h',
                 },
 
                 {
-                    name: "Received words",
+                    name: received,
                     x: [0],
-                    y: ["Received"],
+                    y: [yAxisReceived],
                     type: "bar",
                     orientation: 'h',
                 }

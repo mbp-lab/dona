@@ -10,7 +10,7 @@
 <div class="modal-dialog modal-xl" style="max-width: 1140px">
     <div class="modal-content">
         <div class="modal-header bgmain">
-            <h3 class="data-protection-headline">More about Interaction Intensity</h3>
+            <h3 class="data-protection-headline">@messages("feedback.moreAbout.interactionIntensity.title")</h3>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
@@ -19,13 +19,13 @@
             id="@{
                 dataSource.toString
             }ModalContainer"
-                style="width: 100%"
+            style="width: 100%"
             >
-                @showTitle("More about Sent and Received <u>Words</u>")
+                @showTitle(messages("feedback.moreAbout.interactionIntensity.wordsTitle"))
                 @showAnimatedHorizontalBarChartOverall(dataSource)
                 @showSentReceivedSlidingWindowMeanGraphPlot(dataSource)
                 @showSentReceivedDailyPerConversationGraphPlot(dataSource)
-                @showTitle("More about Sent and Received <u>Messages</u>")
+                @showTitle(messages("feedback.moreAbout.interactionIntensity.messagesTitle"))
                 @showSentReceivedPlot(dataSource)
             </div>
 
@@ -56,17 +56,20 @@
     }
 
     @showAnimatedHorizontalBarChartOverall(name: String) = {
-    @showExplanationText("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.")
 
+
+    @showExplanationText(messages("feedback.graph.animatedHorizontalBarChartOverall.description"))
         <div
         id="@{
             name.toString
         }AnimatedHorizontalBarChartOverall"
         class="d-none"
-        data-x-axis="@messages("feedback.graph.time")"
-        data-y-axis="@messages("feedback.graph.number-of-messages")"
-        data-sent-trace-name="@messages("feedback.graph.sent")"
-        data-received-trace-name="@messages("feedback.graph.received")"
+        data-x-axis="@messages("feedback.graph.animatedHorizontalBarChartOverall.xAxis")"
+        data-y-axis-received="@messages("feedback.graph.animatedHorizontalBarChartOverall.yAxis.received")"
+        data-y-axis-sent="@messages("feedback.graph.animatedHorizontalBarChartOverall.yAxis.sent")"
+        data-sent-trace-name="@messages("feedback.graph.animatedHorizontalBarChartOverall.legend.sent")"
+        data-received-trace-name="@messages("feedback.graph.animatedHorizontalBarChartOverall.legend.received")"
+        data-description-yearMonth="@messages("feedback.graph.yearMonth")"
         >
             <div class="card h-100">
                 <div class="m-auto">@messages("feedback.graph.loading")</div>
@@ -76,14 +79,15 @@
     }
 
     @showSentReceivedPlot(name: String) = {
-    @showExplanationText("This was one of the two plots already implemented in Dona. (As I will focus on sent/received words rather than messages -> maybe remove this? Or keep it?)")
+
+    @showExplanationText(messages("feedback.graph.monthlySentReceived.description"))
         <div id="@{
             name.toString
         }MessagesOverTime" class="d-none"
         data-x-axis="@messages("feedback.graph.time")"
-        data-y-axis="@messages("feedback.graph.number-of-messages")"
-        data-sent-trace-name="@messages("feedback.graph.sent")"
-        data-received-trace-name="@messages("feedback.graph.received")"
+        data-y-axis="@messages("feedback.graph.monthlySentReceived.yAxis")"
+        data-sent-trace-name="@messages("feedback.graph.monthlySentReceived.legend.sent")"
+        data-received-trace-name="@messages("feedback.graph.monthlySentReceived.legend.received")"
         >
             <div class="card h-100">
                 <div class="m-auto">@messages("feedback.graph.loading")</div>
@@ -94,15 +98,15 @@
 
 
     @showSentReceivedSlidingWindowMeanGraphPlot(name: String) = {
-    @showExplanationText("Calculating the sliding window mean (window size 30 days) for sent/received messages.")
+    @showExplanationText(messages("feedback.graph.slidingWindowMean.description"))
 
         <div id="@{
             name
         }SentReceivedSlidingWindowMean" class="d-none"
-        data-x-axis="@messages("feedback.graph.time")"
-        data-y-axis="@messages("feedback.graph.number-of-messages")"
-        data-sent-trace-name="@messages("feedback.graph.sent")"
-        data-received-trace-name="@messages("feedback.graph.received")"
+        data-y-axis="@messages("feedback.graph.slidingWindowMean.yAxis")"
+        data-sent-trace-name="@messages("feedback.graph.slidingWindowMean.legend.sent")"
+        data-received-trace-name="@messages("feedback.graph.slidingWindowMean.legend.received")"
+        data-overall="@messages("feedback.graph.overallData")"
         >
             <div class="card h-100">
                 <div class="m-auto">@messages("feedback.graph.loading")</div>
@@ -114,16 +118,15 @@
 
 
     @showSentReceivedDailyPerConversationGraphPlot(name: String) = {
-    @showExplanationText("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.")
-
+    @showExplanationText(messages("feedback.graph.dailySentReceived.description"))
 
         <div id="@{
             name
         }DailySentReceivedPerConversation" class="d-none"
-        data-x-axis="@messages("feedback.graph.time")"
-        data-y-axis="@messages("feedback.graph.number-of-messages")"
-        data-sent-trace-name="@messages("feedback.graph.sent")"
-        data-received-trace-name="@messages("feedback.graph.received")"
+        data-y-axis="@messages("feedback.graph.dailySentReceived.yAxis")"
+        data-sent-trace-name="@messages("feedback.graph.dailySentReceived.legend.sent")"
+        data-received-trace-name="@messages("feedback.graph.dailySentReceived.legend.received")"
+        data-overall="@messages("feedback.graph.overallData")"
         >
             <div class="card h-100">
                 <div class="m-auto">@messages("feedback.graph.loading")</div>
