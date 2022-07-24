@@ -5,6 +5,7 @@ import config.FeedbackConfig
 
 import javax.inject.{Inject, Singleton}
 import models.api._
+import models.domain.DonationDataSourceType
 import models.domain.DonationDataSourceType.DonationDataSourceType
 
 
@@ -21,12 +22,20 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
 
   private case class TimeFrameWithDaysHourMinute(year: Int, month: Month, date: Int, hour: Int, minute: Int)
 
+  private case class ConversationWordCountOverall(conversation: Conversation, wordCount: Int)
+
+
 
   // produces the GraphData object by calling all the different data transformation functions
   def produceGraphData(socialData: SocialData): Map[DonationDataSourceType, GraphData] = {
     socialData.conversations
       .groupBy(_.donationDataSourceType)
-      .mapValues { conversations =>
+      .map { case (dataSourceType , originalConversations) =>
+        var conversations = originalConversations
+        if (dataSourceType == DonationDataSourceType.Facebook) {
+          // for now: only produce graphData for 7 facebook chats with most words exchanged
+          conversations = produceFilteredConversations(conversations, 7)
+        }
         val sentReceivedMessagesMonthly = produceSentReceivedMessagedMonthly(socialData.donorId, conversations)
         //val sentReceivedWords = produceSentReceivedWordsGraphData(socialData.donorId, conversations)
         //val dailyMessageGraphData = produceDailyMessageGraphData(socialData.donorId, conversations)
@@ -56,7 +65,7 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
         //val sentPerFriendInConversationPerMonth = conversations.map(c => produceMonthlySentPerFriendInConversation(socialData.donorId, c))
         val sentReceivedPerMonthPerConversation = conversations.map(c => produceSentReceivedWordsPerMonthPerConversation(socialData.donorId, c))
 
-
+        (dataSourceType,
         GraphData(
           sentReceivedMessagesMonthly,
           sentReceivedPerMonthPerConversation,
@@ -69,8 +78,20 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
           average,
           conversationsFriends
         )
+          )
       }
   }
+
+  // filter conversations to only have nToTake conversations with most exchanged words left -> for facebook
+  private def produceFilteredConversations(conversations: List[Conversation], nToTake: Int): List[Conversation] = {
+    conversations.map( conversation => {
+      ConversationWordCountOverall(conversation, conversation.messages.map(_.wordCount).sum)
+    })
+      .sortBy(_.wordCount)
+      .takeRight(nToTake)
+      .map(_.conversation)
+  }
+
 
   // counts total received and sent messages per month
   private def produceSentReceivedMessagedMonthly(
