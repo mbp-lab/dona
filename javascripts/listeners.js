@@ -144,7 +144,7 @@ function setUpFileHandler() {
             .catch(error => {
                 console.log(error);
     
-                messageService.showError(i18nSupport.data("error") + error);
+                messageService.showError(i18nSupport.data("error") + " " + error);
                 progressBar.stop();
             });
         

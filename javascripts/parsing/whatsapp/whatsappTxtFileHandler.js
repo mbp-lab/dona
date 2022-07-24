@@ -9,6 +9,9 @@ function whatsappTxtFilesHandler(filelist, alias) {
     files.push(filelist[i]);
   };
 
+
+
+
   return new Promise((resolve, reject) => {
     const expectedNumberOfFiles = 5;
     if (alias.length < 1) {
@@ -16,6 +19,18 @@ function whatsappTxtFilesHandler(filelist, alias) {
     }
     else if (files.length != expectedNumberOfFiles) {
       reject(i18nSupport.data('error-not-enough-chats').replace('%s', files.length));
+    } else {
+      // check if all files seem to be the same
+      let fileSize = files[0].size
+      let allSameSize = true
+      for (let i = 1; i < files.length; i++) {
+        if (files[i].size !== fileSize) {
+          allSameSize = false
+        }
+      }
+      if (allSameSize) {
+        reject(i18nSupport.data('error-same-files'));
+      }
     }
 
     const parsedFiles = files.map(file => {
@@ -103,7 +118,6 @@ function deIdentification(parsedFiles, alias) {
         participantNameToRandomIds[name] = i18nSupport.data("friend") + i;
         i++;
       }
-      //console.log("Name: " + name + " and according anonymized ID: " + participantNameToRandomIds[name]);
     }
     return participantNameToRandomIds[name];
   }

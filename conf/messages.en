@@ -128,12 +128,13 @@ donation.errors.no-profile=The uploaded data does not include profile informatio
 donation.errors.no-alias=Please enter your username
 donation.errors.not-enough-chats_format=Please choose your 5 most important conversations. You have only selected %s.
 donation.errors.something-went-wrong=Something went wrong! Please go back to the start and repeat the process.
+donation.errors.same-file=You can only select files that differ. Please choose your 5 most important conversations.
 
 # feedback
 
 feedback.thanks.title=Thank you for the donation of your social media data!
 
-feedback.importantMessage.title=Important Comments:
+feedback.importantMessage.title=Important Note:
 feedback.importantMessage.disclaimer=The graphs and visualizations displayed <b>do <u>not</u> allow any direct conclusions</b> to be drawn about the quality of your social relationships. Note that only numbers of your WhatsApp chats are displayed.
 feedback.importantMessage.instructions=Operating instructions: In some graphs you can click and hold directly in the graph or possibly in the time slider below to select specific time windows for viewing. To reset the view, <b>double-click</b> into the graph. In addition, for some plots you can choose between displaying the total data and the data of individual chats in the top left.
 
