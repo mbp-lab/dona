@@ -1,9 +1,5 @@
-@import play.api.libs.json.JsValue
 @import play.api.libs.json.Json
 @import models.api._
-
-@import models.domain.DataSourceDescription
-@import models.domain.DonationDataSourceType.DonationDataSourceType
 
 @(donorId: String, data: Map[String, GraphData])(implicit request: RequestHeader, messages: Messages)
 
@@ -93,7 +89,7 @@
 
 @showAnimatedPolarPlot(name: String, description: String) = {
     <div class="modal fade" id="polarPlotExplanation" role="dialog">
-    @feedback_explanationModal("This is an <b>Example</b>: It does not use your data.", "testDescription", "images/testingExample.png")
+    @feedback_explanationModal(messages("feedback.graph.animatedPolarPlot.example.text"), messages("feedback.graph.animatedPolarPlot.example.image"))
     </div>
     @showExplanationText(description)
 
@@ -115,6 +111,9 @@
 }
 
 @showAnimatedHorizontalBarChart(name: String, description: String) = {
+    <div class="modal fade" id="animatedHorizontalBarChartExplanation" role="dialog">
+    @feedback_explanationModal(messages("feedback.graph.animatedHorizontalBarChart.example.text"), messages("feedback.graph.animatedHorizontalBarChart.example.image"))
+    </div>
 
     <div style="margin-top: 4em"></div>
 @showExplanationText(description)
@@ -137,6 +136,11 @@
         }sentReceivedModal" role="dialog">
         @feedback_sentReceivedPlotsModal(name, data)
         </div>
+
+        <div class="modal fade" id="slidingWindowMeanExplanationModal" role="dialog">
+            @feedback_explanationModal(messages("feedback.graph.slidingWindowMean.example.text"), messages("feedback.graph.slidingWindowMean.example.image"))
+        </div>
+
         <button class="btn btn-outline footer-forward-button text-center" data-toggle="modal" data-target="#@{
             name.toString
         }sentReceivedModal">
@@ -147,7 +151,9 @@
 
 
 @showDailyActivityTimes(name: String, description: String) = {
-
+    <div class="modal fade" id="dailyActivityHoursPlotExplanation" role="dialog">
+    @feedback_explanationModal(messages("feedback.graph.dailyActivityHoursPlot.example.text"), messages("feedback.graph.dailyActivityHoursPlot.example.image"))
+    </div>
 @showExplanationText(description)
 
     <div id="@{
@@ -170,6 +176,11 @@
         }dailyActivityModal" role="dialog">
         @feedback_dailyActivityPlotsModal(name)
         </div>
+
+        <div class="modal fade" id="dayPartsOverallExplanationModal" role="dialog">
+        @feedback_explanationModal(messages("feedback.graph.dayPartsOverall.example.text"), messages("feedback.graph.dayPartsOverall.example.image"))
+        </div>
+
         <button class="btn btn-outline footer-forward-button text-center" data-toggle="modal" data-target="#@{
             name
         }dailyActivityModal">
@@ -181,6 +192,10 @@
 
 
 @showResponseTimeBarChart(name: String, description: String) = {
+    <div class="modal fade" id="responseTimeBarChartExplanation" role="dialog">
+    @feedback_explanationModal(messages("feedback.graph.responseTimeBarChart.example.text"), messages("feedback.graph.responseTimeBarChart.example.image"))
+    </div>
+
 @showExplanationText(description)
 
     <div id="@{
@@ -197,6 +212,11 @@
         }responseTimeModal" role="dialog">
         @feedback_responseTimePlotsModal(name, data)
         </div>
+
+        <div class="modal fade" id="breaksInConvExplanationModal" role="dialog">
+        @feedback_explanationModal(messages("feedback.graph.breaksInConv.example.text"), messages("feedback.graph.breaksInConv.example.image"))
+        </div>
+
         <button class="btn btn-outline footer-forward-button text-center" data-toggle="modal" data-target="#@{
             name.toString
         }responseTimeModal">

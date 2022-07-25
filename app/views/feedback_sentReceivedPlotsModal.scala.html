@@ -1,9 +1,5 @@
-@import play.api.libs.json.JsValue
-@import play.api.libs.json.Json
-@import models.api._
 
-@import models.domain.DataSourceDescription
-@import models.domain.DonationDataSourceType.DonationDataSourceType
+@import models.api._
 
 @(dataSource: String, data: Map[String, GraphData])(implicit request: RequestHeader, messages: Messages)
 
@@ -13,7 +9,7 @@
             <h3 class="data-protection-headline">@messages("feedback.moreAbout.interactionIntensity.title")</h3>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body justify-content-center" >
 
             <div
             id="@{
@@ -98,6 +94,7 @@
 
 
     @showSentReceivedSlidingWindowMeanGraphPlot(name: String) = {
+
     @showExplanationText(messages("feedback.graph.slidingWindowMean.description"))
 
         <div id="@{

@@ -122,5 +122,52 @@ $(document).ready(function () {
                 `${dataSourceType}BreaksInConvPlot`
             );
         })
+
+
+        // for being able to switch from one open modal to the other
+        // for slidingWindowMeanExplanation
+        let showSlidingWindowMeanExplanation = false;
+        $(`#${dataSourceType}sentReceivedModal`).on('hidden.bs.modal', function () {
+            if (showSlidingWindowMeanExplanation) {
+                $("#slidingWindowMeanExplanationModal").modal('show');
+                showSlidingWindowMeanExplanation = false;
+            }
+        });
+
+        $("#openSlidingWindowMeanExplanation").click(function() {
+            $(`#${dataSourceType}sentReceivedModal`).modal('hide');
+            showSlidingWindowMeanExplanation = true;
+        });
+
+        // for dayPartsExplanation
+        let showDayPartsOverallExplanation = false;
+        $(`#${dataSourceType}dailyActivityModal`).on('hidden.bs.modal', function () {
+            if (showDayPartsOverallExplanation) {
+                $("#dayPartsOverallExplanationModal").modal('show');
+                showDayPartsOverallExplanation = false;
+            }
+        });
+
+        $("#openDayPartsOverallExplanation").click(function() {
+            $(`#${dataSourceType}dailyActivityModal`).modal('hide');
+            showDayPartsOverallExplanation = true;
+        });
+
+        // for breaksInConvExplanation
+        let showBreaksInConvExplanation = false;
+        $(`#${dataSourceType}responseTimeModal`).on('hidden.bs.modal', function () {
+            if (showBreaksInConvExplanation) {
+                $("#breaksInConvExplanationModal").modal('show');
+                showBreaksInConvExplanation = false;
+            }
+        });
+
+        $("#openBreaksInConvExplanation").click(function() {
+            $(`#${dataSourceType}responseTimeModal`).modal('hide');
+            showBreaksInConvExplanation = true;
+        });
+
+
     })
+
 });
