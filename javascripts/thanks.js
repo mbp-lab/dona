@@ -13,6 +13,15 @@ const createListOfConversations = require("./analysis_plot/utils/createListOfCon
 
 
 $(document).ready(function () {
+    // reminders to also do the next questionnaire, after 5 min and after 15min
+    const reminder = i18n.reminder
+    setTimeout(() => {
+        alert(reminder)
+    }, 300000)
+    setTimeout(() => {
+        alert(reminder)
+    }, 900000)
+
     Object.keys(allData).forEach(function (dataSourceType) {
         const graphData = allData[dataSourceType];
         console.log(graphData)
@@ -28,15 +37,6 @@ $(document).ready(function () {
             conversationsWithoutSystem,
             chatWith
         )
-
-        // reminders to also do the next questionnaire, after 5 min and after 15min
-        const reminder = i18n.reminder
-        setTimeout(() => {
-            alert(reminder)
-        }, 300000)
-        setTimeout(() => {
-            alert(reminder)
-        }, 900000)
 
         animatedPolarPlot(
             graphData.sentReceivedPerMonthPerConversation,
@@ -67,9 +67,9 @@ $(document).ready(function () {
         // when modal is opened the first time, render plots...
         // if this is done before the modal is opened, the width of the plots isnt correct
 
-        let sentReceivedModal = $(`#${dataSourceType}sentReceivedModal`)
-        let dailyActivityModal = $(`#${dataSourceType}dailyActivityModal`)
-        let responseTimeModal = $(`#${dataSourceType}responseTimeModal`)
+        const sentReceivedModal = $(`#${dataSourceType}sentReceivedModal`)
+        const dailyActivityModal = $(`#${dataSourceType}dailyActivityModal`)
+        const responseTimeModal = $(`#${dataSourceType}responseTimeModal`)
         sentReceivedModal.on('shown.bs.modal', () => {
             sentReceived(graphData.sentReceived, `${dataSourceType}MessagesOverTime`);
 
@@ -124,62 +124,9 @@ $(document).ready(function () {
         })
 
 
-        // for being able to switch from one open modal to the other
-        // for slidingWindowMeanExplanation
-        let slidingWindowMeanExplanationModal = $("#slidingWindowMeanExplanationModal")
-        let showSlidingWindowMeanExplanation = false;
-        sentReceivedModal.on('hidden.bs.modal', function () {
-            if (showSlidingWindowMeanExplanation) {
-                slidingWindowMeanExplanationModal.modal('show');
-                showSlidingWindowMeanExplanation = false;
-            }
-        });
-
-        $("#openSlidingWindowMeanExplanation").click(function () {
-            sentReceivedModal.modal('hide');
-            showSlidingWindowMeanExplanation = true;
-        });
-
-        slidingWindowMeanExplanationModal.on('hidden.bs.modal', function () {
-            sentReceivedModal.modal('show');
-        });
-
-        // for dayPartsExplanation
-        let dayPartsOverallExplanationModal = $("#dayPartsOverallExplanationModal")
-        let showDayPartsOverallExplanation = false;
-        dailyActivityModal.on('hidden.bs.modal', function () {
-            if (showDayPartsOverallExplanation) {
-                dayPartsOverallExplanationModal.modal('show');
-                showDayPartsOverallExplanation = false;
-            }
-        });
-
-        $("#openDayPartsOverallExplanation").click(function () {
-            dailyActivityModal.modal('hide');
-            showDayPartsOverallExplanation = true;
-        });
-
-        dayPartsOverallExplanationModal.on('hidden.bs.modal', function () {
-            dailyActivityModal.modal('show');
-        });
-
-        // for breaksInConvExplanation
-        let breaksInConvExplanationModal = $("#breaksInConvExplanationModal")
-        let showBreaksInConvExplanation = false;
-        responseTimeModal.on('hidden.bs.modal', function () {
-            if (showBreaksInConvExplanation) {
-                breaksInConvExplanationModal.modal('show');
-                showBreaksInConvExplanation = false;
-            }
-        });
-
-        $("#openBreaksInConvExplanation").click(function () {
-            responseTimeModal.modal('hide');
-            showBreaksInConvExplanation = true;
-        });
-
-        breaksInConvExplanationModal.on('hidden.bs.modal', function () {
-            responseTimeModal.modal('show');
+        // without this an explanation modal opened within another modal isn't scrollable for some reason
+        $('body').on('shown.bs.modal', function () {
+            $('body').addClass('modal-open');
         });
 
 

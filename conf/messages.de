@@ -214,7 +214,7 @@ feedback.graph.animatedHorizontalBarChartOverall.yAxis.sent=Gesendet
 feedback.graph.animatedHorizontalBarChartOverall.yAxis.received=Erhalten
 
 # slidingWindowMean of sent and received words plot
-feedback.graph.slidingWindowMean.description=Hier können Sie pro Tag Ihre durchschnittliche gesendete und empfangene Wörteranzahl sehen (Genauer gesagt, wird der sogenannte gleitende Mittelwert mit einer Fenstergröße von 30 Tagen berechnet). Oben links können Sie auch Ihre einzelnen Chats auswählen, um den Graphen für Ihre gesendeten Wörter für den ausgewählten Chat zu sehen. Klicken Sie <a style="font-weight:bold" href="#" id="openSlidingWindowMeanExplanation" >HIER</a>, um eine Erklärung mit einem Beispiel zu sehen.
+feedback.graph.slidingWindowMean.description=Hier können Sie pro Tag Ihre durchschnittliche gesendete und empfangene Wörteranzahl sehen (Genauer gesagt, wird der sogenannte gleitende Mittelwert mit einer Fenstergröße von 30 Tagen berechnet). Oben links können Sie auch Ihre einzelnen Chats auswählen, um den Graphen für Ihre gesendeten Wörter für den ausgewählten Chat zu sehen. Klicken Sie <a style="font-weight:bold" href="#slidingWindowMeanExplanationModal" data-dismiss="modal" data-toggle="modal" data-target="#slidingWindowMeanExplanationModal" class="openSlidingWindowMeanExplanation" >HIER</a>, um eine Erklärung mit einem Beispiel zu sehen.
 feedback.graph.slidingWindowMean.legend.sent=Gesendete Wörter
 feedback.graph.slidingWindowMean.legend.received=Erhaltene Wörter
 feedback.graph.slidingWindowMean.yAxis=Durchschnittliche Anzahl Wörter
@@ -244,7 +244,7 @@ feedback.graph.dailyActivityHoursPlot.example.image=images/feedback_example_dail
 feedback.graph.dailyActivityHoursPlot.example.text=<p><b>(1)</b> In diesem Beispiel lässt sich in diesem Bereich eine Veränderung der Aktivitätszeiten beobachten. In dem Zeitraum bei <b>(2)</b> kann man sehen, dass keine Nachrichten ungefähr zwischen 8:00 Uhr und 12:00 Uhr gesendet wurden. Dann in dem Zeitraum bei <b>(3)</b> hat sich dieser Bereich ohne Nachrichten zu den Uhrzeiten ungefähr zwischen 2:00 Uhr und 6:00 Uhr verschoben. Das könnte zum Beispiel an einem Umzug in eine andere Zeitzone oder an einer Veränderung des Schlafrhythmus liegen.</p><p><b>(4)</b> Zum Beispiel hier lassen sich vermehrt dunkle Quadrate beobachten. In diesem Bereich wurden also überdurchschnittlich viele Nachrichten gesendet.</p>
 
 # dayPartsPlot overall
-feedback.graph.dayPartsOverall.description=In diesem Graphen können Sie sehen, wie sich die Wörter, die sie gesendet und empfangen haben auf verschiedene Teile des Tages im Durchschnitt über den gesamten Zeitraum Ihrer Datenspende verteilen. Klicken Sie <a style="font-weight:bold" href="#" id="openDayPartsOverallExplanation" >HIER</a>, um eine Erklärung mit einem Beispiel zu sehen.
+feedback.graph.dayPartsOverall.description=In diesem Graphen können Sie sehen, wie sich die Wörter, die sie gesendet und empfangen haben auf verschiedene Teile des Tages im Durchschnitt über den gesamten Zeitraum Ihrer Datenspende verteilen. Klicken Sie <a style="font-weight:bold" href="#dayPartsOverallExplanationModal" data-dismiss="modal" data-toggle="modal" data-target="#dayPartsOverallExplanationModal" >HIER</a>, um eine Erklärung mit einem Beispiel zu sehen.
 feedback.graph.dayPartsOverall.legend.sent=Gesendete Wörter
 feedback.graph.dayPartsOverall.legend.received=Erhaltene Wörter
 feedback.graph.dayPartsOverall.yAxis=Prozentualer Anteil aller Wörter
@@ -277,7 +277,7 @@ feedback.graph.responseTimeBarChartMonthly.yAxis=Prozentualer Anteil aller Antwo
 feedback.graph.responseTimeBarChartMonthly.xAxis=Dauer der Antwort
 
 # breaksInConv plot
-feedback.graph.breaksInConv.description=Dieser Graph zeigt für den ausgewählten Chat pro Monat die längste zusammenhängende Zeitperiode in Tagen, in der keine Nachricht in diesem Chat geschrieben wurde. Klicken Sie <a style="font-weight:bold" href="#" id="openBreaksInConvExplanation" >HIER</a>, um eine Erklärung mit einem Beispiel zu sehen.
+feedback.graph.breaksInConv.description=Dieser Graph zeigt für den ausgewählten Chat pro Monat die längste zusammenhängende Zeitperiode in Tagen, in der keine Nachricht in diesem Chat geschrieben wurde. Klicken Sie <a style="font-weight:bold" href="#breaksInConvExplanationModal" data-dismiss="modal" data-toggle="modal" data-target="#breaksInConvExplanationModal">HIER</a>, um eine Erklärung mit einem Beispiel zu sehen.
 feedback.graph.breaksInConv.yAxis=Längste Zeitperiode in Tagen ohne Nachricht
 feedback.graph.breaksInConv.days=Tag/e
 feedback.graph.breaksInConv.example.image=images/feedback_example_breaksInConv_german.svg
