@@ -1,8 +1,6 @@
-var responseTime = require('./analysis_plot/responseTime');
 var sentReceived = require('./analysis_plot/sentReceived');
 var sentReceivedDailyPerConversation = require('./analysis_plot/sentReceivedDailyPerConversation')
 var dailyActivityTimes = require('./analysis_plot/dailyActivityTimes')
-var dailyActivityTimesMean = require('./analysis_plot/dailyActivityTimesMean')
 var animatedPolarPlot = require('./analysis_plot/animatedPolarPlot')
 var animatedHorizontalBarChart = require('./analysis_plot/animatedHorizontalBarChart')
 var animatedHorizontalBarChartOverall = require('./analysis_plot/animatedHorizontalBarChartOverall')
@@ -68,7 +66,11 @@ $(document).ready(function () {
 
         // when modal is opened the first time, render plots...
         // if this is done before the modal is opened, the width of the plots isnt correct
-        $(`#${dataSourceType}sentReceivedModal`).on('shown.bs.modal', () => {
+
+        let sentReceivedModal = $(`#${dataSourceType}sentReceivedModal`)
+        let dailyActivityModal = $(`#${dataSourceType}dailyActivityModal`)
+        let responseTimeModal = $(`#${dataSourceType}responseTimeModal`)
+        sentReceivedModal.on('shown.bs.modal', () => {
             sentReceived(graphData.sentReceived, `${dataSourceType}MessagesOverTime`);
 
             animatedHorizontalBarChartOverall(
@@ -94,9 +96,7 @@ $(document).ready(function () {
             )
         })
 
-        $(`#${dataSourceType}dailyActivityModal`).on('shown.bs.modal', () => {
-
-
+        dailyActivityModal.on('shown.bs.modal', () => {
             dayPartsActivityOverallPlot(
                 graphData.dailySentHoursPerConversation,
                 graphData.dailyReceivedHoursPerConversation,
@@ -110,7 +110,7 @@ $(document).ready(function () {
             )
         })
 
-        $(`#${dataSourceType}responseTimeModal`).on('shown.bs.modal', () => {
+        responseTimeModal.on('shown.bs.modal', () => {
             animatedResponseTimeBarChart(
                 graphData.responseTimes,
                 `${dataSourceType}AnimatedResponseTimeBarChart`
@@ -126,45 +126,60 @@ $(document).ready(function () {
 
         // for being able to switch from one open modal to the other
         // for slidingWindowMeanExplanation
+        let slidingWindowMeanExplanationModal = $("#slidingWindowMeanExplanationModal")
         let showSlidingWindowMeanExplanation = false;
-        $(`#${dataSourceType}sentReceivedModal`).on('hidden.bs.modal', function () {
+        sentReceivedModal.on('hidden.bs.modal', function () {
             if (showSlidingWindowMeanExplanation) {
-                $("#slidingWindowMeanExplanationModal").modal('show');
+                slidingWindowMeanExplanationModal.modal('show');
                 showSlidingWindowMeanExplanation = false;
             }
         });
 
-        $("#openSlidingWindowMeanExplanation").click(function() {
-            $(`#${dataSourceType}sentReceivedModal`).modal('hide');
+        $("#openSlidingWindowMeanExplanation").click(function () {
+            sentReceivedModal.modal('hide');
             showSlidingWindowMeanExplanation = true;
         });
 
+        slidingWindowMeanExplanationModal.on('hidden.bs.modal', function () {
+            sentReceivedModal.modal('show');
+        });
+
         // for dayPartsExplanation
+        let dayPartsOverallExplanationModal = $("#dayPartsOverallExplanationModal")
         let showDayPartsOverallExplanation = false;
-        $(`#${dataSourceType}dailyActivityModal`).on('hidden.bs.modal', function () {
+        dailyActivityModal.on('hidden.bs.modal', function () {
             if (showDayPartsOverallExplanation) {
-                $("#dayPartsOverallExplanationModal").modal('show');
+                dayPartsOverallExplanationModal.modal('show');
                 showDayPartsOverallExplanation = false;
             }
         });
 
-        $("#openDayPartsOverallExplanation").click(function() {
-            $(`#${dataSourceType}dailyActivityModal`).modal('hide');
+        $("#openDayPartsOverallExplanation").click(function () {
+            dailyActivityModal.modal('hide');
             showDayPartsOverallExplanation = true;
         });
 
+        dayPartsOverallExplanationModal.on('hidden.bs.modal', function () {
+            dailyActivityModal.modal('show');
+        });
+
         // for breaksInConvExplanation
+        let breaksInConvExplanationModal = $("#breaksInConvExplanationModal")
         let showBreaksInConvExplanation = false;
-        $(`#${dataSourceType}responseTimeModal`).on('hidden.bs.modal', function () {
+        responseTimeModal.on('hidden.bs.modal', function () {
             if (showBreaksInConvExplanation) {
-                $("#breaksInConvExplanationModal").modal('show');
+                breaksInConvExplanationModal.modal('show');
                 showBreaksInConvExplanation = false;
             }
         });
 
-        $("#openBreaksInConvExplanation").click(function() {
-            $(`#${dataSourceType}responseTimeModal`).modal('hide');
+        $("#openBreaksInConvExplanation").click(function () {
+            responseTimeModal.modal('hide');
             showBreaksInConvExplanation = true;
+        });
+
+        breaksInConvExplanationModal.on('hidden.bs.modal', function () {
+            responseTimeModal.modal('show');
         });
 
 
