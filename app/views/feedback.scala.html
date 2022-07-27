@@ -3,6 +3,7 @@
 
 @(donorId: String, data: Map[String, GraphData])(implicit request: RequestHeader, messages: Messages)
 
+
 @mainNew("DonaForMe")() {
     <div class="justify-content-center">
         <div class="top col-md text-center">
@@ -21,7 +22,7 @@
 
         @for((dataSource, GraphData(_, _, _, _, _, _, _, averageMessageNumber, _)) <- data) {
             <div id="@{
-                dataSource.toString
+                dataSource
             }container">
                 @showStatistics(averageMessageNumber, dataSource)
                 @showTitle(messages("feedback.title.interactionIntensity"))
@@ -94,7 +95,7 @@
     @showExplanationText(description)
 
     <div id="@{
-        name.toString
+        name
     }AnimatedPolarPlot" class="d-none"
     data-legend-donor="@messages("feedback.graph.animatedPolarPlot.legend.donor")"
     data-legend-others="@messages("feedback.graph.animatedPolarPlot.legend.others")"
@@ -119,7 +120,7 @@
 @showExplanationText(description)
     <div
     id="@{
-        name.toString
+        name
     }AnimatedHorizontalBarChart"
     class="d-none"
     data-x-axis="@messages("feedback.graph.animatedHorizontalBarChart.xAxis")"
@@ -132,7 +133,7 @@
     </div>
     <div class="top col-md text-right pt-2">
         <div class="modal fade" id="@{
-            name.toString
+            name
         }sentReceivedModal" role="dialog">
         @feedback_sentReceivedPlotsModal(name, data)
         </div>
@@ -142,7 +143,7 @@
         </div>
 
         <button class="btn btn-outline footer-forward-button text-center" data-toggle="modal" data-target="#@{
-            name.toString
+            name
         }sentReceivedModal">
             @messages("feedback.moreAbout.interactionIntensity.title")</button>
     </div>
@@ -208,7 +209,7 @@
     ></div>
     <div class="top col-md text-right pt-2">
         <div class="modal fade" id="@{
-            name.toString
+            name
         }responseTimeModal" role="dialog">
         @feedback_responseTimePlotsModal(name, data)
         </div>
@@ -218,7 +219,7 @@
         </div>
 
         <button class="btn btn-outline footer-forward-button text-center" data-toggle="modal" data-target="#@{
-            name.toString
+            name
         }responseTimeModal">
         @messages("feedback.moreAbout.responseTimes.title")</button>
     </div>

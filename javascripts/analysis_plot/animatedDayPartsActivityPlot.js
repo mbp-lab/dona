@@ -1,5 +1,3 @@
-var sortGraphDataPoints = require('./utils/sortGraphDataPointsTimeWise');
-const formInputDataForDailyActivityPlot = require("./utils/formInputDataForDailyActivityPlot");
 const sortGraphDataPointsSync = require("./utils/sortGraphDataPointsSync");
 const _ = require("lodash");
 
@@ -90,11 +88,8 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
 
     }
 
-
-
     let dataSentOverall = dataSent.flat()
     let dataReceivedOverall = dataReceived.flat()
-
 
     // make sure its sorted (maybe not necessary)
     let sortedDataSent = sortGraphDataPointsSync(dataSentOverall)
@@ -303,12 +298,7 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
 
         startAnimation(null, 'afterall')
     });
-
-
-
-
-
-
+    
 
 }
 

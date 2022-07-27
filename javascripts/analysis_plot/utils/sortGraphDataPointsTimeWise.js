@@ -12,8 +12,6 @@ function sortGraphDataPointsTimeWise(graphDataPoints, hasDate, hasHourAndMinute)
         });
     }
 
-
-
     if (graphDataPoints[0][0] !== undefined) {
         return new Promise((resolve) => {
             let results = []

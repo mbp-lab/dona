@@ -1,50 +1,12 @@
-var sortGraphDataPoints = require('./utils/sortGraphDataPointsTimeWise');
-const formInputDataForPolarPlot = require("./utils/formInputDataForPolarPlot");
+const sortGraphDataPoints = require('./utils/sortGraphDataPointsTimeWise');
 const _ = require("lodash");
+const zScoreCalc = require("./utils/zScoreCalcPolarPlot");
 
 function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plotId) {
 
-    // TODO: put this in math helper .js file
-    let zScoreLimit = 2
-    let calcZScores = (dataMonthlyPerConv) => {
+    let zScoreLimit = 1.96
 
-        let maxScore = 0;
-        let minScore = 0;
-
-        const flattened = dataMonthlyPerConv.flat();
-        const n = flattened.length
-
-        // sums of sentCount and receivedCount
-        const sums = flattened.map((obj) => obj.sentCount + obj.receivedCount)
-
-        const mean = sums.reduce((a, b) => a + b) / n
-        const stdDeviation = Math.sqrt(sums.map(x => Math.pow(x - mean, 2)).reduce((a, b) => a+ b) / n)
-
-        let zScore
-        for (let i = 0; i < flattened.length; i++) {
-            zScore = (sums[i] - mean) / stdDeviation
-            // colorscale needs a specific range -> zScores bigger than zScoreLimit and -zScoreLimit will be set to zScoreLimit or -zScoreLimit accordingly
-            if (zScore > zScoreLimit) {
-                zScore = zScoreLimit;
-            } else if (zScore < -zScoreLimit) {
-                zScore = -zScoreLimit
-            }
-
-            if (zScore > maxScore) {
-                maxScore = zScore
-            } else if (zScore < minScore) {
-                minScore = zScore
-            }
-            flattened[i]["zScore"] = zScore
-        }
-        return [minScore, maxScore]
-    }
-
-
-    let minAndMax = calcZScores(dataMonthlyPerConversation)
-    let globalMin = minAndMax[0]
-    let globalMax = minAndMax[1]
-
+    zScoreCalc(dataMonthlyPerConversation, zScoreLimit)
 
     const plotContainer = $(`#${plotId}`)
     plotContainer.removeClass('d-none');
@@ -73,13 +35,10 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
                 showline: false,
                 showgrid: true,
                 gridwidth: 0.1,
-                //griddash: 'dash', // it seems griddash might only work with a newer plotly.js version?
                 gridcolor: "#60BDFF",
                 showticklabels: true,
                 ticks: "",
-                //tick0: 0,
-                //dtick: 2,
-                tickmode: "array", // If "array", the placement of the ticks is set via `tickvals` and the tick text is `ticktext`.
+                tickmode: "array", // If "array", placement of ticks is set via `tickvals`, tick text is `ticktext`
                 tickvals: [-2, 0, 2],
                 ticktext: [lessClose, average, closer],
                 tickfont: {
@@ -214,10 +173,7 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
                 let rValuesTotal = []
                 let thetaValues = []
 
-
-
                 //let rValuesReceivedCount = []
-
 
                 // get the data for each conversation in value -> value are all the data objects for this year-month
                 let helper;
@@ -237,8 +193,6 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
                         //traceOfRTotal.push(Math.log(helper.receivedCount + helper.sentCount))
                         traceOfRTotal.push(helper.zScore)
                         traceOfThetaTotal.push(conv)
-
-
                     } else {
                         //rValuesSent.push(0)
                         //rValuesReceivedCount.push(0)
@@ -250,7 +204,6 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
                             traceOfThetaTotal.push(conv)
                             zeroBools[conv.toString()] = true;
                         }
-
                     }
                     thetaValues.push(conv)
                 })
@@ -295,10 +248,6 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
                 })
 
             }
-
-
-            //console.log("FRAMES:", frames)
-            //console.log("SliderSteps:", sliderSteps)
 
 
             listOfConversations.forEach(() => initialR.push(0))
@@ -372,56 +321,6 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
                 },
             })
 
-
-
-
-/*
-            // add traces with low opacity for all months to create faded out way of marker
-            let traceOfRSent = []
-            let traceOfThetaSent = []
-            let traceOfRReceived = []
-            let traceOfThetaReceived = []
-            frames.forEach((frame) => {
-
-                for (let i = 0; i < frame.data[0].r.length; i++) {
-
-                    // dont push if r value is 0
-                    if (frame.data[0].r[i] > 0) {
-                        traceOfRSent.push(frame.data[0].r[i])
-                        traceOfThetaSent.push(frame.data[0].theta[i])
-                    }
-                }
-
-                for (let i = 0; i < frame.data[1].r.length; i++) {
-
-                    // dont push if r value is 0
-                    if (frame.data[1].r[i] > 0) {
-                        traceOfRReceived.push(frame.data[1].r[i])
-                        traceOfThetaReceived.push(frame.data[1].theta[i])
-                    }
-                }
-
-            })
-            */
-
-            /*
-            traces.push(
-                {
-                    name: "traces of Sent",
-                    type: "scatterpolar",
-                    mode: "markers",
-                    r: traceOfRSent,
-                    theta: traceOfThetaSent,
-                    marker: {
-                        color: 'white',
-                        size: 10,
-                        opacity: 0.1
-                    },
-                }
-            )
-
-             */
-
             traces.push(
                 {
                     name: "traces of " + legendOthers,
@@ -435,13 +334,9 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
                         opacity: 0.1
                     },
                     showlegend: false
-                    //visible: "legendonly"
                 }
             )
 
-
-
-            //layout.polar.radialaxis.range = [max, 0]
             layout.polar.radialaxis.range = [zScoreLimit + zScoreLimit * 0.5, -zScoreLimit]
 
 
@@ -456,17 +351,12 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
                 steps: sliderSteps
             }]
 
-            //console.log("initial traces: ", traces)
-
-
             plotContainer.html("");
             Plotly.newPlot(plotId, {data: traces, layout: layout, frames: frames},).then(() => {
                 startAnimation(null, 'afterall')
             });
 
-
         })
-
 
 }
 

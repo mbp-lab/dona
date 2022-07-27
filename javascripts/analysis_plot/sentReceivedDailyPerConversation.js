@@ -1,6 +1,3 @@
-var sortGraphDataPoints = require('./utils/sortGraphDataPointsTimeWise');
-const formInputDataForMessagesPlot = require("./utils/formInputDataForMessagesPlot");
-const sortGraphDataPointsSync = require("./utils/sortGraphDataPointsSync");
 const formInputDataForWordsPlotSync = require("./utils/formInputDataForWordsPlotSync");
 
 
@@ -36,7 +33,7 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
 
     let getXDayMeanData = (y, days) => {
         let sum, mean;
-        resultArray = []
+        let resultArray = []
 
         for (let i = 0; i < y.length; i++) {
             if (i + days <= y.length) {

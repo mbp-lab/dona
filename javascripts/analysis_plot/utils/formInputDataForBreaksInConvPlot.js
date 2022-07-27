@@ -152,7 +152,7 @@ function formInputDataForBreaksInConvPlot(sentReceivedWords) {
         x: x,
         y: y
     }
-};
+}
 
 
 module.exports = formInputDataForBreaksInConvPlot;

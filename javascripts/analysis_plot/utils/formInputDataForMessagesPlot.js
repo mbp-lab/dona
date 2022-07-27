@@ -19,10 +19,6 @@ function formInputDataForMessagesPlot(sortedGraphDataPoints, hasDate) {
         });
     } else {
         x = sortedGraphDataPoints.map(point => {
-            let dateObj = new Date(point.epochSeconds * 1000)
-            //return point.date + "-" + point.month + "-" + point.year;
-            let year = dateObj.getFullYear()
-            let month = dateObj.getMonth() + 1
             return point.month + "-" + point.year;
         });
     }
@@ -36,7 +32,7 @@ function formInputDataForMessagesPlot(sortedGraphDataPoints, hasDate) {
        }
        resolve(plotInputData);
     });
-};
+}
 
 
 module.exports = formInputDataForMessagesPlot;

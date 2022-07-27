@@ -1,11 +1,8 @@
-function sortGraphDataPointsSync(graphDataPoints, hasDate, hasHourAndMinute) {
-
+function sortGraphDataPointsSync(graphDataPoints) {
         return graphDataPoints.sort(function (current, next) {
             return current.epochSeconds - next.epochSeconds
-            //return new Date(current.epochSeconds * 1000) - new Date(next.epochSeconds * 1000)
         });
-
-};
+}
 
 
 module.exports = sortGraphDataPointsSync;

@@ -1,7 +1,5 @@
-var sortGraphDataPoints = require('./utils/sortGraphDataPointsTimeWise');
-const formInputDataForPolarPlot = require("./utils/formInputDataForPolarPlot");
+const sortGraphDataPoints = require('./utils/sortGraphDataPointsTimeWise');
 const _ = require("lodash");
-const sortGraphDataPointsSync = require("./utils/sortGraphDataPointsSync");
 
 function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversations, plotId) {
 
@@ -67,7 +65,6 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
 
 
     let startAnimation = (groupOrFrames, mode) => {
-
         Plotly.animate(plotId, groupOrFrames, {
             transition: {
                 duration: 300,
@@ -79,7 +76,6 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
             },
             mode: mode
         });
-
     }
 
 
@@ -107,10 +103,7 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
         })
         .then(groupedData => {
 
-
             for (const [key, value] of Object.entries(groupedData)) {
-
-
 
                 value.forEach((sentReceivedObj) => {
                     sentCount += sentReceivedObj.sentCount
@@ -118,8 +111,6 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
                 })
 
                 name = key
-
-
 
                 frames.push({
                     name: name,
@@ -132,7 +123,6 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
                                 //color: "#60BDFF"
                             },
                         },
-
                         {
                             name: received,
                             x: [receivedCount],
@@ -141,8 +131,6 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
                                 //color: "#FF8800",
                             },
                         }
-
-
                     ],
                 })
 
@@ -165,7 +153,6 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
                 maxForRange = receivedCount
             }
 
-
             layout["xaxis"] = {
                 range: [0, maxForRange],
                 color: "black",
@@ -185,7 +172,6 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
                 steps: sliderSteps
             }]
 
-
             plotContainer.html("");
             Plotly.newPlot(plotId, [
                 {
@@ -195,7 +181,6 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
                     type: "bar",
                     orientation: 'h',
                 },
-
                 {
                     name: received,
                     x: [0],
@@ -203,8 +188,6 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
                     type: "bar",
                     orientation: 'h',
                 }
-
-
             ], layout, {responsive: true}).then(() => {
                 Plotly.addFrames(plotId, frames)
 
@@ -212,8 +195,6 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
             });
 
         })
-
-
 
 }
 

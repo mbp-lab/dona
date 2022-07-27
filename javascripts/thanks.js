@@ -1,13 +1,13 @@
-var sentReceived = require('./analysis_plot/sentReceived');
-var sentReceivedDailyPerConversation = require('./analysis_plot/sentReceivedDailyPerConversation')
-var dailyActivityTimes = require('./analysis_plot/dailyActivityTimes')
-var animatedPolarPlot = require('./analysis_plot/animatedPolarPlot')
-var animatedHorizontalBarChart = require('./analysis_plot/animatedHorizontalBarChart')
-var animatedHorizontalBarChartOverall = require('./analysis_plot/animatedHorizontalBarChartOverall')
+const sentReceived = require('./analysis_plot/sentReceived');
+const sentReceivedDailyPerConversation = require('./analysis_plot/sentReceivedDailyPerConversation')
+const dailyActivityTimes = require('./analysis_plot/dailyActivityTimes')
+const animatedPolarPlot = require('./analysis_plot/animatedPolarPlot')
+const animatedHorizontalBarChart = require('./analysis_plot/animatedHorizontalBarChart')
+const animatedHorizontalBarChartOverall = require('./analysis_plot/animatedHorizontalBarChartOverall')
 const animatedDayPartsActivityPlot = require("./analysis_plot/animatedDayPartsActivityPlot");
 const dayPartsActivityOverallPlot = require("./analysis_plot/dayPartsActivityOverallPlot");
-var responseTimeBarChart = require('./analysis_plot/responseTimeBarChart');
-let animatedResponseTimeBarChart = require('./analysis_plot/animatedResponseTimeBarChart')
+const responseTimeBarChart = require('./analysis_plot/responseTimeBarChart');
+const animatedResponseTimeBarChart = require('./analysis_plot/animatedResponseTimeBarChart')
 const breaksInConvPlot = require("./analysis_plot/breaksInConvPlot");
 const createListOfConversations = require("./analysis_plot/utils/createListOfConversations");
 
@@ -65,7 +65,7 @@ $(document).ready(function () {
 
 
         // when modal is opened the first time, render plots...
-        // if this is done before the modal is opened, the width of the plots isnt correct
+        // if this is done before the modal is opened, the width of the plots is not correct
 
         const sentReceivedModal = $(`#${dataSourceType}sentReceivedModal`)
         const dailyActivityModal = $(`#${dataSourceType}dailyActivityModal`)

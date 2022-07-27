@@ -1,4 +1,5 @@
 const formInputDataForDailyActivityPlot = require("./utils/formInputDataForDailyActivityPlot");
+const zScoreCalc = require("./utils/zScoreCalcDailyActivity");
 
 
 function dailyActivityTimes(dataSent, dataReceived, listOfConversations, plotId) {
@@ -17,7 +18,7 @@ function dailyActivityTimes(dataSent, dataReceived, listOfConversations, plotId)
     let layout = {
         hovermode: "closest",
         autosize: true,
-        height: 700,
+        height: 550,
         legend: {
             x: 1.01,
             y: 1.16,
@@ -43,34 +44,6 @@ function dailyActivityTimes(dataSent, dataReceived, listOfConversations, plotId)
 
 
     let zScoreLimit = 1.39
-
-    // TODO: put this in math helper .js file
-    let transformToZScores = (wordCounts) => {
-        let result = []
-
-        const n = wordCounts.length
-        if (wordCounts.length > 0) {
-            const mean = wordCounts.reduce((a, b) => a + b) / n
-            const stdDeviation = Math.sqrt(wordCounts.map(x => Math.pow(x - mean, 2)).reduce((a, b) => a + b) / n)
-
-            let zScore
-            for (let i = 0; i < wordCounts.length; i++) {
-                zScore = (wordCounts[i] - mean) / stdDeviation
-                // colorscale needs a specific range -> zScores bigger than 4 and -4 will be set to 4 or -4 accordingly
-                if (zScore > zScoreLimit) {
-                    zScore = zScoreLimit;
-                } else if (zScore < -zScoreLimit) {
-                    zScore = -zScoreLimit
-                }
-                result.push(zScore)
-            }
-        }
-
-
-
-        return result;
-    }
-
 
     let makeTraces = () => {
 
@@ -125,10 +98,6 @@ function dailyActivityTimes(dataSent, dataReceived, listOfConversations, plotId)
             let dataToShowSent = allDataOptionsSent[i]
             //let dataToShowReceived = allDataOptionsReceived[i]
 
-            // sort
-            //let sortedDataSent = sortGraphDataPointsSync(dataToShowSent)
-            //let sortedDataReceived = sortGraphDataPointsSync(dataToShowReceived)
-
             // get correct format
             let plotInputDataSent = formInputDataForDailyActivityPlot(dataToShowSent)
             //let plotInputDataReceived = formInputDataForDailyActivityPlot(sortedDataReceived)
@@ -144,7 +113,7 @@ function dailyActivityTimes(dataSent, dataReceived, listOfConversations, plotId)
                     autocolorscale: false,
                     cmin: -zScoreLimit,
                     cmax: zScoreLimit,
-                    color: transformToZScores(plotInputDataSent.wordCount),
+                    color: zScoreCalc(plotInputDataSent.wordCount, zScoreLimit),
                     colorscale: [ // colorscale need to be those ten values.. then they get stretched to cmin, cmax
                         ['0.0', '#f7fbff'],
                         ['0.111111111111', '#deebf7'],
@@ -218,9 +187,6 @@ function dailyActivityTimes(dataSent, dataReceived, listOfConversations, plotId)
     }
 
     let resultTraces = makeTraces();
-
-
-    layout.height = 550
 
     plotContainer.html("");
     Plotly.newPlot(plotId, resultTraces, layout, {responsive: true});

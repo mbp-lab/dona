@@ -96,6 +96,6 @@ function clearPreviousRenderedMappings() {
         $("#display-userIDMapping .mapping-item").remove();
         resolve();
     });
-};
+}
 
 module.exports = showUserIdMapping;

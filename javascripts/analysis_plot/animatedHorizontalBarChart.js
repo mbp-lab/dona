@@ -1,7 +1,5 @@
-var sortGraphDataPoints = require('./utils/sortGraphDataPointsTimeWise');
-const formInputDataForPolarPlot = require("./utils/formInputDataForPolarPlot");
+const sortGraphDataPoints = require('./utils/sortGraphDataPointsTimeWise');
 const _ = require("lodash");
-const sortGraphDataPointsSync = require("./utils/sortGraphDataPointsSync");
 
 function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversations, plotId) {
 
@@ -62,9 +60,7 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
         ]
     }
 
-
     let startAnimation = (groupOrFrames, mode) => {
-
         Plotly.animate(plotId, groupOrFrames, {
             transition: {
                 duration: 300,
@@ -76,9 +72,7 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
             },
             mode: mode
         });
-
     }
-
 
     let frames = []
     let sliderSteps = []
@@ -115,10 +109,7 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
             })
         })
         .then(groupedData => {
-
-
             for (const [key, value] of Object.entries(groupedData)) {
-
 
                 value.forEach((sentReceivedObj) => {
                     conversationSentObj[sentReceivedObj.conversation] = conversationSentObj[sentReceivedObj.conversation] + sentReceivedObj.sentCount

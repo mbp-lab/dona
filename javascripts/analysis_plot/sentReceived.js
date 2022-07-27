@@ -1,5 +1,5 @@
-var sortGraphDataPoints = require('./utils/sortGraphDataPointsTimeWise');
-var formInputDataForMessagesPlot = require('./utils/formInputDataForMessagesPlot');
+const sortGraphDataPoints = require('./utils/sortGraphDataPointsTimeWise');
+const formInputDataForMessagesPlot = require('./utils/formInputDataForMessagesPlot');
 
 function sentReceived(data, plotId) {
 

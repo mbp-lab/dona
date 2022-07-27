@@ -1,4 +1,3 @@
-const sortGraphDataPointsSync = require("./utils/sortGraphDataPointsSync");
 const _ = require("lodash");
 
 

@@ -50,7 +50,7 @@ function formInputDataForDailyActivityPlot(sortedGraphDataPoints) {
         wordCount: wordCount
     }
 
-};
+}
 
 
 module.exports = formInputDataForDailyActivityPlot;

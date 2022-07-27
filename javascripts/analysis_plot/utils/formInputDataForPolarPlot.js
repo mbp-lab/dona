@@ -198,7 +198,7 @@ function formInputDataForPolarPlot(sortedGraphDataPoints, allFriends, yearToExcl
         }
         resolve(plotInputData);
     });
-};
+}
 
 
 module.exports = formInputDataForPolarPlot;

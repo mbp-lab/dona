@@ -14,9 +14,9 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
 
   private case class TimeFrame(year: Int, month: Month)
 
-  private case class FriendTimeFrame(friend: Option[String], year: Int, month: Month)
+  //private case class FriendTimeFrame(friend: Option[String], year: Int, month: Month)
 
-  private case class FromToTimeFrame(from: String, to: String, year: Int, month: Int)
+  //private case class FromToTimeFrame(from: String, to: String, year: Int, month: Int)
 
   private case class TimeFrameWithDays(year: Int, month: Month, date: Int)
 
@@ -108,7 +108,7 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
    *
    * @param donorId       : donors ID
    * @param conversations : all conversations
-   * @return List of SentReivedPoints -> i.e. per year-month the amount of sent and received messages
+   * @return List of SentReceivedPoints -> i.e. per year-month the amount of sent and received messages
    */
   private def produceSentReceivedMessagedMonthly(
                                                   donorId: String,
@@ -168,6 +168,7 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
   }
 
 
+  /*
   /**
    * produces a list of FromToListYearMonthSentCount objects
    * One object per sender and per month contains the information:
@@ -213,7 +214,10 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
       .reverse
   }
 
+   */
 
+
+  /*
   /**
    * @param donorId       is the donor's id
    * @param conversations are the conversations
@@ -260,6 +264,9 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
       .reverse
   }
 
+   */
+
+  /*
   /**
    * counts total received and sent messages per day
    *
@@ -294,6 +301,8 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
       .sorted
       .reverse
   }
+
+   */
 
   /**
    * counts total received and sent WORDS per day
@@ -365,6 +374,7 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
 
   }
 
+  /*
   /**
    *
    * @param donorId      is the donor's id
@@ -403,6 +413,9 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
 
   }
 
+   */
+
+  /*
   /**
    *
    * @param donorId      is the donor's id
@@ -440,6 +453,8 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
       }
 
   }
+
+   */
 
   /**
    *

@@ -1,4 +1,3 @@
-const sortGraphDataPointsSync = require("./utils/sortGraphDataPointsSync");
 const _ = require("lodash");
 
 
@@ -13,13 +12,9 @@ function animatedResponseTimeBarChart(responseTimes, plotId) {
     const SEVENTH = "> 60 min"
 
     const ONEMINUTEINMS = 60000;
-    const TWOINMS = 2 * ONEMINUTEINMS;
     const THREEINMS = 3 * ONEMINUTEINMS;
-    const FIVEINMS = 5 * ONEMINUTEINMS;
     const SIXINMS = 6 * ONEMINUTEINMS;
-    const FIFTEENINMS = 15 * ONEMINUTEINMS;
     const SIXTEENINMS = 16 * ONEMINUTEINMS;
-    const THIRTYINMS = 30 * ONEMINUTEINMS;
     const THIRTYONEINMS = 31 * ONEMINUTEINMS;
     const SIXTYINMS = 60 * ONEMINUTEINMS;
 
@@ -119,7 +114,6 @@ function animatedResponseTimeBarChart(responseTimes, plotId) {
 
     responseTimes.map((obj) => {
         let dateObj = new Date(obj.epochMs)
-        //return point.date + "-" + point.month + "-" + point.year;
         let year = dateObj.getFullYear()
         let month = dateObj.getMonth() + 1
 
