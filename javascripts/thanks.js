@@ -24,7 +24,7 @@ $(document).ready(function () {
 
     Object.keys(allData).forEach(function (dataSourceType) {
         const graphData = allData[dataSourceType];
-        console.log(graphData)
+        //console.log(graphData)
 
         // remove friend "System" from friends of conversations
         const systemName = i18n.systemName
