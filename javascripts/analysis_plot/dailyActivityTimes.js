@@ -1,6 +1,4 @@
-var sortGraphDataPoints = require('./utils/sortGraphDataPointsTimeWise');
 const formInputDataForDailyActivityPlot = require("./utils/formInputDataForDailyActivityPlot");
-const sortGraphDataPointsSync = require("./utils/sortGraphDataPointsSync");
 
 
 function dailyActivityTimes(dataSent, dataReceived, listOfConversations, plotId) {
@@ -140,7 +138,7 @@ function dailyActivityTimes(dataSent, dataReceived, listOfConversations, plotId)
                 y: plotInputDataSent.yAxis,
                 type: 'scattergl',
                 mode: 'markers',
-                name: "traceSent",
+                name: "",
                 marker: {
                     size: 18,
                     autocolorscale: false,

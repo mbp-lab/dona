@@ -18,7 +18,7 @@ function createListOfConversations(conversationFriends, chatWith) {
         for (let j = 1; j < conversationFriends[i].length; j++) {
             if (conversationFriends[i][j] !== "donor") {
 
-                if (j > 7) {
+                if (j > 6) {
                     listOfConversations[i] += ", ..."
                     break;
                 }
