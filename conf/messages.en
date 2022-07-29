@@ -138,10 +138,9 @@ donation.errors.same-file=You can only select files that differ. Please choose y
 feedback.thanks.title=Thank you for the donation of your social media data!
 
 feedback.importantMessage.title=Important Note:
-feedback.importantMessage.disclaimer=The graphs and visualizations displayed <b>do <u>not</u> allow any direct conclusions</b> to be drawn about the quality of your social relationships. Note that only numbers of your WhatsApp chats are displayed.
-feedback.importantMessage.instructions=Operating instructions: In some graphs you can click and hold directly in the graph or possibly in the time slider below to select specific time windows for viewing. To reset the view, <b>double-click</b> into the graph. In addition, for some plots you can choose between displaying the total data and the data of individual chats in the top left.
+feedback.importantMessage.disclaimer=The graphs and visualizations displayed <b>do <u>not</u> allow any direct conclusions</b> to be drawn about the quality of your social relationships. Note that only numbers of your chats are displayed.
 
-feedback.reminder=Please do not forget to fill out the next and last questionnaire. Thanks!
+feedback.reminder=Take your time and take a close look at this page. You can take as much time as you like! Please do not forget to fill out the last questionnaire afterward. Thanks!
 
 feedback.graph.title=Insights through your %s messages
 feedback.graph.total-messages=Total messages
@@ -182,15 +181,12 @@ feedback.graph.chatWith=Chat with:
 feedback.graph.overallData=All chats
 
 # plots example title
-feedback.graph.example.title=This is an <b>Example</b>: It does not use your data.
+feedback.graph.example.title=This is an <b>example</b> created from example data.
 
 # polar plot
 feedback.graph.animatedPolarPlot.description=This visualization displays you as the bigger, yellow dot in the middle. The chats you donated are the smaller white dots around you. They are close to you if your interaction was higher and further away if it was less. Specifically, the interaction here is measured by the total amount of exchanged words in the chats. In the time-slider below you can see and select the month and year for which the data is shown. Click <a style="font-weight:bold" href="#polarPlotExplanation" data-toggle="modal" data-target="#polarPlotExplanation">HERE</a> to see an explanation with an example.
 feedback.graph.animatedPolarPlot.legend.donor=You
 feedback.graph.animatedPolarPlot.legend.others=Chat Intensity
-feedback.graph.animatedPolarPlot.closer=Closer
-feedback.graph.animatedPolarPlot.average=Your average
-feedback.graph.animatedPolarPlot.lessClose=Less close
 feedback.graph.animatedPolarPlot.example.image=images/feedback_example_polarPlot_english.svg
 feedback.graph.animatedPolarPlot.example.text=<p><b>(1)</b> Here the white solid dot is very close to the large yellow dot in the center. This means that in the month displayed below, communication in this chat was very intense compared to your average. There are only a few transparent little dots on the trajectory: this shows that the data only covers a few months.</p><p><b>(2)</b> Hardly any transparent history points can be seen here. This is because the chats intensity is very stable over the months, just below your average intensity.</p><p><b>(3)</b> In contrast to (2), many transparent points are visible here. So the intensity of this chat has changed a lot over the months. In the currently displayed month, the chat intensity is just above your average.</p>
 

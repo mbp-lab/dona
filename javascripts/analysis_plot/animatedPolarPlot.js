@@ -12,9 +12,6 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
     plotContainer.removeClass('d-none');
     const legendDonor = plotContainer.attr("data-legend-donor");
     const legendOthers = plotContainer.attr("data-legend-others");
-    const closer = plotContainer.attr("data-description-closer");
-    const average = plotContainer.attr("data-description-average");
-    const lessClose = plotContainer.attr("data-description-lessClose");
     const yearMonth = plotContainer.attr("data-description-yearMonth");
 
 
@@ -33,17 +30,9 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
             radialaxis: {
                 color: "#C3C3C3",
                 showline: false,
-                showgrid: true,
-                gridwidth: 0.1,
-                gridcolor: "#60BDFF",
-                showticklabels: true,
+                showgrid: false,
+                showticklabels: false,
                 ticks: "",
-                tickmode: "array", // If "array", placement of ticks is set via `tickvals`, tick text is `ticktext`
-                tickvals: [-2, 0, 2],
-                ticktext: [lessClose, average, closer],
-                tickfont: {
-                    size: 12,
-                },
                 fixedrange: true
             },
             angularaxis: {
