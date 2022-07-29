@@ -43,6 +43,8 @@ function extractDonorName(zipFiles, profileInfoPath) {
         .then((profileFileText) => {
             return new Promise((resolve, reject) => {
                 const profileJson = JSON.parse(profileFileText);
+                // TODO: there is an issue with username changes
+                // -> then the path for the name is not profile.name.full_name but e.g. profile_v2.name.full_name
                 if (profileJson.profile.name.full_name) resolve(profileJson.profile.name.full_name);
                 else reject(profileInfoPath);
             });
