@@ -529,11 +529,10 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
         case message1 :: message2 :: Nil if isAnswer(message1, message2) =>
           AnswerTimePoint(
             (message2.timestampMs - message1.timestampMs).toInt,
-            message1.sender.contains(donorId),
-            message1.timestampMs,
+            message2.sender.contains(donorId),
+            message2.timestampMs,
           )
       }
-
       .toList
 
   }
