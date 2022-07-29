@@ -36,8 +36,7 @@ object InMemoryDataSourceDescriptionService {
         messages("whatsapp.donation-procedure.4"),
         messages("whatsapp.donation-procedure.5"),
         messages("whatsapp.donation-procedure.6"),
-        messages("whatsapp.donation-procedure.7"),
-        messages("whatsapp.donation-procedure.8")
+        messages("whatsapp.donation-procedure.7")
       ),
       logo = Some(URI.create("https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"))
     ),

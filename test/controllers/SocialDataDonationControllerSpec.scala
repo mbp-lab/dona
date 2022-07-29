@@ -143,7 +143,7 @@ class SocialDataDonationControllerSpec extends PlaySpec with Mockito {
 
       status(result) mustBe SEE_OTHER
       redirectLocation(result) mustBe Some(
-        SurveyConfig(fakeSurveyUrl).createDonorLink(ExternalDonorId(fakeDonorId), "eng").toString
+        SurveyConfig(fakeSurveyUrl).createDonorLink(ExternalDonorId(fakeDonorId), "en").toString
       )
       session(result).get("GeneratedDonorId") mustBe Some(fakeDonorId)
     }

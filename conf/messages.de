@@ -11,20 +11,20 @@ landing.what.body2=Wenn Sie uns bei unserer Forschung unterstützen möchten, k�
 
 landing.why.title=Warum sollte ich teilnehmen?
 landing.why.col1.title=Erhalten Sie Feedback
-landing.why.col1.body=Als Dankeschön für Ihre Teilnahme erhalten Sie am Ende ein Feedback zu Ihrem Online-Interaktionsverhalten und Ihrer Sozialen Einbindung. Wir zeigen Ihnen eine graphische Darstellung Ihrer gesendeten und empfangenen Nachrichten über die vergangenen Monate sowie Ihrer Fragebogenwerte. Diese Studie dient nicht der medizinischen oder psychologischen Diagnostik.
+landing.why.col1.body=Als Dankeschön für Ihre Teilnahme erhalten Sie am Ende ein Feedback zu Ihrem Online-Interaktionsverhalten und Ihrer Sozialen Einbindung. Wir zeigen Ihnen eine graphische Darstellung Ihrer gesendeten und empfangenen Nachrichten über die vergangenen Monate. Diese Studie dient nicht der medizinischen oder psychologischen Diagnostik.
 
 landing.why.col2.title=Unterstützen Sie die Forschung
-landing.why.col2.body_html=In der Studie</a> möchten wir die soziale Einbindung der Teilnehmer anhand ihrer Online-Interaktionsdaten messen. Langfristig sollen die Studienergebnisse dazu beitragen, die Auswirkungen von sozialen Interaktionen auf die mentale Gesundheit besser zu verstehen.
+landing.why.col2.body_html=In der Studie möchten wir die soziale Einbindung der Teilnehmer anhand ihrer Online-Interaktionsdaten messen. Langfristig sollen die Studienergebnisse dazu beitragen, die Auswirkungen von sozialen Interaktionen auf die mentale Gesundheit besser zu verstehen.
 
 landing.why.col3.title=Sie bleiben anonym
-landing.why.col3.body_html=Bei der Datenspende ihrer Social-Media-Daten erfassen wir ausschließlich <a href="/learn-more">anonyme Metadaten</a> (Nachrichtenlänge, Nachrichtenzeitpunkt und Pseudonyme der Unterhaltungsteilnehmer) und <strong>keine Inhalte</strong> (Nachrichtentext oder Name der Unterhaltungsteilnehmer).  
+landing.why.col3.body_html=Bei der Datenspende ihrer Social-Media-Daten erfassen wir ausschließlich <strong><a href="/learn-more">anonyme Metadaten</a></strong> (Nachrichtenlänge, Nachrichtenzeitpunkt und Pseudonyme der Unterhaltungsteilnehmer) und <strong>keine Inhalte</strong> (Nachrichtentext oder Name der Unterhaltungsteilnehmer).
 
 landing.contact.body_html=Auf dieser Webseite erläutern wir Ihnen den Hintergrund und Ablauf der Online-Studie damit Sie entscheiden können, ob Sie teilnehmen möchten. Sollten Sie noch Fragen haben, so wenden Sie sich bitte an die Versuchsleiterin (Hanna Drimalla, AG Multimodal Behavior Processing, Technische Fakultät, Universität Bielefeld, <a href="mailto:drimalla@techfak.uni-bielefeld.de">drimalla@techfak.uni-bielefeld.de</a>, Tel. +49 521 106-12043).
 
 # Learn More page
 
 learn-more.how-to-participate.title=Wie kann ich teilnehmen?
-learn-more.how-to-participate.body=Die Studie findet komplett online und anonym statt.  Die Studie beinhaltet die Datenspende Ihrer anonymisierten Online-Nachrichten sowie das Ausfüllen einiger Online-Fragebögen. Nachdem Sie Ihre Online-Interaktionsdaten heruntergeladen haben, dauert die Studie lediglich eine halbe Stunde.
+learn-more.how-to-participate.body=Die Studie findet komplett online und anonym statt. Die Studie beinhaltet die Datenspende Ihrer anonymisierten Online-Nachrichten sowie das Ausfüllen einiger Online-Fragebögen. Nachdem Sie Ihre Online-Interaktionsdaten heruntergeladen haben, dauert die Studie lediglich eine halbe Stunde.
 
 learn-more.how-to-cancel.title=Und wenn ich abbrechen möchte?
 learn-more.how-to-cancel.body=Die Teilnahme an der Online-Studie ist freiwillig. Sie können jederzeit und ohne Angabe von Gründen Ihre Einwilligung zur Teilnahme an dieser Studie widerrufen, ohne dass Ihnen daraus Nachteile entstehen. Bis zum Ende der Datenerhebung können Sie zudem Ihre Einwilligung zur Speicherung der Daten widerrufen, ohne dass Ihnen daraus Nachteile entstehen.
@@ -33,11 +33,11 @@ learn-more.data-storage.title=Welche Daten werden gespeichert?
 
 # data storage text body is reused, see below
 
-learn-more.storage.body1_html=<strong><em>Datenspende: </strong></em>Bei der Datenspende ihrer Social-Media-Daten erfassen wir ausschließlich <strong>Metadaten</strong> (Nachrichtenlänge und Nachrichtenzeitpunkt und Pseudonyme der Unterhaltungsteilnehmer) und <strong>keine Inhalte</strong> (Nachrichtentext oder Name der Unterhaltungsteilnehmer).  Ihre Online-Interaktions-Daten werden bereits auf Ihrem Rechner anonymisiert. Wir sehen also niemals Ihre Nachrichten. Bevor wir Ihre anonymisierten Nachrichten speichern, können Sie diese begutachten. So können Sie sich davon überzeugen, dass diese ausreichend anonymisiert sind.
-learn-more.storage.body2_html=<strong><em>Fragebögen: </strong></em>Vor der Datenspende füllen Sie einen Fragebogen aus, der demographische Informationen erfasst. Danach erhalten Sie zusätzlich zwei weitere Fragebögen mit Fragen zu Ihrer Gefühlswelt und zu Ihren sozialen Kontakten. Anschließend erhalten Sie noch einen Fragebogen zu konstanten Merkmalen Ihrer Persönlichkeit sowie einen weiteren Fragebogen zur Erfassung Ihrer psychischen Widerstandsfähigkeit. Diese Erhebung findet ebenfalls komplett anonym auf der Plattform <a href="https://www.soscisurvey.de/de/data-protection">SoSci Survey</a> statt.
+learn-more.storage.body1_html=<strong><em>Datenspende: </strong></em>Bei der Datenspende ihrer Social-Media-Daten erfassen wir ausschließlich <strong>Metadaten</strong> (Nachrichtenlänge, Nachrichtenzeitpunkt und Pseudonyme der Unterhaltungsteilnehmer) und <strong>keine Inhalte</strong> (Nachrichtentext oder Name der Unterhaltungsteilnehmer). Ihre Online-Interaktions-Daten werden bereits auf Ihrem Rechner anonymisiert. Wir sehen also niemals Ihre Nachrichten. Bevor wir Ihre anonymisierten Nachrichten speichern, können Sie diese begutachten. So können Sie sich davon überzeugen, dass diese ausreichend anonymisiert sind.
+learn-more.storage.body2_html=<strong><em>Fragebögen: </strong></em>Vor der Datenspende füllen Sie einen Fragebogen aus, der demographische Informationen erfasst. Danach erhalten Sie zusätzlich weitere Fragebögen mit Fragen zu Ihrer Gefühlswelt, zu Ihren sozialen Kontakten, zu den konstanten Merkmalen Ihrer Persönlichkeit, sowie zu Ihrer psychischen Widerstandsfähigkeit. Anschließend erhalten Sie Fragebögen zu den wichtigen Lebensereignissen in den letzten Jahren und zu Ihrem Messaging-Verhalten. Diese Erhebung findet ebenfalls komplett anonym auf der Plattform <a href="https://www.limesurvey.org/de/hilfe/faq/17-datenschutz-datensicherheit">LimeSurvey</a> statt.
 
 learn-more.data-handling.title=Was passiert später mit meinen Daten?
-learn-more.data-handling.body1=Da wir weder Ihren Namen oder andere personenbezogenen Daten erheben, können wir nach Abschluss der Studie Ihre Daten nicht mehr Ihrer Person zuordnen – der Datensatz ist anonym. Entsprechend können wir Ihren Datensatz jedoch auch nicht gezielt löschen.
+learn-more.data-handling.body1=Da wir weder Ihren Namen oder andere personenbezogenen Daten erheben, können wir nach Abschluss der Studie, Ihre Daten nicht mehr Ihrer Person zuordnen – der Datensatz ist anonym. Entsprechend können wir Ihren Datensatz jedoch auch nicht gezielt löschen.
 learn-more.data-handling.body2=Die Ergebnisse und Daten dieser Studie werden als wissenschaftliche Publikation veröffentlicht. Dies geschieht in anonymisierter Form, d. h. ohne dass die Daten einer spezifischen Person zugeordnet werden können. Die vollständig anonymisierten Daten dieser Studie werden online in einem Forschungsdaten-Repositorium gespeichert und qualifizierten Wissenschaftlern auf Antrag zugänglich gemacht.
 
 learn-more.image.caption=Abbildung 3. Beispiel der Anonymisierung einer Nachricht
@@ -45,7 +45,7 @@ learn-more.image.caption=Abbildung 3. Beispiel der Anonymisierung einer Nachrich
 # Instructions page
 
 instructions.about.title=Wie erhalte ich meine Daten?
-instructions.about.body_html=Bevor Sie an der Studie teilnehmen, fordern Sie bitte Ihre Daten direkt von Facebook und/oder Whatsapp an. Bitte beachten Sie, dass Sie die Daten auf einem Gerät speichern, auf das niemand außer Ihnen Zugriff hat. Außerdem empfehlen wir Ihnen ausdrücklich die Original-Daten nach dem Abschluss der Spende zu löschen.
+instructions.about.body_html=Bevor Sie an der Studie teilnehmen, fordern Sie bitte Ihre Daten direkt von Facebook und/oder WhatsApp an. Bitte beachten Sie, dass Sie die Daten auf einem Gerät speichern, auf das niemand außer Ihnen Zugriff hat. Außerdem empfehlen wir Ihnen ausdrücklich die Original-Daten nach dem Abschluss der Spende zu löschen.
 instructions.datasource.title_format = Anleitung zum Erhalten von %sdaten
 instructions.download-procedure.title=Übersicht über den Download & Datenspende Prozess:
 instructions.multiple-donation-info.body=Sie können Daten von beiden Plattformen spenden. Falls Sie nur von einer Plattform spenden möchten, wählen Sie bitte die Plattform, die für Sie wichtiger ist.
@@ -53,8 +53,8 @@ instructions.multiple-donation-info.body=Sie können Daten von beiden Plattforme
 # Donation info page
 
 donation-info.title=Wie spende ich meine Daten?
-donation-info.data-request=<strong>Datenanfrage: </strong>Sie fordern Ihre Online-Nachrichten-Daten vom Online-Netzwerk (z.B. Facebook) an und laden diese auf Ihren Rechner. 
-donation-info.anonymisation=<strong> Anonymisierung: </strong>Wir entfernen den Inhalt aus diesen Daten und reduzieren die Daten auf sogenannte Meta-Informationen (z.B. Länge und Zeitpunkt der Nachrichten). Ihr Name sowie die Namen aller Ihrer Kontakte werden durch zufällige Pseudonyme (z.B. „Tim“ &rarr;„anonymous13“) ersetzt. Sie können den Inhalt der anonymisierten Datei vor dem Upload begutachten. 
+donation-info.data-request=<strong>Datenanfrage: </strong>Sie fordern Ihre Online-Nachrichten-Daten vom Online-Netzwerk (z.B. Facebook) an und laden diese auf Ihren Rechner.
+donation-info.anonymisation=<strong> Anonymisierung: </strong>Wir entfernen den Inhalt aus diesen Daten und reduzieren die Daten auf sogenannte Meta-Informationen (z.B. Länge und Zeitpunkt der Nachrichten). Ihr Name sowie die Namen aller Ihrer Kontakte werden durch zufällige Pseudonyme (z.B. „Tim“ &rarr;„anonymous13“) ersetzt. Sie können den Inhalt der anonymisierten Datei vor dem Upload begutachten.
 donation-info.storage=<strong> Speicherung: </strong>Nur diese anonymisierten und reduzierten Daten werden hochgeladen und von uns auf einem sicheren Server gespeichert.
 
 # Consent pop-up
@@ -63,7 +63,10 @@ consent.title=Einwilligungserklärung
 
 consent.about.title=Information zur Studie
 consent.about.body1=Ziel der Studie ist es, die soziale Einbindung von Menschen anhand ihrer Social Media Nachrichten zu erfassen. Die Studie findet komplett online und anonym statt. Die Studie beinhaltet die Datenspende Ihrer anonymisierten Online-Nachrichten sowie das Ausfüllen einiger Online-Fragebögen. Nachdem Sie Ihre Online-Interaktionsdaten heruntergeladen haben, dauert die Studie lediglich eine halbe Stunde.
-consent.about.body2_html=Mit Ihrer Einwilligung bestätigten Sie, dass Sie die vorherige Informationswebseite zum Zweck, Ablauf und Umfang der Online-Studie gelesen und verstanden haben. 
+consent.about.body2_html=Mit Ihrer Einwilligung bestätigen Sie, dass Sie die vorherige Informationswebseite zum Zweck, Ablauf und Umfang der Online-Studie gelesen und verstanden haben.
+
+consent.benefit.title=Nutzen und Risiken
+consent.benefit.body=Mit Ihrer Teilnahme helfen Sie dabei, neue Erkenntnisse über das soziales Interaktionsverhalten der Menschen zu identifizieren und charakterisieren. Sie erhalten zudem einen Einblick in Ihr eigenes Messaging-Verhalten. Außerdem können Sie am Ende der Studie an der Verlosung eines 50€ Gutscheins (Gewinnwahrscheinlichkeit: 1/100) teilnehmen. Wir erheben nur anonymisierte Daten. Vor der Datenspende müssen Sie die Messaging-Daten auf ihr Gerät herunterladen. Da es sich um sensible Daten handelt, empfehlen wir Ihnen ausdrücklich, die Original-Daten nach dem Abschluss der Spende von Ihrem Gerät zu löschen. Um Ihre Privatsphäre zu sichern, führen Sie die Studie in ungestörter Umgebung und allein durch.
 
 consent.data-storage.title=Erhobene Daten
 
@@ -74,7 +77,7 @@ consent.voluntary.body=Die Teilnahme an der Studie ist freiwillig. Sie können j
 
 consent.data-protection.title=Datenschutz
 consent.data-protection.body=Da wir weder Ihren Namen oder andere personenbezogenen Daten erheben, können wir nach Abschluss der Studie, Ihre Daten nicht mehr Ihrer Person zuordnen – der Datensatz ist anonym. Entsprechend können wir Ihren Datensatz jedoch auch nicht gezielt löschen. Aufgrund der von vornherein vollständig anonymisierter Verarbeitung findet außerdem die Datenschutzgrundverordnung keine Anwendung. Bei Fragen zum Datenschutz können Sie sich an den behördlichen Datenschutzbeauftragten der Universität wenden:
-consent.data-protection.address_html=Anja Schmid<br /> Datenschutzbeauftragte <br /> Universität Bielefeld <br /> Büro: U8-105  <br />Telefon +49 521 106-5225 <br /><a href="mailto:anja.schmid@uni-bielefeld.de">anja.schmid@uni-bielefeld.de</a><br /><a href="mailto:datenschutzbeauftragte@uni-bielefeld.de">datenschutzbeauftragte@uni-bielefeld.de</a>
+consent.data-protection.address_html=Behördliche Datenschutzbeauftragte <br /> Universität Bielefeld <br /> Büro: UHG T6-234  <br />Telefon +49 521 106-5225 <br /><a href="mailto:datenschutzbeauftragte@uni-bielefeld.de">datenschutzbeauftragte@uni-bielefeld.de</a>
 
 consent.data-purpose.title=Verwendung der anonymisierten Daten
 consent.data-purpose.body=Die Ergebnisse und Daten dieser Studie werden als wissenschaftliche Publikation veröffentlicht. Dies geschieht in anonymisierter Form, d. h. ohne dass die Daten einer spezifischen Person zugeordnet werden können. Die vollständig anonymisierten Daten dieser Studie werden online in einem Forschungsdaten-Repositorium gespeichert und qualifizierten Wissenschaftlern auf Antrag zugänglich gemacht.
@@ -296,12 +299,12 @@ data-protection.technical-details.title=Datenschutzhinweise – Anonyme Nutzung 
 data-protection.technical-details.body1=Bei Aufruf und Nutzung der Website werden keine personenbezogenen Daten von Ihnen erhoben oder gespeichert.. Wenn Sie unsere Website aufrufen, teilt Ihr Webbrowser unserem Webserver Ihre IP-Adresse mit, um eine Kommunikation zu ermöglichen. Die IP-Adresse wird von uns dabei nur gekürzt gespeichert, um eine Identifikation Ihrer Person bei Aufruf der Website vollständig ausschließen zu können
 data-protection.technical-details.body2=Bei jedem Zugriff auf die Website werden die folgenden technischen Daten übertragen: Name der abgerufenen Datei; Datum und Uhrzeit des Abrufs; Übertragene Datenmenge; Benachrichtigung, ob der Abruf erfolgreich war; die Webadresse, von der aus auf die Datei zugegriffen wurde (Referrer URL); Informationen über das Betriebssystem und den Browser (User-Agent-String); IP-Adresse (wird nur gekürzt gespeichert)
 data-protection.technical-details.body3=Die Daten werden nach Beendigung Ihrer Sitzung automatisch gelöscht und nicht von uns gespeichert (z.B. in Protokolldateien).
-data-protection.technical-details.body4=Außerdem verwenden wir Cookies, um die technische Funktionalität unserer Webseite gewähren zu können.  Cookies sind kleine Textdateien mit Informationen über die Nutzung unseres Dienstes, die auf Ihrer Festplatte/Gerätgespeichert werden, wenn Sie diese Speicherung über die Einstellung Ihres Browsers erlauben.  Cookies können keine Programme ausführen oder Viren aufIhren Computer übertragen.  Die von uns eingesetzten Cookies sind sog. Session Cookies, die nur für die Dauer des Websitebesuchs gespeichert werden, nicht darüber hinaus. Anhand dieser Cookies ist keine Identifikation Ihrer Person möglich.
+data-protection.technical-details.body4=Außerdem verwenden wir Cookies, um die technische Funktionalität unserer Webseite gewähren zu können. Cookies sind kleine Textdateien mit Informationen über die Nutzung unseres Dienstes, die auf Ihrer Festplatte/Gerätgespeichert werden, wenn Sie diese Speicherung über die Einstellung Ihres Browsers erlauben. Cookies können keine Programme ausführen oder Viren aufIhren Computer übertragen. Die von uns eingesetzten Cookies sind sog. Session Cookies, die nur für die Dauer des Websitebesuchs gespeichert werden, nicht darüber hinaus. Anhand dieser Cookies ist keine Identifikation Ihrer Person möglich.
 
 data-protection.participation.title=Datenschutzhinweise – Teilnahme an der Studie/Datenspende
 # now get basically all the text from the consent page...
 data-protection.participation.usage.title=Verwendung der anonymisierten Daten
-data-protection.participation.usage.body=Die Ergebnisse und Daten dieser Studie werden als wissenschaftliche Publikationveröffentlicht. Dies geschieht in anonymisierter Form, d. h. ohne dass die Daten einer spezifischen Person zugeordnet werden können. Die vollständig anonymisierten Daten dieser Studie werden online in einem Forschungsdaten-Repositorium gespeichert und qualifizierten Wissenschaftlern auf Antrag zugänglich gemacht.
+data-protection.participation.usage.body=Die Ergebnisse und Daten dieser Studie werden als wissenschaftliche Publikation veröffentlicht. Dies geschieht in anonymisierter Form, d. h. ohne dass die Daten einer spezifischen Person zugeordnet werden können. Die vollständig anonymisierten Daten dieser Studie werden online in einem Forschungsdaten-Repositorium gespeichert und qualifizierten Wissenschaftlern auf Antrag zugänglich gemacht.
 
 # Text appearing on multiple pages
 
@@ -309,8 +312,8 @@ footer.title=Sind Sie bereit?
 
 browser-warning.text=Sie benutzen einen Browser, der nicht unterstützt wird. Es kann daher zu Fehlern beim Aussehen oder Funktion der Seite kommen. Bitte benutzen Sie die neueste Version von Chrome oder Firefox, um die Seite zu laden.
 
-data-storage.body1_html=<em>Datenspende: </em>Bei der Datenspende ihrer Social-Media-Daten erfassen wir ausschließlich Metadaten (e.g. Nachrichtenlänge und Nachrichtenzeitpunkt und Pseudonyme der Unterhaltungsteilnehmer) und keine Inhalte (e.g. Nachrichtentext oder Name der Unterhaltungsteilnehmer).  Ihre Online-Interaktions-Daten werden bereits auf Ihrem Rechner anonymisiert. Wir sehen also niemals Ihre Nachrichten. Bevor wir Ihre anonymisierten Nachrichten speichern, können Sie diese begutachten. So können Sie sich davon überzeugen, dass diese ausreichend anonymisiert sind.
-data-storage.body2_html=<em>Fragebögen: </em>Vor der Datenspende füllen Sie einen Fragebogen aus, der demographische Informationen erfasst. Danach erhalten Sie zusätzlich zwei weitere Fragebögen mit Fragen zu Ihrer Gefühlswelt und zu Ihren sozialen Kontakten. Anschließend erhalten Sie noch einen Fragebogen zu konstanten Merkmalen Ihrer Persönlichkeit sowie einen weiteren Fragebogen zur Erfassung Ihrer psychischen Widerstandsfähigkeit. Diese Erhebung findet ebenfalls komplett anonym auf der Plattform <a href="https://www.soscisurvey.de/de/data-protection">SoSci Survey</a> statt.
+data-storage.body1_html=<em>Datenspende: </em>Bei der Datenspende ihrer Social-Media-Daten erfassen wir ausschließlich Metadaten (e.g. Nachrichtenlänge, Nachrichtenzeitpunkt und Pseudonyme der Unterhaltungsteilnehmer) und keine Inhalte (e.g. Nachrichtentext oder Name der Unterhaltungsteilnehmer). Ihre Online-Interaktions-Daten warden bereits auf Ihrem Rechner anonymisiert. Wir sehen also niemals Ihre Nachrichten. Bevor wir Ihre anonymisierten Nachrichten speichern, können Sie diese begutachten. So können Sie sich davon überzeugen, dass diese ausreichend anonymisiert sind.
+data-storage.body2_html=<em>Fragebögen: </em>Vor der Datenspende füllen Sie einen Fragebogen aus, der demographische Informationen erfasst. Danach erhalten Sie zusätzlich weitere Fragebögen mit Fragen zu Ihrer Gefühlswelt, zu Ihren sozialen Kontakten, zu den konstanten Merkmalen Ihrer Persönlichkeit, sowie zu Ihrer psychischen Widerstandsfähigkeit. Anschließend erhalten Sie Fragebögen zu den wichtigen Lebensereignissen in den letzten Jahren und zu Ihrem Messaging-Verhalten. Diese Erhebung findet ebenfalls komplett anonym auf der Plattform <a href="https://www.limesurvey.org/de/hilfe/faq/17-datenschutz-datensicherheit">LimeSurvey</a> statt.
 
 links.learn-more=Mehr Erfahren
 links.instructions=Daten Erhalten
@@ -327,7 +330,7 @@ actions.next=Vor
 
 # Data source specific text
 
-whatsapp.description_html=Hinweis: Die Chat-Exportfunktion wird nicht von allen WhatsApp-Versionen unterstützt! <strong>Bitte nutzen Sie die WhatsApp-App auf dem iPhone, um Daten zu spenden, da Export und Speichern der Daten unter Android und mit der Web-Version nicht funktionieren.</strong> <br><br>Von Zeit zu Zeit besprechen die meisten Menschen wichtige Angelegenheiten mit anderen, und wir brauchen Menschen, auf deren Hilfe wir uns verlassen können. Das können Familienangehörige, Freunde oder Menschen sein, die Ihnen wirklich geholfen haben - was uns interessiert, sind diejenigen, mit denen Sie am ehesten über wirklich wichtige Angelegenheiten in Ihrem Leben sprechen. Bitte wählen Sie <strong>5</strong> Chats mit Menschen aus, mit denen Sie wichtige Dinge in Ihrem Leben besprechen (auch Gruppenchats sind möglich). Bitte denken Sie daran, dass die Chats nur nacheinander heruntergeladen werden können. Eine Mehrfachauswahl von Chats wird derzeit nicht unterstützt.
+whatsapp.description_html=Hinweis: Die Chat-Exportfunktion wird nicht von allen WhatsApp-Versionen unterstützt! <strong>Bitte nutzen Sie die WhatsApp-App auf dem iPhone, um Daten zu spenden, da Export und Speichern der Daten unter Android und mit der Web-Version unter Umständen nicht funktionieren. Bitte überprüfen Sie, ob die Funktion in Ihrer App verfügbar ist.</strong> <br><br>Von Zeit zu Zeit besprechen die meisten Menschen wichtige Angelegenheiten mit anderen, und wir brauchen Menschen, auf deren Hilfe wir uns verlassen können. Das können Familienangehörige, Freunde oder Menschen sein, die Ihnen wirklich geholfen haben - was uns interessiert, sind diejenigen, mit denen Sie am ehesten über wirklich wichtige Angelegenheiten in Ihrem Leben sprechen. <br><br>Bitte wählen Sie <strong>5</strong> Chats mit Menschen aus, mit denen Sie wichtige Dinge in Ihrem Leben besprechen (auch Gruppenchats sind möglich). Bitte denken Sie daran, dass die Chats nur nacheinander heruntergeladen werden können. Eine Mehrfachauswahl von Chats wird derzeit nicht unterstützt.
 whatsapp.external-documentation_html=Die offizielle Dokumentation zum Herunterladen Ihrer Daten können Sie für <a href="https://faq.whatsapp.com/de/iphone/20888066#email" target="_blank">iOS</a> und <a href="https://faq.whatsapp.com/de/android/23756533" target="_blank">Android</a> hier finden.
 
 #Download and Donation procedure: whatsapp
@@ -341,7 +344,7 @@ whatsapp.donation-procedure.7=Wiederholen Sie die Schritte 3-7 für alle fünf C
 whatsapp.instruction.gif = whatsapp_ger.mp4
 
 
-facebook.description_html=<strong>Bitte fordern Sie Ihre Nachrichtendaten von Facebook an. Sie erhalten eine Benachrichtigung von Facebook, sobald die Daten zum Download bereitstehen, und können dann mit der Teilnahme an der Studie beginnen. <strong>Wir empfehlen, einen Computer zu verwenden, wenn Sie von Facebook spenden, da die Datenmenge relativ groß sein kann.</strong>
+facebook.description_html=Bitte fordern Sie Ihre Nachrichtendaten von Facebook an. Sie erhalten eine Benachrichtigung von Facebook, sobald die Daten zum Download bereitstehen, und können dann mit der Teilnahme an der Studie beginnen. <strong>Wir empfehlen, einen Computer zu verwenden, wenn Sie von Facebook spenden, da die Datenmenge relativ groß sein kann.</strong>
 facebook.external-documentation_html=Die offizielle Dokumentation zum Herunterladen Ihrer Daten können Sie <a href="https://www.facebook.com/help/contact/2032834846972583" target="_blank">hier</a> finden.
 
 #Download and Donation procedure: Facebook
