@@ -44,6 +44,23 @@ function responseTimeBarChart(responseTimes, plotId) {
     const legendDonor = plotContainer.attr("data-legend-donor");
     const legendFriends = plotContainer.attr("data-legend-friends");
 
+    let config = {
+        responsive: true,
+        modeBarButtonsToRemove: [
+            "zoomIn2d",
+            "zoomOut2d",
+            "pan2d",
+            "zoom2d",
+            "select2d",
+            "lasso2d",
+            "hoverClosestCartesian",
+            "hoverCompareCartesian",
+            "toggleSpikelines",
+            "autoScale2d",
+            "resetScale2d"
+        ],
+    }
+
     let layout = {
         height: 600,
         showlegend: true,
@@ -54,7 +71,8 @@ function responseTimeBarChart(responseTimes, plotId) {
         },
         hovermode: 'x',
         xaxis:{
-            title: xAxis
+            title: xAxis,
+            fixedrange: true
         }
     }
 
@@ -119,7 +137,8 @@ function responseTimeBarChart(responseTimes, plotId) {
         color: "black",
         tickformat: "p",
         hoverformat: ".2%",
-        title: yAxis
+        title: yAxis,
+        fixedrange: true
     }
 
 
@@ -148,7 +167,7 @@ function responseTimeBarChart(responseTimes, plotId) {
             },
             width: _.fill(Array(x.length), 0.5)
         }
-    ], layout, {responsive: true})
+    ], layout, config)
 
 
 }

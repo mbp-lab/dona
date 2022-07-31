@@ -9,6 +9,17 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
     const sent = plotContainer.attr("data-sent-trace-name");
     const yearMonth = plotContainer.attr("data-description-yearMonth");
 
+    let config = {
+        responsive: true,
+        modeBarButtonsToRemove: [
+            "zoom2d",
+            "select2d",
+            "lasso2d",
+            "hoverClosestCartesian",
+            "hoverCompareCartesian"
+        ],
+    }
+
     let layout = {
         height: 600,
         showlegend: true,
@@ -20,6 +31,7 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
         yaxis: {
             automargin: true,
             color: "black",
+            fixedrange: true,
         },
         hovermode: 'closest',
         updatemenus: [
@@ -188,7 +200,8 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
                 color: "black",
                 title: {
                     text: xAxis
-                }
+                },
+                fixedrange: true,
             }
 
             layout["sliders"] = [{
@@ -230,7 +243,7 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
                 }
 
                  */
-            ], layout, {responsive: true}).then(() => {
+            ], layout, config).then(() => {
                 Plotly.addFrames(plotId, frames)
 
                 startAnimation(null, 'afterall')

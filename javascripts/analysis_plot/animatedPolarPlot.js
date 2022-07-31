@@ -14,6 +14,15 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
     const legendOthers = plotContainer.attr("data-legend-others");
     const yearMonth = plotContainer.attr("data-description-yearMonth");
 
+    let config = {
+        responsive: true,
+        modeBarButtonsToRemove: [
+            "zoom2d",
+            "select2d",
+            "lasso2d",
+            "toggleHover"
+        ],
+    }
 
     let layout = {
         height: 550,
@@ -25,6 +34,12 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
             x: 0.9,
             y: 1.2,
         },
+        xaxis: {
+            fixedrange: true
+        },
+        yaxis: {
+            fixedrange: true
+        },
         polar: {
             bgcolor: "rgba(255, 255, 255, 0)",
             radialaxis: {
@@ -33,7 +48,6 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
                 showgrid: false,
                 showticklabels: false,
                 ticks: "",
-                fixedrange: true
             },
             angularaxis: {
                 rotation: 15,
@@ -43,7 +57,6 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
                 gridcolor: "#f5f5f5",
                 gridwidth: 0.1,
                 griddash: 'dash',
-                fixedrange: true
             }
         },
         images: [
@@ -341,7 +354,7 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
             }]
 
             plotContainer.html("");
-            Plotly.newPlot(plotId, {data: traces, layout: layout, frames: frames},).then(() => {
+            Plotly.newPlot(plotId, {data: traces, layout: layout, frames: frames, config: config},).then(() => {
                 startAnimation(null, 'afterall')
             });
 

@@ -10,6 +10,16 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
     const received = plotContainer.attr("data-received-trace-name");
     const dataOverallName = plotContainer.attr("data-overall")
 
+    let config = {
+        responsive: true,
+        modeBarButtonsToRemove: [
+            "select2d",
+            "lasso2d",
+            "hoverClosestCartesian",
+            "hoverCompareCartesian",
+        ],
+    }
+
     const layout = {
         hovermode: "x",
         xaxis: {
@@ -173,7 +183,7 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
     layout.height = 700
 
     plotContainer.html("");
-    Plotly.newPlot(plotId, resultTraces, layout, {responsive: true});
+    Plotly.newPlot(plotId, resultTraces, layout, config);
 
 
 }

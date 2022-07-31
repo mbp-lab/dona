@@ -9,6 +9,18 @@ function sentReceived(data, plotId) {
     const yAxis = plotContainer.attr("data-y-axis");
     const sent = plotContainer.attr("data-sent-trace-name");
     const received = plotContainer.attr("data-received-trace-name");
+
+    let config = {
+        responsive: true,
+        modeBarButtonsToRemove: [
+            "select2d",
+            "lasso2d",
+            "hoverClosestCartesian",
+            "hoverCompareCartesian",
+        ],
+    }
+
+
     const layout = {
         autosize: true,
         legend: {
@@ -47,7 +59,7 @@ function sentReceived(data, plotId) {
 
             const data = [sentMessagesTrace, receivedMessagesTrace];
             plotContainer.html("");
-            Plotly.newPlot(plotId, data, layout, {responsive: true});
+            Plotly.newPlot(plotId, data, layout, config);
 
         })
         .catch((err) => console.log(err));

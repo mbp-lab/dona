@@ -140,7 +140,7 @@ feedback.thanks.title=Thank you for the donation of your social media data!
 feedback.importantMessage.title=Important Note:
 feedback.importantMessage.disclaimer=The graphs and visualizations displayed <b>do <u>not</u> allow any direct conclusions</b> to be drawn about the quality of your social relationships. Note that only numbers of your chats are displayed.
 
-feedback.reminder=Take your time and take a close look at this page. You can take as much time as you like! Please do not forget to fill out the last questionnaire afterward. Thanks!
+feedback.reminder=You can take as much time as you like exploring this page! Please do not forget to fill out the last questionnaire afterward. Thanks!
 
 feedback.graph.title=Insights through your %s messages
 feedback.graph.total-messages=Total messages

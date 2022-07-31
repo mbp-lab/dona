@@ -15,6 +15,23 @@ function dayPartsActivityOverallPlot(dataSent, dataReceived, plotId) {
     const sent = plotContainer.attr("data-sent-trace-name");
     const received = plotContainer.attr("data-received-trace-name");
 
+    let config = {
+        responsive: true,
+        modeBarButtonsToRemove: [
+            "zoomIn2d",
+            "zoomOut2d",
+            "pan2d",
+            "zoom2d",
+            "select2d",
+            "lasso2d",
+            "hoverClosestCartesian",
+            "hoverCompareCartesian",
+            "toggleSpikelines",
+            "autoScale2d",
+            "resetScale2d"
+        ],
+    }
+
     let layout = {
         height: 600,
         showlegend: true,
@@ -26,10 +43,12 @@ function dayPartsActivityOverallPlot(dataSent, dataReceived, plotId) {
         yaxis: {
             automargin: true,
             color: "black",
-            title: yAxis
+            title: yAxis,
+            fixedrange: true
         },
         xaxis: {
-            title: xAxis
+            title: xAxis,
+            fixedrange: true
         },
         hovermode: 'x',
     }
@@ -102,7 +121,8 @@ function dayPartsActivityOverallPlot(dataSent, dataReceived, plotId) {
         color: "black",
         tickformat: "p",
         hoverformat: ".2%",
-        title: yAxis
+        title: yAxis,
+        fixedrange: true,
     }
 
 
@@ -125,7 +145,7 @@ function dayPartsActivityOverallPlot(dataSent, dataReceived, plotId) {
             type: "bar",
             width: _.fill(Array(4), 0.5)
         }
-    ], layout, {responsive: true})
+    ], layout, config)
 
 
 

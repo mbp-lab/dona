@@ -8,6 +8,15 @@ function breaksInConvPlot(wordsPerConv, listOfConversations, plotId) {
     const yAxis = plotContainer.attr("data-y-axis");
     const days = plotContainer.attr("data-days-name");
 
+    let config = {
+        responsive: true,
+        modeBarButtonsToRemove: [
+            "select2d",
+            "lasso2d",
+            "hoverClosestCartesian",
+            "hoverCompareCartesian",
+        ],
+    }
 
     const layout = {
         hovermode: "x",
@@ -20,6 +29,7 @@ function breaksInConvPlot(wordsPerConv, listOfConversations, plotId) {
         yaxis: {
             title: yAxis,
             showgrid: true,
+            fixedrange: true,
         },
         legend: {
             x: -0.1,
@@ -91,7 +101,7 @@ function breaksInConvPlot(wordsPerConv, listOfConversations, plotId) {
     layout.yaxis.range = [0, 32]
 
     plotContainer.html("");
-    Plotly.newPlot(plotId, resultTraces, layout, {responsive: true});
+    Plotly.newPlot(plotId, resultTraces, layout, config);
 
 }
 

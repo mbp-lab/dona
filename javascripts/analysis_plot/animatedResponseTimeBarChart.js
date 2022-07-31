@@ -46,6 +46,23 @@ function animatedResponseTimeBarChart(responseTimes, plotId) {
     const legendFriends = plotContainer.attr("data-legend-friends");
     const yearMonth = plotContainer.attr("data-description-yearMonth");
 
+    let config = {
+        responsive: true,
+        modeBarButtonsToRemove: [
+            "zoomIn2d",
+            "zoomOut2d",
+            "pan2d",
+            "zoom2d",
+            "select2d",
+            "lasso2d",
+            "hoverClosestCartesian",
+            "hoverCompareCartesian",
+            "toggleSpikelines",
+            "autoScale2d",
+            "resetScale2d"
+        ],
+    }
+
     let layout = {
         height: 600,
         showlegend: true,
@@ -56,7 +73,8 @@ function animatedResponseTimeBarChart(responseTimes, plotId) {
             y: 1.2
         },
         xaxis: {
-            title: xAxis
+            title: xAxis,
+            fixedrange: true,
         },
         updatemenus: [
             {
@@ -241,6 +259,7 @@ function animatedResponseTimeBarChart(responseTimes, plotId) {
         tickformat: "p",
         hoverformat: ".2%",
         title: yAxis,
+        fixedrange: true
     }
 
     layout["sliders"] = [{
@@ -272,7 +291,7 @@ function animatedResponseTimeBarChart(responseTimes, plotId) {
             type: "bar",
             width: _.fill(Array(x.length), 0.5)
         }
-    ], layout, {responsive: true}).then(() => {
+    ], layout, config).then(() => {
         Plotly.addFrames(plotId, frames)
 
         startAnimation(null, 'afterall')

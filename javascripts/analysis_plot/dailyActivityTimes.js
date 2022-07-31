@@ -13,7 +13,16 @@ function dailyActivityTimes(dataSent, dataReceived, listOfConversations, plotId)
     const colorscaleLessThanAverage = plotContainer.attr("data-colorscale-lessThanAverage");
     const dataOverallName = plotContainer.attr("data-overall")
 
-
+    let config = {
+        responsive: true,
+        modeBarButtonsToRemove: [
+            "select2d",
+            "lasso2d",
+            "hoverClosestCartesian",
+            "hoverCompareCartesian",
+            "toggleSpikelines"
+        ],
+    }
 
     let layout = {
         hovermode: "closest",
@@ -189,7 +198,7 @@ function dailyActivityTimes(dataSent, dataReceived, listOfConversations, plotId)
     let resultTraces = makeTraces();
 
     plotContainer.html("");
-    Plotly.newPlot(plotId, resultTraces, layout, {responsive: true});
+    Plotly.newPlot(plotId, resultTraces, layout, config);
 
 
 

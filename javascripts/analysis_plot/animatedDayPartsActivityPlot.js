@@ -17,6 +17,23 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
     const received = plotContainer.attr("data-received-trace-name");
     const yearMonth = plotContainer.attr("data-description-yearMonth");
 
+    let config = {
+        responsive: true,
+        modeBarButtonsToRemove: [
+            "zoomIn2d",
+            "zoomOut2d",
+            "pan2d",
+            "zoom2d",
+            "select2d",
+            "lasso2d",
+            "hoverClosestCartesian",
+            "hoverCompareCartesian",
+            "toggleSpikelines",
+            "autoScale2d",
+            "resetScale2d"
+        ],
+    }
+
     let layout = {
         height: 700,
         showlegend: true,
@@ -28,10 +45,12 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
         yaxis: {
             automargin: true,
             color: "black",
-            title: yAxis
+            title: yAxis,
+            fixedrange: true,
         },
         xaxis: {
-            title: xAxis
+            title: xAxis,
+            fixedrange: true
         },
         hovermode: 'x',
         updatemenus: [
@@ -252,7 +271,8 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
         color: "black",
         tickformat: "p",
         hoverformat: ".2%",
-        title: yAxis
+        title: yAxis,
+        fixedrange: true
     }
 
     layout["sliders"] = [{
@@ -293,7 +313,7 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
             },
             width: _.fill(Array(4), 0.5)
         }
-    ], layout, {responsive: true}).then(() => {
+    ], layout, config).then(() => {
         Plotly.addFrames(plotId, frames)
 
         startAnimation(null, 'afterall')
