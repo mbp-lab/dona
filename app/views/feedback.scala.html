@@ -11,7 +11,9 @@
         </div>
 
         <div class="alert alert-info">
-            @showTitle(messages("feedback.importantMessage.title"))
+            <div class="top col-md text-center">
+                <span class="headline font-italic text-center"><strong>@messages("feedback.importantMessage.title")</strong></span>
+            </div>
             <div class="top col-md text-center">
                 @Html(messages("feedback.importantMessage.disclaimer"))
             </div>
@@ -37,7 +39,9 @@
         }
 
         <div class="alert alert-warning">
-        @showTitle(messages("feedback.title.pleaseContinue"))
+            <div class="top col-md text-center">
+                <span class="headline font-italic text-center"><strong>@messages("feedback.title.pleaseContinue")</strong></span>
+            </div>
         </div>
 
     </div>
