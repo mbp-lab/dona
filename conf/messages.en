@@ -163,6 +163,7 @@ feedback.graph.you=You
 feedback.graph.friends=Friends
 
 # plots main page titles
+feedback.title.statisticsCard=Overview of all Activity
 feedback.title.interactionIntensity=Interaction Intensity
 feedback.title.dailyActivityTimes=Daily Activity Times
 feedback.title.responseTimes=Response Times
@@ -212,7 +213,7 @@ feedback.graph.animatedHorizontalBarChartOverall.yAxis.sent=Sent
 feedback.graph.animatedHorizontalBarChartOverall.yAxis.received=Received
 
 # slidingWindowMean of sent and received words plot
-feedback.graph.slidingWindowMean.description=Here you can see the average number of your sent and received words per day (more precisely, the so-called sliding window average with a window size of 30 days is calculated). At the top left you can also select your individual chats to see the graph of your sent words for the selected chat. Click <a style="font-weight:bold" href="#slidingWindowMeanExplanationModal" data-dismiss="modal" data-toggle="modal" data-target="#slidingWindowMeanExplanationModal" >HERE</a> to see an explanation with an example.
+feedback.graph.slidingWindowMean.description=Here you can see the average number of your sent and received words per day (more precisely, the so-called sliding window average with a window size of 30 days is calculated). At the top left you can also select your individual chats to see the graph of your sent words for the selected chat.
 feedback.graph.slidingWindowMean.legend.sent=Sent words
 feedback.graph.slidingWindowMean.legend.received=Received words
 feedback.graph.slidingWindowMean.yAxis=Average number of words
@@ -243,7 +244,7 @@ feedback.graph.dailyActivityHoursPlot.example.text=<p><b>(1)</b> In this example
 
 
 # dayPartsPlot overall
-feedback.graph.dayPartsOverall.description=In this graph, you can see how the words you sent and received are distributed over different parts of the day averaged over the entire period of your data donation. Click <a style="font-weight:bold" href="#dayPartsOverallExplanationModal" data-dismiss="modal" data-toggle="modal" data-target="#dayPartsOverallExplanationModal" >HERE</a> to see an explanation with an example.
+feedback.graph.dayPartsOverall.description=In this graph, you can see how the words you sent and received are distributed over different parts of the day averaged over the entire period of your data donation.
 feedback.graph.dayPartsOverall.legend.sent=Sent words
 feedback.graph.dayPartsOverall.legend.received=Received words
 feedback.graph.dayPartsOverall.yAxis=Percentage of all words

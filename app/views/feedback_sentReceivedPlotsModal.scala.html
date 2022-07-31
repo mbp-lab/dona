@@ -13,7 +13,7 @@
 
             <div
             id="@{
-                dataSource.toString
+                dataSource
             }ModalContainer"
             style="width: 100%"
             >
@@ -46,8 +46,8 @@
     }
 
     @showTitle(title: String) = {
-        <div class="top col-md text-center">
-            <span class="headline font-italic text-center"><strong>@Html(title)</strong></span>
+        <div class="top col-md text-center" style="margin-top: 2em">
+            <h2 class="text-center"><b>@Html(title)</b></h2>
         </div>
     }
 
@@ -57,7 +57,7 @@
     @showExplanationText(messages("feedback.graph.animatedHorizontalBarChartOverall.description"))
         <div
         id="@{
-            name.toString
+            name
         }AnimatedHorizontalBarChartOverall"
         class="d-none"
         data-x-axis="@messages("feedback.graph.animatedHorizontalBarChartOverall.xAxis")"
@@ -78,7 +78,7 @@
 
     @showExplanationText(messages("feedback.graph.monthlySentReceived.description"))
         <div id="@{
-            name.toString
+            name
         }MessagesOverTime" class="d-none"
         data-x-axis="@messages("feedback.graph.time")"
         data-y-axis="@messages("feedback.graph.monthlySentReceived.yAxis")"

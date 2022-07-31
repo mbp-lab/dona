@@ -18,9 +18,13 @@
         </div>
 
         @for((dataSource, GraphData(_, _, _, _, _, _, _, averageMessageNumber, _)) <- data) {
+            <div class="top col-md text-center" style="margin-top: 3em">
+                <span class="headline font-italic text-center"><strong><u>@String.format(messages("feedback.graph.title"), dataSource)</u></strong></span>
+            </div>
             <div id="@{
                 dataSource
             }container">
+                @showTitle(messages("feedback.title.statisticsCard"))
                 @showStatistics(averageMessageNumber, dataSource)
                 @showTitle(messages("feedback.title.interactionIntensity"))
                 @showAnimatedPolarPlot(dataSource, messages("feedback.graph.animatedPolarPlot.description"))
@@ -118,10 +122,6 @@
         @feedback_sentReceivedPlotsModal(name, data)
         </div>
 
-        <div class="modal fade" id="slidingWindowMeanExplanationModal" role="dialog">
-            @feedback_explanationModal(messages("feedback.graph.slidingWindowMean.example.text"), messages("feedback.graph.slidingWindowMean.example.image"))
-        </div>
-
         <button class="btn btn-outline footer-forward-button text-center" data-toggle="modal" data-target="#@{
             name
         }sentReceivedModal">
@@ -156,10 +156,6 @@
             name
         }dailyActivityModal" role="dialog">
         @feedback_dailyActivityPlotsModal(name)
-        </div>
-
-        <div class="modal fade" id="dayPartsOverallExplanationModal" role="dialog">
-        @feedback_explanationModal(messages("feedback.graph.dayPartsOverall.example.text"), messages("feedback.graph.dayPartsOverall.example.image"))
         </div>
 
         <button class="btn btn-outline footer-forward-button text-center" data-toggle="modal" data-target="#@{
@@ -220,16 +216,13 @@
 }
 
 @showTitle(title: String) = {
-    <div class="top col-md text-center">
-        <span class="headline font-italic text-center"><strong>@title</strong></span>
+    <div class="top col-md text-center" style="margin-top: 2em">
+        <h2 class="text-center"><b>@title</b></h2>
     </div>
 }
 
 
 @showStatistics(averageNumberOfMessages: AverageNumberOfMessages, dataSource: String) = {
-    <div class="top">
-        <h4 class="text-center font-weight-bold insights-header">@String.format(messages("feedback.graph.title"), dataSource)</h4>
-    </div>
     <div class="card-deck feedback-stats-deck">
         <div class="card top feedback-stats-card">
             <h3 class="insights-title text-center">@messages("feedback.graph.total-messages")</h3>
