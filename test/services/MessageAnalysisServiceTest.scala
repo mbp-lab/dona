@@ -22,20 +22,12 @@ final class MessageAnalysisServiceTest extends FreeSpec with Matchers {
         name - {
           lazy val result = service.produceGraphData(socialData)
 
-
-          println("!!!!!!!!!!!!!!!! RESULT: !!!!!!!!!!!!!!!")
-          println(result)
-
-          println("!!!!!!!!!!!!!!!! ExpectedGraph: !!!!!!!!!!!!!!!")
-          println(expectedGraph)
-
           "should produce the correct data sources" in {
             result.keySet should contain theSameElementsAs expectedGraph.keySet
           }
 
           for (key <- result.keySet) {
             lazy val (
-              expectedSentReceived,
               expectedSentReceivedPerMonthPerConversation,
               expectedDailyWordsSentReceived,
               expectedDailySentReceivedPerConversation,
@@ -46,7 +38,6 @@ final class MessageAnalysisServiceTest extends FreeSpec with Matchers {
               expectedConversationsFriends) = expectedGraph(key)
 
             s"should produce the expected $key graph data points" in {
-              result(key).sentReceived should contain theSameElementsAs expectedSentReceived
               result(key).sentReceivedPerMonthPerConversation should contain theSameElementsAs expectedSentReceivedPerMonthPerConversation
               result(key).dailyWordsSentReceived should contain theSameElementsAs expectedDailyWordsSentReceived
               result(key).dailySentReceivedPerConversation should contain theSameElementsAs expectedDailySentReceivedPerConversation
@@ -72,7 +63,6 @@ object MessageAnalysisServiceTest {
                        name: String,
                        socialData: SocialData,
                        expectedGraph: Map[DonationDataSourceType, (
-                         List[SentReceivedPoint],
                            List[List[SentReceivedPoint]],
                            List[DailySentReceivedPoint],
                            List[List[DailySentReceivedPoint]],
@@ -98,7 +88,6 @@ object MessageAnalysisServiceTest {
       socialData,
       Map(
         DonationDataSourceType.Facebook -> (
-          List(SentReceivedPoint(2017, 1, 2, 1)), //sentReceivedMessagesMonthly
           List(List(SentReceivedPoint(2017, 1, 30, 15))), //sentReceivedPerMonthPerConversation -> wordCounts
           List(DailySentReceivedPoint(2017, 1, 1, 30, 15, getEpochSeconds(2017, 1, 1, 12, 30))), // dailyWordsGraphData
           List(List(DailySentReceivedPoint(2017, 1, 1, 30, 15, getEpochSeconds(2017, 1, 1, 12, 30)))), //dailyWordsGraphDataPerConversation
@@ -129,7 +118,6 @@ object MessageAnalysisServiceTest {
       socialData,
       Map(
         DonationDataSourceType.Facebook -> (
-          List(SentReceivedPoint(2008, 12, 0, 1), SentReceivedPoint(2017, 1, 1, 0), SentReceivedPoint(2018, 3, 1, 0)), //sentReceivedMessagesMonthly
           List(List(SentReceivedPoint(2008, 12, 0, 15), SentReceivedPoint(2017, 1, 15, 0), SentReceivedPoint(2018, 3, 15, 0))), //sentReceivedPerMonthPerConversation -> wordCounts
           List(
             DailySentReceivedPoint(2008, 12, 1, 0, 15, getEpochSeconds(2008, 12, 1, 12, 30)),
@@ -178,7 +166,6 @@ object MessageAnalysisServiceTest {
         socialData,
         Map(
           DonationDataSourceType.Facebook -> (
-            List(SentReceivedPoint(2017, 1, 1, 1), SentReceivedPoint(2017, 2, 1, 0)), //sentReceivedMessagesMonthly
             List(List(SentReceivedPoint(2017, 1, 15, 0)), List(SentReceivedPoint(2017, 1, 0 ,15), SentReceivedPoint(2017, 2, 15, 0))), //sentReceivedPerMonthPerConversation -> wordCounts
             List(
               DailySentReceivedPoint(2017, 1, 1, 15, 15, getEpochSeconds(2017, 1, 1, 12, 30)),

@@ -200,10 +200,6 @@ feedback.graph.animatedHorizontalBarChart.xAxis=Anzahl gesendeter Wörter
 feedback.graph.animatedHorizontalBarChart.example.image=images/feedback_example_horizontalBarChart_german.svg
 feedback.graph.animatedHorizontalBarChart.example.text=<p><b>(1)</b> In diesem Beispiel gab es über den gesamten Zeitraum in diesem Chat mit F9, F10 insgesamt am meisten gesendete Wörter: knapp über 140 Tausend.</p><p><b>(2)</b> Im Kontrast zu (1) gab es in diesem Beispielchat am wenigsten gesendete Wörter.</p><p><b>(3)</b> Hier wird das Jahr und der Monat angezeigt. Pro Monat können Sie beobachten, wie viele Wörter Sie in den Chats gesendet haben. Probieren Sie den Zeitschieber aus! </p>
 
-# more about interaction intensity modal
-feedback.moreAbout.interactionIntensity.wordsTitle=Mehr über Gesendete und Erhaltene <u>Wörter</u>
-feedback.moreAbout.interactionIntensity.messagesTitle=Mehr über Gesendete und Erhaltene <u>Nachrichten</u>
-
 # animatedHorizontalBarChart overall
 feedback.graph.animatedHorizontalBarChartOverall.description=Dieser Graph zeigt die Gesamtanzahl Ihrer erhaltenen und gesendeten Wörter über alle Ihre gespendeten Chats aufaddiert pro Monat. Im Zeitschieber unten können Sie den Monat und das Jahr sehen und selbst auswählen.
 feedback.graph.animatedHorizontalBarChartOverall.legend.sent=Gesendete Wörter
@@ -219,7 +215,6 @@ feedback.graph.slidingWindowMean.legend.received=Erhaltene Wörter
 feedback.graph.slidingWindowMean.yAxis=Durchschnittliche Anzahl Wörter
 feedback.graph.slidingWindowMean.example.image=images/feedback_example_slidingWindowMean_german.svg
 feedback.graph.slidingWindowMean.example.text=<p class="text-left"><b>(1)</b> In diesem Beispiel lässt sich hier ein deutlicher Zuwachs gesendeter und empfangener Wörter beobachten. Dabei waren zu dieser Zeit die gesendeten Wörter mehr als die empfangenen Wörter.</p><p class="text-left"><b>(2)</b> Hier ist ein noch größerer Zuwachs von gesendeten und empfangenen Wörtern zu sehen. In diesem Zeitraum wurden insgesamt über alle Chats verteilt, mehr Wörter empfangen als gesendet.</p>
-
 
 # dailySentReceivedWords plot
 feedback.graph.dailySentReceived.description=Dieser Graph zeigt die exakte Wörteranzahl Ihrer gesendeten und empfangenen Nachrichten pro Tag.

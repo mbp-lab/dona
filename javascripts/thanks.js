@@ -71,7 +71,6 @@ $(document).ready(function () {
         const dailyActivityModal = $(`#${dataSourceType}dailyActivityModal`)
         const responseTimeModal = $(`#${dataSourceType}responseTimeModal`)
         sentReceivedModal.on('shown.bs.modal', () => {
-            sentReceived(graphData.sentReceived, `${dataSourceType}MessagesOverTime`);
 
             animatedHorizontalBarChartOverall(
                 graphData.sentReceivedPerMonthPerConversation,

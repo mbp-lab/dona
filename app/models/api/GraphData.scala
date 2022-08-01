@@ -3,7 +3,6 @@ package models.api
 import play.api.libs.json.{Format, Json}
 
 case class GraphData(
-                      sentReceived: List[SentReceivedPoint],
                       sentReceivedPerMonthPerConversation: List[List[SentReceivedPoint]],
                       dailyWordsSentReceived: List[DailySentReceivedPoint],
                       dailySentReceivedPerConversation: List[List[DailySentReceivedPoint]],

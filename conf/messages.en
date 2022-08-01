@@ -200,10 +200,6 @@ feedback.graph.animatedHorizontalBarChart.xAxis=Number of sent words
 feedback.graph.animatedHorizontalBarChart.example.image=images/feedback_example_horizontalBarChart_english.svg
 feedback.graph.animatedHorizontalBarChart.example.text=<p><b>(1)</b> In this example, over the entire period the most words were sent in the chat with F9, F10: just over 140 thousand.</p><p><b>(2)</b> In contrast to (1), this example chat had the fewest sent words.</p><p><b>(3)</b> The year and month are displayed here. You can see how many words you sent in the chats per month. Try the time slider! </p>
 
-# more about interaction intensity modal
-feedback.moreAbout.interactionIntensity.wordsTitle=More about Sent and Received <u>Words</u>
-feedback.moreAbout.interactionIntensity.messagesTitle=More about Sent and Received <u>Messages</u>
-
 # animatedHorizontalBarChart overall
 feedback.graph.animatedHorizontalBarChartOverall.description=This graph shows the total number of words you received and sent across all your donated chats per month. In the time slider below you can see and choose the month and year.
 feedback.graph.animatedHorizontalBarChartOverall.legend.sent=Sent words
@@ -219,7 +215,6 @@ feedback.graph.slidingWindowMean.legend.received=Received words
 feedback.graph.slidingWindowMean.yAxis=Average number of words
 feedback.graph.slidingWindowMean.example.image=images/feedback_example_slidingWindowMean_english.svg
 feedback.graph.slidingWindowMean.example.text=<p class="text-left"><b>(1)</b> In this example, a significant increase in the number of sent and received words can be observed. In this period the sent words were more than the received words. </p><p class="text-left"><b>(2)</b> Here you can see an even bigger increase in sent and received words. But in that period, across all chats, more words were received.</p>
-
 
 # dailySentReceivedWords plot
 feedback.graph.dailySentReceived.description=This graph shows the exact word count of your sent and received messages per day.

@@ -17,12 +17,9 @@
             }ModalContainer"
             style="width: 100%"
             >
-                @showTitle(messages("feedback.moreAbout.interactionIntensity.wordsTitle"))
                 @showAnimatedHorizontalBarChartOverall(dataSource)
                 @showSentReceivedSlidingWindowMeanGraphPlot(dataSource)
                 @showSentReceivedDailyPerConversationGraphPlot(dataSource)
-                @showTitle(messages("feedback.moreAbout.interactionIntensity.messagesTitle"))
-                @showSentReceivedPlot(dataSource)
             </div>
 
 
@@ -45,15 +42,7 @@
         </div>
     }
 
-    @showTitle(title: String) = {
-        <div class="top col-md text-center" style="margin-top: 2em">
-            <h2 class="text-center"><b>@Html(title)</b></h2>
-        </div>
-    }
-
     @showAnimatedHorizontalBarChartOverall(name: String) = {
-
-
     @showExplanationText(messages("feedback.graph.animatedHorizontalBarChartOverall.description"))
         <div
         id="@{
@@ -66,24 +55,6 @@
         data-sent-trace-name="@messages("feedback.graph.animatedHorizontalBarChartOverall.legend.sent")"
         data-received-trace-name="@messages("feedback.graph.animatedHorizontalBarChartOverall.legend.received")"
         data-description-yearMonth="@messages("feedback.graph.yearMonth")"
-        >
-            <div class="card h-100">
-                <div class="m-auto">@messages("feedback.graph.loading")</div>
-            </div>
-        </div>
-        <div class="clearfix"></div>
-    }
-
-    @showSentReceivedPlot(name: String) = {
-
-    @showExplanationText(messages("feedback.graph.monthlySentReceived.description"))
-        <div id="@{
-            name
-        }MessagesOverTime" class="d-none"
-        data-x-axis="@messages("feedback.graph.time")"
-        data-y-axis="@messages("feedback.graph.monthlySentReceived.yAxis")"
-        data-sent-trace-name="@messages("feedback.graph.monthlySentReceived.legend.sent")"
-        data-received-trace-name="@messages("feedback.graph.monthlySentReceived.legend.received")"
         >
             <div class="card h-100">
                 <div class="m-auto">@messages("feedback.graph.loading")</div>

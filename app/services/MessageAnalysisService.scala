@@ -70,7 +70,6 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
 
         (dataSourceType,
           GraphData(
-            sentReceivedMessagesMonthly,
             sentReceivedPerMonthPerConversation,
             dailyWordsGraphData,
             dailyWordsGraphDataPerConversation,
