@@ -2,7 +2,7 @@ package modules
 
 import com.google.inject.{AbstractModule, Provides, TypeLiteral}
 import com.typesafe.config.Config
-import config.{FeedbackConfig, SurveyConfig}
+import config.{FeedbackConfig, SurveyConfig, FeedbackSurveyConfig}
 import models.domain.ExternalDonorId
 import persistence._
 import services._
@@ -28,6 +28,10 @@ final class CoreModule extends AbstractModule {
   @Provides
   def provideSurveyConfig(config: Config, featureFlagService: FeatureFlagService): SurveyConfig =
     SurveyConfig(config.getConfig("donor-survey"), featureFlagService(Features.SurveyIntegration))
+
+  @Provides
+  def provideFeedbackSurveyConfig(config: Config): FeedbackSurveyConfig = 
+    FeedbackSurveyConfig(config.getConfig("feedback-survey"))
 
   @Provides
   def provideFeedbackConfig(config: Config): FeedbackConfig = FeedbackConfig(config.getConfig("feedback"))
