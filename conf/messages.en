@@ -189,7 +189,7 @@ feedback.graph.example.title=This is an <b>example</b> created from example data
 
 # polar plot
 feedback.graph.animatedPolarPlot.title=Planet representation
-feedback.graph.animatedPolarPlot.description=This visualization displays you as the bigger, yellow dot in the middle. The chats you donated are the smaller white dots around you. The closer the dots are to you, the more words you have exchanged in a given chat. In the time-slider below you can see and select the month and year for which the data is shown.<br> Click <a style="font-weight:bold" href="#polarPlotExplanation" data-toggle="modal" data-target="#polarPlotExplanation">HERE</a> to see an explanation with an example. <br><i>Usage instructions: Press <b style="font-weight:bold">double click</b> to reset the view.</i>
+feedback.graph.animatedPolarPlot.description=This visualization displays you as the bigger, yellow dot in the middle. The chats you donated are the smaller white dots around you. The closer the dots are to you, the more words you have exchanged in a given chat. In the time-slider below you can see and select the month and year for which the data is shown. Click <a style="font-weight:bold" href="#polarPlotExplanation" data-toggle="modal" data-target="#polarPlotExplanation">HERE</a> to see an explanation with an example. <br><i>Usage instructions: Press <b style="font-weight:bold">double click</b> to reset the view.</i>
 feedback.graph.animatedPolarPlot.legend.donor=You
 feedback.graph.animatedPolarPlot.legend.others=Chat Intensity
 feedback.graph.animatedPolarPlot.example.image=images/feedback_example_polarPlot_english.svg
@@ -201,7 +201,7 @@ feedback.graph.animatedHorizontalBarChart.description=Here you can see the total
 feedback.graph.animatedHorizontalBarChart.legend=Sent words
 feedback.graph.animatedHorizontalBarChart.xAxis=Number of sent words
 feedback.graph.animatedHorizontalBarChart.example.image=images/feedback_example_horizontalBarChart_english.svg
-feedback.graph.animatedHorizontalBarChart.example.text=<p><b>(1)</b> In this example, over the entire period the most words were sent in the chat with F9, F10: just over 140 thousand.</p><p><b>(2)</b> In contrast to (1), this example chat had the fewest sent words.</p><p><b>(3)</b> The year and month are displayed here. You can see how many words were sent in the chats per month. Try out the time slider! </p>
+feedback.graph.animatedHorizontalBarChart.example.text=<p><b>(1)</b> In this example, over the entire period the most words were sent in the chat with F9, F10: just over 140 thousand.</p><p><b>(2)</b> In contrast to (1), this example chat had the fewest sent words.</p><p><b>(3)</b> The year and month are displayed here. You can see how many words were sent in the chats per month. Try out the time slider!</p><p><b>(4)</b> Click this icon to download the graph.</p>
 
 
 # animatedHorizontalBarChart overall
@@ -239,7 +239,7 @@ feedback.graph.dailyActivityHoursPlot.moreThanAverage=More than your average
 feedback.graph.dailyActivityHoursPlot.average=Your average
 feedback.graph.dailyActivityHoursPlot.lessThanAverage=Less than your average
 feedback.graph.dailyActivityHoursPlot.example.image=images/feedback_example_dailyActivityHoursPlot_english.svg
-feedback.graph.dailyActivityHoursPlot.example.text=<p><b>(1)</b> In this example, a change in the activity hours can be observed in this area. In the period at <b>(2)</b> you can see that no messages were sent between approximately 8:00 AM and 12:00 PM. Then in the period at <b>(3)</b>, this area of no messages has shifted to the hours between about 2:00 AM and 6:00 AM. This could be due to moving to a different time zone or a change in sleep schedule.</p><p><b>(4)</b> For example, more dark squares can be observed here. Therefore, an above-average number of messages were sent in this period.</p>
+feedback.graph.dailyActivityHoursPlot.example.text=<p><b>(1)</b> In this example, a change in the activity hours can be observed in this area. In the period at <b>(2)</b> you can see that no messages were sent between approximately 8:00 AM and 12:00 PM. Then in the period at <b>(3)</b>, this area of no messages has shifted to the hours between about 2:00 AM and 6:00 AM. This could be due to moving to a different time zone or a change in sleep schedule.</p><p><b>(4)</b> For example, more dark squares can be observed here. Therefore, an above-average number of messages were sent in this period.</p><p><b>(5)</b> Click this icon to download the graph.</p>
 
 
 # dayPartsPlot overall
@@ -266,7 +266,7 @@ feedback.graph.responseTimeBarChart.legend.friends=Friends Response Times
 feedback.graph.responseTimeBarChart.yAxis=Percentage of all responses
 feedback.graph.responseTimeBarChart.xAxis=Time until response
 feedback.graph.responseTimeBarChart.example.image=images/feedback_example_responseTimeBarChart_english.svg
-feedback.graph.responseTimeBarChart.example.text=<p><b>(1)</b> In this example you can see that more than 40% of all replies were sent and received in under a minute. Just under 30% of all replies were sent in 1-2 minutes and just under 30% of all replies were received in 1-2 minutes. I.e. a total of around 70% of all sent replies were sent in less than two minutes and around 70% of all received replies were received in less than two minutes.
+feedback.graph.responseTimeBarChart.example.text=<p><b>(1)</b> In this example you can see that more than 40% of all replies were sent and received in under a minute. Just under 30% of all replies were sent in 1-2 minutes and just under 30% of all replies were received in 1-2 minutes. I.e. a total of around 70% of all sent replies were sent in less than two minutes and around 70% of all received replies were received in less than two minutes.</p><p><b>(2)</b> Click this icon to download the graph.</p>
 
 # responseTimeBarChart monthly
 feedback.graph.responseTimeBarChartMonthly.description=Here <u>per month</u> your and your friends‘ response times are counted. So, the percentage of responses (i.e. a message that you sent after a message from a friend or the other way around) that took place in the specified amount of time is displayed. You can see what percentage of your responses you sent quicker than after 1 minute, after 1-2 minutes, 3-5 minutes, 6-15 minutes, 16-30 minutes, 31-60 minutes, and slower than 60 minutes. The bar for > 60 minutes includes longer breaks in the conversation.
@@ -280,7 +280,7 @@ feedback.graph.breaksInConv.description=This graph shows for the selected chat p
 feedback.graph.breaksInConv.yAxis=Longest period in days without a message
 feedback.graph.breaksInConv.days=Day/s
 feedback.graph.breaksInConv.example.image=images/feedback_example_breaksInConv_english.svg
-feedback.graph.breaksInConv.example.text=<p class="text-left"><b>(1)</b> In this example, in the on the top left selected chat, the longest periods without contact in this first period were mostly under 5 days. For example, in January 2019 (the first month), the length of the longest period without a message is less than 5 days. I.e. in that month, there was no time in the chat when not a single message was written for more than 5 days. </p><p class="text-left"><b>(2)</b> In contrast to (1), the lengths of the conversation pauses are already significantly longer in this area. In some months the longest period without a message is about 10 days. In two months in this time period, there was no activity in this chat for almost 20 days straight.</p><p class="text-left"><b>(3)</b> A dot is visible here, showing that there was not a single message in the selected chat for the whole of July 2021.</p>
+feedback.graph.breaksInConv.example.text=<p class="text-left"><b>(1)</b> In this example, in the on the top left selected chat, the longest periods without contact in this first period were mostly under 5 days. For example, in January 2019 (the first month), the length of the longest period without a message is less than 5 days. I.e. in that month, there was no time in the chat when not a single message was written for more than 5 days.</p><p class="text-left"><b>(2)</b> In contrast to (1), the lengths of the conversation pauses are already significantly longer in this area. In some months the longest period without a message is about 10 days. In two months in this time period, there was no activity in this chat for almost 20 days straight.</p><p class="text-left"><b>(3)</b> A dot is visible here, showing that there was not a single message in the selected chat for the whole of July 2021.</p><p class="text-left"><b>(4)</b> Click this icon to download the graph.</p>
 
 
 # provided by Astrid
