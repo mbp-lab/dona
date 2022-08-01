@@ -32,7 +32,7 @@ final class FeedbackSurveyController @Inject()(
     val isolocaleString = messagesApi.preferred(request).lang.locale.getLanguage
     for {
       donorId <- request.session.get(GeneratedDonorIdKey)
-      link = surveyConfig.createDonorLink(ExternalDonorId(donorId.toString), isolocaleString).toString
+      link = feedbackSurveyConfig.createFeedbackLink(ExternalDonorId(donorId.toString), isolocaleString).toString
     } yield {
       Redirect(link)
     }
