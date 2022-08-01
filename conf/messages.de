@@ -128,7 +128,7 @@ donation.anonymisation.friend=Freund
 donation.anonymisation.system=System
 
 donation.errors.no-profile=Die Datei enthält keine Profildaten.
-donation.errors.no-alias=Ein Nutzername muss angegeben werden
+donation.errors.no-alias=Ein Nutzername muss angegeben werden. Sie können ihn in Ihrem WhatsApp-Profil finden.
 donation.errors.not-enough-chats_format=Bitte wählen Sie Ihre 5 wichtigsten Unterhaltungen aus. Sie haben nur %s ausgewählt.
 donation.errors.something-went-wrong=Etwas ist schief gelaufen! Bitte kehren Sie zum Start zurück und wiederholen Sie den Vorgang.
 donation.errors.same-file=Sie können nur Dateien auswählen, die sich unterscheiden. Bitte wählen Sie Ihre 5 wichtigsten Unterhaltungen aus.

@@ -128,7 +128,7 @@ donation.anonymisation.friend=Friend
 donation.anonymisation.system=System
 
 donation.errors.no-profile=The uploaded data does not include profile information.
-donation.errors.no-alias=Please enter your username
+donation.errors.no-alias=Please enter your username. You can find it in your WhatsApp profile.
 donation.errors.not-enough-chats_format=Please choose your 5 most important conversations. You have only selected %s.
 donation.errors.something-went-wrong=Something went wrong! Please go back to the start and repeat the process.
 donation.errors.same-file=You can only select files that differ. Please choose your 5 most important conversations.

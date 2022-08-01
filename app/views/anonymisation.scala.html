@@ -177,6 +177,9 @@
                 @if(dataSourceDescription.requiresAlias) {
                     placeholder="@messages("donation.alias")"
                     class="ml-5 mbt-2 w-25"
+                    data-toggle="tooltip"
+                    data-placement="auto"
+                    title="@messages("donation.errors.no-alias")"
                 } else {
                     placeholder="@messages("donation.alias-not-required")"
                     disabled="true"
