@@ -177,7 +177,8 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
                 title: {
                     text: xAxis
                 },
-                fixedrange: true
+                fixedrange: true,
+                tickformat: 'r',
             }
 
             layout["sliders"] = [{

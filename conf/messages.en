@@ -163,7 +163,7 @@ feedback.graph.you=You
 feedback.graph.friends=Friends
 
 # plots main page titles
-feedback.title.statisticsCard=Overview of all Activity
+feedback.title.statisticsCard=Overview of all activity
 feedback.title.interactionIntensity=Interaction Intensity
 feedback.title.dailyActivityTimes=Daily Activity Times
 feedback.title.responseTimes=Response Times
@@ -185,20 +185,20 @@ feedback.graph.overallData=All chats
 feedback.graph.example.title=This is an <b>example</b> created from example data.
 
 # polar plot
-feedback.graph.animatedPolarPlot.description=This visualization displays you as the bigger, yellow dot in the middle. The chats you donated are the smaller white dots around you. They are close to you if your interaction was higher and further away if it was less. Specifically, the interaction here is measured by the total amount of exchanged words in the chats. In the time-slider below you can see and select the month and year for which the data is shown. Click <a style="font-weight:bold" href="#polarPlotExplanation" data-toggle="modal" data-target="#polarPlotExplanation">HERE</a> to see an explanation with an example.
+feedback.graph.animatedPolarPlot.title=Planet representation
+feedback.graph.animatedPolarPlot.description=This visualization displays you as the bigger, yellow dot in the middle. The chats you donated are the smaller white dots around you. They are close to you if your interaction was higher and further away if it was less. Specifically, the interaction here is measured by the total amount of exchanged words in the chats. In the time-slider below you can see and select the month and year for which the data is shown.<br> Click <a style="font-weight:bold" href="#polarPlotExplanation" data-toggle="modal" data-target="#polarPlotExplanation">HERE</a> to see an explanation with an example. <br><i>Usage instructions: Press <b style="font-weight:bold">double click</b> to reset the view.</i>
 feedback.graph.animatedPolarPlot.legend.donor=You
 feedback.graph.animatedPolarPlot.legend.others=Chat Intensity
 feedback.graph.animatedPolarPlot.example.image=images/feedback_example_polarPlot_english.svg
-feedback.graph.animatedPolarPlot.example.text=<p><b>(1)</b> Here the white solid dot is very close to the large yellow dot in the center. This means that in the month displayed below, communication in this chat was very intense compared to your average. There are only a few transparent little dots on the trajectory: this shows that the data only covers a few months.</p><p><b>(2)</b> Hardly any transparent history points can be seen here. This is because the chats intensity is very stable over the months, just below your average intensity.</p><p><b>(3)</b> In contrast to (2), many transparent points are visible here. So the intensity of this chat has changed a lot over the months. In the currently displayed month, the chat intensity is just above your average.</p>
-
+feedback.graph.animatedPolarPlot.example.text=<p><b>(1)</b> Here the white solid dot is very close to the large yellow dot in the center. This means that in the month displayed below, communication in this chat was very intense compared to your average. There are only a few transparent little dots on the trajectory: this shows that the data only covers a few months.</p><p><b>(2)</b> Hardly any transparent history points can be seen here. This is because the chats intensity is very stable over the months, just below your average intensity.</p><p><b>(3)</b> In contrast to (2), many transparent points are visible here. So the intensity of this chat has changed a lot over the months. In the currently displayed month, the chat intensity is just above your average.</p><p><b>(4)</b> Click this icon to download the graph.</p>
 
 # animatedHorizontalBarChart
+feedback.graph.animatedHorizontalBarChart.title=Total sent words
 feedback.graph.animatedHorizontalBarChart.description=Here you can see the total amount of words you sent in your different chats adding up per month. In the time-slider below you can see and select the month and year for which the data is shown. Click <a style="font-weight:bold" href="#animatedHorizontalBarChartExplanation" data-toggle="modal" data-target="#animatedHorizontalBarChartExplanation">HERE</a> to see an explanation with an example.
 feedback.graph.animatedHorizontalBarChart.legend=Sent words
 feedback.graph.animatedHorizontalBarChart.xAxis=Number of sent words
 feedback.graph.animatedHorizontalBarChart.example.image=images/feedback_example_horizontalBarChart_english.svg
 feedback.graph.animatedHorizontalBarChart.example.text=<p><b>(1)</b> In this example, over the entire period the most words were sent in the chat with F9, F10: just over 140 thousand.</p><p><b>(2)</b> In contrast to (1), this example chat had the fewest sent words.</p><p><b>(3)</b> The year and month are displayed here. You can see how many words you sent in the chats per month. Try the time slider! </p>
-
 
 # more about interaction intensity modal
 feedback.moreAbout.interactionIntensity.wordsTitle=More about Sent and Received <u>Words</u>

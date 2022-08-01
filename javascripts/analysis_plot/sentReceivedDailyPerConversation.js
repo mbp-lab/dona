@@ -31,6 +31,7 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
         yaxis: {
             title: yAxis,
             showgrid: true,
+            tickformat: '.0f',
         },
         legend: {
             x: -0.1,

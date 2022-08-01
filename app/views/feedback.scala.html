@@ -15,7 +15,7 @@
                 <span class="headline font-italic text-center"><strong>@messages("feedback.importantMessage.title")</strong></span>
             </div>
             <div class="top col-md text-center">
-                @Html(messages("feedback.importantMessage.disclaimer"))
+            @Html(messages("feedback.importantMessage.disclaimer"))
             </div>
         </div>
 
@@ -73,7 +73,7 @@
 } {
     <div class="mt-3 row justify-content-center mx-0">
         <button class="btn btn-outline footer-forward-button text-center">
-            @messages("feedback.nextButton")
+        @messages("feedback.nextButton")
         </button>
     </div>
 }
@@ -83,7 +83,8 @@
     <div class="modal fade" id="polarPlotExplanation" role="dialog">
     @feedback_explanationModal(messages("feedback.graph.animatedPolarPlot.example.text"), messages("feedback.graph.animatedPolarPlot.example.image"))
     </div>
-    @showExplanationText(description)
+
+@showExplanationText(description, messages("feedback.graph.animatedPolarPlot.title"))
 
     <div id="@{
         name
@@ -105,7 +106,7 @@
     </div>
 
     <div style="margin-top: 4em"></div>
-@showExplanationText(description)
+@showExplanationText(description, messages("feedback.graph.animatedHorizontalBarChart.title"))
     <div
     id="@{
         name
@@ -129,7 +130,7 @@
         <button class="btn btn-outline footer-forward-button text-center" data-toggle="modal" data-target="#@{
             name
         }sentReceivedModal">
-            @messages("feedback.moreAbout.interactionIntensity.title")</button>
+        @messages("feedback.moreAbout.interactionIntensity.title")</button>
     </div>
     <div class="clearfix"></div>
 }
@@ -139,7 +140,7 @@
     <div class="modal fade" id="dailyActivityHoursPlotExplanation" role="dialog">
     @feedback_explanationModal(messages("feedback.graph.dailyActivityHoursPlot.example.text"), messages("feedback.graph.dailyActivityHoursPlot.example.image"))
     </div>
-@showExplanationText(description)
+@showExplanationText(description, "")
 
     <div id="@{
         name
@@ -177,7 +178,7 @@
     @feedback_explanationModal(messages("feedback.graph.responseTimeBarChart.example.text"), messages("feedback.graph.responseTimeBarChart.example.image"))
     </div>
 
-@showExplanationText(description)
+@showExplanationText(description, "")
 
     <div id="@{
         name
@@ -207,10 +208,11 @@
 }
 
 
-@showExplanationText(body: String) = {
+@showExplanationText(body: String, title: String) = {
     <div class="card-deck feedback-stats-deck">
 
         <div class="card top feedback-stats-card">
+            <h5 class="text-center font-weight-bold">@title</h5>
             <p class="insights-text text-center">
             @Html(body)
             </p>
