@@ -169,6 +169,8 @@ feedback.title.dailyActivityTimes=Tägliche Aktivitätszeiten
 feedback.title.responseTimes=Reaktionszeiten
 feedback.title.pleaseContinue=Bitte fahren Sie mit dem nächsten und letzten Fragebogen fort. Danke sehr!
 
+feedback.facebook.info=Im Folgenden werden nur Visualisierungen für Ihre 7 (oder weniger) Facebook-Chats mit den meisten Wörtern angezeigt.
+
 feedback.nextButton=Weiter
 
 # plots more about titles

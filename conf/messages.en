@@ -169,6 +169,8 @@ feedback.title.dailyActivityTimes=Daily Activity Times
 feedback.title.responseTimes=Response Times
 feedback.title.pleaseContinue=Please continue to the next and final questionnaire. Thanks a lot!
 
+feedback.facebook.info=In the following, only visualizations for your 7 (or less) Facebook chats with the most words are shown.
+
 feedback.nextButton=Next
 
 # plots more about titles

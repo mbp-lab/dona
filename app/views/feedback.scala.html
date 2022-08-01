@@ -23,6 +23,13 @@
             <div class="top col-md text-center" style="margin-top: 3em">
                 <span class="headline font-italic text-center"><strong><u>@String.format(messages("feedback.graph.title"), dataSource)</u></strong></span>
             </div>
+            @if(dataSource == "Facebook") {
+                <div class="alert alert-warning">
+                    <div class="top col-md text-center">
+                        @messages("feedback.facebook.info")
+                    </div>
+                </div>
+            }
             <div id="@{
                 dataSource
             }container">
