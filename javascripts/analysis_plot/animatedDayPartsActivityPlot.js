@@ -249,7 +249,7 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
                     marker: {
                         //color: "#FF8800",
                     },
-                    width: _.fill(Array(4), 0.3)
+                    width: _.fill(Array(4), 0.5)
                 }
             ],
         })
