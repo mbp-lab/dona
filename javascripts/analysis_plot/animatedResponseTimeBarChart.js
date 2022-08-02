@@ -1,4 +1,5 @@
 const _ = require("lodash");
+const sortSliderStepsAndFrames = require("./utils/sortSliderStepsAndFrames");
 
 
 function animatedResponseTimeBarChart(responseTimes, plotId) {
@@ -250,7 +251,10 @@ function animatedResponseTimeBarChart(responseTimes, plotId) {
 
     }
 
-
+    // sort sliderSteps and frames to make sure the order is okay:
+    let sortedVals = sortSliderStepsAndFrames(sliderSteps, frames)
+    sliderSteps = sortedVals.sliderSteps
+    frames = sortedVals.frames
 
 
     layout["yaxis"] = {

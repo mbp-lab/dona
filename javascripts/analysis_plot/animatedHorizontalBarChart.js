@@ -1,5 +1,6 @@
 const sortGraphDataPoints = require('./utils/sortGraphDataPointsTimeWise');
 const _ = require("lodash");
+const sortSliderStepsAndFrames = require("./utils/sortSliderStepsAndFrames");
 
 function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversations, plotId) {
 
@@ -194,6 +195,11 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
                 maxForRange = maxReceived
             }
              */
+
+            // sort sliderSteps and frames to make sure the order is okay:
+            let sortedVals = sortSliderStepsAndFrames(sliderSteps, frames)
+            sliderSteps = sortedVals.sliderSteps
+            frames = sortedVals.frames
 
             layout["xaxis"] = {
                 range: [0, maxForRange],

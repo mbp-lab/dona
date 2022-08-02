@@ -1,5 +1,6 @@
 const sortGraphDataPointsSync = require("./utils/sortGraphDataPointsSync");
 const _ = require("lodash");
+const sortSliderStepsAndFrames = require("./utils/sortSliderStepsAndFrames");
 
 
 function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
@@ -265,6 +266,10 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
         })
     }
 
+    // sort sliderSteps and frames to make sure the order is okay:
+    let sortedVals = sortSliderStepsAndFrames(sliderSteps, frames)
+    sliderSteps = sortedVals.sliderSteps
+    frames = sortedVals.frames
 
     layout["yaxis"] = {
         range: [0, globalMax],

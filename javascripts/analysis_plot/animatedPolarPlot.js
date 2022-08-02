@@ -1,6 +1,7 @@
 const sortGraphDataPoints = require('./utils/sortGraphDataPointsTimeWise');
 const _ = require("lodash");
 const zScoreCalc = require("./utils/zScoreCalcPolarPlot");
+const sortSliderStepsAndFrames = require("./utils/sortSliderStepsAndFrames");
 
 function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plotId) {
 
@@ -149,12 +150,10 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
                 })
             }
 
-
             // group by year and month for animation over that time
             let groupedData = _.groupBy(sortedData.flat(), (obj) => {
                 return obj.year + "-" + obj.month
             })
-
 
             //let traceOfRReceived = []
             //let traceOfThetaReceived = []
@@ -340,6 +339,11 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
             )
 
             layout.polar.radialaxis.range = [zScoreLimit + zScoreLimit * 0.5, -zScoreLimit]
+
+            // sort sliderSteps and frames to make sure the order is okay:
+            let sortedVals = sortSliderStepsAndFrames(sliderSteps, frames)
+            sliderSteps = sortedVals.sliderSteps
+            frames = sortedVals.frames
 
 
             layout["sliders"] = [{
