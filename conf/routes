@@ -11,7 +11,7 @@ POST    /consent-to-study              controllers.SocialDataDonationController.
 GET     /data-donation                 controllers.SocialDataDonationController.showDataDonationPage
 POST    /data-upload                   controllers.SocialDataDonationController.postData
 
-POST    /feedback-survey               controllers.FeedbackSurveyController.goToFeedback
+POST    /feedback-survey               controllers.FeedbackSurveyController.goToFeedback(donorId: String)
 
 GET     /health                        controllers.HealthController.status
 GET     /data-protection               controllers.AboutController.dataProtection

@@ -78,7 +78,7 @@
     </script>
     <script src="@routes.Assets.at("javascripts/plot.js")" type="text/javascript"></script>
 } {
-    @helper.form(routes.FeedbackSurveyController.goToFeedback(), '_feedbackTooltip -> "true", 'class -> "text-right") {
+    @helper.form(routes.FeedbackSurveyController.goToFeedback(donorId), '_feedbackTooltip -> "true", 'class -> "text-right") {
         <div class="mt-3 row justify-content-center mx-0">
             <input type="submit" value="@messages("feedback.nextButton")" class="btn btn-outline footer-forward-button text-center"></input>
         </div>
