@@ -1,5 +1,5 @@
 const _ = require("lodash");
-const sortSliderStepsAndFrames = require("./utils/sortSliderStepsAndFrames");
+const sortYearMonthKeys = require("./utils/sortYearMonthKeys");
 
 
 function animatedResponseTimeBarChart(responseTimes, plotId) {
@@ -150,9 +150,17 @@ function animatedResponseTimeBarChart(responseTimes, plotId) {
     let x = [FIRST, SECOND, THIRD, FOURTH, FIFTH, SIXTH, SEVENTH]
     let globalMax = 0;
 
-    for (const [key, value] of Object.entries(groupedByYearMonth)) {
+    // get keys, sort them and then loop over the sorted keys to create all frames and sliderSteps
+    let keys = Object.keys(groupedByYearMonth)
+    let sortedKeys = sortYearMonthKeys(keys)
+
+    // create a frame and slideStep for each year-month
+    let value = []
+
+    sortedKeys.forEach((key) => {
 
         let name = key
+        value = groupedByYearMonth[key]
 
         let groupedByIsDonor = _.groupBy(value, (responseTime) => {
             return responseTime.isDonor;
@@ -248,13 +256,7 @@ function animatedResponseTimeBarChart(responseTimes, plotId) {
             }]
         })
 
-
-    }
-
-    // sort sliderSteps and frames to make sure the order is okay:
-    let sortedVals = sortSliderStepsAndFrames(sliderSteps, frames)
-    sliderSteps = sortedVals.sliderSteps
-    frames = sortedVals.frames
+    })
 
 
     layout["yaxis"] = {

@@ -1,6 +1,6 @@
 const sortGraphDataPoints = require('./utils/sortGraphDataPointsTimeWise');
 const _ = require("lodash");
-const sortSliderStepsAndFrames = require("./utils/sortSliderStepsAndFrames");
+const sortYearMonthKeys = require("./utils/sortYearMonthKeys");
 
 function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversations, plotId) {
 
@@ -122,9 +122,14 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
             })
         })
         .then(groupedData => {
-            for (const [key, value] of Object.entries(groupedData)) {
+            // get keys, sort them and then loop over the sorted keys to create all frames and sliderSteps
+            let keys = Object.keys(groupedData)
+            let sortedKeys = sortYearMonthKeys(keys)
 
-                value.forEach((sentReceivedObj) => {
+            // create a frame and slideStep for each year-month
+            sortedKeys.forEach((key) => {
+
+                groupedData[key].forEach((sentReceivedObj) => {
                     conversationSentObj[sentReceivedObj.conversation] = conversationSentObj[sentReceivedObj.conversation] + sentReceivedObj.sentCount
                     //conversationReceivedObj[sentReceivedObj.conversation] = conversationReceivedObj[sentReceivedObj.conversation] + sentReceivedObj.receivedCount
                 })
@@ -184,7 +189,7 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
                         frame: {duration: 300, redraw: false}
                     }]
                 })
-            }
+            })
 
 
             // find max for range, so that bars dont get cut off
@@ -195,11 +200,6 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
                 maxForRange = maxReceived
             }
              */
-
-            // sort sliderSteps and frames to make sure the order is okay:
-            let sortedVals = sortSliderStepsAndFrames(sliderSteps, frames)
-            sliderSteps = sortedVals.sliderSteps
-            frames = sortedVals.frames
 
             layout["xaxis"] = {
                 range: [0, maxForRange],
