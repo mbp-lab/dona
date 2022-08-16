@@ -1,6 +1,7 @@
 const sortGraphDataPoints = require('./utils/sortGraphDataPointsTimeWise');
 const _ = require("lodash");
 const zScoreCalc = require("./utils/zScoreCalcPolarPlot");
+const sortYearMonthKeys = require("./utils/sortYearMonthKeys");
 
 function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plotId) {
 
@@ -149,12 +150,10 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
                 })
             }
 
-
             // group by year and month for animation over that time
             let groupedData = _.groupBy(sortedData.flat(), (obj) => {
                 return obj.year + "-" + obj.month
             })
-
 
             //let traceOfRReceived = []
             //let traceOfThetaReceived = []
@@ -164,9 +163,16 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
             let zeroBools = {}
             listOfConversations.forEach((conv) => zeroBools[conv.toString()] = false)
 
-            // create a frame and slideStep for each year-month
-            for (const [key, value] of Object.entries(groupedData)) {
+            // get keys, sort them and then loop over the sorted keys to create all frames and sliderSteps
+            let keys = Object.keys(groupedData)
+            let sortedKeys = sortYearMonthKeys(keys)
 
+            // create a frame and slideStep for each year-month
+            let value = []
+            sortedKeys.forEach((key) => {
+
+
+                value = groupedData[key]
                 // key is year-month -> that is what will be displayed on the timeline
                 name = key;
 
@@ -249,7 +255,7 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
                     }]
                 })
 
-            }
+            })
 
 
             listOfConversations.forEach(() => initialR.push(0))

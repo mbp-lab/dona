@@ -1,5 +1,6 @@
 const sortGraphDataPointsSync = require("./utils/sortGraphDataPointsSync");
 const _ = require("lodash");
+const sortYearMonthKeys = require("./utils/sortYearMonthKeys");
 
 
 function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
@@ -217,13 +218,18 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
     let frames = []
     let sliderSteps = []
 
+    // get keys, sort them and then loop over the sorted keys to create all frames and sliderSteps
+    let keys = Object.keys(monthlySentMeans)
+    let sortedKeys = sortYearMonthKeys(keys)
 
-    for (const [key, value] of Object.entries(monthlySentMeans)) {
+    // create a frame and slideStep for each year-month
+    sortedKeys.forEach((key) => {
+
 
         let name = key
         let x = [FIRST, SECOND, THIRD, FOURTH]
 
-        let ySent = value
+        let ySent = monthlySentMeans[key]
 
         let yReceived = monthlyReceivedMeans[key]
         if (yReceived === undefined) {
@@ -249,7 +255,7 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
                     marker: {
                         //color: "#FF8800",
                     },
-                    width: _.fill(Array(4), 0.3)
+                    width: _.fill(Array(4), 0.5)
                 }
             ],
         })
@@ -263,8 +269,7 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
                 frame: {duration: 300, redraw: false}
             }]
         })
-    }
-
+    })
 
     layout["yaxis"] = {
         range: [0, globalMax],

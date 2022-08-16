@@ -1,5 +1,6 @@
 const sortGraphDataPoints = require('./utils/sortGraphDataPointsTimeWise');
 const _ = require("lodash");
+const sortYearMonthKeys = require("./utils/sortYearMonthKeys");
 
 function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversations, plotId) {
 
@@ -120,10 +121,14 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
             })
         })
         .then(groupedData => {
+            // get keys, sort them and then loop over the sorted keys to create all frames and sliderSteps
+            let keys = Object.keys(groupedData)
+            let sortedKeys = sortYearMonthKeys(keys)
 
-            for (const [key, value] of Object.entries(groupedData)) {
+            // create a frame and slideStep for each year-month
+            sortedKeys.forEach((key) => {
 
-                value.forEach((sentReceivedObj) => {
+                groupedData[key].forEach((sentReceivedObj) => {
                     sentCount += sentReceivedObj.sentCount
                     receivedCount += sentReceivedObj.receivedCount
                 })
@@ -161,7 +166,7 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
                         frame: {duration: 300, redraw: false}
                     }]
                 })
-            }
+            })
 
 
             // find max for range, so that bars dont get cut off
@@ -170,6 +175,7 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
             if (maxForRange < receivedCount) {
                 maxForRange = receivedCount
             }
+
 
             layout["xaxis"] = {
                 range: [0, maxForRange],
