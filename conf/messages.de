@@ -24,7 +24,7 @@ landing.contact.body_html=Auf dieser Webseite erläutern wir Ihnen den Hintergru
 # Learn More page
 
 learn-more.how-to-participate.title=Wie kann ich teilnehmen?
-learn-more.how-to-participate.body=Die Studie findet komplett online und anonym statt. Die Studie beinhaltet die Datenspende Ihrer anonymisierten Online-Nachrichten sowie das Ausfüllen einiger Online-Fragebögen. Nachdem Sie Ihre Online-Interaktionsdaten heruntergeladen haben, dauert die Studie lediglich eine halbe Stunde.
+learn-more.how-to-participate.body=Die Studie findet komplett online und anonym statt. Die Studie beinhaltet die Datenspende Ihrer anonymisierten Online-Nachrichten. Nachdem Sie Ihre Online-Interaktionsdaten heruntergeladen haben, dauert die Studie lediglich 5 Minuten.
 
 learn-more.how-to-cancel.title=Und wenn ich abbrechen möchte?
 learn-more.how-to-cancel.body=Die Teilnahme an der Online-Studie ist freiwillig. Sie können jederzeit und ohne Angabe von Gründen Ihre Einwilligung zur Teilnahme an dieser Studie widerrufen, ohne dass Ihnen daraus Nachteile entstehen. Bis zum Ende der Datenerhebung können Sie zudem Ihre Einwilligung zur Speicherung der Daten widerrufen, ohne dass Ihnen daraus Nachteile entstehen.
@@ -34,7 +34,6 @@ learn-more.data-storage.title=Welche Daten werden gespeichert?
 # data storage text body is reused, see below
 
 learn-more.storage.body1_html=<strong><em>Datenspende: </strong></em>Bei der Datenspende ihrer Social-Media-Daten erfassen wir ausschließlich <strong>Metadaten</strong> (Nachrichtenlänge, Nachrichtenzeitpunkt und Pseudonyme der Unterhaltungsteilnehmer) und <strong>keine Inhalte</strong> (Nachrichtentext oder Name der Unterhaltungsteilnehmer). Ihre Online-Interaktions-Daten werden bereits auf Ihrem Rechner anonymisiert. Wir sehen also niemals Ihre Nachrichten. Bevor wir Ihre anonymisierten Nachrichten speichern, können Sie diese begutachten. So können Sie sich davon überzeugen, dass diese ausreichend anonymisiert sind.
-learn-more.storage.body2_html=<strong><em>Fragebögen: </strong></em>Sie füllen zunächst Fragebögen zu Ihren demographischen Informationen, zu Ihrer Spende, sowie zu ihrer momentanen Stimmung und zu Ihrem Messaging-Verhalten aus. Danach können Sie die Datenspende durchführen und erhalten Feedback. Anschließend füllen Sie weitere Fragebögen zu ähnlichen Themen aus, sowie zu der Benutzerfreundlichkeit des Feedbacks. Diese Erhebung findet ebenfalls komplett anonym auf der Plattform <a href="https://www.limesurvey.org/de/hilfe/faq/17-datenschutz-datensicherheit">LimeSurvey</a> statt.
 
 learn-more.data-handling.title=Was passiert später mit meinen Daten?
 learn-more.data-handling.body1=Da wir weder Ihren Namen oder andere personenbezogenen Daten erheben, können wir nach Abschluss der Studie, Ihre Daten nicht mehr Ihrer Person zuordnen – der Datensatz ist anonym. Entsprechend können wir Ihren Datensatz jedoch auch nicht gezielt löschen.
@@ -62,7 +61,7 @@ donation-info.storage=<strong> Speicherung: </strong>Nur diese anonymisierten un
 consent.title=Einwilligungserklärung
 
 consent.about.title=Information zur Studie
-consent.about.body1=Ziel der Studie ist es, die soziale Interaktionsdynamiken von Menschen anhand ihrer Social Media Nachrichten zu erfassen. Die Studie findet komplett online und anonym statt. Die Studie beinhaltet die Datenspende Ihrer anonymisierten Online-Nachrichten sowie das Ausfüllen einiger Online-Fragebögen. Nachdem Sie Ihre Online-Interaktionsdaten heruntergeladen haben, dauert die Studie lediglich eine halbe Stunde.
+consent.about.body1=Ziel der Studie ist es, die soziale Interaktionsdynamiken von Menschen anhand ihrer Social Media Nachrichten zu erfassen. Die Studie findet komplett online und anonym statt. Die Studie beinhaltet lediglich die Datenspende Ihrer anonymisierten Online-Nachrichten. Nachdem Sie Ihre Online-Interaktionsdaten heruntergeladen haben, dauert die Studie nur 5 Minuten.
 consent.about.body2_html=Mit Ihrer Einwilligung bestätigen Sie, dass Sie die vorherige Informationswebseite zum Zweck, Ablauf und Umfang der Online-Studie gelesen und verstanden haben.
 
 consent.benefit.title=Nutzen und Risiken
@@ -141,7 +140,7 @@ feedback.thanks.title=Vielen Dank für die Spende Ihrer Social-Online-Daten!
 feedback.importantMessage.title=Wichtiger Hinweis:
 feedback.importantMessage.disclaimer=Die angezeigten Graphen und Visualisierungen erlauben <b><u>keine</u> direkten Rückschlüsse</b> auf die Qualität Ihrer sozialen Beziehungen. Ihre Chats werden lediglich hinsichtlich Umfang, Menge und Zeiten ausgewertet und dargestellt.
 
-feedback.reminder=Sie können sich die Seite in Ruhe weiter anschauen. Nehmen Sie sich soviel Zeit, wie Sie möchten. Bitte vergessen Sie nicht, im Anschluss den letzten Fragebogen der Studie auszufüllen. Vielen Dank!
+feedback.reminder=Sie können sich die Seite in Ruhe weiter anschauen. Nehmen Sie sich soviel Zeit, wie Sie möchten.
 
 feedback.graph.title=Einsichten aus Ihren %s-Nachrichten
 feedback.graph.total-messages=Gesamtzahl an Nachrichten
@@ -168,7 +167,7 @@ feedback.title.statisticsCard=Überblick über die gesamte Aktivität
 feedback.title.interactionIntensity=Interaktionsintensität
 feedback.title.dailyActivityTimes=Tägliche Aktivitätszeiten
 feedback.title.responseTimes=Reaktionszeiten
-feedback.title.pleaseContinue=Wir hoffen Sie hatten spannende Erkenntnisse. Bitte fahren Sie nun mit dem nächsten und letzten Fragebogen der Studie fort. Danke sehr!
+feedback.title.pleaseContinue=Wir hoffen Sie hatten spannende Erkenntnisse. Danke sehr!
 
 feedback.facebook.info=Die möglicherweise hohe Anzahl an Facebook-Kontakten kann zu einer unübersichtlichen Darstellung führen. Daher werden im Folgenden nur Visualisierungen für Ihre 7 (oder weniger) Facebook-Chats mit den meisten Wörtern angezeigt.
 
@@ -308,7 +307,6 @@ footer.title=Sind Sie bereit?
 browser-warning.text=Sie benutzen einen Browser, der nicht unterstützt wird. Es kann daher zu Fehlern beim Aussehen oder Funktion der Seite kommen. Bitte benutzen Sie die neueste Version von Chrome oder Firefox, um die Seite zu laden.
 
 data-storage.body1_html=<em>Datenspende: </em>Bei der Datenspende ihrer Social-Media-Daten erfassen wir ausschließlich Metadaten (e.g. Nachrichtenlänge, Nachrichtenzeitpunkt und Pseudonyme der Unterhaltungsteilnehmer) und keine Inhalte (e.g. Nachrichtentext oder Name der Unterhaltungsteilnehmer). Ihre Online-Interaktions-Daten warden bereits auf Ihrem Rechner anonymisiert. Wir sehen also niemals Ihre Nachrichten. Bevor wir Ihre anonymisierten Nachrichten speichern, können Sie diese begutachten. So können Sie sich davon überzeugen, dass diese ausreichend anonymisiert sind.
-data-storage.body2_html=<em>Fragebögen: </em>Sie füllen zunächst Fragebögen zu Ihren demographischen Informationen, zu Ihrer Spende, sowie zu ihrer momentanen Stimmung und zu Ihrem Messaging-Verhalten aus. Danach können Sie die Datenspende durchführen und erhalten Feedback. Diese Erhebung findet ebenfalls komplett anonym auf der Plattform <a href="https://www.limesurvey.org/de/hilfe/faq/17-datenschutz-datensicherheit">LimeSurvey</a> statt.
 
 links.learn-more=Mehr Erfahren
 links.instructions=Daten Erhalten

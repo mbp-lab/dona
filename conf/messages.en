@@ -24,7 +24,7 @@ landing.contact.body_html=The purpose of this website is to inform you about the
 # Learn More page
 
 learn-more.how-to-participate.title=How do I participate in the study?
-learn-more.how-to-participate.body=This study will be completely anonymous and online. To participate in this study, we will ask you to donate your anonymized messages and complete several questionnaires. After having downloaded the interaction data of a platform of your choice, the study will only last for about 30 minutes.
+learn-more.how-to-participate.body=This study will be completely anonymous and online. To participate in this study, we will ask you to donate your anonymized messages. After having downloaded the interaction data of a platform of your choice, the study will only last for about 5 minutes.
 
 learn-more.how-to-cancel.title=Can I drop out during the study?
 learn-more.how-to-cancel.body=First things first: participation is entirely voluntary. At at time, you may revoke your consent concerning your participation in the study, without giving any reason and without any kind of negative consequences. Before uploading the data to our research platform, you may revoke your consent concerning the storage of your anonymized data, without giving any reason and without any kind of negative consequences.
@@ -34,7 +34,6 @@ learn-more.data-storage.title=What data will be used?
 # data storage text body is reused, see below
 
 learn-more.storage.body1_html=<strong><em>Data donation: </strong></em>When donating your interaction data, we extract metadata (e.g. length and timestamp of message as well as pseudonyms of conversation participants) and no actual contents (e.g. message text or name of message sender). To ensure that, we anonymize your data client-side, meaning that your private data is anonymized locally and does not leave your device. This means that we will never see the content of your conversations. Before uploading, we will show you a preview of the data so that you can verify it is sufficiently anonymous.
-learn-more.storage.body2_html=<strong><em>Questionnaires: </strong></em>You first fill out questionnaires about your demographic information, your donation, your current mood, and your messaging behavior. You can then carry out the data donation and receive feedback. You then fill out other questionnaires on similar topics and the user-friendliness of the feedback. In the end you will receive a questionnaire regarding important life experiences in the last two years and your messaging behavior. These surveys will all take place anonymously, using <a href="https://www.limesurvey.org/support/faq/39-data-protection-and-policy">LimeSurvey</a>.
 
 learn-more.data-handling.title=What happens to my data?
 learn-more.data-handling.body1=Since we are not collecting any names or other person-specific information, we will not be able to associate you with your data once the study has been completed - the donated data is anonymous. This means that your data cannot be deleted on request.
@@ -62,7 +61,7 @@ donation-info.storage=<strong> Storage: </strong>Only anonymized and reduced dat
 consent.title=Informed Consent
 
 consent.about.title=Information about the Study
-consent.about.body1=The aim of this study is to measure the dynamics of social interaction of people by leveraging their social media data. This study is completely anonymous and online. It includes donation of your anonymized social media data as well as the completion of several online questionnaires. After having downloaded your interaction data from a platform of your choice, participation in the study will only take about 30 minutes.
+consent.about.body1=The aim of this study is to measure the dynamics of social interaction of people by leveraging their social media data. This study is completely anonymous and online. It includes only the donation of your anonymized social media data. After having downloaded your interaction data from a platform of your choice, participation in the study will only take about 5 minutes.
 consent.about.body2_html=By agreeing, you confirm that you have read and understood the background and process of this online study.
 
 consent.benefit.title=Benefits and risks
@@ -141,7 +140,7 @@ feedback.thanks.title=Thank you for the donation of your social media data!
 feedback.importantMessage.title=Important Note:
 feedback.importantMessage.disclaimer=The graphs and visualizations displayed <b>do <u>not</u> allow any direct conclusions</b> to be drawn about the quality of your social relationships. Your chats are analyzed and visualized regarding amount and timing only.
 
-feedback.reminder=You can continue to explore this page and take as much time as you like. Please do not forget to fill out the last questionnaire of the study afterward. Thanks!
+feedback.reminder=You can continue to explore this page and take as much time as you like.
 
 feedback.graph.title=Insights through your %s messages
 feedback.graph.total-messages=Total messages
@@ -168,7 +167,7 @@ feedback.title.statisticsCard=Overview of all activity
 feedback.title.interactionIntensity=Interaction Intensity
 feedback.title.dailyActivityTimes=Daily Activity Times
 feedback.title.responseTimes=Response Times
-feedback.title.pleaseContinue=We hope you had exciting insights. Please continue to the next and final questionnaire of the study. Thanks a lot!
+feedback.title.pleaseContinue=We hope you had exciting insights. Thanks a lot!
 
 feedback.facebook.info=The potentially high number of facebook contacts could lead to a cluttered visualization. Therefore, in the following, only visualizations for your 7 (or less) Facebook chats with the most words are shown.
 
@@ -308,7 +307,6 @@ footer.title=Are you ready?
 browser-warning.text=You are using an unsupported browser. The page may not appear or work correctly as a result. Please use the latest version of Chrome or Firefox to view this page.
 
 data-storage.body1_html=<em>Data Donation: </em>When donating your interaction data, we extract metadata (e.g. length and timestamp of message as well as pseudonyms of conversation participants) and no actual contents (e.g. message text or name of message sender). To ensure that, we anonymize your data client-side, meaning that your private data is anonymized locally and does not leave your device. This means that we will never see the content of your conversations. Before uploading, we will show you a preview of the data so that you can verify it is sufficiently anonymous.
-data-storage.body2_html=<em>Questionnaires: </em>You first fill out questionnaires about your demographic information, your donation, your current mood, and your messaging behavior. You can then carry out the data donation and receive feedback. These surveys will all take place anonymously, using <a href="https://www.limesurvey.org/support/faq/39-data-protection-and-policy">LimeSurvey</a>.
 
 links.learn-more=Learn more
 links.instructions=Get Data
