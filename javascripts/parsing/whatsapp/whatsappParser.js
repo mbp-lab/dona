@@ -27,7 +27,10 @@ function makeArrayOfMessages(lines) {
        * it should be considered a "whatsapp event" so it gets labeled "system"
        */
       if (regexStartsWithDateTime.test(line)) {
-        return acc.concat({ system: true, msg: line });
+        // check if matches systemRegex
+        if (regexParserSystem.exec(line) != null) {
+          return acc.concat({ system: true, msg: line });
+        }
       }
 
       // Last element not set, just skip this (might be an empty file)
@@ -53,14 +56,12 @@ function makeArrayOfMessages(lines) {
 function parseMessages(messages, options = { daysFirst: undefined }) {
   let { daysFirst } = options;
 
-  // Parse messages with regex
   const parsed = messages.map(obj => {
     const { system, msg } = obj;
 
     // If it's a system message another regex should be used to parse it
     if (system) {
       const [, date, time, ampm, message] = regexParserSystem.exec(msg);
-
       return { date, time, ampm: ampm || null, author: 'System', message };
     }
 
@@ -68,6 +69,8 @@ function parseMessages(messages, options = { daysFirst: undefined }) {
 
     return { date, time, ampm: ampm || null, author, message };
   });
+
+
 
   // Understand date format if not supplied (days come first?)
   if (typeof daysFirst !== 'boolean') {
