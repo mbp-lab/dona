@@ -91,7 +91,18 @@ function deIdentification(parsedFiles, alias) {
           }
         });
         jsonContent.participants = t;
-        if (jsonContent.participants.length > 2) jsonContent.thread_type = "RegularGroup";
+
+        if (jsonContent.participants.length === 3) {
+          const systemName = i18nSupport.data("system")
+          // check if one of the participants is the system, then it is no group!
+          if (!arr.includes(systemName)) {
+            jsonContent.thread_type = "RegularGroup"
+          }
+        }
+        else if (jsonContent.participants.length > 2) {
+          jsonContent.thread_type = "RegularGroup"
+        };
+
         deIdentifiedJsonContents.push(jsonContent);
       });
 
