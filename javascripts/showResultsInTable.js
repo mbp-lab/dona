@@ -1,4 +1,6 @@
 function showResultsInTable(deIdentifiedJsonList) {
+    const i18nSupport = $("#i18n-support");
+    const systemName = i18nSupport.data("system")
     const cardsToDisplay = 100;
     clearPreviousRenderedResults()
         .then(() => {
@@ -8,7 +10,7 @@ function showResultsInTable(deIdentifiedJsonList) {
             shuffle.forEach(n => {
                 var message = messages[n];
                 shownMessagesCounter++;
-                addNewMessage(message.participants, message.sender_name, message.word_count, message.timestamp_ms, message.isGroup, shownMessagesCounter)
+                addNewMessage(message.participants.filter(p => p !== systemName), message.sender_name, message.word_count, message.timestamp_ms, message.isGroup, shownMessagesCounter)
             });
 
             $("#display-preview-total").html(shownMessagesCounter);
