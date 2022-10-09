@@ -13,6 +13,7 @@ import models.domain.DonationDataSourceType.DonationDataSourceType
 class MessageAnalysisService @Inject()(config: FeedbackConfig) {
 
   private case class TimeFrame(year: Int, month: Month)
+  private case class TimeFrameInts(year: Int, month: Int)
 
   //private case class FriendTimeFrame(friend: Option[String], year: Int, month: Month)
 
@@ -45,6 +46,7 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
         //val dailyMessageGraphData = produceDailyMessageGraphData(socialData.donorId, conversations)
         val dailyWordsGraphData = produceDailyWordsGraphData(socialData.donorId, conversations)
         val dailyWordsGraphDataPerConversation = conversations.map(conversation => produceDailyWordsGraphDataPerConversation(socialData.donorId, conversation))
+
         //val dailySentHourMinutesPerConversation = conversations.map(conversation => produceDailyHourMinutesPerConversation(socialData.donorId, conversation, true))
         //val dailyReceivedHourMinutesPerConversation = conversations.map(conversation => produceDailyHourMinutesPerConversation(socialData.donorId, conversation, false))
         //val dailySentHoursPerConversation = conversations.map(conversation => produceDailyHoursPerConversation(socialData.donorId, conversation, true))
@@ -67,6 +69,9 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
         //val sentPerFriendPerMonth = produceAggregatedSentPerFriend(socialData.donorId, conversations)
         //val sentPerFriendInConversationPerMonth = conversations.map(c => produceMonthlySentPerFriendInConversation(socialData.donorId, c))
         val sentReceivedPerMonthPerConversation = conversations.map(c => produceSentReceivedWordsPerMonthPerConversation(socialData.donorId, c))
+
+        //find months with only one conv
+        val monthsOnlyOneConv = findMonthsWithOnlyOneConv(sentReceivedPerMonthPerConversation.flatten)
 
         (dataSourceType,
           GraphData(
@@ -100,6 +105,40 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
       .takeRight(nToTake)
       .map(_.conversation)
   }
+
+
+
+  /**
+   * find months with only one active conversation
+   *
+   * @param sentReceivedMonthly is a list of SentReceivedPoints per conversation so for each conversation per year-
+   *                            month combinations where there was activity
+   * @return all the year-month combinations with only one active conversation
+   */
+  private def findMonthsWithOnlyOneConv(sentReceivedMonthly: List[SentReceivedPoint]): List[TimeFrameInts] = {
+
+    sentReceivedMonthly
+      .map {
+      case SentReceivedPoint(year, month, sentCount, receivedCount) =>
+        TimeFrameInts(year, month)
+    }
+      .groupBy(_.copy())
+      .map {
+        case (key: TimeFrameInts, values: List[TimeFrameInts]) =>
+          (key, values.length)
+      }
+
+      .filter {
+        case (key: TimeFrameInts, value: Int) =>
+          value == 1
+      }
+      .map {
+        case (key: TimeFrameInts, value: Int) =>
+          key
+      }
+      .toList
+  }
+
 
 
   /**

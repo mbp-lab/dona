@@ -310,7 +310,7 @@ data-storage.body1_html=<em>Data Donation: </em>When donating your interaction d
 data-storage.body2_html=<em>Questionnaires: </em>You first fill out questionnaires about your demographic information, your donation, your current mood, and your messaging behavior. You can then carry out the data donation and receive feedback. You then fill out other questionnaires on similar topics and the user-friendliness of the feedback. In the end you will receive a questionnaire regarding important life experiences in the last two years and your messaging behavior. These surveys will all take place anonymously, using <a href="https://www.limesurvey.org/support/faq/39-data-protection-and-policy">LimeSurvey</a>.
 
 links.learn-more=Learn more
-links.instructions=Get Data
+links.instructions=Start
 links.donation-info=Donate data
 links.donate=Participate now!
 links.data-protection=Data Protection
