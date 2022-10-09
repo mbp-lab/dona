@@ -55,8 +55,9 @@ function makeArrayOfMessages(lines) {
  */
 function parseMessages(messages, options = { daysFirst: undefined }) {
   let { daysFirst } = options;
+  let allContactNames = []
 
-  const parsed = messages.map(obj => {
+  let parsed = messages.map(obj => {
     const { system, msg } = obj;
 
     // If it's a system message another regex should be used to parse it
@@ -67,10 +68,13 @@ function parseMessages(messages, options = { daysFirst: undefined }) {
 
     const [, date, time, ampm, author, message] = regexParser.exec(msg);
 
+    allContactNames.push(author)
+
     return { date, time, ampm: ampm || null, author, message };
   });
 
 
+  allContactNames = [...new Set(allContactNames)]
 
   // Understand date format if not supplied (days come first?)
   if (typeof daysFirst !== 'boolean') {
@@ -83,7 +87,7 @@ function parseMessages(messages, options = { daysFirst: undefined }) {
   }
 
   // Convert date/time in date object, return final object
-  return parsed.map(({ date, time, ampm, author, message }) => {
+  parsed = parsed.map(({ date, time, ampm, author, message }) => {
     let day;
     let month;
     let year;
@@ -106,6 +110,11 @@ function parseMessages(messages, options = { daysFirst: undefined }) {
       message,
     };
   });
+
+  return {
+    texts: parsed,
+    contacts: allContactNames
+  }
 }
 
 module.exports = {

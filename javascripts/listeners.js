@@ -119,6 +119,7 @@ function setUpFileHandler() {
         if (dataSource == "WhatsApp") {
             const alias = $("#WhatsAppAliasInput").val();
             handler = whatsappTxtFileHandler(evt.target.files, alias);
+            //$("#WhatsAppAliasInput").val('Test')
         } else {
             handler = facebookZipFileHandler(evt.target.files);
         }
