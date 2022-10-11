@@ -100,7 +100,8 @@ function setUpFileHandler() {
     };
 
     $(".donation-file-selector>input[type='file']").on("click", function(evt) {
-        const requiresAlias = evt.currentTarget.getAttribute('data-requires-alias');
+        //const requiresAlias = evt.currentTarget.getAttribute('data-requires-alias');
+        const requiresAlias = false; // TODO: clean up
         const dataSourceName = evt.currentTarget.id;
         if (requiresAlias && !$(`#${dataSourceName}AliasInput`).val()) {
             messageService.showError(i18nSupport.data('error-no-alias'));

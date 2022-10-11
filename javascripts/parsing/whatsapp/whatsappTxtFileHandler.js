@@ -14,9 +14,10 @@ function whatsappTxtFilesHandler(filelist, alias) {
 
     return new Promise((resolve, reject) => {
         const expectedNumberOfFiles = 5;
-        if (alias.length < 1) {
-            reject(i18nSupport.data('error-no-alias'));
-        } else if (files.length != expectedNumberOfFiles) {
+        //if (alias.length < 1) {
+        //    reject(i18nSupport.data('error-no-alias'));
+        //} else if (files.length != expectedNumberOfFiles) {
+        if (files.length != expectedNumberOfFiles) {
             reject(i18nSupport.data('error-not-enough-chats').replace('%s', files.length));
         } else {
             // check if all files seem to be the same
@@ -37,51 +38,46 @@ function whatsappTxtFilesHandler(filelist, alias) {
                 .then(data => data.split('\n'))
                 .then(makeArrayOfMessages)
                 .then(messages => parseMessages(messages))
-                .then(arg => {
-                    console.log(arg)
-                    return arg
-                })
         });
 
+        // determine possible usernames
         Promise.all(parsedFiles)
             .then((parsed) => {
                 let textList = parsed.map((obj) => obj.texts)
                 let contacts = parsed.map((obj) => obj.contacts)
-                console.log(contacts)
+
                 // determine possible alias - if only one is possible then that is the alias
                 let possibleUserNames = _.intersection(...contacts)
-                console.log(possibleUserNames)
+
                 if (possibleUserNames.length === 1) {
                     resolve(deIdentification(textList, possibleUserNames[0]));
                 } else {
-                    console.log("THERE ARE MORE THAN ONE POSSIBLE USERNAMES")
                     askUserForUsername(possibleUserNames)
                         .then(username => {
                             resolve(deIdentification(textList, username));
                         })
-                    //reject(i18nSupport.data('error-no-alias'))
                 }
             })
-
-        //resolve(deIdentification(parsedFiles, alias));
     })
 
 }
 
-function askUserForUsername(possibilites) {
+function askUserForUsername(possibilities) {
     return new Promise((resolve) => {
 
         let usernameSelector = document.getElementById("usernameSelect");
-        possibilites.forEach((name) => {
+        usernameSelector.innerHTML = '';
+        possibilities.forEach((name) => {
             usernameSelector.options[usernameSelector.options.length] = new Option(name, name);
         })
+
+        usernameSelector.options[0].setAttribute("selected", true)
 
         let usernameSelectButton = document.getElementById("usernameSelectButton");
         usernameSelectButton.onclick = () => {
             resolve(usernameSelector.value)
         }
         $('#usernameModal').modal('show')
-        //resolve("Paul")
     })
 }
 
@@ -172,7 +168,7 @@ function deIdentification(parsedFiles, alias) {
                 participantNameToRandomIds: participantNameToRandomIds
             }
             //deIdentifiedJsonContents.push(participantNameToRandomIds)
-            console.log(result)
+            //console.log(result)
             return result;
         });
 
