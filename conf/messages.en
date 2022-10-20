@@ -3,8 +3,7 @@
 # Landing page
 
 landing.header.title=Illuminate the darkness with your social media data
-landing.header.body=We are researching how to use digital methods to gain a better understanding of loneliness in order to help people. Support our mission by donating your social media data anonymously. As a gesture of appreciation for your efforts, we will grant you interesting insights into your data.
-
+landing.header.body=We are researching how to use digital methods to better understand social media interaction and its potential impact on mental health. Support our mission by donating your social media data anonymously. As a gesture of appreciation for your efforts, we will grant you interesting insights into your data.
 landing.what.title=What is this about?
 landing.what.body1=Social interaction plays a significant role in our mental health. The Multimodal Behavior Processing Group at the University of Bielefeld is currently developing digital measurement tools in order to better understand it. In this ongoing study we are trying to answer a particular question: Can the social involvement of people be measured by utilizing their social media data?
 landing.what.body2=If you want to participate in this study, you can request your data from a social media platform of your choice (currently supported: Facebook and WhatsApp). You can then anonymize this data on the website, upload it and donate it to our research platform.
