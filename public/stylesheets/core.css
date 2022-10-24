@@ -321,6 +321,19 @@
 
 /* donation page */
 
+.donate-collapse-button {
+    font-weight: 800;
+    font-size: 24px;
+    min-width: 213px;
+    width: 100%;
+    padding: 10px 20px 10px 20px;
+    /*margin-left: 2em;*/
+    border-radius: 16px;
+    background: #35b1a6;
+    color: white !important;
+    text-decoration: none;
+}
+
 .donation-page-body {
     width: 940px;
 }

@@ -46,12 +46,23 @@
             <p class="paragraph">@messages("donation.select-data.body2")</p>
         </div>
 
+        <div class="p-2 pr-sm-4 pl-sm-4 pt-sm-4 p-lg-2 w-100">
+            <div class="accordion" id="donationAccordion">
+            @for(dataSourceDescription <- dataSourceDescriptions) {
+                @donateDataCollapse(dataSourceDescription)
+            }
+                </div>
+            </div>
+        </div>
+
         <div class="mt-0 w-100">
-            <div class="p-2 pr-sm-4 pl-sm-4 pt-sm-4 p-lg-2">
+            <div class="p-2 pr-sm-4 pl-sm-4 pt-sm-4 p-lg-2" >
                 <div class="mt-0 w-100" align="center">
-                    @for(dataSourceDescription <- dataSourceDescriptions) {
-                        @populateDataSourceList(dataSourceDescription)
-                    }
+                    @*
+                    * @for(dataSourceDescription <- dataSourceDescriptions) {
+                    *   @populateDataSourceList(dataSourceDescription)
+                    *}
+                    *@
                     <div id="donationprogress" class="mb-2 d-none">
                         <span class="highlighted-instructions">@messages("donation.processing")</span>
                         <div class="progress">
@@ -70,53 +81,6 @@
 
         </div>
 
-        <div class="mt-0 w-100" align="center">
-            <div class="p-2 pr-sm-4 pl-sm-4 pt-sm-4 p-lg-2" align="center">
-                <div id="error" class="alert alert-danger d-none">
-                </div>
-                <div id="success" class="alert alert-success d-none">
-                </div>
-            </div>
-        </div>
-
-        <div class="show-on-anonymisation-success order-9 w-100 d-none">
-            <div class="w-100 text-align-center show-on-anonymisation-success" align="center">
-                <h3>@messages("donation.preview-data.title")</h3>
-                <div id="info" class="alert alert-info">
-                    <p>@messages("donation.preview-data.body1")</p>
-                    <p>@messages("donation.preview-data.body2")</p>
-                </div>
-
-                <div class="container-fluid show-on-anonymisation-success alert-warning">
-                    <p style="color: darkblue; font-weight: bold">@Html(messages("donation.friendsMapping.title"))</p>
-                        <p style="color: darkblue;">@Html(messages("donation.friendsMapping.subtitle"))</p>
-                    <p class="show-on-anonymisation-success" style="overflow: scroll;
-                        height: 200px; margin-top: 10px;">
-                    @Html("<span id=\"display-userIDMapping\"></span>")
-                    </p>
-                </div>
-
-                <p class="pl-3 pr-3 pl-sm-4 pr-sm-4 pl-md-3 pr-md-3 pl-lg-5 pr-lg-5 show-on-anonymisation-success">
-                    @Html(String.format(messages("donation.raw-data-explanation_format"), "<span id=\"display-preview-total\"></span>"))
-                    <a id="viewRawJson" href="about:blank" target="_blank">@messages("donation.raw-data-link.text")</a>.
-                </p>
-            </div>
-            <div class="container-fluid show-on-anonymisation-success">
-                <div id="carousel-deidentified-preview" class="carousel slide" data-interval="false" data-ride="carousel">
-                    <div class="carousel-inner row w-100 mx-auto">
-
-                    </div>
-                    <a class="carousel-control-prev" href="#carousel-deidentified-preview" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">@messages("donation.preview-data.previous")</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carousel-deidentified-preview" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">@messages("donation.preview-data.next")</span>
-                    </a>
-                </div>
-            </div>
-        </div>
 
             <!-- Modal for choosing correct username -->
         <div class="modal fade" id="usernameModal" tabindex="-1" role="dialog" aria-labelledby="usernameModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
@@ -130,7 +94,8 @@
                         </select>
                     </div>
                     <div class="modal-footer">
-                        <button id="usernameSelectButton" type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                        <button id="usernameSelectButton" type="button" class="btn btn-primary" data-dismiss="modal">
+                            OK</button>
                     </div>
                 </div>
             </div>
@@ -153,11 +118,142 @@
     </div>
 }
 
+@donateDataCollapse(dataSourceDescription: DataSourceDescription) = {
+    <div class="card mb-3" style="border-radius: 16px;">
+        <div class="text-center" id="@{
+            dataSourceDescription.name.toString
+        }Heading">
+            <h2 class="mb-0">
+                <button class="btn donate-collapse-button" type="button" data-toggle="collapse" data-target="#@{
+                    dataSourceDescription.name.toString
+                }Collapse">
+                    Donate
+                        @if(dataSourceDescription.logo.isDefined) {
+                            <img class="logo" src="@{
+                                dataSourceDescription.logo
+                            }">
+                        }
+                        @{dataSourceDescription.name.toString} Data
+                </button>
+            </h2>
+        </div>
+
+        <div id="@{
+            dataSourceDescription.name.toString
+        }Collapse" class="collapse" aria-labelledby="headingOne" data-parent="#donationAccordion">
+            <div class="card-body">
+
+                <div>
+                    <div class="custom-file mb-1 donation-file-selector">
+
+                        <input
+                        id="@{
+                            dataSourceDescription.name.toString
+                        }"
+                        multiple
+                        type="file"
+                        class="custom-file-input donation-file-selector"
+                            @if(dataSourceDescription.parsingDetails.specificFileExtensionAccepted.isDefined) {
+                                accept="@{
+                                    dataSourceDescription.parsingDetails.specificFileExtensionAccepted
+                                }"
+                                }
+                        >
+                        <label class="custom-file-label" for="customFile">Choose file</label>
+                    </div>
+
+                    <div id="donationprogress" class="mb-2 d-none">
+                        <span class="highlighted-instructions">@messages("donation.processing")</span>
+                        <div class="progress">
+                            <div class="progress-bar center-block progress-bar-striped progress-bar-animated"
+                            style="width: 100%"
+                            role="progressbar"
+                            aria-valuenow="100"
+                            aria-valuemin="0"
+                            aria-valuemax="100">
+                            @messages("donation.be-patient")
+                            </div>
+                        </div>
+                    </div>
+
+                    <ul class="list-group" style="overflow-y: scroll;
+                        height: 250px;">
+                        <li class="list-group-item">
+                            File 1 <button class="btn badge badge-secondary float-right">Remove</button> </li>
+                        <li class="list-group-item">
+                            File 2 <button class="btn badge badge-secondary float-right">X</button> </li>
+                        <li class="list-group-item">
+                            File 3 <button class="btn badge badge-secondary float-right">X</button> </li>
+                        <li class="list-group-item">
+                            File 4 <button class="btn badge badge-secondary float-right">X</button> </li>
+                        <li class="list-group-item">
+                            File 5 <button class="btn badge badge-secondary float-right">X</button> </li>
+                        <li class="list-group-item">
+                            File 6 <button class="btn badge badge-secondary float-right">X</button> </li>
+                    </ul>
+                </div>
+
+                <div class="mt-0 w-100" align="center">
+                    <div class="p-2 pr-sm-4 pl-sm-4 pt-sm-4 p-lg-2" align="center">
+                        <div id="error" class="alert alert-danger d-none">
+                        </div>
+                        <div id="success" class="alert alert-success d-none">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="show-on-anonymisation-success order-9 w-100 d-none">
+                    <div class="w-100 text-align-center show-on-anonymisation-success" align="center">
+                        <h3>@messages("donation.preview-data.title")</h3>
+                        <div id="info" class="alert alert-info">
+                            <p>@messages("donation.preview-data.body1")</p>
+                            <p>@messages("donation.preview-data.body2")</p>
+                        </div>
+
+                        <div class="container-fluid show-on-anonymisation-success alert-warning">
+                            <p style="color: darkblue;
+                                font-weight: bold">@Html(messages("donation.friendsMapping.title"))</p>
+                            <p style="color: darkblue;">@Html(messages("donation.friendsMapping.subtitle"))</p>
+                            <p class="show-on-anonymisation-success" style="overflow: scroll;
+                                height: 200px;
+                                margin-top: 10px;">
+                            @Html("<span id=\"display-userIDMapping\"></span>")
+                            </p>
+                        </div>
+
+                        <p class="pl-3 pr-3 pl-sm-4 pr-sm-4 pl-md-3 pr-md-3 pl-lg-5 pr-lg-5 show-on-anonymisation-success">
+                            @Html(String.format(messages("donation.raw-data-explanation_format"), "<span id=\"display-preview-total\"></span>"))
+                            <a id="viewRawJson" href="about:blank" target="_blank">@messages("donation.raw-data-link.text")</a>.
+                        </p>
+                    </div>
+                    <div class="container-fluid show-on-anonymisation-success">
+                        <div id="carousel-deidentified-preview" class="carousel slide" data-interval="false" data-ride="carousel">
+                            <div class="carousel-inner row w-100 mx-auto">
+
+                            </div>
+                            <a class="carousel-control-prev" href="#carousel-deidentified-preview" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">@messages("donation.preview-data.previous")</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carousel-deidentified-preview" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">@messages("donation.preview-data.next")</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+}
+
 @populateDataSourceList(dataSourceDescription: DataSourceDescription) = {
 
     <div class="card">
 
-        <label class="card-header donation-file-selector btn btn-link w-100 " >
+        <label class="card-header donation-file-selector btn btn-link w-100" >
             <input id="@{
                 dataSourceDescription.name.toString
             }"
