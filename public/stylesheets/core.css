@@ -343,11 +343,11 @@
 }
 
 
-#donationprogress .progress {
+.donationprogress .progress {
     height: 25px;
 }
 
-#donationprogress .progress-bar {
+.donationprogress .progress-bar {
     background-color: #36b3a8
 }
 

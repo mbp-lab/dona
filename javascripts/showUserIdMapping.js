@@ -1,4 +1,4 @@
-function showUserIdMapping(userIdMapping, systemName, donor) {
+function showUserIdMapping(userIdMapping, systemName, donor, dataSource) {
 
     clearPreviousRenderedMappings()
         .then(() => {
@@ -84,7 +84,7 @@ function showUserIdMapping(userIdMapping, systemName, donor) {
             }
 
             for (let i = 0; i < deidentifiedNames.length; i++) {
-                $("#display-userIDMapping").append("<p class='mapping-item' style='font-weight: bold'>" + deidentifiedNames[i] + " &rarr; " + friendMappings[i] + "</p>")
+                $("#display-userIDMapping-" + dataSource).append("<p class='mapping-item' style='font-weight: bold'>" + deidentifiedNames[i] + " &rarr; " + friendMappings[i] + "</p>")
             }
 
 

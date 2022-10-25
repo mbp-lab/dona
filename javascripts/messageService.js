@@ -1,17 +1,17 @@
 let messageService = {
-    "showError": function (message, id) {
-        $("#success").addClass('d-none');
-        $("#error").removeClass('d-none');
-        $("#error").html(message);
+    "showError": function (message, dataSource) {
+        $("#success-" + dataSource).addClass('d-none');
+        $("#error-" + dataSource).removeClass('d-none');
+        $("#error-" + dataSource).html(message);
     },
-    "showSuccess": function (message) {
-        $("#error").addClass('d-none');
-        $("#success").removeClass('d-none');
-        $("#success").html(message);
+    "showSuccess": function (message, dataSource) {
+        $("#error-" + dataSource).addClass('d-none');
+        $("#success-" + dataSource).removeClass('d-none');
+        $("#success-" + dataSource).html(message);
     },
-   "hide": function() {
-     $("#error").addClass('d-none');
-     $("#success").addClass('d-none');
+   "hide": function(dataSource) {
+     $("#error-" + dataSource).addClass('d-none');
+     $("#success-" + dataSource).addClass('d-none');
    }
 }
 

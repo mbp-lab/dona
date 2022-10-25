@@ -104,7 +104,7 @@ function setUpFileHandler() {
         const requiresAlias = false; // TODO: clean up
         const dataSourceName = evt.currentTarget.id;
         if (requiresAlias && !$(`#${dataSourceName}AliasInput`).val()) {
-            messageService.showError(i18nSupport.data('error-no-alias'));
+            messageService.showError(i18nSupport.data('error-no-alias'), dataSourceName);
             evt.preventDefault();
         }
     });
@@ -113,22 +113,32 @@ function setUpFileHandler() {
         const dataSource = evt.currentTarget.id;
         const donorId = $("#donor_id").val();
 
-        progressBar.start();
+        progressBar.start(dataSource);
 
         var handler;
 
         if (dataSource == "WhatsApp") {
             const alias = $("#WhatsAppAliasInput").val();
             handler = whatsappTxtFileHandler(evt.target.files, alias);
+            console.log("files:", evt.target.files)
             //$("#WhatsAppAliasInput").val('Test')
         } else {
             handler = facebookZipFileHandler(evt.target.files);
         }
 
+
         handler
             .then((deIdentifiedJson) => {
+                const fileList = $("#" + dataSource + "FileList")
+                fileList.empty()
+
+                let fileName
+                for (let i = 0; i < evt.target.files.length; i++) {
+                    fileName = evt.target.files[i].name
+                    fileList.append('<li class="list-group-item">' + fileName + '<button class="btn badge badge-secondary float-right">Remove</button> </li>')
+                }
                 renderTable(deIdentifiedJson.deIdentifiedJsonContents);
-                renderUserIDMapping(deIdentifiedJson.participantNameToRandomIds, i18nSupport.data('system'), i18nSupport.data('donor'))
+                renderUserIDMapping(deIdentifiedJson.participantNameToRandomIds, i18nSupport.data('system'), i18nSupport.data('donor'), dataSource)
                 return transformJson(deIdentifiedJson.deIdentifiedJsonContents, donorId, dataSource);
             })
             .then((transformedJson) => {
@@ -137,19 +147,20 @@ function setUpFileHandler() {
                 donaForMEDonation.conversations = donaForMEDonation.conversations.concat(transformedJson.conversations);
 
                 $("#inputJson").attr('value', JSON.stringify(donaForMEDonation));
+                $(".show-on-anonymisation-success" + "-" + dataSource).removeClass('d-none');
                 $(".show-on-anonymisation-success").removeClass('d-none');
             
                 $("#" + dataSource + "Checkmark").removeClass('d-none');
 
-                messageService.showSuccess(i18nSupport.data("anonymisation-successful"));
+                messageService.showSuccess(i18nSupport.data("anonymisation-successful"), dataSource);
 
-                progressBar.stop();
+                progressBar.stop(dataSource);
             })
             .catch(error => {
                 console.log(error);
     
-                messageService.showError(i18nSupport.data("error") + " " + error);
-                progressBar.stop();
+                messageService.showError(i18nSupport.data("error") + " " + error, dataSource);
+                progressBar.stop(dataSource);
             });
         
     });

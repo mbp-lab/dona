@@ -162,7 +162,7 @@
                         <label class="custom-file-label" for="customFile">Choose file</label>
                     </div>
 
-                    <div id="donationprogress" class="mb-2 d-none">
+                    <div id="donationprogress-@{dataSourceDescription.name.toString}" class="donationprogress mb-2 d-none">
                         <span class="highlighted-instructions">@messages("donation.processing")</span>
                         <div class="progress">
                             <div class="progress-bar center-block progress-bar-striped progress-bar-animated"
@@ -176,57 +176,50 @@
                         </div>
                     </div>
 
-                    <ul class="list-group" style="overflow-y: scroll;
-                        height: 250px;">
-                        <li class="list-group-item">
-                            File 1 <button class="btn badge badge-secondary float-right">Remove</button> </li>
-                        <li class="list-group-item">
-                            File 2 <button class="btn badge badge-secondary float-right">X</button> </li>
-                        <li class="list-group-item">
-                            File 3 <button class="btn badge badge-secondary float-right">X</button> </li>
-                        <li class="list-group-item">
-                            File 4 <button class="btn badge badge-secondary float-right">X</button> </li>
-                        <li class="list-group-item">
-                            File 5 <button class="btn badge badge-secondary float-right">X</button> </li>
-                        <li class="list-group-item">
-                            File 6 <button class="btn badge badge-secondary float-right">X</button> </li>
+                    <ul
+                    class="list-group"
+                    style="overflow-y: scroll; max-height: 250px;"
+                    id="@{
+                        dataSourceDescription.name.toString
+                    }FileList"
+                    >
                     </ul>
                 </div>
 
                 <div class="mt-0 w-100" align="center">
                     <div class="p-2 pr-sm-4 pl-sm-4 pt-sm-4 p-lg-2" align="center">
-                        <div id="error" class="alert alert-danger d-none">
+                        <div id="error-@{dataSourceDescription.name.toString}" class="alert alert-danger d-none">
                         </div>
-                        <div id="success" class="alert alert-success d-none">
+                        <div id="success-@{dataSourceDescription.name.toString}" class="alert alert-success d-none">
                         </div>
                     </div>
                 </div>
 
-                <div class="show-on-anonymisation-success order-9 w-100 d-none">
-                    <div class="w-100 text-align-center show-on-anonymisation-success" align="center">
+                <div class="show-on-anonymisation-success-@{dataSourceDescription.name.toString} order-9 w-100 d-none">
+                    <div class="w-100 text-align-center show-on-anonymisation-success-@{dataSourceDescription.name.toString}" align="center">
                         <h3>@messages("donation.preview-data.title")</h3>
                         <div id="info" class="alert alert-info">
                             <p>@messages("donation.preview-data.body1")</p>
                             <p>@messages("donation.preview-data.body2")</p>
                         </div>
 
-                        <div class="container-fluid show-on-anonymisation-success alert-warning">
+                        <div class="container-fluid show-on-anonymisation-success-@{dataSourceDescription.name.toString} alert-warning">
                             <p style="color: darkblue;
                                 font-weight: bold">@Html(messages("donation.friendsMapping.title"))</p>
                             <p style="color: darkblue;">@Html(messages("donation.friendsMapping.subtitle"))</p>
-                            <p class="show-on-anonymisation-success" style="overflow: scroll;
+                            <p class="show-on-anonymisation-success-@{dataSourceDescription.name.toString}" style="overflow: scroll;
                                 height: 200px;
                                 margin-top: 10px;">
-                            @Html("<span id=\"display-userIDMapping\"></span>")
+                            @Html("<span id=\"display-userIDMapping-" + dataSourceDescription.name.toString + "\"></span>")
                             </p>
                         </div>
 
-                        <p class="pl-3 pr-3 pl-sm-4 pr-sm-4 pl-md-3 pr-md-3 pl-lg-5 pr-lg-5 show-on-anonymisation-success">
+                        <p class="pl-3 pr-3 pl-sm-4 pr-sm-4 pl-md-3 pr-md-3 pl-lg-5 pr-lg-5 show-on-anonymisation-success-@{dataSourceDescription.name.toString}">
                             @Html(String.format(messages("donation.raw-data-explanation_format"), "<span id=\"display-preview-total\"></span>"))
                             <a id="viewRawJson" href="about:blank" target="_blank">@messages("donation.raw-data-link.text")</a>.
                         </p>
                     </div>
-                    <div class="container-fluid show-on-anonymisation-success">
+                    <div class="container-fluid show-on-anonymisation-success-@{dataSourceDescription.name.toString}">
                         <div id="carousel-deidentified-preview" class="carousel slide" data-interval="false" data-ride="carousel">
                             <div class="carousel-inner row w-100 mx-auto">
 

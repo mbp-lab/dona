@@ -17,8 +17,9 @@ function whatsappTxtFilesHandler(filelist, alias) {
         //if (alias.length < 1) {
         //    reject(i18nSupport.data('error-no-alias'));
         //} else if (files.length != expectedNumberOfFiles) {
-        if (files.length != expectedNumberOfFiles) {
+        if (files.length !== expectedNumberOfFiles) {
             reject(i18nSupport.data('error-not-enough-chats').replace('%s', files.length));
+            return;
         } else {
             // check if all files seem to be the same
             let fileSize = files[0].size
@@ -30,6 +31,7 @@ function whatsappTxtFilesHandler(filelist, alias) {
             }
             if (allSameSize) {
                 reject(i18nSupport.data('error-same-files'));
+                return;
             }
         }
 
@@ -58,6 +60,7 @@ function whatsappTxtFilesHandler(filelist, alias) {
                         })
                 }
             })
+
     })
 
 }
