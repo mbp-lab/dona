@@ -1,6 +1,6 @@
 function showUserIdMapping(userIdMapping, systemName, donor, dataSource) {
 
-    clearPreviousRenderedMappings()
+    clearPreviousRenderedMappings(dataSource)
         .then(() => {
             let names = [];
             let deidentifiedNames = [];
@@ -91,9 +91,9 @@ function showUserIdMapping(userIdMapping, systemName, donor, dataSource) {
         })
 }
 
-function clearPreviousRenderedMappings() {
+function clearPreviousRenderedMappings(dataSource) {
     return new Promise((resolve) => {
-        $("#display-userIDMapping .mapping-item").remove();
+        $("#display-userIDMapping-" + dataSource + " .mapping-item").remove();
         resolve();
     });
 }

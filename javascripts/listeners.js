@@ -18,7 +18,7 @@ function addListeners() {
         $(".enable-after-fb-download").removeClass("disabled");
     })
 
-    $("#viewRawJson").on("click", function (e) {
+    $(".viewRawJson").on("click", function (e) {
         //Open a new tab and dumb the json into it
         e.preventDefault();
         var newTab = window.open();
@@ -137,7 +137,7 @@ function setUpFileHandler() {
                     fileName = evt.target.files[i].name
                     fileList.append('<li class="list-group-item">' + fileName + '<button class="btn badge badge-secondary float-right">Remove</button> </li>')
                 }
-                renderTable(deIdentifiedJson.deIdentifiedJsonContents);
+                renderTable(deIdentifiedJson.deIdentifiedJsonContents, dataSource);
                 renderUserIDMapping(deIdentifiedJson.participantNameToRandomIds, i18nSupport.data('system'), i18nSupport.data('donor'), dataSource)
                 return transformJson(deIdentifiedJson.deIdentifiedJsonContents, donorId, dataSource);
             })

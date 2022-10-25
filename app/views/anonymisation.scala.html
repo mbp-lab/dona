@@ -215,20 +215,20 @@
                         </div>
 
                         <p class="pl-3 pr-3 pl-sm-4 pr-sm-4 pl-md-3 pr-md-3 pl-lg-5 pr-lg-5 show-on-anonymisation-success-@{dataSourceDescription.name.toString}">
-                            @Html(String.format(messages("donation.raw-data-explanation_format"), "<span id=\"display-preview-total\"></span>"))
-                            <a id="viewRawJson" href="about:blank" target="_blank">@messages("donation.raw-data-link.text")</a>.
+                            @Html(String.format(messages("donation.raw-data-explanation_format"), "<span id=\"display-preview-total-" + dataSourceDescription.name.toString + "\"></span>"))
+                            <a class="viewRawJson" href="about:blank" target="_blank">@messages("donation.raw-data-link.text")</a>.
                         </p>
                     </div>
                     <div class="container-fluid show-on-anonymisation-success-@{dataSourceDescription.name.toString}">
-                        <div id="carousel-deidentified-preview" class="carousel slide" data-interval="false" data-ride="carousel">
+                        <div id="carousel-deidentified-preview-@{dataSourceDescription.name.toString}" class="carousel slide carousel-deidentified-preview" data-interval="false" data-ride="carousel">
                             <div class="carousel-inner row w-100 mx-auto">
 
                             </div>
-                            <a class="carousel-control-prev" href="#carousel-deidentified-preview" role="button" data-slide="prev">
+                            <a class="carousel-control-prev carousel-deidentified-preview" href="#carousel-deidentified-preview-@{dataSourceDescription.name.toString}" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="sr-only">@messages("donation.preview-data.previous")</span>
                             </a>
-                            <a class="carousel-control-next" href="#carousel-deidentified-preview" role="button" data-slide="next">
+                            <a class="carousel-control-next carousel-deidentified-preview" href="#carousel-deidentified-preview-@{dataSourceDescription.name.toString}" role="button" data-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="sr-only">@messages("donation.preview-data.next")</span>
                             </a>
