@@ -93,6 +93,7 @@ function handleUnsupportedBrowsers() {
 }
 
 function setUpFileHandler() {
+    let earlierSuccess = false
     const i18nSupport= $("#i18n-support");
     let donaForMEDonation = {
         "donor_id": i18nSupport.data('donor'),
@@ -113,7 +114,11 @@ function setUpFileHandler() {
         const dataSource = evt.currentTarget.id;
         const donorId = $("#donor_id").val();
 
+        messageService.hide(dataSource)
         progressBar.start(dataSource);
+
+        $(".show-on-anonymisation-success" + "-" + dataSource).addClass('d-none');
+        $(".show-on-anonymisation-success").addClass('d-none');
 
         var handler;
 
@@ -154,11 +159,16 @@ function setUpFileHandler() {
 
                 messageService.showSuccess(i18nSupport.data("anonymisation-successful"), dataSource);
 
+                earlierSuccess = true;
                 progressBar.stop(dataSource);
             })
             .catch(error => {
                 console.log(error);
-    
+
+                if (earlierSuccess) {
+                    $(".show-on-anonymisation-success" + "-" + dataSource).removeClass('d-none');
+                    $(".show-on-anonymisation-success").removeClass('d-none');
+                }
                 messageService.showError(i18nSupport.data("error") + " " + error, dataSource);
                 progressBar.stop(dataSource);
             });
