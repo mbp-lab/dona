@@ -90,11 +90,15 @@ consent.buttons.close.caption=Close
 # Donation page
 
 donation.select-data.title=Choose data for donation
-donation.select-data.body1=Please choose the platform from which you want to donate your data. In some cases, e.g. WhatsApp, you must enter your specific username. In this case the username is needed to successfully anonymize your data. Your entered username will not be saved or donated.
+donation.select-data.body1=Please choose the platform from which you want to donate your data. To successfully anonymize your data your username is automatically determined. Your username will not be saved or donated.
 donation.select-data.body2=After choosing the data you want to donate, we will display a preview of your anonymized data (a random sample of your messages). This preview will show you that your username has been replaced by "Donor", the usernames of your friends have been pseudonymized, and that the content of your messages has been reduced to simply meta-information.
-donation.select-data.body3=If you decide to donate your <b>WhatsApp</b> data, make sure you enter your username correctly. You can find it in your app under <b>Settings</b> next to your profile picture. Please also pay attention to <b>upper and lower case letters</b>. If you do not enter the username correctly, the data cannot be processed properly. Your username will not be stored. Thanks!
+donation.select-data.donation=Data Donation
+donation.select-data.input1=Choose files
+donation.select-data.input2=Browse
+donation.select-data.remove=Remove
 
 donation.preview-data.title=Preview of your anonymized data
+donation.preview-data.button=Click here for a preview of your anonymized data
 donation.preview-data.body1=No private information has left your device. Only the meta-information has been extracted.
 donation.preview-data.body2=As you can see, all the usernames have been anonymized and the message content has been replaced by the word count.
 donation.preview-data.message=Message

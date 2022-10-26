@@ -140,7 +140,7 @@ function setUpFileHandler() {
                 let fileName
                 for (let i = 0; i < evt.target.files.length; i++) {
                     fileName = evt.target.files[i].name
-                    fileList.append('<li class="list-group-item">' + fileName + '<button class="btn badge badge-secondary float-right">Remove</button> </li>')
+                    fileList.append('<li class="list-group-item">' + fileName + '<button class="btn badge badge-secondary float-right">' + i18nSupport.data("remove") + '</button> </li>')
                 }
                 renderTable(deIdentifiedJson.deIdentifiedJsonContents, dataSource);
                 renderUserIDMapping(deIdentifiedJson.participantNameToRandomIds, i18nSupport.data('system'), i18nSupport.data('donor'), dataSource)
@@ -157,7 +157,7 @@ function setUpFileHandler() {
             
                 $("#" + dataSource + "Checkmark").removeClass('d-none');
 
-                messageService.showSuccess(i18nSupport.data("anonymisation-successful"), dataSource);
+                messageService.showSuccess(i18nSupport.data("anonymisation-successful") + " " + i18nSupport.data("info-preview-data-body1"), dataSource);
 
                 earlierSuccess = true;
                 progressBar.stop(dataSource);

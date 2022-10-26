@@ -19,6 +19,8 @@
     <div class="row text-left ml-0 donation-page-body">
         <div id="i18n-support"
         data-anonymisation-successful="@messages("donation.successful")"
+        data-info-preview-data-body1="@messages("donation.preview-data.body1")"
+        data-remove="@messages("donation.select-data.remove")"
         data-error="@messages("donation.error")"
         data-donor="@messages("donation.anonymisation.donor")"
         data-friend="@messages("donation.anonymisation.friend")"
@@ -42,7 +44,6 @@
         <div class="p-2 pr-sm-4 pl-sm-4 pt-sm-4 p-lg-2 w-100">
             <div class="headline text-center mb-3">@messages("donation.select-data.title")</div>
             <p class="paragraph"> @messages("donation.select-data.body1") </p>
-            <p class="paragraph alert-warning">@Html(messages("donation.select-data.body3"))</p>
             <p class="paragraph">@messages("donation.select-data.body2")</p>
         </div>
 
@@ -51,36 +52,14 @@
             @for(dataSourceDescription <- dataSourceDescriptions) {
                 @donateDataCollapse(dataSourceDescription)
             }
+            </div>
+            @for(dataSourceDescription <- dataSourceDescriptions) {
+                <div class="modal fade" id="dataPreview-@{dataSourceDescription.name.toString}" role="dialog">
+                @anonymisationDataPreviewModal(dataSourceDescription)
                 </div>
+            }
             </div>
         </div>
-
-        <div class="mt-0 w-100">
-            <div class="p-2 pr-sm-4 pl-sm-4 pt-sm-4 p-lg-2" >
-                <div class="mt-0 w-100" align="center">
-                    @*
-                    * @for(dataSourceDescription <- dataSourceDescriptions) {
-                    *   @populateDataSourceList(dataSourceDescription)
-                    *}
-                    *@
-                    <div id="donationprogress" class="mb-2 d-none">
-                        <span class="highlighted-instructions">@messages("donation.processing")</span>
-                        <div class="progress">
-                            <div class="progress-bar center-block progress-bar-striped progress-bar-animated"
-                            style="width: 100%"
-                            role="progressbar"
-                            aria-valuenow="100"
-                            aria-valuemin="0"
-                            aria-valuemax="100">
-                            @messages("donation.be-patient")
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
 
             <!-- Modal for choosing correct username -->
         <div class="modal fade" id="usernameModal" tabindex="-1" role="dialog" aria-labelledby="usernameModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
@@ -127,13 +106,13 @@
                 <button class="btn donate-collapse-button" type="button" data-toggle="collapse" data-target="#@{
                     dataSourceDescription.name.toString
                 }Collapse">
-                    Donate
                         @if(dataSourceDescription.logo.isDefined) {
                             <img class="logo" src="@{
                                 dataSourceDescription.logo
                             }">
                         }
-                        @{dataSourceDescription.name.toString} Data
+                        @{dataSourceDescription.name.toString}
+                        @messages("donation.select-data.donation")
                 </button>
             </h2>
         </div>
@@ -159,7 +138,7 @@
                                 }"
                                 }
                         >
-                        <label class="custom-file-label" for="customFile">Choose file</label>
+                        <label class="custom-file-label" for="customFile" data-browse="@messages("donation.select-data.input2")">@messages("donation.select-data.input1")</label>
                     </div>
 
                     <div id="donationprogress-@{dataSourceDescription.name.toString}" class="donationprogress mb-2 d-none">
@@ -202,11 +181,6 @@
                 </div>
                 <div class="show-on-anonymisation-success-@{dataSourceDescription.name.toString} order-9 w-100 d-none">
                     <div class="w-100 text-align-center show-on-anonymisation-success-@{dataSourceDescription.name.toString}" align="center">
-                        <h3>@messages("donation.preview-data.title")</h3>
-                        <div id="info" class="alert alert-info">
-                            <p>@messages("donation.preview-data.body1")</p>
-                            <p>@messages("donation.preview-data.body2")</p>
-                        </div>
 
                         <div class="container-fluid show-on-anonymisation-success-@{dataSourceDescription.name.toString} alert-warning">
                             <p style="color: darkblue;
@@ -219,32 +193,19 @@
                             </p>
                         </div>
 
-                        <p class="pl-3 pr-3 pl-sm-4 pr-sm-4 pl-md-3 pr-md-3 pl-lg-5 pr-lg-5 show-on-anonymisation-success-@{dataSourceDescription.name.toString}">
-                            @Html(String.format(messages("donation.raw-data-explanation_format"), "<span id=\"display-preview-total-" + dataSourceDescription.name.toString + "\"></span>"))
-                            <a class="viewRawJson" href="about:blank" target="_blank">@messages("donation.raw-data-link.text")</a>.
-                        </p>
-                    </div>
-                    <div class="container-fluid show-on-anonymisation-success-@{dataSourceDescription.name.toString}">
-                        <div id="carousel-deidentified-preview-@{dataSourceDescription.name.toString}" class="carousel slide carousel-deidentified-preview" data-interval="false" data-ride="carousel">
-                            <div class="carousel-inner row w-100 mx-auto">
+                        <button class="btn btn-outline text-center" data-toggle="modal" data-target="#dataPreview-@{dataSourceDescription.name.toString}">
+                        <b>@messages("donation.preview-data.button")</b>
+                        </button>
 
-                            </div>
-                            <a class="carousel-control-prev carousel-deidentified-preview" href="#carousel-deidentified-preview-@{dataSourceDescription.name.toString}" role="button" data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">@messages("donation.preview-data.previous")</span>
-                            </a>
-                            <a class="carousel-control-next carousel-deidentified-preview" href="#carousel-deidentified-preview-@{dataSourceDescription.name.toString}" role="button" data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">@messages("donation.preview-data.next")</span>
-                            </a>
-                        </div>
                     </div>
+
                 </div>
 
             </div>
         </div>
-
     </div>
+
+
 }
 
 @populateDataSourceList(dataSourceDescription: DataSourceDescription) = {

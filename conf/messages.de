@@ -90,11 +90,15 @@ consent.buttons.close.caption=Schließen
 
 # minor grammar correction
 donation.select-data.title=Wählen Sie Ihre Daten für die Spende aus
-donation.select-data.body1=Wählen Sie aus, welche Daten Sie spenden möchten. Für manche Plattformen müssen Sie Ihren Nutzernamen eingeben. Ihr Nutzername wird nicht gespendet und wir werden ihn nicht erfahren. Wir benötigen den Nutzernamen lediglich für die Anonymisierung Ihrer Daten.
+donation.select-data.body1=Wählen Sie aus, welche Daten Sie spenden möchten. Zur Anonymisierung Ihrer Daten wird Ihr Nutzername automatisch ermittelt. Ihr Nutzername wird nicht gespendet und wir werden ihn nicht erfahren.
 donation.select-data.body2=Nachdem Sie die Datei ausgewählt haben, die Sie spenden möchten, zeigen wir ihnen eine Vorschau Ihrer anonymisierten Daten. In dieser Vorschau werden Sie sehen, dass Ihr Nutzername durch „Spender“ ersetzt wurde, die Namen Ihrer Freunde entfernt wurden und nur Meta-Informationen extrahiert wurden.
-donation.select-data.body3=Falls Sie sich entscheiden, Ihre <b>WhatsApp</b>-Daten zu spenden, achten Sie darauf, dass Sie Ihren Nutzernamen korrekt eingeben. Sie können ihn in Ihrer App unter <b>Einstellungen</b> bei Ihrem Profilbild finden. Achten Sie dabei bitte auch auf die <b>Groß- und Kleinschreibung</b>. Falls Sie den Nutzernamen nicht korrekt eingeben, können die Daten nicht richtig verarbeitet werden. Ihr Nutzername wird nicht gespeichert. Danke!
+donation.select-data.donation=Datenspende
+donation.select-data.input1=Dateien auswählen
+donation.select-data.input2=Durchsuchen
+donation.select-data.remove=Entfernen
 
 donation.preview-data.title=Vorschau Ihrer anonymisierten Daten
+donation.preview-data.button=Klicken Sie hier für eine Vorschau Ihrer anonymisierten Daten
 donation.preview-data.body1=Keine persönliche Information hat Ihr Gerät verlassen. Die Meta-Informationen Ihrer Nachrichten wurden extrahiert.
 donation.preview-data.body2=Wie Sie sehen, wurden alle Namen anonymisiert und der Inhalt der Nachricht wurde durch die Anzahl der Wörter ersetzt.
 donation.preview-data.message=Nachricht
