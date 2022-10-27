@@ -99,7 +99,7 @@ function setUpFileHandler() {
         "donor_id": i18nSupport.data('donor'),
         "conversations": []
     };
-    // let currentFiles = [] // TODO
+    let currentFiles = [] // TODO
 
     $(".donation-file-selector>input[type='file']").on("click", function(evt) {
         //const requiresAlias = evt.currentTarget.getAttribute('data-requires-alias');
@@ -111,8 +111,15 @@ function setUpFileHandler() {
         }
     });
 
-    $(".donation-file-selector>input[type='file']").on("change", function (evt) {
-        const dataSource = evt.currentTarget.id;
+    let onFileInputChange = (dataSource, files) => {
+
+        if (files.length < 1) {
+            messageService.hide(dataSource)
+            $(".show-on-anonymisation-success" + "-" + dataSource).addClass('d-none');
+            $(".show-on-anonymisation-success").addClass('d-none');
+            return;
+        }
+
         const donorId = $("#donor_id").val();
 
         messageService.hide(dataSource)
@@ -124,19 +131,24 @@ function setUpFileHandler() {
         var handler;
 
         if (dataSource == "WhatsApp") {
-            const alias = $("#WhatsAppAliasInput").val();
-            handler = whatsappTxtFileHandler(evt.target.files, alias);
-            console.log("files:", evt.target.files)
+            for (let i = 0; i < files.length; i++) {
+                currentFiles.push(files[i])
+            }
+
+            console.log("currentFiles:", currentFiles)
+            //handler = whatsappTxtFileHandler(files);
+            handler = whatsappTxtFileHandler(currentFiles);
+            console.log("files:", files)
             //$("#WhatsAppAliasInput").val('Test')
         } else {
-            handler = facebookZipFileHandler(evt.target.files);
+            handler = facebookZipFileHandler(files);
         }
 
 
         handler
             .then((deIdentifiedJson) => {
                 const fileList = $("#" + dataSource + "FileList")
-                fileList.empty()
+                //fileList.empty()
                 let dataSourceClass = "listItemRemove" + dataSource
 
                 let fileName
@@ -148,13 +160,13 @@ function setUpFileHandler() {
 
                  */
 
-                for (let i = 0; i < evt.target.files.length; i++) {
-                    fileName = evt.target.files[i].name
-                    fileList.append('<li class="list-group-item">' + fileName + '<button class="btn badge badge-secondary float-right ' + dataSourceClass +'" id="' + fileName + 'ListItem">' + i18nSupport.data("remove") + '</button> </li>')
+                for (let i = 0; i < files.length; i++) {
+                    fileName = files[i].name
+                    fileList.append('<li class="list-group-item">' + fileName + '<button class="btn badge badge-secondary float-right ' + dataSourceClass +'" id="' + fileName + '">' + i18nSupport.data("remove") + '</button> </li>')
                 }
 
                 // remove method for facebook (there is always only one facebook zip file)
-                $(".listItemRemove" + dataSource).click(function () {
+                $(".listItemRemove" + dataSource).click(function (evt) {
                     if (dataSource === "Facebook") {
                         let inputObj = JSON.parse($("#inputJson")[0].value)
                         let inputObjConv = inputObj.conversations
@@ -167,14 +179,16 @@ function setUpFileHandler() {
                         if (inputObj.conversations.length < 1) {
                             $(".show-on-anonymisation-success").addClass('d-none');
                         }
-
+                    } else if (dataSource === "WhatsApp") {
+                        donaForMEDonation.conversations = donaForMEDonation.conversations.filter((conv) => conv["donation_data_source_type"] !== dataSource)
+                        fileList.empty()
+                        let tmpCurrentFiles = currentFiles
+                        currentFiles = []
+                        onFileInputChange(dataSource, Array.from(tmpCurrentFiles).filter((file) => file.name !== evt.target.id))
                     }
                 })
 
-
-                console.log(fileList)
-
-
+                // this needs to be done with all data ( maybe in next .then???) TODO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 renderTable(deIdentifiedJson.deIdentifiedJsonContents, dataSource);
                 renderUserIDMapping(deIdentifiedJson.participantNameToRandomIds, i18nSupport.data('system'), i18nSupport.data('donor'), dataSource)
                 return transformJson(deIdentifiedJson.deIdentifiedJsonContents, donorId, dataSource);
@@ -187,14 +201,13 @@ function setUpFileHandler() {
                 $("#inputJson").attr('value', JSON.stringify(donaForMEDonation));
                 $(".show-on-anonymisation-success" + "-" + dataSource).removeClass('d-none');
                 $(".show-on-anonymisation-success").removeClass('d-none');
-            
+
                 $("#" + dataSource + "Checkmark").removeClass('d-none');
 
                 messageService.showSuccess(i18nSupport.data("anonymisation-successful") + " " + i18nSupport.data("info-preview-data-body1"), dataSource);
 
                 earlierSuccess = true;
                 progressBar.stop(dataSource);
-                console.log(donaForMEDonation)
             })
             .catch(error => {
                 console.log(error);
@@ -206,8 +219,16 @@ function setUpFileHandler() {
                 messageService.showError(i18nSupport.data("error") + " " + error, dataSource);
                 progressBar.stop(dataSource);
             });
-        
-    });
+
+    }
+
+    $(".donation-file-selector>input[type='file']").on("change", (evt) => {
+        const dataSource = evt.currentTarget.id;
+        const files = evt.target.files
+        console.log("Hello")
+        onFileInputChange(dataSource, files)
+    })
+
 }
 
 module.exports = addListeners

@@ -3,7 +3,7 @@ const countWords = require('../../stringWordCount');
 const {makeArrayOfMessages, parseMessages} = require('./whatsappParser.js');
 const _ = require("lodash");
 
-function whatsappTxtFilesHandler(filelist, alias) {
+function whatsappTxtFilesHandler(filelist) {
     const i18nSupport = $('#i18n-support'); // TODO: This file should not be allowed to access jquery
     var files = [];
     for (var i = 0; i < filelist.length; i++) {
@@ -18,8 +18,9 @@ function whatsappTxtFilesHandler(filelist, alias) {
         //    reject(i18nSupport.data('error-no-alias'));
         //} else if (files.length != expectedNumberOfFiles) {
         if (files.length !== expectedNumberOfFiles) {
-            reject(i18nSupport.data('error-not-enough-chats').replace('%s', files.length));
-            return;
+            //reject(i18nSupport.data('error-not-enough-chats').replace('%s', files.length));
+            console.log("ToDo: cleanup") // ToDo
+            //return;
         } else {
             // check if all files seem to be the same
             let fileSize = files[0].size
