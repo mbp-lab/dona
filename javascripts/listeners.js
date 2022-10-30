@@ -99,7 +99,9 @@ function setUpFileHandler() {
         "donor_id": i18nSupport.data('donor'),
         "conversations": []
     };
-    let currentFiles = [] // TODO
+    let currentFiles = []
+    let possibleEarliestDate = 0
+    let possibleLatestDate = 0
 
     $(".donation-file-selector>input[type='file']").on("click", function(evt) {
         //const requiresAlias = evt.currentTarget.getAttribute('data-requires-alias');
@@ -205,15 +207,15 @@ function setUpFileHandler() {
                     }
                 })
 
-                console.log(earliestDate)
-                console.log(latestDate)
+                possibleEarliestDate = earliestDate
+                possibleLatestDate = latestDate
                 let earliestDateObj = new Date(earliestDate);
                 let earliestDateString = earliestDateObj.toISOString().substring(0, 10)
                 let latestDateObj = new Date(latestDate)
                 let latestDateString = latestDateObj.toISOString().substring(0, 10)
 
-                document.getElementById("startdate-" + dataSource).value = earliestDateString;
-                document.getElementById("enddate-" + dataSource).value = latestDateString;
+                document.getElementById("startDate-" + dataSource).value = earliestDateString;
+                document.getElementById("endDate-" + dataSource).value = latestDateString;
 
                 $("#inputJson").attr('value', JSON.stringify(donaForMEDonation));
                 $(".show-on-anonymisation-success" + "-" + dataSource).removeClass('d-none');
@@ -248,8 +250,46 @@ function setUpFileHandler() {
 
     $(".date-selection").on("change", (evt) => {
         const dataSource = evt.currentTarget.id.substring(evt.currentTarget.id.indexOf('-') + 1, evt.currentTarget.id.length);
-        console.log("dataSource:", dataSource)
-        console.log(evt)
+        let startDate = document.getElementById("startDate-" + dataSource).value
+        let endDate = document.getElementById("endDate-" + dataSource).value
+
+        let startDateMs = new Date(startDate).getTime()
+        let endDateMs = new Date(endDate).getTime()
+
+        messageService.hideErrorShowSuccess(dataSource)
+        if (startDateMs > possibleLatestDate || endDateMs < possibleEarliestDate || startDateMs >= endDateMs) {
+            messageService.showError("The dates dont make sense... ToDo", dataSource);
+            $(".show-on-anonymisation-success").addClass('d-none');
+            return;
+        }
+
+        let inputObj = JSON.parse($("#inputJson")[0].value)
+        let inputObjConv = inputObj.conversations
+        let dataSourceConv = inputObjConv.filter((conv) => conv["donation_data_source_type"] === dataSource)
+        dataSourceConv.forEach(conv => {
+            conv.messages = conv.messages.filter((message) =>
+                message.timestamp_ms >= startDateMs && message.timestamp_ms <= endDateMs)
+        })
+        inputObj.conversations = inputObjConv.filter((conv) => conv["donation_data_source_type"] !== dataSource)
+            .concat(dataSourceConv)
+
+
+        messageService.hideErrorShowSuccess(dataSource)
+        let allConvEmpty = true
+        inputObj.conversations.forEach((conv) => {
+            if (conv.messages.length !== 0) {
+                allConvEmpty = false
+                return
+            }
+        })
+        if (allConvEmpty) {
+            messageService.showError("All Conv are empty ToDo", dataSource);
+            $(".show-on-anonymisation-success").addClass('d-none');
+            return;
+        }
+
+
+        $("#inputJson").attr('value', JSON.stringify(inputObj));
     })
 
 }

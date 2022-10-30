@@ -12,7 +12,11 @@ let messageService = {
    "hide": function(dataSource) {
      $("#error-" + dataSource).addClass('d-none');
      $("#success-" + dataSource).addClass('d-none');
-   }
+   },
+    "hideErrorShowSuccess": function(dataSource) {
+        $("#success-" + dataSource).removeClass('d-none');
+        $("#error-" + dataSource).addClass('d-none');
+    }
 }
 
 module.exports = messageService
