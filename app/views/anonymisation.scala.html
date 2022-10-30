@@ -123,8 +123,8 @@
             <div class="card-body">
 
                 <div>
+                    <h5 class="m-4"><b>Wählen Sie hier die Dateien aus, die Sie spenden möchten:</b></h5>
                     <div class="custom-file mb-1 donation-file-selector">
-
                         <input
                         id="@{
                             dataSourceDescription.name.toString
@@ -164,20 +164,27 @@
                     >
                     </ul>
 
-                    <div class="show-on-anonymisation-success-@{dataSourceDescription.name.toString} d-none m-4">
-                    <label for="startDate-@{dataSourceDescription.name.toString}">Startdate:</label>
-                    <input type="date" id="startDate-@{dataSourceDescription.name.toString}" class="date-selection" name="startdate">
-                    <label for="endDate-@{dataSourceDescription.name.toString}">Enddate:</label>
-                    <input type="date" id="endDate-@{dataSourceDescription.name.toString}" class="date-selection" name="enddate">
+                    <div class="show-on-anonymisation-success-@{dataSourceDescription.name.toString} d-none mb-4">
+                        <h5 class="m-4"><b>Hier können Sie den Zeitraum Ihrer Datenspende eingrenzen:</b></h5>
+                        <div class="row mt-0 w-100" align="center">
+                        <div class="col">
+                            <label for="startDate-@{dataSourceDescription.name.toString}">Anfang der Spende:</label>
+                            <input type="date" id="startDate-@{dataSourceDescription.name.toString}" class="date-selection m-2" name="startdate">
+                        </div>
+                        <div class="col">
+                            <label for="endDate-@{dataSourceDescription.name.toString}">Ende der Spende:</label>
+                            <input type="date" id="endDate-@{dataSourceDescription.name.toString}" class="date-selection m-2" name="enddate">
+                        </div>
+                        </div>
                     </div>
 
                 </div>
 
                 <div class="mt-0 w-100" align="center">
                     <div class="p-2 pr-sm-4 pl-sm-4 pt-sm-4 p-lg-2" align="center">
-                        <div id="error-@{dataSourceDescription.name.toString}" class="alert alert-danger d-none">
+                        <div id="error-@{dataSourceDescription.name.toString}" class="alert alert-danger d-none" style="border-radius: 16px;">
                         </div>
-                        <div id="success-@{dataSourceDescription.name.toString}" class="alert alert-success d-none">
+                        <div id="success-@{dataSourceDescription.name.toString}" class="alert alert-success d-none" style="border-radius: 16px;">
                         </div>
                     </div>
                 </div>
@@ -188,9 +195,10 @@
                 </div>
                 </div>
                 <div class="show-on-anonymisation-success-@{dataSourceDescription.name.toString} order-9 w-100 d-none">
+                    <h5 class="m-4"><b>Decknamen Ihrer Kontakte:</b></h5>
                     <div class="w-100 text-align-center show-on-anonymisation-success-@{dataSourceDescription.name.toString}" align="center">
 
-                        <div class="container-fluid show-on-anonymisation-success-@{dataSourceDescription.name.toString} alert-warning">
+                        <div class="container-fluid show-on-anonymisation-success-@{dataSourceDescription.name.toString} alert-warning" style="border-radius: 16px;">
                             <p style="color: darkblue;
                                 font-weight: bold">@Html(messages("donation.friendsMapping.title"))</p>
                             <p style="color: darkblue;">@Html(messages("donation.friendsMapping.subtitle"))</p>
@@ -201,10 +209,13 @@
                             </p>
                         </div>
 
-                        <button class="btn btn-outline text-center" data-toggle="modal" data-target="#dataPreview-@{dataSourceDescription.name.toString}">
-                        <b>@messages("donation.preview-data.button")</b>
-                        </button>
 
+                    </div>
+                    <h5 class="m-4"><b>Vorschau Ihrer Daten:</b></h5>
+                    <div class="w-100 text-align-center show-on-anonymisation-success-@{dataSourceDescription.name.toString}" align="center">
+                    <button class="btn btn-outline text-center" data-toggle="modal" data-target="#dataPreview-@{dataSourceDescription.name.toString}">
+                        <b>@messages("donation.preview-data.button")</b>
+                    </button>
                     </div>
 
                 </div>

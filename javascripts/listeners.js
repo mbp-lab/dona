@@ -146,7 +146,7 @@ function setUpFileHandler() {
         handler
             .then((deIdentifiedJson) => {
                 const fileList = $("#" + dataSource + "FileList")
-                //fileList.empty()
+                fileList.empty()
                 let dataSourceClass = "listItemRemove" + dataSource
 
                 let fileName
@@ -157,9 +157,17 @@ function setUpFileHandler() {
                 }
 
                  */
-
-                for (let i = 0; i < files.length; i++) {
-                    fileName = files[i].name
+                console.log("files", files)
+                console.log("currentFiles", currentFiles)
+                console.log(fileList)
+                let filesForList = []
+                if (dataSource === "WhatsApp") {
+                    filesForList = currentFiles
+                } else {
+                    filesForList = files
+                }
+                for (let i = 0; i < filesForList.length; i++) {
+                    fileName = filesForList[i].name
                     fileList.append('<li class="list-group-item">' + fileName + '<button class="btn badge badge-secondary float-right ' + dataSourceClass +'" id="' + fileName + '">' + i18nSupport.data("remove") + '</button> </li>')
                 }
 
@@ -244,7 +252,6 @@ function setUpFileHandler() {
     $(".donation-file-selector>input[type='file']").on("change", (evt) => {
         const dataSource = evt.currentTarget.id;
         const files = evt.target.files
-        console.log("Hello")
         onFileInputChange(dataSource, files)
     })
 
@@ -252,12 +259,18 @@ function setUpFileHandler() {
         const dataSource = evt.currentTarget.id.substring(evt.currentTarget.id.indexOf('-') + 1, evt.currentTarget.id.length);
         let startDate = document.getElementById("startDate-" + dataSource).value
         let endDate = document.getElementById("endDate-" + dataSource).value
+        console.log("startdate:", startDate)
 
         let startDateMs = new Date(startDate).getTime()
         let endDateMs = new Date(endDate).getTime()
 
         messageService.hideErrorShowSuccess(dataSource)
-        if (startDateMs > possibleLatestDate || endDateMs < possibleEarliestDate || startDateMs >= endDateMs) {
+        if (startDate === "") {
+            messageService.showError("please select a start date.. ToDo", dataSource);
+            $(".show-on-anonymisation-success").addClass('d-none');
+            return;
+        }
+        else if (startDateMs > possibleLatestDate || endDateMs < possibleEarliestDate || startDateMs >= endDateMs) {
             messageService.showError("The dates dont make sense... ToDo", dataSource);
             $(".show-on-anonymisation-success").addClass('d-none');
             return;
