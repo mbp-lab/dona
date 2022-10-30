@@ -134,12 +134,8 @@ function setUpFileHandler() {
             for (let i = 0; i < files.length; i++) {
                 currentFiles.push(files[i])
             }
-
-            console.log("currentFiles:", currentFiles)
-            //handler = whatsappTxtFileHandler(files);
             handler = whatsappTxtFileHandler(currentFiles);
-            console.log("files:", files)
-            //$("#WhatsAppAliasInput").val('Test')
+
         } else {
             handler = facebookZipFileHandler(files);
         }
@@ -196,7 +192,28 @@ function setUpFileHandler() {
             .then((transformedJson) => {
                 // if there are already conversations of the chosen dataSource, then first filter the old ones out
                 donaForMEDonation.conversations = donaForMEDonation.conversations.filter((conv) => conv["donation_data_source_type"] !== dataSource)
-                donaForMEDonation.conversations = donaForMEDonation.conversations.concat(transformedJson.conversations);
+
+                let earliestDate = transformedJson.result[0].earliestDate
+                let latestDate = transformedJson.result[0].latestDate
+
+                transformedJson.result.forEach((res) => {
+                    donaForMEDonation.conversations = donaForMEDonation.conversations.concat(res.conversation);
+                    if (res.earliestDate < earliestDate) {
+                        earliestDate = res.earliestDate
+                    } else if (res.latestDate > latestDate) {
+                        latestDate = res.latestDate
+                    }
+                })
+
+                console.log(earliestDate)
+                console.log(latestDate)
+                let earliestDateObj = new Date(earliestDate);
+                let earliestDateString = earliestDateObj.toISOString().substring(0, 10)
+                let latestDateObj = new Date(latestDate)
+                let latestDateString = latestDateObj.toISOString().substring(0, 10)
+
+                document.getElementById("startdate-" + dataSource).value = earliestDateString;
+                document.getElementById("enddate-" + dataSource).value = latestDateString;
 
                 $("#inputJson").attr('value', JSON.stringify(donaForMEDonation));
                 $(".show-on-anonymisation-success" + "-" + dataSource).removeClass('d-none');
@@ -227,6 +244,12 @@ function setUpFileHandler() {
         const files = evt.target.files
         console.log("Hello")
         onFileInputChange(dataSource, files)
+    })
+
+    $(".date-selection").on("change", (evt) => {
+        const dataSource = evt.currentTarget.id.substring(evt.currentTarget.id.indexOf('-') + 1, evt.currentTarget.id.length);
+        console.log("dataSource:", dataSource)
+        console.log(evt)
     })
 
 }

@@ -56,8 +56,13 @@
             @for(dataSourceDescription <- dataSourceDescriptions) {
                 <div class="modal fade" id="dataPreview-@{dataSourceDescription.name.toString}" role="dialog">
                 @anonymisationDataPreviewModal(dataSourceDescription)
+
                 </div>
-            }
+                <label for="startdate-@{dataSourceDescription.name.toString}">Startdate:</label>
+                <input type="date" id="startdate-@{dataSourceDescription.name.toString}" class="date-selection" name="startdate">
+                <label for="enddate-@{dataSourceDescription.name.toString}">Enddate:</label>
+                <input type="date" id="enddate-@{dataSourceDescription.name.toString}" class="date-selection" name="enddate">
+                }
             </div>
         </div>
 

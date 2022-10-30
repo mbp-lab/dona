@@ -6,7 +6,7 @@ function transformJson(deIdentifiedJsonContents, donorId, dataSource) {
     return Promise.all(conversations).then((res) => {
         const transformedJson = {
             'donor_id': donorId,
-            'conversations': res
+            'result': res,
         };
         return transformedJson;
     });
@@ -17,9 +17,10 @@ function generateConversation (jsonContent, dataSource) {
     conversation["conversation_id"] = uuid();
     conversation["is_group_conversation"] = translateIfGroupConversation(jsonContent["thread_type"]);
     conversation["participants"] = transformParticipants(jsonContent["participants"]);
-    conversation["messages"] =  transformMessages(jsonContent["messages"]);
+    let transformedMessages = transformMessages(jsonContent["messages"])
+    conversation["messages"] =  transformedMessages.transformedMessages;
     conversation["donation_data_source_type"] = dataSource;
-    return conversation;
+    return {conversation: conversation, earliestDate: transformedMessages.earliestDate, latestDate: transformedMessages.latestDate};
 };
 
 function translateIfGroupConversation(threadType) {
@@ -40,8 +41,15 @@ function transformParticipants(participants) {
 };
 
 function transformMessages(messages) {
+    let earliestDate = messages[0].timestamp_ms
+    let latestDate = messages[0].timestamp_ms
     var transformedMessages = [];
     messages.forEach(message => {
+        if (message.timestamp_ms > latestDate) {
+            latestDate = message.timestamp_ms
+        } else if (message.timestamp_ms < earliestDate) {
+            earliestDate = message.timestamp_ms
+        }
         const messageObject = {
             'sender': message.sender_name,
             'timestamp_ms': message.timestamp_ms,
@@ -49,7 +57,7 @@ function transformMessages(messages) {
         };
         transformedMessages.push(messageObject);
     });
-    return transformedMessages;
+    return {transformedMessages, earliestDate, latestDate};
 };
 
 module.exports = transformJson;
