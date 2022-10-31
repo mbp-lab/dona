@@ -20,6 +20,7 @@
         <div id="i18n-support"
         data-anonymisation-successful="@messages("donation.successful")"
         data-info-preview-data-body1="@messages("donation.preview-data.body1")"
+        data-please-wait="@messages("donation.sendData.wait")"
         data-remove="@messages("donation.select-data.remove")"
         data-error="@messages("donation.error")"
         data-donor="@messages("donation.anonymisation.donor")"
@@ -91,7 +92,6 @@
             type='submit'
             class="btn footer-forward-button mb-0"
             id='submit-de-identified'
-            onclick="alert('@messages("donation.sendData.wait")')"
             />
         }
     </div>
@@ -103,7 +103,7 @@
             dataSourceDescription.name.toString
         }Heading">
             <h2 class="mb-0">
-                <button class="btn donate-collapse-button" type="button" data-toggle="collapse" data-target="#@{
+                <button class="btn donate-collapse-button selectorsAndInputs" type="button" data-toggle="collapse" data-target="#@{
                     dataSourceDescription.name.toString
                 }Collapse">
                         @if(dataSourceDescription.logo.isDefined) {
@@ -131,7 +131,7 @@
                         }"
                         multiple
                         type="file"
-                        class="custom-file-input donation-file-selector"
+                        class="custom-file-input donation-file-selector selectorsAndInputs"
                             @if(dataSourceDescription.parsingDetails.specificFileExtensionAccepted.isDefined) {
                                 accept="@{
                                     dataSourceDescription.parsingDetails.specificFileExtensionAccepted
@@ -169,11 +169,11 @@
                         <div class="row mt-0 w-100" align="center">
                         <div class="col">
                             <label for="startDate-@{dataSourceDescription.name.toString}">Anfang der Spende:</label>
-                            <input type="date" id="startDate-@{dataSourceDescription.name.toString}" class="date-selection m-2" name="startdate">
+                            <input type="date" id="startDate-@{dataSourceDescription.name.toString}" class="date-selection m-2 selectorsAndInputs" name="startdate">
                         </div>
                         <div class="col">
                             <label for="endDate-@{dataSourceDescription.name.toString}">Ende der Spende:</label>
-                            <input type="date" id="endDate-@{dataSourceDescription.name.toString}" class="date-selection m-2" name="enddate">
+                            <input type="date" id="endDate-@{dataSourceDescription.name.toString}" class="date-selection m-2 selectorsAndInputs" name="enddate">
                         </div>
                         </div>
                     </div>
@@ -213,7 +213,7 @@
                     </div>
                     <h5 class="m-4"><b>Vorschau Ihrer Daten:</b></h5>
                     <div class="w-100 text-align-center show-on-anonymisation-success-@{dataSourceDescription.name.toString}" align="center">
-                    <button class="btn btn-outline text-center" data-toggle="modal" data-target="#dataPreview-@{dataSourceDescription.name.toString}">
+                    <button class="btn btn-outline text-center selectorsAndInputs" data-toggle="modal" data-target="#dataPreview-@{dataSourceDescription.name.toString}">
                         <b>@messages("donation.preview-data.button")</b>
                     </button>
                     </div>
