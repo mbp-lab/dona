@@ -109,7 +109,7 @@ donation.preview-data.timestamp=Zeitpunkt der Nachricht
 donation.preview-data.group-conversation=Gruppenunterhaltung
 
 donation.friendsMapping.title=<b>Bitte schreiben Sie sich die Decknamen für Ihre Kontakte auf.</b>
-donation.friendsMapping.subtitle=Wir haben Ihre Daten und Ihre Kontakte anonymisiert. Damit Sie Feedback zu einzelnen Kontakten erhalten können, notieren Sie sich bitte die folgende Zuordnung von Kontakten (z.B. G**** M*****) und Decknamen (z.B. “F4”). Ab jetzt sind dies die anonymisierten Decknamen für Ihre Kontakte. Die Zuordnung wird nicht gespeichert und geht verloren, sobald Sie diese Seite verlassen.
+donation.friendsMapping.subtitle=Wir haben Ihre Daten und Ihre Kontakte anonymisiert. Damit Sie Feedback zu einzelnen Kontakten erhalten können, notieren Sie sich bitte die folgende Zuordnung von Kontakten (z.B. G**** M*****) und Decknamen (z.B. “K4”). Ab jetzt sind dies die anonymisierten Decknamen für Ihre Kontakte. Die Zuordnung wird nicht gespeichert und geht verloren, sobald Sie diese Seite verlassen.
 
 donation.sendData.wait=Das Senden der Daten kann ein paar Minuten dauern. Bitte warten Sie. Danke!
 
@@ -128,7 +128,8 @@ donation.successful=Ihre Daten wurden erfolgreich anonymisiert.
 donation.error=Es ist ein Fehler aufgetreten:
 
 donation.anonymisation.donor=Spender
-donation.anonymisation.friend=Freund
+donation.anonymisation.friend=Kontakt
+donation.anonymisation.friendInitial=K
 donation.anonymisation.system=System
 
 donation.errors.no-profile=Die Datei enthält keine Profildaten.

@@ -214,7 +214,7 @@ function setUpFileHandler() {
 
                 // this needs to be done with all data ( maybe in next .then???) TODO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 renderTable(deIdentifiedJson.deIdentifiedJsonContents, dataSource);
-                renderUserIDMapping(deIdentifiedJson.participantNameToRandomIds, i18nSupport.data('system'), i18nSupport.data('donor'), dataSource)
+                renderUserIDMapping(deIdentifiedJson.participantNameToRandomIds, i18nSupport.data('system'), i18nSupport.data('donor'), i18nSupport.data('friend-initial'), dataSource)
                 return transformJson(deIdentifiedJson.deIdentifiedJsonContents, donorId, dataSource);
             })
             .then((transformedJson) => {

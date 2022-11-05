@@ -29,13 +29,15 @@ $(document).ready(function () {
         // remove friend "System" from friends of conversations
         const systemName = i18n.systemName
         const chatWith = i18n.chatWith
+        const friendsInitial = i18n.friendInitial
         let conversationsWithoutSystem = []
         graphData.conversationsFriends.forEach((conversation) => {
             conversationsWithoutSystem.push(conversation.filter((friend) => friend !== systemName))
         })
         const listOfConversations = createListOfConversations(
             conversationsWithoutSystem,
-            chatWith
+            chatWith,
+            friendsInitial
         )
 
         animatedPolarPlot(

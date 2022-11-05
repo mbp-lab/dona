@@ -1,4 +1,4 @@
-function showUserIdMapping(userIdMapping, systemName, donor, dataSource) {
+function showUserIdMapping(userIdMapping, systemName, donor, friendInitial, dataSource) {
 
     clearPreviousRenderedMappings(dataSource)
         .then(() => {
@@ -17,7 +17,7 @@ function showUserIdMapping(userIdMapping, systemName, donor, dataSource) {
                         // create shortened Friend mappings: e.g.: Friend1 -> F1
                         friendMapping = mapping[1]
                         let numberStart = friendMapping.search(/\d+/)
-                        friendMapping = "F" + friendMapping.substring(numberStart, friendMapping.length)
+                        friendMapping = friendInitial + friendMapping.substring(numberStart, friendMapping.length)
                     }
                     friendMappings.push(friendMapping)
 

@@ -109,7 +109,7 @@ donation.preview-data.timestamp=Timestamp of message
 donation.preview-data.group-conversation=Group conversation
 
 donation.friendsMapping.title=<b>Please write down the aliases for your contacts.</b>
-donation.friendsMapping.subtitle=We have anonymized your data and your contacts. So that you can receive feedback on individual contacts, please make a note of the following assignments of contacts (e.g. G**** M*****) and aliases (e.g. "F4"). From now on, these are the anonymized aliases for your contacts. The assignment is not saved and is lost as soon as you leave this page.
+donation.friendsMapping.subtitle=We have anonymized your data and your contacts. So that you can receive feedback on individual contacts, please make a note of the following assignments of contacts (e.g. G**** M*****) and aliases (e.g. "C4"). From now on, these are the anonymized aliases for your contacts. The assignment is not saved and is lost as soon as you leave this page.
 
 donation.sendData.wait=Sending the data could take a few minutes. Please wait. Thanks!
 
@@ -128,7 +128,8 @@ donation.successful=Your data has been successfully anonymized.
 donation.error=An error occured:
 
 donation.anonymisation.donor=Donor
-donation.anonymisation.friend=Friend
+donation.anonymisation.friend=Contact
+donation.anonymisation.friendInitial=C
 donation.anonymisation.system=System
 
 donation.errors.no-profile=The uploaded data does not include profile information.
