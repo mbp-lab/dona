@@ -23,6 +23,11 @@ function addListeners() {
         alert(i18nSupport.data('please-wait'))
         $(".selectorsAndInputs").addClass('disabled');
         $('.selectorsAndInputs').attr('disabled','disabled');
+
+        $(".accordion").addClass('d-none');
+        $("#anonymizationTextHeadlines").addClass('d-none');
+        $("#spinner-submit-div").removeClass('d-none');
+
     })
 
 

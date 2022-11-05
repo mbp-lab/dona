@@ -43,7 +43,7 @@
         data-error-same-files="@messages("donation.errors.same-file")"
         >
         </div>
-        <div class="p-2 pr-sm-4 pl-sm-4 pt-sm-4 p-lg-2 w-100">
+        <div class="p-2 pr-sm-4 pl-sm-4 pt-sm-4 p-lg-2 w-100" id="anonymizationTextHeadlines">
             <div class="headline text-center mb-3">@messages("donation.select-data.title")</div>
             <p class="paragraph"> @messages("donation.select-data.body1") </p>
             <p class="paragraph">@messages("donation.select-data.body2")</p>
@@ -61,6 +61,14 @@
                 </div>
                 }
             </div>
+        <div class="mt-0 w-100 d-none" align="center" id="spinner-submit-div">
+            <div id="spinner-submit" class="spinner-border" style="width: 6rem; height: 6rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <h5 class="mt-4">
+                <b>@messages("donation.anonymisation.loading")</b>
+            </h5>
+        </div>
         </div>
 
             <!-- Modal for choosing correct username -->
@@ -68,7 +76,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Please choose your username</h5>
+                        <h5 class="modal-title">@messages("donation.anonymisation.chooseUsername")</h5>
                     </div>
                     <div class="modal-body" id="usernameModalBody">
                         <select class="custom-select" id="usernameSelect" multiple>

@@ -131,6 +131,8 @@ donation.anonymisation.donor=Donor
 donation.anonymisation.friend=Contact
 donation.anonymisation.friendInitial=C
 donation.anonymisation.system=System
+donation.anonymisation.chooseUsername=Please choose your username. Your username will not be saved and we will not know it.
+donation.anonymisation.loading=The anonymized data is being sent. Please wait.
 
 donation.errors.no-profile=The uploaded data does not include profile information.
 donation.errors.no-alias=Please enter your username. You can find it in your WhatsApp profile.
