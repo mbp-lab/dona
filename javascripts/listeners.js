@@ -27,6 +27,9 @@ function addListeners() {
         $(".accordion").addClass('d-none');
         $("#anonymizationTextHeadlines").addClass('d-none');
         $("#spinner-submit-div").removeClass('d-none');
+        $("#spinner-submit-div").removeClass('d-none');
+
+        $(".show-on-anonymisation-success").addClass('d-none');
 
     })
 
