@@ -115,9 +115,11 @@ function setUpFileHandler() {
         "donor_id": i18nSupport.data('donor'),
         "conversations": []
     };
-    let currentFiles = []
+    //let currentFiles = [] // this would be for file removing functionality
     let possibleEarliestDate = 0
     let possibleLatestDate = 0
+    // this is to hold all anonymized data so that it can be properly filtered by date if the user wants to
+    let allAnonymizedData;
 
     $(".donation-file-selector>input[type='file']").on("click", function(evt) {
         //const requiresAlias = evt.currentTarget.getAttribute('data-requires-alias');
@@ -146,13 +148,15 @@ function setUpFileHandler() {
         $(".show-on-anonymisation-success" + "-" + dataSource).addClass('d-none');
         $(".show-on-anonymisation-success").addClass('d-none');
 
-        var handler;
+        let handler;
 
         if (dataSource == "WhatsApp") {
+            /*
             for (let i = 0; i < files.length; i++) {
                 currentFiles.push(files[i])
             }
-            handler = whatsappTxtFileHandler(currentFiles);
+             */
+            handler = whatsappTxtFileHandler(files);
 
         } else {
             handler = facebookZipFileHandler(files);
@@ -163,21 +167,29 @@ function setUpFileHandler() {
             .then((deIdentifiedJson) => {
                 const fileList = $("#" + dataSource + "FileList")
                 fileList.empty()
-                let dataSourceClass = "listItemRemove" + dataSource
 
                 let fileName
 
+                /* this is also for file removing functionality, the next for loop would then go through the filesForList
                 let filesForList = []
                 if (dataSource === "WhatsApp") {
                     filesForList = currentFiles
                 } else {
                     filesForList = files
                 }
-                for (let i = 0; i < filesForList.length; i++) {
-                    fileName = filesForList[i].name
-                    fileList.append('<li class="list-group-item">' + fileName + '<button class="btn badge badge-secondary float-right ' + dataSourceClass +'" id="' + fileName + '">' + i18nSupport.data("remove") + '</button> </li>')
+                 */
+                //let dataSourceClass = "listItemRemove" + dataSource
+
+                for (let i = 0; i < files.length; i++) {
+                    fileName = files[i].name
+                    // li item with remove button:
+                    //fileList.append('<li class="list-group-item">' + fileName + '<button class="btn badge badge-secondary float-right ' + dataSourceClass +'" id="' + fileName + '">' + i18nSupport.data("remove") + '</button> </li>')
+                    // li item without remove button
+                    fileList.append('<li class="list-group-item">' + fileName + ' </li>')
                 }
 
+                // remove methods:
+                /*
                 // remove method for facebook (there is always only one facebook zip file)
                 $(".listItemRemove" + dataSource).click(function (evt) {
                     donaForMEDonation.conversations = donaForMEDonation.conversations.filter((conv) => conv["donation_data_source_type"] !== dataSource)
@@ -220,7 +232,9 @@ function setUpFileHandler() {
                     }
                 })
 
-                // this needs to be done with all data ( maybe in next .then???) TODO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                 */
+
+                // create data preview and user id mapping
                 renderTable(deIdentifiedJson.deIdentifiedJsonContents, dataSource);
                 renderUserIDMapping(deIdentifiedJson.participantNameToRandomIds, i18nSupport.data('system'), i18nSupport.data('donor'), i18nSupport.data('friend-initial'), dataSource)
                 return transformJson(deIdentifiedJson.deIdentifiedJsonContents, donorId, dataSource);
@@ -229,6 +243,7 @@ function setUpFileHandler() {
                 // if there are already conversations of the chosen dataSource, then first filter the old ones out
                 donaForMEDonation.conversations = donaForMEDonation.conversations.filter((conv) => conv["donation_data_source_type"] !== dataSource)
 
+                // get earliest and latest date of all conversations
                 let earliestDate = transformedJson.result[0].earliestDate
                 let latestDate = transformedJson.result[0].latestDate
 
@@ -249,8 +264,13 @@ function setUpFileHandler() {
                 let latestDateString = latestDateObj.toISOString().substring(0, 10)
 
                 document.getElementById("startDate-" + dataSource).value = earliestDateString;
+                document.getElementById("startDate-" + dataSource).min = earliestDateString;
+                document.getElementById("startDate-" + dataSource).max = latestDateString;
                 document.getElementById("endDate-" + dataSource).value = latestDateString;
+                document.getElementById("endDate-" + dataSource).min = earliestDateString;
+                document.getElementById("endDate-" + dataSource).max = latestDateString;
 
+                allAnonymizedData = donaForMEDonation
                 $("#inputJson").attr('value', JSON.stringify(donaForMEDonation));
 
                 $(".show-on-anonymisation-success" + "-" + dataSource).removeClass('d-none');
@@ -263,15 +283,18 @@ function setUpFileHandler() {
                 earlierSuccess = true;
                 progressBar.stop(dataSource);
 
+                /*
                 // check if number of whatsApp files is in the limits
-                console.log("dona for me donation:", donaForMEDonation)
                 let whatsAppConv = donaForMEDonation.conversations.filter((conv) => conv["donation_data_source_type"] === "WhatsApp")
                 console.log("whatsAppConv:", whatsAppConv)
                 if (whatsAppConv.length !== 0 && (whatsAppConv.length < 3 || whatsAppConv.length > 7)) {
                         console.log("Hello")
                         messageService.showError("You need to choose between 3 and 7 chat files... ToDo", "WhatsApp");
                         $(".show-on-anonymisation-success").addClass('d-none');
+                        $(".show-on-anonymisation-success" + "-" + dataSource).addClass('d-none');
                 }
+
+                 */
 
             })
             .catch(error => {
@@ -284,48 +307,63 @@ function setUpFileHandler() {
                 messageService.showError(i18nSupport.data("error") + " " + error, dataSource);
                 progressBar.stop(dataSource);
             });
-
     }
 
+    // when new files are selected, handle it
     $(".donation-file-selector>input[type='file']").on("change", (evt) => {
         const dataSource = evt.currentTarget.id;
         const files = evt.target.files
         onFileInputChange(dataSource, files)
     })
 
-    $(".date-selection").on("change", (evt) => {
+    // filtering the selected data according to the dates that the user selects
+    $(".date-selection").on("input", (evt) => {
         const dataSource = evt.currentTarget.id.substring(evt.currentTarget.id.indexOf('-') + 1, evt.currentTarget.id.length);
+
         let startDate = document.getElementById("startDate-" + dataSource).value
         let endDate = document.getElementById("endDate-" + dataSource).value
-        console.log("startdate:", startDate)
 
+        console.log("startdate:", startDate)
+        console.log("enddate:", endDate)
+
+        // start and end date to ms
         let startDateMs = new Date(startDate).getTime()
         let endDateMs = new Date(endDate).getTime()
 
+        // remove all current notifications
         messageService.hideErrorShowSuccess(dataSource)
+
+        // in case the date is not selected at all - error
         if (startDate === "") {
-            messageService.showError("please select a start date.. ToDo", dataSource);
+            messageService.showError(i18nSupport.data("error-dates-no-sense"), dataSource);
             $(".show-on-anonymisation-success").addClass('d-none');
             return;
-        }
+        } // in case the dates don't make sense - error
         else if (startDateMs > possibleLatestDate || endDateMs < possibleEarliestDate || startDateMs >= endDateMs) {
-            messageService.showError("The dates dont make sense... ToDo", dataSource);
+            messageService.showError(i18nSupport.data("error-dates-no-sense"), dataSource);
             $(".show-on-anonymisation-success").addClass('d-none');
             return;
         }
 
+        // get the selected data that was already anonymized from the inputJson
         let inputObj = JSON.parse($("#inputJson")[0].value)
         let inputObjConv = inputObj.conversations
-        let dataSourceConv = inputObjConv.filter((conv) => conv["donation_data_source_type"] === dataSource)
+        // filter the conversations to only get the dataSource that is concerned
+        let dataSourceConv = allAnonymizedData.conversations.filter((conv) => conv["donation_data_source_type"] === dataSource)
+        // filter the messages
         dataSourceConv.forEach(conv => {
             conv.messages = conv.messages.filter((message) =>
                 message.timestamp_ms >= startDateMs && message.timestamp_ms <= endDateMs)
         })
+        // create the new conversations object
         inputObj.conversations = inputObjConv.filter((conv) => conv["donation_data_source_type"] !== dataSource)
             .concat(dataSourceConv)
 
 
+        // show success
         messageService.hideErrorShowSuccess(dataSource)
+
+        // check if there is at least one message in the timespan that was selected
         let allConvEmpty = true
         inputObj.conversations.forEach((conv) => {
             if (conv.messages.length !== 0) {
@@ -334,14 +372,19 @@ function setUpFileHandler() {
             }
         })
         if (allConvEmpty) {
-            messageService.showError("There are no messages in this timespan... ToDo", dataSource);
+            messageService.showError(i18nSupport.data("error-no-messages-time-period"), dataSource);
             $(".show-on-anonymisation-success").addClass('d-none');
             return;
+        } else {
+            // show success
+            messageService.hideErrorShowSuccess(dataSource)
+            $(".show-on-anonymisation-success").removeClass('d-none');
         }
 
-
+        // assign the filtered data to the inputJson
         $("#inputJson").attr('value', JSON.stringify(inputObj));
     })
+
 
 }
 

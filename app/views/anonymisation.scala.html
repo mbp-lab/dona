@@ -41,6 +41,8 @@
         data-error-no-alias="@messages("donation.errors.no-alias")"
         data-error-not-enough-chats="@messages("donation.errors.not-enough-chats_format")"
         data-error-same-files="@messages("donation.errors.same-file")"
+        data-error-no-messages-time-period="@messages("donation.errors.no-messages-time-period")"
+        data-error-dates-no-sense="@messages("donation.errors.dates-no-sense")"
         >
         </div>
         <div class="p-2 pr-sm-4 pl-sm-4 pt-sm-4 p-lg-2 w-100" id="anonymizationTextHeadlines">
@@ -132,7 +134,7 @@
             <div class="card-body">
 
                 <div>
-                    <h5 class="m-4"><b>Wählen Sie hier die Dateien aus, die Sie spenden möchten:</b></h5>
+                    <h5 class="m-4"><b>@messages("donation.choose-files-here")</b></h5>
                     <div class="custom-file mb-1 donation-file-selector">
                         <input
                         id="@{
@@ -174,14 +176,14 @@
                     </ul>
 
                     <div class="show-on-anonymisation-success-@{dataSourceDescription.name.toString} d-none mb-4">
-                        <h5 class="m-4"><b>Hier können Sie den Zeitraum Ihrer Datenspende eingrenzen:</b></h5>
+                        <h5 class="m-4"><b>@messages("donation.choose-period")</b></h5>
                         <div class="row mt-0 w-100" align="center">
                         <div class="col">
-                            <label for="startDate-@{dataSourceDescription.name.toString}">Anfang der Spende:</label>
+                            <label for="startDate-@{dataSourceDescription.name.toString}">@messages("donation.select-date.start")</label>
                             <input type="date" id="startDate-@{dataSourceDescription.name.toString}" class="date-selection m-2 selectorsAndInputs" name="startdate">
                         </div>
                         <div class="col">
-                            <label for="endDate-@{dataSourceDescription.name.toString}">Ende der Spende:</label>
+                            <label for="endDate-@{dataSourceDescription.name.toString}">@messages("donation.select-date.end")</label>
                             <input type="date" id="endDate-@{dataSourceDescription.name.toString}" class="date-selection m-2 selectorsAndInputs" name="enddate">
                         </div>
                         </div>
@@ -204,7 +206,7 @@
                 </div>
                 </div>
                 <div class="show-on-anonymisation-success-@{dataSourceDescription.name.toString} order-9 w-100 d-none">
-                    <h5 class="m-4"><b>Decknamen Ihrer Kontakte:</b></h5>
+                    <h5 class="m-4"><b>@messages("donation.aliases-overview")</b></h5>
                     <div class="w-100 text-align-center show-on-anonymisation-success-@{dataSourceDescription.name.toString}" align="center">
 
                         <div class="container-fluid show-on-anonymisation-success-@{dataSourceDescription.name.toString} alert-warning" style="border-radius: 16px;">
@@ -220,7 +222,7 @@
 
 
                     </div>
-                    <h5 class="m-4"><b>Vorschau Ihrer Daten:</b></h5>
+                    <h5 class="m-4"><b>@messages("donation.preview-data.title")</b></h5>
                     <div class="w-100 text-align-center show-on-anonymisation-success-@{dataSourceDescription.name.toString}" align="center">
                     <button class="btn btn-outline text-center selectorsAndInputs" data-toggle="modal" data-target="#dataPreview-@{dataSourceDescription.name.toString}">
                         <b>@messages("donation.preview-data.button")</b>

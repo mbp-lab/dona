@@ -91,11 +91,14 @@ consent.buttons.close.caption=Close
 
 donation.select-data.title=Choose data for donation
 donation.select-data.body1=Please choose the platform from which you want to donate your data. To successfully anonymize your data your username is automatically determined. Your username will not be saved or donated.
-donation.select-data.body2=After choosing the data you want to donate, we will display a preview of your anonymized data (a random sample of your messages). This preview will show you that your username has been replaced by "Donor", the usernames of your friends have been pseudonymized, and that the content of your messages has been reduced to simply meta-information.
+donation.select-data.body2=After choosing the data you want to donate, we will display a preview of your anonymized data (a random sample of your messages). This preview will show you that your username has been replaced by "Donor", the usernames of your contacts have been pseudonymized, and that the content of your messages has been reduced to simply meta-information.
 donation.select-data.donation=Data Donation
 donation.select-data.input1=Choose files
 donation.select-data.input2=Browse
 donation.select-data.remove=Remove
+
+donation.select-date.start=Start of donation:
+donation.select-date.end=End of donation:
 
 donation.preview-data.title=Preview of your anonymized data
 donation.preview-data.button=Click here for a preview of your anonymized data
@@ -121,6 +124,9 @@ donation.raw-data-link.text=raw data
 donation.alias-not-required=Not required
 donation.alias=Username
 donation.please-insert-alias=Please enter your username to enable anonymization.
+donation.choose-files-here=Select the files you would like to donate here:
+donation.choose-period=Here you can limit the period of your data donation:
+donation.aliases-overview=Aliases of your contacts:
 
 donation.processing=Your data is being extracted and anonymized...
 donation.be-patient=The data extraction process may take some time. Please be patient...
@@ -136,9 +142,11 @@ donation.anonymisation.loading=The anonymized data is being sent. Please wait.
 
 donation.errors.no-profile=The uploaded data does not include profile information.
 donation.errors.no-alias=Please enter your username. You can find it in your WhatsApp profile.
-donation.errors.not-enough-chats_format=Please choose your 5 most important conversations. You have only selected %s.
+donation.errors.not-enough-chats_format=Please choose your 3-7 most important conversations. You have selected %s.
 donation.errors.something-went-wrong=Something went wrong! Please go back to the start and repeat the process.
-donation.errors.same-file=You can only select files that differ. Please choose your 5 most important conversations.
+donation.errors.same-file=You can only select files that differ. Please choose your 3-7 most important conversations.
+donation.errors.no-messages-time-period=There are no messages in the selected period. Please select a longer and valid period.
+donation.errors.dates-no-sense=The selected period is not valid. Please check the correctness of the selected dates.
 
 # feedback
 
@@ -167,7 +175,7 @@ feedback.graph.median-response-time=Median response time
 feedback.graph.overview=Overview
 feedback.graph.detail=Detail
 feedback.graph.you=You
-feedback.graph.friends=Friends
+feedback.graph.friends=Contacts
 
 # plots main page titles
 feedback.title.statisticsCard=Overview of all activity
@@ -264,18 +272,18 @@ feedback.graph.dayPartsMonthly.yAxis=Percentage of all words
 feedback.graph.dayPartsMonthly.xAxis=Four parts of the day
 
 # responseTimesBarChart
-feedback.graph.responseTimeBarChart.description=Here you can see how fast you reply to your friends and vice versa. You see the percentages of all your responses and the replies from your friends that took place in the specified time. Responses are messages sent directly after a message from someone else. You can see what percentage of your responses you sent or received quicker than after 1 minute, after 1-2 minutes, 3-5 minutes, 6-15 minutes, 16-30 minutes, 31-60 minutes, and slower than 60 minutes. The bar for > 60 minutes includes longer breaks in the conversation. Click <a style="font-weight:bold" href="#responseTimeBarChartExplanation" data-toggle="modal" data-target="#responseTimeBarChartExplanation">HERE</a> to see an explanation with an example.
+feedback.graph.responseTimeBarChart.description=Here you can see how fast you reply to your contacts and vice versa. You see the percentages of all your responses and the replies from your contacts that took place in the specified time. Responses are messages sent directly after a message from someone else. You can see what percentage of your responses you sent or received quicker than after 1 minute, after 1-2 minutes, 3-5 minutes, 6-15 minutes, 16-30 minutes, 31-60 minutes, and slower than 60 minutes. The bar for > 60 minutes includes longer breaks in the conversation. Click <a style="font-weight:bold" href="#responseTimeBarChartExplanation" data-toggle="modal" data-target="#responseTimeBarChartExplanation">HERE</a> to see an explanation with an example.
 feedback.graph.responseTimeBarChart.legend.donor=Your Response Times
-feedback.graph.responseTimeBarChart.legend.friends=Friends Response Times
+feedback.graph.responseTimeBarChart.legend.friends=Contacts Response Times
 feedback.graph.responseTimeBarChart.yAxis=Percentage of all responses
 feedback.graph.responseTimeBarChart.xAxis=Time until response
 feedback.graph.responseTimeBarChart.example.image=images/feedback_example_responseTimeBarChart_english.svg
 feedback.graph.responseTimeBarChart.example.text=<p><b>(1)</b> In this example you can see that more than 40% of all replies were sent and received in under a minute. Just under 30% of all replies were sent in 1-2 minutes and just under 30% of all replies were received in 1-2 minutes. I.e. a total of around 70% of all sent replies were sent in less than two minutes and around 70% of all received replies were received in less than two minutes.</p><p><b>(2)</b> Click this icon to download the graph.</p>
 
 # responseTimeBarChart monthly
-feedback.graph.responseTimeBarChartMonthly.description=Here you see <u>per month</u> your and your friends‘ response times. So, the figure shows the percentage of responses (i.e. a message that you sent after a message from a friend or the other way around) that took place in the specified amount of time. You can see what percentage of your responses you sent quicker than after 1 minute, after 1-2 minutes, 3-5 minutes, 6-15 minutes, 16-30 minutes, 31-60 minutes, and slower than 60 minutes. The bar for > 60 minutes includes longer breaks in the conversation.
+feedback.graph.responseTimeBarChartMonthly.description=Here you see <u>per month</u> your and your contacts‘ response times. So, the figure shows the percentage of responses (i.e. a message that you sent after a message from a contact or the other way around) that took place in the specified amount of time. You can see what percentage of your responses you sent quicker than after 1 minute, after 1-2 minutes, 3-5 minutes, 6-15 minutes, 16-30 minutes, 31-60 minutes, and slower than 60 minutes. The bar for > 60 minutes includes longer breaks in the conversation.
 feedback.graph.responseTimeBarChartMonthly.legend.donor=Your Response Times
-feedback.graph.responseTimeBarChartMonthly.legend.friends=Friends Response Times
+feedback.graph.responseTimeBarChartMonthly.legend.friends=Contacts Response Times
 feedback.graph.responseTimeBarChartMonthly.yAxis=Percentage of all responses
 feedback.graph.responseTimeBarChartMonthly.xAxis=Time until response
 

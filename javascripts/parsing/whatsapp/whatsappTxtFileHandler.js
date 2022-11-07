@@ -2,6 +2,7 @@ const uuid = require('uuid/v4');
 const countWords = require('../../stringWordCount');
 const {makeArrayOfMessages, parseMessages} = require('./whatsappParser.js');
 const _ = require("lodash");
+const messageService = require("../../messageService");
 
 function whatsappTxtFilesHandler(filelist) {
     const i18nSupport = $('#i18n-support'); // TODO: This file should not be allowed to access jquery
@@ -13,14 +14,13 @@ function whatsappTxtFilesHandler(filelist) {
 
 
     return new Promise((resolve, reject) => {
-        const expectedNumberOfFiles = 5;
-        //if (alias.length < 1) {
-        //    reject(i18nSupport.data('error-no-alias'));
-        //} else if (files.length != expectedNumberOfFiles) {
-        if (files.length !== expectedNumberOfFiles) {
-            //reject(i18nSupport.data('error-not-enough-chats').replace('%s', files.length));
-            console.log("ToDo: cleanup") // ToDo
-            //return;
+        // check if number of files is in the limits
+        // TODO: put number of files in some config file
+        if (files.length !== 0 && (files.length < 3 || files.length > 7)) {
+            //messageService.showError("You need to choose between 3 and 7 chat files... ToDo", "WhatsApp");
+            reject(i18nSupport.data('error-not-enough-chats').replace('%s', files.length));
+            //$(".show-on-anonymisation-success").addClass('d-none');
+            //$(".show-on-anonymisation-success" + "-" + dataSource).addClass('d-none');
         } else {
             // check if all files seem to be the same
             let fileSize = files[0].size
