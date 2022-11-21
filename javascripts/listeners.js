@@ -118,8 +118,6 @@ function setUpFileHandler() {
     //let currentFiles = [] // this would be for file removing functionality
     let possibleEarliestDate = 0
     let possibleLatestDate = 0
-    // this is to hold all anonymized data so that it can be properly filtered by date if the user wants to
-    let allAnonymizedData;
 
     $(".donation-file-selector>input[type='file']").on("click", function(evt) {
         //const requiresAlias = evt.currentTarget.getAttribute('data-requires-alias');
@@ -270,7 +268,9 @@ function setUpFileHandler() {
                 document.getElementById("endDate-" + dataSource).min = earliestDateString;
                 document.getElementById("endDate-" + dataSource).max = latestDateString;
 
-                allAnonymizedData = donaForMEDonation
+                // all anonymized data is to be kept separate from the data that is actually donated
+                // because of dynamic time span selection
+                $("#allAnonymizedData").attr('value', JSON.stringify(donaForMEDonation));
                 $("#inputJson").attr('value', JSON.stringify(donaForMEDonation));
 
                 $(".show-on-anonymisation-success" + "-" + dataSource).removeClass('d-none');
@@ -329,6 +329,7 @@ function setUpFileHandler() {
         // start and end date to ms
         let startDateMs = new Date(startDate).getTime()
         let endDateMs = new Date(endDate).getTime()
+        endDateMs = endDateMs + 86340000 // standard is at 00:00, add 23:59h so that the whole day of the end day is regarded
 
         // remove all current notifications
         messageService.hideErrorShowSuccess(dataSource)
@@ -346,11 +347,13 @@ function setUpFileHandler() {
         }
 
         // get the selected data that was already anonymized from the inputJson
-        let inputObj = JSON.parse($("#inputJson")[0].value)
+        let inputObj = JSON.parse($("#allAnonymizedData")[0].value)
         let inputObjConv = inputObj.conversations
         // filter the conversations to only get the dataSource that is concerned
-        let dataSourceConv = allAnonymizedData.conversations.filter((conv) => conv["donation_data_source_type"] === dataSource)
+        let dataSourceConv = inputObjConv.filter((conv) => conv["donation_data_source_type"] === dataSource)
         // filter the messages
+        console.log("startDateMs:", startDateMs)
+        console.log("endDateMs:", endDateMs)
         dataSourceConv.forEach(conv => {
             conv.messages = conv.messages.filter((message) =>
                 message.timestamp_ms >= startDateMs && message.timestamp_ms <= endDateMs)
@@ -359,6 +362,8 @@ function setUpFileHandler() {
         inputObj.conversations = inputObjConv.filter((conv) => conv["donation_data_source_type"] !== dataSource)
             .concat(dataSourceConv)
 
+
+        console.log(inputObj)
 
         // show success
         messageService.hideErrorShowSuccess(dataSource)

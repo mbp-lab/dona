@@ -189,9 +189,9 @@ feedback.facebook.info=Die möglicherweise hohe Anzahl an Facebook-Kontakten kan
 feedback.nextButton=Weiter
 
 # plots more about titles
-feedback.moreAbout.interactionIntensity.title=Mehr über Interaktionsintensität
-feedback.moreAbout.dailyActivityTimes.title=Mehr über Tägliche Aktivitätszeiten
-feedback.moreAbout.responseTimes.title=Mehr über Reaktionszeiten
+feedback.moreAbout.interactionIntensity.title=Mehr über <u>Ihre</u> Interaktionsintensität
+feedback.moreAbout.dailyActivityTimes.title=Mehr über <u>Ihre</u> Täglichen Aktivitätszeiten
+feedback.moreAbout.responseTimes.title=Mehr über <u>Ihre</u> Reaktionszeiten
 
 # plot descriptions
 feedback.graph.yearMonth=Jahr-Monat:
