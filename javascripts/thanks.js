@@ -10,6 +10,7 @@ const responseTimeBarChart = require('./analysis_plot/responseTimeBarChart');
 const animatedResponseTimeBarChart = require('./analysis_plot/animatedResponseTimeBarChart')
 const breaksInConvPlot = require("./analysis_plot/breaksInConvPlot");
 const createListOfConversations = require("./analysis_plot/utils/createListOfConversations");
+const horizontalBarChartOverall = require("./analysis_plot/horizontalBarChartOverall");
 
 
 $(document).ready(function () {
@@ -24,7 +25,7 @@ $(document).ready(function () {
 
     Object.keys(allData).forEach(function (dataSourceType) {
         const graphData = allData[dataSourceType];
-        //console.log(graphData)
+        console.log(graphData)
 
         // remove friend "System" from friends of conversations
         const systemName = i18n.systemName
@@ -74,9 +75,9 @@ $(document).ready(function () {
         const responseTimeModal = $(`#${dataSourceType}responseTimeModal`)
         sentReceivedModal.on('shown.bs.modal', () => {
 
-            animatedHorizontalBarChartOverall(
-                graphData.sentReceivedPerMonthPerConversation,
-                listOfConversations,
+            horizontalBarChartOverall(
+                graphData.basicStatistics.sentWordsTotal,
+                graphData.basicStatistics.receivedWordsTotal,
                 `${dataSourceType}AnimatedHorizontalBarChartOverall`
             )
 
@@ -88,13 +89,6 @@ $(document).ready(function () {
                 true
             )
 
-            sentReceivedDailyPerConversation(
-                graphData.dailyWordsSentReceived,
-                graphData.dailySentReceivedPerConversation,
-                `${dataSourceType}DailySentReceivedPerConversation`,
-                listOfConversations,
-                false
-            )
         })
 
         dailyActivityModal.on('shown.bs.modal', () => {

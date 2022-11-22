@@ -142,9 +142,9 @@ donation.anonymisation.loading=Die anonymisierten Daten werden gesendet. Bitte w
 
 donation.errors.no-profile=Die Datei enthält keine Profildaten.
 donation.errors.no-alias=Ein Nutzername muss angegeben werden. Sie können ihn in Ihrem WhatsApp-Profil finden.
-donation.errors.not-enough-chats_format=Bitte wählen Sie Ihre 3-7 wichtigsten Unterhaltungen aus. Sie haben %s ausgewählt.
+donation.errors.not-enough-chats_format=Bitte wählen Sie Ihre 5-7 wichtigsten Unterhaltungen aus. Sie haben %s ausgewählt.
 donation.errors.something-went-wrong=Etwas ist schief gelaufen! Bitte kehren Sie zum Start zurück und wiederholen Sie den Vorgang.
-donation.errors.same-file=Sie können nur Dateien auswählen, die sich voneinander unterscheiden. Bitte wählen Sie Ihre 5 wichtigsten Unterhaltungen aus.
+donation.errors.same-file=Sie können nur Dateien auswählen, die sich voneinander unterscheiden. Bitte wählen Sie Ihre 5-7 wichtigsten Unterhaltungen aus.
 donation.errors.no-messages-time-period=In dem ausgewählten Zeitraum befinden sich keine Nachrichten. Bitte wählen Sie einen größeren und validen Zeitraum.
 donation.errors.dates-no-sense=Der ausgewählte Zeitraum ist ungültig. Bitte überprüfen Sie die Richtigkeit der ausgewählten Daten.
 
@@ -217,13 +217,13 @@ feedback.graph.animatedHorizontalBarChart.xAxis=Anzahl gesendeter Wörter
 feedback.graph.animatedHorizontalBarChart.example.image=images/feedback_example_horizontalBarChart_german.svg
 feedback.graph.animatedHorizontalBarChart.example.text=<p><b>(1)</b> In diesem Beispiel gab es über den gesamten Zeitraum in diesem Chat mit F9, F10 insgesamt am meisten gesendete Wörter: knapp über 140 Tausend.</p><p><b>(2)</b> Im Kontrast zu (1) gab es in diesem Beispielchat am wenigsten gesendete Wörter.</p><p><b>(3)</b> Hier wird das Jahr und der Monat angezeigt. Pro Monat können Sie beobachten, wie viele Wörter gesendet wurden. Probieren Sie den Zeitschieber aus! </p><p><b>(4)</b> Klicken Sie auf dieses Symbol, um den Graphen herunterzuladen.</p>
 
-# animatedHorizontalBarChart overall
-feedback.graph.animatedHorizontalBarChartOverall.description=Dieser Graph zeigt die Gesamtanzahl Ihrer erhaltenen und gesendeten Wörter über alle Ihre gespendeten Chats hinweg pro Monat. Im Zeitschieber unten können Sie den Monat und das Jahr sehen und selbst auswählen.
-feedback.graph.animatedHorizontalBarChartOverall.legend.sent=Gesendete Wörter
-feedback.graph.animatedHorizontalBarChartOverall.legend.received=Erhaltene Wörter
-feedback.graph.animatedHorizontalBarChartOverall.xAxis=Anzahl Wörter
-feedback.graph.animatedHorizontalBarChartOverall.yAxis.sent=Gesendet
-feedback.graph.animatedHorizontalBarChartOverall.yAxis.received=Erhalten
+# horizontalBarChart overall
+feedback.graph.horizontalBarChartOverall.description=Dieser Graph zeigt die Gesamtanzahl Ihrer erhaltenen und gesendeten Wörter über alle Ihre gespendeten Chats hinweg.
+feedback.graph.horizontalBarChartOverall.legend.sent=Gesendete Wörter
+feedback.graph.horizontalBarChartOverall.legend.received=Erhaltene Wörter
+feedback.graph.horizontalBarChartOverall.xAxis=Anzahl Wörter
+feedback.graph.horizontalBarChartOverall.yAxis.sent=Gesendet
+feedback.graph.horizontalBarChartOverall.yAxis.received=Erhalten
 
 # slidingWindowMean of sent and received words plot
 feedback.graph.slidingWindowMean.description=Hier können Sie pro Tag Ihre durchschnittliche gesendete und empfangene Wörteranzahl sehen (Genauer gesagt, berechnen wir einen “gleitende Mittelwert” mit einer Fenstergröße von 30 Tagen). Oben links können Sie auch Ihre einzelnen Chats auswählen, um den Graphen für Ihre gesendeten Wörter für den ausgewählten Chat zu sehen.

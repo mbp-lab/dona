@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        @for((dataSource, GraphData(_, _, _, _, _, _, averageMessageNumber, _)) <- data) {
+        @for((dataSource, GraphData(_, _, _, _, _, _, basicStatistics, _)) <- data) {
             <div class="top col-md text-center" style="margin-top: 3em">
                 <span class="headline font-italic text-center"><strong><u>@String.format(messages("feedback.graph.title"), dataSource)</u></strong></span>
             </div>
@@ -34,7 +34,7 @@
                 dataSource
             }container">
                 @showTitle(messages("feedback.title.statisticsCard"))
-                @showStatistics(averageMessageNumber, dataSource)
+                @showStatistics(basicStatistics, dataSource)
                 @showTitle(messages("feedback.title.interactionIntensity"))
                 @showAnimatedPolarPlot(dataSource, messages("feedback.graph.animatedPolarPlot.description"))
                 @showAnimatedHorizontalBarChart(dataSource, messages("feedback.graph.animatedHorizontalBarChart.description"))
@@ -236,28 +236,28 @@
 }
 
 
-@showStatistics(averageNumberOfMessages: AverageNumberOfMessages, dataSource: String) = {
+@showStatistics(basicStatistics: BasicStatistics, dataSource: String) = {
     <div class="card-deck feedback-stats-deck">
         <div class="card top feedback-stats-card">
             <h3 class="insights-title text-center">@messages("feedback.graph.total-messages")</h3>
             <p class="insights-text text-center">
             @String.format(
                 messages("feedback.graph.active-years-explanation_format"),
-                averageNumberOfMessages.numberOfActiveYears.toString
+                basicStatistics.numberOfActiveYears.toString
             )
             </p>
             <div class="container">
                 <div class="row">
                     <div class="col-6">
                         <div class="text-left insights-box-white" align="center">
-                            <h3 class="insights-message-number">@averageNumberOfMessages.sentTotal</h3>
+                            <h3 class="insights-message-number">@basicStatistics.sentMessagesTotal</h3>
                             <span class="insights-body">@messages("feedback.graph.messages").toUpperCase</span>
                         </div>
                         <span class="insights-caption">@messages("feedback.graph.sent")</span>
                     </div>
                     <div class="col-6">
                         <div class="text-left insights-box-blue">
-                            <h3 class="insights-message-number">@averageNumberOfMessages.receivedTotal</h3>
+                            <h3 class="insights-message-number">@basicStatistics.receivedMessagesTotal</h3>
                             <span class="insights-body">@messages("feedback.graph.messages").toUpperCase</span>
                         </div>
                         <span class="insights-caption">@messages("feedback.graph.received")</span>
@@ -267,19 +267,19 @@
         </div>
         <div class="card top feedback-stats-card thanks-small-screen-margin">
             <h3 class="insights-title text-center">@messages("feedback.graph.average-per-active-month")</h3>
-            <p class="insights-text text-center"> @String.format(messages("feedback.graph.active-months-explanation_format"), averageNumberOfMessages.numberOfActiveMonths.toString)</p>
+            <p class="insights-text text-center"> @String.format(messages("feedback.graph.active-months-explanation_format"), basicStatistics.numberOfActiveMonths.toString)</p>
             <div class="container">
                 <div class="row">
                     <div class="col-6">
                         <div class="text-left insights-box-white">
-                            <h3 class="insights-message-number">@averageNumberOfMessages.sentPerActiveMonth</h3>
+                            <h3 class="insights-message-number">@basicStatistics.sentPerActiveMonth</h3>
                             <span class="insights-body">@messages("feedback.graph.messages").toUpperCase</span>
                         </div>
                         <span class="insights-caption" >@messages("feedback.graph.sent")</span>
                     </div>
                     <div class="col-6">
                         <div class="text-left insights-box-blue">
-                            <h3 class="insights-message-number">@averageNumberOfMessages.receivedPerActiveMonth</h3>
+                            <h3 class="insights-message-number">@basicStatistics.receivedPerActiveMonth</h3>
                             <span class="insights-body">@messages("feedback.graph.messages").toUpperCase</span>
                         </div>
                         <span class="insights-caption">@messages("feedback.graph.received")</span>

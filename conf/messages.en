@@ -142,9 +142,9 @@ donation.anonymisation.loading=The anonymized data is being sent. Please wait.
 
 donation.errors.no-profile=The uploaded data does not include profile information.
 donation.errors.no-alias=Please enter your username. You can find it in your WhatsApp profile.
-donation.errors.not-enough-chats_format=Please choose your 3-7 most important conversations. You have selected %s.
+donation.errors.not-enough-chats_format=Please choose your 5-7 most important conversations. You have selected %s.
 donation.errors.something-went-wrong=Something went wrong! Please go back to the start and repeat the process.
-donation.errors.same-file=You can only select files that differ. Please choose your 3-7 most important conversations.
+donation.errors.same-file=You can only select files that differ. Please choose your 5-7 most important conversations.
 donation.errors.no-messages-time-period=There are no messages in the selected period. Please select a longer and valid period.
 donation.errors.dates-no-sense=The selected period is not valid. Please check the correctness of the selected dates.
 
@@ -218,13 +218,13 @@ feedback.graph.animatedHorizontalBarChart.example.image=images/feedback_example_
 feedback.graph.animatedHorizontalBarChart.example.text=<p><b>(1)</b> In this example, over the entire period the most words were sent in the chat with F9, F10: just over 140 thousand.</p><p><b>(2)</b> In contrast to (1), this example chat had the fewest sent words.</p><p><b>(3)</b> The year and month are displayed here. You can see how many words were sent in the chats per month. Try out the time slider!</p><p><b>(4)</b> Click this icon to download the graph.</p>
 
 
-# animatedHorizontalBarChart overall
-feedback.graph.animatedHorizontalBarChartOverall.description=This graph shows the total number of words you received and sent across all your donated chats per month. In the time slider below you can see and choose the month and year.
-feedback.graph.animatedHorizontalBarChartOverall.legend.sent=Sent words
-feedback.graph.animatedHorizontalBarChartOverall.legend.received=Received words
-feedback.graph.animatedHorizontalBarChartOverall.xAxis=Number of words
-feedback.graph.animatedHorizontalBarChartOverall.yAxis.sent=Sent
-feedback.graph.animatedHorizontalBarChartOverall.yAxis.received=Received
+# horizontalBarChart overall
+feedback.graph.horizontalBarChartOverall.description=This graph shows the total number of words you received and sent across all your donated chats.
+feedback.graph.horizontalBarChartOverall.legend.sent=Sent words
+feedback.graph.horizontalBarChartOverall.legend.received=Received words
+feedback.graph.horizontalBarChartOverall.xAxis=Number of words
+feedback.graph.horizontalBarChartOverall.yAxis.sent=Sent
+feedback.graph.horizontalBarChartOverall.yAxis.received=Received
 
 # slidingWindowMean of sent and received words plot
 feedback.graph.slidingWindowMean.description=Here you can see the average number of your sent and received words per day (more precisely, we calculate a so-called sliding window average with a window size of 30 days). At the top left you can also select your individual chats to see the graph of your sent words for the selected chat.

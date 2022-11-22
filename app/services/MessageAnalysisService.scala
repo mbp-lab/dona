@@ -53,7 +53,6 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
         val dailyWordCountSentHoursPerConversation = conversations.map(conversation => produceWordCountDailyHoursPerConversation(socialData.donorId, conversation, sent = true))
         //val dailyReceivedHoursPerConversation = conversations.map(conversation => produceDailyHoursPerConversation(socialData.donorId, conversation, false))
         val dailyWordCountReceivedHoursPerConversation = conversations.map(conversation => produceWordCountDailyHoursPerConversation(socialData.donorId, conversation, sent = false))
-        val average = produceAverageNumberOfMessages(sentReceivedMessagesMonthly)
 
 
         val answerTimesPerConversation = conversations.map(conversation => produceAnswerTimesPerConv(socialData.donorId, conversation))
@@ -69,6 +68,8 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
         //val sentPerFriendPerMonth = produceAggregatedSentPerFriend(socialData.donorId, conversations)
         //val sentPerFriendInConversationPerMonth = conversations.map(c => produceMonthlySentPerFriendInConversation(socialData.donorId, c))
         val sentReceivedPerMonthPerConversation = conversations.map(c => produceSentReceivedWordsPerMonthPerConversation(socialData.donorId, c))
+
+        val average = produceBasicStatistics(sentReceivedMessagesMonthly, sentReceivedPerMonthPerConversation.flatten)
 
         //find months with only one conv
         val monthsOnlyOneConv = findMonthsWithOnlyOneConv(sentReceivedPerMonthPerConversation.flatten)
@@ -579,21 +580,26 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
   /**
    *
    * @param points  the sentReceivedPoints -> year, month and sent and received count
-   * @return the AverageNumberOfMessage object
+   * @return the BasicStatistics object
    */
-  private def produceAverageNumberOfMessages(points: List[SentReceivedPoint]): AverageNumberOfMessages = {
-    val overallSentMessages = points.map(_.sentCount).sum
-    val overallReceivedMessages = points.map(_.receivedCount).sum
+  private def produceBasicStatistics(pointsMessages: List[SentReceivedPoint], pointsWords: List[SentReceivedPoint]): BasicStatistics = {
+    val overallSentMessages = pointsMessages.map(_.sentCount).sum
+    val overallReceivedMessages = pointsMessages.map(_.receivedCount).sum
 
-    val activeMonths = points.length
-    val activeYears = getNumberOfDistinctYears(points)
+    val overallSentWords = pointsWords.map(_.sentCount).sum
+    val overallReceivedWords = pointsWords.map(_.receivedCount).sum
+
+    val activeMonths = pointsMessages.length
+    val activeYears = getNumberOfDistinctYears(pointsMessages)
 
     val averageSentPerActiveMonth = overallSentMessages / activeMonths
     val averageReceivedPerActiveMonth = overallReceivedMessages / activeMonths
 
-    AverageNumberOfMessages(
-      sentTotal = overallSentMessages,
-      receivedTotal = overallReceivedMessages,
+    BasicStatistics(
+      sentMessagesTotal = overallSentMessages,
+      receivedMessagesTotal = overallReceivedMessages,
+      sentWordsTotal = overallSentWords,
+      receivedWordsTotal = overallReceivedWords,
       numberOfActiveMonths = activeMonths,
       numberOfActiveYears = activeYears,
       sentPerActiveMonth = averageSentPerActiveMonth,
