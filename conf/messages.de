@@ -265,7 +265,7 @@ feedback.graph.dayPartsOverall.example.text=<p class="text-left"><b>(1)</b> In d
 
 
 # animatedDayPartsPlot monthly
-feedback.graph.dayPartsMonthly.description=Im Gegensatz zu dem Graphen oben, können Sie in diesem Graphen <u>pro Monat</u> sehen, wie sich die Wörter, die sie gesendet und empfangen haben auf verschiedene Teile des Tages verteilen.
+feedback.graph.dayPartsMonthly.description=Im Gegensatz zu dem Graphen oben, können Sie in diesem Graphen <u>pro Monat</u> sehen, wie sich die Wörter, die sie gesendet haben auf verschiedene Teile des Tages verteilen.
 feedback.graph.dayPartsMonthly.legend.sent=Gesendete Wörter
 feedback.graph.dayPartsMonthly.legend.received=Erhaltene Wörter
 feedback.graph.dayPartsMonthly.yAxis=Prozentualer Anteil aller Wörter
@@ -281,7 +281,7 @@ feedback.graph.responseTimeBarChart.example.image=images/feedback_example_respon
 feedback.graph.responseTimeBarChart.example.text=<p><b>(1)</b> In diesem Beispiel können Sie sehen, dass mehr als 40% aller Antworten in unter einer Minute gesendet und empfangen wurden. Knapp unter 30% aller Antworten wurden in 1-2 Minuten gesendet und knapp 30% aller Antworten in 1-2 Minuten empfangen. Also wurden insgesamt rund 70 % aller gesendeten Antworten in weniger als zwei Minuten versendet und rund 70 % aller eingegangenen Antworten gingen in weniger als zwei Minuten ein.<p><b>(2)</b> Klicken Sie auf dieses Symbol, um den Graphen herunterzuladen.</p>
 
 # responseTimeBarChart monthly
-feedback.graph.responseTimeBarChartMonthly.description=Hier sehen Sie <u>pro Monat</u> Ihre und die Antwortzeiten Ihrer Kontakte. Die Grafik zeigt den Prozentsatz aller Antworten (d.h. eine Nachricht, die Sie nach einer Nachricht von einem Kontakt gesendet haben oder umgekehrt), die in der angegebenen Zeit erfolgt sind. Sie können sehen, wie viel Prozent Ihrer Antworten Sie schneller als nach 1 Minute, nach 1–2 Minuten, 3–5 Minuten, 6–15 Minuten, 16–30 Minuten, 31–60 Minuten und langsamer als 60 Minuten gesendet haben. Der Balken für > 60 Minuten beinhaltet auch längere Gesprächspausen.
+feedback.graph.responseTimeBarChartMonthly.description=Hier sehen Sie <u>pro Monat</u> Ihre Antwortzeiten. Die Grafik zeigt den Prozentsatz aller Antworten (d.h. eine Nachricht, die Sie nach einer Nachricht von einem Kontakt gesendet haben), die in der angegebenen Zeit erfolgt sind. Sie können sehen, wie viel Prozent Ihrer Antworten Sie schneller als nach 1 Minute, nach 1–2 Minuten, 3–5 Minuten, 6–15 Minuten, 16–30 Minuten, 31–60 Minuten und langsamer als 60 Minuten gesendet haben. Der Balken für > 60 Minuten beinhaltet auch längere Gesprächspausen.
 feedback.graph.responseTimeBarChartMonthly.legend.donor=Ihre Reaktionszeiten
 feedback.graph.responseTimeBarChartMonthly.legend.friends=Reaktionszeiten Ihrer Kontakte
 feedback.graph.responseTimeBarChartMonthly.yAxis=Prozentualer Anteil aller Antwortnachrichten

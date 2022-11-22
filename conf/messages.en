@@ -265,7 +265,7 @@ feedback.graph.dayPartsOverall.example.image=images/feedback_example_dayPartsPlo
 feedback.graph.dayPartsOverall.example.text=<p class="text-left"><b>(1)</b> In this example, between midnight and 6:00 AM and between 6:00 AM and noon less than 10% of all words were sent and received. In both of those parts of the day, a few more words were sent than received.</p><p class="text-left"><b>(2)</b> On the other hand, between noon and 6:00 PM a little less than 40% of all words were sent and received.<br> Between 6:00 PM and midnight just under 45% of all words were sent and received. In both of those parts of the day, a few more words were received than sent.</p>
 
 # animatedDayPartsPlot monthly
-feedback.graph.dayPartsMonthly.description=Contrary to the graph above, in this graph you can see how the words you sent and received are distributed over different parts of the day <u>per month</u>.
+feedback.graph.dayPartsMonthly.description=Contrary to the graph above, in this graph you can see how the words you sent are distributed over different parts of the day <u>per month</u>.
 feedback.graph.dayPartsMonthly.legend.sent=Sent words
 feedback.graph.dayPartsMonthly.legend.received=Received words
 feedback.graph.dayPartsMonthly.yAxis=Percentage of all words
@@ -281,7 +281,7 @@ feedback.graph.responseTimeBarChart.example.image=images/feedback_example_respon
 feedback.graph.responseTimeBarChart.example.text=<p><b>(1)</b> In this example you can see that more than 40% of all replies were sent and received in under a minute. Just under 30% of all replies were sent in 1-2 minutes and just under 30% of all replies were received in 1-2 minutes. I.e. a total of around 70% of all sent replies were sent in less than two minutes and around 70% of all received replies were received in less than two minutes.</p><p><b>(2)</b> Click this icon to download the graph.</p>
 
 # responseTimeBarChart monthly
-feedback.graph.responseTimeBarChartMonthly.description=Here you see <u>per month</u> your and your contacts‘ response times. So, the figure shows the percentage of responses (i.e. a message that you sent after a message from a contact or the other way around) that took place in the specified amount of time. You can see what percentage of your responses you sent quicker than after 1 minute, after 1-2 minutes, 3-5 minutes, 6-15 minutes, 16-30 minutes, 31-60 minutes, and slower than 60 minutes. The bar for > 60 minutes includes longer breaks in the conversation.
+feedback.graph.responseTimeBarChartMonthly.description=Here you see <u>per month</u> your response times. So, the figure shows the percentage of responses (i.e. a message that you sent after a message from a contact) that took place in the specified amount of time. You can see what percentage of your responses you sent quicker than after 1 minute, after 1-2 minutes, 3-5 minutes, 6-15 minutes, 16-30 minutes, 31-60 minutes, and slower than 60 minutes. The bar for > 60 minutes includes longer breaks in the conversation.
 feedback.graph.responseTimeBarChartMonthly.legend.donor=Your Response Times
 feedback.graph.responseTimeBarChartMonthly.legend.friends=Contacts Response Times
 feedback.graph.responseTimeBarChartMonthly.yAxis=Percentage of all responses

@@ -5,6 +5,8 @@ const sortYearMonthKeys = require("./utils/sortYearMonthKeys");
 
 function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
 
+    // dataReceived is not being used - everything using dataReceived is commented out
+
     const FIRST = "00:00-06:00"
     const SECOND = "06:00-12:00"
     const THIRD = "12:00-18:00"
@@ -15,7 +17,7 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
     const xAxis = plotContainer.attr("data-x-axis");
     const yAxis = plotContainer.attr("data-y-axis");
     const sent = plotContainer.attr("data-sent-trace-name");
-    const received = plotContainer.attr("data-received-trace-name");
+    //const received = plotContainer.attr("data-received-trace-name");
     const yearMonth = plotContainer.attr("data-description-yearMonth");
 
     let config = {
@@ -109,19 +111,22 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
     }
 
     let dataSentOverall = dataSent.flat()
-    let dataReceivedOverall = dataReceived.flat()
+    //let dataReceivedOverall = dataReceived.flat()
 
     // make sure its sorted (maybe not necessary)
     let sortedDataSent = sortGraphDataPointsSync(dataSentOverall)
-    let sortedDataReceived = sortGraphDataPointsSync(dataReceivedOverall)
+    //let sortedDataReceived = sortGraphDataPointsSync(dataReceivedOverall)
 
     let groupedSentData = _.groupBy(sortedDataSent, (obj) => {
         return obj.year + "-" + obj.month
     })
 
+    /*
     let groupedReceivedData = _.groupBy(sortedDataReceived, (obj) => {
         return obj.year + "-" + obj.month
     })
+
+     */
 
 
     // gets mean for each day part of the given data (many days)
@@ -197,6 +202,7 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
 
     }
 
+    /*
     let monthlyReceivedMeans = {}
     for (const [key, value] of Object.entries(groupedReceivedData)) {
 
@@ -212,6 +218,8 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
         monthlyReceivedMeans[key] = meansPercent
 
     }
+
+     */
 
 
     // now create frames and slidersteps
@@ -231,10 +239,13 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
 
         let ySent = monthlySentMeans[key]
 
+        /*
         let yReceived = monthlyReceivedMeans[key]
         if (yReceived === undefined) {
             yReceived = [0,0,0,0]
         }
+
+         */
 
         frames.push({
             name: name,
@@ -247,7 +258,8 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
                         //color: "#60BDFF"
                     },
                     width: _.fill(Array(4), 0.8)
-                },
+                }
+                /*,
                 {
                     name: received,
                     x: x,
@@ -257,6 +269,8 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
                     },
                     width: _.fill(Array(4), 0.5)
                 }
+
+                 */
             ],
         })
 
@@ -307,7 +321,8 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
                 //color: "#60BDFF"
             },
             width: _.fill(Array(4), 0.8)
-        },
+        }
+        /*,
         {
             name: received,
             x: x,
@@ -318,6 +333,8 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
             },
             width: _.fill(Array(4), 0.5)
         }
+
+         */
     ], layout, config).then(() => {
         Plotly.addFrames(plotId, frames)
 
