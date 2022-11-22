@@ -16,7 +16,7 @@ function whatsappTxtFilesHandler(filelist) {
     return new Promise((resolve, reject) => {
         // check if number of files is in the limits
         // TODO: put number of files in some config file
-        if (files.length !== 0 && (files.length < 3 || files.length > 7)) {
+        if (files.length !== 0 && (files.length < 5 || files.length > 7)) {
             //messageService.showError("You need to choose between 3 and 7 chat files... ToDo", "WhatsApp");
             reject(i18nSupport.data('error-not-enough-chats').replace('%s', files.length));
             //$(".show-on-anonymisation-success").addClass('d-none');
