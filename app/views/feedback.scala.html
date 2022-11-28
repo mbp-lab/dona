@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        @for((dataSource, GraphData(_, _, _, _, _, _, basicStatistics, _)) <- data) {
+        @for((dataSource, GraphData(_, _, _, _, _, _, _, basicStatistics, _)) <- data) {
             <div class="top col-md text-center" style="margin-top: 3em">
                 <span class="headline font-italic text-center"><strong><u>@String.format(messages("feedback.graph.title"), dataSource)</u></strong></span>
             </div>

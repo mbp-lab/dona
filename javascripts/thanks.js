@@ -82,8 +82,7 @@ $(document).ready(function () {
             )
 
             sentReceivedDailyPerConversation(
-                graphData.dailyWordsSentReceived,
-                graphData.dailySentReceivedPerConversation,
+                graphData.slidingWindowMeanPerConv,
                 `${dataSourceType}SentReceivedSlidingWindowMean`,
                 listOfConversations,
                 true

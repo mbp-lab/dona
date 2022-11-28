@@ -230,6 +230,7 @@ feedback.graph.horizontalBarChartOverall.yAxis.received=Received
 feedback.graph.slidingWindowMean.description=Here you can see the average number of your sent and received words per day (more precisely, we calculate a so-called sliding window average with a window size of 30 days). At the top left you can also select your individual chats to see the graph of your sent words for the selected chat. <br> <br><i>Usage instructions: Press <b style="font-weight:bold">double click</b> to reset the view.</i>
 feedback.graph.slidingWindowMean.legend.sent=Sent words
 feedback.graph.slidingWindowMean.legend.received=Received words
+feedback.graph.slidingWindowMean.legend.receivedNotShown=Privacy: Received words are not displayed
 feedback.graph.slidingWindowMean.yAxis=Average number of words
 feedback.graph.slidingWindowMean.example.image=images/feedback_example_slidingWindowMean_english.svg
 feedback.graph.slidingWindowMean.example.text=<p class="text-left"><b>(1)</b> In this example, a significant increase in the number of sent and received words can be observed. In this period the sent words were more than the received words. </p><p class="text-left"><b>(2)</b> Here you can see an even bigger increase in sent and received words. But in that period, across all chats, more words were received.</p>

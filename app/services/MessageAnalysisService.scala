@@ -8,12 +8,15 @@ import models.api._
 import models.domain.DonationDataSourceType
 import models.domain.DonationDataSourceType.DonationDataSourceType
 
+import scala.collection.mutable.ListBuffer
+
 
 @Singleton
 class MessageAnalysisService @Inject()(config: FeedbackConfig) {
 
   private case class TimeFrame(year: Int, month: Month)
   private case class TimeFrameInts(year: Int, month: Int)
+  private case class TimeFrameWithDaysInts(year: Int, month: Int, date: Int)
 
   //private case class FriendTimeFrame(friend: Option[String], year: Int, month: Month)
 
@@ -24,6 +27,8 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
   private case class TimeFrameWithDaysHourMinute(year: Int, month: Month, date: Int, hour: Int, minute: Int)
 
   private case class ConversationWordCountOverall(conversation: Conversation, wordCount: Int)
+
+  private case class dailySentReceivedWithConvId(dailySentReceived: DailySentReceivedPoint, convId: Int)
 
 
   /**
@@ -74,10 +79,19 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
         //find months with only one conv
         val monthsOnlyOneConv = findMonthsWithOnlyOneConv(sentReceivedPerMonthPerConversation.flatten)
 
+        //println(produceSlidingWindowMean(dailyWordsGraphData))
+        val allDays = new ListBuffer[TimeFrameWithDaysInts]()
+        val allDaysList = produceAllDays(dailyWordsGraphData.head.epochSeconds * 1000, dailyWordsGraphData.last.epochSeconds * 1000, allDays).toList
+        //println(allDaysList)
+        //println(allSentReceivedCounts)
+        val slidingWindowMeanPerConv = dailyWordsGraphDataPerConversation.map(c => produceSlidingWindowMeanPerConv(c, allDaysList))
+
+
         (dataSourceType,
           GraphData(
             sentReceivedPerMonthPerConversation,
             dailyWordsGraphData,
+            slidingWindowMeanPerConv,
             dailyWordsGraphDataPerConversation,
             dailyWordCountSentHoursPerConversation,
             dailyWordCountReceivedHoursPerConversation,
@@ -140,6 +154,63 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
       .toList
   }
 
+
+  private def produceAllDays(startDateMs: Long, endDateMs: Long, dates: ListBuffer[TimeFrameWithDaysInts]): ListBuffer[TimeFrameWithDaysInts] = {
+
+    val timestampStart = LocalDateTime.ofInstant(Instant.ofEpochMilli(startDateMs), ZoneOffset.UTC)
+    val timeFrameStart = TimeFrameWithDaysInts(timestampStart.getYear, timestampStart.getMonth.getValue, timestampStart.getDayOfMonth)
+    val timestampEnd = LocalDateTime.ofInstant(Instant.ofEpochMilli(endDateMs), ZoneOffset.UTC)
+    val timeFrameEnd = TimeFrameWithDaysInts(timestampEnd.getYear, timestampEnd.getMonth.getValue, timestampEnd.getDayOfMonth)
+    if (timeFrameStart == timeFrameEnd) {
+      return dates += timeFrameStart
+    } else {
+      dates += timeFrameStart
+      val nextDateMs = startDateMs + 8.64e+7.toLong
+      val timestampNext = LocalDateTime.ofInstant(Instant.ofEpochMilli(nextDateMs), ZoneOffset.UTC)
+      val timeFrameNext = TimeFrameWithDaysInts(timestampNext.getYear, timestampNext.getMonth.getValue, timestampNext.getDayOfMonth)
+      produceAllDays(nextDateMs, endDateMs, dates)
+    }
+  }
+
+  private def produceSlidingWindowMeanPerConv(allSentReceivedCounts: List[DailySentReceivedPoint], allDaysList: List[TimeFrameWithDaysInts]) : List[DailySentReceivedPoint] = {
+
+    var iterList = allSentReceivedCounts
+
+    val result = new ListBuffer[DailySentReceivedPoint]()
+
+    val allDailySentReceived = allDaysList.map {
+      case (TimeFrameWithDaysInts(year, month, date)) =>
+        if (iterList.isEmpty) {
+          DailySentReceivedPoint(year, month, date, 0, 0, LocalDateTime.of(year, month, date, 12, 30).toEpochSecond(ZoneOffset.UTC))
+        }
+        else if (iterList.head.year == year
+          && iterList.head.month == month
+        && iterList.head.date == date) {
+          val cur = iterList.head
+          // remove head
+          iterList = iterList.drop(1)
+          DailySentReceivedPoint(year, month, date, cur.sentCount, cur.receivedCount, cur.epochSeconds)
+        } else {
+          DailySentReceivedPoint(year, month, date, 0, 0, LocalDateTime.of(year, month, date, 12, 30).toEpochSecond(ZoneOffset.UTC))
+        }
+    }
+      .zipWithIndex
+
+
+    allDailySentReceived
+      .foreach{
+      case (DailySentReceivedPoint(year, month, date, sent, received, epochSeconds), index) => {
+        if (index >= 15 && index <= allDaysList.length) {
+          val meanSentWindow = allDailySentReceived.slice(index-15, index+15).map(x => x._1.sentCount).sum / 30
+          val meanReceivedWindow = allDailySentReceived.slice(index-15, index+15).map(x => x._1.receivedCount).sum / 30
+
+          result += DailySentReceivedPoint(year, month, date, meanSentWindow, meanReceivedWindow, epochSeconds)
+        }
+      }
+    }
+
+    result.toList
+  }
 
 
   /**

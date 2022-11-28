@@ -229,6 +229,7 @@ feedback.graph.horizontalBarChartOverall.yAxis.received=Erhalten
 feedback.graph.slidingWindowMean.description=Hier können Sie pro Tag Ihre durchschnittliche gesendete und empfangene Wörteranzahl sehen (Genauer gesagt, berechnen wir einen “gleitende Mittelwert” mit einer Fenstergröße von 30 Tagen). Oben links können Sie auch Ihre einzelnen Chats auswählen, um den Graphen für Ihre gesendeten Wörter für den ausgewählten Chat zu sehen. <br> <br><i>Benutzungshinweis: Drücken Sie <b style="font-weight:bold">Doppelklick</b>, um die Ansicht zurückzusetzen.</i>
 feedback.graph.slidingWindowMean.legend.sent=Gesendete Wörter
 feedback.graph.slidingWindowMean.legend.received=Erhaltene Wörter
+feedback.graph.slidingWindowMean.legend.receivedNotShown=Datenschutz: Erhaltene Wörter werden nicht angezeigt
 feedback.graph.slidingWindowMean.yAxis=Durchschnittliche Anzahl Wörter
 feedback.graph.slidingWindowMean.example.image=images/feedback_example_slidingWindowMean_german.svg
 feedback.graph.slidingWindowMean.example.text=<p class="text-left"><b>(1)</b> In diesem Beispiel lässt sich hier ein deutlicher Zuwachs gesendeter und empfangener Wörter beobachten. Dabei waren zu dieser Zeit die gesendeten Wörter mehr als die empfangenen Wörter.</p><p class="text-left"><b>(2)</b> Hier ist ein noch größerer Zuwachs von gesendeten und empfangenen Wörtern zu sehen. In diesem Zeitraum wurden insgesamt über alle Chats verteilt, mehr Wörter empfangen als gesendet.</p>

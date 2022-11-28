@@ -1,13 +1,15 @@
 const formInputDataForWordsPlotSync = require("./utils/formInputDataForWordsPlotSync");
+const _ = require('lodash');
 
 
-function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plotId, listOfConversations, slidingWindowMean) {
+function sentReceivedDailyPerConversation(dataSlidingWindow, plotId, listOfConversations, slidingWindowMean) {
 
     const plotContainer = $(`#${plotId}`)
     plotContainer.removeClass('d-none');
     const yAxis = plotContainer.attr("data-y-axis");
     const sent = plotContainer.attr("data-sent-trace-name");
     const received = plotContainer.attr("data-received-trace-name");
+    const notShownReceived = plotContainer.attr("data-received-notShown-name");
     const dataOverallName = plotContainer.attr("data-overall")
 
     let config = {
@@ -41,34 +43,74 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
 
 
 
-
-    let getXDayMeanData = (y, days) => {
-        let sum, mean;
-        let resultArray = []
-
-        for (let i = 0; i < y.length; i++) {
-            if (i + days <= y.length) {
-                let sliced = y.slice(i, i + days)
-                sum = 0
-                sliced.forEach((entry) => sum += entry)
-                mean = sum / sliced.length
-                resultArray.push(mean)
-            } else {
-                return resultArray
-            }
-        }
-
-        return resultArray
-    }
-
     let displayOptions = [dataOverallName]
     displayOptions = displayOptions.concat(listOfConversations)
 
 
+    // the dataSlidingWindow provides the sliding window means per conversation
+    let dataPerConversation = dataSlidingWindow
+
+    // generate the overall data with holes where the mean is only created by one conversation
+
+    // create a list of mean values per day
+    let aggregationValuesSent = dataSlidingWindow[0].map(obj => [obj.sentCount])
+    let aggregationValuesReceived = dataSlidingWindow[0].map(obj => [obj.receivedCount])
+
+    for (let i = 1; i < dataSlidingWindow.length; i++) {
+        for (let j = 0; j < dataSlidingWindow[i].length; j++) {
+            aggregationValuesSent[j].push(dataSlidingWindow[i][j].sentCount)
+            aggregationValuesReceived[j].push(dataSlidingWindow[i][j].receivedCount)
+        }
+    }
+
+    // filter out all zeros
+    let filteredAggregatedReceived = []
+    aggregationValuesReceived.forEach((values) => {
+        filteredAggregatedReceived.push(values.filter(x => x !== 0))
+    })
+
+    let filteredAggregatedSent = []
+    aggregationValuesSent.forEach((values) => {
+        filteredAggregatedSent.push(values.filter(x => x !== 0))
+    })
+
+    // calculate overall means and keep track of values that are to be excluded
+    let excludedTracker = []
+
+    let meansOverallReceived = []
+    let meansOverallSent = []
+
+    filteredAggregatedReceived.forEach(values => {
+        if (values.length === 1) {
+            excludedTracker.push(true)
+            meansOverallReceived.push(0)
+        } else {
+            meansOverallReceived.push(_.mean(values))
+            excludedTracker.push(false)
+        }
+    })
+
+    filteredAggregatedSent.forEach(values => {
+        meansOverallSent.push(_.mean(values))
+    })
+
+    // deep clone for object structure - then set the sentCount and receivedCount to the overall mean values
+    let dataOverall = _.cloneDeep(dataSlidingWindow[0])
+    for (let i = 0; i < dataOverall.length; i++) {
+        dataOverall[i].sentCount = meansOverallSent[i]
+        dataOverall[i].receivedCount = meansOverallReceived[i]
+    }
+
+
+    // create traces from the data
     let makeTraces = () => {
 
         // combine all options (overall data and every single conversation)
         let allDataOptions = [dataOverall, ...dataPerConversation]
+
+        console.log("Data overall:", dataOverall)
+        console.log("Data per conv:", dataPerConversation)
+
 
         // initialize updatemenus
         layout["updatemenus"] = [
@@ -90,22 +132,7 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
             //make visibility true/false array for this button option
             let visibilityBooleans = []
 
-            for (let j = 0; j < allDataOptions.length; j++) {
-                // add two trues or falses for overall path as there are two traces, else always add true or false
-                if (j === 0) {
-                    if (i === 0) {
-                        visibilityBooleans.push(true, true)
-                    } else {
-                        visibilityBooleans.push(false, false)
-                    }
-                } else if (j === i) {
-                    visibilityBooleans.push(true)
-                } else {
-                    visibilityBooleans.push(false)
-                }
-            }
 
-            /*
             let numberTracesEach = 2
             for (let j = 0; j < allDataOptions.length * numberTracesEach; j++) {
                 if (j >= numberTracesEach * i && j < numberTracesEach * (i + 1)) {
@@ -115,7 +142,6 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
                 }
             }
 
-             */
 
 
             // add menu for this conversation
@@ -127,21 +153,16 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
 
             let dataToShow = allDataOptions[i]
 
-            // sort data
-            //let sortedData = sortGraphDataPointsSync(dataToShow, true, false);
+
 
             // format data to needed format
             let plotInputData = formInputDataForWordsPlotSync(dataToShow, true)
 
-            // if this is supposed to be a sliding window mean plot then change y to the mean values
-            if (slidingWindowMean) {
-                plotInputData.yAxisSentMessages = getXDayMeanData(plotInputData.yAxisSentMessages, 30)
-                plotInputData.yAxisReceivedMessages = getXDayMeanData(plotInputData.yAxisReceivedMessages, 30)
-            }
+
 
 
             const sentMessagesTrace = {
-                x: plotInputData.xAxis,
+                x: plotInputData.xAxisSent,
                 y: plotInputData.yAxisSentMessages,
                 mode: 'lines+markers',
                 name: sent,
@@ -152,7 +173,7 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
 
 
             const receivedMessagesTrace = {
-                x: plotInputData.xAxis,
+                x: plotInputData.xAxisReceived,
                 y: plotInputData.yAxisReceivedMessages,
                 mode: 'lines+markers',
                 name: received,
@@ -162,11 +183,22 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
             };
 
 
-            // if this is for the overall trace, then received should be added, else no received (because of ethics)
+            // if this is for the overall trace, then received should be added but without the excluded days
+            // else dont really show the received trace, but still add it without any visible point for legend entry
             if (i === 0) {
+                receivedMessagesTrace.x = receivedMessagesTrace.x.filter((elem, index) => !excludedTracker[index])
+                receivedMessagesTrace.y = receivedMessagesTrace.y.filter((elem, index) => !excludedTracker[index])
                 traces.push(sentMessagesTrace, receivedMessagesTrace)
             } else {
-                traces.push(sentMessagesTrace)
+                receivedMessagesTrace.x = [receivedMessagesTrace.x[0]]
+                receivedMessagesTrace.y = [0]
+                receivedMessagesTrace.marker = {
+                    size: 4,
+                    opacity: 0
+                }
+                // receivedMessagesTrace.connectgaps = false // this probably only works with newer plotly version
+                receivedMessagesTrace.name = notShownReceived
+                traces.push(sentMessagesTrace, receivedMessagesTrace)
             }
 
         }
@@ -178,7 +210,6 @@ function sentReceivedDailyPerConversation(dataOverall, dataPerConversation, plot
     let resultTraces = makeTraces()
 
     layout.xaxis.range = [resultTraces[0].x[0], resultTraces[0].x[resultTraces[0].x.length - 1]]
-
 
     layout.xaxis.rangeslider = {}
     layout.height = 700
