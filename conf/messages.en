@@ -199,7 +199,7 @@ feedback.graph.chatWith=Chat with:
 feedback.graph.overallData=All chats
 
 # plots example title
-feedback.graph.example.title=This is an <b>example</b> created from example data.
+feedback.graph.example.title=This is an <b>example</b> created from example data - <u>not</u> from your data.
 
 # polar plot
 feedback.graph.animatedPolarPlot.title=Planet representation

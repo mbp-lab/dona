@@ -196,8 +196,6 @@
                     <div class="p-2 pr-sm-4 pl-sm-4 pt-sm-4 p-lg-2" align="center">
                         <div id="error-@{dataSourceDescription.name.toString}" class="alert alert-danger d-none" style="border-radius: 16px;">
                         </div>
-                        <div id="success-@{dataSourceDescription.name.toString}" class="alert alert-success d-none" style="border-radius: 16px;">
-                        </div>
                     </div>
                 </div>
 
@@ -210,7 +208,7 @@
                     <h5 class="m-4"><b>@messages("donation.aliases-overview")</b></h5>
                     <div class="w-100 text-align-center show-on-anonymisation-success-@{dataSourceDescription.name.toString}" align="center">
 
-                        <div class="container-fluid show-on-anonymisation-success-@{dataSourceDescription.name.toString} alert-warning" style="border-radius: 16px;">
+                        <div class="container-fluid show-on-anonymisation-success-@{dataSourceDescription.name.toString} alert-info" style="border-radius: 16px;">
                             <p style="color: darkblue;
                                 font-weight: bold">@Html(messages("donation.friendsMapping.title"))</p>
                             <p style="color: darkblue;">@Html(messages("donation.friendsMapping.subtitle"))</p>
@@ -228,6 +226,13 @@
                     <button class="btn btn-outline text-center selectorsAndInputs" data-toggle="modal" data-target="#dataPreview-@{dataSourceDescription.name.toString}">
                         <b>@messages("donation.preview-data.button")</b>
                     </button>
+                    </div>
+
+                    <div class="mt-0 w-100" align="center">
+                        <div class="p-2 pr-sm-4 pl-sm-4 pt-sm-4 p-lg-2" align="center">
+                            <div id="success-@{dataSourceDescription.name.toString}" class="alert alert-success d-none" style="border-radius: 16px;">
+                            </div>
+                        </div>
                     </div>
 
                 </div>
