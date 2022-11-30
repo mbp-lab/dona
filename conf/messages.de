@@ -116,8 +116,8 @@ donation.friendsMapping.subtitle=Wir haben Ihre Daten und Ihre Kontakte anonymis
 
 donation.sendData.wait=Das Senden der Daten kann ein paar Minuten dauern. Bitte warten Sie. Danke!
 
-donation.raw-data-explanation_format=Unten können Sie %s Ihrer anonymisierten Nachrichten sehen. Falls Sie alle anonymisierten Nachrichten anschauen möchten, werfen Sie einen Blick in Ihre
-donation.raw-data-link.text=Rohdaten
+donation.raw-data-explanation_format=Unten können Sie %s Ihrer anonymisierten Nachrichten sehen. Falls Sie alle anonymisierten Nachrichten anschauen möchten, <b>werfen Sie einen Blick in Ihre</b>
+donation.raw-data-link.text=<b>Rohdaten</b>
 
 # provided by Astrid
 

@@ -20,7 +20,7 @@
 
                         <p class="pl-3 pr-3 pl-sm-4 pr-sm-4 pl-md-3 pr-md-3 pl-lg-5 pr-lg-5 show-on-anonymisation-success-@{dataSourceDescription.name.toString}">
                             @Html(String.format(messages("donation.raw-data-explanation_format"), "<span id=\"display-preview-total-" + dataSourceDescription.name.toString + "\"></span>"))
-                            <a class="viewRawJson" href="about:blank" target="_blank">@messages("donation.raw-data-link.text")</a>.
+                            <a class="viewRawJson" href="about:blank" target="_blank">@Html(messages("donation.raw-data-link.text"))</a>.
                         </p>
                     </div>
                     <div class="container-fluid show-on-anonymisation-success-@{dataSourceDescription.name.toString}">

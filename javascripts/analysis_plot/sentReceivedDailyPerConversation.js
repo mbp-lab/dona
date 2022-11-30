@@ -37,7 +37,7 @@ function sentReceivedDailyPerConversation(dataSlidingWindow, plotId, listOfConve
         },
         legend: {
             x: -0.1,
-            y: 1.1,
+            y: 1.15,
         }
     };
 
@@ -108,9 +108,6 @@ function sentReceivedDailyPerConversation(dataSlidingWindow, plotId, listOfConve
         // combine all options (overall data and every single conversation)
         let allDataOptions = [dataOverall, ...dataPerConversation]
 
-        console.log("Data overall:", dataOverall)
-        console.log("Data per conv:", dataPerConversation)
-
 
         // initialize updatemenus
         layout["updatemenus"] = [
@@ -120,7 +117,7 @@ function sentReceivedDailyPerConversation(dataSlidingWindow, plotId, listOfConve
                 pad: {'r': 10, 't': 10},
                 x: -0.1,
                 xanchor: 'left',
-                y: 1.25,
+                y: 1.30,
                 yanchor: 'top'
             }
         ]

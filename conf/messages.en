@@ -116,8 +116,8 @@ donation.friendsMapping.subtitle=We have anonymized your data and your contacts.
 
 donation.sendData.wait=Sending the data could take a few minutes. Please wait. Thanks!
 
-donation.raw-data-explanation_format=Below, you may view %s of your anonymized messages. In case you want to view all anonymized messages, please check
-donation.raw-data-link.text=raw data
+donation.raw-data-explanation_format=Below, you may view %s of your anonymized messages. In case you want to view all anonymized messages, <b>take a look at the</b>
+donation.raw-data-link.text=<b>raw data</b>
 
 # provided by Astrid
 
