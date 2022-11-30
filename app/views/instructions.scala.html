@@ -57,10 +57,10 @@
                     @messages("instructions.download-procedure.title")
                     </h4>
 
-                    <div class="serif-text mb-3">
+                    <div class="serif-text text-left mb-3">
                         <ol>
                         @for(procedureStep <- dataSourceDescription.dataDownloadSteps) {
-                            <li>procedureStep</li>
+                            <li><p>@procedureStep</p></li>
                         }
                         </ol>
                     </div>
@@ -94,7 +94,7 @@
                     <div class="serif-text text-left mb-3">
                         <ol>
                         @for(procedureStep <- dataSourceDescription.dataDownloadSteps) {
-                            <li>@procedureStep</li>
+                            <li><p>@procedureStep</p></li>
                         }
                         </ol>
                     </div>
