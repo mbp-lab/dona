@@ -318,6 +318,7 @@ data-protection.participation.usage.body=The data and results of these surveys w
 # Text appearing on multiple pages
 
 footer.title=Are you ready?
+footer.projectNumber=Project No.: 01IS20046
 
 browser-warning.text=You are using an unsupported browser. The page may not appear or work correctly as a result. Please use the latest version of Chrome or Firefox to view this page.
 

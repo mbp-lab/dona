@@ -318,6 +318,7 @@ data-protection.participation.usage.body=Die Ergebnisse und Daten dieser Studie 
 # Text appearing on multiple pages
 
 footer.title=Sind Sie bereit?
+footer.projectNumber=Kennzeichen: 01IS20046
 
 browser-warning.text=Sie benutzen einen Browser, der nicht unterstützt wird. Es kann daher zu Fehlern beim Aussehen oder Funktion der Seite kommen. Bitte benutzen Sie die neueste Version von Chrome oder Firefox, um die Seite zu laden.
 
