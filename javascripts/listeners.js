@@ -238,12 +238,16 @@ function setUpFileHandler() {
                 return transformJson(deIdentifiedJson.deIdentifiedJsonContents, donorId, dataSource);
             })
             .then((transformedJson) => {
+
+                console.log("donaForMEDonation:", donaForMEDonation)
+
                 // if there are already conversations of the chosen dataSource, then first filter the old ones out
                 donaForMEDonation.conversations = donaForMEDonation.conversations.filter((conv) => conv["donation_data_source_type"] !== dataSource)
 
                 // get earliest and latest date of all conversations
                 let earliestDate = transformedJson.result[0].earliestDate
                 let latestDate = transformedJson.result[0].latestDate
+
 
                 transformedJson.result.forEach((res) => {
                     donaForMEDonation.conversations = donaForMEDonation.conversations.concat(res.conversation);
@@ -271,8 +275,30 @@ function setUpFileHandler() {
                 // all anonymized data is to be kept separate from the data that is actually donated
                 // because of dynamic time span selection
                 $("#allAnonymizedData").attr('value', JSON.stringify(donaForMEDonation));
-                $("#inputJson").attr('value', JSON.stringify(donaForMEDonation));
 
+                // only set the new conversations of the current dataSource in the inputJson
+
+                console.log("value of inputJson:", $("#inputJson")[0].value)
+                // if inputJson is empty then set all the data, but else (if there already is data saved there)
+                // then don't overwrite everything, as there is already data filtered for a time span saved there
+                let inputJson = $("#inputJson")
+                if (inputJson[0].value === "") {
+                    inputJson.attr('value', JSON.stringify(donaForMEDonation));
+                } else {
+                    let inputObjFiltered = JSON.parse(inputJson[0].value)
+                    let inputObjConvFiltered = inputObjFiltered.conversations
+
+                    // filter the conversations to only get the dataSource that is concerned
+                    let dataSourceConv = donaForMEDonation.conversations.filter((conv) => conv["donation_data_source_type"] === dataSource)
+                    // create the new conversations value and set it in the inputJson
+                    inputObjFiltered.conversations = inputObjConvFiltered.filter((conv) => conv["donation_data_source_type"] !== dataSource)
+                        .concat(dataSourceConv)
+                    inputJson.attr('value', JSON.stringify(inputObjFiltered));
+                }
+
+
+
+                // show success messages
                 $(".show-on-anonymisation-success" + "-" + dataSource).removeClass('d-none');
                 $(".show-on-anonymisation-success").removeClass('d-none');
 
@@ -318,13 +344,15 @@ function setUpFileHandler() {
 
     // filtering the selected data according to the dates that the user selects
     $(".date-selection").on("input", (evt) => {
-        const dataSource = evt.currentTarget.id.substring(evt.currentTarget.id.indexOf('-') + 1, evt.currentTarget.id.length);
+        let dataSource = evt.currentTarget.id.substring(evt.currentTarget.id.indexOf('-') + 1, evt.currentTarget.id.length);
 
         let startDate = document.getElementById("startDate-" + dataSource).value
         let endDate = document.getElementById("endDate-" + dataSource).value
 
+        console.log("dataSource:", dataSource)
         console.log("startdate:", startDate)
         console.log("enddate:", endDate)
+
 
         // start and end date to ms
         let startDateMs = new Date(startDate).getTime()
@@ -347,10 +375,12 @@ function setUpFileHandler() {
         }
 
         // get the selected data that was already anonymized from the inputJson
-        let inputObj = JSON.parse($("#allAnonymizedData")[0].value)
-        let inputObjConv = inputObj.conversations
+        let inputObjAllData = JSON.parse($("#allAnonymizedData")[0].value)
+        let inputObjConvAllData = inputObjAllData.conversations
+        let inputObjFiltered = JSON.parse($("#inputJson")[0].value)
+        let inputObjConvFiltered = inputObjFiltered.conversations
         // filter the conversations to only get the dataSource that is concerned
-        let dataSourceConv = inputObjConv.filter((conv) => conv["donation_data_source_type"] === dataSource)
+        let dataSourceConv = inputObjConvAllData.filter((conv) => conv["donation_data_source_type"] === dataSource)
         // filter the messages
         console.log("startDateMs:", startDateMs)
         console.log("endDateMs:", endDateMs)
@@ -359,18 +389,16 @@ function setUpFileHandler() {
                 message.timestamp_ms >= startDateMs && message.timestamp_ms <= endDateMs)
         })
         // create the new conversations object
-        inputObj.conversations = inputObjConv.filter((conv) => conv["donation_data_source_type"] !== dataSource)
+        inputObjFiltered.conversations = inputObjConvFiltered.filter((conv) => conv["donation_data_source_type"] !== dataSource)
             .concat(dataSourceConv)
 
-
-        console.log(inputObj)
 
         // show success
         messageService.hideErrorShowSuccess(dataSource)
 
         // check if there is at least one message in the timespan that was selected
         let allConvEmpty = true
-        inputObj.conversations.forEach((conv) => {
+        inputObjFiltered.conversations.forEach((conv) => {
             if (conv.messages.length !== 0) {
                 allConvEmpty = false
                 return
@@ -387,7 +415,7 @@ function setUpFileHandler() {
         }
 
         // assign the filtered data to the inputJson
-        $("#inputJson").attr('value', JSON.stringify(inputObj));
+        $("#inputJson").attr('value', JSON.stringify(inputObjFiltered));
     })
 
 
