@@ -147,6 +147,7 @@ donation.errors.something-went-wrong=Something went wrong! Please go back to the
 donation.errors.same-file=You can only select files that differ. Please choose your 5-7 most important conversations.
 donation.errors.no-messages-time-period=There are no messages in the selected period. Please select a longer and valid period.
 donation.errors.dates-no-sense=The selected period is not valid. Please check the correctness of the selected dates.
+donation.errors.dates-not-enough-months=To donate your data, please select a period of at least 6 months within the period of your donation.
 
 # feedback
 

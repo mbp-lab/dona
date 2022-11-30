@@ -378,6 +378,18 @@ function setUpFileHandler() {
             $('#submit-de-identified').prop('disabled', true);
             currentError = true;
             return;
+        } // in this case at least x months of data have to be selected
+        else if (possibleLatestDate - possibleEarliestDate >= 1.577e+10) { // ToDo: Put this in config! 6 months in ms
+            console.log("data has more than 6 MONTHS ")
+            if (Math.abs(possibleEarliestDate - endDateMs) < (1.577e+10 - 8.64e+7)
+                || Math.abs(startDateMs - possibleLatestDate) < (1.577e+10 - 8.64e+7)
+                || Math.abs(startDateMs - endDateMs) < (1.577e+10 - 8.64e+7)
+            ) {
+                messageService.showError(i18nSupport.data("error-not-enough-months"), dataSource);
+                $('#submit-de-identified').prop('disabled', true);
+                currentError = true;
+                return;
+            }
         }
 
         // get the selected data that was already anonymized from the inputJson

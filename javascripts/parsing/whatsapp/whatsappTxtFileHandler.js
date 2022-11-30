@@ -44,7 +44,6 @@ function whatsappTxtFilesHandler(filelist) {
                 .then(messages => parseMessages(messages))
         });
 
-        console.log("user name asking stuff??")
         // determine possible usernames
         Promise.all(parsedFiles)
             .then((parsed) => {
