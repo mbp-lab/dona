@@ -19,6 +19,7 @@ function whatsappTxtFilesHandler(filelist) {
         if (files.length !== 0 && (files.length < 5 || files.length > 7)) {
             //messageService.showError("You need to choose between 3 and 7 chat files... ToDo", "WhatsApp");
             reject(i18nSupport.data('error-not-enough-chats').replace('%s', files.length));
+            return;
             //$(".show-on-anonymisation-success").addClass('d-none');
             //$(".show-on-anonymisation-success" + "-" + dataSource).addClass('d-none');
         } else {
@@ -43,6 +44,7 @@ function whatsappTxtFilesHandler(filelist) {
                 .then(messages => parseMessages(messages))
         });
 
+        console.log("user name asking stuff??")
         // determine possible usernames
         Promise.all(parsedFiles)
             .then((parsed) => {

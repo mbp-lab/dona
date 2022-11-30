@@ -17,6 +17,8 @@
             <p class="text-left paragraph">@messages("learn-more.data-handling.body2")</p>
         </div>
     </div>
+    <div class="mt-5">
+    @footer(previousLink = Some("/"), nextLink = Some("/instructions"), nextCustomText=Some(messages("links.instructions")))()
+    </div>
 } {
-@footer(previousLink = Some("/"), nextLink = Some("/instructions"), nextCustomText=Some(messages("links.instructions")))()
 }

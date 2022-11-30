@@ -93,9 +93,7 @@
             </div>
         </div>
 
-    </div>
-} {
-    <div class="show-on-anonymisation-success mt-3 d-none row justify-content-center mx-0">
+    <div class="mt-5 row justify-content-center mx-0" id="backAndForwardButtons">
         <a class="btn footer-backward-button" href="/instructions">@messages("actions.previous")</a>
         @helper.form(routes.SocialDataDonationController.postData()) {
             @helper.CSRF.formField
@@ -104,9 +102,14 @@
             type='submit'
             class="btn footer-forward-button mb-0"
             id='submit-de-identified'
+            disabled="true"
+            autocomplete="off"
             />
         }
     </div>
+
+    </div>
+} {
 }
 
 @donateDataCollapse(dataSourceDescription: DataSourceDescription) = {

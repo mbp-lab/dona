@@ -26,10 +26,11 @@ function addListeners() {
 
         $(".accordion").addClass('d-none');
         $("#anonymizationTextHeadlines").addClass('d-none');
+        $("#backAndForwardButtons").addClass('d-none');
         $("#spinner-submit-div").removeClass('d-none');
         $("#spinner-submit-div").removeClass('d-none');
 
-        $(".show-on-anonymisation-success").addClass('d-none');
+        //$('#submit-de-identified').prop('disabled', true);
 
     })
 
@@ -110,6 +111,7 @@ function handleUnsupportedBrowsers() {
 
 function setUpFileHandler() {
     let earlierSuccess = false
+    let currentError = false
     const i18nSupport= $("#i18n-support");
     let donaForMEDonation = {
         "donor_id": i18nSupport.data('donor'),
@@ -134,7 +136,7 @@ function setUpFileHandler() {
         if (files.length < 1) {
             messageService.hide(dataSource)
             $(".show-on-anonymisation-success" + "-" + dataSource).addClass('d-none');
-            $(".show-on-anonymisation-success").addClass('d-none');
+            $('#submit-de-identified').prop('disabled', true);
             return;
         }
 
@@ -144,7 +146,7 @@ function setUpFileHandler() {
         progressBar.start(dataSource);
 
         $(".show-on-anonymisation-success" + "-" + dataSource).addClass('d-none');
-        $(".show-on-anonymisation-success").addClass('d-none');
+        $('#submit-de-identified').prop('disabled', true);
 
         let handler;
 
@@ -300,7 +302,9 @@ function setUpFileHandler() {
 
                 // show success messages
                 $(".show-on-anonymisation-success" + "-" + dataSource).removeClass('d-none');
-                $(".show-on-anonymisation-success").removeClass('d-none');
+                if (!currentError) {
+                    $('#submit-de-identified').prop('disabled', false);
+                }
 
                 $("#" + dataSource + "Checkmark").removeClass('d-none');
 
@@ -328,7 +332,7 @@ function setUpFileHandler() {
 
                 if (earlierSuccess) {
                     $(".show-on-anonymisation-success" + "-" + dataSource).removeClass('d-none');
-                    $(".show-on-anonymisation-success").removeClass('d-none');
+                    $('#submit-de-identified').prop('disabled', false);
                 }
                 messageService.showError(i18nSupport.data("error") + " " + error, dataSource);
                 progressBar.stop(dataSource);
@@ -365,12 +369,14 @@ function setUpFileHandler() {
         // in case the date is not selected at all - error
         if (startDate === "") {
             messageService.showError(i18nSupport.data("error-dates-no-sense"), dataSource);
-            $(".show-on-anonymisation-success").addClass('d-none');
+            $('#submit-de-identified').prop('disabled', true);
+            currentError = true;
             return;
         } // in case the dates don't make sense - error
         else if (startDateMs > possibleLatestDate || endDateMs < possibleEarliestDate || startDateMs >= endDateMs) {
             messageService.showError(i18nSupport.data("error-dates-no-sense"), dataSource);
-            $(".show-on-anonymisation-success").addClass('d-none');
+            $('#submit-de-identified').prop('disabled', true);
+            currentError = true;
             return;
         }
 
@@ -395,6 +401,7 @@ function setUpFileHandler() {
 
         // show success
         messageService.hideErrorShowSuccess(dataSource)
+        currentError = false;
 
         // check if there is at least one message in the timespan that was selected
         let allConvEmpty = true
@@ -406,12 +413,15 @@ function setUpFileHandler() {
         })
         if (allConvEmpty) {
             messageService.showError(i18nSupport.data("error-no-messages-time-period"), dataSource);
-            $(".show-on-anonymisation-success").addClass('d-none');
+            $('#submit-de-identified').prop('disabled', true);
+            currentError = true
             return;
         } else {
             // show success
             messageService.hideErrorShowSuccess(dataSource)
             $(".show-on-anonymisation-success").removeClass('d-none');
+            $('#submit-de-identified').prop('disabled', false);
+            currentError = false
         }
 
         // assign the filtered data to the inputJson

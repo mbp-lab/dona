@@ -61,9 +61,14 @@
             <img src="@routes.Assets.at("images/Speicherung.png")" class="donation-info-image">
         </div>
     </div>
-    <p class="serif-text wide-top-margin"><em>@Html(messages("landing.contact.body_html"))</em></p>
+    <div>
+        <p class="serif-text wide-top-margin"><em>@Html(messages("landing.contact.body_html"))</em></p>
+    </div>
+    <div class="mt-5">
+        @footer(nextLink = Some("/instructions"), nextCustomText=Some(messages("links.instructions")))()
+    </div>
+
 </div>
 
 }{
-@footer(nextLink = Some("/instructions"), nextCustomText=Some(messages("links.instructions")))()
 }
