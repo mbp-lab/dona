@@ -6,7 +6,7 @@ landing.header.title=Illuminate the darkness with your social media data
 landing.header.body=We are researching how to use digital methods to better understand social media interaction and its potential impact on mental health. Support our mission by donating your social media data anonymously. As a gesture of appreciation for your efforts, we will grant you interesting insights into your data.
 landing.what.title=What is this about?
 landing.what.body1=Social interaction plays a significant role in our mental health. The Multimodal Behavior Processing Group at the University of Bielefeld is currently developing digital measurement tools in order to better understand it. In this ongoing study we are trying to answer a particular question: Can the social involvement of people be measured by utilizing their social media data?
-landing.what.body2=If you want to participate in this study, you can request your data from a social media platform of your choice (currently supported: Facebook and WhatsApp). You can then anonymize this data on the website, upload it and donate it to our research platform.
+landing.what.body2=If you want to participate in this study, you can request your data from a social media platform of your choice (currently supported: Facebook and WhatsApp). You can then anonymize this data on the website, upload it and donate it to our research platform.<br><i>When donating WhatsApp data with an Android device, the necessary steps may differ from the instructions given on this page. Data donation with an iPhone is possible without any problems.</i>
 
 landing.why.title=Why should I participate?
 landing.why.col1.title=Receive feedback
@@ -44,7 +44,7 @@ learn-more.image.caption=Figure 3. Example of an anonymized message.
 # Instructions page
 
 instructions.about.title=How do I request data from social media platforms?
-instructions.about.body_html=Before beginning with the study, you must request your data from Facebook and/or WhatsApp. Please make sure that the device you request and download your data from is only accessible by you. Additionally, we recommend you delete the downloaded data from your device after donation has been completed.
+instructions.about.body_html=Before beginning with the study, you must request your data from Facebook and/or WhatsApp. Please make sure that the device you request and download your data from is only accessible by you. Additionally, we recommend you <b>delete the downloaded data from your device after the donation has been completed</b>. Note that simply deleting the files may not be enough to permanently remove the data from your device. You can find more information for example <a href="https://safecomputing.umich.edu/protect-yourself/prepare-devices-disposal/securely-delete-files">here</a>, <a href="https://wethegeek.com/best-file-data-shredder-apps-to-permanently-delete-data-from-android/">here</a> and <a href="https://appletoolbox.com/how-to-delete-files-permanently-from-the-files-app-on-iphone-and-ipad/">here</a>.
 instructions.datasource.title_format = Instructions for getting %s data
 instructions.download-procedure.title=Overview of the download & donation procedure:
 instructions.multiple-donation-info.body=It is up to you whether to donate data from both platforms. If you decide to donate data from only one, please choose the platform which is more significant to you.
@@ -111,8 +111,8 @@ donation.preview-data.word-count=Word count
 donation.preview-data.timestamp=Timestamp of message
 donation.preview-data.group-conversation=Group conversation
 
-donation.friendsMapping.title=<b>Please write down the aliases for your contacts.</b>
-donation.friendsMapping.subtitle=We have anonymized your data and your contacts. So that you can receive feedback on individual contacts, please make a note of the following assignments of contacts (e.g. G**** M*****) and aliases (e.g. "C4"). From now on, these are the anonymized aliases for your contacts. The assignment is not saved and is lost as soon as you leave this page.
+donation.friendsMapping.title=<b>Aliases for your contacts</b>
+donation.friendsMapping.subtitle=We have anonymized your data and your contacts. If, in the next step, you want to reconstruct which conversations and contacts are involved in the anonymized evaluation, make a note of the following assignments of contacts (e.g. G**** M*****) and aliases (e.g. “C4 "). From now on, these are the anonymized aliases for your contacts. The assignment is not saved and is lost as soon as you leave this page.
 
 donation.sendData.wait=Sending the data could take a few minutes. Please wait. Thanks!
 

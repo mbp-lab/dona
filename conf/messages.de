@@ -6,8 +6,7 @@ landing.header.title=Bringen Sie Licht ins Dunkel mit Ihren Social-Online-Daten.
 landing.header.body=Wir forschen an digitalen Methoden, um Interaktionen über soziale Medien und deren möglichen Einflüsse auf mentale Gesundheit besser zu verstehen und so Menschen zu helfen. Unterstützen Sie uns durch die Spende Ihrer anonymisierten Social-Online-Daten. Erhalten Sie als Dank erhellendes Feedback!
 landing.what.title=Worum geht es?
 landing.what.body1=Soziale Interaktionen spielen eine wichtige Rolle für die mentale Gesundheit. Um diese Rolle besser zu verstehen, entwickeln wir an der Universität Bielefeld neue digitale Messmethoden. Mit der aktuellen Studie möchten wir die Frage beantworten: Können wir die soziale Einbindung von Menschen anhand Ihrer Social Media Nachrichten erfassen?
-landing.what.body2=Wenn Sie uns bei unserer Forschung unterstützen möchten, können Sie Ihre Daten von einer Social Media Plattform anfordern (momentan: Facebook oder WhatsApp). Diese Daten können Sie dann auf unserer Webseite anonymisieren und für die Forschung spenden.
-
+landing.what.body2=Wenn Sie uns bei unserer Forschung unterstützen möchten, können Sie Ihre Daten von einer Social Media Plattform anfordern (momentan: Facebook oder WhatsApp). Diese Daten können Sie dann auf unserer Webseite anonymisieren und für die Forschung spenden. <br><i>Bei einer Datenspende von WhatsApp-Daten mit einem Android-Gerät kann es zu Abweichungen der notwendigen Schritte zu der Anleitung auf dieser Seite kommen. Die Datenspende mit einem iPhone ist problemlos möglich.</i>
 landing.why.title=Warum sollte ich teilnehmen?
 landing.why.col1.title=Erhalten Sie Feedback
 landing.why.col1.body=Als Dankeschön für Ihre Teilnahme erhalten Sie am Ende ein Feedback zu Ihrem Online-Interaktionsverhalten und Ihrer Sozialen Einbindung. Wir zeigen Ihnen eine graphische Darstellung Ihrer gesendeten und empfangenen Nachrichten über die vergangenen Monate. Diese Studie dient nicht der medizinischen oder psychologischen Diagnostik.
@@ -44,7 +43,7 @@ learn-more.image.caption=Abbildung 3. Beispiel der Anonymisierung einer Nachrich
 # Instructions page
 
 instructions.about.title=Wie erhalte ich meine Daten?
-instructions.about.body_html=Bevor Sie an der Studie teilnehmen, fordern Sie bitte Ihre Daten direkt von Facebook und/oder WhatsApp an. Bitte beachten Sie, dass Sie die Daten auf einem Gerät speichern, auf das niemand außer Ihnen Zugriff hat. Außerdem empfehlen wir Ihnen ausdrücklich die Original-Daten nach dem Abschluss der Spende zu löschen.
+instructions.about.body_html=Bevor Sie an der Studie teilnehmen, fordern Sie bitte Ihre Daten direkt von Facebook und/oder WhatsApp an. Bitte beachten Sie, dass Sie die Daten auf einem Gerät speichern, auf das niemand außer Ihnen Zugriff hat. Außerdem empfehlen wir Ihnen ausdrücklich die <b>Original-Daten nach dem Abschluss der Spende zu löschen</b>. Beachten Sie, dass ein einfaches Löschen der Dateien ggf. nicht ausreicht, um die Daten endgültig von Ihrem Gerät zu entfernen. Weitere Informationen dazu finden Sie unter anderem <a href="https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Daten-sichern-verschluesseln-und-loeschen/Daten-endgueltig-loeschen/daten-endgueltig-loeschen.html">hier</a> und <a href="https://www.datenschutz.org/daten-loeschen/">hier</a>.
 instructions.datasource.title_format = Anleitung zum Erhalten von %sdaten
 instructions.download-procedure.title=Übersicht über den Download & Datenspende Prozess:
 instructions.multiple-donation-info.body=Sie können Daten von beiden Plattformen spenden. Falls Sie nur von einer Plattform spenden möchten, wählen Sie bitte die Plattform, die für Sie wichtiger ist.
@@ -111,8 +110,8 @@ donation.preview-data.word-count=Anzahl an Wörtern
 donation.preview-data.timestamp=Zeitpunkt der Nachricht
 donation.preview-data.group-conversation=Gruppenunterhaltung
 
-donation.friendsMapping.title=<b>Bitte schreiben Sie sich die Decknamen für Ihre Kontakte auf.</b>
-donation.friendsMapping.subtitle=Wir haben Ihre Daten und Ihre Kontakte anonymisiert. Damit Sie Feedback zu einzelnen Kontakten erhalten können, notieren Sie sich bitte die folgende Zuordnung von Kontakten (z.B. G**** M*****) und Decknamen (z.B. “K4”). Ab jetzt sind dies die anonymisierten Decknamen für Ihre Kontakte. Die Zuordnung wird nicht gespeichert und geht verloren, sobald Sie diese Seite verlassen.
+donation.friendsMapping.title=<b>Decknamen für Ihre Kontakte</b>
+donation.friendsMapping.subtitle=Wir haben Ihre Daten und Ihre Kontakte anonymisiert. Falls Sie in der anonymisierten Auswertung im nächsten Schritt rekonstruieren wollen, um welche Konversationen und Kontakte es sich jeweils handelt, notieren Sie sich die folgenden Zuordnungen von Kontakten (z.B. G**** M*****) und Decknamen (z.B. “K4”). Ab jetzt sind dies die anonymisierten Decknamen für Ihre Kontakte. Die Zuordnung wird nicht gespeichert und geht verloren, sobald Sie diese Seite verlassen.
 
 donation.sendData.wait=Das Senden der Daten kann ein paar Minuten dauern. Bitte warten Sie. Danke!
 
