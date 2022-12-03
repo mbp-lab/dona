@@ -117,7 +117,7 @@ function sentReceivedDailyPerConversation(dataSlidingWindow, plotId, listOfConve
                 pad: {'r': 10, 't': 10},
                 x: -0.1,
                 xanchor: 'left',
-                y: 1.30,
+                y: 1.32,
                 yanchor: 'top'
             }
         ]

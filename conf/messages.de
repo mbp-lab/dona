@@ -227,7 +227,7 @@ feedback.graph.horizontalBarChartOverall.yAxis.sent=Gesendet
 feedback.graph.horizontalBarChartOverall.yAxis.received=Erhalten
 
 # slidingWindowMean of sent and received words plot
-feedback.graph.slidingWindowMean.description=Hier können Sie pro Tag Ihre durchschnittliche gesendete und empfangene Wörteranzahl sehen (Genauer gesagt, berechnen wir einen “gleitende Mittelwert” mit einer Fenstergröße von 30 Tagen). Oben links können Sie auch Ihre einzelnen Chats auswählen, um den Graphen für Ihre gesendeten Wörter für den ausgewählten Chat zu sehen. <br> <br><i>Benutzungshinweis: Drücken Sie <b style="font-weight:bold">Doppelklick</b>, um die Ansicht zurückzusetzen.</i>
+feedback.graph.slidingWindowMean.description=Hier können Sie pro Tag Ihre durchschnittliche gesendete und empfangene Wörteranzahl sehen (Genauer gesagt, berechnen wir einen “gleitenden Mittelwert” mit einer Fenstergröße von 30 Tagen). Oben links können Sie auch Ihre einzelnen Chats auswählen, um den Graphen für Ihre gesendeten Wörter für den ausgewählten Chat zu sehen. <br><br> <i> Falls es in der Gesamtübersicht für einen oder mehrere Tage keinen Wert für die <u>erhaltenen Wörter</u> gibt, dann wurde dieser ausgeblendet, um die Privatsphäre Ihrer Kontakte zu schützen. Es werden nur aggregierte Informationen aus denen sich keine direkten Rückschlüsse auf einzelne Kontakte ziehen lassen angezeigt.</i> <br> <br><i>Benutzungshinweis: Drücken Sie <b style="font-weight:bold">Doppelklick</b>, um die Ansicht zurückzusetzen.</i>
 feedback.graph.slidingWindowMean.legend.sent=Gesendete Wörter
 feedback.graph.slidingWindowMean.legend.received=Erhaltene Wörter
 feedback.graph.slidingWindowMean.legend.receivedNotShown=Datenschutz: Erhaltene Wörter werden nicht angezeigt

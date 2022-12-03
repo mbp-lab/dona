@@ -228,7 +228,7 @@ feedback.graph.horizontalBarChartOverall.yAxis.sent=Sent
 feedback.graph.horizontalBarChartOverall.yAxis.received=Received
 
 # slidingWindowMean of sent and received words plot
-feedback.graph.slidingWindowMean.description=Here you can see the average number of your sent and received words per day (more precisely, we calculate a so-called sliding window average with a window size of 30 days). At the top left you can also select your individual chats to see the graph of your sent words for the selected chat. <br> <br><i>Usage instructions: Press <b style="font-weight:bold">double click</b> to reset the view.</i>
+feedback.graph.slidingWindowMean.description=Here you can see the average number of your sent and received words per day (more precisely, we calculate a so-called sliding window average with a window size of 30 days). At the top left you can also select your individual chats to see the graph of your sent words for the selected chat.<br><br> <i> If there is no value for the <u>received words</u> in the overview for one or more days, then it has been hidden to protect the privacy of your contacts. Only aggregated information from which no direct conclusions can be drawn about your individual contacts is displayed.</i><br> <br><i>Usage instructions: Press <b style="font-weight:bold">double click</b> to reset the view.</i>
 feedback.graph.slidingWindowMean.legend.sent=Sent words
 feedback.graph.slidingWindowMean.legend.received=Received words
 feedback.graph.slidingWindowMean.legend.receivedNotShown=Privacy: Received words are not displayed
