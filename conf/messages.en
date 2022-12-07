@@ -6,7 +6,7 @@ landing.header.title=Illuminate the darkness with your social media data
 landing.header.body=We are researching how to use digital methods to better understand social media interaction and its potential impact on mental health. Support our mission by donating your social media data anonymously. As a gesture of appreciation for your efforts, we will grant you interesting insights into your data.
 landing.what.title=What is this about?
 landing.what.body1=Social interaction plays a significant role in our mental health. The Multimodal Behavior Processing Group at the University of Bielefeld is currently developing digital measurement tools in order to better understand it. In this ongoing study we are trying to answer a particular question: Can the social involvement of people be measured by utilizing their social media data?
-landing.what.body2=If you want to participate in this study, you can request your data from a social media platform of your choice (currently supported: Facebook and WhatsApp). You can then anonymize this data on the website, upload it and donate it to our research platform.<br><i>When donating WhatsApp data with an Android device, the necessary steps may differ from the instructions given on this page. Data donation with an iPhone is possible without any problems.</i>
+landing.what.body2=If you want to participate in this study, you can request your data from a social media platform of your choice (Facebook and WhatsApp). You can then anonymize this data on the website, upload it and donate it to our research platform.<br><i>When donating WhatsApp data with an Android device, the necessary steps may differ from the instructions given on this page. Data donation with an iPhone is possible without any problems. <br>Due to potentially large file size, we recommend using computers when donating data from Facebook.</i>
 
 landing.why.title=Why should I participate?
 landing.why.col1.title=Receive feedback
@@ -27,7 +27,7 @@ landing.imagePath.donationProcedure3 = images/landingDonationProcedure_3_English
 # Learn More page
 
 learn-more.how-to-participate.title=How do I participate in the study?
-learn-more.how-to-participate.body=This study will be completely anonymous and online. To participate in this study, we will ask you to donate your anonymized messages and complete several questionnaires. After having downloaded the interaction data of a platform of your choice, the study will only last for about 30 minutes.
+learn-more.how-to-participate.body=This study will be completely anonymous and online. To participate in this study, we will ask you to donate your anonymized messages and complete several questionnaires. After having downloaded the interaction data of a platform of your choice, the study will only last for about 20 minutes.
 
 learn-more.how-to-cancel.title=Can I drop out during the study?
 learn-more.how-to-cancel.body=First things first: participation is entirely voluntary. At at time, you may revoke your consent concerning your participation in the study, without giving any reason and without any kind of negative consequences. Before uploading the data to our research platform, you may revoke your consent concerning the storage of your anonymized data, without giving any reason and without any kind of negative consequences.
@@ -71,7 +71,7 @@ consent.about.body1=The aim of this study is to measure the dynamics of social i
 consent.about.body2_html=By agreeing, you confirm that you have read and understood the background and process of this online study.
 
 consent.benefit.title=Benefits and risks
-consent.benefit.body=With your participation you enable us to identify and characterise new insights about social interactions between humans. You gain insights into your own personal messaging behavior. Furthermore, you can participate in the end of the study in a raffle of a 50€ voucher coupon (one for each group of 100 participants). We only collect anonymized data. Before the donation of your data you have to download the messaging data locally on your own device. Since this data contains sensitive information we recommend to delete the local copy of your data after the end of the study. Please conduct the study alone and in a calm environment to ensure your privacy.
+consent.benefit.body=With your participation you enable us to identify and characterise new insights about social interactions between humans. You gain insights into your own personal messaging behavior. Furthermore, at the end of the study, you can participate in a raffle for a 50€ Cadooz-Bestchoice voucher for a variety of stores. This is an ongoing study, so a voucher is drawn every time a set of 100 participants is achieved (winning chance: 1/100). We only collect anonymized data. Before the donation of your data you have to download the messaging data locally on your own device. Since this data contains sensitive information we recommend to delete the local copy of your data after the end of the study. Please conduct the study alone and in a calm environment to ensure your privacy.
 
 consent.data-storage.title=Collected Data
 
@@ -234,7 +234,7 @@ feedback.graph.horizontalBarChartOverall.yAxis.sent=Sent
 feedback.graph.horizontalBarChartOverall.yAxis.received=Received
 
 # slidingWindowMean of sent and received words plot
-feedback.graph.slidingWindowMean.description=Here you can see the average number of your sent and received words per day (more precisely, we calculate a so-called sliding window average with a window size of 30 days). At the top left you can also select your individual chats to see the graph of your sent words for the selected chat.<br><br> <i> If there is no value for the <u>received words</u> in the overview for one or more days, then it has been hidden to protect the privacy of your contacts. Only aggregated information from which no direct conclusions can be drawn about your individual contacts is displayed.</i><br> <br><i>Usage instructions: Press <b style="font-weight:bold">double click</b> to reset the view.</i>
+feedback.graph.slidingWindowMean.description=Here you can see the average number of your sent and received words per day (more precisely, we calculate a so-called sliding window average with a window size of 30 days). At the top left you can also select your individual chats to see the graph of your sent words for the selected chat.<br><br> <i> If there is no value for the <u>received words</u> in the overview for one or more days, then it has been hidden due to data protection reasons. Only aggregated information from which no direct conclusions can be drawn about your individual contacts is displayed.</i><br> <br><i>Usage instructions: Press <b style="font-weight:bold">double click</b> to reset the view.</i>
 feedback.graph.slidingWindowMean.legend.sent=Sent words
 feedback.graph.slidingWindowMean.legend.received=Received words
 feedback.graph.slidingWindowMean.legend.receivedNotShown=Privacy: Received words are not displayed

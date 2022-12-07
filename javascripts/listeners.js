@@ -19,8 +19,6 @@ function addListeners() {
     })
 
     $("#submit-de-identified").on("click", function (e) {
-        const i18nSupport= $("#i18n-support");
-        alert(i18nSupport.data('please-wait'))
         $(".selectorsAndInputs").addClass('disabled');
         $('.selectorsAndInputs').attr('disabled','disabled');
 

@@ -6,7 +6,7 @@ landing.header.title=Bringen Sie Licht ins Dunkel mit Ihren Social-Online-Daten.
 landing.header.body=Wir forschen an digitalen Methoden, um Interaktionen über soziale Medien und deren möglichen Einflüsse auf mentale Gesundheit besser zu verstehen und so Menschen zu helfen. Unterstützen Sie uns durch die Spende Ihrer anonymisierten Social-Online-Daten. Erhalten Sie als Dank erhellendes Feedback!
 landing.what.title=Worum geht es?
 landing.what.body1=Soziale Interaktionen spielen eine wichtige Rolle für die mentale Gesundheit. Um diese Rolle besser zu verstehen, entwickeln wir an der Universität Bielefeld neue digitale Messmethoden. Mit der aktuellen Studie möchten wir die Frage beantworten: Können wir die soziale Einbindung von Menschen anhand Ihrer Social Media Nachrichten erfassen?
-landing.what.body2=Wenn Sie uns bei unserer Forschung unterstützen möchten, können Sie Ihre Daten von einer Social Media Plattform anfordern (momentan: Facebook oder WhatsApp). Diese Daten können Sie dann auf unserer Webseite anonymisieren und für die Forschung spenden. <br><i>Bei einer Datenspende von WhatsApp-Daten mit einem Android-Gerät kann es zu Abweichungen der notwendigen Schritte zu der Anleitung auf dieser Seite kommen. Die Datenspende mit einem iPhone ist problemlos möglich.</i>
+landing.what.body2=Wenn Sie uns bei unserer Forschung unterstützen möchten, können Sie Ihre Daten von einer Social Media Plattform anfordern (Facebook oder WhatsApp). Diese Daten können Sie dann auf unserer Webseite anonymisieren und für die Forschung spenden. <br><i>Bei einer Datenspende von WhatsApp-Daten mit einem Android-Gerät kann es zu Abweichungen der notwendigen Schritte zu der Anleitung auf dieser Seite kommen. Die Datenspende mit einem iPhone ist problemlos möglich. <br> Wenn Sie Daten von Facebook spenden möchten, empfehlen wir aufgrund der potenziell großen Dateigröße die Verwendung eines Computers.</i>
 landing.why.title=Warum sollte ich teilnehmen?
 landing.why.col1.title=Erhalten Sie Feedback
 landing.why.col1.body=Als Dankeschön für Ihre Teilnahme erhalten Sie am Ende ein Feedback zu Ihrem Online-Interaktionsverhalten und Ihrer Sozialen Einbindung. Wir zeigen Ihnen eine graphische Darstellung Ihrer gesendeten und empfangenen Nachrichten über die vergangenen Monate. Diese Studie dient nicht der medizinischen oder psychologischen Diagnostik.
@@ -26,7 +26,7 @@ landing.imagePath.donationProcedure3 = images/landingDonationProcedure_3_German.
 # Learn More page
 
 learn-more.how-to-participate.title=Wie kann ich teilnehmen?
-learn-more.how-to-participate.body=Die Studie findet komplett online und anonym statt. Die Studie beinhaltet die Datenspende Ihrer anonymisierten Online-Nachrichten sowie das Ausfüllen einiger Online-Fragebögen. Nachdem Sie Ihre Online-Interaktionsdaten heruntergeladen haben, dauert die Studie lediglich eine halbe Stunde.
+learn-more.how-to-participate.body=Die Studie findet komplett online und anonym statt. Die Studie beinhaltet die Datenspende Ihrer anonymisierten Online-Nachrichten sowie das Ausfüllen einiger Online-Fragebögen. Nachdem Sie Ihre Online-Interaktionsdaten heruntergeladen haben, dauert die Studie ungefähr 20 Minuten.
 
 learn-more.how-to-cancel.title=Und wenn ich abbrechen möchte?
 learn-more.how-to-cancel.body=Die Teilnahme an der Online-Studie ist freiwillig. Sie können jederzeit und ohne Angabe von Gründen Ihre Einwilligung zur Teilnahme an dieser Studie widerrufen, ohne dass Ihnen daraus Nachteile entstehen. Bis zum Ende der Datenerhebung können Sie zudem Ihre Einwilligung zur Speicherung der Daten widerrufen, ohne dass Ihnen daraus Nachteile entstehen.
@@ -70,7 +70,7 @@ consent.about.body1=Ziel der Studie ist es, die soziale Interaktionsdynamiken vo
 consent.about.body2_html=Mit Ihrer Einwilligung bestätigen Sie, dass Sie die vorherige Informationswebseite zum Zweck, Ablauf und Umfang der Online-Studie gelesen und verstanden haben.
 
 consent.benefit.title=Nutzen und Risiken
-consent.benefit.body=Mit Ihrer Teilnahme helfen Sie dabei, neue Erkenntnisse über das soziales Interaktionsverhalten der Menschen zu identifizieren und charakterisieren. Sie erhalten zudem einen Einblick in Ihr eigenes Messaging-Verhalten. Außerdem können Sie am Ende der Studie an der Verlosung eines 50€ Gutscheins (Gewinnwahrscheinlichkeit: 1/100) teilnehmen. Wir erheben nur anonymisierte Daten. Vor der Datenspende müssen Sie die Messaging-Daten auf Ihr Gerät herunterladen. Da es sich um sensible Daten handelt, empfehlen wir Ihnen ausdrücklich, die Original-Daten nach dem Abschluss der Spende von Ihrem Gerät zu löschen. Um Ihre Privatsphäre zu sichern, führen Sie die Studie in ungestörter Umgebung und allein durch.
+consent.benefit.body=Mit Ihrer Teilnahme helfen Sie dabei, neue Erkenntnisse über das soziales Interaktionsverhalten der Menschen zu identifizieren und charakterisieren. Sie erhalten zudem einen Einblick in Ihr eigenes Messaging-Verhalten. Außerdem können Sie am Ende der Studie an einer Verlosung eines 50€ Cadooz-Bestchoice-Gutscheins für verschiedene Geschäfte teilnehmen. Dies ist eine fortlaufende Studie, daher wird je 100 Teilnehmer ein Gutschein verlost (Gewinnchance: 1/100). Wir erheben nur anonymisierte Daten. Vor der Datenspende müssen Sie die Messaging-Daten auf Ihr Gerät herunterladen. Da es sich um sensible Daten handelt, empfehlen wir Ihnen ausdrücklich, die Original-Daten nach dem Abschluss der Spende von Ihrem Gerät zu löschen. Um Ihre Privatsphäre zu sichern, führen Sie die Studie in ungestörter Umgebung und allein durch.
 
 consent.data-storage.title=Erhobene Daten
 
@@ -187,7 +187,7 @@ feedback.graph.friends=Kontakte
 feedback.title.statisticsCard=Überblick über die gesamte Aktivität
 feedback.title.interactionIntensity=Interaktionsintensität
 feedback.title.dailyActivityTimes=Tägliche Aktivitätszeiten
-feedback.title.responseTimes=Reaktionszeiten
+feedback.title.responseTimes=Antwortzeiten
 feedback.title.pleaseContinue=Wir hoffen Sie hatten spannende Erkenntnisse. Bitte fahren Sie nun mit dem nächsten und letzten Fragebogen der Studie fort. Danke sehr!
 
 feedback.facebook.info=Die möglicherweise hohe Anzahl an Facebook-Kontakten kann zu einer unübersichtlichen Darstellung führen. Daher werden im Folgenden nur Visualisierungen für Ihre 7 (oder weniger) Facebook-Chats mit den meisten Wörtern angezeigt.
@@ -197,7 +197,7 @@ feedback.nextButton=Weiter
 # plots more about titles
 feedback.moreAbout.interactionIntensity.title=Mehr über <u>Ihre</u> Interaktionsintensität
 feedback.moreAbout.dailyActivityTimes.title=Mehr über <u>Ihre</u> Täglichen Aktivitätszeiten
-feedback.moreAbout.responseTimes.title=Mehr über <u>Ihre</u> Reaktionszeiten
+feedback.moreAbout.responseTimes.title=Mehr über <u>Ihre</u> Antwortzeiten
 
 # plot descriptions
 feedback.graph.yearMonth=Jahr-Monat:
@@ -232,7 +232,7 @@ feedback.graph.horizontalBarChartOverall.yAxis.sent=Gesendet
 feedback.graph.horizontalBarChartOverall.yAxis.received=Erhalten
 
 # slidingWindowMean of sent and received words plot
-feedback.graph.slidingWindowMean.description=Hier können Sie pro Tag Ihre durchschnittliche gesendete und empfangene Wörteranzahl sehen (Genauer gesagt, berechnen wir einen “gleitenden Mittelwert” mit einer Fenstergröße von 30 Tagen). Oben links können Sie auch Ihre einzelnen Chats auswählen, um den Graphen für Ihre gesendeten Wörter für den ausgewählten Chat zu sehen. <br><br> <i> Falls es in der Gesamtübersicht für einen oder mehrere Tage keinen Wert für die <u>erhaltenen Wörter</u> gibt, dann wurde dieser ausgeblendet, um die Privatsphäre Ihrer Kontakte zu schützen. Es werden nur aggregierte Informationen aus denen sich keine direkten Rückschlüsse auf einzelne Kontakte ziehen lassen angezeigt.</i> <br> <br><i>Benutzungshinweis: Drücken Sie <b style="font-weight:bold">Doppelklick</b>, um die Ansicht zurückzusetzen.</i>
+feedback.graph.slidingWindowMean.description=Hier können Sie pro Tag Ihre durchschnittliche gesendete und empfangene Wörteranzahl sehen (Genauer gesagt, berechnen wir einen “gleitenden Mittelwert” mit einer Fenstergröße von 30 Tagen). Oben links können Sie auch Ihre einzelnen Chats auswählen, um den Graphen für Ihre gesendeten Wörter für den ausgewählten Chat zu sehen. <br><br> <i> Falls es in der Gesamtübersicht für einen oder mehrere Tage keinen Wert für die <u>erhaltenen Wörter</u> gibt, dann wurde dieser aus Datenschutzgründen ausgeblendet. Es werden nur aggregierte Informationen aus denen sich keine direkten Rückschlüsse auf einzelne Kontakte ziehen lassen angezeigt.</i> <br> <br><i>Benutzungshinweis: Drücken Sie <b style="font-weight:bold">Doppelklick</b>, um die Ansicht zurückzusetzen.</i>
 feedback.graph.slidingWindowMean.legend.sent=Gesendete Wörter
 feedback.graph.slidingWindowMean.legend.received=Erhaltene Wörter
 feedback.graph.slidingWindowMean.legend.receivedNotShown=Datenschutz: Erhaltene Wörter werden nicht angezeigt
@@ -280,8 +280,8 @@ feedback.graph.dayPartsMonthly.xAxis=Vier Teile des Tages
 
 # responseTimeBarChart overall
 feedback.graph.responseTimeBarChart.description=Hier können Sie sehen, wie schnell Sie Ihren Kontakten antworten und umgekehrt. Sie sehen jeweils wie groß der Anteil aller Ihrer Antworten und der Antworten Ihrer Kontakte ist, die in der angegebenen Zeit erfolgt sind. Antworten sind Nachrichten, die direkt nach einer Nachricht von jemand anderem gesendet wurden. Sie können sehen, wie viel Prozent Ihrer Antworten Sie schneller als nach 1 Minute, nach 1–2 Minuten, 3–5 Minuten, 6–15 Minuten, 16–30 Minuten, 31–60 Minuten und langsamer als 60 Minuten gesendet bzw. empfangen haben. Der Balken für > 60 Minuten beinhaltet auch längere Gesprächspausen. Klicken Sie <a style="font-weight:bold" href="#responseTimeBarChartExplanation" data-toggle="modal" data-target="#responseTimeBarChartExplanation">HIER</a>, um eine Erklärung mit einem Beispiel zu sehen.
-feedback.graph.responseTimeBarChart.legend.donor=Ihre Reaktionszeiten
-feedback.graph.responseTimeBarChart.legend.friends=Reaktionszeiten Ihrer Kontakte
+feedback.graph.responseTimeBarChart.legend.donor=Ihre Antwortzeiten
+feedback.graph.responseTimeBarChart.legend.friends=Antwortzeiten Ihrer Kontakte
 feedback.graph.responseTimeBarChart.yAxis=Prozentualer Anteil aller Antwortnachrichten
 feedback.graph.responseTimeBarChart.xAxis=Dauer der Antwort
 feedback.graph.responseTimeBarChart.example.image=images/feedback_example_responseTimeBarChart_german.svg
@@ -289,8 +289,8 @@ feedback.graph.responseTimeBarChart.example.text=<p><b>(1)</b> In diesem Beispie
 
 # responseTimeBarChart monthly
 feedback.graph.responseTimeBarChartMonthly.description=Hier sehen Sie <u>pro Monat</u> Ihre Antwortzeiten. Die Grafik zeigt den Prozentsatz aller Antworten (d.h. eine Nachricht, die Sie nach einer Nachricht von einem Kontakt gesendet haben), die in der angegebenen Zeit erfolgt sind. Sie können sehen, wie viel Prozent Ihrer Antworten Sie schneller als nach 1 Minute, nach 1–2 Minuten, 3–5 Minuten, 6–15 Minuten, 16–30 Minuten, 31–60 Minuten und langsamer als 60 Minuten gesendet haben. Der Balken für > 60 Minuten beinhaltet auch längere Gesprächspausen.
-feedback.graph.responseTimeBarChartMonthly.legend.donor=Ihre Reaktionszeiten
-feedback.graph.responseTimeBarChartMonthly.legend.friends=Reaktionszeiten Ihrer Kontakte
+feedback.graph.responseTimeBarChartMonthly.legend.donor=Ihre Antwortzeiten
+feedback.graph.responseTimeBarChartMonthly.legend.friends=Antwortzeiten Ihrer Kontakte
 feedback.graph.responseTimeBarChartMonthly.yAxis=Prozentualer Anteil aller Antwortnachrichten
 feedback.graph.responseTimeBarChartMonthly.xAxis=Dauer der Antwort
 
