@@ -11,6 +11,7 @@ function sentReceivedDailyPerConversation(dataSlidingWindow, plotId, listOfConve
     const received = plotContainer.attr("data-received-trace-name");
     const notShownReceived = plotContainer.attr("data-received-notShown-name");
     const dataOverallName = plotContainer.attr("data-overall")
+    const resetView = plotContainer.attr("data-reset-view");
 
     let config = {
         responsive: true,
@@ -119,7 +120,26 @@ function sentReceivedDailyPerConversation(dataSlidingWindow, plotId, listOfConve
                 xanchor: 'left',
                 y: 1.32,
                 yanchor: 'top'
-            }
+            },
+            {
+                x: 1,
+                y: 1.2,
+                direction: 'left',
+                type: 'buttons',
+                showactive: false,
+                pad: {t: 0, r: 10},
+                buttons: [
+                    {
+                        method: "relayout",
+                        args: [
+                            {
+                                'xaxis.autorange': true,
+                            }
+                        ],
+                        label: resetView
+                    }
+                ]
+            },
         ]
 
 

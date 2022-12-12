@@ -239,8 +239,6 @@ function setUpFileHandler() {
             })
             .then((transformedJson) => {
 
-                console.log("donaForMEDonation:", donaForMEDonation)
-
                 // if there are already conversations of the chosen dataSource, then first filter the old ones out
                 donaForMEDonation.conversations = donaForMEDonation.conversations.filter((conv) => conv["donation_data_source_type"] !== dataSource)
 
@@ -278,7 +276,6 @@ function setUpFileHandler() {
 
                 // only set the new conversations of the current dataSource in the inputJson
 
-                console.log("value of inputJson:", $("#inputJson")[0].value)
                 // if inputJson is empty then set all the data, but else (if there already is data saved there)
                 // then don't overwrite everything, as there is already data filtered for a time span saved there
                 let inputJson = $("#inputJson")
@@ -351,11 +348,6 @@ function setUpFileHandler() {
         let startDate = document.getElementById("startDate-" + dataSource).value
         let endDate = document.getElementById("endDate-" + dataSource).value
 
-        console.log("dataSource:", dataSource)
-        console.log("startdate:", startDate)
-        console.log("enddate:", endDate)
-
-
         // start and end date to ms
         let startDateMs = new Date(startDate).getTime()
         let endDateMs = new Date(endDate).getTime()
@@ -378,7 +370,6 @@ function setUpFileHandler() {
             return;
         } // in this case at least x months of data have to be selected
         else if (possibleLatestDate - possibleEarliestDate >= 1.577e+10) { // ToDo: Put this in config! 6 months in ms
-            console.log("data has more than 6 MONTHS ")
             if (Math.abs(possibleEarliestDate - endDateMs) < (1.577e+10 - 8.64e+7)
                 || Math.abs(startDateMs - possibleLatestDate) < (1.577e+10 - 8.64e+7)
                 || Math.abs(startDateMs - endDateMs) < (1.577e+10 - 8.64e+7)
@@ -398,8 +389,6 @@ function setUpFileHandler() {
         // filter the conversations to only get the dataSource that is concerned
         let dataSourceConv = inputObjConvAllData.filter((conv) => conv["donation_data_source_type"] === dataSource)
         // filter the messages
-        console.log("startDateMs:", startDateMs)
-        console.log("endDateMs:", endDateMs)
         dataSourceConv.forEach(conv => {
             conv.messages = conv.messages.filter((message) =>
                 message.timestamp_ms >= startDateMs && message.timestamp_ms <= endDateMs)

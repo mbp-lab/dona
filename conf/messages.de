@@ -203,6 +203,7 @@ feedback.moreAbout.responseTimes.title=Mehr über <u>Ihre</u> Antwortzeiten
 feedback.graph.yearMonth=Jahr-Monat:
 feedback.graph.chatWith=Chat mit:
 feedback.graph.overallData=Alle Chats
+feedback.graph.resetView=Ansicht zurücksetzen
 
 # plots example title
 feedback.graph.example.title=Dies ist ein <b>Beispiel</b> mit Beispieldaten - <u>nicht</u> mit Ihren Daten.
