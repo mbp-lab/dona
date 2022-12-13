@@ -110,6 +110,10 @@ function handleUnsupportedBrowsers() {
 function setUpFileHandler() {
     let earlierSuccess = false
     let currentError = false
+    let currentErrorFW = {
+        "Facebook": false,
+        "WhatsApp": false
+    }
     const i18nSupport= $("#i18n-support");
     let donaForMEDonation = {
         "donor_id": i18nSupport.data('donor'),
@@ -297,8 +301,10 @@ function setUpFileHandler() {
 
                 // show success messages
                 $(".show-on-anonymisation-success" + "-" + dataSource).removeClass('d-none');
-                if (!currentError) {
+                console.log(currentErrorFW)
+                if (!currentErrorFW["Facebook"] && !currentErrorFW["WhatsApp"]) {
                     $('#submit-de-identified').prop('disabled', false);
+                    $('#stillAnErrorSomewhere').addClass('d-none')
                 }
 
                 $("#" + dataSource + "Checkmark").removeClass('d-none');
@@ -328,6 +334,7 @@ function setUpFileHandler() {
                 if (earlierSuccess) {
                     $(".show-on-anonymisation-success" + "-" + dataSource).removeClass('d-none');
                     $('#submit-de-identified').prop('disabled', false);
+                    $('#stillAnErrorSomewhere').addClass('d-none')
                 }
                 messageService.showError(i18nSupport.data("error") + " " + error, dataSource);
                 progressBar.stop(dataSource);
@@ -360,13 +367,17 @@ function setUpFileHandler() {
         if (startDate === "") {
             messageService.showError(i18nSupport.data("error-dates-no-sense"), dataSource);
             $('#submit-de-identified').prop('disabled', true);
+            $('#stillAnErrorSomewhere').removeClass('d-none')
             currentError = true;
+            currentErrorFW[dataSource] = true
             return;
         } // in case the dates don't make sense - error
         else if (startDateMs > possibleLatestDate || endDateMs < possibleEarliestDate || startDateMs >= endDateMs) {
             messageService.showError(i18nSupport.data("error-dates-no-sense"), dataSource);
             $('#submit-de-identified').prop('disabled', true);
+            $('#stillAnErrorSomewhere').removeClass('d-none')
             currentError = true;
+            currentErrorFW[dataSource] = true
             return;
         } // in this case at least x months of data have to be selected
         else if (possibleLatestDate - possibleEarliestDate >= 1.577e+10) { // ToDo: Put this in config! 6 months in ms
@@ -376,7 +387,9 @@ function setUpFileHandler() {
             ) {
                 messageService.showError(i18nSupport.data("error-not-enough-months"), dataSource);
                 $('#submit-de-identified').prop('disabled', true);
+                $('#stillAnErrorSomewhere').removeClass('d-none')
                 currentError = true;
+                currentErrorFW[dataSource] = true
                 return;
             }
         }
@@ -401,6 +414,7 @@ function setUpFileHandler() {
         // show success
         messageService.hideErrorShowSuccess(dataSource)
         currentError = false;
+        currentErrorFW[dataSource] = false
 
         // check if there is at least one message in the timespan that was selected
         let allConvEmpty = true
@@ -413,14 +427,20 @@ function setUpFileHandler() {
         if (allConvEmpty) {
             messageService.showError(i18nSupport.data("error-no-messages-time-period"), dataSource);
             $('#submit-de-identified').prop('disabled', true);
+            $('#stillAnErrorSomewhere').removeClass('d-none')
             currentError = true
+            currentErrorFW[dataSource] = true
             return;
         } else {
             // show success
             messageService.hideErrorShowSuccess(dataSource)
             $(".show-on-anonymisation-success").removeClass('d-none');
-            $('#submit-de-identified').prop('disabled', false);
+            if (!currentErrorFW["Facebook"] && !currentErrorFW["WhatsApp"]) {
+                $('#stillAnErrorSomewhere').addClass('d-none')
+                $('#submit-de-identified').prop('disabled', false);
+            }
             currentError = false
+            currentErrorFW[dataSource] = false
         }
 
         // assign the filtered data to the inputJson

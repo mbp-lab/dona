@@ -153,6 +153,7 @@ donation.errors.same-file=Sie können nur Dateien auswählen, die sich voneinand
 donation.errors.no-messages-time-period=In dem ausgewählten Zeitraum befinden sich keine Nachrichten. Bitte wählen Sie einen größeren und validen Zeitraum.
 donation.errors.dates-no-sense=Der ausgewählte Zeitraum ist ungültig. Bitte überprüfen Sie die Richtigkeit der ausgewählten Daten.
 donation.errors.dates-not-enough-months=Bitte wählen Sie zum Spenden Ihrer Daten einen Zeitraum von mindestens 6 Monaten innerhalb des Zeitraums Ihrer Spende aus.
+donation.errors.somewhereError=Es gibt einen Fehler. Bitte überprüfen Sie Ihre Datenspende.
 
 # feedback
 
