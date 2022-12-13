@@ -1,15 +1,6 @@
+const shortenFriendId = require("./shortenFriendId");
+
 function formInputDataForPolarPlot(sortedGraphDataPoints, allFriends, yearToExclude, monthToExclude, monthsBefore) {
-
-    // TODO: put this friends business in a separate helper file
-    let shortenFriend = (friend) => {
-        //find index where number starts, all friends have the following form: "friend" + "i" where i is a number
-        if (friend === "System") {
-            return "System"
-        }
-        let numberStart = friend.search(/\d+/)
-        return "F" + friend.substring(numberStart, friend.length)
-    }
-
 
     if (sortedGraphDataPoints[0][0] != null) {
 
@@ -20,7 +11,7 @@ function formInputDataForPolarPlot(sortedGraphDataPoints, allFriends, yearToExcl
         let listOfConversations = []
         for (let i = 0; i < allFriends.length; i++) {
 
-            allFriends[i] = allFriends[i].map((friend) => shortenFriend(friend))
+            allFriends[i] = allFriends[i].map((friend) => shortenFriendId(friend))
 
             listOfConversations.push("Chat with: <br>" + allFriends[i][0]);
             if (allFriends[i].length === 1) {

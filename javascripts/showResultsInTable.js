@@ -1,6 +1,8 @@
-function showResultsInTable(deIdentifiedJsonList) {
+function showResultsInTable(deIdentifiedJsonList, dataSource) {
+    const i18nSupport = $("#i18n-support");
+    const systemName = i18nSupport.data("system")
     const cardsToDisplay = 100;
-    clearPreviousRenderedResults()
+    clearPreviousRenderedResults(dataSource)
         .then(() => {
             var shownMessagesCounter = 0;
             var messages = generateMessageList(deIdentifiedJsonList);
@@ -8,12 +10,12 @@ function showResultsInTable(deIdentifiedJsonList) {
             shuffle.forEach(n => {
                 var message = messages[n];
                 shownMessagesCounter++;
-                addNewMessage(message.participants, message.sender_name, message.word_count, message.timestamp_ms, message.isGroup, shownMessagesCounter)
+                addNewMessage(message.participants.filter(p => p !== systemName), message.sender_name, message.word_count, message.timestamp_ms, message.isGroup, shownMessagesCounter, dataSource)
             });
 
-            $("#display-preview-total").html(shownMessagesCounter);
+            $("#display-preview-total-" + dataSource).html(shownMessagesCounter);
 
-            $("#carousel-deidentified-preview .carousel-item:first").addClass('active');
+            $("#carousel-deidentified-preview-" + dataSource + " .carousel-item:first").addClass('active');
         });
 };
 
@@ -48,9 +50,9 @@ function generateUniqueRandomNumbers(max, numberToGenerate) {
     return numberToGenerate < max ? array.slice(0, numberToGenerate) : array;
 }
 
-function clearPreviousRenderedResults() {
+function clearPreviousRenderedResults(dataSource) {
     return new Promise((resolve) => {
-        $("#carousel-deidentified-preview .carousel-item").remove();
+        $("#carousel-deidentified-preview-" + dataSource + " .carousel-item").remove();
         resolve();
     });
 };
@@ -59,11 +61,11 @@ function getCardText(heading, body) {
     return '<span class="message-card-heading">' + heading + '</span><span class="message-card-text">' + body + '</span>'
 }
 
-function addNewMessage(participants, sender, wordCount, timestamp, isGroup, index) {
+function addNewMessage(participants, sender, wordCount, timestamp, isGroup, index, dataSource) {
     const i18nSupport = $("#i18n-support");
 
     const receivers = participants.filter(item => item != sender).join(", ");
-    $("#carousel-deidentified-preview .carousel-inner").append('<div class="carousel-item col-md-4">' +
+    $("#carousel-deidentified-preview-" + dataSource + " .carousel-inner").append('<div class="carousel-item col-md-4">' +
                             '<div class="message-card card card-body">' +
                                     '<h5 class="card-title">' + i18nSupport.data("message") + " " + index + '</h5>' +
                                     getCardText(i18nSupport.data("sender"), sender) +

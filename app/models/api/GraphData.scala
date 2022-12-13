@@ -5,12 +5,13 @@ import play.api.libs.json.{Format, Json}
 case class GraphData(
                       sentReceivedPerMonthPerConversation: List[List[SentReceivedPoint]],
                       dailyWordsSentReceived: List[DailySentReceivedPoint],
+                      slidingWindowMeanPerConv: List[List[DailySentReceivedPoint]],
                       dailySentReceivedPerConversation: List[List[DailySentReceivedPoint]],
                       dailySentHoursPerConversation: List[List[DailyHourPoint]],
                       dailyReceivedHoursPerConversation: List[List[DailyHourPoint]],
                       responseTimes: List[AnswerTimePoint],
                       //responseTimesPerConversation: List[List[AnswerTimePoint]],
-                      averageNumberOfMessages: AverageNumberOfMessages,
+                      basicStatistics: BasicStatistics,
                       conversationsFriends: List[List[String]],
 )
 

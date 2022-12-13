@@ -12,6 +12,7 @@ function dailyActivityTimes(dataSent, dataReceived, listOfConversations, plotId)
     const colorscaleAverage = plotContainer.attr("data-colorscale-average");
     const colorscaleLessThanAverage = plotContainer.attr("data-colorscale-lessThanAverage");
     const dataOverallName = plotContainer.attr("data-overall")
+    const resetView = plotContainer.attr("data-reset-view");
 
     let config = {
         responsive: true,
@@ -60,15 +61,36 @@ function dailyActivityTimes(dataSent, dataReceived, listOfConversations, plotId)
         //let allDataOptionsReceived = [dataReceived.flat(), ...dataReceived]
 
         // initialize updatemenus
-        layout["updatemenus"] = [{
-            active: 0,
-            buttons: [],
-            pad: {'r': 10, 't': 10},
-            x: 0.05,
-            xanchor: 'left',
-            y: 1.25,
-            yanchor: 'top'
-        }]
+        layout["updatemenus"] = [
+            {
+                active: 0,
+                buttons: [],
+                pad: {'r': 10, 't': 10},
+                x: 0.05,
+                xanchor: 'left',
+                y: 1.25,
+                yanchor: 'top'
+            },
+            {
+                x: 1.3,
+                y: 1.15,
+                direction: 'left',
+                type: 'buttons',
+                showactive: false,
+                pad: {t: 0, r: 10},
+                buttons: [
+                    {
+                        method: "relayout",
+                        args: [
+                            {
+                                'xaxis.autorange': true,
+                            }
+                        ],
+                        label: resetView
+                    }
+                ]
+            },
+        ]
 
 
         let traces = []
@@ -137,7 +159,7 @@ function dailyActivityTimes(dataSent, dataReceived, listOfConversations, plotId)
                     ],
                     symbol: "square",
                     colorbar: {
-                        tickvals: [-zScoreLimit, 0 , zScoreLimit],
+                        tickvals: [-zScoreLimit, 0, zScoreLimit],
                         ticktext: [colorscaleLessThanAverage, colorscaleAverage, colorscaleMoreThanAverage]
                     }
                 },
@@ -199,7 +221,6 @@ function dailyActivityTimes(dataSent, dataReceived, listOfConversations, plotId)
 
     plotContainer.html("");
     Plotly.newPlot(plotId, resultTraces, layout, config);
-
 
 
 }

@@ -10,6 +10,7 @@ const responseTimeBarChart = require('./analysis_plot/responseTimeBarChart');
 const animatedResponseTimeBarChart = require('./analysis_plot/animatedResponseTimeBarChart')
 const breaksInConvPlot = require("./analysis_plot/breaksInConvPlot");
 const createListOfConversations = require("./analysis_plot/utils/createListOfConversations");
+const horizontalBarChartOverall = require("./analysis_plot/horizontalBarChartOverall");
 
 
 $(document).ready(function () {
@@ -29,13 +30,15 @@ $(document).ready(function () {
         // remove friend "System" from friends of conversations
         const systemName = i18n.systemName
         const chatWith = i18n.chatWith
+        const friendsInitial = i18n.friendInitial
         let conversationsWithoutSystem = []
         graphData.conversationsFriends.forEach((conversation) => {
             conversationsWithoutSystem.push(conversation.filter((friend) => friend !== systemName))
         })
         const listOfConversations = createListOfConversations(
             conversationsWithoutSystem,
-            chatWith
+            chatWith,
+            friendsInitial
         )
 
         animatedPolarPlot(
@@ -72,27 +75,19 @@ $(document).ready(function () {
         const responseTimeModal = $(`#${dataSourceType}responseTimeModal`)
         sentReceivedModal.on('shown.bs.modal', () => {
 
-            animatedHorizontalBarChartOverall(
-                graphData.sentReceivedPerMonthPerConversation,
-                listOfConversations,
+            horizontalBarChartOverall(
+                graphData.basicStatistics.sentWordsTotal,
+                graphData.basicStatistics.receivedWordsTotal,
                 `${dataSourceType}AnimatedHorizontalBarChartOverall`
             )
 
             sentReceivedDailyPerConversation(
-                graphData.dailyWordsSentReceived,
-                graphData.dailySentReceivedPerConversation,
+                graphData.slidingWindowMeanPerConv,
                 `${dataSourceType}SentReceivedSlidingWindowMean`,
                 listOfConversations,
                 true
             )
 
-            sentReceivedDailyPerConversation(
-                graphData.dailyWordsSentReceived,
-                graphData.dailySentReceivedPerConversation,
-                `${dataSourceType}DailySentReceivedPerConversation`,
-                listOfConversations,
-                false
-            )
         })
 
         dailyActivityModal.on('shown.bs.modal', () => {

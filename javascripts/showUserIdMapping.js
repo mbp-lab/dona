@@ -1,6 +1,6 @@
-function showUserIdMapping(userIdMapping, systemName, donor) {
+function showUserIdMapping(userIdMapping, systemName, donor, friendInitial, dataSource) {
 
-    clearPreviousRenderedMappings()
+    clearPreviousRenderedMappings(dataSource)
         .then(() => {
             let names = [];
             let deidentifiedNames = [];
@@ -17,7 +17,7 @@ function showUserIdMapping(userIdMapping, systemName, donor) {
                         // create shortened Friend mappings: e.g.: Friend1 -> F1
                         friendMapping = mapping[1]
                         let numberStart = friendMapping.search(/\d+/)
-                        friendMapping = "F" + friendMapping.substring(numberStart, friendMapping.length)
+                        friendMapping = friendInitial + friendMapping.substring(numberStart, friendMapping.length)
                     }
                     friendMappings.push(friendMapping)
 
@@ -84,16 +84,16 @@ function showUserIdMapping(userIdMapping, systemName, donor) {
             }
 
             for (let i = 0; i < deidentifiedNames.length; i++) {
-                $("#display-userIDMapping").append("<p class='mapping-item' style='font-weight: bold'>" + deidentifiedNames[i] + " &rarr; " + friendMappings[i] + "</p>")
+                $("#display-userIDMapping-" + dataSource).append("<p class='mapping-item' style='font-weight: bold'>" + deidentifiedNames[i] + " &rarr; " + friendMappings[i] + "</p>")
             }
 
 
         })
 }
 
-function clearPreviousRenderedMappings() {
+function clearPreviousRenderedMappings(dataSource) {
     return new Promise((resolve) => {
-        $("#display-userIDMapping .mapping-item").remove();
+        $("#display-userIDMapping-" + dataSource + " .mapping-item").remove();
         resolve();
     });
 }

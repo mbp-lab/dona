@@ -3,7 +3,7 @@ package services
 import java.time.{LocalDateTime, ZoneOffset}
 
 import config.FeedbackConfig
-import models.api.{AverageNumberOfMessages, ConversationMessage, _}
+import models.api._
 import models.domain.DonationDataSourceType
 import models.domain.DonationDataSourceType.DonationDataSourceType
 import org.scalatest.{FreeSpec, Matchers}
@@ -44,7 +44,7 @@ final class MessageAnalysisServiceTest extends FreeSpec with Matchers {
               result(key).dailySentHoursPerConversation should contain theSameElementsAs expectedDailySentHoursPerConversation
               result(key).dailyReceivedHoursPerConversation should contain theSameElementsAs expectedDailyReceivedHoursPerConversation
               result(key).responseTimes should contain theSameElementsAs expectedResponseTimes
-              result(key).averageNumberOfMessages shouldBe expectedAverageNumberOfMessages
+              result(key).basicStatistics shouldBe expectedAverageNumberOfMessages
               result(key).conversationsFriends should contain theSameElementsAs expectedConversationsFriends
             }
           }
@@ -69,7 +69,7 @@ object MessageAnalysisServiceTest {
                            List[List[DailyHourPoint]],
                            List[List[DailyHourPoint]],
                            List[AnswerTimePoint],
-                           AverageNumberOfMessages,
+                           BasicStatistics,
                            List[List[String]]
                          )],
                      )
@@ -97,7 +97,7 @@ object MessageAnalysisServiceTest {
             AnswerTimePoint(0, isDonor = false, LocalDateTime.of(2017, 1, 1, 12, 0).toInstant(ZoneOffset.UTC).toEpochMilli),
             AnswerTimePoint(0, isDonor = true, LocalDateTime.of(2017, 1, 1, 12, 0).toInstant(ZoneOffset.UTC).toEpochMilli)
           ), // answerTimes
-          AverageNumberOfMessages(2, 1, 1, 1, 2, 1), // average
+          BasicStatistics(2, 1, 30, 15, 1, 1, 2, 1), // average
           List(List("4")) // conversationsFriends
         )
       ),
@@ -144,7 +144,7 @@ object MessageAnalysisServiceTest {
               isDonor = true,
               LocalDateTime.of(2017, 1, 1, 12, 0).toInstant(ZoneOffset.UTC).toEpochMilli)
           ), // answerTimes
-          AverageNumberOfMessages(2, 1, 3, 3, 0, 0), // average
+          BasicStatistics(2, 1, 30, 15,3, 3, 0, 0), // average
           List(List("someone")) // conversationsFriends
         )
       )
@@ -198,7 +198,7 @@ object MessageAnalysisServiceTest {
                 isDonor = true,
                 LocalDateTime.of(2017, 2, 1, 12, 0).toInstant(ZoneOffset.UTC).toEpochMilli)
             ), // answerTimes
-            AverageNumberOfMessages(2, 1, 2, 1, 1, 0), // average
+            BasicStatistics(2, 1, 30, 15, 2, 1, 1, 0), // average
             List(List(), List("someone else")) // conversationsFriends
           )
         )

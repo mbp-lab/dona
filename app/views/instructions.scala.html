@@ -17,10 +17,12 @@
     <div class="modal fade" id="consent-dialog"  role="dialog">
     @consent()
     </div>
-} {
+<div class="mt-5">
     @footer(title = Some(messages("footer.title")), previousLink = Some("/")){
         <button class="btn btn-outline footer-forward-button text-center" data-toggle="modal" data-target="#consent-dialog">@messages("links.donate")</button>
     }
+</div>
+} {
 }
 
 @getDataPanel(dataSourceDescription:DataSourceDescription) = {
@@ -55,10 +57,10 @@
                     @messages("instructions.download-procedure.title")
                     </h4>
 
-                    <div class="serif-text mb-3">
+                    <div class="serif-text text-left mb-3">
                         <ol>
                         @for(procedureStep <- dataSourceDescription.dataDownloadSteps) {
-                            <li>@procedureStep</li>
+                            <li><p>@procedureStep</p></li>
                         }
                         </ol>
                     </div>
@@ -92,7 +94,7 @@
                     <div class="serif-text text-left mb-3">
                         <ol>
                         @for(procedureStep <- dataSourceDescription.dataDownloadSteps) {
-                            <li>@procedureStep</li>
+                            <li><p>@procedureStep</p></li>
                         }
                         </ol>
                     </div>

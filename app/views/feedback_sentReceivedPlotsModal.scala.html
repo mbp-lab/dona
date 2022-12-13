@@ -6,7 +6,7 @@
 <div class="modal-dialog modal-xl" style="max-width: 1140px">
     <div class="modal-content">
         <div class="modal-header bgmain">
-            <h3 class="data-protection-headline">@messages("feedback.moreAbout.interactionIntensity.title")</h3>
+            <h3 class="data-protection-headline">@Html(messages("feedback.moreAbout.interactionIntensity.title"))</h3>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body justify-content-center" >
@@ -17,9 +17,8 @@
             }ModalContainer"
             style="width: 100%"
             >
-                @showAnimatedHorizontalBarChartOverall(dataSource)
+                @showHorizontalBarChartOverall(dataSource)
                 @showSentReceivedSlidingWindowMeanGraphPlot(dataSource)
-                @showSentReceivedDailyPerConversationGraphPlot(dataSource)
             </div>
 
 
@@ -42,18 +41,18 @@
         </div>
     }
 
-    @showAnimatedHorizontalBarChartOverall(name: String) = {
-    @showExplanationText(messages("feedback.graph.animatedHorizontalBarChartOverall.description"))
+    @showHorizontalBarChartOverall(name: String) = {
+    @showExplanationText(messages("feedback.graph.horizontalBarChartOverall.description"))
         <div
         id="@{
             name
         }AnimatedHorizontalBarChartOverall"
         class="d-none"
-        data-x-axis="@messages("feedback.graph.animatedHorizontalBarChartOverall.xAxis")"
-        data-y-axis-received="@messages("feedback.graph.animatedHorizontalBarChartOverall.yAxis.received")"
-        data-y-axis-sent="@messages("feedback.graph.animatedHorizontalBarChartOverall.yAxis.sent")"
-        data-sent-trace-name="@messages("feedback.graph.animatedHorizontalBarChartOverall.legend.sent")"
-        data-received-trace-name="@messages("feedback.graph.animatedHorizontalBarChartOverall.legend.received")"
+        data-x-axis="@messages("feedback.graph.horizontalBarChartOverall.xAxis")"
+        data-y-axis-received="@messages("feedback.graph.horizontalBarChartOverall.yAxis.received")"
+        data-y-axis-sent="@messages("feedback.graph.horizontalBarChartOverall.yAxis.sent")"
+        data-sent-trace-name="@messages("feedback.graph.horizontalBarChartOverall.legend.sent")"
+        data-received-trace-name="@messages("feedback.graph.horizontalBarChartOverall.legend.received")"
         data-description-yearMonth="@messages("feedback.graph.yearMonth")"
         >
             <div class="card h-100">
@@ -74,7 +73,9 @@
         data-y-axis="@messages("feedback.graph.slidingWindowMean.yAxis")"
         data-sent-trace-name="@messages("feedback.graph.slidingWindowMean.legend.sent")"
         data-received-trace-name="@messages("feedback.graph.slidingWindowMean.legend.received")"
+        data-received-notShown-name="@messages("feedback.graph.slidingWindowMean.legend.receivedNotShown")"
         data-overall="@messages("feedback.graph.overallData")"
+        data-reset-view="@messages("feedback.graph.resetView")"
         >
             <div class="card h-100">
                 <div class="m-auto">@messages("feedback.graph.loading")</div>

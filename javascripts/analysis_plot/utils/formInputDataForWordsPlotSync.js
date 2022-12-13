@@ -26,7 +26,8 @@ function formInputDataForWordsPlotSync(sortedGraphDataPoints, hasDate) {
     const yReceivedMessages = sortedGraphDataPoints.map(point => point.receivedCount);
 
     return {
-        xAxis: x,
+        xAxisSent: x,
+        xAxisReceived: x,
         yAxisSentMessages: ySentMessages,
         yAxisReceivedMessages: yReceivedMessages
     }

@@ -1,15 +1,11 @@
-function createListOfConversations(conversationFriends, chatWith) {
+const shortenFriendId = require("./shortenFriendId");
 
-    let shortenFriend = (friend) => {
-        //find index where number starts, all friends have the following form: "friend" + "i" where i is a number
-        let numberStart = friend.search(/\d+/)
-        return "F" + friend.substring(numberStart, friend.length)
-    }
+function createListOfConversations(conversationFriends, chatWith, friendsInitial) {
 
     let listOfConversations = []
     for (let i = 0; i < conversationFriends.length; i++) {
 
-        conversationFriends[i] = conversationFriends[i].map((friend) => shortenFriend(friend))
+        conversationFriends[i] = conversationFriends[i].map((friend) => shortenFriendId(friend, friendsInitial))
 
         listOfConversations.push(chatWith + " <br>" + conversationFriends[i][0]);
         if (conversationFriends[i].length === 1) {

@@ -184,6 +184,7 @@ function animatedResponseTimeBarChart(responseTimes, plotId) {
             6: 0
         }
 
+        /*
         let countObjectFriends = {
             0: 0,
             1: 0,
@@ -193,6 +194,7 @@ function animatedResponseTimeBarChart(responseTimes, plotId) {
             5: 0,
             6: 0
         }
+         */
 
 
         let time;
@@ -201,32 +203,40 @@ function animatedResponseTimeBarChart(responseTimes, plotId) {
             countObjectDonor[inRange(time)] += 1;
         })
 
+        /*
         groupedByIsDonor.false.forEach((responseTime) => {
             time = responseTime.timeInMs
             countObjectFriends[inRange(time)] += 1;
         })
 
+         */
+
         let nResponsesDonor = groupedByIsDonor.true.length
-        let nResponsesFriends = groupedByIsDonor.false.length
+        //let nResponsesFriends = groupedByIsDonor.false.length
 
 
 
         let yDonor = _.fill(Array(Object.keys(countObjectDonor).length), 0)
-        let yFriends = _.fill(Array(Object.keys(countObjectFriends).length), 0)
+        //let yFriends = _.fill(Array(Object.keys(countObjectFriends).length), 0)
 
         for (const [key, value] of Object.entries(countObjectDonor)) {
             yDonor[key] = value / nResponsesDonor
         }
 
+        /*
         for (const [key, value] of Object.entries(countObjectFriends)) {
             yFriends[key] = value / nResponsesFriends
         }
 
         // see if global max needs to be adjusted
+
         let max = Math.max(...yFriends.concat(yDonor))
         if (max > globalMax) {
             globalMax = max
         }
+         */
+
+        globalMax = Math.max(...yDonor)
 
         frames.push({
             name: name,
@@ -236,13 +246,16 @@ function animatedResponseTimeBarChart(responseTimes, plotId) {
                     x: x,
                     y: yDonor,
                     width: _.fill(Array(x.length), 0.8)
-                },
+                }
+                /*,
                 {
                     name: legendFriends,
                     x: x,
                     y: yFriends,
                     width: _.fill(Array(x.length), 0.5)
                 }
+
+                 */
             ],
         })
 
@@ -289,7 +302,9 @@ function animatedResponseTimeBarChart(responseTimes, plotId) {
             y: _.fill(Array(x.length), 0),
             type: "bar",
             width: _.fill(Array(x.length), 0.8)
-        },
+        }
+        /*
+        ,
         {
             name: legendFriends,
             x: x,
@@ -297,6 +312,7 @@ function animatedResponseTimeBarChart(responseTimes, plotId) {
             type: "bar",
             width: _.fill(Array(x.length), 0.5)
         }
+         */
     ], layout, config).then(() => {
         Plotly.addFrames(plotId, frames)
 

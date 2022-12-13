@@ -3,12 +3,10 @@
 # Landing page
 
 landing.header.title=Bringen Sie Licht ins Dunkel mit Ihren Social-Online-Daten.
-landing.header.body=Wir forschen an digitalen Methoden, um Einsamkeit besser zu verstehen und so Menschen zu helfen. Unterstützen Sie uns durch die Spende Ihrer anonymisierten Social-Online-Daten. Erhalten Sie als Dank erhellendes Feedback!
-
+landing.header.body=Wir forschen an digitalen Methoden, um Interaktionen über soziale Medien und deren möglichen Einflüsse auf mentale Gesundheit besser zu verstehen und so Menschen zu helfen. Unterstützen Sie uns durch die Spende Ihrer anonymisierten Social-Online-Daten. Erhalten Sie als Dank erhellendes Feedback!
 landing.what.title=Worum geht es?
 landing.what.body1=Soziale Interaktionen spielen eine wichtige Rolle für die mentale Gesundheit. Um diese Rolle besser zu verstehen, entwickeln wir an der Universität Bielefeld neue digitale Messmethoden. Mit der aktuellen Studie möchten wir die Frage beantworten: Können wir die soziale Einbindung von Menschen anhand Ihrer Social Media Nachrichten erfassen?
-landing.what.body2=Wenn Sie uns bei unserer Forschung unterstützen möchten, können Sie Ihre Daten von einer Social Media Plattform anfordern (momentan: Facebook oder WhatsApp). Diese Daten können Sie dann auf unserer Webseite anonymisieren und für die Forschung spenden.
-
+landing.what.body2=Wenn Sie uns bei unserer Forschung unterstützen möchten, können Sie Ihre Daten von einer Social Media Plattform anfordern (Facebook oder WhatsApp). Diese Daten können Sie dann auf unserer Webseite anonymisieren und für die Forschung spenden. <br><i>Bei einer Datenspende von WhatsApp-Daten mit einem Android-Gerät kann es zu Abweichungen der notwendigen Schritte zu der Anleitung auf dieser Seite kommen. Die Datenspende mit einem iPhone ist problemlos möglich. <br> Wenn Sie Daten von Facebook spenden möchten, empfehlen wir aufgrund der potenziell großen Dateigröße die Verwendung eines Computers.</i>
 landing.why.title=Warum sollte ich teilnehmen?
 landing.why.col1.title=Erhalten Sie Feedback
 landing.why.col1.body=Als Dankeschön für Ihre Teilnahme erhalten Sie am Ende ein Feedback zu Ihrem Online-Interaktionsverhalten und Ihrer Sozialen Einbindung. Wir zeigen Ihnen eine graphische Darstellung Ihrer gesendeten und empfangenen Nachrichten über die vergangenen Monate. Diese Studie dient nicht der medizinischen oder psychologischen Diagnostik.
@@ -17,23 +15,30 @@ landing.why.col2.title=Unterstützen Sie die Forschung
 landing.why.col2.body_html=In der Studie möchten wir die soziale Einbindung der Teilnehmer anhand ihrer Online-Interaktionsdaten messen. Langfristig sollen die Studienergebnisse dazu beitragen, die Auswirkungen von sozialen Interaktionen auf die mentale Gesundheit besser zu verstehen.
 
 landing.why.col3.title=Sie bleiben anonym
-landing.why.col3.body_html=Bei der Datenspende ihrer Social-Media-Daten erfassen wir ausschließlich <strong><a href="/learn-more">anonyme Metadaten</a></strong> (Nachrichtenlänge, Nachrichtenzeitpunkt und Pseudonyme der Unterhaltungsteilnehmer) und <strong>keine Inhalte</strong> (Nachrichtentext oder Name der Unterhaltungsteilnehmer).
+landing.why.col3.body_html=Bei der Datenspende Ihrer Social-Media-Daten erfassen wir ausschließlich <strong><a href="/learn-more">anonyme Metadaten</a></strong> (Nachrichtenlänge, Nachrichtenzeitpunkt und Pseudonyme der Unterhaltungsteilnehmer) und <strong>keine Inhalte</strong> (Nachrichtentext oder Name der Unterhaltungsteilnehmer).
 
 landing.contact.body_html=Auf dieser Webseite erläutern wir Ihnen den Hintergrund und Ablauf der Online-Studie damit Sie entscheiden können, ob Sie teilnehmen möchten. Sollten Sie noch Fragen haben, so wenden Sie sich bitte an die Versuchsleiterin (Hanna Drimalla, AG Multimodal Behavior Processing, Technische Fakultät, Universität Bielefeld, <a href="mailto:drimalla@techfak.uni-bielefeld.de">drimalla@techfak.uni-bielefeld.de</a>, Tel. +49 521 106-12043).
+
+landing.imagePath.donationProcedure1 = images/landingDonationProcedure_1_German.svg
+landing.imagePath.donationProcedure2 = images/landingDonationProcedure_2_German.svg
+landing.imagePath.donationProcedure3 = images/landingDonationProcedure_3_German.svg
 
 # Learn More page
 
 learn-more.how-to-participate.title=Wie kann ich teilnehmen?
-learn-more.how-to-participate.body=Die Studie findet komplett online und anonym statt. Die Studie beinhaltet die Datenspende Ihrer anonymisierten Online-Nachrichten. Nachdem Sie Ihre Online-Interaktionsdaten heruntergeladen haben, dauert die Studie lediglich 5 Minuten.
+learn-more.how-to-participate.body=Die Studie findet komplett online und anonym statt. Die Studie beinhaltet die Datenspende Ihrer anonymisierten Online-Nachrichten sowie das Ausfüllen einiger Online-Fragebögen. Nachdem Sie Ihre Online-Interaktionsdaten heruntergeladen haben, dauert die Studie ungefähr 20 Minuten.
 
 learn-more.how-to-cancel.title=Und wenn ich abbrechen möchte?
 learn-more.how-to-cancel.body=Die Teilnahme an der Online-Studie ist freiwillig. Sie können jederzeit und ohne Angabe von Gründen Ihre Einwilligung zur Teilnahme an dieser Studie widerrufen, ohne dass Ihnen daraus Nachteile entstehen. Bis zum Ende der Datenerhebung können Sie zudem Ihre Einwilligung zur Speicherung der Daten widerrufen, ohne dass Ihnen daraus Nachteile entstehen.
 
 learn-more.data-storage.title=Welche Daten werden gespeichert?
 
+learn-more.imagePath=images/dataAnonymizationExample-German.svg
+
 # data storage text body is reused, see below
 
-learn-more.storage.body1_html=<strong><em>Datenspende: </strong></em>Bei der Datenspende ihrer Social-Media-Daten erfassen wir ausschließlich <strong>Metadaten</strong> (Nachrichtenlänge, Nachrichtenzeitpunkt und Pseudonyme der Unterhaltungsteilnehmer) und <strong>keine Inhalte</strong> (Nachrichtentext oder Name der Unterhaltungsteilnehmer). Ihre Online-Interaktions-Daten werden bereits auf Ihrem Rechner anonymisiert. Wir sehen also niemals Ihre Nachrichten. Bevor wir Ihre anonymisierten Nachrichten speichern, können Sie diese begutachten. So können Sie sich davon überzeugen, dass diese ausreichend anonymisiert sind.
+learn-more.storage.body1_html=<strong><em>Datenspende: </strong></em>Bei der Datenspende Ihrer Social-Media-Daten erfassen wir ausschließlich <strong>Metadaten</strong> (Nachrichtenlänge, Nachrichtenzeitpunkt und Pseudonyme der Unterhaltungsteilnehmer) und <strong>keine Inhalte</strong> (Nachrichtentext oder Name der Unterhaltungsteilnehmer). Ihre Online-Interaktions-Daten werden bereits auf Ihrem Rechner anonymisiert. Wir sehen also niemals Ihre Nachrichten. Bevor wir Ihre anonymisierten Nachrichten speichern, können Sie diese begutachten. So können Sie sich davon überzeugen, dass diese ausreichend anonymisiert sind.
+learn-more.storage.body2_html=<strong><em>Fragebögen: </strong></em>Sie füllen zunächst Fragebögen zu Ihren demographischen Informationen, zu Ihrer Spende, sowie zu Ihrer momentanen Stimmung und zu Ihrem Messaging-Verhalten aus. Danach können Sie die Datenspende durchführen und erhalten Feedback. Anschließend füllen Sie weitere Fragebögen zu ähnlichen Themen aus, sowie zu der Benutzerfreundlichkeit des Feedbacks. Diese Erhebung findet ebenfalls komplett anonym auf der Plattform <a href="https://www.limesurvey.org/de/hilfe/faq/17-datenschutz-datensicherheit">LimeSurvey</a> statt.
 
 learn-more.data-handling.title=Was passiert später mit meinen Daten?
 learn-more.data-handling.body1=Da wir weder Ihren Namen oder andere personenbezogenen Daten erheben, können wir nach Abschluss der Studie, Ihre Daten nicht mehr Ihrer Person zuordnen – der Datensatz ist anonym. Entsprechend können wir Ihren Datensatz jedoch auch nicht gezielt löschen.
@@ -44,7 +49,7 @@ learn-more.image.caption=Abbildung 3. Beispiel der Anonymisierung einer Nachrich
 # Instructions page
 
 instructions.about.title=Wie erhalte ich meine Daten?
-instructions.about.body_html=Bevor Sie an der Studie teilnehmen, fordern Sie bitte Ihre Daten direkt von Facebook und/oder WhatsApp an. Bitte beachten Sie, dass Sie die Daten auf einem Gerät speichern, auf das niemand außer Ihnen Zugriff hat. Außerdem empfehlen wir Ihnen ausdrücklich die Original-Daten nach dem Abschluss der Spende zu löschen.
+instructions.about.body_html=Bevor Sie an der Studie teilnehmen, fordern Sie bitte Ihre Daten direkt von Facebook und/oder WhatsApp an. Bitte beachten Sie, dass Sie die Daten auf einem Gerät speichern, auf das niemand außer Ihnen Zugriff hat. Außerdem empfehlen wir Ihnen ausdrücklich die <b>Original-Daten nach dem Abschluss der Spende zu löschen</b>. Beachten Sie, dass ein einfaches Löschen der Dateien ggf. nicht ausreicht, um die Daten endgültig von Ihrem Gerät zu entfernen. Weitere Informationen dazu finden Sie unter anderem <a href="https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Daten-sichern-verschluesseln-und-loeschen/Daten-endgueltig-loeschen/daten-endgueltig-loeschen.html">hier</a> und <a href="https://www.datenschutz.org/daten-loeschen/">hier</a>.
 instructions.datasource.title_format = Anleitung zum Erhalten von %sdaten
 instructions.download-procedure.title=Übersicht über den Download & Datenspende Prozess:
 instructions.multiple-donation-info.body=Sie können Daten von beiden Plattformen spenden. Falls Sie nur von einer Plattform spenden möchten, wählen Sie bitte die Plattform, die für Sie wichtiger ist.
@@ -65,7 +70,7 @@ consent.about.body1=Ziel der Studie ist es, die soziale Interaktionsdynamiken vo
 consent.about.body2_html=Mit Ihrer Einwilligung bestätigen Sie, dass Sie die vorherige Informationswebseite zum Zweck, Ablauf und Umfang der Online-Studie gelesen und verstanden haben.
 
 consent.benefit.title=Nutzen und Risiken
-consent.benefit.body=Mit Ihrer Teilnahme helfen Sie dabei, neue Erkenntnisse über das soziales Interaktionsverhalten der Menschen zu identifizieren und charakterisieren. Sie erhalten zudem einen Einblick in Ihr eigenes Messaging-Verhalten. Wir erheben nur anonymisierte Daten. Vor der Datenspende müssen Sie die Messaging-Daten auf ihr Gerät herunterladen. Da es sich um sensible Daten handelt, empfehlen wir Ihnen ausdrücklich, die Original-Daten nach dem Abschluss der Spende von Ihrem Gerät zu löschen. Um Ihre Privatsphäre zu sichern, führen Sie die Studie in ungestörter Umgebung und allein durch.
+consent.benefit.body=Mit Ihrer Teilnahme helfen Sie dabei, neue Erkenntnisse über das soziales Interaktionsverhalten der Menschen zu identifizieren und charakterisieren. Sie erhalten zudem einen Einblick in Ihr eigenes Messaging-Verhalten. Außerdem können Sie am Ende der Studie an einer Verlosung eines 50€ Cadooz-Bestchoice-Gutscheins für verschiedene Geschäfte teilnehmen. Dies ist eine fortlaufende Studie, daher wird je 100 Teilnehmer ein Gutschein verlost (Gewinnchance: 1/100). Wir erheben nur anonymisierte Daten. Vor der Datenspende müssen Sie die Messaging-Daten auf Ihr Gerät herunterladen. Da es sich um sensible Daten handelt, empfehlen wir Ihnen ausdrücklich, die Original-Daten nach dem Abschluss der Spende von Ihrem Gerät zu löschen. Um Ihre Privatsphäre zu sichern, führen Sie die Studie in ungestörter Umgebung und allein durch.
 
 consent.data-storage.title=Erhobene Daten
 
@@ -75,7 +80,7 @@ consent.voluntary.title=Freiwilligkeit
 consent.voluntary.body=Die Teilnahme an der Studie ist freiwillig. Sie können jederzeit und ohne Angabe von Gründen Ihre Einwilligung zur Teilnahme an dieser Studie widerrufen, ohne dass Ihnen daraus Nachteile entstehen. Sie können Ihre Einwilligung zur Speicherung der Daten bis zum Ende der Datenerhebung widerrufen, ohne dass Ihnen daraus Nachteile entstehen.
 
 consent.data-protection.title=Datenschutz
-consent.data-protection.body=Da wir weder Ihren Namen oder andere personenbezogenen Daten erheben, können wir nach Abschluss der Studie, Ihre Daten nicht mehr Ihrer Person zuordnen – der Datensatz ist anonym. Entsprechend können wir Ihren Datensatz jedoch auch nicht gezielt löschen. Aufgrund der von vornherein vollständig anonymisierter Verarbeitung findet außerdem die Datenschutzgrundverordnung keine Anwendung. Bei Fragen zum Datenschutz können Sie sich an den behördlichen Datenschutzbeauftragten der Universität wenden:
+consent.data-protection.body=Da wir weder Ihren Namen oder andere personenbezogenen Daten erheben, können wir nach Abschluss der Studie, Ihre Daten nicht mehr Ihrer Person zuordnen – der Datensatz ist anonym. Entsprechend können wir Ihren Datensatz jedoch auch nicht gezielt löschen. Aufgrund der von vornherein vollständig anonymisierter Verarbeitung findet außerdem die Datenschutzgrundverordnung keine Anwendung. Bei Fragen zum Datenschutz können Sie sich an den/die Datenschutzbeauftragte/n der Universität wenden:
 consent.data-protection.address_html=Behördliche Datenschutzbeauftragte <br /> Universität Bielefeld <br /> Büro: UHG T6-234  <br />Telefon +49 521 106-5225 <br /><a href="mailto:datenschutzbeauftragte@uni-bielefeld.de">datenschutzbeauftragte@uni-bielefeld.de</a>
 
 consent.data-purpose.title=Verwendung der anonymisierten Daten
@@ -90,11 +95,18 @@ consent.buttons.close.caption=Schließen
 
 # minor grammar correction
 donation.select-data.title=Wählen Sie Ihre Daten für die Spende aus
-donation.select-data.body1=Wählen Sie aus, welche Daten Sie spenden möchten. Für manche Plattformen müssen Sie Ihren Nutzernamen eingeben. Ihr Nutzername wird nicht gespendet und wir werden ihn nicht erfahren. Wir benötigen den Nutzernamen lediglich für die Anonymisierung Ihrer Daten.
-donation.select-data.body2=Nachdem Sie die Datei ausgewählt haben, die Sie spenden möchten, zeigen wir ihnen eine Vorschau Ihrer anonymisierten Daten. In dieser Vorschau werden Sie sehen, dass Ihr Nutzername durch „Spender“ ersetzt wurde, die Namen Ihrer Freunde entfernt wurden und nur Meta-Informationen extrahiert wurden.
-donation.select-data.body3=Falls Sie sich entscheiden, Ihre <b>WhatsApp</b>-Daten zu spenden, achten Sie darauf, dass Sie Ihren Nutzernamen korrekt eingeben. Sie können ihn in Ihrer App unter <b>Einstellungen</b> bei Ihrem Profilbild finden. Achten Sie dabei bitte auch auf die <b>Groß- und Kleinschreibung</b>. Falls Sie den Nutzernamen nicht korrekt eingeben, können die Daten nicht richtig verarbeitet werden. Ihr Nutzername wird nicht gespeichert. Danke!
+donation.select-data.body1=Wählen Sie aus, welche Daten Sie spenden möchten. Zur Anonymisierung Ihrer Daten wird Ihr Nutzername automatisch ermittelt. Ihr Nutzername wird nicht gespendet und wir werden ihn nicht erfahren.
+donation.select-data.body2=Nachdem Sie die Datei ausgewählt haben, die Sie spenden möchten, zeigen wir ihnen eine Vorschau Ihrer anonymisierten Daten. In dieser Vorschau werden Sie sehen, dass Ihr Nutzername durch „Spender“ ersetzt wurde, die Namen Ihrer Kontakte entfernt wurden und nur Meta-Informationen extrahiert wurden.
+donation.select-data.donation=Datenspende
+donation.select-data.input1=Dateien auswählen
+donation.select-data.input2=Durchsuchen
+donation.select-data.remove=Entfernen
+
+donation.select-date.start=Anfang der Spende:
+donation.select-date.end=Ende der Spende:
 
 donation.preview-data.title=Vorschau Ihrer anonymisierten Daten
+donation.preview-data.button=Klicken Sie hier für eine Vorschau Ihrer anonymisierten Daten
 donation.preview-data.body1=Keine persönliche Information hat Ihr Gerät verlassen. Die Meta-Informationen Ihrer Nachrichten wurden extrahiert.
 donation.preview-data.body2=Wie Sie sehen, wurden alle Namen anonymisiert und der Inhalt der Nachricht wurde durch die Anzahl der Wörter ersetzt.
 donation.preview-data.message=Nachricht
@@ -104,19 +116,22 @@ donation.preview-data.word-count=Anzahl an Wörtern
 donation.preview-data.timestamp=Zeitpunkt der Nachricht
 donation.preview-data.group-conversation=Gruppenunterhaltung
 
-donation.friendsMapping.title=<b>Bitte schreiben Sie sich die Decknamen für Ihre Kontakte auf.</b>
-donation.friendsMapping.subtitle=Wir haben Ihre Daten und Ihre Kontakte anonymisiert. Damit Sie Feedback zu einzelnen Kontakten erhalten können, notieren Sie sich bitte die folgende Zuordnung von Kontakten (z.B. G**** M*****) und Decknamen (z.B. “F4”). Ab jetzt sind dies die anonymisierten Decknamen für Ihre Kontakte. Die Zuordnung wird nicht gespeichert und geht verloren, sobald Sie diese Seite verlassen.
+donation.friendsMapping.title=<b>Decknamen für Ihre Kontakte</b>
+donation.friendsMapping.subtitle=Wir haben Ihre Daten und Ihre Kontakte anonymisiert. Falls Sie in der anonymisierten Auswertung im nächsten Schritt rekonstruieren wollen, um welche Konversationen und Kontakte es sich jeweils handelt, notieren Sie sich die folgenden Zuordnungen von Kontakten (z.B. G**** M*****) und Decknamen (z.B. “K4”). Ab jetzt sind dies die anonymisierten Decknamen für Ihre Kontakte. Die Zuordnung wird nicht gespeichert und geht verloren, sobald Sie diese Seite verlassen.
 
 donation.sendData.wait=Das Senden der Daten kann ein paar Minuten dauern. Bitte warten Sie. Danke!
 
-donation.raw-data-explanation_format=Unten können Sie %s Ihrer anonymisierten Nachrichten sehen. Falls Sie alle anonymisierten Nachrichten anschauen möchten, werfen Sie einen Blick in Ihre
-donation.raw-data-link.text=Rohdaten
+donation.raw-data-explanation_format=Unten können Sie %s Ihrer anonymisierten Nachrichten sehen. Falls Sie alle anonymisierten Nachrichten anschauen möchten, <b>werfen Sie einen Blick in Ihre</b>
+donation.raw-data-link.text=<b>Rohdaten</b>
 
 # provided by Astrid
 
 donation.alias-not-required=Nicht notwendig
 donation.alias=Nutzername
 donation.please-insert-alias=Bitte geben Sie Ihren Nutzernamen ein, um das Hochladen zu ermöglichen
+donation.choose-files-here=Wählen Sie hier die Dateien aus, die Sie spenden möchten:
+donation.choose-period=Hier können Sie den Zeitraum Ihrer Datenspende eingrenzen:
+donation.aliases-overview=Decknamen Ihrer Kontakte:
 
 donation.processing=Daten werden extrahiert und anonymisiert...
 donation.be-patient=Das Extrahieren der Daten kann einige Minuten dauern. Haben Sie bitte Geduld...
@@ -124,14 +139,21 @@ donation.successful=Ihre Daten wurden erfolgreich anonymisiert.
 donation.error=Es ist ein Fehler aufgetreten:
 
 donation.anonymisation.donor=Spender
-donation.anonymisation.friend=Freund
+donation.anonymisation.friend=Kontakt
+donation.anonymisation.friendInitial=K
 donation.anonymisation.system=System
+donation.anonymisation.chooseUsername=Bitte wählen Sie Ihren Nutzernamen aus. Ihr Nutzername wird nicht gespeichert und wir werden ihn nicht erfahren.
+donation.anonymisation.loading=Die anonymisierten Daten werden gesendet. Bitte warten Sie.
 
 donation.errors.no-profile=Die Datei enthält keine Profildaten.
 donation.errors.no-alias=Ein Nutzername muss angegeben werden. Sie können ihn in Ihrem WhatsApp-Profil finden.
-donation.errors.not-enough-chats_format=Bitte wählen Sie Ihre 5 wichtigsten Unterhaltungen aus. Sie haben nur %s ausgewählt.
+donation.errors.not-enough-chats_format=Bitte wählen Sie Ihre 5-7 wichtigsten Unterhaltungen aus. Sie haben %s ausgewählt.
 donation.errors.something-went-wrong=Etwas ist schief gelaufen! Bitte kehren Sie zum Start zurück und wiederholen Sie den Vorgang.
-donation.errors.same-file=Sie können nur Dateien auswählen, die sich voneinander unterscheiden. Bitte wählen Sie Ihre 5 wichtigsten Unterhaltungen aus.
+donation.errors.same-file=Sie können nur Dateien auswählen, die sich voneinander unterscheiden. Bitte wählen Sie Ihre 5-7 wichtigsten Unterhaltungen aus.
+donation.errors.no-messages-time-period=In dem ausgewählten Zeitraum befinden sich keine Nachrichten. Bitte wählen Sie einen größeren und validen Zeitraum.
+donation.errors.dates-no-sense=Der ausgewählte Zeitraum ist ungültig. Bitte überprüfen Sie die Richtigkeit der ausgewählten Daten.
+donation.errors.dates-not-enough-months=Bitte wählen Sie zum Spenden Ihrer Daten einen Zeitraum von mindestens 6 Monaten innerhalb des Zeitraums Ihrer Spende aus.
+donation.errors.somewhereError=Es gibt einen Fehler. Bitte überprüfen Sie Ihre Datenspende.
 
 # feedback
 
@@ -160,13 +182,13 @@ feedback.graph.median-response-time=Mediane Antwortszeit
 feedback.graph.overview=Übersicht
 feedback.graph.detail=Detail
 feedback.graph.you=Sie
-feedback.graph.friends=Freunde
+feedback.graph.friends=Kontakte
 
 # plots main page titles
 feedback.title.statisticsCard=Überblick über die gesamte Aktivität
 feedback.title.interactionIntensity=Interaktionsintensität
 feedback.title.dailyActivityTimes=Tägliche Aktivitätszeiten
-feedback.title.responseTimes=Reaktionszeiten
+feedback.title.responseTimes=Antwortzeiten
 feedback.title.pleaseContinue=Wir hoffen Sie hatten spannende Erkenntnisse. Danke sehr!
 
 feedback.facebook.info=Die möglicherweise hohe Anzahl an Facebook-Kontakten kann zu einer unübersichtlichen Darstellung führen. Daher werden im Folgenden nur Visualisierungen für Ihre 7 (oder weniger) Facebook-Chats mit den meisten Wörtern angezeigt.
@@ -175,21 +197,22 @@ feedback.nextButton=Weiter
 feedback.finishButton=Beenden
 
 # plots more about titles
-feedback.moreAbout.interactionIntensity.title=Mehr über Interaktionsintensität
-feedback.moreAbout.dailyActivityTimes.title=Mehr über Tägliche Aktivitätszeiten
-feedback.moreAbout.responseTimes.title=Mehr über Reaktionszeiten
+feedback.moreAbout.interactionIntensity.title=Mehr über <u>Ihre</u> Interaktionsintensität
+feedback.moreAbout.dailyActivityTimes.title=Mehr über <u>Ihre</u> Täglichen Aktivitätszeiten
+feedback.moreAbout.responseTimes.title=Mehr über <u>Ihre</u> Antwortzeiten
 
 # plot descriptions
 feedback.graph.yearMonth=Jahr-Monat:
 feedback.graph.chatWith=Chat mit:
 feedback.graph.overallData=Alle Chats
+feedback.graph.resetView=Ansicht zurücksetzen
 
 # plots example title
-feedback.graph.example.title=Dies ist ein <b>Beispiel</b> mit Beispieldaten.
+feedback.graph.example.title=Dies ist ein <b>Beispiel</b> mit Beispieldaten - <u>nicht</u> mit Ihren Daten.
 
 # polar plot
 feedback.graph.animatedPolarPlot.title=Planetendarstellung
-feedback.graph.animatedPolarPlot.description=In dieser Visualisierung werden Sie als der gelbe Punkt in der Mitte angezeigt. Die von Ihnen gespendeten Chats sind die weißen Punkte um sie herum. Je mehr Wörter Sie in einem Chat geschrieben haben, desto näher bei Ihnen (gelber Punkt) ist der entsprechende weiße Punkt. Im Zeitschieber unten können Sie den Monat und das Jahr, für welche aktuell die Daten angezeigt werden, sehen und selbst auswählen. Die kleineren helleren weißen Punkte zeigen die Aktivität in den jeweiligen Chats in anderen Monaten. Klicken Sie <a style="font-weight:bold" href="#polarPlotExplanation" data-toggle="modal" data-target="#polarPlotExplanation">HIER</a>, um eine Erklärung mit einem Beispiel zu sehen. <br> <br><i>Benutzungshinweis: Drücken Sie <b style="font-weight:bold">Doppelklick</b>, um die Ansicht zurückzusetzen.</i>
+feedback.graph.animatedPolarPlot.description=In dieser Visualisierung werden Sie als der gelbe Punkt in der Mitte angezeigt. Die von Ihnen gespendeten Chats sind die weißen Punkte um Sie herum. Je mehr Wörter in einem Chat geschrieben haben, desto näher bei Ihnen (gelber Punkt) ist der entsprechende weiße Punkt. Im Zeitschieber unten können den Monat und das Jahr, für welche aktuell die Daten angezeigt werden, sehen und selbst auswählen. Die kleineren helleren weißen Punkte zeigen die Aktivität in den jeweiligen Chats in anderen Monaten. Klicken Sie <a style="font-weight:bold" href="#polarPlotExplanation" data-toggle="modal" data-target="#polarPlotExplanation">HIER</a>, um eine Erklärung mit einem Beispiel zu sehen. <br> <br><i>Benutzungshinweis: Drücken Sie <b style="font-weight:bold">Doppelklick</b>, um die Ansicht zurückzusetzen.</i>
 feedback.graph.animatedPolarPlot.legend.donor=Sie
 feedback.graph.animatedPolarPlot.legend.others=Chat Intensität
 feedback.graph.animatedPolarPlot.example.image=images/feedback_example_polarPlot_german.svg
@@ -203,36 +226,37 @@ feedback.graph.animatedHorizontalBarChart.xAxis=Anzahl gesendeter Wörter
 feedback.graph.animatedHorizontalBarChart.example.image=images/feedback_example_horizontalBarChart_german.svg
 feedback.graph.animatedHorizontalBarChart.example.text=<p><b>(1)</b> In diesem Beispiel gab es über den gesamten Zeitraum in diesem Chat mit F9, F10 insgesamt am meisten gesendete Wörter: knapp über 140 Tausend.</p><p><b>(2)</b> Im Kontrast zu (1) gab es in diesem Beispielchat am wenigsten gesendete Wörter.</p><p><b>(3)</b> Hier wird das Jahr und der Monat angezeigt. Pro Monat können Sie beobachten, wie viele Wörter gesendet wurden. Probieren Sie den Zeitschieber aus! </p><p><b>(4)</b> Klicken Sie auf dieses Symbol, um den Graphen herunterzuladen.</p>
 
-# animatedHorizontalBarChart overall
-feedback.graph.animatedHorizontalBarChartOverall.description=Dieser Graph zeigt die Gesamtanzahl Ihrer erhaltenen und gesendeten Wörter über alle Ihre gespendeten Chats hinweg pro Monat. Im Zeitschieber unten können Sie den Monat und das Jahr sehen und selbst auswählen.
-feedback.graph.animatedHorizontalBarChartOverall.legend.sent=Gesendete Wörter
-feedback.graph.animatedHorizontalBarChartOverall.legend.received=Erhaltene Wörter
-feedback.graph.animatedHorizontalBarChartOverall.xAxis=Anzahl Wörter
-feedback.graph.animatedHorizontalBarChartOverall.yAxis.sent=Gesendet
-feedback.graph.animatedHorizontalBarChartOverall.yAxis.received=Erhalten
+# horizontalBarChart overall
+feedback.graph.horizontalBarChartOverall.description=Dieser Graph zeigt die Gesamtanzahl Ihrer erhaltenen und gesendeten Wörter über alle Ihre gespendeten Chats hinweg.
+feedback.graph.horizontalBarChartOverall.legend.sent=Gesendete Wörter
+feedback.graph.horizontalBarChartOverall.legend.received=Erhaltene Wörter
+feedback.graph.horizontalBarChartOverall.xAxis=Anzahl Wörter
+feedback.graph.horizontalBarChartOverall.yAxis.sent=Gesendet
+feedback.graph.horizontalBarChartOverall.yAxis.received=Erhalten
 
 # slidingWindowMean of sent and received words plot
-feedback.graph.slidingWindowMean.description=Hier können Sie pro Tag Ihre durchschnittliche gesendete und empfangene Wörteranzahl sehen (Genauer gesagt, berechnen wir einen “gleitende Mittelwert” mit einer Fenstergröße von 30 Tagen). Oben links können Sie auch Ihre einzelnen Chats auswählen, um den Graphen für Ihre gesendeten Wörter für den ausgewählten Chat zu sehen.
+feedback.graph.slidingWindowMean.description=Hier können Sie pro Tag Ihre durchschnittliche gesendete und empfangene Wörteranzahl sehen (Genauer gesagt, berechnen wir einen “gleitenden Mittelwert” mit einer Fenstergröße von 30 Tagen). Oben links können Sie auch Ihre einzelnen Chats auswählen, um den Graphen für Ihre gesendeten Wörter für den ausgewählten Chat zu sehen. <br><br> <i> Falls es in der Gesamtübersicht für einen oder mehrere Tage keinen Wert für die <u>erhaltenen Wörter</u> gibt, dann wurde dieser aus Datenschutzgründen ausgeblendet. Es werden nur aggregierte Informationen aus denen sich keine direkten Rückschlüsse auf einzelne Kontakte ziehen lassen angezeigt.</i> <br> <br><i>Benutzungshinweis: Drücken Sie <b style="font-weight:bold">Doppelklick</b>, um die Ansicht zurückzusetzen.</i>
 feedback.graph.slidingWindowMean.legend.sent=Gesendete Wörter
 feedback.graph.slidingWindowMean.legend.received=Erhaltene Wörter
+feedback.graph.slidingWindowMean.legend.receivedNotShown=Datenschutz: Erhaltene Wörter werden nicht angezeigt
 feedback.graph.slidingWindowMean.yAxis=Durchschnittliche Anzahl Wörter
 feedback.graph.slidingWindowMean.example.image=images/feedback_example_slidingWindowMean_german.svg
 feedback.graph.slidingWindowMean.example.text=<p class="text-left"><b>(1)</b> In diesem Beispiel lässt sich hier ein deutlicher Zuwachs gesendeter und empfangener Wörter beobachten. Dabei waren zu dieser Zeit die gesendeten Wörter mehr als die empfangenen Wörter.</p><p class="text-left"><b>(2)</b> Hier ist ein noch größerer Zuwachs von gesendeten und empfangenen Wörtern zu sehen. In diesem Zeitraum wurden insgesamt über alle Chats verteilt, mehr Wörter empfangen als gesendet.</p>
 
 # dailySentReceivedWords plot
-feedback.graph.dailySentReceived.description=Dieser Graph zeigt die exakte Wörteranzahl Ihrer gesendeten und empfangenen Nachrichten pro Tag.
+feedback.graph.dailySentReceived.description=Dieser Graph zeigt die exakte Wörteranzahl Ihrer gesendeten und empfangenen Nachrichten pro Tag. <br> <br><i>Benutzungshinweis: Drücken Sie <b style="font-weight:bold">Doppelklick</b>, um die Ansicht zurückzusetzen.</i>
 feedback.graph.dailySentReceived.legend.sent=Gesendete Wörter
 feedback.graph.dailySentReceived.legend.received=Erhaltene Wörter
 feedback.graph.dailySentReceived.yAxis=Anzahl Wörter
 
 # monthlySentReceivedWords plot
-feedback.graph.monthlySentReceived.description=Hier wird die Anzahl Ihrer gesendeten und empfangenen Nachrichten pro Monat angezeigt. Beachten Sie den Unterschied zwischen den hier gezeigten Anzahlen von Nachrichten und den oben gezeigten Anzahlen von Wörtern.
+feedback.graph.monthlySentReceived.description=Hier wird die Anzahl Ihrer gesendeten und empfangenen Nachrichten pro Monat angezeigt. Beachten Sie den Unterschied zwischen den hier gezeigten Anzahlen von Nachrichten und den oben gezeigten Anzahlen von Wörtern. <br> <br><i>Benutzungshinweis: Drücken Sie <b style="font-weight:bold">Doppelklick</b>, um die Ansicht zurückzusetzen.</i>
 feedback.graph.monthlySentReceived.legend.sent=Gesendete Wörter
 feedback.graph.monthlySentReceived.legend.received=Erhaltene Wörter
 feedback.graph.monthlySentReceived.yAxis=Anzahl Nachrichten
 
 # dailyActivityTimes plot
-feedback.graph.dailyActivityHoursPlot.description=In diesem Diagramm können Sie sehen, zu welchen Stunden des Tages Sie während der gesamten Zeitspanne der von Ihnen gespendeten Daten aktiv waren. Wenn Sie in einer Stunde mehr Wörter als üblicherweise gesendet haben, hat diese Stunde (Viereck im Diagramm) eine dunklere Farbe. Wenn die Farbe heller ist, dann haben Sie weniger Wörter als üblicherweise gesendet. Wenn Sie sich einen bestimmten Zeitraum genauer ansehen möchten, können Sie hineinzoomen, indem Sie auf das Diagramm klicken und halten, während Sie die Maus nach links oder rechts bewegen, um das Zeitfenster zu erzeugen, in das Sie hineinzoomen möchten. Klicken Sie <a style="font-weight:bold" href="#dailyActivityHoursPlotExplanation" data-toggle="modal" data-target="#dailyActivityHoursPlotExplanation">HIER</a>, um eine Erklärung mit einem Beispiel zu sehen.
+feedback.graph.dailyActivityHoursPlot.description=In diesem Diagramm können Sie sehen, zu welchen Stunden des Tages Sie während der gesamten Zeitspanne der von Ihnen gespendeten Daten aktiv waren. Wenn Sie in einer Stunde mehr Wörter als üblicherweise gesendet haben, hat diese Stunde (Viereck im Diagramm) eine dunklere Farbe. Wenn die Farbe heller ist, dann haben Sie weniger Wörter als üblicherweise gesendet. Wenn Sie sich einen bestimmten Zeitraum genauer ansehen möchten, können Sie hineinzoomen, indem Sie auf das Diagramm klicken und halten, während Sie die Maus nach links oder rechts bewegen, um das Zeitfenster zu erzeugen, in das Sie hineinzoomen möchten. Klicken Sie <a style="font-weight:bold" href="#dailyActivityHoursPlotExplanation" data-toggle="modal" data-target="#dailyActivityHoursPlotExplanation">HIER</a>, um eine Erklärung mit einem Beispiel zu sehen. <br> <br><i>Benutzungshinweis: Drücken Sie <b style="font-weight:bold">Doppelklick</b>, um die Ansicht zurückzusetzen.</i>
 feedback.graph.dailyActivityHoursPlot.yAxis=Uhrzeit
 feedback.graph.dailyActivityHoursPlot.moreThanAverage=Mehr als Ihr Durchschnitt
 feedback.graph.dailyActivityHoursPlot.average=Ihr Durchschnitt
@@ -241,7 +265,7 @@ feedback.graph.dailyActivityHoursPlot.example.image=images/feedback_example_dail
 feedback.graph.dailyActivityHoursPlot.example.text=<p><b>(1)</b> In diesem Beispiel lässt sich in diesem Bereich eine Veränderung der Aktivitätszeiten beobachten. In dem Zeitraum bei <b>(2)</b> kann man sehen, dass keine Nachrichten ungefähr zwischen 8:00 Uhr und 12:00 Uhr gesendet wurden. Dann in dem Zeitraum bei <b>(3)</b> hat sich dieser Bereich ohne Nachrichten zu den Uhrzeiten ungefähr zwischen 2:00 Uhr und 6:00 Uhr verschoben. Das könnte zum Beispiel an einem Umzug in eine andere Zeitzone oder an einer Veränderung des Schlafrhythmus liegen.</p><p><b>(4)</b> Zum Beispiel hier lassen sich vermehrt dunkle Vierecke beobachten. In diesem Bereich wurden also überdurchschnittlich viele Nachrichten gesendet.</p><p><b>(5)</b> Klicken Sie auf dieses Symbol, um den Graphen herunterzuladen.</p>
 
 # dayPartsPlot overall
-feedback.graph.dayPartsOverall.description=In diesem Graphen können Sie sehen, wie sich die Wörter, die sie gesendet und empfangen haben auf verschiedene Teile des Tages verteilen. Sie sehen hier gemittelte Werte über den gesamten Zeitraum Ihrer Datenspende.
+feedback.graph.dayPartsOverall.description=In diesem Graphen können Sie sehen, wie sich die Wörter, die Sie gesendet und empfangen haben auf verschiedene Teile des Tages verteilen. Sie sehen hier gemittelte Werte über den gesamten Zeitraum Ihrer Datenspende.
 feedback.graph.dayPartsOverall.legend.sent=Gesendete Wörter
 feedback.graph.dayPartsOverall.legend.received=Erhaltene Wörter
 feedback.graph.dayPartsOverall.yAxis=Prozentualer Anteil aller Wörter
@@ -251,30 +275,30 @@ feedback.graph.dayPartsOverall.example.text=<p class="text-left"><b>(1)</b> In d
 
 
 # animatedDayPartsPlot monthly
-feedback.graph.dayPartsMonthly.description=Im Gegensatz zu dem Graphen oben, können Sie in diesem Graphen <u>pro Monat</u> sehen, wie sich die Wörter, die sie gesendet und empfangen haben auf verschiedene Teile des Tages verteilen.
+feedback.graph.dayPartsMonthly.description=Im Gegensatz zu dem Graphen oben, können Sie in diesem Graphen <u>pro Monat</u> sehen, wie sich die Wörter, die Sie gesendet haben auf verschiedene Teile des Tages verteilen.
 feedback.graph.dayPartsMonthly.legend.sent=Gesendete Wörter
 feedback.graph.dayPartsMonthly.legend.received=Erhaltene Wörter
 feedback.graph.dayPartsMonthly.yAxis=Prozentualer Anteil aller Wörter
 feedback.graph.dayPartsMonthly.xAxis=Vier Teile des Tages
 
 # responseTimeBarChart overall
-feedback.graph.responseTimeBarChart.description=Hier können Sie sehen, wie schnell Sie Ihren Freunden antworten und umgekehrt. Sie sehen jeweils wie groß der Anteil aller Ihrer Antworten und der Antworten Ihrer Freunde ist, die in der angegebenen Zeit erfolgt sind. Antworten sind Nachrichten, die direkt nach einer Nachricht von jemand anderem gesendet wurden. Sie können sehen, wie viel Prozent Ihrer Antworten Sie schneller als nach 1 Minute, nach 1–2 Minuten, 3–5 Minuten, 6–15 Minuten, 16–30 Minuten, 31–60 Minuten und langsamer als 60 Minuten gesendet bzw. empfangen haben. Der Balken für > 60 Minuten beinhaltet auch längere Gesprächspausen. Klicken Sie <a style="font-weight:bold" href="#responseTimeBarChartExplanation" data-toggle="modal" data-target="#responseTimeBarChartExplanation">HIER</a>, um eine Erklärung mit einem Beispiel zu sehen.
-feedback.graph.responseTimeBarChart.legend.donor=Ihre Reaktionszeiten
-feedback.graph.responseTimeBarChart.legend.friends=Reaktionszeiten Ihrer Freunde
+feedback.graph.responseTimeBarChart.description=Hier können Sie sehen, wie schnell Sie Ihren Kontakten antworten und umgekehrt. Sie sehen jeweils wie groß der Anteil aller Ihrer Antworten und der Antworten Ihrer Kontakte ist, die in der angegebenen Zeit erfolgt sind. Antworten sind Nachrichten, die direkt nach einer Nachricht von jemand anderem gesendet wurden. Sie können sehen, wie viel Prozent Ihrer Antworten Sie schneller als nach 1 Minute, nach 1–2 Minuten, 3–5 Minuten, 6–15 Minuten, 16–30 Minuten, 31–60 Minuten und langsamer als 60 Minuten gesendet bzw. empfangen haben. Der Balken für > 60 Minuten beinhaltet auch längere Gesprächspausen. Klicken Sie <a style="font-weight:bold" href="#responseTimeBarChartExplanation" data-toggle="modal" data-target="#responseTimeBarChartExplanation">HIER</a>, um eine Erklärung mit einem Beispiel zu sehen.
+feedback.graph.responseTimeBarChart.legend.donor=Ihre Antwortzeiten
+feedback.graph.responseTimeBarChart.legend.friends=Antwortzeiten Ihrer Kontakte
 feedback.graph.responseTimeBarChart.yAxis=Prozentualer Anteil aller Antwortnachrichten
 feedback.graph.responseTimeBarChart.xAxis=Dauer der Antwort
 feedback.graph.responseTimeBarChart.example.image=images/feedback_example_responseTimeBarChart_german.svg
 feedback.graph.responseTimeBarChart.example.text=<p><b>(1)</b> In diesem Beispiel können Sie sehen, dass mehr als 40% aller Antworten in unter einer Minute gesendet und empfangen wurden. Knapp unter 30% aller Antworten wurden in 1-2 Minuten gesendet und knapp 30% aller Antworten in 1-2 Minuten empfangen. Also wurden insgesamt rund 70 % aller gesendeten Antworten in weniger als zwei Minuten versendet und rund 70 % aller eingegangenen Antworten gingen in weniger als zwei Minuten ein.<p><b>(2)</b> Klicken Sie auf dieses Symbol, um den Graphen herunterzuladen.</p>
 
 # responseTimeBarChart monthly
-feedback.graph.responseTimeBarChartMonthly.description=Hier sehen Sie <u>pro Monat</u> Ihre und die Antwortzeiten Ihrer Freunde. Die Grafik zeigt den Prozentsatz aller Antworten (d.h. eine Nachricht, die Sie nach einer Nachricht von einem Freund gesendet haben oder umgekehrt), die in der angegebenen Zeit erfolgt sind. Sie können sehen, wie viel Prozent Ihrer Antworten Sie schneller als nach 1 Minute, nach 1–2 Minuten, 3–5 Minuten, 6–15 Minuten, 16–30 Minuten, 31–60 Minuten und langsamer als 60 Minuten gesendet haben. Der Balken für > 60 Minuten beinhaltet auch längere Gesprächspausen.
-feedback.graph.responseTimeBarChartMonthly.legend.donor=Ihre Reaktionszeiten
-feedback.graph.responseTimeBarChartMonthly.legend.friends=Reaktionszeiten Ihrer Freunde
+feedback.graph.responseTimeBarChartMonthly.description=Hier sehen Sie <u>pro Monat</u> Ihre Antwortzeiten. Die Grafik zeigt den Prozentsatz aller Antworten (d.h. eine Nachricht, die Sie nach einer Nachricht von einem Kontakt gesendet haben), die in der angegebenen Zeit erfolgt sind. Sie können sehen, wie viel Prozent Ihrer Antworten Sie schneller als nach 1 Minute, nach 1–2 Minuten, 3–5 Minuten, 6–15 Minuten, 16–30 Minuten, 31–60 Minuten und langsamer als 60 Minuten gesendet haben. Der Balken für > 60 Minuten beinhaltet auch längere Gesprächspausen.
+feedback.graph.responseTimeBarChartMonthly.legend.donor=Ihre Antwortzeiten
+feedback.graph.responseTimeBarChartMonthly.legend.friends=Antwortzeiten Ihrer Kontakte
 feedback.graph.responseTimeBarChartMonthly.yAxis=Prozentualer Anteil aller Antwortnachrichten
 feedback.graph.responseTimeBarChartMonthly.xAxis=Dauer der Antwort
 
 # breaksInConv plot
-feedback.graph.breaksInConv.description=Dieser Graph zeigt für den ausgewählten Chat pro Monat die längste zusammenhängende Zeitperiode in Tagen, in der keine Nachricht in diesem Chat geschrieben wurde. Klicken Sie <a style="font-weight:bold" href="#breaksInConvExplanationModal" data-dismiss="modal" data-toggle="modal" data-target="#breaksInConvExplanationModal">HIER</a>, um eine Erklärung mit einem Beispiel zu sehen.
+feedback.graph.breaksInConv.description=Dieser Graph zeigt für den ausgewählten Chat pro Monat die längste zusammenhängende Zeitperiode in Tagen, in der keine Nachricht in diesem Chat geschrieben wurde. Klicken Sie <a style="font-weight:bold" href="#breaksInConvExplanationModal" data-dismiss="modal" data-toggle="modal" data-target="#breaksInConvExplanationModal">HIER</a>, um eine Erklärung mit einem Beispiel zu sehen. <br> <br><i>Benutzungshinweis: Drücken Sie <b style="font-weight:bold">Doppelklick</b>, um die Ansicht zurückzusetzen.</i>
 feedback.graph.breaksInConv.yAxis=Längste Zeitperiode in Tagen ohne Nachricht
 feedback.graph.breaksInConv.days=Tag/e
 feedback.graph.breaksInConv.example.image=images/feedback_example_breaksInConv_german.svg
@@ -303,13 +327,15 @@ data-protection.participation.usage.body=Die Ergebnisse und Daten dieser Studie 
 # Text appearing on multiple pages
 
 footer.title=Sind Sie bereit?
+footer.projectNumber=Kennzeichen: 01IS20046
 
 browser-warning.text=Sie benutzen einen Browser, der nicht unterstützt wird. Es kann daher zu Fehlern beim Aussehen oder Funktion der Seite kommen. Bitte benutzen Sie die neueste Version von Chrome oder Firefox, um die Seite zu laden.
 
-data-storage.body1_html=<em>Datenspende: </em>Bei der Datenspende ihrer Social-Media-Daten erfassen wir ausschließlich Metadaten (e.g. Nachrichtenlänge, Nachrichtenzeitpunkt und Pseudonyme der Unterhaltungsteilnehmer) und keine Inhalte (e.g. Nachrichtentext oder Name der Unterhaltungsteilnehmer). Ihre Online-Interaktions-Daten warden bereits auf Ihrem Rechner anonymisiert. Wir sehen also niemals Ihre Nachrichten. Bevor wir Ihre anonymisierten Nachrichten speichern, können Sie diese begutachten. So können Sie sich davon überzeugen, dass diese ausreichend anonymisiert sind.
+data-storage.body1_html=<em>Datenspende: </em>Bei der Datenspende Ihrer Social-Media-Daten erfassen wir ausschließlich Metadaten (e.g. Nachrichtenlänge, Nachrichtenzeitpunkt und Pseudonyme der Unterhaltungsteilnehmer) und keine Inhalte (e.g. Nachrichtentext oder Name der Unterhaltungsteilnehmer). Ihre Online-Interaktions-Daten werden bereits auf Ihrem Rechner anonymisiert. Wir sehen also niemals Ihre Nachrichten. Bevor wir Ihre anonymisierten Nachrichten speichern, können Sie diese begutachten. So können Sie sich davon überzeugen, dass diese ausreichend anonymisiert sind.
+data-storage.body2_html=<em>Fragebögen: </em>Sie füllen zunächst Fragebögen zu Ihren demographischen Informationen, zu Ihrer Spende, sowie zu Ihrer momentanen Stimmung und zu Ihrem Messaging-Verhalten aus. Danach können Sie die Datenspende durchführen und erhalten Feedback. Anschließend füllen Sie weitere Fragebögen zu ähnlichen Themen aus, sowie zu der Benutzerfreundlichkeit des Feedbacks. Diese Erhebung findet ebenfalls komplett anonym auf der Plattform <a href="https://www.limesurvey.org/de/hilfe/faq/17-datenschutz-datensicherheit">LimeSurvey</a> statt.
 
 links.learn-more=Mehr Erfahren
-links.instructions=Daten Erhalten
+links.instructions=Start
 links.donation-info=Daten Spenden
 links.donate=Jetzt Teilnehmen
 links.data-protection=Datenschutz
@@ -323,7 +349,7 @@ actions.next=Vor
 
 # Data source specific text
 
-whatsapp.description_html=Hinweis: Die Chat-Exportfunktion wird nicht von allen WhatsApp-Versionen unterstützt! <strong>Bitte nutzen Sie die WhatsApp-App auf dem iPhone, um Daten zu spenden, da Export und Speichern der Daten unter Android und mit der Web-Version unter Umständen nicht funktionieren. Bitte überprüfen Sie, ob die Funktion in Ihrer App verfügbar ist.</strong> <br><br>Von Zeit zu Zeit besprechen die meisten Menschen wichtige Angelegenheiten mit anderen, und wir brauchen Menschen, auf deren Hilfe wir uns verlassen können. Das können Familienangehörige, Freunde oder Menschen sein, die Ihnen wirklich geholfen haben - was uns interessiert, sind diejenigen, mit denen Sie am ehesten über wirklich wichtige Angelegenheiten in Ihrem Leben sprechen. <br><br>Bitte wählen Sie <strong>5</strong> Chats mit Menschen aus, mit denen Sie wichtige Dinge in Ihrem Leben besprechen (auch Gruppenchats sind möglich). Bitte denken Sie daran, dass die Chats nur nacheinander heruntergeladen werden können. Eine Mehrfachauswahl von Chats wird derzeit nicht unterstützt.
+whatsapp.description_html=Hinweis: Die Chat-Exportfunktion wird nicht von allen WhatsApp-Versionen unterstützt! <strong>Das Exportieren und Speichern von WhatsApp-Daten funktioniert nicht mit der WhatsApp Web-Version. Außerdem kann es bei verschiedenen Android-Versionen sein, dass die Daten nicht lokal auf Ihrem Gerät gespeichert werden können (alternativ könnten Sie die Daten per E-Mail oder Ähnlichem an sich selber schicken und von der E-Mail aus speichern). Bitte überprüfen Sie, ob die Funktion in Ihrer App verfügbar ist.</strong> <br><br>Von Zeit zu Zeit besprechen die meisten Menschen wichtige Angelegenheiten mit anderen, und wir brauchen Menschen, auf deren Hilfe wir uns verlassen können. Das können Familienangehörige, Freunde oder Menschen sein, die Ihnen wirklich geholfen haben - was uns interessiert, sind diejenigen, mit denen Sie am ehesten über wirklich wichtige Angelegenheiten in Ihrem Leben sprechen. <br><br>Bitte wählen Sie <strong>5</strong> Chats mit Menschen aus, mit denen Sie wichtige Dinge in Ihrem Leben besprechen (auch Gruppenchats sind möglich). Bitte denken Sie daran, dass die Chats nur nacheinander heruntergeladen werden können. Eine Mehrfachauswahl von Chats wird derzeit nicht unterstützt.
 whatsapp.external-documentation_html=Die offizielle Dokumentation zum Herunterladen Ihrer Daten können Sie für <a href="https://faq.whatsapp.com/de/iphone/20888066#email" target="_blank">iOS</a> und <a href="https://faq.whatsapp.com/de/android/23756533" target="_blank">Android</a> hier finden.
 
 #Download and Donation procedure: whatsapp
@@ -331,7 +357,7 @@ whatsapp.donation-procedure.1=Öffnen Sie WhatsApp auf Ihrem Smartphone.
 whatsapp.donation-procedure.2=Überlegen Sie, welche fünf Chats für Sie besonders wichtig sind (z.B. Partner/in, beste/r Freund/in o.ä.).
 whatsapp.donation-procedure.3=Wählen Sie einen der Chats aus und öffnen Sie diesen.
 whatsapp.donation-procedure.4=Klicken Sie oben in der Mitte auf den Namen des Kontakts.
-whatsapp.donation-procedure.5=Scrollen Sie runter und klicken Sie auf „Chat exportieren“. Ein Fenster öffnet sich.
+whatsapp.donation-procedure.5=Scrollen Sie runter und klicken Sie auf „Chat exportieren“. Ein Fenster öffnet sich. Wählen Sie "OHNE MEDIEN".
 whatsapp.donation-procedure.6=Scrollen Sie runter und wählen Sie „In Dateien sichern“ aus anschließend "Auf meinem iPhone". Dann klicken Sie oben rechts auf "Sichern".
 whatsapp.donation-procedure.7=Wiederholen Sie die Schritte 3-7 für alle fünf Chats.
 whatsapp.instruction.gif = whatsapp_ger.mp4

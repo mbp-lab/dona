@@ -8,11 +8,15 @@ import models.api._
 import models.domain.DonationDataSourceType
 import models.domain.DonationDataSourceType.DonationDataSourceType
 
+import scala.collection.mutable.ListBuffer
+
 
 @Singleton
 class MessageAnalysisService @Inject()(config: FeedbackConfig) {
 
   private case class TimeFrame(year: Int, month: Month)
+  private case class TimeFrameInts(year: Int, month: Int)
+  private case class TimeFrameWithDaysInts(year: Int, month: Int, date: Int)
 
   //private case class FriendTimeFrame(friend: Option[String], year: Int, month: Month)
 
@@ -23,6 +27,8 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
   private case class TimeFrameWithDaysHourMinute(year: Int, month: Month, date: Int, hour: Int, minute: Int)
 
   private case class ConversationWordCountOverall(conversation: Conversation, wordCount: Int)
+
+  private case class dailySentReceivedWithConvId(dailySentReceived: DailySentReceivedPoint, convId: Int)
 
 
   /**
@@ -45,13 +51,13 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
         //val dailyMessageGraphData = produceDailyMessageGraphData(socialData.donorId, conversations)
         val dailyWordsGraphData = produceDailyWordsGraphData(socialData.donorId, conversations)
         val dailyWordsGraphDataPerConversation = conversations.map(conversation => produceDailyWordsGraphDataPerConversation(socialData.donorId, conversation))
+
         //val dailySentHourMinutesPerConversation = conversations.map(conversation => produceDailyHourMinutesPerConversation(socialData.donorId, conversation, true))
         //val dailyReceivedHourMinutesPerConversation = conversations.map(conversation => produceDailyHourMinutesPerConversation(socialData.donorId, conversation, false))
         //val dailySentHoursPerConversation = conversations.map(conversation => produceDailyHoursPerConversation(socialData.donorId, conversation, true))
         val dailyWordCountSentHoursPerConversation = conversations.map(conversation => produceWordCountDailyHoursPerConversation(socialData.donorId, conversation, sent = true))
         //val dailyReceivedHoursPerConversation = conversations.map(conversation => produceDailyHoursPerConversation(socialData.donorId, conversation, false))
         val dailyWordCountReceivedHoursPerConversation = conversations.map(conversation => produceWordCountDailyHoursPerConversation(socialData.donorId, conversation, sent = false))
-        val average = produceAverageNumberOfMessages(sentReceivedMessagesMonthly)
 
 
         val answerTimesPerConversation = conversations.map(conversation => produceAnswerTimesPerConv(socialData.donorId, conversation))
@@ -68,10 +74,24 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
         //val sentPerFriendInConversationPerMonth = conversations.map(c => produceMonthlySentPerFriendInConversation(socialData.donorId, c))
         val sentReceivedPerMonthPerConversation = conversations.map(c => produceSentReceivedWordsPerMonthPerConversation(socialData.donorId, c))
 
+        val average = produceBasicStatistics(sentReceivedMessagesMonthly, sentReceivedPerMonthPerConversation.flatten)
+
+        //find months with only one conv
+        val monthsOnlyOneConv = findMonthsWithOnlyOneConv(sentReceivedPerMonthPerConversation.flatten)
+
+        //println(produceSlidingWindowMean(dailyWordsGraphData))
+        val allDays = new ListBuffer[TimeFrameWithDaysInts]()
+        val allDaysList = produceAllDays(dailyWordsGraphData.head.epochSeconds * 1000, dailyWordsGraphData.last.epochSeconds * 1000, allDays).toList
+        //println(allDaysList)
+        //println(allSentReceivedCounts)
+        val slidingWindowMeanPerConv = dailyWordsGraphDataPerConversation.map(c => produceSlidingWindowMeanPerConv(c, allDaysList))
+
+
         (dataSourceType,
           GraphData(
             sentReceivedPerMonthPerConversation,
             dailyWordsGraphData,
+            slidingWindowMeanPerConv,
             dailyWordsGraphDataPerConversation,
             dailyWordCountSentHoursPerConversation,
             dailyWordCountReceivedHoursPerConversation,
@@ -99,6 +119,97 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
       .sortBy(_.wordCount)
       .takeRight(nToTake)
       .map(_.conversation)
+  }
+
+
+
+  /**
+   * find months with only one active conversation
+   *
+   * @param sentReceivedMonthly is a list of SentReceivedPoints per conversation so for each conversation per year-
+   *                            month combinations where there was activity
+   * @return all the year-month combinations with only one active conversation
+   */
+  private def findMonthsWithOnlyOneConv(sentReceivedMonthly: List[SentReceivedPoint]): List[TimeFrameInts] = {
+
+    sentReceivedMonthly
+      .map {
+      case SentReceivedPoint(year, month, sentCount, receivedCount) =>
+        TimeFrameInts(year, month)
+    }
+      .groupBy(_.copy())
+      .map {
+        case (key: TimeFrameInts, values: List[TimeFrameInts]) =>
+          (key, values.length)
+      }
+
+      .filter {
+        case (key: TimeFrameInts, value: Int) =>
+          value == 1
+      }
+      .map {
+        case (key: TimeFrameInts, value: Int) =>
+          key
+      }
+      .toList
+  }
+
+
+  private def produceAllDays(startDateMs: Long, endDateMs: Long, dates: ListBuffer[TimeFrameWithDaysInts]): ListBuffer[TimeFrameWithDaysInts] = {
+
+    val timestampStart = LocalDateTime.ofInstant(Instant.ofEpochMilli(startDateMs), ZoneOffset.UTC)
+    val timeFrameStart = TimeFrameWithDaysInts(timestampStart.getYear, timestampStart.getMonth.getValue, timestampStart.getDayOfMonth)
+    val timestampEnd = LocalDateTime.ofInstant(Instant.ofEpochMilli(endDateMs), ZoneOffset.UTC)
+    val timeFrameEnd = TimeFrameWithDaysInts(timestampEnd.getYear, timestampEnd.getMonth.getValue, timestampEnd.getDayOfMonth)
+    if (timeFrameStart == timeFrameEnd) {
+      return dates += timeFrameStart
+    } else {
+      dates += timeFrameStart
+      val nextDateMs = startDateMs + 8.64e+7.toLong
+      val timestampNext = LocalDateTime.ofInstant(Instant.ofEpochMilli(nextDateMs), ZoneOffset.UTC)
+      val timeFrameNext = TimeFrameWithDaysInts(timestampNext.getYear, timestampNext.getMonth.getValue, timestampNext.getDayOfMonth)
+      produceAllDays(nextDateMs, endDateMs, dates)
+    }
+  }
+
+  private def produceSlidingWindowMeanPerConv(allSentReceivedCounts: List[DailySentReceivedPoint], allDaysList: List[TimeFrameWithDaysInts]) : List[DailySentReceivedPoint] = {
+
+    var iterList = allSentReceivedCounts
+
+    val result = new ListBuffer[DailySentReceivedPoint]()
+
+    val allDailySentReceived = allDaysList.map {
+      case (TimeFrameWithDaysInts(year, month, date)) =>
+        if (iterList.isEmpty) {
+          DailySentReceivedPoint(year, month, date, 0, 0, LocalDateTime.of(year, month, date, 12, 30).toEpochSecond(ZoneOffset.UTC))
+        }
+        else if (iterList.head.year == year
+          && iterList.head.month == month
+        && iterList.head.date == date) {
+          val cur = iterList.head
+          // remove head
+          iterList = iterList.drop(1)
+          DailySentReceivedPoint(year, month, date, cur.sentCount, cur.receivedCount, cur.epochSeconds)
+        } else {
+          DailySentReceivedPoint(year, month, date, 0, 0, LocalDateTime.of(year, month, date, 12, 30).toEpochSecond(ZoneOffset.UTC))
+        }
+    }
+      .zipWithIndex
+
+
+    allDailySentReceived
+      .foreach{
+      case (DailySentReceivedPoint(year, month, date, sent, received, epochSeconds), index) => {
+        if (index >= 15 && index <= allDaysList.length) {
+          val meanSentWindow = allDailySentReceived.slice(index-15, index+15).map(x => x._1.sentCount).sum / 30
+          val meanReceivedWindow = allDailySentReceived.slice(index-15, index+15).map(x => x._1.receivedCount).sum / 30
+
+          result += DailySentReceivedPoint(year, month, date, meanSentWindow, meanReceivedWindow, epochSeconds)
+        }
+      }
+    }
+
+    result.toList
   }
 
 
@@ -540,21 +651,26 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
   /**
    *
    * @param points  the sentReceivedPoints -> year, month and sent and received count
-   * @return the AverageNumberOfMessage object
+   * @return the BasicStatistics object
    */
-  private def produceAverageNumberOfMessages(points: List[SentReceivedPoint]): AverageNumberOfMessages = {
-    val overallSentMessages = points.map(_.sentCount).sum
-    val overallReceivedMessages = points.map(_.receivedCount).sum
+  private def produceBasicStatistics(pointsMessages: List[SentReceivedPoint], pointsWords: List[SentReceivedPoint]): BasicStatistics = {
+    val overallSentMessages = pointsMessages.map(_.sentCount).sum
+    val overallReceivedMessages = pointsMessages.map(_.receivedCount).sum
 
-    val activeMonths = points.length
-    val activeYears = getNumberOfDistinctYears(points)
+    val overallSentWords = pointsWords.map(_.sentCount).sum
+    val overallReceivedWords = pointsWords.map(_.receivedCount).sum
+
+    val activeMonths = pointsMessages.length
+    val activeYears = getNumberOfDistinctYears(pointsMessages)
 
     val averageSentPerActiveMonth = overallSentMessages / activeMonths
     val averageReceivedPerActiveMonth = overallReceivedMessages / activeMonths
 
-    AverageNumberOfMessages(
-      sentTotal = overallSentMessages,
-      receivedTotal = overallReceivedMessages,
+    BasicStatistics(
+      sentMessagesTotal = overallSentMessages,
+      receivedMessagesTotal = overallReceivedMessages,
+      sentWordsTotal = overallSentWords,
+      receivedWordsTotal = overallReceivedWords,
       numberOfActiveMonths = activeMonths,
       numberOfActiveYears = activeYears,
       sentPerActiveMonth = averageSentPerActiveMonth,

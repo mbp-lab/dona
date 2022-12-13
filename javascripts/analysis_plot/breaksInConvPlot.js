@@ -7,6 +7,7 @@ function breaksInConvPlot(wordsPerConv, listOfConversations, plotId) {
     plotContainer.removeClass('d-none');
     const yAxis = plotContainer.attr("data-y-axis");
     const days = plotContainer.attr("data-days-name");
+    const resetView = plotContainer.attr("data-reset-view");
 
     let config = {
         responsive: true,
@@ -47,11 +48,30 @@ function breaksInConvPlot(wordsPerConv, listOfConversations, plotId) {
                 active: 0,
                 buttons: [],
                 pad: {'r': 10, 't': 10},
-                x: -0.1,
+                x: 0,
                 xanchor: 'left',
                 y: 1.4,
                 yanchor: 'top'
-            }
+            },
+            {
+                x: 1,
+                y: 1.25,
+                direction: 'left',
+                type: 'buttons',
+                showactive: false,
+                pad: {t: 0, r: 10},
+                buttons: [
+                    {
+                        method: "relayout",
+                        args: [
+                            {
+                                'xaxis.autorange': true,
+                            }
+                        ],
+                        label: resetView
+                    }
+                ]
+            },
         ]
 
 

@@ -155,21 +155,16 @@
 /* donation info */
 
 .donation-info-image {
-    width: 350px;
-    margin-top: 40px;
+    max-width: 100%;
+    margin-top: 10px;
 }
 
-/* learn more */
-
-.anonymizationExampleImage {
-    width: 700px;
-}
 
 /* footer */
 
 .footer-container {
   font-family: PT Sans;
-    min-height: 100px;
+    min-height: 120px;
 }
 
 .footer-forward-button {
@@ -195,7 +190,6 @@
     font-size: 24px;
     width: 213px;
     padding: 10px 20px;
-    margin-left: 2em;
     border-radius: 16px;
     color: white !important;
     background: #888;
@@ -321,6 +315,19 @@
 
 /* donation page */
 
+.donate-collapse-button {
+    font-weight: 800;
+    font-size: 24px;
+    min-width: 213px;
+    width: 100%;
+    padding: 10px 20px 10px 20px;
+    /*margin-left: 2em;*/
+    border-radius: 16px;
+    background: #35b1a6;
+    color: white !important;
+    text-decoration: none;
+}
+
 .donation-page-body {
     width: 940px;
 }
@@ -330,11 +337,11 @@
 }
 
 
-#donationprogress .progress {
+.donationprogress .progress {
     height: 25px;
 }
 
-#donationprogress .progress-bar {
+.donationprogress .progress-bar {
     background-color: #36b3a8
 }
 
@@ -428,11 +435,11 @@
 }
 
 
-#carousel-deidentified-preview .carousel-control-prev-icon {
+.carousel-deidentified-preview .carousel-control-prev-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23666' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
 }
 
-#carousel-deidentified-preview .carousel-control-next-icon {
+.carousel-deidentified-preview .carousel-control-next-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23666' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
 }
 
