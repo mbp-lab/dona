@@ -20,9 +20,9 @@ landing.why.col3.body_html=When uploading your data, we will only process <stron
 
 landing.contact.body_html=The purpose of this website is to inform you about the background and process of this online study. If any questions or concerns arise during the process, please write to the principal investigator (Hanna Drimalla, AG Multimodal Behavior Processing, Technische Fakultät, Universität Bielefeld, <a href="mailto:drimalla@techfak.uni-bielefeld.de">drimalla@techfak.uni-bielefeld.de</a>, Tel. +49 521 106-12043)
 
-landing.imagePath.donationProcedure1 = images/landingDonationProcedure_1_English.svg
-landing.imagePath.donationProcedure2 = images/landingDonationProcedure_2_English.svg
-landing.imagePath.donationProcedure3 = images/landingDonationProcedure_3_English.svg
+landing.imagePath.donationProcedure1 = images/landingDonationProcedure_1_English.png
+landing.imagePath.donationProcedure2 = images/landingDonationProcedure_2_English.png
+landing.imagePath.donationProcedure3 = images/landingDonationProcedure_3_English.png
 
 # Learn More page
 
@@ -34,7 +34,7 @@ learn-more.how-to-cancel.body=First things first: participation is entirely volu
 
 learn-more.data-storage.title=What data will be used?
 
-learn-more.imagePath=images/dataAnonymizationExample-English.svg
+learn-more.imagePath=images/dataAnonymizationExample-English.png
 
 # data storage text body is reused, see below
 

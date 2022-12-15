@@ -19,9 +19,9 @@ landing.why.col3.body_html=Bei der Datenspende Ihrer Social-Media-Daten erfassen
 
 landing.contact.body_html=Auf dieser Webseite erläutern wir Ihnen den Hintergrund und Ablauf der Online-Studie damit Sie entscheiden können, ob Sie teilnehmen möchten. Sollten Sie noch Fragen haben, so wenden Sie sich bitte an die Versuchsleiterin (Hanna Drimalla, AG Multimodal Behavior Processing, Technische Fakultät, Universität Bielefeld, <a href="mailto:drimalla@techfak.uni-bielefeld.de">drimalla@techfak.uni-bielefeld.de</a>, Tel. +49 521 106-12043).
 
-landing.imagePath.donationProcedure1 = images/landingDonationProcedure_1_German.svg
-landing.imagePath.donationProcedure2 = images/landingDonationProcedure_2_German.svg
-landing.imagePath.donationProcedure3 = images/landingDonationProcedure_3_German.svg
+landing.imagePath.donationProcedure1 = images/landingDonationProcedure_1_German.png
+landing.imagePath.donationProcedure2 = images/landingDonationProcedure_2_German.png
+landing.imagePath.donationProcedure3 = images/landingDonationProcedure_3_German.png
 
 # Learn More page
 
@@ -33,7 +33,7 @@ learn-more.how-to-cancel.body=Die Teilnahme an der Online-Studie ist freiwillig.
 
 learn-more.data-storage.title=Welche Daten werden gespeichert?
 
-learn-more.imagePath=images/dataAnonymizationExample-German.svg
+learn-more.imagePath=images/dataAnonymizationExample-German.png
 
 # data storage text body is reused, see below
 
