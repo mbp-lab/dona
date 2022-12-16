@@ -53,6 +53,10 @@
     font-family: PT Sans;
 }
 
+.modalMaxWidth {
+    max-width: 1140px;
+}
+
 @media (min-width: 1294px) {
     #header-hpi-logo {
         order: 1

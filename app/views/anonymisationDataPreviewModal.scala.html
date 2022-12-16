@@ -1,7 +1,7 @@
 @import models.domain.DataSourceDescription
 @(dataSourceDescription: DataSourceDescription)(implicit request: RequestHeader, messages: Messages)
 
-<div class="modal-dialog modal-xl" style="max-width: 1140px">
+<div class="modal-dialog modal-xl modalMaxWidth">
     <div class="modal-content">
         <div class="modal-header bgmain">
             <h3 class="data-protection-headline">@Html(messages("donation.preview-data.title"))</h3>
