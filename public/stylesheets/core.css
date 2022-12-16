@@ -1,11 +1,21 @@
 /* main */
 
-
 .bgImage {
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
+    background-image: url("/assets/images/background3_4.jpg");
+}
+
+@media only screen and (min-device-width: 400px) {
+    .bgImage {
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: url("/assets/images/background.jpg");
+    }
 }
 
 .main-container {
