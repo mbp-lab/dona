@@ -167,7 +167,7 @@ feedback.importantMessage.disclaimer=The graphs and visualizations displayed <b>
 
 feedback.reminder=You can continue to explore this page and take as much time as you like. Please do not forget to fill out the last questionnaire of the study afterward. Thanks!
 
-feedback.graph.title=Insights through your %s messages
+feedback.graph.title=Feedback on your %s Messages
 feedback.graph.total-messages=Total messages
 feedback.graph.average-per-active-month=Average messages per active month
 feedback.graph.active-years-explanation_format= In total, there are %s years in which you participated in conversation (i.e. you sent or received at least one message during the year)
@@ -188,20 +188,20 @@ feedback.graph.you=You
 feedback.graph.friends=Contacts
 
 # plots main page titles
-feedback.title.statisticsCard=Overview of all activity
+feedback.title.statisticsCard=Overview of all Activity
 feedback.title.interactionIntensity=Interaction Intensity
 feedback.title.dailyActivityTimes=Daily Activity Times
 feedback.title.responseTimes=Response Times
-feedback.title.pleaseContinue=We hope you had exciting insights. Please continue to the next and final questionnaire of the study. Thanks a lot!
+feedback.title.pleaseContinue=We hope you had exciting insights.<br> Please continue to the next and final questionnaire of the study. Thanks a lot!
 
 feedback.facebook.info=The potentially high number of facebook contacts could lead to a cluttered visualization. Therefore, in the following, only visualizations for your 7 (or less) Facebook chats with the most words are shown.
 
 feedback.nextButton=Next
 
 # plots more about titles
-feedback.moreAbout.interactionIntensity.title=More about <u>your</u> Interaction Intensity
-feedback.moreAbout.dailyActivityTimes.title=More about <u>your</u> Daily Activity Times
-feedback.moreAbout.responseTimes.title=More about <u>your</u> Response Times
+feedback.moreAbout.interactionIntensity.title=More about your Interaction Intensity
+feedback.moreAbout.dailyActivityTimes.title=More about your Daily Activity Times
+feedback.moreAbout.responseTimes.title=More about your Response Times
 
 # plot descriptions
 feedback.graph.yearMonth=Year-Month:
