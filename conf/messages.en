@@ -214,7 +214,7 @@ feedback.graph.example.title=This is an <b>example</b> created from example data
 
 # polar plot
 feedback.graph.animatedPolarPlot.title=Planet representation
-feedback.graph.animatedPolarPlot.description=This visualization displays you as the yellow dot in the middle. The chats you donated are the white dots around you. The closer a dot is to you, the more words you have written in this chat. In the time-slider below you can see and select the month and year for which the data is shown. The smaller lighter white dots show the activity in the respective chats in other months. Click <a style="font-weight:bold" href="#polarPlotExplanation" data-toggle="modal" data-target="#polarPlotExplanation">HERE</a> to see an explanation with an example. <br> <br><i>Usage instructions: Press <b style="font-weight:bold">double click</b> to reset the view.</i>
+feedback.graph.animatedPolarPlot.description=This visualization displays you as the yellow dot in the middle. The chats you donated are the white dots around you. The closer a dot is to you, the more words you have written in this chat. In the time-slider below you can see and select the month and year for which the data is shown. The smaller lighter white dots show the activity in the respective chats in other months. Click <a style="font-weight:bold" href="#polarPlotExplanation" data-toggle="modal" data-target="#polarPlotExplanation">HERE</a> to see an explanation with an example.
 feedback.graph.animatedPolarPlot.legend.donor=You
 feedback.graph.animatedPolarPlot.legend.others=Chat Intensity
 feedback.graph.animatedPolarPlot.example.image=images/feedback_example_polarPlot_english.svg
@@ -238,7 +238,7 @@ feedback.graph.horizontalBarChartOverall.yAxis.sent=Sent
 feedback.graph.horizontalBarChartOverall.yAxis.received=Received
 
 # slidingWindowMean of sent and received words plot
-feedback.graph.slidingWindowMean.description=Here you can see the average number of your sent and received words per day (more precisely, we calculate a so-called sliding window average with a window size of 30 days). At the top left you can also select your individual chats to see the graph of your sent words for the selected chat.<br><br> <i> If there is no value for the <u>received words</u> in the overview for one or more days, then it has been hidden due to data protection reasons. Only aggregated information from which no direct conclusions can be drawn about your individual contacts is displayed.</i><br> <br><i>Usage instructions: Press <b style="font-weight:bold">double click</b> to reset the view.</i>
+feedback.graph.slidingWindowMean.description=Here you can see the average number of your sent and received words per day (more precisely, we calculate a so-called sliding window average with a window size of 30 days). At the top left you can also select your individual chats to see the graph of your sent words for the selected chat.<br><br> <i> If there is no value for the <u>received words</u> in the overview for one or more days, then it has been hidden due to data protection reasons. Only aggregated information from which no direct conclusions can be drawn about your individual contacts is displayed.</i>
 feedback.graph.slidingWindowMean.legend.sent=Sent words
 feedback.graph.slidingWindowMean.legend.received=Received words
 feedback.graph.slidingWindowMean.legend.receivedNotShown=Privacy: Received words are not displayed
@@ -247,19 +247,19 @@ feedback.graph.slidingWindowMean.example.image=images/feedback_example_slidingWi
 feedback.graph.slidingWindowMean.example.text=<p class="text-left"><b>(1)</b> In this example, a significant increase in the number of sent and received words can be observed. In this period the sent words were more than the received words. </p><p class="text-left"><b>(2)</b> Here you can see an even bigger increase in sent and received words. But in that period, across all chats, more words were received.</p>
 
 # dailySentReceivedWords plot
-feedback.graph.dailySentReceived.description=This graph shows the exact word count of your sent and received messages per day. <br> <br><i>Usage instructions: Press <b style="font-weight:bold">double click</b> to reset the view.</i>
+feedback.graph.dailySentReceived.description=This graph shows the exact word count of your sent and received messages per day.
 feedback.graph.dailySentReceived.legend.sent=Sent words
 feedback.graph.dailySentReceived.legend.received=Received words
 feedback.graph.dailySentReceived.yAxis=Number of words
 
 # monthlySentReceivedWords plot
-feedback.graph.monthlySentReceived.description=This graph shows the exact word count of your sent and received messages per day. At the top left you can also select your individual chats to see the graph of your sent words for the selected chat. <br> <br><i>Usage instructions: Press <b style="font-weight:bold">double click</b> to reset the view.</i>
+feedback.graph.monthlySentReceived.description=This graph shows the exact word count of your sent and received messages per day. At the top left you can also select your individual chats to see the graph of your sent words for the selected chat.
 feedback.graph.monthlySentReceived.legend.sent=Sent messages
 feedback.graph.monthlySentReceived.legend.received=Received messages
 feedback.graph.monthlySentReceived.yAxis=Number of messages
 
 # dailyActivityTimes plot
-feedback.graph.dailyActivityHoursPlot.description=In this plot, you can see in which hours of the day you were active for the whole time span of the data you donated. If an hour (square in the plot) has a darker color, you sent more words in that hour than in your average hour. If the color is lighter, then you sent fewer words than in the average case. If you want to look closer at a specific time span you can zoom in by clicking on the graph and holding while you move your mouse to the left or the right to produce the time window you want to zoom into. Click <a style="font-weight:bold" href="#dailyActivityHoursPlotExplanation" data-toggle="modal" data-target="#dailyActivityHoursPlotExplanation">HERE</a> to see an explanation with an example. <br> <br><i>Usage instructions: Press <b style="font-weight:bold">double click</b> to reset the view.</i>
+feedback.graph.dailyActivityHoursPlot.description=In this plot, you can see in which hours of the day you were active for the whole time span of the data you donated. If an hour (square in the plot) has a darker color, you sent more words in that hour than in your average hour. If the color is lighter, then you sent fewer words than in the average case. If you want to look closer at a specific time span you can zoom in by clicking on the graph and holding while you move your mouse to the left or the right to produce the time window you want to zoom into. Click <a style="font-weight:bold" href="#dailyActivityHoursPlotExplanation" data-toggle="modal" data-target="#dailyActivityHoursPlotExplanation">HERE</a> to see an explanation with an example.
 feedback.graph.dailyActivityHoursPlot.yAxis=Time
 feedback.graph.dailyActivityHoursPlot.moreThanAverage=More than your average
 feedback.graph.dailyActivityHoursPlot.average=Your average
@@ -300,7 +300,7 @@ feedback.graph.responseTimeBarChartMonthly.yAxis=Percentage of all responses
 feedback.graph.responseTimeBarChartMonthly.xAxis=Time until response
 
 # breaksInConv plot
-feedback.graph.breaksInConv.description=This graph shows for the selected chat per month the longest consecutive period in days, in which no message was written in this chat. Click <a style="font-weight:bold" href="#breaksInConvExplanationModal" data-dismiss="modal" data-toggle="modal" data-target="#breaksInConvExplanationModal">HERE</a> to see an explanation with an example. <br> <br><i>Usage instructions: Press <b style="font-weight:bold">double click</b> to reset the view.</i>
+feedback.graph.breaksInConv.description=This graph shows for the selected chat per month the longest consecutive period in days, in which no message was written in this chat. Click <a style="font-weight:bold" href="#breaksInConvExplanationModal" data-dismiss="modal" data-toggle="modal" data-target="#breaksInConvExplanationModal">HERE</a> to see an explanation with an example.
 feedback.graph.breaksInConv.yAxis=Longest period in days without a message
 feedback.graph.breaksInConv.days=Day/s
 feedback.graph.breaksInConv.example.image=images/feedback_example_breaksInConv_english.svg

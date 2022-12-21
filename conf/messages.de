@@ -213,7 +213,7 @@ feedback.graph.example.title=Dies ist ein <b>Beispiel</b> mit Beispieldaten - <u
 
 # polar plot
 feedback.graph.animatedPolarPlot.title=Planetendarstellung
-feedback.graph.animatedPolarPlot.description=In dieser Visualisierung werden Sie als der gelbe Punkt in der Mitte angezeigt. Die von Ihnen gespendeten Chats sind die weißen Punkte um Sie herum. Je mehr Wörter in einem Chat geschrieben haben, desto näher bei Ihnen (gelber Punkt) ist der entsprechende weiße Punkt. Im Zeitschieber unten können den Monat und das Jahr, für welche aktuell die Daten angezeigt werden, sehen und selbst auswählen. Die kleineren helleren weißen Punkte zeigen die Aktivität in den jeweiligen Chats in anderen Monaten. Klicken Sie <a style="font-weight:bold" href="#polarPlotExplanation" data-toggle="modal" data-target="#polarPlotExplanation">HIER</a>, um eine Erklärung mit einem Beispiel zu sehen. <br> <br><i>Benutzungshinweis: Drücken Sie <b style="font-weight:bold">Doppelklick</b>, um die Ansicht zurückzusetzen.</i>
+feedback.graph.animatedPolarPlot.description=In dieser Visualisierung werden Sie als der gelbe Punkt in der Mitte angezeigt. Die von Ihnen gespendeten Chats sind die weißen Punkte um Sie herum. Je mehr Wörter in einem Chat geschrieben haben, desto näher bei Ihnen (gelber Punkt) ist der entsprechende weiße Punkt. Im Zeitschieber unten können den Monat und das Jahr, für welche aktuell die Daten angezeigt werden, sehen und selbst auswählen. Die kleineren helleren weißen Punkte zeigen die Aktivität in den jeweiligen Chats in anderen Monaten. Klicken Sie <a style="font-weight:bold" href="#polarPlotExplanation" data-toggle="modal" data-target="#polarPlotExplanation">HIER</a>, um eine Erklärung mit einem Beispiel zu sehen.
 feedback.graph.animatedPolarPlot.legend.donor=Sie
 feedback.graph.animatedPolarPlot.legend.others=Chat Intensität
 feedback.graph.animatedPolarPlot.example.image=images/feedback_example_polarPlot_german.svg
@@ -236,7 +236,7 @@ feedback.graph.horizontalBarChartOverall.yAxis.sent=Gesendet
 feedback.graph.horizontalBarChartOverall.yAxis.received=Erhalten
 
 # slidingWindowMean of sent and received words plot
-feedback.graph.slidingWindowMean.description=Hier können Sie pro Tag Ihre durchschnittliche gesendete und empfangene Wörteranzahl sehen (Genauer gesagt, berechnen wir einen “gleitenden Mittelwert” mit einer Fenstergröße von 30 Tagen). Oben links können Sie auch Ihre einzelnen Chats auswählen, um den Graphen für Ihre gesendeten Wörter für den ausgewählten Chat zu sehen. <br><br> <i> Falls es in der Gesamtübersicht für einen oder mehrere Tage keinen Wert für die <u>erhaltenen Wörter</u> gibt, dann wurde dieser aus Datenschutzgründen ausgeblendet. Es werden nur aggregierte Informationen aus denen sich keine direkten Rückschlüsse auf einzelne Kontakte ziehen lassen angezeigt.</i> <br> <br><i>Benutzungshinweis: Drücken Sie <b style="font-weight:bold">Doppelklick</b>, um die Ansicht zurückzusetzen.</i>
+feedback.graph.slidingWindowMean.description=Hier können Sie pro Tag Ihre durchschnittliche gesendete und empfangene Wörteranzahl sehen (Genauer gesagt, berechnen wir einen “gleitenden Mittelwert” mit einer Fenstergröße von 30 Tagen). Oben links können Sie auch Ihre einzelnen Chats auswählen, um den Graphen für Ihre gesendeten Wörter für den ausgewählten Chat zu sehen. <br><br> <i> Falls es in der Gesamtübersicht für einen oder mehrere Tage keinen Wert für die <u>erhaltenen Wörter</u> gibt, dann wurde dieser aus Datenschutzgründen ausgeblendet. Es werden nur aggregierte Informationen aus denen sich keine direkten Rückschlüsse auf einzelne Kontakte ziehen lassen angezeigt.</i>
 feedback.graph.slidingWindowMean.legend.sent=Gesendete Wörter
 feedback.graph.slidingWindowMean.legend.received=Erhaltene Wörter
 feedback.graph.slidingWindowMean.legend.receivedNotShown=Datenschutz: Erhaltene Wörter werden nicht angezeigt
@@ -245,19 +245,19 @@ feedback.graph.slidingWindowMean.example.image=images/feedback_example_slidingWi
 feedback.graph.slidingWindowMean.example.text=<p class="text-left"><b>(1)</b> In diesem Beispiel lässt sich hier ein deutlicher Zuwachs gesendeter und empfangener Wörter beobachten. Dabei waren zu dieser Zeit die gesendeten Wörter mehr als die empfangenen Wörter.</p><p class="text-left"><b>(2)</b> Hier ist ein noch größerer Zuwachs von gesendeten und empfangenen Wörtern zu sehen. In diesem Zeitraum wurden insgesamt über alle Chats verteilt, mehr Wörter empfangen als gesendet.</p>
 
 # dailySentReceivedWords plot
-feedback.graph.dailySentReceived.description=Dieser Graph zeigt die exakte Wörteranzahl Ihrer gesendeten und empfangenen Nachrichten pro Tag. <br> <br><i>Benutzungshinweis: Drücken Sie <b style="font-weight:bold">Doppelklick</b>, um die Ansicht zurückzusetzen.</i>
+feedback.graph.dailySentReceived.description=Dieser Graph zeigt die exakte Wörteranzahl Ihrer gesendeten und empfangenen Nachrichten pro Tag.
 feedback.graph.dailySentReceived.legend.sent=Gesendete Wörter
 feedback.graph.dailySentReceived.legend.received=Erhaltene Wörter
 feedback.graph.dailySentReceived.yAxis=Anzahl Wörter
 
 # monthlySentReceivedWords plot
-feedback.graph.monthlySentReceived.description=Hier wird die Anzahl Ihrer gesendeten und empfangenen Nachrichten pro Monat angezeigt. Beachten Sie den Unterschied zwischen den hier gezeigten Anzahlen von Nachrichten und den oben gezeigten Anzahlen von Wörtern. <br> <br><i>Benutzungshinweis: Drücken Sie <b style="font-weight:bold">Doppelklick</b>, um die Ansicht zurückzusetzen.</i>
+feedback.graph.monthlySentReceived.description=Hier wird die Anzahl Ihrer gesendeten und empfangenen Nachrichten pro Monat angezeigt. Beachten Sie den Unterschied zwischen den hier gezeigten Anzahlen von Nachrichten und den oben gezeigten Anzahlen von Wörtern.
 feedback.graph.monthlySentReceived.legend.sent=Gesendete Wörter
 feedback.graph.monthlySentReceived.legend.received=Erhaltene Wörter
 feedback.graph.monthlySentReceived.yAxis=Anzahl Nachrichten
 
 # dailyActivityTimes plot
-feedback.graph.dailyActivityHoursPlot.description=In diesem Diagramm können Sie sehen, zu welchen Stunden des Tages Sie während der gesamten Zeitspanne der von Ihnen gespendeten Daten aktiv waren. Wenn Sie in einer Stunde mehr Wörter als üblicherweise gesendet haben, hat diese Stunde (Viereck im Diagramm) eine dunklere Farbe. Wenn die Farbe heller ist, dann haben Sie weniger Wörter als üblicherweise gesendet. Wenn Sie sich einen bestimmten Zeitraum genauer ansehen möchten, können Sie hineinzoomen, indem Sie auf das Diagramm klicken und halten, während Sie die Maus nach links oder rechts bewegen, um das Zeitfenster zu erzeugen, in das Sie hineinzoomen möchten. Klicken Sie <a style="font-weight:bold" href="#dailyActivityHoursPlotExplanation" data-toggle="modal" data-target="#dailyActivityHoursPlotExplanation">HIER</a>, um eine Erklärung mit einem Beispiel zu sehen. <br> <br><i>Benutzungshinweis: Drücken Sie <b style="font-weight:bold">Doppelklick</b>, um die Ansicht zurückzusetzen.</i>
+feedback.graph.dailyActivityHoursPlot.description=In diesem Diagramm können Sie sehen, zu welchen Stunden des Tages Sie während der gesamten Zeitspanne der von Ihnen gespendeten Daten aktiv waren. Wenn Sie in einer Stunde mehr Wörter als üblicherweise gesendet haben, hat diese Stunde (Viereck im Diagramm) eine dunklere Farbe. Wenn die Farbe heller ist, dann haben Sie weniger Wörter als üblicherweise gesendet. Wenn Sie sich einen bestimmten Zeitraum genauer ansehen möchten, können Sie hineinzoomen, indem Sie auf das Diagramm klicken und halten, während Sie die Maus nach links oder rechts bewegen, um das Zeitfenster zu erzeugen, in das Sie hineinzoomen möchten. Klicken Sie <a style="font-weight:bold" href="#dailyActivityHoursPlotExplanation" data-toggle="modal" data-target="#dailyActivityHoursPlotExplanation">HIER</a>, um eine Erklärung mit einem Beispiel zu sehen.
 feedback.graph.dailyActivityHoursPlot.yAxis=Uhrzeit
 feedback.graph.dailyActivityHoursPlot.moreThanAverage=Mehr als Ihr Durchschnitt
 feedback.graph.dailyActivityHoursPlot.average=Ihr Durchschnitt
@@ -299,7 +299,7 @@ feedback.graph.responseTimeBarChartMonthly.yAxis=Prozentualer Anteil aller Antwo
 feedback.graph.responseTimeBarChartMonthly.xAxis=Dauer der Antwort
 
 # breaksInConv plot
-feedback.graph.breaksInConv.description=Dieser Graph zeigt für den ausgewählten Chat pro Monat die längste zusammenhängende Zeitperiode in Tagen, in der keine Nachricht in diesem Chat geschrieben wurde. Klicken Sie <a style="font-weight:bold" href="#breaksInConvExplanationModal" data-dismiss="modal" data-toggle="modal" data-target="#breaksInConvExplanationModal">HIER</a>, um eine Erklärung mit einem Beispiel zu sehen. <br> <br><i>Benutzungshinweis: Drücken Sie <b style="font-weight:bold">Doppelklick</b>, um die Ansicht zurückzusetzen.</i>
+feedback.graph.breaksInConv.description=Dieser Graph zeigt für den ausgewählten Chat pro Monat die längste zusammenhängende Zeitperiode in Tagen, in der keine Nachricht in diesem Chat geschrieben wurde. Klicken Sie <a style="font-weight:bold" href="#breaksInConvExplanationModal" data-dismiss="modal" data-toggle="modal" data-target="#breaksInConvExplanationModal">HIER</a>, um eine Erklärung mit einem Beispiel zu sehen.
 feedback.graph.breaksInConv.yAxis=Längste Zeitperiode in Tagen ohne Nachricht
 feedback.graph.breaksInConv.days=Tag/e
 feedback.graph.breaksInConv.example.image=images/feedback_example_breaksInConv_german.svg
