@@ -157,6 +157,7 @@ donation.errors.dates-no-sense=The selected period is not valid. Please check th
 donation.errors.dates-not-enough-months=To donate your data, please select a period of at least 6 months within the period of your donation.
 donation.errors.somewhereError=There is an error somewhere. Please check your data donation.
 
+donation.submit=Submit
 
 # feedback
 

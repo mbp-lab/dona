@@ -157,6 +157,8 @@ donation.errors.dates-no-sense=Der ausgewählte Zeitraum ist ungültig. Bitte ü
 donation.errors.dates-not-enough-months=Bitte wählen Sie zum Spenden Ihrer Daten einen Zeitraum von mindestens 6 Monaten innerhalb des Zeitraums Ihrer Spende aus.
 donation.errors.somewhereError=Es gibt einen Fehler. Bitte überprüfen Sie Ihre Datenspende.
 
+donation.submit=Senden
+
 # feedback
 
 feedback.thanks.title=Vielen Dank für die Spende Ihrer Social-Online-Daten!
