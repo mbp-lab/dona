@@ -3,7 +3,7 @@
 
 @(dataSource: String, data: Map[String, GraphData])(implicit request: RequestHeader, messages: Messages)
 
-<div class="modal-dialog modal-xl" style="max-width: 1140px">
+<div class="modal-dialog modal-xl modalMaxWidth">
     <div class="modal-content">
         <div class="modal-header bgmain">
             <h3 class="data-protection-headline">@Html(messages("feedback.moreAbout.interactionIntensity.title"))</h3>
@@ -75,6 +75,7 @@
         data-received-trace-name="@messages("feedback.graph.slidingWindowMean.legend.received")"
         data-received-notShown-name="@messages("feedback.graph.slidingWindowMean.legend.receivedNotShown")"
         data-overall="@messages("feedback.graph.overallData")"
+        data-reset-view="@messages("feedback.graph.resetView")"
         >
             <div class="card h-100">
                 <div class="m-auto">@messages("feedback.graph.loading")</div>

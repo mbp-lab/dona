@@ -94,19 +94,24 @@
             </div>
         </div>
 
-    <div class="mt-5 row justify-content-center mx-0" id="backAndForwardButtons">
-        <a class="btn footer-backward-button" href="/instructions">@messages("actions.previous")</a>
-        @helper.form(routes.SocialDataDonationController.postData()) {
-            @helper.CSRF.formField
-            <input type='hidden' name='inputJson' id='inputJson' />
-            <input
-            type='submit'
-            class="btn footer-forward-button mb-0"
-            id='submit-de-identified'
-            disabled="true"
-            autocomplete="off"
-            />
-        }
+    <div class="justify-content-center mx-0 mt-5" id="backAndForwardButtons">
+        <div class="row justify-content-center mx-0 d-none" id="stillAnErrorSomewhere">
+            <p class="text-danger">@messages("donation.errors.somewhereError")</p>
+        </div>
+        <div class="row justify-content-center mx-0">
+            <a class="btn footer-backward-button" href="/instructions">@messages("actions.previous")</a>
+            @helper.form(routes.SocialDataDonationController.postData()) {
+                @helper.CSRF.formField
+                <input type='hidden' name='inputJson' id='inputJson' />
+                <input
+                type='submit'
+                class="btn footer-forward-button mb-0"
+                id='submit-de-identified'
+                disabled="true"
+                autocomplete="off"
+                />
+            }
+        </div>
     </div>
 
     </div>

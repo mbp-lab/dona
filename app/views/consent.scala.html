@@ -1,7 +1,7 @@
 @()(implicit request: RequestHeader, messages: Messages)
 
 
-<div class="modal-dialog modal-lg">
+<div class="modal-dialog modal-xl modalMaxWidth">
     <div class="modal-content">
         <div class="modal-header bgmain">
             <h3 class="data-protection-headline">@messages("consent.title")</h3>
@@ -17,7 +17,7 @@
             </p>
 
             <h4 class="data-protection-headline">@messages("consent.benefit.title")</h4>
-            <p class="text-justify data-protection-paragraph">@messages("consent.benefit.body")
+            <p class="text-justify data-protection-paragraph">@Html(messages("consent.benefit.body"))
             </p>
 
             <h4 class="data-protection-headline">@messages("consent.data-storage.title")</h4>

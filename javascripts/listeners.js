@@ -110,6 +110,10 @@ function handleUnsupportedBrowsers() {
 function setUpFileHandler() {
     let earlierSuccess = false
     let currentError = false
+    let currentErrorFW = {
+        "Facebook": false,
+        "WhatsApp": false
+    }
     const i18nSupport= $("#i18n-support");
     let donaForMEDonation = {
         "donor_id": i18nSupport.data('donor'),
@@ -239,8 +243,6 @@ function setUpFileHandler() {
             })
             .then((transformedJson) => {
 
-                console.log("donaForMEDonation:", donaForMEDonation)
-
                 // if there are already conversations of the chosen dataSource, then first filter the old ones out
                 donaForMEDonation.conversations = donaForMEDonation.conversations.filter((conv) => conv["donation_data_source_type"] !== dataSource)
 
@@ -278,7 +280,6 @@ function setUpFileHandler() {
 
                 // only set the new conversations of the current dataSource in the inputJson
 
-                console.log("value of inputJson:", $("#inputJson")[0].value)
                 // if inputJson is empty then set all the data, but else (if there already is data saved there)
                 // then don't overwrite everything, as there is already data filtered for a time span saved there
                 let inputJson = $("#inputJson")
@@ -300,8 +301,10 @@ function setUpFileHandler() {
 
                 // show success messages
                 $(".show-on-anonymisation-success" + "-" + dataSource).removeClass('d-none');
-                if (!currentError) {
+                //console.log(currentErrorFW)
+                if (!currentErrorFW["Facebook"] && !currentErrorFW["WhatsApp"]) {
                     $('#submit-de-identified').prop('disabled', false);
+                    $('#stillAnErrorSomewhere').addClass('d-none')
                 }
 
                 $("#" + dataSource + "Checkmark").removeClass('d-none');
@@ -331,6 +334,7 @@ function setUpFileHandler() {
                 if (earlierSuccess) {
                     $(".show-on-anonymisation-success" + "-" + dataSource).removeClass('d-none');
                     $('#submit-de-identified').prop('disabled', false);
+                    $('#stillAnErrorSomewhere').addClass('d-none')
                 }
                 messageService.showError(i18nSupport.data("error") + " " + error, dataSource);
                 progressBar.stop(dataSource);
@@ -351,41 +355,53 @@ function setUpFileHandler() {
         let startDate = document.getElementById("startDate-" + dataSource).value
         let endDate = document.getElementById("endDate-" + dataSource).value
 
-        console.log("dataSource:", dataSource)
-        console.log("startdate:", startDate)
-        console.log("enddate:", endDate)
-
-
         // start and end date to ms
         let startDateMs = new Date(startDate).getTime()
         let endDateMs = new Date(endDate).getTime()
         endDateMs = endDateMs + 86340000 // standard is at 00:00, add 23:59h so that the whole day of the end day is regarded
 
+        /*
+        console.log("Start:", startDate)
+        console.log("End:", endDate)
+        console.log("StartMs:", startDateMs)
+        console.log("EndMs:", endDateMs)
+        console.log("startDateMs > possibleLatestDate", startDateMs > possibleLatestDate)
+        console.log("endDateMs < possibleEarliestDate", endDateMs < possibleEarliestDate)
+        console.log("startDateMs >= endDateMs", startDateMs >= endDateMs)
+        console.log("error?", startDateMs > possibleLatestDate || endDateMs < possibleEarliestDate || startDateMs >= endDateMs)
+
+         */
+
         // remove all current notifications
         messageService.hideErrorShowSuccess(dataSource)
 
         // in case the date is not selected at all - error
-        if (startDate === "") {
+        if (startDate === "" || endDate === "" || isNaN(startDateMs) || isNaN(endDateMs)) {
             messageService.showError(i18nSupport.data("error-dates-no-sense"), dataSource);
             $('#submit-de-identified').prop('disabled', true);
+            $('#stillAnErrorSomewhere').removeClass('d-none')
             currentError = true;
+            currentErrorFW[dataSource] = true
             return;
         } // in case the dates don't make sense - error
         else if (startDateMs > possibleLatestDate || endDateMs < possibleEarliestDate || startDateMs >= endDateMs) {
             messageService.showError(i18nSupport.data("error-dates-no-sense"), dataSource);
             $('#submit-de-identified').prop('disabled', true);
+            $('#stillAnErrorSomewhere').removeClass('d-none')
             currentError = true;
+            currentErrorFW[dataSource] = true
             return;
         } // in this case at least x months of data have to be selected
         else if (possibleLatestDate - possibleEarliestDate >= 1.577e+10) { // ToDo: Put this in config! 6 months in ms
-            console.log("data has more than 6 MONTHS ")
             if (Math.abs(possibleEarliestDate - endDateMs) < (1.577e+10 - 8.64e+7)
                 || Math.abs(startDateMs - possibleLatestDate) < (1.577e+10 - 8.64e+7)
                 || Math.abs(startDateMs - endDateMs) < (1.577e+10 - 8.64e+7)
             ) {
                 messageService.showError(i18nSupport.data("error-not-enough-months"), dataSource);
                 $('#submit-de-identified').prop('disabled', true);
+                $('#stillAnErrorSomewhere').removeClass('d-none')
                 currentError = true;
+                currentErrorFW[dataSource] = true
                 return;
             }
         }
@@ -398,8 +414,6 @@ function setUpFileHandler() {
         // filter the conversations to only get the dataSource that is concerned
         let dataSourceConv = inputObjConvAllData.filter((conv) => conv["donation_data_source_type"] === dataSource)
         // filter the messages
-        console.log("startDateMs:", startDateMs)
-        console.log("endDateMs:", endDateMs)
         dataSourceConv.forEach(conv => {
             conv.messages = conv.messages.filter((message) =>
                 message.timestamp_ms >= startDateMs && message.timestamp_ms <= endDateMs)
@@ -412,6 +426,7 @@ function setUpFileHandler() {
         // show success
         messageService.hideErrorShowSuccess(dataSource)
         currentError = false;
+        currentErrorFW[dataSource] = false
 
         // check if there is at least one message in the timespan that was selected
         let allConvEmpty = true
@@ -424,14 +439,20 @@ function setUpFileHandler() {
         if (allConvEmpty) {
             messageService.showError(i18nSupport.data("error-no-messages-time-period"), dataSource);
             $('#submit-de-identified').prop('disabled', true);
+            $('#stillAnErrorSomewhere').removeClass('d-none')
             currentError = true
+            currentErrorFW[dataSource] = true
             return;
         } else {
             // show success
             messageService.hideErrorShowSuccess(dataSource)
             $(".show-on-anonymisation-success").removeClass('d-none');
-            $('#submit-de-identified').prop('disabled', false);
+            if (!currentErrorFW["Facebook"] && !currentErrorFW["WhatsApp"]) {
+                $('#stillAnErrorSomewhere').addClass('d-none')
+                $('#submit-de-identified').prop('disabled', false);
+            }
             currentError = false
+            currentErrorFW[dataSource] = false
         }
 
         // assign the filtered data to the inputJson

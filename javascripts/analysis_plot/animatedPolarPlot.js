@@ -14,6 +14,7 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
     const legendDonor = plotContainer.attr("data-legend-donor");
     const legendOthers = plotContainer.attr("data-legend-others");
     const yearMonth = plotContainer.attr("data-description-yearMonth");
+    const resetView = plotContainer.attr("data-reset-view");
 
     let config = {
         responsive: true,
@@ -77,6 +78,25 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
             }
         ],
         updatemenus: [
+            {
+                x: 0.1,
+                y: 1.2,
+                showactive: false,
+                direction: 'left',
+                type: 'buttons',
+                pad: {t: 0, r: 10},
+                buttons: [
+                    {
+                        method: "relayout",
+                        args: [
+                            {
+                                'polar.radialaxis.range': [zScoreLimit + zScoreLimit * 0.5, -zScoreLimit]
+                            }
+                        ],
+                        label: resetView
+                    }
+                ]
+            },
             {
                 x: 0,
                 y: 0,
