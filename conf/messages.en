@@ -3,10 +3,10 @@
 # Landing page
 
 landing.header.title=Illuminate the darkness with your social media data
-landing.header.body=We are researching how to use digital methods to better understand social media interaction and its potential impact on mental health. Support our mission by donating your social media data anonymously. As a gesture of appreciation for your efforts, we will grant you interesting insights into your data.
+landing.header.body=We are researching digital methods to better understand social media interaction and its potential impact on mental health in order to help people. Support our mission by donating your social media data anonymously. As a gesture of appreciation for your efforts, we will grant you interesting insights into your data.
 landing.what.title=What is this about?
 landing.what.body1=Social interaction plays a significant role in our mental health. The Multimodal Behavior Processing Group at the University of Bielefeld is currently developing digital measurement tools in order to better understand it. In this ongoing study we are trying to answer a particular question: Can the social involvement of people be measured by utilizing their social media data?
-landing.what.body2=If you want to participate in this study, you can request your data from a social media platform of your choice (Facebook and WhatsApp). You can then anonymize this data on the website, upload it and donate it to our research platform.<br><i>When donating WhatsApp data with an Android device, the necessary steps may differ from the instructions given on this page. Data donation with an iPhone is possible without any problems. <br>Due to potentially large file size, we recommend using computers when donating data from Facebook.</i>
+landing.what.body2=If you want to participate in this study, you can request your data from a social media platform of your choice (Facebook and WhatsApp). You can then anonymize this data on the website, upload it and donate it to our research platform.<br><i>We recommend using an iPhone for WhatsApp and a computer for Facebook donations.</i>
 
 landing.why.title=Why should I participate?
 landing.why.col1.title=Receive feedback
@@ -18,11 +18,12 @@ landing.why.col2.body_html=In this study, we are trying to measure the participa
 landing.why.col3.title=Stay anonymous
 landing.why.col3.body_html=When uploading your data, we will only process <strong><a href="/learn-more">anonymized data </a></strong> (message length, message timestamp and pseudonyms of the conversation participants) and <strong>no content</strong> (message text or the name of the participants). We can therefore assure you that we have no access to your actual messages.
 
-landing.contact.body_html=The purpose of this website is to inform you about the background and process of this online study. If any questions or concerns arise during the process, please write to the principal investigator (Hanna Drimalla, AG Multimodal Behavior Processing, Technische Fakultät, Universität Bielefeld, <a href="mailto:drimalla@techfak.uni-bielefeld.de">drimalla@techfak.uni-bielefeld.de</a>, Tel. +49 521 106-12043)
+landing.contact.body_html=The purpose of this website is to inform you about the background and process of this online study. If any questions or concerns arise during the process, please write to the principal investigator (Prof. Dr. Hanna Drimalla, AG Multimodal Behavior Processing, Technische Fakultät, Universität Bielefeld, <a href="mailto:drimalla@techfak.uni-bielefeld.de">drimalla@techfak.uni-bielefeld.de</a>, Tel. +49 521 106-12043)
 
-landing.imagePath.donationProcedure1 = images/landingDonationProcedure_1_English.svg
-landing.imagePath.donationProcedure2 = images/landingDonationProcedure_2_English.svg
-landing.imagePath.donationProcedure3 = images/landingDonationProcedure_3_English.svg
+landing.imagePath.donationProcedure1 = images/landingDonationProcedure_1_English.png
+landing.imagePath.donationProcedure2 = images/landingDonationProcedure_2_English.png
+landing.imagePath.donationProcedure3 = images/landingDonationProcedure_3_English.png
+landing.imagePath.exampleFeedback = images/landingExampleFeedback_English.png
 
 # Learn More page
 
@@ -34,7 +35,7 @@ learn-more.how-to-cancel.body=First things first: participation is entirely volu
 
 learn-more.data-storage.title=What data will be used?
 
-learn-more.imagePath=images/dataAnonymizationExample-English.svg
+learn-more.imagePath=images/dataAnonymizationExample-English.png
 
 # data storage text body is reused, see below
 
@@ -49,7 +50,7 @@ learn-more.image.caption=Figure 3. Example of an anonymized message.
 # Instructions page
 
 instructions.about.title=How do I request data from social media platforms?
-instructions.about.body_html=Before beginning with the study, you must request your data from Facebook and/or WhatsApp. Please make sure that the device you request and download your data from is only accessible by you. Additionally, we recommend you <b>delete the downloaded data from your device after the donation has been completed</b>. Note that simply deleting the files may not be enough to permanently remove the data from your device. You can find more information for example <a href="https://safecomputing.umich.edu/protect-yourself/prepare-devices-disposal/securely-delete-files">here</a>, <a href="https://wethegeek.com/best-file-data-shredder-apps-to-permanently-delete-data-from-android/">here</a> and <a href="https://appletoolbox.com/how-to-delete-files-permanently-from-the-files-app-on-iphone-and-ipad/">here</a>.
+instructions.about.body_html=Before beginning with the study, you must request your data from Facebook and/or WhatsApp. Please make sure that the device you request and download your data from is only accessible by you. Additionally, we recommend you <b>delete the downloaded data from your device after the donation has been completed</b>. Note that simply deleting the files may not be enough to permanently remove the data from your device. You can find more information on permanently deleting files for example <a target="_blank" href="https://safecomputing.umich.edu/protect-yourself/prepare-devices-disposal/securely-delete-files">here</a>, <a target="_blank" href="https://wethegeek.com/best-file-data-shredder-apps-to-permanently-delete-data-from-android/">here</a> and <a target="_blank" href="https://appletoolbox.com/how-to-delete-files-permanently-from-the-files-app-on-iphone-and-ipad/">here</a>.
 instructions.datasource.title_format = Instructions for getting %s data
 instructions.download-procedure.title=Overview of the download & donation procedure:
 instructions.multiple-donation-info.body=It is up to you whether to donate data from both platforms. If you decide to donate data from only one, please choose the platform which is more significant to you.
@@ -70,7 +71,7 @@ consent.about.body1=The aim of this study is to measure the dynamics of social i
 consent.about.body2_html=By agreeing, you confirm that you have read and understood the background and process of this online study.
 
 consent.benefit.title=Benefits and risks
-consent.benefit.body=With your participation you enable us to identify and characterise new insights about social interactions between humans. You gain insights into your own personal messaging behavior. Furthermore, at the end of the study, you can participate in a raffle for a 50€ Cadooz-Bestchoice voucher for a variety of stores. This is an ongoing study, so a voucher is drawn every time a set of 100 participants is achieved (winning chance: 1/100). We only collect anonymized data. Before the donation of your data you have to download the messaging data locally on your own device. Since this data contains sensitive information we recommend to delete the local copy of your data after the end of the study. Please conduct the study alone and in a calm environment to ensure your privacy.
+consent.benefit.body=With your participation you enable us to identify and characterise new insights about social interactions between humans. You gain insights into your own personal messaging behavior. Furthermore, at the end of the study, you can participate in a raffle for a 50€ voucher (<a target="_blank" href="https://www.cadooz.com/en/products/bestchoice-shopping-gift-card/">Cadooz-Bestchoice</a>). This is an ongoing study, so a voucher is drawn every time a set of 100 participants is achieved (winning chance: 1/100). We only collect anonymized data. Before the donation of your data you have to download the messaging data locally on your own device. Since this data contains sensitive information we recommend to delete the local copy of your data after the end of the study. Please conduct the study alone and in a calm environment to ensure your privacy.
 
 consent.data-storage.title=Collected Data
 
@@ -165,7 +166,7 @@ feedback.importantMessage.disclaimer=The graphs and visualizations displayed <b>
 
 feedback.reminder=You can continue to explore this page and take as much time as you like.
 
-feedback.graph.title=Insights through your %s messages
+feedback.graph.title=Feedback on your %s Messages
 feedback.graph.total-messages=Total messages
 feedback.graph.average-per-active-month=Average messages per active month
 feedback.graph.active-years-explanation_format= In total, there are %s years in which you participated in conversation (i.e. you sent or received at least one message during the year)
@@ -186,7 +187,7 @@ feedback.graph.you=You
 feedback.graph.friends=Contacts
 
 # plots main page titles
-feedback.title.statisticsCard=Overview of all activity
+feedback.title.statisticsCard=Overview of all Activity
 feedback.title.interactionIntensity=Interaction Intensity
 feedback.title.dailyActivityTimes=Daily Activity Times
 feedback.title.responseTimes=Response Times
@@ -198,9 +199,9 @@ feedback.nextButton=Next
 feedback.finishButton=Finish
 
 # plots more about titles
-feedback.moreAbout.interactionIntensity.title=More about <u>your</u> Interaction Intensity
-feedback.moreAbout.dailyActivityTimes.title=More about <u>your</u> Daily Activity Times
-feedback.moreAbout.responseTimes.title=More about <u>your</u> Response Times
+feedback.moreAbout.interactionIntensity.title=More about your Interaction Intensity
+feedback.moreAbout.dailyActivityTimes.title=More about your Daily Activity Times
+feedback.moreAbout.responseTimes.title=More about your Response Times
 
 # plot descriptions
 feedback.graph.yearMonth=Year-Month:
@@ -213,7 +214,7 @@ feedback.graph.example.title=This is an <b>example</b> created from example data
 
 # polar plot
 feedback.graph.animatedPolarPlot.title=Planet representation
-feedback.graph.animatedPolarPlot.description=This visualization displays you as the yellow dot in the middle. The chats you donated are the white dots around you. The closer a dot is to you, the more words you have written in this chat. In the time-slider below you can see and select the month and year for which the data is shown. The smaller lighter white dots show the activity in the respective chats in other months. Click <a style="font-weight:bold" href="#polarPlotExplanation" data-toggle="modal" data-target="#polarPlotExplanation">HERE</a> to see an explanation with an example. <br> <br><i>Usage instructions: Press <b style="font-weight:bold">double click</b> to reset the view.</i>
+feedback.graph.animatedPolarPlot.description=This visualization displays you as the yellow dot in the middle. The chats you donated are the white dots around you. The closer a dot is to you, the more words you have written in this chat. In the time-slider below you can see and select the month and year for which the data is shown. The smaller lighter white dots show the activity in the respective chats in other months. Click <a style="font-weight:bold" href="#polarPlotExplanation" data-toggle="modal" data-target="#polarPlotExplanation">HERE</a> to see an explanation with an example.
 feedback.graph.animatedPolarPlot.legend.donor=You
 feedback.graph.animatedPolarPlot.legend.others=Chat Intensity
 feedback.graph.animatedPolarPlot.example.image=images/feedback_example_polarPlot_english.svg
@@ -237,7 +238,7 @@ feedback.graph.horizontalBarChartOverall.yAxis.sent=Sent
 feedback.graph.horizontalBarChartOverall.yAxis.received=Received
 
 # slidingWindowMean of sent and received words plot
-feedback.graph.slidingWindowMean.description=Here you can see the average number of your sent and received words per day (more precisely, we calculate a so-called sliding window average with a window size of 30 days). At the top left you can also select your individual chats to see the graph of your sent words for the selected chat.<br><br> <i> If there is no value for the <u>received words</u> in the overview for one or more days, then it has been hidden due to data protection reasons. Only aggregated information from which no direct conclusions can be drawn about your individual contacts is displayed.</i><br> <br><i>Usage instructions: Press <b style="font-weight:bold">double click</b> to reset the view.</i>
+feedback.graph.slidingWindowMean.description=Here you can see the average number of your sent and received words per day (more precisely, we calculate a so-called sliding window average with a window size of 30 days). At the top left you can also select your individual chats to see the graph of your sent words for the selected chat.<br><br> <i> If there is no value for the <u>received words</u> in the overview for one or more days, then it has been hidden due to data protection reasons. Only aggregated information from which no direct conclusions can be drawn about your individual contacts is displayed.</i>
 feedback.graph.slidingWindowMean.legend.sent=Sent words
 feedback.graph.slidingWindowMean.legend.received=Received words
 feedback.graph.slidingWindowMean.legend.receivedNotShown=Privacy: Received words are not displayed
@@ -246,19 +247,19 @@ feedback.graph.slidingWindowMean.example.image=images/feedback_example_slidingWi
 feedback.graph.slidingWindowMean.example.text=<p class="text-left"><b>(1)</b> In this example, a significant increase in the number of sent and received words can be observed. In this period the sent words were more than the received words. </p><p class="text-left"><b>(2)</b> Here you can see an even bigger increase in sent and received words. But in that period, across all chats, more words were received.</p>
 
 # dailySentReceivedWords plot
-feedback.graph.dailySentReceived.description=This graph shows the exact word count of your sent and received messages per day. <br> <br><i>Usage instructions: Press <b style="font-weight:bold">double click</b> to reset the view.</i>
+feedback.graph.dailySentReceived.description=This graph shows the exact word count of your sent and received messages per day.
 feedback.graph.dailySentReceived.legend.sent=Sent words
 feedback.graph.dailySentReceived.legend.received=Received words
 feedback.graph.dailySentReceived.yAxis=Number of words
 
 # monthlySentReceivedWords plot
-feedback.graph.monthlySentReceived.description=This graph shows the exact word count of your sent and received messages per day. At the top left you can also select your individual chats to see the graph of your sent words for the selected chat. <br> <br><i>Usage instructions: Press <b style="font-weight:bold">double click</b> to reset the view.</i>
+feedback.graph.monthlySentReceived.description=This graph shows the exact word count of your sent and received messages per day. At the top left you can also select your individual chats to see the graph of your sent words for the selected chat.
 feedback.graph.monthlySentReceived.legend.sent=Sent messages
 feedback.graph.monthlySentReceived.legend.received=Received messages
 feedback.graph.monthlySentReceived.yAxis=Number of messages
 
 # dailyActivityTimes plot
-feedback.graph.dailyActivityHoursPlot.description=In this plot, you can see in which hours of the day you were active for the whole time span of the data you donated. If an hour (square in the plot) has a darker color, you sent more words in that hour than in your average hour. If the color is lighter, then you sent fewer words than in the average case. If you want to look closer at a specific time span you can zoom in by clicking on the graph and holding while you move your mouse to the left or the right to produce the time window you want to zoom into. Click <a style="font-weight:bold" href="#dailyActivityHoursPlotExplanation" data-toggle="modal" data-target="#dailyActivityHoursPlotExplanation">HERE</a> to see an explanation with an example. <br> <br><i>Usage instructions: Press <b style="font-weight:bold">double click</b> to reset the view.</i>
+feedback.graph.dailyActivityHoursPlot.description=In this plot, you can see in which hours of the day you were active for the whole time span of the data you donated. If an hour (square in the plot) has a darker color, you sent more words in that hour than in your average hour. If the color is lighter, then you sent fewer words than in the average case. If you want to look closer at a specific time span you can zoom in by clicking on the graph and holding while you move your mouse to the left or the right to produce the time window you want to zoom into. Click <a style="font-weight:bold" href="#dailyActivityHoursPlotExplanation" data-toggle="modal" data-target="#dailyActivityHoursPlotExplanation">HERE</a> to see an explanation with an example.
 feedback.graph.dailyActivityHoursPlot.yAxis=Time
 feedback.graph.dailyActivityHoursPlot.moreThanAverage=More than your average
 feedback.graph.dailyActivityHoursPlot.average=Your average
@@ -299,7 +300,7 @@ feedback.graph.responseTimeBarChartMonthly.yAxis=Percentage of all responses
 feedback.graph.responseTimeBarChartMonthly.xAxis=Time until response
 
 # breaksInConv plot
-feedback.graph.breaksInConv.description=This graph shows for the selected chat per month the longest consecutive period in days, in which no message was written in this chat. Click <a style="font-weight:bold" href="#breaksInConvExplanationModal" data-dismiss="modal" data-toggle="modal" data-target="#breaksInConvExplanationModal">HERE</a> to see an explanation with an example. <br> <br><i>Usage instructions: Press <b style="font-weight:bold">double click</b> to reset the view.</i>
+feedback.graph.breaksInConv.description=This graph shows for the selected chat per month the longest consecutive period in days, in which no message was written in this chat. Click <a style="font-weight:bold" href="#breaksInConvExplanationModal" data-dismiss="modal" data-toggle="modal" data-target="#breaksInConvExplanationModal">HERE</a> to see an explanation with an example.
 feedback.graph.breaksInConv.yAxis=Longest period in days without a message
 feedback.graph.breaksInConv.days=Day/s
 feedback.graph.breaksInConv.example.image=images/feedback_example_breaksInConv_english.svg
@@ -349,8 +350,8 @@ actions.next=Continue
 
 # Data source specific text
 
-whatsapp.description_html=Note: The chat export function is not supported by all WhatsApp versions! <strong> Exporting and saving WhatsApp data does not work with the WhatsApp web version. Also, on different Android versions, you may not be able to store your data locally on your device (alternatively, you could send the data to yourself via e-mail or in a similar manner and store the data from the e-mail). Please check if the function is available in your app.</strong> <br><br>From time to time, most people discuss important matters with other people, and we need people we can depend on for help. These can be family, friends, or people who have been really helpful to you – what we are interested in are the ones that you are most likely to talk about really important matters in your life. <br><br>Please choose <strong>5</strong> chats with people with whom you discuss important matters in your life (group chats are possible too). Please bear in mind that the chats can only be downloaded one after the other. Multiple selection of chats is currently not supported.
-whatsapp.external-documentation_html=The official documentation on how to download your data can be found here for <a href="https://faq.whatsapp.com/en/iphone/20888066#email" target="_blank">iOS</a> or <a href="https://faq.whatsapp.com/en/android/23756533" target="_blank">Android</a>.
+whatsapp.description_html=<i>Note: The chat export function is not supported by all WhatsApp versions! <strong> Exporting and saving WhatsApp data does not work with the WhatsApp web version. Also, on different Android versions, you may not be able to store your data locally on your device.</i></strong> <br><br>From time to time, most people discuss important matters with other people, and we need people we can depend on for help. These can be family, friends, or people who have been really helpful to you – what we are interested in are the ones that you are most likely to talk about really important matters in your life. <br><br>Please choose <strong>5</strong> chats with people with whom you discuss important matters in your life (group chats are possible too). Please bear in mind that the chats can only be downloaded one after the other. Multiple selection of chats is currently not supported.
+whatsapp.external-documentation_html=The official documentation on how to download your data can be found here for <a target="_blank" href="https://faq.whatsapp.com/en/iphone/20888066#email" target="_blank">iOS</a> or <a target="_blank" href="https://faq.whatsapp.com/en/android/23756533" target="_blank">Android</a>.
 
 #Download and Donation procedure: whatsapp
 whatsapp.donation-procedure.1=Open WhatsApp on your smartphone.
@@ -358,13 +359,13 @@ whatsapp.donation-procedure.2=Think about which five chats are most relevant to 
 whatsapp.donation-procedure.3=Pick one of the selected chats and open it.
 whatsapp.donation-procedure.4=Click on the contact's name in the top center.
 whatsapp.donation-procedure.5=Scroll down and click on "Export chat". A window will open. Select "WITHOUT MEDIA".
-whatsapp.donation-procedure.6=Scroll down and select "Save to Files" and then "On my iPhone". Then click "Save" in the upper right corner.
+whatsapp.donation-procedure.6=Scroll down and select "Save to Files" and then "On my iPhone" or "On my device". Then click "Save" in the upper right corner.
 whatsapp.donation-procedure.7=Repeat the steps 3-7 for all five chats.
 whatsapp.instruction.gif=whatsapp_eng.mp4
 
 
 facebook.description_html=Make a request to Facebook to download your Facebook data. You will receive a notification from Facebook once the data is available for download and can then start participating in the study. <strong>We recommend using a computer if donating from Facebook as the data size may be relatively large.</strong>
-facebook.external-documentation_html=The official documentation on how to download your data can be found <a href="https://www.facebook.com/help/contact/2032834846972583" target="_blank">here</a>.
+facebook.external-documentation_html=The official documentation on how to download your data can be found <a target="_blank" href="https://www.facebook.com/help/contact/2032834846972583" target="_blank">here</a>.
 
 #Download and Donation procedure: Facebook
 facebook.donation-procedure.1=Open the Facebook App on your smartphone.

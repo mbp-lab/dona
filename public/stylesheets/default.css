@@ -2,7 +2,3 @@ html {
   /* keep jarring white background from appearing on overscroll */
   background-color: black;
 }
-
-.bgImage {
-    background-image: url("/assets/images/background.jpg");
-}

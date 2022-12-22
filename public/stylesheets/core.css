@@ -1,11 +1,21 @@
 /* main */
 
-
 .bgImage {
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
+    background-image: url("/assets/images/background3_4.jpg");
+}
+
+@media only screen and (min-device-width: 400px) {
+    .bgImage {
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: url("/assets/images/background.jpg");
+    }
 }
 
 .main-container {
@@ -45,12 +55,34 @@
     margin-top: 10px;
 }
 
+.headline0 {
+    font-size: 42px;
+    color: #666666;
+}
+
+.headline2 {
+    font-size: 28px;
+    color: #666666;
+}
+
+.colorHeadline {
+    color: #36b3a8;
+    text-transform: uppercase;
+    font-size: 28px;
+    font-weight: 900;
+}
+
+
 .paragraph {
     margin-bottom: 2em;
     margin-top: 2em;
     font-size: 18px;
     color: #666666;
     font-family: PT Sans;
+}
+
+.modalMaxWidth {
+    max-width: 1140px;
 }
 
 @media (min-width: 1294px) {
@@ -83,6 +115,13 @@
     background-color: rgba(0,0,0,0.5);
     border-radius: 1.5rem;
     margin-bottom: 250px;
+
+}
+
+.headerNoMargin {
+    font-family: PT Sans;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 1.5rem;
 
 }
 
@@ -157,6 +196,7 @@
 .donation-info-image {
     max-width: 100%;
     margin-top: 10px;
+    min-width: 100%;
 }
 
 
