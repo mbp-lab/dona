@@ -301,7 +301,7 @@ function setUpFileHandler() {
 
                 // show success messages
                 $(".show-on-anonymisation-success" + "-" + dataSource).removeClass('d-none');
-                console.log(currentErrorFW)
+                //console.log(currentErrorFW)
                 if (!currentErrorFW["Facebook"] && !currentErrorFW["WhatsApp"]) {
                     $('#submit-de-identified').prop('disabled', false);
                     $('#stillAnErrorSomewhere').addClass('d-none')
@@ -360,11 +360,23 @@ function setUpFileHandler() {
         let endDateMs = new Date(endDate).getTime()
         endDateMs = endDateMs + 86340000 // standard is at 00:00, add 23:59h so that the whole day of the end day is regarded
 
+        /*
+        console.log("Start:", startDate)
+        console.log("End:", endDate)
+        console.log("StartMs:", startDateMs)
+        console.log("EndMs:", endDateMs)
+        console.log("startDateMs > possibleLatestDate", startDateMs > possibleLatestDate)
+        console.log("endDateMs < possibleEarliestDate", endDateMs < possibleEarliestDate)
+        console.log("startDateMs >= endDateMs", startDateMs >= endDateMs)
+        console.log("error?", startDateMs > possibleLatestDate || endDateMs < possibleEarliestDate || startDateMs >= endDateMs)
+
+         */
+
         // remove all current notifications
         messageService.hideErrorShowSuccess(dataSource)
 
         // in case the date is not selected at all - error
-        if (startDate === "") {
+        if (startDate === "" || endDate === "" || isNaN(startDateMs) || isNaN(endDateMs)) {
             messageService.showError(i18nSupport.data("error-dates-no-sense"), dataSource);
             $('#submit-de-identified').prop('disabled', true);
             $('#stillAnErrorSomewhere').removeClass('d-none')
