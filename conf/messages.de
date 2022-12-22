@@ -271,7 +271,7 @@ feedback.graph.dayPartsOverall.description=In diesem Graphen können Sie sehen, 
 feedback.graph.dayPartsOverall.legend.sent=Gesendete Wörter
 feedback.graph.dayPartsOverall.legend.received=Erhaltene Wörter
 feedback.graph.dayPartsOverall.yAxis=Prozentualer Anteil aller Wörter
-feedback.graph.dayPartsOverall.xAxis=Vier Teile des phone
+feedback.graph.dayPartsOverall.xAxis=Vier Teile des Tages
 feedback.graph.dayPartsOverall.example.image=images/feedback_example_dayPartsPlot_german.svg
 feedback.graph.dayPartsOverall.example.text=<p class="text-left"><b>(1)</b> In diesem Beispiel wurden im gesamten Zeitraum der Datenspende jeweils weniger als 10% aller Wörter zwischen 0:00 Uhr und 6:00 Uhr und zwischen 6:00 Uhr und 12:00 Uhr gesendet und empfangen. In beiden Teilen des Tages wurden etwas mehr Wörter gesendet als empfangen.</p><p class="text-left"><b>(2)</b> Hingegen zwischen 12:00 Uhr und 18:00 Uhr wurden jeweils knapp unter 40% aller Wörter gesendet und empfangen. <br>Zwischen 18:00 Uhr und 00:00 Uhr wurden sogar knapp unter 45% aller Wörter gesendet bzw. empfangen. In beiden Tagesabschnitten wurden etwas mehr Wörter empfangen als gesendet. </p>
 
