@@ -7,10 +7,10 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
 
     // dataReceived is not being used - everything using dataReceived is commented out
 
-    const FIRST = "00:00-06:00"
-    const SECOND = "06:00-12:00"
-    const THIRD = "12:00-18:00"
-    const FOURTH = "18:00-00:00"
+    const FIRST = "00:00-05:59"
+    const SECOND = "06:00-11:59"
+    const THIRD = "12:00-17:59"
+    const FOURTH = "18:00-23:59"
 
     const plotContainer = $(`#${plotId}`)
     plotContainer.removeClass('d-none');

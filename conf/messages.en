@@ -16,8 +16,7 @@ landing.why.col2.title=Support research
 landing.why.col2.body_html=In this study, we are trying to measure the participants'' social involvement using their interaction data (exchange of messages via Whatsapp or Facebook).  The results of this study will contribute to the overall goal of better understanding the effects of social interaction on mental health.
 
 landing.why.col3.title=Stay anonymous
-landing.why.col3.body_html=When uploading your data, we will only process <strong><a href="/learn-more">anonymized data </a></strong> (message length, message timestamp and pseudonyms of the conversation participants) and <strong>no content</strong> (message text or the name of the participants). We can therefore assure you that we have no access to your actual messages.
-
+landing.why.col3.body_html=When uploading your data, we will only process and analyze <strong><a href="/learn-more">anonymized data </a></strong> (message length, message timestamp and pseudonyms of the conversation participants), <strong>not the message content</strong> (message text or the name of the participants). We can therefore assure you that we have no access to your actual messages.
 landing.contact.body_html=The purpose of this website is to inform you about the background and process of this online study. If any questions or concerns arise during the process, please write to the principal investigator (Prof. Dr. Hanna Drimalla, AG Multimodal Behavior Processing, Technische Fakultät, Universität Bielefeld, <a href="mailto:drimalla@techfak.uni-bielefeld.de">drimalla@techfak.uni-bielefeld.de</a>, Tel. +49 521 106-12043)
 
 landing.imagePath.donationProcedure1 = images/landingDonationProcedure_1_English.png
@@ -121,7 +120,7 @@ donation.preview-data.group-conversation=Group conversation
 donation.friendsMapping.title=<b>Aliases for your contacts</b>
 donation.friendsMapping.subtitle=We have anonymized your data and your contacts. If, in the next step, you want to reconstruct which conversations and contacts are involved in the anonymized evaluation, make a note of the following assignments of contacts (e.g. G**** M*****) and aliases (e.g. “C4 "). From now on, these are the anonymized aliases for your contacts. The assignment is not saved and is lost as soon as you leave this page.
 
-donation.sendData.wait=Sending the data could take a few minutes. Please wait. Thanks!
+donation.sendData.wait=Sending the data could take a few minutes. Please wait and keep this website open. Thanks!
 
 donation.raw-data-explanation_format=Below, you may view %s of your anonymized messages. In case you want to view all anonymized messages, <b>take a look at the</b>
 donation.raw-data-link.text=<b>raw data</b>
@@ -329,7 +328,7 @@ data-protection.participation.usage.body=The data and results of these surveys w
 
 # Text appearing on multiple pages
 
-footer.title=Do you have your data?
+footer.title=Do you have your data ready?
 footer.projectNumber=Project No.: 01IS20046
 
 browser-warning.text=You are using an unsupported browser. The page may not appear or work correctly as a result. Please use the latest version of Chrome or Firefox to view this page.
@@ -340,7 +339,7 @@ data-storage.body2_html=<em>Questionnaires: </em>You first fill out questionnair
 links.learn-more=Learn more
 links.instructions=Start
 links.donation-info=Donate data
-links.donate=Participate now!
+links.donate=Yes, participate now
 links.data-protection=Data Protection
 links.imprint=Imprint
 
@@ -353,7 +352,7 @@ actions.next=Continue
 # Data source specific text
 
 whatsapp.instructions.p1.title=What type of device should I use?
-whatsapp.instructions.p1.body=Please make sure that you are storing the data on a device that no one but you has access to. The chat export function is not supported by all WhatsApp versions! Exporting and saving WhatsApp data does not work with the WhatsApp web version. In addition, with different Android versions, you may not be able to save the data locally on your device. We therefore recommend using an iPhone for WhatsApp donations. <br><br>Please also note that the chats can only be exported one at a time. The selection of multiple chats is currently not supported.
+whatsapp.instructions.p1.body=We recommend using an iPhone for WhatsApp donations. With different Android versions, you may not be able to save the data locally on your device. Exporting and saving WhatsApp data does not work with the WhatsApp web version. Please make sure that you are storing the data on a device that no one but you has access to.
 whatsapp.instructions.p2.title=Which chats should I choose?
 whatsapp.instructions.p2.body=From time to time most people discuss important matters with others and we need people we can rely on for help. They may be family, friends, or people who have really helped you - <b>we are interested in the chats with the people you are most likely to talk to about really important things in your life.</b> <br> <br><b>Please select 5-7 chats with people with whom you discuss important things in your life (group chats are also possible).</b>
 whatsapp.instructions.p3.title=How can I delete my data from my device?
@@ -361,7 +360,7 @@ whatsapp.instructions.p3.body=We strongly recommend that you delete your origina
 whatsapp.instructions.unzip=Note: If your data is exported in a <b>zip file</b>, it must first be unzipped so that only text files remain. You can find corresponding instructions for Android e.g. at <a target="_blank" href="https://support.google.com/files/answer/9048509?hl=en">Google</a> and for iPhone at <a target="_blank" href="https://support.apple.com/en-us/HT211132">Apple</a>.
 
 whatsapp.description_html=<i>Note: The chat export function is not supported by all WhatsApp versions! <strong> Exporting and saving WhatsApp data does not work with the WhatsApp web version. Also, on different Android versions, you may not be able to store your data locally on your device.</i></strong> <br><br>From time to time, most people discuss important matters with other people, and we need people we can depend on for help. These can be family, friends, or people who have been really helpful to you – what we are interested in are the ones that you are most likely to talk about really important matters in your life. <br><br>Please choose <strong>5</strong> chats with people with whom you discuss important matters in your life (group chats are possible too). Please bear in mind that the chats can only be downloaded one after the other. Multiple selection of chats is currently not supported.
-whatsapp.external-documentation_html=The official documentation on how to download your data can be found here for <a target="_blank" href="https://faq.whatsapp.com/en/iphone/20888066#email" target="_blank">iOS</a> or <a target="_blank" href="https://faq.whatsapp.com/en/android/23756533" target="_blank">Android</a>.
+whatsapp.external-documentation_html=The official documentation on how to download your data can be found here for <a target="_blank" href="https://faq.whatsapp.com/618575946635920/?cms_platform=iphone&helpref=platform_switcher" target="_blank">iOS</a> or <a target="_blank" href="https://faq.whatsapp.com/en/android/23756533" target="_blank">Android</a>.
 
 #Download and Donation procedure: whatsapp
 whatsapp.donation-procedure.1=Open WhatsApp on your smartphone.
