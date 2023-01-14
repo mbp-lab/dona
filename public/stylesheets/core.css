@@ -226,7 +226,7 @@
     font-size: 12px;
     padding: 10px 20px 10px 20px;
     border-radius: 16px;
-    background: #888;
+    background: #888 !important;
     color: white !important;
     text-decoration: none;
 }
@@ -236,7 +236,7 @@
     font-size: 12px;
     padding: 10px 20px 10px 20px;
     border-radius: 16px;
-    background: white;
+    background: white !important;
     color: #404040 !important;
     text-decoration: none;
 }
