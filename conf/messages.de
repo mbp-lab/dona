@@ -334,6 +334,12 @@ footer.projectNumber=Kennzeichen: 01IS20046
 
 browser-warning.text=Sie benutzen einen Browser, der nicht unterstützt wird. Es kann daher zu Fehlern beim Aussehen oder Funktion der Seite kommen. Bitte benutzen Sie die neueste Version von Chrome oder Firefox, um die Seite zu laden.
 
+reportProblem.button=Problem melden
+reportProblem.next=Weiter
+reportProblem.image=images/problemReport_ger.png
+reportProblem.title=Problembericht und Empfehlungen
+reportProblem.body=Falls während Ihrer Nutzung unserer Anwendung ein Problem auftritt oder Sie sonstige Empfehlungen und Rückmeldungen für uns haben, nutzen Sie bitte den Knopf "Problem melden" oben rechts auf der Seite. Wir arbeiten kontinuierlich an der Verbesserung der Anwendung.<br> Vielen Dank!
+
 data-storage.body1_html=<em>Datenspende: </em>Bei der Datenspende Ihrer Social-Media-Daten erfassen wir ausschließlich Metadaten (e.g. Nachrichtenlänge, Nachrichtenzeitpunkt und Pseudonyme der UnterhaltungsteilnehmerInnen) und keine Inhalte (e.g. Nachrichtentext oder Name der UnterhaltungsteilnehmerInnen). Ihre Online-Interaktions-Daten werden bereits auf Ihrem Rechner anonymisiert. Wir sehen also niemals Ihre Nachrichten. Bevor wir Ihre anonymisierten Nachrichten speichern, können Sie diese begutachten. So können Sie sich davon überzeugen, dass diese ausreichend anonymisiert sind.
 data-storage.body2_html=<em>Fragebögen: </em>Sie füllen zunächst Fragebögen zu Ihren demographischen Informationen, zu Ihrer Spende, sowie zu Ihrer momentanen Stimmung und zu Ihrem Messaging-Verhalten aus. Danach können Sie die Datenspende durchführen und erhalten Feedback. Anschließend füllen Sie weitere Fragebögen zu ähnlichen Themen aus, sowie zu der Benutzerfreundlichkeit des Feedbacks. Diese Erhebung findet ebenfalls komplett anonym auf der Plattform <a target="_blank" href="https://www.limesurvey.org/de/hilfe/faq/17-datenschutz-datensicherheit">LimeSurvey</a> statt.
 
@@ -343,6 +349,7 @@ links.donation-info=Daten Spenden
 links.donate=Ja, jetzt Teilnehmen
 links.data-protection=Datenschutz
 links.imprint=Impressum
+links.reportProblem=https://survey.mbp.tf.uni-bielefeld.de/index.php?r=survey/index&sid=486423&lang=de
 
 yes=Ja
 no=Nein

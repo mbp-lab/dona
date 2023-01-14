@@ -333,6 +333,12 @@ footer.projectNumber=Project No.: 01IS20046
 
 browser-warning.text=You are using an unsupported browser. The page may not appear or work correctly as a result. Please use the latest version of Chrome or Firefox to view this page.
 
+reportProblem.button=Report Problem
+reportProblem.next=Continue
+reportProblem.image=images/problemReport_eng.png
+reportProblem.title=Problem Report and Suggestions
+reportProblem.body=If you encounter a problem while using our application or you have other recommendations and feedback for us, please use the "Report Problem" button at the top right of the page. We are continuously working to improve the application.<br> Thank you!
+
 data-storage.body1_html=<em>Data Donation: </em>When donating your interaction data, we extract metadata (e.g. length and timestamp of message as well as pseudonyms of conversation participants) and no actual contents (e.g. message text or name of message sender). To ensure that, we anonymize your data client-side, meaning that your private data is anonymized locally and does not leave your device. This means that we will never see the content of your conversations. Before uploading, we will show you a preview of the data so that you can verify it is sufficiently anonymous.
 data-storage.body2_html=<em>Questionnaires: </em>You first fill out questionnaires about your demographic information, your donation, your current mood, and your messaging behavior. You can then carry out the data donation and receive feedback. You then fill out other questionnaires on similar topics and the user-friendliness of the feedback. In the end you will receive a questionnaire regarding important life experiences in the last two years and your messaging behavior. These surveys will all take place anonymously, using <a target="_blank" href="https://www.limesurvey.org/support/faq/39-data-protection-and-policy">LimeSurvey</a>.
 
@@ -342,6 +348,7 @@ links.donation-info=Donate data
 links.donate=Yes, participate now
 links.data-protection=Data Protection
 links.imprint=Imprint
+links.reportProblem=https://survey.mbp.tf.uni-bielefeld.de/index.php?r=survey/index&sid=486423&lang=en
 
 yes=Yes
 no=No
