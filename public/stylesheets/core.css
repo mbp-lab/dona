@@ -226,9 +226,14 @@
     font-size: 12px;
     padding: 10px 20px 10px 20px;
     border-radius: 16px;
-    background: #888 !important;
+    background: #888;
     color: white !important;
     text-decoration: none;
+}
+
+.report-problem-button-footer:hover {
+    background: #555;
+    color: white !important;
 }
 
 .report-problem-button-header {
