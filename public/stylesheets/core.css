@@ -236,9 +236,14 @@
     font-size: 12px;
     padding: 10px 20px 10px 20px;
     border-radius: 16px;
-    background: white !important;
+    background: white;
     color: #404040 !important;
     text-decoration: none;
+}
+
+.report-problem-button-header:hover {
+    background: #E2E2E2;
+    color: #404040 !important;
 }
 
 .modal-forward-button {
