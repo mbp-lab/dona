@@ -220,6 +220,39 @@
     text-decoration: none;
 }
 
+.report-problem-button-footer {
+    min-width: 190px;
+    font-weight: 800;
+    font-size: 12px;
+    padding: 10px 20px 10px 20px;
+    border-radius: 16px;
+    background: #888;
+    color: white !important;
+    text-decoration: none;
+}
+
+.report-problem-button-header {
+    font-weight: 800;
+    font-size: 12px;
+    padding: 10px 20px 10px 20px;
+    border-radius: 16px;
+    background: white;
+    color: #404040 !important;
+    text-decoration: none;
+}
+
+.modal-forward-button {
+    font-weight: 800;
+    font-size: 24px;
+    min-width: 213px;
+    padding: 10px 20px 10px 20px;
+    border-radius: 16px;
+    background: #35b1a6;
+    color: white !important;
+    text-decoration: none;
+    margin-top: 2em;
+}
+
 .footer-forward-button:hover {
     background: #23766f;
     color: white !important;
@@ -243,10 +276,19 @@
 }
 
 .footer-links {
+    width: 200px;
     position: absolute;
     bottom: 10px;
     left: 10px;
 }
+
+.footer-links-above {
+    width: 180px;
+    position: absolute;
+    bottom: 60px;
+    left: 10px;
+}
+
 
 .logos {
     position: absolute;

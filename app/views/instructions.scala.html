@@ -12,7 +12,7 @@
             @getDataPanel(description)
         }
         </div>
-        <p class="paragraph">@messages("instructions.multiple-donation-info.body")</p>
+        <p class="paragraph">@messages("instructions.continue.body")</p>
     </div>
     <div class="modal fade" id="consent-dialog"  role="dialog">
     @consent()
@@ -23,6 +23,8 @@
     }
 </div>
 } {
+}{
+    <a href="@messages("links.reportProblem")" target="_blank" class="btn report-problem-button-header float-right">@messages("reportProblem.button")</a>
 }
 
 @getDataPanel(dataSourceDescription:DataSourceDescription) = {
@@ -45,22 +47,37 @@
         @if(dataSourceDescription.name.toString == "Facebook"){
             <div class="card-body d-flex flex-column lg-w-50">
                 <div>
-                    <p class="serif-text">
-                    @Html(dataSourceDescription.description)
+                    <h4 class="serif-text" align="center">
+                    @Html(messages("facebook.instructions.p1.title"))
+                    </h4>
+                    <p class="serif-text" align="left">
+                    @Html(messages("facebook.instructions.p1.body"))
+                    </p>
+                    <h4 class="serif-text mt-4" align="center">
+                    @Html(messages("facebook.instructions.p2.title"))
+                    </h4>
+                    <p class="serif-text" align="left">
+                    @Html(messages("facebook.instructions.p2.body"))
+                    </p>
+                    <h4 class="serif-text mt-4" align="center">
+                    @Html(messages("facebook.instructions.p3.title"))
+                    </h4>
+                    <p class="serif-text" align="left">
+                    @Html(messages("facebook.instructions.p3.body"))
                     </p>
 
                     @if(dataSourceDescription.illustration.isDefined){
                         <img src="@routes.Assets.at(s"images/dataSourceImages/${dataSourceDescription.illustration.get}")" width="400px"></img>
                     }
 
-                    <h4 class="serif-text">
+                    <h4 class="serif-text mt-4">
                     @messages("instructions.download-procedure.title")
                     </h4>
 
                     <div class="serif-text text-left mb-3">
                         <ol>
                         @for(procedureStep <- dataSourceDescription.dataDownloadSteps) {
-                            <li><p>@procedureStep</p></li>
+                            <li><p>@Html(procedureStep)</p></li>
                         }
                         </ol>
                     </div>
@@ -79,30 +96,29 @@
         } else {
             <div class="card-body d-flex lg-w-50">
                 <div>
-                    <p class="serif-text">
-                        @Html(dataSourceDescription.description)
+
+                    <h4 class="serif-text" align="center">
+                    @Html(messages("whatsapp.instructions.p1.title"))
+                    </h4>
+                    <p class="serif-text" align="left">
+                        @Html(messages("whatsapp.instructions.p1.body"))
+                    </p>
+                    <h4 class="serif-text mt-4" align="center">
+                    @Html(messages("whatsapp.instructions.p2.title"))
+                    </h4>
+                    <p class="serif-text" align="left">
+                    @Html(messages("whatsapp.instructions.p2.body"))
+                    </p>
+                    <h4 class="serif-text mt-4" align="center">
+                    @Html(messages("whatsapp.instructions.p3.title"))
+                    </h4>
+                    <p class="serif-text" align="left">
+                    @Html(messages("whatsapp.instructions.p3.body"))
                     </p>
 
                     @if(dataSourceDescription.illustration.isDefined){
                         <img src="@routes.Assets.at(s"images/dataSourceImages/${dataSourceDescription.illustration.get}")" width="400px"></img>
                     }
-
-                    <h4 class="serif-text">
-                    @messages("instructions.download-procedure.title")
-                    </h4>
-
-                    <div class="serif-text text-left mb-3">
-                        <ol>
-                        @for(procedureStep <- dataSourceDescription.dataDownloadSteps) {
-                            <li><p>@procedureStep</p></li>
-                        }
-                        </ol>
-                    </div>
-
-                    <p class="serif-text">
-                    @Html(dataSourceDescription.documentation)
-                    </p>
-
 
 
                 </div>
@@ -113,6 +129,24 @@
                         </video>
                     </div>
                 }
+            </div>
+            <div>
+                <h4 class="serif-text" align="center">
+                @messages("instructions.download-procedure.title")
+                </h4>
+
+                <div class="serif-text text-left mb-3">
+                    <ol>
+                    @for(procedureStep <- dataSourceDescription.dataDownloadSteps) {
+                        <li><p>@Html(procedureStep)</p></li>
+                    }
+                        <p><i>@Html(messages("whatsapp.instructions.unzip"))</i></p>
+                    </ol>
+                </div>
+
+                <p class="serif-text">
+                @Html(dataSourceDescription.documentation)
+                </p>
             </div>
         }
         </div>

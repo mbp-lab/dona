@@ -1,4 +1,4 @@
-@(title: String, designVersion: Option[String] = None)(header: Html = Html(""))(content: Html)(footer: Html = Html(""))(implicit messages: Messages)
+@(title: String, designVersion: Option[String] = None)(header: Html = Html(""))(content: Html)(footer: Html = Html(""))(headerRight: Html = Html(""))(implicit messages: Messages)
 
 <!DOCTYPE html>
 <html lang="en">
@@ -33,6 +33,7 @@
                 @header
                 </div>
                 <div id="header-uni-logo" class="col">
+                @headerRight
                 </div>
             </div>
             <section class="ml-0 mr-0 pt-4 bg-white mt-4 pb-5 w-100 main-body">
@@ -43,8 +44,7 @@
             </section>
             <section class="w-100 position-relative footer-container bg-white mb-4">
                 @footer
-
-                <ul class="list-inline footer-links ml-4">
+            <ul class="list-inline footer-links ml-4">
                     <li class="list-inline-item"><a href="@routes.AboutController.dataProtection" class="text-black-50">@messages("links.data-protection")</a></li>
                     <li class="list-inline-item text-white">&middot;</li>
                     <li class="list-inline-item"><a target="_blank" href="https://www.uni-bielefeld.de/impressum/" class="text-black-50">@messages("links.imprint")</a></li>

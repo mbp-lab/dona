@@ -65,10 +65,17 @@
         <p class="serif-text wide-top-margin"><em>@Html(messages("landing.contact.body_html"))</em></p>
     </div>
     <div class="mt-5">
+        @* <button class="btn btn-outline footer-forward-button text-center" data-toggle="modal" data-target="#reportProblem-dialog">@messages("links.instructions")</button> *@
         @footer(nextLink = Some("/instructions"), nextCustomText=Some(messages("links.instructions")))()
+    </div>
+
+    <div class="modal fade" id="reportProblem-dialog" role="dialog">
+    @reportProblem()
     </div>
 
 </div>
 
+}{
+    <a href="@messages("links.reportProblem")" target="_blank" class="btn report-problem-button-footer footer-links-above ml-4">@messages("reportProblem.button")</a>
 }{
 }

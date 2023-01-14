@@ -16,8 +16,7 @@ landing.why.col2.title=Support research
 landing.why.col2.body_html=In this study, we are trying to measure the participants'' social involvement using their interaction data (exchange of messages via Whatsapp or Facebook).  The results of this study will contribute to the overall goal of better understanding the effects of social interaction on mental health.
 
 landing.why.col3.title=Stay anonymous
-landing.why.col3.body_html=When uploading your data, we will only process <strong><a href="/learn-more">anonymized data </a></strong> (message length, message timestamp and pseudonyms of the conversation participants) and <strong>no content</strong> (message text or the name of the participants). We can therefore assure you that we have no access to your actual messages.
-
+landing.why.col3.body_html=When uploading your data, we will only process and analyze <strong><a href="/learn-more">anonymized data </a></strong> (message length, message timestamp and pseudonyms of the conversation participants), <strong>not the message content</strong> (message text or the name of the participants). We can therefore assure you that we have no access to your actual messages.
 landing.contact.body_html=The purpose of this website is to inform you about the background and process of this online study. If any questions or concerns arise during the process, please write to the principal investigator (Prof. Dr. Hanna Drimalla, AG Multimodal Behavior Processing, Technische Fakultät, Universität Bielefeld, <a href="mailto:drimalla@techfak.uni-bielefeld.de">drimalla@techfak.uni-bielefeld.de</a>, Tel. +49 521 106-12043)
 
 landing.imagePath.donationProcedure1 = images/landingDonationProcedure_1_English.png
@@ -51,10 +50,10 @@ learn-more.image.caption=Figure 3. Example of an anonymized message.
 # Instructions page
 
 instructions.about.title=How do I request data from social media platforms?
-instructions.about.body_html=Before beginning with the study, you must request your data from Facebook and/or WhatsApp. Please make sure that the device you request and download your data from is only accessible by you. Additionally, we recommend you <b>delete the downloaded data from your device after the donation has been completed</b>. Note that simply deleting the files may not be enough to permanently remove the data from your device. You can find more information on permanently deleting files for example <a target="_blank" href="https://safecomputing.umich.edu/protect-yourself/prepare-devices-disposal/securely-delete-files">here</a>, <a target="_blank" href="https://wethegeek.com/best-file-data-shredder-apps-to-permanently-delete-data-from-android/">here</a> and <a target="_blank" href="https://appletoolbox.com/how-to-delete-files-permanently-from-the-files-app-on-iphone-and-ipad/">here</a>.
+instructions.about.body_html=Before participating in the study, please request your data directly from Facebook and/or WhatsApp. You can donate data from both platforms. If you only want to donate data from one platform, please select the platform that is more important to you. <b>Please take a close look at the corresponding instructions, as they contain important information for the further steps.</b>
 instructions.datasource.title_format = Instructions for getting %s data
 instructions.download-procedure.title=Overview of the download & donation procedure:
-instructions.multiple-donation-info.body=It is up to you whether to donate data from both platforms. If you decide to donate data from only one, please choose the platform which is more significant to you.
+instructions.continue.body=If you have received your data using these instructions, you can now start with the declaration of consent and the first questionnaire of the study. Afterwards you can donate your data.
 
 # Donation info page
 
@@ -121,7 +120,7 @@ donation.preview-data.group-conversation=Group conversation
 donation.friendsMapping.title=<b>Aliases for your contacts</b>
 donation.friendsMapping.subtitle=We have anonymized your data and your contacts. If, in the next step, you want to reconstruct which conversations and contacts are involved in the anonymized evaluation, make a note of the following assignments of contacts (e.g. G**** M*****) and aliases (e.g. “C4 "). From now on, these are the anonymized aliases for your contacts. The assignment is not saved and is lost as soon as you leave this page.
 
-donation.sendData.wait=Sending the data could take a few minutes. Please wait. Thanks!
+donation.sendData.wait=Sending the data could take a few minutes. Please wait and keep this website open. Thanks!
 
 donation.raw-data-explanation_format=Below, you may view %s of your anonymized messages. In case you want to view all anonymized messages, <b>take a look at the</b>
 donation.raw-data-link.text=<b>raw data</b>
@@ -145,7 +144,7 @@ donation.anonymisation.friend=Contact
 donation.anonymisation.friendInitial=C
 donation.anonymisation.system=System
 donation.anonymisation.chooseUsername=Please choose your username. Your username will not be saved and we will not know it.
-donation.anonymisation.loading=The anonymized data is being sent. Please wait.
+donation.anonymisation.loading=Sending the anonymized data could take a few minutes. Please wait and keep this website open. Thanks!
 
 donation.errors.no-profile=The uploaded data does not include profile information.
 donation.errors.no-alias=Please enter your username. You can find it in your WhatsApp profile.
@@ -329,10 +328,16 @@ data-protection.participation.usage.body=The data and results of these surveys w
 
 # Text appearing on multiple pages
 
-footer.title=Are you ready?
+footer.title=Do you have your data ready?
 footer.projectNumber=Project No.: 01IS20046
 
 browser-warning.text=You are using an unsupported browser. The page may not appear or work correctly as a result. Please use the latest version of Chrome or Firefox to view this page.
+
+reportProblem.button=Report Problem
+reportProblem.next=Continue
+reportProblem.image=images/problemReport_eng.png
+reportProblem.title=Problem Report and Suggestions
+reportProblem.body=If you encounter a problem while using our application or you have other recommendations and feedback for us, please use the "Report Problem" button at the top right of the page. We are continuously working to improve the application.<br> Thank you!
 
 data-storage.body1_html=<em>Data Donation: </em>When donating your interaction data, we extract metadata (e.g. length and timestamp of message as well as pseudonyms of conversation participants) and no actual contents (e.g. message text or name of message sender). To ensure that, we anonymize your data client-side, meaning that your private data is anonymized locally and does not leave your device. This means that we will never see the content of your conversations. Before uploading, we will show you a preview of the data so that you can verify it is sufficiently anonymous.
 data-storage.body2_html=<em>Questionnaires: </em>You first fill out questionnaires about your demographic information, your donation, your current mood, and your messaging behavior. You can then carry out the data donation and receive feedback. You then fill out other questionnaires on similar topics and the user-friendliness of the feedback. In the end you will receive a questionnaire regarding important life experiences in the last two years and your messaging behavior. These surveys will all take place anonymously, using <a target="_blank" href="https://www.limesurvey.org/support/faq/39-data-protection-and-policy">LimeSurvey</a>.
@@ -340,9 +345,10 @@ data-storage.body2_html=<em>Questionnaires: </em>You first fill out questionnair
 links.learn-more=Learn more
 links.instructions=Start
 links.donation-info=Donate data
-links.donate=Participate now!
+links.donate=Yes, participate now
 links.data-protection=Data Protection
 links.imprint=Imprint
+links.reportProblem=https://survey.mbp.tf.uni-bielefeld.de/index.php?r=survey/index&sid=486423&lang=en
 
 yes=Yes
 no=No
@@ -352,8 +358,16 @@ actions.next=Continue
 
 # Data source specific text
 
+whatsapp.instructions.p1.title=What type of device should I use?
+whatsapp.instructions.p1.body=We recommend using an iPhone for WhatsApp donations. With different Android versions, you may not be able to save the data locally on your device. Exporting and saving WhatsApp data does not work with the WhatsApp web version. Please make sure that you are storing the data on a device that no one but you has access to.
+whatsapp.instructions.p2.title=Which chats should I choose?
+whatsapp.instructions.p2.body=From time to time most people discuss important matters with others and we need people we can rely on for help. They may be family, friends, or people who have really helped you - <b>we are interested in the chats with the people you are most likely to talk to about really important things in your life.</b> <br> <br><b>Please select 5-7 chats with people with whom you discuss important things in your life (group chats are also possible).</b>
+whatsapp.instructions.p3.title=How can I delete my data from my device?
+whatsapp.instructions.p3.body=We strongly recommend that you delete your original data after completing the donation. Note that simply deleting the files may not be enough to permanently remove the data from your device. Further information on the permanent deletion of files can for example be found <a target="_blank" href="https://safecomputing.umich.edu/protect-yourself/prepare-devices-disposal/securely-delete-files">on the website of the University of Michigan</a> or <a target="_blank" href="https://wethegeek.com/best-file-data-shredder-apps-to-permanently-delete-data-from-android/">wethegeek.com</a> and <a target="_blank" href="https://appletoolbox.com/how-to-delete-files-permanently-from-the-files-app-on-iphone-and-ipad/">appletoolbox.com</a>.
+whatsapp.instructions.unzip=Note: If your data is exported in a <b>zip file</b>, it must first be unzipped so that only text files remain. You can find corresponding instructions for Android e.g. at <a target="_blank" href="https://support.google.com/files/answer/9048509?hl=en">Google</a> and for iPhone at <a target="_blank" href="https://support.apple.com/en-us/HT211132">Apple</a>.
+
 whatsapp.description_html=<i>Note: The chat export function is not supported by all WhatsApp versions! <strong> Exporting and saving WhatsApp data does not work with the WhatsApp web version. Also, on different Android versions, you may not be able to store your data locally on your device.</i></strong> <br><br>From time to time, most people discuss important matters with other people, and we need people we can depend on for help. These can be family, friends, or people who have been really helpful to you – what we are interested in are the ones that you are most likely to talk about really important matters in your life. <br><br>Please choose <strong>5</strong> chats with people with whom you discuss important matters in your life (group chats are possible too). Please bear in mind that the chats can only be downloaded one after the other. Multiple selection of chats is currently not supported.
-whatsapp.external-documentation_html=The official documentation on how to download your data can be found here for <a target="_blank" href="https://faq.whatsapp.com/en/iphone/20888066#email" target="_blank">iOS</a> or <a target="_blank" href="https://faq.whatsapp.com/en/android/23756533" target="_blank">Android</a>.
+whatsapp.external-documentation_html=The official documentation on how to download your data can be found here for <a target="_blank" href="https://faq.whatsapp.com/618575946635920/?cms_platform=iphone&helpref=platform_switcher" target="_blank">iOS</a> or <a target="_blank" href="https://faq.whatsapp.com/en/android/23756533" target="_blank">Android</a>.
 
 #Download and Donation procedure: whatsapp
 whatsapp.donation-procedure.1=Open WhatsApp on your smartphone.
@@ -362,8 +376,16 @@ whatsapp.donation-procedure.3=Pick one of the selected chats and open it.
 whatsapp.donation-procedure.4=Click on the contact's name in the top center.
 whatsapp.donation-procedure.5=Scroll down and click on "Export chat". A window will open. Select "WITHOUT MEDIA".
 whatsapp.donation-procedure.6=Scroll down and select "Save to Files" and then "On my iPhone" or "On my device". Then click "Save" in the upper right corner.
-whatsapp.donation-procedure.7=Repeat the steps 3-7 for all five chats.
+whatsapp.donation-procedure.7=Repeat the steps 3-7 for all chats.
+whatsapp.donation-procedure.note=Hinweis: Falls Ihre Daten in einer Zip-Datei exportiert werden, müssen diese erst entpackt werden sodass nur Text-Dateien übrig bleiben.
 whatsapp.instruction.gif=whatsapp_eng.mp4
+
+facebook.instructions.p1.title=What type of device should I use?
+facebook.instructions.p1.body=Please make sure that you are storing the data on a device that no one but you has access to. Because the amount of data for Facebook data donations can be quite large, we recommend using a computer.
+facebook.instructions.p2.title=How long does the data export from Facebook take?
+facebook.instructions.p2.body=The data is requested with just a few clicks on Facebook (see the instructions below). You will receive a notification from Facebook as soon as the data is available for download and can then start participating in the study.
+facebook.instructions.p3.title=How can I delete my data from my device?
+facebook.instructions.p3.body=We strongly recommend that you delete your original data after completing the donation. Note that simply deleting the files may not be enough to permanently remove the data from your device. Further information on the permanent deletion of files can for example be found <a target="_blank" href="https://safecomputing.umich.edu/protect-yourself/prepare-devices-disposal/securely-delete-files">on the website of the University of Michigan</a> or <a target="_blank" href="https://wethegeek.com/best-file-data-shredder-apps-to-permanently-delete-data-from-android/">wethegeek.com</a> and <a target="_blank" href="https://appletoolbox.com/how-to-delete-files-permanently-from-the-files-app-on-iphone-and-ipad/">appletoolbox.com</a>.
 
 
 facebook.description_html=Make a request to Facebook to download your Facebook data. You will receive a notification from Facebook once the data is available for download and can then start participating in the study. <strong>We recommend using a computer if donating from Facebook as the data size may be relatively large.</strong>
@@ -374,7 +396,7 @@ facebook.donation-procedure.1=Open the Facebook App on your smartphone.
 facebook.donation-procedure.2=In the top right corner, click on the “Your Profile” button (arrowhead pointing down) and choose “Settings & Privacy”.
 facebook.donation-procedure.3=Select “Settings”. Then select "Privacy" in the navigation bar on the left. Then click on "Your Facebook information".
 facebook.donation-procedure.4=On the "Your Facebook information" page click on "Download profile information" and then change the format from HTML to JSON.
-facebook.donation-procedure.5=Pick a date range: We encourage you to request the data for 2-3 years but a shorter time span is possible as well.
+facebook.donation-procedure.5=Pick a date range: We encourage you to <b>request the data for 2-3 years</b> but a shorter time span is possible as well.
 facebook.donation-procedure.6=In the interest of data minimization, please first deselect all categories. Then, tick the fields “Messages” and "Profile information".
 facebook.donation-procedure.7=Scroll down and click on "Request a download". As soon as the file is ready for download, you will receive a notification from Facebook. This may take a while.
 facebook.donation-procedure.8=Scroll back up and click on the "Available Files" tab. There you should see thr requested file and can download is as soon it is ready.
