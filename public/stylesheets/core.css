@@ -231,6 +231,11 @@
     text-decoration: none;
 }
 
+.report-problem-button-footer:hover {
+    background: #555;
+    color: white !important;
+}
+
 .report-problem-button-header {
     font-weight: 800;
     font-size: 12px;
@@ -239,6 +244,11 @@
     background: white;
     color: #404040 !important;
     text-decoration: none;
+}
+
+.report-problem-button-header:hover {
+    background: #E2E2E2;
+    color: #404040 !important;
 }
 
 .modal-forward-button {
