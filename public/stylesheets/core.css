@@ -220,7 +220,18 @@
     text-decoration: none;
 }
 
-.report-problem-button {
+.report-problem-button-footer {
+    min-width: 190px;
+    font-weight: 800;
+    font-size: 12px;
+    padding: 10px 20px 10px 20px;
+    border-radius: 16px;
+    background: #888;
+    color: white !important;
+    text-decoration: none;
+}
+
+.report-problem-button-header {
     font-weight: 800;
     font-size: 12px;
     padding: 10px 20px 10px 20px;
@@ -265,10 +276,19 @@
 }
 
 .footer-links {
+    width: 200px;
     position: absolute;
     bottom: 10px;
     left: 10px;
 }
+
+.footer-links-above {
+    width: 180px;
+    position: absolute;
+    bottom: 60px;
+    left: 10px;
+}
+
 
 .logos {
     position: absolute;
