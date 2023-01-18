@@ -99,12 +99,16 @@ function addListeners() {
 }
 
 function handleUnsupportedBrowsers() {
-    const userAgent = window.navigator.userAgent;
+
+    var userAgent = navigator.userAgent.toLowerCase()
+
     // check if user is using IE as we know the site does not look correct
     // code taken from https://stackoverflow.com/questions/19999388/check-if-user-is-using-ie
     if (userAgent.indexOf("MSIE") > -1 || userAgent.match(/Trident.*rv\:11\./)) {
         $("#unsupported-browser-warning").removeClass("d-none");
     }
+
+
 }
 
 function setUpFileHandler() {
