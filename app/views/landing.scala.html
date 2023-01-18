@@ -7,6 +7,10 @@
 </div>
 } {
 <script>
+        $(document).ready(function(){
+            alertIfMobile()
+        });
+
         function alertIfMobile() {
 
             var userAgent = navigator.userAgent.toLowerCase(),
@@ -15,7 +19,8 @@
                     userIsOnMobileDevice = checkIfUserIsOnMobileDevice(userAgent);
 
             if(userIsOnMobileDevice) {
-                alert("@messages("landing.mobileAlert")")
+                //alert("@messages("landing.mobileAlert")")
+                $('#mobileAlertModal').modal("show")
             }
 
             function checkIfUserIsOnMobileDevice($userAgent) {
@@ -35,9 +40,22 @@
                 return false;
             }
         }
-        alertIfMobile()
+
 </script>
 <div class="bg-white mt-4 text-center landing-container">
+
+    @* modal for mobile alert to better use a computer *@
+    <div class="modal modalMobileAlert modal-xl" id="mobileAlertModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modalMobileAlert-dialog modal-dialog-centered" role="document">
+            <div class="modal-content modalMobileAlert-content">
+                <div class="modal-body">
+                    <h1 class="modal-title">@messages("landing.mobileAlert")</h1>
+                    <button type="button" data-dismiss="modal" class="btn modal-forward-button float-right">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <h2 class="headline">@messages("landing.what.title")</h2>
     <p class="paragraph mt-1">@messages("landing.what.body1")</p>
     <p class="paragraph">@Html(messages("landing.what.body2"))</p>
