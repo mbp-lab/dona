@@ -6,7 +6,7 @@ landing.header.title=Bringen Sie Licht ins Dunkel mit Ihren Social-Online-Daten.
 landing.header.body=Wir forschen an digitalen Methoden, um Interaktionen über soziale Medien und deren Einfluss auf die mentale Gesundheit besser zu verstehen und so Menschen zu helfen. Unterstützen Sie uns durch die Spende Ihrer anonymisierten Social-Online-Daten. Erhalten Sie als Dank erhellendes Feedback!
 landing.what.title=Worum geht es?
 landing.what.body1=Soziale Interaktionen spielen eine wichtige Rolle für die mentale Gesundheit. Um diese Rolle besser zu verstehen, entwickeln wir an der Universität Bielefeld neue digitale Messmethoden. Mit der aktuellen Studie möchten wir die Frage beantworten: Können wir die soziale Einbindung von Menschen anhand Ihrer Social Media Nachrichten erfassen?
-landing.what.body2=Wenn Sie uns bei unserer Forschung unterstützen möchten, können Sie Ihre Daten von einer Social Media Plattform anfordern (Facebook oder WhatsApp). Diese Daten können Sie dann auf unserer Webseite anonymisieren und für die Forschung spenden. <br><i>Wir empfehlen bei der Datenspenden, für Whatsapp ein iPhone und für Facebook einen Computer zu verwenden.</i>
+landing.what.body2=Wenn Sie uns bei unserer Forschung unterstützen möchten, können Sie Ihre Daten von einer Social Media Plattform anfordern (Facebook oder WhatsApp). Diese Daten können Sie dann auf unserer Webseite anonymisieren und für die Forschung spenden. <br><i>Wir empfehlen die Datenspende an einem Computer durchzuführen.</i>
 
 landing.why.title=Warum sollte ich teilnehmen?
 landing.why.col1.title=Erhalten Sie Feedback
@@ -146,6 +146,14 @@ donation.anonymisation.friendInitial=K
 donation.anonymisation.system=System
 donation.anonymisation.chooseUsername=Bitte wählen Sie Ihren Nutzernamen aus. Ihr Nutzername wird nicht gespeichert und wir werden ihn nicht erfahren.
 donation.anonymisation.loading=Das Senden der anonymisierten Daten kann ein paar Minuten dauern. Bitte warten Sie und lassen Sie diese Seite geöffnet. Danke!
+
+donation.anonymisation.loading.tooLong.title=Wenn dieser Vorgang länger als 5 Minuten dauert, kann dies folgende Ursachen haben:
+donation.anonymisation.loading.tooLong.issue.1=Sie versuchen, Dateitypen hochzuladen, die nicht unterstützt werden (die korrekten Dateitypen sind .txt für WhatsApp und .zip für Facebook)
+donation.anonymisation.loading.tooLong.issue.2=Sie haben Ihre WhatsApp-Chats von verschiedenen Geräten exportiert
+donation.anonymisation.loading.tooLong.issue.3=Die Dateien, die Sie hochladen möchten, sind ungewöhnlich groß
+donation.anonymisation.loading.tooLong.issue.4=Ihre Internetverbindung ist langsam
+donation.anonymisation.loading.tooLong.issue.5=Andere unerwartete Probleme
+donation.anonymisation.loading.tooLong.issue.6=Helfen Sie uns <a href="@messages("links.reportProblem")" target="_blank">hier</a> diese Anwendung zu verbessern.
 
 donation.errors.no-profile=Die Datei enthält keine Profildaten.
 donation.errors.no-alias=Ein Nutzername muss angegeben werden. Sie können ihn in Ihrem WhatsApp-Profil finden.
@@ -360,12 +368,11 @@ actions.next=Vor
 # Data source specific text
 
 whatsapp.instructions.p1.title=Was für ein Gerät soll ich benutzen?
-whatsapp.instructions.p1.body=Wir empfehlen, ein iPhone für WhatsApp-Spenden zu benutzen. Bei verschiedenen Android-Versionen kann es sein, dass die Daten nicht lokal auf Ihrem Gerät gespeichert werden können. Das Exportieren und Speichern von WhatsApp-Daten funktioniert nicht mit der WhatsApp Web-Version. Bitte beachten Sie, dass Sie die Daten auf einem Gerät speichern, auf das niemand außer Ihnen Zugriff hat.
+whatsapp.instructions.p1.body=Wir empfehlen, die WhatsApp-Spende an einem Computer durchzuführen. Zusätzlich benötigen Sie Ihr Smartphone, mit dem Sie Whatsapp verwenden, um die Daten an den Computer zu senden. Bitte beachten Sie, dass Sie die Daten auf einem Gerät speichern, auf das niemand außer Ihnen Zugriff hat.
 whatsapp.instructions.p2.title=Welche Chats soll ich auswählen?
 whatsapp.instructions.p2.body=Von Zeit zu Zeit besprechen die meisten Menschen wichtige Angelegenheiten mit Anderen und wir brauchen Menschen, auf deren Hilfe wir uns verlassen können. Das können Familienangehörige, Freunde oder Menschen sein, die Ihnen wirklich geholfen haben - <b>was uns interessiert, sind die Chats mit den Menschen, mit denen Sie am ehesten über wirklich wichtige Angelegenheiten in Ihrem Leben sprechen.</b> <br><br><b>Bitte wählen Sie 5-7 Chats mit Menschen aus, mit denen Sie wichtige Dinge in Ihrem Leben besprechen (auch Gruppenchats sind möglich).</b>
 whatsapp.instructions.p3.title=Wie kann ich meine Daten von meinem Gerät wieder löschen?
-whatsapp.instructions.p3.body=Wir empfehlen Ihnen ausdrücklich, die Ihre Originaldaten nach dem Abschluss der Spende wieder zu löschen.  Beachten Sie, dass ein einfaches Löschen der Dateien ggf. nicht ausreicht, um die Daten endgültig von Ihrem Gerät zu entfernen. Weitere Informationen zur endgültigen Löschung von Dateien finden Sie unter anderem <a target="_blank" href="https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Daten-sichern-verschluesseln-und-loeschen/Daten-endgueltig-loeschen/daten-endgueltig-loeschen.html">auf der Seite des Bundesamt für Sicherheit in der Informationstechnik</a> und <a target="_blank" href="https://www.datenschutz.org/daten-loeschen/"> Datenschutz.org</a>.
-whatsapp.instructions.unzip=Hinweis: Falls Ihre Daten in einer <b>Zip-Datei</b> exportiert werden, müssen diese erst entpackt werden, sodass nur Text-Dateien übrig bleiben. Entsprechende Anleitungen können Sie für Android z.B. bei <a target="_blank" href="https://support.google.com/files/answer/9048509?hl=de">Google</a> und für iPhone bei <a target="_blank" href="https://support.apple.com/de-de/HT211132">Apple</a> finden.
+whatsapp.instructions.p3.body=Wir empfehlen Ihnen ausdrücklich, Ihre Originaldaten (Chatdateien) nach dem Abschluss der Spende von Ihrem Rechner sowie aus Ihrem Mailpostfach (Ein- und Ausgang) zu löschen. Beachten Sie, dass ein einfaches Löschen der Dateien ggf. nicht ausreicht, um die Daten endgültig zu entfernen. Weitere Informationen zur endgültigen Löschung finden Sie <a target="_blank" href="https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Daten-sichern-verschluesseln-und-loeschen/Daten-endgueltig-loeschen/daten-endgueltig-loeschen.html">auf der Seite des Bundesamt für Sicherheit in der Informationstechnik</a> und <a target="_blank" href="https://www.datenschutz.org/daten-loeschen/"> Datenschutz.org</a>.
 
 whatsapp.description_html=<i>Hinweis: Die Chat-Exportfunktion wird nicht von allen WhatsApp-Versionen unterstützt! <strong>Das Exportieren und Speichern von WhatsApp-Daten funktioniert nicht mit der WhatsApp Web-Version. Außerdem kann es bei verschiedenen Android-Versionen sein, dass die Daten nicht lokal auf Ihrem Gerät gespeichert werden können.</i></strong> <br><br>Von Zeit zu Zeit besprechen die meisten Menschen wichtige Angelegenheiten mit anderen, und wir brauchen Menschen, auf deren Hilfe wir uns verlassen können. Das können Familienangehörige, Freunde oder Menschen sein, die Ihnen wirklich geholfen haben - was uns interessiert, sind diejenigen, mit denen Sie am ehesten über wirklich wichtige Angelegenheiten in Ihrem Leben sprechen. <br><br>Bitte wählen Sie <strong>5</strong> Chats mit Menschen aus, mit denen Sie wichtige Dinge in Ihrem Leben besprechen (auch Gruppenchats sind möglich). Bitte denken Sie daran, dass die Chats nur nacheinander heruntergeladen werden können. Eine Mehrfachauswahl von Chats wird derzeit nicht unterstützt.
 whatsapp.external-documentation_html=Die offizielle Dokumentation zum Herunterladen Ihrer Daten können Sie für <a target="_blank" href="https://faq.whatsapp.com/618575946635920/?cms_platform=iphone&helpref=platform_switcher" target="_blank">iOS</a> und <a target="_blank" href="https://faq.whatsapp.com/de/android/23756533" target="_blank">Android</a> hier finden.
@@ -376,9 +383,9 @@ whatsapp.donation-procedure.2=Überlegen Sie, welche fünf Chats für Sie besond
 whatsapp.donation-procedure.3=Wählen Sie einen der Chats aus und öffnen Sie diesen.
 whatsapp.donation-procedure.4=Klicken Sie oben in der Mitte auf den Namen des Kontakts.
 whatsapp.donation-procedure.5=Scrollen Sie runter und klicken Sie auf „Chat exportieren“. Ein Fenster öffnet sich. Wählen Sie "OHNE MEDIEN".
-whatsapp.donation-procedure.6=Scrollen Sie runter und wählen Sie „In Dateien sichern“ aus und dann "Auf meinem iPhone" oder "Auf meinem Gerät". Dann klicken Sie oben rechts auf "Sichern".
-whatsapp.donation-procedure.7=Wiederholen Sie die Schritte 3-7 für alle Chats.
-whatsapp.donation-procedure.note=Hinweis: Falls Ihre Daten in einer Zip-Datei exportiert werden, müssen diese erst entpackt werden sodass nur Text-Dateien übrig bleiben.
+whatsapp.donation-procedure.6=Wählen Sie "Mail" (Briefumschlag) aus und senden Sie die Mail mit der angehangenen Chat-Datei an sich selbst. Bitte (ver)senden Sie nur von/an einen sicheren Maildienst (z.B. Uni-Mailadresse). Alternativ können Sie die Dateien auch via Bluetooth an Ihren Computer senden.
+whatsapp.donation-procedure.7=Laden Sie die Chatdatei aus der E-mail auf Ihrem Computer herunter. Falls Ihr Chat in einer <b>Zip-Datei</b> exportiert wurde, müssen Sie diese entpacken, sodass nur Text-Dateien übrig bleiben.
+whatsapp.donation-procedure.8=Wiederholen Sie die Schritte 3-7 für alle Chats.
 whatsapp.instruction.gif = whatsapp_ger.mp4
 
 facebook.instructions.p1.title=Was für ein Gerät sollte ich benutzen?
