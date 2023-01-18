@@ -127,6 +127,7 @@
                         <video controls autoplay height="@{dataSourceDescription.animation.get.height}" width="@{dataSourceDescription.animation.get.width}">
                             <source src="@routes.Assets.at(s"images/dataSourceImages/${dataSourceDescription.animation.get.source}")" type="video/mp4">
                         </video>
+                        <p>@messages("whatsapp.instruction.gif.subtitle")</p>
                     </div>
                 }
             </div>
@@ -140,7 +141,6 @@
                     @for(procedureStep <- dataSourceDescription.dataDownloadSteps) {
                         <li><p>@Html(procedureStep)</p></li>
                     }
-                        <p><i>@Html(messages("whatsapp.instructions.unzip"))</i></p>
                     </ol>
                 </div>
 

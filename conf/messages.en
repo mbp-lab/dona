@@ -6,7 +6,7 @@ landing.header.title=Illuminate the darkness with your social media data
 landing.header.body=We are researching digital methods to better understand social media interaction and its potential impact on mental health in order to help people. Support our mission by donating your social media data anonymously. As a gesture of appreciation for your efforts, we will grant you interesting insights into your data.
 landing.what.title=What is this about?
 landing.what.body1=Social interaction plays a significant role in our mental health. The Multimodal Behavior Processing Group at the University of Bielefeld is currently developing digital measurement tools in order to better understand it. In this ongoing study we are trying to answer a particular question: Can the social involvement of people be measured by utilizing their social media data?
-landing.what.body2=If you want to participate in this study, you can request your data from a social media platform of your choice (Facebook and WhatsApp). You can then anonymize this data on the website, upload it and donate it to our research platform.<br><i>We recommend using an iPhone for WhatsApp and a computer for Facebook donations.</i>
+landing.what.body2=If you want to participate in this study, you can request your data from a social media platform of your choice (Facebook and WhatsApp). You can then anonymize this data on the website, upload it and donate it to our research platform.<br><i>We recommend using a computer for participation.</i>
 
 landing.why.title=Why should I participate?
 landing.why.col1.title=Receive feedback
@@ -145,6 +145,14 @@ donation.anonymisation.friendInitial=C
 donation.anonymisation.system=System
 donation.anonymisation.chooseUsername=Please choose your username. Your username will not be saved and we will not know it.
 donation.anonymisation.loading=Sending the anonymized data could take a few minutes. Please wait and keep this website open. Thanks!
+
+donation.anonymisation.loading.tooLong.title=If this process is taking more than 5 minutes, it might be due to the following:
+donation.anonymisation.loading.tooLong.issue.1=You are trying to upload file types that are not supported (the correct input types are .txt for WhatsApp and .zip for Facebook)
+donation.anonymisation.loading.tooLong.issue.2=You have exported you WhatsApp chats from different devices
+donation.anonymisation.loading.tooLong.issue.3=The files you are trying to upload have unusually large sizes
+donation.anonymisation.loading.tooLong.issue.4=Your internet connection is slow
+donation.anonymisation.loading.tooLong.issue.5=Other unexpected issues
+donation.anonymisation.loading.tooLong.issue.6=Help us improve <a href="@messages("links.reportProblem")" target="_blank">here</a>
 
 donation.errors.no-profile=The uploaded data does not include profile information.
 donation.errors.no-alias=Please enter your username. You can find it in your WhatsApp profile.
@@ -359,12 +367,11 @@ actions.next=Continue
 # Data source specific text
 
 whatsapp.instructions.p1.title=What type of device should I use?
-whatsapp.instructions.p1.body=We recommend using an iPhone for WhatsApp donations. With different Android versions, you may not be able to save the data locally on your device. Exporting and saving WhatsApp data does not work with the WhatsApp web version. Please make sure that you are storing the data on a device that no one but you has access to.
+whatsapp.instructions.p1.body=We recommend using a computer for WhatsApp donations. In addition, you need your smartphone, on which you use WhatsApp, to send the data to the computer. Please make sure that you are storing the data on a device that no one but you has access to.
 whatsapp.instructions.p2.title=Which chats should I choose?
 whatsapp.instructions.p2.body=From time to time most people discuss important matters with others and we need people we can rely on for help. They may be family, friends, or people who have really helped you - <b>we are interested in the chats with the people you are most likely to talk to about really important things in your life.</b> <br> <br><b>Please select 5-7 chats with people with whom you discuss important things in your life (group chats are also possible).</b>
 whatsapp.instructions.p3.title=How can I delete my data from my device?
-whatsapp.instructions.p3.body=We strongly recommend that you delete your original data after completing the donation. Note that simply deleting the files may not be enough to permanently remove the data from your device. Further information on the permanent deletion of files can for example be found <a target="_blank" href="https://safecomputing.umich.edu/protect-yourself/prepare-devices-disposal/securely-delete-files">on the website of the University of Michigan</a> or <a target="_blank" href="https://wethegeek.com/best-file-data-shredder-apps-to-permanently-delete-data-from-android/">wethegeek.com</a> and <a target="_blank" href="https://appletoolbox.com/how-to-delete-files-permanently-from-the-files-app-on-iphone-and-ipad/">appletoolbox.com</a>.
-whatsapp.instructions.unzip=Note: If your data is exported in a <b>zip file</b>, it must first be unzipped so that only text files remain. You can find corresponding instructions for Android e.g. at <a target="_blank" href="https://support.google.com/files/answer/9048509?hl=en">Google</a> and for iPhone at <a target="_blank" href="https://support.apple.com/en-us/HT211132">Apple</a>.
+whatsapp.instructions.p3.body=We strongly recommend that you delete your original data (chat files) from your computer and from your e-mail system (inbox and sent) after completing the donation. Note that simply deleting the files may not be enough to permanently remove the data from your device. Further information on the permanent deletion of files can be found <a target="_blank" href="https://safecomputing.umich.edu/protect-yourself/prepare-devices-disposal/securely-delete-files">on the website of the University of Michigan</a>.
 
 whatsapp.description_html=<i>Note: The chat export function is not supported by all WhatsApp versions! <strong> Exporting and saving WhatsApp data does not work with the WhatsApp web version. Also, on different Android versions, you may not be able to store your data locally on your device.</i></strong> <br><br>From time to time, most people discuss important matters with other people, and we need people we can depend on for help. These can be family, friends, or people who have been really helpful to you – what we are interested in are the ones that you are most likely to talk about really important matters in your life. <br><br>Please choose <strong>5</strong> chats with people with whom you discuss important matters in your life (group chats are possible too). Please bear in mind that the chats can only be downloaded one after the other. Multiple selection of chats is currently not supported.
 whatsapp.external-documentation_html=The official documentation on how to download your data can be found here for <a target="_blank" href="https://faq.whatsapp.com/618575946635920/?cms_platform=iphone&helpref=platform_switcher" target="_blank">iOS</a> or <a target="_blank" href="https://faq.whatsapp.com/en/android/23756533" target="_blank">Android</a>.
@@ -375,10 +382,11 @@ whatsapp.donation-procedure.2=Think about which five chats are most relevant to 
 whatsapp.donation-procedure.3=Pick one of the selected chats and open it.
 whatsapp.donation-procedure.4=Click on the contact's name in the top center.
 whatsapp.donation-procedure.5=Scroll down and click on "Export chat". A window will open. Select "WITHOUT MEDIA".
-whatsapp.donation-procedure.6=Scroll down and select "Save to Files" and then "On my iPhone" or "On my device". Then click "Save" in the upper right corner.
-whatsapp.donation-procedure.7=Repeat the steps 3-7 for all chats.
-whatsapp.donation-procedure.note=Hinweis: Falls Ihre Daten in einer Zip-Datei exportiert werden, müssen diese erst entpackt werden sodass nur Text-Dateien übrig bleiben.
+whatsapp.donation-procedure.6=Select "Mail" (envelope) and send the mail with the attached chat file to yourself. Please only send from/to a secure mail service (e.g. university mail address). Alternatively, you can send the files to your computer via Bluetooth.
+whatsapp.donation-procedure.7=Download the chat file from the email to your computer. If your chat was exported in a <b>zip file</b>, you will need to unzip it so that only text files remain.
+whatsapp.donation-procedure.8=Repeat the steps 3-7 for all chats.
 whatsapp.instruction.gif=whatsapp_eng.mp4
+whatsapp.instruction.gif.subtitle=This is the chat export process on an iPhone. For other devices, the necessary steps may be slightly different.
 
 facebook.instructions.p1.title=What type of device should I use?
 facebook.instructions.p1.body=Please make sure that you are storing the data on a device that no one but you has access to. Because the amount of data for Facebook data donations can be quite large, we recommend using a computer.
