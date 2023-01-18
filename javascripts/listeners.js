@@ -26,7 +26,9 @@ function addListeners() {
         $("#anonymizationTextHeadlines").addClass('d-none');
         $("#backAndForwardButtons").addClass('d-none');
         $("#spinner-submit-div").removeClass('d-none');
-        $("#spinner-submit-div").removeClass('d-none');
+
+        // show message if loading takes longer than 30 seconds - possible reasons for long loadtime
+        setTimeout(() => $("#show-if-loading-long").removeClass('d-none'), 30000)
 
         //$('#submit-de-identified').prop('disabled', true);
 
