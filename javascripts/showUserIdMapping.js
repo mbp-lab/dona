@@ -6,7 +6,7 @@ function showUserIdMapping(userIdMapping, systemName, donor, friendInitial, data
             let deidentifiedNames = [];
             let friendMappings = [];
             // get friendMappings and shorten them
-            console.log("userIdMapping:", userIdMapping)
+            //console.log("userIdMapping:", userIdMapping)
             Object.entries(userIdMapping).forEach((mapping) => {
 
                 if (mapping[0] !== systemName) {
