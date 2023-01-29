@@ -1,21 +1,45 @@
 @()(implicit request: RequestHeader, messages: Messages)
 
 @mainNew("Dona - ForMe")() {
-    <div class="bgwhite mt-4">
-        <div class="text-left align-content-center ml-5 mt-5">
-            <h3 class="headline">Impressum</h3>
+    <div class="mt-5 mb-2 data-protection-page serif-text">
+
+            <h1 class="h1 text-justify serif-text"><b>@messages("imprint.title")</b></h1>
+        <div class="data-protection-paragraph">
             <p class="text-left">@Html(messages("imprint.imprint"))</p>
-            <h3 class="headline">Zuständige Aufsichtsbehörde</h3>
-            <h3 class="headline">Inhaltlich Verantwortliche für die Spendenplattform Dona</h3>
-            <h3 class="headline">Inhaltlich Verantwortlicher für die zentralen Internetseiten</h3>
-            <h3 class="headline">Haftungsausschluss</h3>
-            <h3 class="headline">Urheberrecht</h3>
-            <h3 class="headline">Bildnachweis</h3>
         </div>
+
+            <h4><b>@messages("imprint.rsa.title")</b></h4>
+            <div class="data-protection-paragraph">
+                <p class="text-left">@Html(messages("imprint.rsa.body"))</p>
+            </div>
+
+            <h4><b>@messages("imprint.responsibleDona.title")</b></h4>
+        <div class="data-protection-paragraph">
+            <p class="text-left">@Html(messages("imprint.responsibleDona.body"))</p>
+        </div>
+
+            <h4><b>@messages("imprint.responsibleCentralWebsite.title")</b></h4>
+        <div class="data-protection-paragraph">
+            <p class="text-left">@Html(messages("imprint.responsibleCentralWebsite.body"))</p>
+        </div>
+
+            <h4><b>@messages("imprint.liabilityDisclaimer.title")</b></h4>
+        <div class="data-protection-paragraph">
+            <p class="text-left">@Html(messages("imprint.liabilityDisclaimer.body"))</p>
+        </div>
+
+            <h4><b>@messages("imprint.copyright.title")</b></h4>
+        <div class="data-protection-paragraph">
+            <p class="text-left">@Html(messages("imprint.copyright.body"))</p>
+        </div>
+
+            <h4><b>@messages("imprint.photoCredits.title")</b></h4>
+        <div class="data-protection-paragraph">
+            <p class="text-left">@Html(messages("imprint.photoCredits.body"))</p>
+        </div>
+
     </div>
-    <div class="mt-5">
-    @footer(previousLink = Some("/"))()
-    </div>
+
 } {
 }{
     <a href="@messages("links.reportProblem")" target="_blank" class="btn report-problem-button-header float-right">@messages("reportProblem.button")</a>

@@ -169,22 +169,28 @@
 /* data protection */
 
 .data-protection-paragraph {
+    /*
     margin-bottom: 5px;
     margin-top: 1em;
     font-size: 18px;
     color: #666666;
+     */
+    font-size: 18px;
+    text-align: left;
 }
 
 .data-protection-headline {
+    font-weight: bold;
+    /*
     font-size: 28px;
     color: #666666;
     margin-top: 10px;
+
+     */
 }
 
 .data-protection-subheadline {
     font-size: 24px;
-    color: #666666;
-    margin-top: 10px;
 }
 
 .data-protection-page {
