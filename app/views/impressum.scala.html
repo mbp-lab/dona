@@ -1,0 +1,22 @@
+@()(implicit request: RequestHeader, messages: Messages)
+
+@mainNew("Dona - ForMe")() {
+    <div class="bgwhite mt-4">
+        <div class="text-left align-content-center ml-5 mt-5">
+            <h3 class="headline">Impressum</h3>
+            <p class="text-left">@Html(messages("imprint.imprint"))</p>
+            <h3 class="headline">Zuständige Aufsichtsbehörde</h3>
+            <h3 class="headline">Inhaltlich Verantwortliche für die Spendenplattform Dona</h3>
+            <h3 class="headline">Inhaltlich Verantwortlicher für die zentralen Internetseiten</h3>
+            <h3 class="headline">Haftungsausschluss</h3>
+            <h3 class="headline">Urheberrecht</h3>
+            <h3 class="headline">Bildnachweis</h3>
+        </div>
+    </div>
+    <div class="mt-5">
+    @footer(previousLink = Some("/"))()
+    </div>
+} {
+}{
+    <a href="@messages("links.reportProblem")" target="_blank" class="btn report-problem-button-header float-right">@messages("reportProblem.button")</a>
+}
