@@ -227,33 +227,33 @@
 }
 
 .report-problem-button-footer {
-    min-width: 190px;
-    font-weight: 800;
-    font-size: 12px;
-    padding: 10px 20px 10px 20px;
-    border-radius: 16px;
-    background: #888;
+    min-width: 190px !important;
+    font-weight: 800 !important;
+    font-size: 12px !important;
+    padding: 10px 20px 10px 20px !important;
+    border-radius: 16px !important;
+    background: #888 !important;
     color: white !important;
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 .report-problem-button-footer:hover {
-    background: #555;
+    background: #555 !important;
     color: white !important;
 }
 
 .report-problem-button-header {
-    font-weight: 800;
-    font-size: 12px;
-    padding: 10px 20px 10px 20px;
-    border-radius: 16px;
-    background: white;
+    font-weight: 800 !important;
+    font-size: 12px !important;
+    padding: 10px 20px 10px 20px !important;
+    border-radius: 16px !important;
+    background: white !important;
     color: #404040 !important;
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 .report-problem-button-header:hover {
-    background: #E2E2E2;
+    background: #E2E2E2 !important;
     color: #404040 !important;
 }
 
