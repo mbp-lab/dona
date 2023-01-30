@@ -44,6 +44,10 @@ final class SocialDataDonationController @Inject()(
     Ok(views.html.learnMore()).withNewSession
   }
 
+  def impressum: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
+    Ok(views.html.impressum()).withNewSession
+  }
+
   def donationInfo: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
     Ok(views.html.donationInformation())
   }

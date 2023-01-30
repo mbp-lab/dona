@@ -26,7 +26,9 @@ function addListeners() {
         $("#anonymizationTextHeadlines").addClass('d-none');
         $("#backAndForwardButtons").addClass('d-none');
         $("#spinner-submit-div").removeClass('d-none');
-        $("#spinner-submit-div").removeClass('d-none');
+
+        // show message if loading takes longer than 30 seconds - possible reasons for long loadtime
+        setTimeout(() => $("#show-if-loading-long").removeClass('d-none'), 30000)
 
         //$('#submit-de-identified').prop('disabled', true);
 
@@ -99,12 +101,16 @@ function addListeners() {
 }
 
 function handleUnsupportedBrowsers() {
-    const userAgent = window.navigator.userAgent;
+
+    var userAgent = navigator.userAgent.toLowerCase()
+
     // check if user is using IE as we know the site does not look correct
     // code taken from https://stackoverflow.com/questions/19999388/check-if-user-is-using-ie
     if (userAgent.indexOf("MSIE") > -1 || userAgent.match(/Trident.*rv\:11\./)) {
         $("#unsupported-browser-warning").removeClass("d-none");
     }
+
+
 }
 
 function setUpFileHandler() {

@@ -6,6 +6,7 @@
 
 GET     /                              controllers.SocialDataDonationController.landing
 GET     /learn-more                    controllers.SocialDataDonationController.learnMore
+GET     /impressum                     controllers.SocialDataDonationController.impressum
 GET     /instructions                  controllers.SocialDataDonationController.instructions
 POST    /consent-to-study              controllers.SocialDataDonationController.consentToStudy
 GET     /data-donation                 controllers.SocialDataDonationController.showDataDonationPage

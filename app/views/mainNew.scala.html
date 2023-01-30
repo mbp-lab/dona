@@ -1,4 +1,4 @@
-@(title: String, designVersion: Option[String] = None)(header: Html = Html(""))(content: Html)(footer: Html = Html(""))(implicit messages: Messages)
+@(title: String, designVersion: Option[String] = None)(header: Html = Html(""))(content: Html)(footer: Html = Html(""))(headerRight: Html = Html(""))(implicit messages: Messages)
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +23,7 @@
         -->
     </head>
     <body class="bgImage">
+        <script src="@routes.Assets.at("lib/jquery/jquery.min.js")" type="text/javascript"></script>
         <div class="main-container">
             <div id="unsupported-browser-warning" class="d-none p-3 w-100 bg-danger text-white text-center">@messages("browser-warning.text")</div>
             <div class="row mx-0 mt-3 justify-content-center">
@@ -33,6 +34,7 @@
                 @header
                 </div>
                 <div id="header-uni-logo" class="col">
+                @headerRight
                 </div>
             </div>
             <section class="ml-0 mr-0 pt-4 bg-white mt-4 pb-5 w-100 main-body">
@@ -43,11 +45,10 @@
             </section>
             <section class="w-100 position-relative footer-container bg-white mb-4">
                 @footer
-
-                <ul class="list-inline footer-links ml-4">
-                    <li class="list-inline-item"><a href="@routes.AboutController.dataProtection" class="text-black-50">@messages("links.data-protection")</a></li>
+            <ul class="list-inline footer-links ml-4">
+                    <li class="list-inline-item"><a href="@routes.AboutController.dataProtection" class="text-black-50" target="_blank">@messages("links.data-protection")</a></li>
                     <li class="list-inline-item text-white">&middot;</li>
-                    <li class="list-inline-item"><a target="_blank" href="https://www.uni-bielefeld.de/impressum/" class="text-black-50">@messages("links.imprint")</a></li>
+                    <li class="list-inline-item"><a href="/impressum" class="text-black-50" target="_blank">@messages("links.imprint")</a></li>
                 </ul>
                 <div class="logos ml-4">
                     <div class="row justify-content-end mb-1 mr-1">
@@ -81,9 +82,7 @@
                 </div>
             </section>
         </div>
-        <script src="@routes.Assets.at("lib/jquery/jquery.min.js")" type="text/javascript"></script>
         <script src="@routes.Assets.at("lib/bootstrap/js/bootstrap.min.js")" type="text/javascript"></script>
         <script src="@routes.Assets.at("javascripts/bundle.js")" type="text/javascript"></script>
-
     </body>
 </html>

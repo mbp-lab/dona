@@ -6,8 +6,56 @@
     <p class="landing-header-text text-center">@messages("landing.header.body")</p>
 </div>
 } {
+<script>
+        $(document).ready(function(){
+            alertIfMobile()
+        });
 
+        function alertIfMobile() {
+
+            var userAgent = navigator.userAgent.toLowerCase(),
+                    width = screen.availWidth,
+                    height = screen.availHeight,
+                    userIsOnMobileDevice = checkIfUserIsOnMobileDevice(userAgent);
+
+            if(userIsOnMobileDevice) {
+                //alert("@messages("landing.mobileAlert")")
+                $('#mobileAlertModal').modal("show")
+            }
+
+            function checkIfUserIsOnMobileDevice($userAgent) {
+                if($userAgent.includes('mobi') || $userAgent.includes('tablet')){
+                    return true;
+                }
+                if($userAgent.includes('android')) {
+                    if(height > width && width < 800) {
+                        // Screen is higher than it’s wide, so we have portrait mode
+                        return true;
+                    }
+                    if(width > height && height < 800) {
+                        // Screen is wider than it’s high, so we have landscape mode
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
+
+</script>
 <div class="bg-white mt-4 text-center landing-container">
+
+    @* modal for mobile alert to better use a computer *@
+    <div class="modal modalMobileAlert modal-xl" id="mobileAlertModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modalMobileAlert-dialog modal-dialog-centered" role="document">
+            <div class="modal-content modalMobileAlert-content">
+                <div class="modal-body">
+                    <h1 class="modal-title">@messages("landing.mobileAlert")</h1>
+                    <button type="button" data-dismiss="modal" class="btn modal-forward-button float-right">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <h2 class="headline">@messages("landing.what.title")</h2>
     <p class="paragraph mt-1">@messages("landing.what.body1")</p>
     <p class="paragraph">@Html(messages("landing.what.body2"))</p>
@@ -65,10 +113,17 @@
         <p class="serif-text wide-top-margin"><em>@Html(messages("landing.contact.body_html"))</em></p>
     </div>
     <div class="mt-5">
+        @* <button class="btn btn-outline footer-forward-button text-center" data-toggle="modal" data-target="#reportProblem-dialog">@messages("links.instructions")</button> *@
         @footer(nextLink = Some("/instructions"), nextCustomText=Some(messages("links.instructions")))()
+    </div>
+
+    <div class="modal fade" id="reportProblem-dialog" role="dialog">
+    @reportProblem()
     </div>
 
 </div>
 
+}{
+    <a role="button" href="@messages("links.reportProblem")" target="_blank" class="btn report-problem-button-footer footer-links-above ml-4">@messages("reportProblem.button")</a>
 }{
 }

@@ -70,9 +70,11 @@ $(document).ready(function () {
         // when modal is opened the first time, render plots...
         // if this is done before the modal is opened, the width of the plots is not correct
 
-        const sentReceivedModal = $(`#${dataSourceType}sentReceivedModal`)
+
+        let sentReceivedModal = $(`#${dataSourceType}sentReceivedModal`)
         const dailyActivityModal = $(`#${dataSourceType}dailyActivityModal`)
         const responseTimeModal = $(`#${dataSourceType}responseTimeModal`)
+
         sentReceivedModal.on('shown.bs.modal', () => {
 
             horizontalBarChartOverall(
@@ -110,11 +112,14 @@ $(document).ready(function () {
                 `${dataSourceType}AnimatedResponseTimeBarChart`
             );
 
+            /*
             breaksInConvPlot(
                 graphData.dailySentReceivedPerConversation,
                 listOfConversations,
                 `${dataSourceType}BreaksInConvPlot`
             );
+
+             */
         })
 
 

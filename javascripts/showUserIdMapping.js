@@ -6,6 +6,7 @@ function showUserIdMapping(userIdMapping, systemName, donor, friendInitial, data
             let deidentifiedNames = [];
             let friendMappings = [];
             // get friendMappings and shorten them
+            //console.log("userIdMapping:", userIdMapping)
             Object.entries(userIdMapping).forEach((mapping) => {
 
                 if (mapping[0] !== systemName) {
@@ -27,22 +28,56 @@ function showUserIdMapping(userIdMapping, systemName, donor, friendInitial, data
             })
 
             // deidentify names to initials and stars
-            for (let i = 0; i < names.length; i++) {
-                if (friendMappings[i] === donor) {
-                    deidentifiedNames.push(names[i])
-                } else {
-                    let splitIntoWords = names[i].split(" ");
-                    let deidentifiedName = "";
-                    splitIntoWords.forEach((word) => {
-                        deidentifiedName += word[0]
-                        for (let i = 1; i < word.length; i++) {
-                            deidentifiedName += "*"
-                        }
-                        deidentifiedName += " "
-                    })
-                    deidentifiedNames.push(deidentifiedName)
+            if (dataSource === "WhatsApp") {
+                for (let i = 0; i < names.length; i++) {
+                    if (friendMappings[i] === donor) {
+                        deidentifiedNames.push(names[i])
+                    } else {
+                        let splitIntoWords = names[i].split(" ");
+                        let deidentifiedName = "";
+                        splitIntoWords.forEach((word) => {
+                            deidentifiedName += word[0]
+                            for (let i = 1; i < word.length; i++) {
+                                deidentifiedName += "*"
+                            }
+                            deidentifiedName += " "
+                        })
+                        deidentifiedNames.push(deidentifiedName)
+                    }
                 }
             }
+
+            // show more symbols of user names for facebook - as here there are a lot more contacts and only
+            // a few of those are shown -> making it easier for people to identify their contacts
+            else {
+                for (let i = 0; i < names.length; i++) {
+                    if (friendMappings[i] === donor) {
+                        deidentifiedNames.push(names[i])
+                    } else {
+                        let splitIntoWords = names[i].split(" ");
+                        let deidentifiedName = "";
+                        splitIntoWords.forEach((word) => {
+                            if (word.length >= 4) {
+                                deidentifiedName += word[0]
+                                deidentifiedName += word[1]
+                                for (let i = 2; i < word.length; i++) {
+                                    deidentifiedName += "*"
+                                }
+                                deidentifiedName += " "
+                            } else {
+                                deidentifiedName += word[0]
+                                for (let i = 1; i < word.length; i++) {
+                                    deidentifiedName += "*"
+                                }
+                                deidentifiedName += " "
+                            }
+                        })
+                        deidentifiedNames.push(deidentifiedName)
+                    }
+                }
+            }
+
+
 
             // get all indices where the deidentified names are equal
             for (let i = 0; i < deidentifiedNames.length; i++) {

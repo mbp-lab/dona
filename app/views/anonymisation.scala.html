@@ -72,6 +72,17 @@
             <h5 class="mt-4">
                 <b>@messages("donation.anonymisation.loading")</b>
             </h5>
+            <div id="show-if-loading-long" class="d-none">
+            <h5 class="mt-5 serif-text">@messages("donation.anonymisation.loading.tooLong.title")</h5>
+            <ul class="serif-text text-left mt-4">
+                <li>@messages("donation.anonymisation.loading.tooLong.issue.1")</li>
+                <li>@messages("donation.anonymisation.loading.tooLong.issue.2")</li>
+                <li>@messages("donation.anonymisation.loading.tooLong.issue.3")</li>
+                <li>@messages("donation.anonymisation.loading.tooLong.issue.4")</li>
+                <li>@messages("donation.anonymisation.loading.tooLong.issue.5")</li>
+                <li>@Html(messages("donation.anonymisation.loading.tooLong.issue.6"))</li>
+            </ul>
+            </div>
         </div>
         </div>
 
@@ -117,6 +128,8 @@
 
     </div>
 } {
+}{
+    <a href="@messages("links.reportProblem")" target="_blank" class="btn report-problem-button-header float-right">@messages("reportProblem.button")</a>
 }
 
 @donateDataCollapse(dataSourceDescription: DataSourceDescription) = {
@@ -222,6 +235,9 @@
                             <p style="color: darkblue;
                                 font-weight: bold">@Html(messages("donation.friendsMapping.title"))</p>
                             <p style="color: darkblue;">@Html(messages("donation.friendsMapping.subtitle"))</p>
+                            @if(dataSourceDescription.name.toString == "Facebook") {
+                                <p style="color: darkblue;"><i>Dies sind nur die Kontakte Ihrer 7 Facebook-Chats, in denen insgesamt die meisten Wörter gesendet wurden.</i></p>
+                                }
                             <p class="show-on-anonymisation-success-@{dataSourceDescription.name.toString}" style="overflow: scroll;
                                 height: 200px;
                                 margin-top: 10px;">

@@ -2,11 +2,13 @@
 
 # Landing page
 
+landing.mobileAlert=Wir empfehlen die Teilnahme an der Studie mit einem Laptop oder PC.
+
 landing.header.title=Bringen Sie Licht ins Dunkel mit Ihren Social-Online-Daten.
-landing.header.body=Wir forschen an digitalen Methoden, um Interaktionen über soziale Medien und deren Einfluss auf die mentale Gesundheit besser zu verstehen und so Menschen zu helfen. Unterstützen Sie uns durch die Spende Ihrer anonymisierten Social-Online-Daten. Erhalten Sie als Dank erhellendes Feedback!
+landing.header.body=Wir forschen an digitalen Methoden, um soziale Interaktionen und ihren Einfluss auf die mentale Gesundheit besser zu verstehen und so Menschen zu helfen. Unterstützen Sie uns durch die Spende Ihrer anonymisierten Social-Online-Daten. Erhalten Sie als Dank erhellendes Feedback!
 landing.what.title=Worum geht es?
 landing.what.body1=Soziale Interaktionen spielen eine wichtige Rolle für die mentale Gesundheit. Um diese Rolle besser zu verstehen, entwickeln wir an der Universität Bielefeld neue digitale Messmethoden. Mit der aktuellen Studie möchten wir die Frage beantworten: Können wir die soziale Einbindung von Menschen anhand Ihrer Social Media Nachrichten erfassen?
-landing.what.body2=Wenn Sie uns bei unserer Forschung unterstützen möchten, können Sie Ihre Daten von einer Social Media Plattform anfordern (Facebook oder WhatsApp). Diese Daten können Sie dann auf unserer Webseite anonymisieren und für die Forschung spenden. <br><i>Wir empfehlen bei der Datenspenden, ein iPhone für WhatsApp und einen Computer für Facebook zu verwenden.</i>
+landing.what.body2=Wenn Sie uns bei unserer Forschung unterstützen möchten, können Sie Ihre Daten von einer Social Media Plattform anfordern (Facebook oder WhatsApp). Diese Daten können Sie dann auf unserer Webseite anonymisieren und für die Forschung spenden. <br><i>Wir empfehlen die Datenspende an einem Computer durchzuführen.</i>
 
 landing.why.title=Warum sollte ich teilnehmen?
 landing.why.col1.title=Erhalten Sie Feedback
@@ -51,10 +53,10 @@ learn-more.image.caption=Abbildung 3. Beispiel der Anonymisierung einer Nachrich
 # Instructions page
 
 instructions.about.title=Wie erhalte ich meine Daten?
-instructions.about.body_html=Bevor Sie an der Studie teilnehmen, fordern Sie bitte Ihre Daten direkt von Facebook und/oder WhatsApp an. Bitte beachten Sie, dass Sie die Daten auf einem Gerät speichern, auf das niemand außer Ihnen Zugriff hat. Außerdem empfehlen wir Ihnen ausdrücklich die <b>Original-Daten nach dem Abschluss der Spende zu löschen</b>. Beachten Sie, dass ein einfaches Löschen der Dateien ggf. nicht ausreicht, um die Daten endgültig von Ihrem Gerät zu entfernen. Weitere Informationen zur endgültigen Löschung von Dateien finden Sie unter anderem <a target="_blank" href="https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Daten-sichern-verschluesseln-und-loeschen/Daten-endgueltig-loeschen/daten-endgueltig-loeschen.html">hier</a> und <a target="_blank" href="https://www.datenschutz.org/daten-loeschen/">hier</a>.
+instructions.about.body_html=Bevor Sie an der Studie teilnehmen, fordern Sie bitte Ihre Daten direkt von Facebook und/oder WhatsApp an. Sie können Daten von beiden Plattformen spenden. Falls Sie nur Daten von einer Plattform spenden möchten, wählen Sie bitte die Plattform, die für Sie wichtiger ist. <b>Bitte sehen Sie sich die entsprechenden Anleitungen genau an, da sie wichtige Informationen für die weiteren Schritte enthalten.</b>
 instructions.datasource.title_format = Anleitung zum Erhalten von %s-Daten
 instructions.download-procedure.title=Übersicht über den Download & Datenspende Prozess:
-instructions.multiple-donation-info.body=Sie können Daten von beiden Plattformen spenden. Falls Sie nur von einer Plattform spenden möchten, wählen Sie bitte die Plattform, die für Sie wichtiger ist.
+instructions.continue.body=Wenn Sie anhand dieser Anleitung Ihre Daten erhalten haben, können Sie jetzt mit der Einverständniserklärung und dem ersten Fragebogen der Studie beginnen. Im Anschluss können Sie dann Ihre Daten spenden.
 
 # Donation info page
 
@@ -121,7 +123,7 @@ donation.preview-data.group-conversation=Gruppenunterhaltung
 donation.friendsMapping.title=<b>Decknamen für Ihre Kontakte</b>
 donation.friendsMapping.subtitle=Wir haben Ihre Daten und Ihre Kontakte anonymisiert. Falls Sie in der anonymisierten Auswertung im nächsten Schritt rekonstruieren wollen, um welche Konversationen und Kontakte es sich jeweils handelt, notieren Sie sich die folgenden Zuordnungen von Kontakten (z.B. G**** M*****) und Decknamen (z.B. “K4”). Ab jetzt sind dies die anonymisierten Decknamen für Ihre Kontakte. Die Zuordnung wird nicht gespeichert und geht verloren, sobald Sie diese Seite verlassen.
 
-donation.sendData.wait=Das Senden der Daten kann ein paar Minuten dauern. Bitte warten Sie. Danke!
+donation.sendData.wait=Das Senden der Daten kann ein paar Minuten dauern. Bitte warten Sie und lassen Sie diese Seite geöffnet. Danke!
 
 donation.raw-data-explanation_format=Unten können Sie %s Ihrer anonymisierten Nachrichten sehen. Falls Sie alle anonymisierten Nachrichten anschauen möchten, <b>werfen Sie einen Blick in Ihre</b>
 donation.raw-data-link.text=<b>Rohdaten</b>
@@ -145,7 +147,15 @@ donation.anonymisation.friend=Kontakt
 donation.anonymisation.friendInitial=K
 donation.anonymisation.system=System
 donation.anonymisation.chooseUsername=Bitte wählen Sie Ihren Nutzernamen aus. Ihr Nutzername wird nicht gespeichert und wir werden ihn nicht erfahren.
-donation.anonymisation.loading=Die anonymisierten Daten werden gesendet. Bitte warten Sie.
+donation.anonymisation.loading=Das Senden der anonymisierten Daten kann ein paar Minuten dauern. Bitte warten Sie und lassen Sie diese Seite geöffnet. Danke!
+
+donation.anonymisation.loading.tooLong.title=Wenn dieser Vorgang länger als 5 Minuten dauert, kann dies folgende Ursachen haben:
+donation.anonymisation.loading.tooLong.issue.1=Sie versuchen, Dateitypen hochzuladen, die nicht unterstützt werden (die korrekten Dateitypen sind .txt für WhatsApp und .zip für Facebook)
+donation.anonymisation.loading.tooLong.issue.2=Sie haben Ihre WhatsApp-Chats von verschiedenen Geräten exportiert
+donation.anonymisation.loading.tooLong.issue.3=Die Dateien, die Sie hochladen möchten, sind ungewöhnlich groß
+donation.anonymisation.loading.tooLong.issue.4=Ihre Internetverbindung ist langsam
+donation.anonymisation.loading.tooLong.issue.5=Andere unerwartete Probleme
+donation.anonymisation.loading.tooLong.issue.6=Helfen Sie uns <a href="@messages("links.reportProblem")" target="_blank">hier</a> diese Anwendung zu verbessern.
 
 donation.errors.no-profile=Die Datei enthält keine Profildaten.
 donation.errors.no-alias=Ein Nutzername muss angegeben werden. Sie können ihn in Ihrem WhatsApp-Profil finden.
@@ -330,10 +340,16 @@ data-protection.participation.usage.body=Die Ergebnisse und Daten dieser Studie 
 
 # Text appearing on multiple pages
 
-footer.title=Sind Sie bereit?
+footer.title=Haben Sie Ihre Daten bereit?
 footer.projectNumber=Kennzeichen: 01IS20046
 
 browser-warning.text=Sie benutzen einen Browser, der nicht unterstützt wird. Es kann daher zu Fehlern beim Aussehen oder Funktion der Seite kommen. Bitte benutzen Sie die neueste Version von Chrome oder Firefox, um die Seite zu laden.
+
+reportProblem.button=Problem melden
+reportProblem.next=Weiter
+reportProblem.image=images/problemReport_ger.png
+reportProblem.title=Problembericht und Empfehlungen
+reportProblem.body=Falls während Ihrer Nutzung unserer Anwendung ein Problem auftritt oder Sie sonstige Empfehlungen und Rückmeldungen für uns haben, nutzen Sie bitte den Knopf "Problem melden" oben rechts auf der Seite. Wir arbeiten kontinuierlich an der Verbesserung der Anwendung.<br> Vielen Dank!
 
 data-storage.body1_html=<em>Datenspende: </em>Bei der Datenspende Ihrer Social-Media-Daten erfassen wir ausschließlich Metadaten (e.g. Nachrichtenlänge, Nachrichtenzeitpunkt und Pseudonyme der UnterhaltungsteilnehmerInnen) und keine Inhalte (e.g. Nachrichtentext oder Name der UnterhaltungsteilnehmerInnen). Ihre Online-Interaktions-Daten werden bereits auf Ihrem Rechner anonymisiert. Wir sehen also niemals Ihre Nachrichten. Bevor wir Ihre anonymisierten Nachrichten speichern, können Sie diese begutachten. So können Sie sich davon überzeugen, dass diese ausreichend anonymisiert sind.
 data-storage.body2_html=<em>Fragebögen: </em>Sie füllen zunächst Fragebögen zu Ihren demographischen Informationen, zu Ihrer Spende, sowie zu Ihrer momentanen Stimmung und zu Ihrem Messaging-Verhalten aus. Danach können Sie die Datenspende durchführen und erhalten Feedback. Anschließend füllen Sie weitere Fragebögen zu ähnlichen Themen aus, sowie zu der Benutzerfreundlichkeit des Feedbacks. Diese Erhebung findet ebenfalls komplett anonym auf der Plattform <a target="_blank" href="https://www.limesurvey.org/de/hilfe/faq/17-datenschutz-datensicherheit">LimeSurvey</a> statt.
@@ -341,9 +357,10 @@ data-storage.body2_html=<em>Fragebögen: </em>Sie füllen zunächst Fragebögen 
 links.learn-more=Mehr Erfahren
 links.instructions=Start
 links.donation-info=Daten Spenden
-links.donate=Jetzt Teilnehmen
+links.donate=Ja, jetzt Teilnehmen
 links.data-protection=Datenschutz
 links.imprint=Impressum
+links.reportProblem=https://survey.mbp.tf.uni-bielefeld.de/index.php?r=survey/index&sid=486423&lang=de
 
 yes=Ja
 no=Nein
@@ -353,8 +370,15 @@ actions.next=Vor
 
 # Data source specific text
 
+whatsapp.instructions.p1.title=Was für ein Gerät soll ich benutzen?
+whatsapp.instructions.p1.body=Wir empfehlen, die WhatsApp-Spende an einem Computer durchzuführen. Zusätzlich benötigen Sie Ihr Smartphone, mit dem Sie Whatsapp verwenden, um die Daten an den Computer zu senden. Bitte beachten Sie, dass Sie die Daten auf einem Gerät speichern, auf das niemand außer Ihnen Zugriff hat.
+whatsapp.instructions.p2.title=Welche Chats soll ich auswählen?
+whatsapp.instructions.p2.body=Von Zeit zu Zeit besprechen die meisten Menschen wichtige Angelegenheiten mit Anderen und wir brauchen Menschen, auf deren Hilfe wir uns verlassen können. Das können Familienangehörige, Freunde oder Menschen sein, die Ihnen wirklich geholfen haben - <b>was uns interessiert, sind die Chats mit den Menschen, mit denen Sie am ehesten über wirklich wichtige Angelegenheiten in Ihrem Leben sprechen.</b> <br><br><b>Bitte wählen Sie 5-7 Chats mit Menschen aus, mit denen Sie wichtige Dinge in Ihrem Leben besprechen (auch Gruppenchats sind möglich).</b>
+whatsapp.instructions.p3.title=Wie kann ich meine Daten von meinem Gerät wieder löschen?
+whatsapp.instructions.p3.body=Wir empfehlen Ihnen ausdrücklich, Ihre Originaldaten (Chatdateien) nach dem Abschluss der Spende von Ihrem Rechner sowie aus Ihrem Mailpostfach (Ein- und Ausgang) zu löschen. Beachten Sie, dass ein einfaches Löschen der Dateien ggf. nicht ausreicht, um die Daten endgültig zu entfernen. Weitere Informationen zur endgültigen Löschung finden Sie <a target="_blank" href="https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Daten-sichern-verschluesseln-und-loeschen/Daten-endgueltig-loeschen/daten-endgueltig-loeschen.html">auf der Seite des Bundesamt für Sicherheit in der Informationstechnik</a> und <a target="_blank" href="https://www.datenschutz.org/daten-loeschen/"> Datenschutz.org</a>.
+
 whatsapp.description_html=<i>Hinweis: Die Chat-Exportfunktion wird nicht von allen WhatsApp-Versionen unterstützt! <strong>Das Exportieren und Speichern von WhatsApp-Daten funktioniert nicht mit der WhatsApp Web-Version. Außerdem kann es bei verschiedenen Android-Versionen sein, dass die Daten nicht lokal auf Ihrem Gerät gespeichert werden können.</i></strong> <br><br>Von Zeit zu Zeit besprechen die meisten Menschen wichtige Angelegenheiten mit anderen, und wir brauchen Menschen, auf deren Hilfe wir uns verlassen können. Das können Familienangehörige, Freunde oder Menschen sein, die Ihnen wirklich geholfen haben - was uns interessiert, sind diejenigen, mit denen Sie am ehesten über wirklich wichtige Angelegenheiten in Ihrem Leben sprechen. <br><br>Bitte wählen Sie <strong>5</strong> Chats mit Menschen aus, mit denen Sie wichtige Dinge in Ihrem Leben besprechen (auch Gruppenchats sind möglich). Bitte denken Sie daran, dass die Chats nur nacheinander heruntergeladen werden können. Eine Mehrfachauswahl von Chats wird derzeit nicht unterstützt.
-whatsapp.external-documentation_html=Die offizielle Dokumentation zum Herunterladen Ihrer Daten können Sie für <a target="_blank" href="https://faq.whatsapp.com/de/iphone/20888066#email" target="_blank">iOS</a> und <a target="_blank" href="https://faq.whatsapp.com/de/android/23756533" target="_blank">Android</a> hier finden.
+whatsapp.external-documentation_html=Die offizielle Dokumentation zum Herunterladen Ihrer Daten können Sie für <a target="_blank" href="https://faq.whatsapp.com/618575946635920/?cms_platform=iphone&helpref=platform_switcher" target="_blank">iOS</a> und <a target="_blank" href="https://faq.whatsapp.com/de/android/23756533" target="_blank">Android</a> hier finden.
 
 #Download and Donation procedure: whatsapp
 whatsapp.donation-procedure.1=Öffnen Sie WhatsApp auf Ihrem Smartphone.
@@ -362,10 +386,19 @@ whatsapp.donation-procedure.2=Überlegen Sie, welche fünf Chats für Sie besond
 whatsapp.donation-procedure.3=Wählen Sie einen der Chats aus und öffnen Sie diesen.
 whatsapp.donation-procedure.4=Klicken Sie oben in der Mitte auf den Namen des Kontakts.
 whatsapp.donation-procedure.5=Scrollen Sie runter und klicken Sie auf „Chat exportieren“. Ein Fenster öffnet sich. Wählen Sie "OHNE MEDIEN".
-whatsapp.donation-procedure.6=Scrollen Sie runter und wählen Sie „In Dateien sichern“ aus und dann "Auf meinem iPhone" oder "Auf meinem Gerät". Dann klicken Sie oben rechts auf "Sichern".
-whatsapp.donation-procedure.7=Wiederholen Sie die Schritte 3-7 für alle fünf Chats.
+whatsapp.donation-procedure.6=Wählen Sie "Mail" (Briefumschlag) aus und senden Sie die Mail mit der angehangenen Chat-Datei an sich selbst. Bitte (ver)senden Sie nur von/an einen sicheren Maildienst (z.B. Uni-Mailadresse). Alternativ können Sie die Dateien auch via Bluetooth an Ihren Computer senden.
+whatsapp.donation-procedure.7=Laden Sie die Chatdatei aus der E-mail auf Ihrem Computer herunter. Falls Ihr Chat in einer <b>Zip-Datei</b> exportiert wurde, müssen Sie diese entpacken, sodass nur Text-Dateien übrig bleiben.
+whatsapp.donation-procedure.8=Wiederholen Sie die Schritte 3-7 für alle Chats.
 whatsapp.instruction.gif = whatsapp_ger.mp4
+whatsapp.instruction.gif.subtitle=Dies ist der Chat Export-Prozess auf einem iPhone. Bei anderen Geräten können die notwendigen Schritte etwas anders sein.
 
+
+facebook.instructions.p1.title=Was für ein Gerät sollte ich benutzen?
+facebook.instructions.p1.body=Bitte beachten Sie, dass Sie die Daten auf einem Gerät speichern, auf das niemand außer Ihnen Zugriff hat. Da die Datenmenge bei Facebook-Datenspenden relativ groß sein kann, empfehlen wir, einen Computer zu verwenden.
+facebook.instructions.p2.title=Wie lange dauert der Datenexport von Facebook?
+facebook.instructions.p2.body=Die Anforderung der Daten erfolgt durch wenige Klicks auf Facebook (siehe die Anleitung unten). Sie erhalten eine Benachrichtigung von Facebook, sobald die Daten zum Download bereitstehen, und können dann mit der Teilnahme an der Studie beginnen.
+facebook.instructions.p3.title=Wie kann ich meine Daten von meinem Gerät wieder löschen?
+facebook.instructions.p3.body=Wir empfehlen Ihnen ausdrücklich, Ihre Originaldaten nach dem Abschluss der Spende wieder zu löschen.  Beachten Sie, dass ein einfaches Löschen der Dateien ggf. nicht ausreicht, um die Daten endgültig von Ihrem Gerät zu entfernen. Weitere Informationen zur endgültigen Löschung von Dateien finden Sie unter anderem <a target="_blank" href="https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Daten-sichern-verschluesseln-und-loeschen/Daten-endgueltig-loeschen/daten-endgueltig-loeschen.html">auf der Seite des Bundesamt für Sicherheit in der Informationstechnik</a> und <a target="_blank" href="https://www.datenschutz.org/daten-loeschen/"> Datenschutz.org</a>.
 
 facebook.description_html=Bitte fordern Sie Ihre Nachrichtendaten von Facebook an. Sie erhalten eine Benachrichtigung von Facebook, sobald die Daten zum Download bereitstehen, und können dann mit der Teilnahme an der Studie beginnen. <strong>Wir empfehlen, einen Computer zu verwenden, wenn Sie von Facebook spenden, da die Datenmenge relativ groß sein kann.</strong>
 facebook.external-documentation_html=Die offizielle Dokumentation zum Herunterladen Ihrer Daten können Sie <a target="_blank" href="https://www.facebook.com/help/contact/2032834846972583" target="_blank">hier</a> finden.
@@ -375,8 +408,25 @@ facebook.donation-procedure.1=Öffnen Sie die Facebook App auf Ihrem Smartphone.
 facebook.donation-procedure.2=Klicken Sie in der oberen rechten Ecke auf die Schaltfläche "Dein Profil" (nach unten zeigende Pfeilspitze) und wählen Sie "Einstellungen & Privatsphäre".
 facebook.donation-procedure.3=Wählen Sie "Einstellungen". Wählen Sie dann "Privatsphäre" in der Navigationsleiste auf der linken Seite. Klicken Sie dann auf "Deine Facebook-Informationen".
 facebook.donation-procedure.4=Klicken Sie auf der Seite "Deine Facebook-Informationen" auf "Profilinformationen herunterladen" und ändern Sie dann das Format von HTML zu JSON.
-facebook.donation-procedure.5=Wählen Sie einen Datumsbereich: Wir empfehlen Ihnen, die Daten für 2-3 Jahre anzufordern, aber auch eine kürzere Zeitspanne ist möglich.
+facebook.donation-procedure.5=Wählen Sie einen Datumsbereich: Wir empfehlen Ihnen, die <b>Daten für 2-3 Jahre anzufordern</b>, aber auch eine kürzere Zeitspanne ist möglich.
 facebook.donation-procedure.6=Im Interesse der Datensparsamkeit heben Sie bitte zunächst die Markierung aller Kategorien auf. Anschließend markieren Sie die Felder "Nachrichten" und "Profilinformationen".
 facebook.donation-procedure.7=Scrollen Sie nach unten und klicken Sie auf "Download anfordern". Sobald die Datei zum Download bereit ist, erhalten Sie eine Benachrichtigung von Facebook. Dies kann einen Moment dauern.
 facebook.donation-procedure.8=Scrollen Sie zurück nach oben und klicken Sie auf die Registerkarte "Verfügbare Dateien". Dort sollten Sie die gewünschte Datei sehen. Sie können sie herunterladen, sobald sie bereit steht.
 facebook.instruction.gif = facebook_ger.mp4
+
+# Imprint
+imprint.title=Impressum
+imprint.imprint=Universität Bielefeld<br>Universitätsstraße 25<br>D-33615 Bielefeld<br><br>National (0521) 106-00<br>Internat. ++49 521 106-00<br><br>Telefax national (0521) 106-5844<br>Telefax internat. ++49 521 106-5844<br><br>Vorwahl der Universität: 0521-106-...<br><br>E-Mail: post@uni-bielefeld.de<br>Internet: <a href="https://www.uni-bielefeld.de" target="_blank">www.uni-bielefeld.de</a><br><br>Die Universität Bielefeld ist eine vom Land getragene, rechtsfähige Körperschaft des Öffentlichen Rechts. Sie wird durch den Rektor Prof. Dr. Ing. Gerhard Sagerer vertreten.
+imprint.rsa.title=Zuständige Aufsichtsbehörde
+imprint.rsa.body=<p>Ministerium für Kultur und Wissenschaft des Landes Nordrhein-Westfalen<br>Völklinger Straße 49<br>40221 Düsseldorf</p><p><strong>Umsatzsteuer-Identifikationsnummer</strong><br>gemäß § 27 a UStG Umsatzsteuer-Nr.: DE811307718 - Finanzamt Bielefeld Innenstadt</p>
+imprint.responsibleDona.title=Inhaltlich Verantwortliche für die Spendenplattform Dona
+imprint.responsibleDona.body=Prof. Dr. Hanna Drimalla<br>Leiterin der AG "Multimodal Behavior Processing"<br>E-Mail: drimalla@techfak.uni-bielefeld.de<br><a href="https://www.uni-bielefeld.de/fakultaeten/technische-fakultaet/arbeitsgruppen/multimodal-behavior-processing/" target="_blank">Homepage</a><br>Telefon: +49 521 106-12043<br>Telefon Sekretariat: +49 521 106-6891<br>Büro: CITEC-3.108
+imprint.responsibleCentralWebsite.title=Inhaltlich Verantwortlicher für die zentralen Internetseiten
+imprint.responsibleCentralWebsite.body=<p>Referat für Kommunikation<br>Ingo Lohuis<br>ingo.lohuis@uni-bielefeld.de</p><p>Für alle anderen Internetseiten (z.B. der Fakultäten, Institute, Seminare oder Verwaltungsstellen) liegt die inhaltliche Verantwortung bei den Stellen (oder Personen), die die Seiten erstellt oder veröffentlicht haben. Falls Sie Fragen zu einem dieser Internetangebote haben, wenden Sie sich bitte an die jeweils angegebene Stelle oder Person.</p><p>Daneben gibt es diverse dezentrale Angebote auf eigenen Servern, die nicht unter die Domain "www.uni-bielefeld.de" fallen, für die jeweils die Betreiber verantwortlich sind.</p><p>Mit "http://wwwhomes.uni-bielefeld.de" beginnende URLs führen zu privaten/persönlichen Angeboten von Mitgliedern der Universität Bielefeld, auf deren Inhalte die Universität Bielefeld keinerlei Einfluss hat und die in keinem Fall eine offizielle Publikation der Universität Bielefeld darstellen.</p>
+imprint.liabilityDisclaimer.title=Haftungsausschluss
+imprint.liabilityDisclaimer.body=<p>Die Inhalte der Seiten der Universität Bielefeld wurden mit größtmöglicher Sorgfalt erstellt. Dennoch kann keine Gewähr für die Aktualität, Richtigkeit, Vollständigkeit und Qualität der der Inhalte übernommen werden.</p><p>Die Webseite enthält Verknüpfungen zu Webseiten Dritter (externe Links). Diese Webseiten unterliegen ausschließlich der Haftung der jeweiligen Betreiber, so dass die Universität Bielefeld für diese fremden Inhalte keine Gewähr übernimmt. Die Universität Bielefeld hat keinen Einfluss auf den Inhalt externer Links. Trotz sorgfältiger inhaltlicher Kontrolle zum Zeitpunkt der Verlinkung übernehmen wir keine Haftung für die Inhalte externer Links. Sie stellen kein Angebot der Universität Bielefeld dar Die Universität distanziert sich ausdrücklich von den Inhalten und macht sich diese in keinster Weise zu Eigen.</p>
+imprint.copyright.title=Urheberrecht
+imprint.copyright.body=<p>Die Urheber- und Nutzungsrechte für Texte, Grafiken, Bilder, Design und Quellcode liegen - soweit nicht anders angegeben - bei der Universität Bielefeld. Die Erstellung, Verwendung und Weitergabe von Kopien in elektronischer oder ausgedruckter Form bedarf der Genehmigung. Unberührt davon bleibt das "Kopieren" der Dateien auf dem eigenen Rechner, um sich die Seiten auf einem Browser anzusehen.</p>
+imprint.photoCredits.title=Bildnachweis
+imprint.photoCredits.body=<p>Die Bildrechte liegen - soweit nicht anders vermerkt - bei der Universität Bielefeld.</p>
+
