@@ -1,8 +1,8 @@
 @()(implicit request: RequestHeader, messages: Messages)
 
 @mainNew("Data Protection Policy")() {
-<div class="mb-2 data-protection-page serif-text">
-    <h2 class="h1 text-justify serif-text">@messages("data-protection.title")</h2>
+<div class="mt-5 mb-2 data-protection-page serif-text">
+    <h1 class="h1 text-justify serif-text"><b>@messages("data-protection.title")</b></h1>
     <h4 class="data-protection-headline">@messages("data-protection.technical-details.title")</h4>
     <p class="text-justify data-protection-paragraph">@messages("data-protection.technical-details.body1")</p>
     <p class="text-justify data-protection-paragraph">@messages("data-protection.technical-details.body2")</p>
@@ -23,6 +23,7 @@
 
     <h5 class="data-protection-subheadline mt-3">@messages("data-protection.participation.usage.title")</h5>
     <p class="text-justify data-protection-paragraph">@messages("data-protection.participation.usage.body")</p>
+
 </div>
 } {
 }{
