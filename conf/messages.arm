@@ -5,7 +5,7 @@
 landing.mobileAlert=We recommend participating with a laptop or PC.
 
 landing.header.title=Illuminate the darkness with your social media data
-landing.header.body=We are researching digital methods to better understand social media interaction and its potential impact on mental health in order to help people. Support our mission by donating your social media data anonymously. As a gesture of appreciation for your efforts, we will grant you interesting insights into your data.
+landing.header.body=Այս էջը փորձում է փոքրիկ հակակշիռ ստեղծել հայկական համացանցը ողողած կեղծ-գիտական նյութերի հանդեպ։ Մեր նպատակը գիտական մեթոդով, գիտելիքով կիսվելն է։ Չնայած հոդվածների ճնշող մեծամասնությունը գիտական երևույթների, ակտուալ թեմաների, գիտության պատմության կամ քննադատական մտքի մասին է, երբեմն հնարավոր են փոքրիկ շեղումներ, որոնք, սակայն, գիտական մեթոդի ու տրամաբանության շրջանակներում են
 landing.what.title=What is this about?
 landing.what.body1=Social interaction plays a significant role in our mental health. The Multimodal Behavior Processing Group at the University of Bielefeld is currently developing digital measurement tools in order to better understand it. In this ongoing study we are trying to answer a particular question: Can the social involvement of people be measured by utilizing their social media data?
 landing.what.body2=If you want to participate in this study, you can request your data from a social media platform of your choice (Facebook and WhatsApp). You can then anonymize this data on the website, upload it and donate it to our research platform.<br><i>We recommend using a computer for participation.</i>
@@ -338,7 +338,7 @@ data-protection.participation.usage.body=The data and results of these surveys w
 
 # Text appearing on multiple pages
 
-language.current=ENG
+language.current=հայ
 language.options.ger=Deutsch
 language.options.eng=English
 language.options.arm=հայերեն

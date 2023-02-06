@@ -60,7 +60,7 @@ function dayPartsActivityOverallPlot(dataSent, dataReceived, plotId) {
 
 
 
-    // gets mean for each day part of the given data (many days)
+    // mean here is misleading - its just getting the percentages!
     let meansForDayParts = (data) => {
         // maybe make actual objects out of each day part...
         let dayParts = {
@@ -99,8 +99,8 @@ function dayPartsActivityOverallPlot(dataSent, dataReceived, plotId) {
         let dayPartsMeansInPercent = []
         let totalOfMeans = 0
         Object.keys(dayParts).map((key) => {
-            dayPartsMeans.push(dayParts[key] / dayCounter)
-            totalOfMeans += dayParts[key] / dayCounter
+            dayPartsMeans.push(dayParts[key])
+            totalOfMeans += dayParts[key]
         })
 
         for (let i = 0; i < dayPartsMeans.length; i++) {

@@ -12,6 +12,7 @@ const messageService = require('./messageService');
 
 
 function addListeners() {
+
     $("#btn-fb-download-finished").on("click", function (e) {
         e.preventDefault();
         $(".enable-after-fb-download").attr("disabled", false);
@@ -26,6 +27,7 @@ function addListeners() {
         $("#anonymizationTextHeadlines").addClass('d-none');
         $("#backAndForwardButtons").addClass('d-none');
         $("#spinner-submit-div").removeClass('d-none');
+        $('.languageSelectButton').addClass('d-none')
 
         // show message if loading takes longer than 30 seconds - possible reasons for long loadtime
         setTimeout(() => $("#show-if-loading-long").removeClass('d-none'), 30000)
