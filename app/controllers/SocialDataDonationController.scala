@@ -1,6 +1,7 @@
 package controllers
 
 import config.SurveyConfig
+
 import javax.inject._
 import models.api._
 import models.domain.DonationDataSourceType.{DonationDataSourceType, _}
@@ -34,6 +35,10 @@ final class SocialDataDonationController @Inject()(
   import SocialDataForm._
 
   private val GeneratedDonorIdKey = "GeneratedDonorId"
+
+  def changeLanguage(language: String): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
+    Redirect(request.headers.get(REFERER).getOrElse("/")).withLang(Lang(language))//withCookies(Cookie("language", language))
+  }
 
   def landing: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
     val designVersion = request.queryString.get("design").flatMap(_.headOption).map(_.filter(_.isLetterOrDigit))
