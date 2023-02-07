@@ -1,0 +1,560 @@
+# https://www.playframework.com/documentation/latest/ScalaI18N
+
+
+
+# Landing page
+
+
+
+landing.mobileAlert=Խորհուրդ ենք տալիս մասնակցել համակարգչով
+
+
+landing.header.title=Լուսավորեք խավարը Ձեր տվյալներով
+landing.header.body=Մենք թվային մեթոդներով հետազոտում ենք, թե ինչպես են մարդիկ հաղորդակցվում սոցհարթակներում ու ինչպես է դա արտահայտվում հոգեկան առողջության հարցում։ Այս առաքելությանն աջակցելու համար, կարող եք անանուն կերպով նվիրաբերել Ձեր տվյալները։ Որպես շնորհակալություն, Ձեզ կտրամադրենք սոցհարթակներում Ձեր վարքի վերլուծության գրաֆիկներ։
+landing.what.title=Ուսումնասիրության մասին
+landing.what.body1=Սոցիալական շփումները կարևոր դեր են խաղում հոգեկան առողջության համար։ Բիլեֆելդի համալսարանի մեր խումբը ստեղծում է թվային գործիքներ այդ դերն ավելի լավ հասկանալու համար։ Այս ուսումնասիրության երկարաժամկետ նպատակը մարդկանց սոցիալական ներգրավվածությունը չափելի դարձնելն է։
+landing.what.body2=Եթե ցանկանում եք մասնակցել, կարող եք Ձեր տվյալները պահանջել Facebook կամ  WhatsApp հարթակներից։ Այնուհետև կարող եք մեր կայքում այդ տվյալներից հեռացնել բովանդակությունը, դրանք անանուն դարձնել ու նվիրաբերել գիտությանը։ <br><i>Խորհուրդ ենք տալիս մասնակցել համակարգչով</i>
+
+
+landing.why.title=Ինչու՞ մասնակցել
+landing.why.col1.title=Ստացեք Ձեր վարքը նկարագրող գրաֆիկներ
+landing.why.col1.body=Որպես շնորհակալություն կստանաք Ձեր օնլայն շփումների վերլուծության գրաֆիկներ, ինչպես օրինակ Ձեր ստացած ու ուղարկած հաղորդագրությունների քանակը վերջին ամիսներին։ Այս ուսումնասիրությունը նպատակ չունի կլինիկական կամ հոգեբանական ախտորոշում կայացնելու։
+
+
+landing.why.col2.title=Աջակցեք գիտությանը
+landing.why.col2.body_html=Այս ուսումնասիրության շրջանակներում փորձում ենք չափելի դարձնել մասնակիցների սոցիալական ներգրավվածությունը՝ սոցհարթակների տվյալների հիման վրա (Facebook կամ  WhatsApp հարթակների հաղորդագրություններով)։ Արդյունքները կօգնեն հասկանալ, թե ինչ ազդեցություն ունեն սոցիալական շփումները հոգեկան առողջության վրա։
+
+
+landing.why.col3.title=Մնացեք անանուն
+landing.why.col3.body_html=Մենք ընդունում ու վերլուծում ենք <strong><a href="/learn-more">բացառապես անանուն տվյալներ </a></strong> (հաղորդագրության երկարությունը, ժամանակը և մասնակիցների ծածկագրված համարներ), հաղորդագրության տեքստը կամ մասնակիցների անունները չեն գրանցվում։ Երաշխավորում ենք, որ հասանելիություն չունենք Ձեր հաղորդագրությունների բովանդակությանը։
+landing.contact.body_html=Այս կայքի նպատակը մեր առցանց ուսումնասիրության մասին տեղեկացնելն է։ Հարցերի դեպքում խնդրում ենք կապ հաստատել ծրագրի ղեկավար պրոֆ․ դր․ Հաննա Դրիմալլայի հետ (AG Multimodal Behavior Processing, Technische Fakultät, Universität Bielefeld, <a href="mailto:drimalla@techfak.uni-bielefeld.de">drimalla@techfak.uni-bielefeld.de</a>, հեռ. +49 521 106-12043)
+
+
+landing.imagePath.donationProcedure1 =images/landingDonationProcedure_1_English.png
+landing.imagePath.donationProcedure2 =images/landingDonationProcedure_2_English.png
+landing.imagePath.donationProcedure3 =images/landingDonationProcedure_3_English.png
+landing.imagePath.exampleFeedback =images/landingExampleFeedback_English.png
+
+
+# Learn More page
+
+
+
+learn-more.how-to-participate.title=Ինչպե՞ս կարող եմ մասնակցել
+learn-more.how-to-participate.body=Ուսումնասիրությանը մասնակցելու համար խնդրում ենք պատասխանել մի քանի հարցի ու նվիրաբերել Ձեր անանուն տվյալները։  Սոցհարթակներից Ձեր տվյալները ստանալուց հետո, մասնակցությունն ընդամենը 5 րոպե է պահանջում։
+
+
+learn-more.how-to-cancel.title=Կարո՞ղ եմ դադարեցնել մասնակցությունս
+learn-more.how-to-cancel.body=Ձեր մասնակցությունը միանգամայն կամավոր է։ Ամեն պահին կարող եք դադարեցնել Ձեր մասնակցությունը՝ առանց ինչ-որ պատճառ նշելու կամ բացասական հետևանքներ կրելու։ Մինչև Ձեր անանուն տվյալները մեզ ուղարկելը կարող եք հետ վերցնել ձեր համաձայնությունը՝ առանց բացասական հետևանքներ կրելու։
+
+
+learn-more.data-storage.title=Ի՞նչ տվյալներ են օգտագործվելու
+
+
+learn-more.imagePath=images/dataAnonymizationExample-English.png
+
+
+# data storage text body is reused, see below
+
+
+
+learn-more.storage.body1_html=<strong><em>Տվյալների նվիրաբերում: </strong></em> Ձեր տվյալները նվիրաբերելիս մենք ստանում ենք միայն մետա-տվյալներ (հաղորդագրության երկարությունն ու ժամանակը, համարներ՝ հաղորդագրության մասնակիցների անունների փոխարեն), չենք ստանում հաղորդագրությունների բովանդակությունը (հաղորդագրության տեքստ կամ անուններ)։  Ձեր անձնական տվյալները երբեք չեն լքում Ձեր սարքը, քանի որ բովանդակության հեռացումն ու ապանույնականացումը կատարվում է լոկալ՝ Ձեր բրաուզերում։ Սա նշանակում է, որ մենք երբեք չենք տեսնում Ձեր հաղորդագրությունները։ Ներբեռնելուց առաջ, Դուք կարող եք տեսնել, թե ինչ տվյալներ են մեզ ուղարկվում և համոզվել, որ դրանք անանուն են։
+
+
+learn-more.data-handling.title=Ինչպե՞ս են օգտագործվելու իմ տվյալները
+learn-more.data-handling.body1=Քանի որ անուններ կամ նույնականացնող այլ տվյալներ չենք հավաքում, չենք կարող տվյալները կապել Ձեր անձի հետ - տվյալների բազան լիովին անանուն է։ Սա նաև նշանակում է, որ մասնակցությունից հետո չենք կարող առանձնացնել ու ջնջել Ձեր տվյալները։
+learn-more.data-handling.body2=Տվյալներն ու ուսումնասիրության արդյունքները հրապարակվելու են գիտական ամսագրերում։ Հրապարակված տվյալները լինելու են անանուն, այսինքն մարդկանց նույնականացումն անհնար է։ Ամբողջապես անանուն այս տվյալները պահպանվելու են հետազոտական պահոցում և կարող են տրամադրվել որակավորված գիտնականնների։
+
+
+learn-more.image.caption=Պատկեր 3․ Անանուն հաղորդագրության օրինակ
+
+
+# Instructions page
+
+
+
+instructions.about.title=Ինչպե՞ս կարող եմ պահանջել իմ տվյալները սոցհարթակներից
+instructions.about.body_html=Ուսումնասիրությանը մասնակցելուց առաջ խնդրում ենք պահանջել Ձեր տվյալները Facebook կամ WhatsApp հարթակներից։ Կարող եք տվյալներ նվիրաբերել միաժամանակ երկու հարթակից։ Եթե ընտրում եք հարթակներից միայն մեկը, խնդրում ենք ընտրել այն հարթակը, որն ավելի կարևոր է Ձեզ համար։  <b>Խնդրում ենք ուշադիր կարդալ ստորև տրամադրված հրահանգները, քանի որ դրանք կարևոր են հաջորդ քայլերի համար</b>
+instructions.datasource.title_format =Տվյալները պահանջելու %s հրահանգներ
+instructions.download-procedure.title=Տեղեկություններ ներբեռնման ու նվիրաբերման գործընթացի մասին
+instructions.continue.body=Եթե արդեն ստացել եք Ձեր տվյալները՝ վերևում նշված հրահանգներին հետևելով, հաջորդ քայլով կարող եք տալ Ձեր համաձայնությունն ու սկսել մասնակցությունը։ Այնուհետև կարող եք տվյալները վերբեռնել, ապանույնականացնել ու նվիրաբերել։
+
+
+# Donation info page
+
+
+
+donation-info.title=Ինչպե՞ս կարող եմ նվիրաբերել տվյալներս
+donation-info.data-request=<strong>Տվյալների պահանջում - </strong> Տվյալները կարող եք պահանջել և ներբեռնել Ձեր ընտրած սոցհարթակից  (Facebook և/կամ WhatsApp)։
+donation-info.anonymisation=<strong>Ապանույնականացում - </strong> Տվյալների բովանդակային մասը հեռացվում է, և մեզ միայն  մետա-տվյալներ են հասնում։
+donation-info.storage=<strong> Պահպանում - </strong>Անանուն մետա-տվյալները պահպանվում են համալսարանի ապահով սերվերներում։
+
+
+# Consent pop-up
+
+
+
+consent.title=Համաձայնություն
+
+
+consent.about.title=Տեղեկություն ուսումնասիրության մասին
+consent.about.body1=Այս ուսումնասիրության նպատակն է սոցհարթակների տվյալների միջոցով չափելի դարձնել մարդկանց սոցիալական շփումները։ Ուսումնասիրությունը կատարվում է առցանց, անանուն և ներառում է միայն ապանույնականացված տվյալներ, որոնց բովանդակությունը հեռացվում է։ Սոցհարթակներից Ձեր տվյալները ներբեռնելուց հետո, մասկանցությունը կտևի մոտ 5 րոպե։
+consent.about.body2_html=Ձեր համաձայնությունը տալով հաստատում եք, որ կարդացել ու հասկացել եք այս ուսումնասիրության  նպատակներն ու ընթացքը։
+
+
+consent.benefit.title=Օգուտներ ու ռիսկեր
+consent.benefit.body=Ձեր մասնակցությամբ մեզ հնարավորություն կտաք ավելի լավ հասկանալու ու բնորոշելու մարդկանց սոցիալական շփումները։ Դուք էլ կարող եք պատկերացում ստանալ հաղորդագրություններ գրելու Ձեր վարքի մասին։ Ուսումնասիրության վերջում հնարավորություն ունեք գրանցվելու վիճակահանության, որի ժամանակ կարող եք շահել 50€ արժողությամբ կտրոն առցանց գնումների համար (<a target="_blank" href="https://www.cadooz.com/en/products/bestchoice-shopping-gift-card/">Cadooz-Bestchoice</a>)։ Ուսումնասիրությունը շարունակական է, ամեն 100 մասնակցի հաշվով տրամադրվում է մեկ կտրոն  (հաղթելու շանսը՝ 1/100)։ Մենք հավաքում ենք միայն ապանույնականացված տվյալներ։ Մինչև տվյալների նվիրաբերումը,  անհրաժեշտ է սոցհարթակներից պահանջել տվյալները ու դրանք ներբեռնել Ձեր սարք։ Քանի որ այդ տվյալները պարունակում են Ձեր հաղորդագրությունները, խորհուրդ ենք տալիս ուսումնասիրության վերջում դրանք ջնջել Ձեր սարքից։ Խնդրում ենք մասկանցել մենակ ու հանգիստ միջավայրում՝ գաղտնիությունը պահպանելու նպատակով։
+
+
+consent.data-storage.title=Տվյալների հավաքում
+
+
+# data storage text body is reused - see below
+
+
+
+consent.voluntary.title=Կամավոր մասնակցություն
+consent.voluntary.body=Ձեր մասնակցությունը միանգամայն կամավոր է։ Ամեն պահին կարող եք դադարեցնել Ձեր մասնակցությունը՝ առանց ինչ-որ պատճառ նշելու կամ բացասական հետևանքներ կրելու։ Մինչև Ձեր անանուն տվյալները մեզ ուղարկելը կարող եք հետ վերցնել ձեր համաձայնությունը՝ առանց բացասական հետևանքներ կրելու։
+
+
+consent.data-protection.title=Տվյալների ապահովություն
+consent.data-protection.body=Քանի որ անուններ կամ նույնականացնող այլ տվյալներ չենք հավաքում, չենք կարող Ձեր տվյալները կապել Ձեր անձի հետ․ տվյալների բազան ամբողջովին անանուն է։ Սա նաև նշանակում է, որ մասնակցությունից հետո չենք կարող առանձնացնել ու ջնջել Ձեր տվյալները։  Քանի որ տվյալները ամբողջովին անանուն են, ընդհանուր տվյալների պաշտպանության կանոնակարգը (GDPR) կիրառելի չէ։ Հարցերի կամ մտահոգությունների դեպքում կարող եք կապ հաստատել Բիլեֆելդի համալսարանում տվյալների պաշտպանության հանձնակատարի հետ՝
+consent.data-protection.address_html=Տվյալների պաշտպանության հանձնակատար <br /> Բիլեֆելդի համալսարան <br /> Office: UHG T6-234  <br />Phone +49 521 106-5225 <br /><a href="mailto:datenschutzbeauftragte@uni-bielefeld.de">datenschutzbeauftragte@uni-bielefeld.de</a>
+
+
+
+
+consent.data-purpose.title=Տվյալների օգտագործում
+consent.data-purpose.body=Տվյալներն ու ուսումնասիրության արդյունքները հրապարակվելու են գիտական ամսագրերում։ Հրապարակված տվյալները լինելու են անանուն, այսինքն մարդկանց նույնականացումն անհնար է։ Ամբողջովին անանուն այս տվյալները պահպանվելու են հետազոտական պահոցում և կարող են տրամադրվել որակավորված գիտնականնների։
+
+
+consent.confirmation=Այսպիսով հաստատում եմ, որ կարդացել ու հասկացել եմ վերը նշված տեղեկությունները և համաձայն եմ մասնակցության պայմաններին
+
+
+consent.buttons.agree.caption=Համաձայն եմ
+consent.buttons.close.caption=Փակել
+
+
+# Donation page
+
+
+
+donation.select-data.title=Ընտրել տվյալները
+donation.select-data.body1=Խնդրում ենք ընտրել, թե որ հարթակից եք ցանկանում նվիրաբերել Ձեր տվյալները։ Տվյալները ապանույնականացնելու դարձնելու համար ավտոմատ առանձնացվում է Ձեր օգտանունը։ Ձեր օգտանունը չի պահպանվում կամ նվիրաբերվում։
+donation.select-data.body2=Տվյալներն ընտրելուց հետո, հնարավոր է նախադիտել Ձեր ապանույնականացված տվյալները, որոնց բովանդակությունը հեռացվել է։ Այդպես կարող եք տեսնել, որ Ձեր օգտանունը փոխարինվել է Donor բառով, իսկ Ձեր կոնտակտների անունները՝ կեղծանուններով։ Բացի դրանից կտեսնեք, որ հաղորդագրության փոխարեն մետա-տվյալներ են գրանցված։
+donation.select-data.donation=Տվյալների նվիրաբերում
+donation.select-data.input1=Ընտրել ֆայլերը
+donation.select-data.input2=Բացել
+donation.select-data.remove=Հեռացնել
+
+
+donation.select-date.start=Սկիզբ
+donation.select-date.end=Վերջ
+
+
+donation.preview-data.title=Անանուն տվյալների նախադիտում
+donation.preview-data.button=Սեղմեք այստեղ նախադիտման համար
+donation.preview-data.body1=Ոչ մի անձնական տվյալ Ձեր սարքից դուրս չի եկել։ Միայն մետա-տվյալներ են գրանցվել։
+donation.preview-data.body2=Ինչպես տեսնում եք, բոլոր օգտանունները հեռացվել են, հաղորդագրության բովանդակությունը փոխարինվել է բառերի քանակով։
+donation.preview-data.message=Հաղորդագրություն
+donation.preview-data.sender=Ուղարկող
+donation.preview-data.receiver=Ստացող
+donation.preview-data.word-count=Բառերի քանակ
+donation.preview-data.timestamp=Ժամանակ
+donation.preview-data.group-conversation=Խմբային հաղորդագրություն
+
+
+donation.friendsMapping.title=<b>Ձեր կոնտակտների ծածկանունները</b>
+donation.friendsMapping.subtitle=Ձեր տվյալներն ու կոնտակտներն այժմ ապանույնականացված են, բովանդակությունը հեռացված։ Եթե հաջորդ քայլին ինքներդ ցանկանում եք վերծանել, թե որ կոնտակտներն ու չատերն են ներառված, խնդրում ենք գրի առնել, թե որ ծածկանուն է համապատասխանում յուրաքանչյուր կոնտակտին։ Այսուհետ, միայն այս կեղծանուններն են երևալու։  Կոնտակների ու ծածկանունների համապատասխանությունը չի պահպանվում և կորչում է, այս էջը լքելուց հետո։
+
+
+donation.sendData.wait=Տվյալների ուղարկումը կարող է մի քանի րոպե տևել։ Խնդրում ենք սպասել և չփակել էջը։ Շնորհակալություն։
+
+
+donation.raw-data-explanation_format=Ստորև կարող եք տեսնել ապանույնականացված Ձեր նամակներից %s-ը։ Մնացածը <b>կարող եք դիտել</b>
+donation.raw-data-link.text=<b>այստեղ</b>
+
+
+# provided by Astrid
+
+
+
+donation.alias-not-required=Չի պահանջվում
+donation.alias=Օգտանուն
+donation.please-insert-alias=Խնդրում ենք մուտքագրել Ձեր օգտանունը ապանույնականացումը սկսելու համար
+donation.choose-files-here=Ընտրեք, թե որ ֆայլերից եք ցանկանում նվիրաբերել Ձեր տվյալները
+donation.choose-period=Այստեղ կարող եք սահմանափակել նվիրաբերվող տվյալների ժամանակահատվածը
+donation.aliases-overview=Ձեր կոնտակտների ծածկանունները
+
+
+donation.processing=Ձեր տվյալները ապանույնականացվում են, բովանդակությունը հեռացվում
+donation.be-patient=Խնդրում ենք սպասել, այս գործընթացը կարող է փոքր-ինչ երկար տևել
+donation.successful=Ձեր տվյալները հաջողությամբ ապանույնականացված են, բովանդակությունը հեռացված։
+donation.error=Ցավում ենք, ինչ-որ խնդիր է առաջացել։
+
+
+donation.anonymisation.donor=Նվիրատու
+donation.anonymisation.friend=Կոնտակտ
+donation.anonymisation.friendInitial=Կ
+donation.anonymisation.system=Համակարգ
+donation.anonymisation.chooseUsername=Խնդրում ենք ընտրել Ձեր օգտանունը։ Ձեր օգտանունը չի պահպանվելու, և մենք այն չենք իմանալու։
+donation.anonymisation.loading=Տվյալների ուղարկումը կարող է մի քանի րոպե տևել։ Խնդրում ենք սպասել և չփակել էջը։ Շնորհակալություն։
+
+
+donation.anonymisation.loading.tooLong.title=Եթե այս գործընթացը 5 րոպեից ավել է տևում, ապա հնարավոր է, որ
+donation.anonymisation.loading.tooLong.issue.1=փորձում եք վերբեռնել չթույլատրված ֆորմատի ֆայլեր։ Ճիշտ ֆորմատներն են՝ txt WhatsApp-ի ու .zip Facebook-ի համար
+donation.anonymisation.loading.tooLong.issue.2=Ձեր WhatsApp-ի չատերը տարբեր սարքերից եք ներբեռնել
+donation.anonymisation.loading.tooLong.issue.3=Ձեր տրամադրած ֆայլերը սպասվածից մեծ են
+donation.anonymisation.loading.tooLong.issue.4=Ձեր ինտերնետային կապը դանդաղ է
+donation.anonymisation.loading.tooLong.issue.5=Այլ խնդիր է առաջացել
+donation.anonymisation.loading.tooLong.issue.6=Օգնեք մեզ բարելավել այս հարթակը  <a href="@messages("links.reportProblem")" target="_blank">այստեղ</a>
+
+
+donation.errors.no-profile=Վերբեռնված տվյալները չեն պարունակում պրոֆիլի մասին ինֆորմացիա
+donation.errors.no-alias=Խնդրում ենք մուտքագրել Ձեր օգտանունը։ Այն կարող եք գտնել WhatsApp-ի Ձեր պրոֆիլում։
+donation.errors.not-enough-chats_format=Խնդրում ենք ընտրել 5-7 ամենակարևոր չատերը։ Դուք ընտրել եք %s-ը։
+donation.errors.something-went-wrong=Ցավում ենք, ինչ-որ խնդիր է առաջացել, խնդրում ենք նորից սկսել։
+donation.errors.same-file=Կարող եք ընտրել միայն չկրկնվող ֆայլեր։ Խնդրում ենք ընտրել Ձեր 5-7 ամենակարևոր չատերը։
+donation.errors.no-messages-time-period=Տվյալ ժամանակահատվածում հաղորդագրություններ չկան։ Խնդրում ենք ընտրել ավելի երկար ու վավեր ժամանակահատված։
+donation.errors.dates-no-sense=Ընտրված ժամանակահատվածը վավեր չէ։ Խնդրում ենք ստուգել ընտրված ամսաթվերի ճշտությունը։
+donation.errors.dates-not-enough-months=Տվյալները նվիրաբերելու համար խնդրում ենք ընտրել առնվազն վեց ամիս ընդգրկող ժամանակահատված։
+donation.errors.somewhereError=There is an error somewhere. Please check your data donation.
+
+
+donation.submit=Ուղարկել
+
+
+# feedback
+
+
+
+feedback.thanks.title=Շնորհակալություն Ձեր տվյալները նվիրաբերելու համար։
+
+
+feedback.importantMessage.title=Կարևոր նշում
+feedback.importantMessage.disclaimer=Ցուցադրվող գրաֆիկները <b>թույլ <u>չեն տալիս</u> ուղիղ եզրահանգումներ անել Ձեր հարաբերությունների որակի մասին։ Ձեր հաղորդագրությունների վերլուծությունը հիմնված է բացառապես քանակի ու ժամանակ վրա։
+
+
+feedback.reminder=Կարող եք Ձեր հայեցողությամբ ուսումնասիրել այս էջը՝ առանց ժամանակային սահմանափակման։
+
+
+feedback.graph.title=Feedback on your %s Messages
+feedback.graph.total-messages=Հաղորդագրությունների քանակ
+feedback.graph.average-per-active-month=Ամսական նամակների միջին քանակը
+feedback.graph.active-years-explanation_format=Ձեր տվյալներն ընդգրկում են %s ակտիվ տարի, որի ընթացքում գրել կամ ստացել եք առնվազն մեկ հաղորդագրություն։
+# minor grammar correction by astrid
+
+feedback.graph.active-months-explanation_format=Ձեր հաղորդագրություններն ընդգրկում են %s  ակտիվ ամիս, այսինքն այդ  ամիսների ընթացքում ուղարկել կամ ստացել եք առնվազն մեկ հաղորդագրություն։
+feedback.graph.messages=Հաղորդագրություններ
+feedback.graph.messages-over-time=%s հաղորդագրություններ
+feedback.graph.time=Ժամանակ
+feedback.graph.number-of-messages=Հաղորդագրությունների քանակ
+feedback.graph.sent=Ուղարկված
+feedback.graph.received=Ստացված
+feedback.graph.response-times=%s պատասխանի արագություն
+feedback.graph.response-time=Պատասխանի արագություն
+feedback.graph.median-response-time=Պատասխանի արագության միջինը (մեդիան) արժեքը
+feedback.graph.overview=Ընդհանուր պատկեր
+feedback.graph.detail=Մանրամասներ
+feedback.graph.you=Դուք
+feedback.graph.friends=Ձեր կոնտակտները
+
+
+# plots main page titles
+
+feedback.title.statisticsCard=Պատկերացում Ձեր ակտիվության մասին
+feedback.title.interactionIntensity=Շփումների ինտենսիվություն
+feedback.title.dailyActivityTimes=Ակտիվ ժամեր
+feedback.title.responseTimes=Պատասխանի արագություն
+feedback.title.pleaseContinue=Հուսով ենք հետաքրքիր բացահայտումներ ունեցաք։ Շնորհակալություն։
+
+
+feedback.facebook.info=Facebook-ում կոնտակտների հնարավոր մեծ թվի պատճառով գրաֆիկները սահմանափակվում են ամենաշատ բառերը պարունակող մինչև 7 չատով։
+
+
+feedback.nextButton=Շարունակել
+feedback.finishButton=Ավարտել
+
+
+# plots more about titles
+
+feedback.moreAbout.interactionIntensity.title=Ավելին Ձեր շփումների ինտենսիվության մասին
+feedback.moreAbout.dailyActivityTimes.title=Ավելին Ձեր ակտիվ ժամերի մասին
+feedback.moreAbout.responseTimes.title=Ավելին Ձեր պատասխանների արագության մասին
+
+
+# plot descriptions
+
+feedback.graph.yearMonth=Տարի-ամիս
+feedback.graph.chatWith=Չատ
+feedback.graph.overallData=Բոլոր չատերը
+feedback.graph.resetView=Թարմացնել
+
+
+# plots example title
+
+feedback.graph.example.title=Սա  <b> բացատրական օրինակ </b> է, որը <u>հիմնված չէ Ձեր տվյալների վրա </u> .
+
+
+# polar plot
+
+feedback.graph.animatedPolarPlot.title=Մոլորակային պատկեր
+feedback.graph.animatedPolarPlot.description=Այս գրաֆիկում կենտրոնական դեղին կետը Դուք եք։ Ձեր նվիրաբերած չատերը շրջապատող սպիտակ կետերն են։ Ինչքան ավելի մոտ է սպիտակ կետը Ձեզ, այնքան ավելի շատ բառեր են փոխանակվել այդ չատում։  Ներքևում կարող եք տեսնել ժամանակն ու ընտրել այն ամիսը, որը Ձեզ հետաքրքրում է։  Գունատ սպիտակ կետերը ցույց են տալիս ակտիվությունը նախորդող ամիսների ժամանակ։ Սեղմել <a style="font-weight:bold" href="#polarPlotExplanation" data-toggle="modal" data-target="#polarPlotExplanation">այստեղ</a> բացատրական օրինակ տեսնելու համար։
+feedback.graph.animatedPolarPlot.legend.donor=Դուք
+feedback.graph.animatedPolarPlot.legend.others=Չատի ինտենսիվությունը
+feedback.graph.animatedPolarPlot.example.image=images/feedback_example_polarPlot_english.svg
+feedback.graph.animatedPolarPlot.example.text=p><b>(1)</b> Այս օրինակում սպիտակ կետը շատ մոտ է դեղինին։ Սա նշանակում է, որ ստորև ցուցադրված ամսում այս չատում հաղորդակցությունն ավելի ինտենսիվ էր՝  այլ ամիսների կամ չատերի համեմատ։ Այս օրինակում ընդամենը երկու գունատ սպիտակ կետ կա, քանի որ տվյալները հասանելի են  կարճ ժամանակահատվածի համար։ </p><p><b>(2)</b> Այս օրինակում գունատ կետեր գրեթե չեն երևում, քանի որ դրանք գտնվում են նույն տեղում ու համընկնում են։ Պատճառն այն է, որ այս չատում հաղորդակցության ինտենսիվությունը համեմատաբար կայուն է։ </p><p><b>(3)</b> Ի տարբերություն (2)-ի, այստեղ շատ թափանցիկ կետեր կան. Այսինքն, ինտենսիվությունը շատ է փոխվել ամիսների ընթացքում. Ցուցադրվող ամսվա համար սպիտակ կետը ավելի հեռու է, քան թափանցիկ կետերը, ինչը նշանակում է, որ նախկինում եղել են ամիսներ, երբ հաղորդակցությունն այս չատում ավելի ինտենսիվ է եղել։ Չնայած դրան եղել են նաև ամիսներ, երբ ինտենսիվությունն ավելի ցածր է եղել։ </p><p><b>(4)</b> Սեղմեք այստեղ պատկերը ներբեռնելու համար։</p>
+
+
+# animatedHorizontalBarChart
+
+feedback.graph.animatedHorizontalBarChart.title=Ուղարկված բառերի ընդհանուր քանակ
+feedback.graph.animatedHorizontalBarChart.description=Այստեղ կարող եք տեսնել, թե գումարային քանի բառ եք գրել ամեն ամսում։ Ներքևում կարող եք տեսնել ժամանակն ու ընտրել Ձեզ հետաքրքրող տարին ու ամիսը։ Սեղմեք <a style="font-weight:bold" href="#animatedHorizontalBarChartExplanation" data-toggle="modal" data-target="#animatedHorizontalBarChartExplanation">այստեղ</a> բացատրական օրինակ տեսնելու համար։
+feedback.graph.animatedHorizontalBarChart.legend=Ուղարկված բառեր
+feedback.graph.animatedHorizontalBarChart.xAxis=Ուղարկված բառերի քանակ
+feedback.graph.animatedHorizontalBarChart.example.image=images/feedback_example_horizontalBarChart_english.svg
+feedback.graph.animatedHorizontalBarChart.example.text=<p><b>(1)</b> Այս օրինակում ամենաշատ բառերն է ուղարկվել  F9, F10 կոնտակտներին՝ 140 հազարից ավել.</p><p><b>(2)</b>Ի տարբերություն (1)-ի,այստեղ ամենաքիչ բառերն են ուղարկվել։</p><p><b>(3)</b> Այստեղ ցուցադրված են տարին ու ամիսը։ Կարող եք տեսնել, թե քանի բառ է ուղարկվել տարբեր չատերում յուրաքանչյուր ամիս։</p><p><b>(4)</b> Սեղմեք այստեղ պատկերը ներբեռնելու համար։</p>
+
+
+
+
+# horizontalBarChart overall
+
+feedback.graph.horizontalBarChartOverall.description=Այս գրաֆիկը ցույց է տալիս ուղարկված ու ստացված բառերի ընդհանուր քանակը բոլոր չատերում։
+feedback.graph.horizontalBarChartOverall.legend.sent=Ուղարկված բառեր
+feedback.graph.horizontalBarChartOverall.legend.received=Ստացված բառեր
+feedback.graph.horizontalBarChartOverall.xAxis=Բառերի քանակ
+feedback.graph.horizontalBarChartOverall.yAxis.sent=Ուղարկված
+feedback.graph.horizontalBarChartOverall.yAxis.received=Ստացված
+
+
+# slidingWindowMean of sent and received words plot
+
+feedback.graph.slidingWindowMean.description=Այստեղ կարող եք տեսնել ուղարկված ու ստացված բառերի քանակը ըստ օրերի (ավելի կոնկրետ՝ մենք հաշվում ենք այսպես միջին արժեքն այսպես կոչված սահող պատուհանի մեթոդով 30 օրվա համար)։ Վերին ձախ մասում կարող եք ընտրել առանձին չատեր ու ուսումնասիրել, թե քանի բառ եք ուղարկել այդ չատում։ <br><br> <i>Եթե <u>ստացված բառերի համար</u> ոչ մի արժեք չի ցուցադրվում, ապա այդ արժեքները թաքցված են տվյալների գաղտնիությունից ելնելով։ Մենք ցուցադրում ենք միայն այն տվյալները, որոնց դեպքում հնարավոր չէ ուղիղ ինֆորմացիա ստանալ ձեր առանձին կոնտակների վարքի մասին, քանի որ Դուք, այլ ոչ թե նրանք են մասնակցության համաձայնություն տվել։ </i>
+feedback.graph.slidingWindowMean.legend.sent=Ուղարկված բառեր
+feedback.graph.slidingWindowMean.legend.received=Ստացված բառեր
+feedback.graph.slidingWindowMean.legend.receivedNotShown=Տվյալների գաղտնություն․ ստացված բառերի քանակը չի ցուցադրվում
+feedback.graph.slidingWindowMean.yAxis=Բառերի միջին քանակ
+feedback.graph.slidingWindowMean.example.image=images/feedback_example_slidingWindowMean_english.svg
+feedback.graph.slidingWindowMean.example.text=<p class="text-left"><b>(1)</b>Այս օրինակում կարելի է տեսնել ստացված ու ուղարկված նամակների զգալի աճ։ Այս ժամանակահատվածում ուղարկված բառերն ավելի շատ են, քան ստացված բառերը։ </p><p class="text-left"><b>(2)</b> Այստեղ ուղարկված ու ստացված բառերի աճն ավելի մեծ է, սակայն ավելի շատ բառեր են ստացվել քան ուղարկվել նշված ժամանակահատվածում։</p>
+
+
+# dailySentReceivedWords plot
+
+feedback.graph.dailySentReceived.description=Այս գրաֆիկը ցույց է տալիս Ձեր ուղարկած ու ստացված բառերի ճշգրիտ քանակն ըստ օրերի։
+feedback.graph.dailySentReceived.legend.sent=Ստացված բառեր
+feedback.graph.dailySentReceived.legend.received=Ուղարկված բառեր
+feedback.graph.dailySentReceived.yAxis=Բառերի քանակ
+
+
+# monthlySentReceivedWords plot
+
+feedback.graph.monthlySentReceived.description=Այս գրաֆիկը ցույց է տալիս Ձեր ուղարկած ու ստացված բառերի ճշգրիտ քանակն ըստ օրերի։ Վերին ձախ մասում կարող եք ընտրել առանձին չատեր ու ուսումնասիրել, թե քանի բառ եք ուղարկել այդ չատում։
+feedback.graph.monthlySentReceived.legend.sent=Ուղարկված բառեր
+feedback.graph.monthlySentReceived.legend.received=Ստացված բառեր
+feedback.graph.monthlySentReceived.yAxis=Հաղորդագրության քանակ
+
+
+# dailyActivityTimes plot
+
+feedback.graph.dailyActivityHoursPlot.description=Այս գրաֆիկում կարող եք տեսնել, թե օրվա որ ժամերին եք ավելի ակտիվ՝ նվիրաբերված տվյալների ամբողջ ժամանակահատվածի համար։ Եթե տվյալ ժամը ավելի մուգ գույն ունի, ապա այդ ժամին Ձեր միջինից ավելի շատ բառեր եք ուղարկել։ Եթե գույնն ավելի բաց է, ապա միջինից քիչ բառեր եք ուղարկել։  Ավելի մանրամասն տեսնելու համար կարող եք սեղմել գրաֆիկի վրա ու մկնիկը աջ կամ ձախ սահեցնելով  ընտրել նախընտրած ժամանակաշրջանը։ Սեղմեք <a style="font-weight:bold" href="#dailyActivityHoursPlotExplanation" data-toggle="modal" data-target="#dailyActivityHoursPlotExplanation">այստեղ</a>բացատրական օրինակի համար։
+feedback.graph.dailyActivityHoursPlot.yAxis=Ժամանակ
+feedback.graph.dailyActivityHoursPlot.moreThanAverage=Ձեր միջինից ավել
+feedback.graph.dailyActivityHoursPlot.average=Ձեր միջինը
+feedback.graph.dailyActivityHoursPlot.lessThanAverage=Ձեր միջինից պակաս
+feedback.graph.dailyActivityHoursPlot.example.image=images/feedback_example_dailyActivityHoursPlot_english.svg
+feedback.graph.dailyActivityHoursPlot.example.text=<p><b>(1)</b>Այս օրինակում կարող եք տեսնել ակտիվ ժամերի փոփոխություն։ <b>(2)</b>-րդ օրինակի ժամանակահատվածում կարող եք տեսնել, որ  8:00AM-12:00PM հաղորդագրություններ չեն ուղարկվել։ Սակայն <b>(3)</b>-րդ օրինակում  նշված ժամանակահատվածում, հաղորդագրությունների ժամանակը փոխադրվել է 2:00 AM- 6:00 AM։ Պատճառը կարող է լինել այլ ժամային գոտի տեղափոխվելը կամ քնի ռեժիմի փոփոխությունը։ </p><p><b>(4)</b>-րդ օրինակում ավելի մուգ քառակուսիներ են երևում։ Հետևաբար, այս ժամանակահատվածում ավելի շատ հաղորդագրություններ են ուղարկվել քան սովորաբար։ </p><p><b>(5)</b>  Սեղմեք այստեղ պատկերը ներբեռնելու համար։</p>
+
+
+# dayPartsPlot overall
+
+feedback.graph.dayPartsOverall.description=Այստեղ կարող եք տեսնել, թե ինչպես են ստացված կամ ուղարկված բառերը բաշխված օրվա տարբեր հատվածների միջև։ Սրանք նվիրաբերված տվյալների ամբողջ ժամանակահատվածին վերաբերող արժեքներն են։
+feedback.graph.dayPartsOverall.legend.sent=Ուղարկված բառեր
+feedback.graph.dayPartsOverall.legend.received=Ստացված բառեր
+feedback.graph.dayPartsOverall.yAxis=Բառերի տոկոս
+feedback.graph.dayPartsOverall.xAxis=Օրվա չորս հատվածները
+feedback.graph.dayPartsOverall.example.image=images/feedback_example_dayPartsPlot_english.svg
+feedback.graph.dayPartsOverall.example.text=<p class="text-left"><b>(1)</b> Այս օրինակում, կեսգիշերից մինչև 6:00 AM ու 6:00 AM-ից մինչև կեսօր բառերի  10%-ից քիչ քանակն է փոխանակվել։ Օրվա այդ հատվածներին ուղարկված բառերի քանակը փոքր-ինչ գերազանցում է ուղարկցածներին։ </p><p class="text-left"><b>(2)</b> Մյուս կողմից կեսօրից մինչև 6:00 PM հաղորդագրությունների մոտ 40%-ն է փոխանակվել։ <br>  6:00 PM-ից մինչև կեսգիշեր բառերի 45%-ից պակաս քանակ է փոխանակվել. Օրվա այս հատվածներին ավելի շատ բառեր են ստացվել քան ուղարկվել։ </p>
+
+
+# animatedDayPartsPlot monthly
+
+feedback.graph.dayPartsMonthly.description=Ի տարբերություն վերևի գրաֆիկի, այստեղ կարող եք տեսնել թե ինչպես է Ձեր ակտիվությունը բաշխված օրվա տարբեր հատվածների մեջ՝  <u>ըստ ամիսների</u>։
+feedback.graph.dayPartsMonthly.legend.sent=Ուղարկված բառեր
+feedback.graph.dayPartsMonthly.legend.received=Ստացված բառեր
+feedback.graph.dayPartsMonthly.yAxis=Բառերի տոկոս
+feedback.graph.dayPartsMonthly.xAxis=Օրվա չորս հատվածները
+
+
+# responseTimesBarChart
+
+feedback.graph.responseTimeBarChart.description=Այստեղ կարող եք տեսնել, թե ինչ արագությամբ եք պատասխանում Ձեր հաղորդագրություններին և հակառակը։  Ամեն արագության համար կարող եք տեսնել, թե Ձեր  ու Ձեր կոնտակտների պատասխանների քանի տոկոսն է ընկնում այդ միջակայքում։  Պատասխաններն այն հաղորդագրություններն են, որոնք անմիջապես հաջորդում են մյուս կողմի ուղարկած հաղորդագրությանը։ Կարող եք տեսնել, թե Ձեր կամ Ձեր կոնտակտների պատասխանների քանի տոկոսն է ուղարկվում  1 րոպեից քիչ,  1-2 րոպե, 3-5 րոպե, 6-15 րոպե, 16-30 րոպե, 31-60 րոպե, կամ  60 րոպեից ավել ժամանակահատվածում։ 60 րոպեն գերազանցող հաղորդագրություններն արտահայտում են համեմատաբար երկար ընդհատումները։   Սեղմեք <a style="font-weight:bold" href="#responseTimeBarChartExplanation" data-toggle="modal" data-target="#responseTimeBarChartExplanation">այստեղ</a> բացատրական օրինակի համար։
+feedback.graph.responseTimeBarChart.legend.donor=Ձեր պատասխանների արագությունը
+feedback.graph.responseTimeBarChart.legend.friends=Կոնտակտների պատասխանների արագությունը
+feedback.graph.responseTimeBarChart.yAxis=Բոլոր պատասխանների տոկոսը
+feedback.graph.responseTimeBarChart.xAxis=Time until response
+feedback.graph.responseTimeBarChart.example.image=images/feedback_example_responseTimeBarChart_english.svg
+feedback.graph.responseTimeBarChart.example.text=<p><b>(1)</b> Այս օրինակում կարող եք տեսնել, որ պատասխանների ավելի քան 40%-ը ուղարկվել է 1 րոպեից քիչ ժամանակում. Մոտ 30%-ը ուղարկվել կամ ստացվել է 1-2 րոպեում, այսինքն՝ ընդհանուր պատասխանների մոտ 70-ը երկու րոպեից քիչ ժամանակում է ստացվել։ </p><p><b>(2)</b> Սեղմեք այստեղ պատկերը ներբեռնելու համար։</p>
+
+
+# responseTimeBarChart monthly
+
+feedback.graph.responseTimeBarChartMonthly.description=Այստեղ կարող եք տեսնել  Ձեր պատասխանների արագությունն <u>ըստ ամիսների։</u> Գրաֆիկը ցույց է տալիս, թե Ձեր պատասխանների քանի տոկոսն է ընկնում ներքևում նշված միջակայքում։ Այսինքն, կարող եք տեսնել, թե Ձեր պատասխանների քանի տոկոսն է հետևել մեկ րոպեից քիչ, 1-2, 3-5, 6-15, 16-30, 31-60 րոպե կամ 60 րոպեից ավել ժամանակում։
+feedback.graph.responseTimeBarChartMonthly.legend.donor=Ձեր պատասխանների արագությունը
+feedback.graph.responseTimeBarChartMonthly.legend.friends=Կոնտակտների պատասխանների արագությունը
+feedback.graph.responseTimeBarChartMonthly.yAxis=Բոլոր պատասխանների տոկոսը
+feedback.graph.responseTimeBarChartMonthly.xAxis=Պատասխանի ժամանակը
+
+
+# breaksInConv plot
+
+feedback.graph.breaksInConv.description=This graph shows for the selected chat per month the longest consecutive period in days, in which no message was written in this chat. Click <a style="font-weight:bold" href="#breaksInConvExplanationModal" data-dismiss="modal" data-toggle="modal" data-target="#breaksInConvExplanationModal">HERE</a> to see an explanation with an example.
+feedback.graph.breaksInConv.yAxis=Longest period in days without a message
+feedback.graph.breaksInConv.days=Day/s
+feedback.graph.breaksInConv.example.image=images/feedback_example_breaksInConv_english.svg
+feedback.graph.breaksInConv.example.text=<p class="text-left"><b>(1)</b> In this example, in the on the top left selected chat, the longest periods without contact in this first period were mostly under 5 days. For example, in January 2019 (the first month), the length of the longest period without a message is less than 5 days. I.e. in that month, there was no time in the chat when not a single message was written for more than 5 days.</p><p class="text-left"><b>(2)</b> In contrast to (1), the lengths of the conversation pauses are already significantly longer in this area. In some months the longest period without a message is about 10 days. In two months in this time period, there was no activity in this chat for almost 20 days straight.</p><p class="text-left"><b>(3)</b> A dot is visible here, showing that there was not a single message in the selected chat for the whole of July 2021.</p><p class="text-left"><b>(4)</b> Click this icon to download the graph.</p>
+
+
+
+
+# provided by Astrid
+
+feedback.graph.loading=Գրաֆիկը բեռնվում է
+feedback.buttons.complete-survey.caption=Լրացնել հարցաշարը
+
+
+# data protection page
+
+
+
+data-protection.title=Գաղտնության քաղաքականություն
+
+
+data-protection.technical-details.title=Կայքի անանանուն օգտագործում
+data-protection.technical-details.body1=Կայքում գտնվելիս ոչ մի անձնական ինֆորմացիա չի գրանցվում։ Երբ Ձեր բրաուզերից մուտք եք գործում մեր կայք, բրաուզերը համացանցի միջոցով մեր սերվերի հետ կապ հաստատելու համար փոխանցում է Ձեր IP-հասցեն։  Ձեր IP-հասցեն փոփոխվում է և երկարաժամկետ չի պահպանվում՝ վերացնելով նույնականացման հնարավորությունը։
+data-protection.technical-details.body2=Երբ մուտք եք գործում մեր կայք, հետևյալ տեխնիկական տվյալներն են փոխանցվում՝ հարցված ֆայլի անունը,  այցի ժամանակը, փոխանցվող տվյալների ծավալը, տեղեկություն փոխանցման հաջողության մասին, URL-ը որից  հարցում է կատարվել, օպերացիոն համակարգը, բրաուզերի տեսակն ու  փոփոխված IP-հասցեն։
+data-protection.technical-details.body3=Կայքից դուրս գալուց հետո այս տվյալներն ավտոմատ կերպով ջնջվում են և ոչ մի կերպ չեն պահպանվում։
+data-protection.technical-details.body4=Այս կայքն օգտագործում է cookie-ներ տեխնիկական ֆունկցիոնալությունն ապահովելու համար։ Cookie-ները տեքստային ֆայլեր են, որոնք պարունակում են ինֆորմացիա օգտագործվող ծառայությունների մասին և պահպանվում են Ձեր սարքում, եթե Ձեր բրաուզերի կարգավորումներում թույլատրված են։ Cookie-ները չեն կարող ծրագրեր տեղադրել կամ վիրուսներ տարածել։ Մեր կայքն օգտագործում է միայն այնպիսի cookie-ներ, որոնք ինֆորմացիա են պահպանում ներկա այցի ընթացքում, բայց ջնջվում են այցից անմիջապես հետո։ Ոչ մի նույնականացում հնարավոր չէ այս cookie-ների միջոցով։
+
+
+data-protection.participation.title=Մասնակցություն
+# now get basically all the text from the consent page...
+
+data-protection.participation.usage.title=Տվյալների օգտագործում
+data-protection.participation.usage.body=Տվյալներն ու ուսումնասիրության արդյունքները հրապարակվելու են գիտական ամսագրերում։ Հրապարակված տվյալները լինելու են անանուն, այսինքն մարդկանց նույնականացումն անհնար է։ Ամբողջապես անանուն այս տվյալները պահպանվելու են հետազոտական պահոցում և կարող են տրամադրվել որակավորված գիտնականնների։
+
+
+# Text appearing on multiple pages
+
+language.current=Հայ
+language.options.ger=Deutsch
+language.options.eng=English
+language.options.am=Հայերեն
+
+footer.title=Ստացե՞լ եք Ձեր տվյալները
+footer.projectNumber=Project No.: 01IS20046
+
+
+browser-warning.text=Ձեր օգտագործած բրաուզերը չի սպասարկվում։ Հետևաբար էջի անխափան ու ճիշտ աշխատանքը չի երաշխավորվում։ Խնդրում ենք այս կայքի համար օգտագործել  Chrome կամ Firefox բրաուզերների ամենաթարմ տարբերակները։
+
+
+reportProblem.button=Հաղորդել խնդրի մասին
+reportProblem.next=Շարունակել
+reportProblem.image=images/problemReport_eng.png
+reportProblem.title=Հաղորդել խնդրի մասին
+reportProblem.body=Եթե մասնակցելիս ինչ-որ խնդրի եք բախվում կամ էլ ուզում եք բարելավման առաջարկներ անել, խնդրում ենք օգտագործել էջի վերին աջ մասում գտնվող «Հաղորդել խնդրի մասին» կոճակը։ Մենք շարունակում ենք աշխատել հարթակը բարելավելու ուղղությամբ։ Շնորհակալություն։
+
+
+data-storage.body1_html=<em>Տվյալների նվիրաբերում-  </em> Ձեր տվյալները նվիրաբերելիս մենք ստանում ենք միայն մետա-տվյալներ (հաղորդագրության երկարությունն ու ժամանակը, հաղորդագրության մասնակիցների անունները փոխարինվում են համարներով), չենք ստանում հաղորդագրությունների բովանդակությունը (հաղորդագրության տեքստ կամ անուններ)։  Ձեր անձնական տվյալները երբեք չեն լքում Ձեր սարքը, քանի որ անանուն տվյալների քաղումը կատարվում է լոկալ։ Սա նշանակում է, որ մենք երբեք չենք տեսնում Ձեր հաղորդագրությունները։ Ներբեռնելուց առաջ, Դուք կարող եք տեսնել, թե ինչ տվյալներ են մեզ ուղարկվում և համոզվել, որ դրանք անանուն են։
+
+
+links.learn-more=Իմանալ ավելին
+links.instructions=Մեկնարկ
+links.donation-info=Նվիրաբերել տվյալները
+links.donate=Այո, սկսել մասնակցությունը
+links.data-protection=Տվյալների պաշտպանություն
+links.imprint=Imprint
+links.reportProblem=https://survey.mbp.tf.uni-bielefeld.de/index.php?r=survey/index&sid=486423&lang=am
+
+
+yes=Այո
+no=Ոչ
+
+
+actions.previous=Հետ
+actions.next=Շարունակել
+
+
+# Data source specific text
+
+
+
+whatsapp.instructions.p1.title=Ի՞նչ սարք պետք է օգտագործել մասնակցության համար
+whatsapp.instructions.p1.body=Խորհուրդ ենք տալիս մասնակցել համակարգչով, սակայն տվյալների ներբեռնումը WhatsApp-ից պետք է կատարել հեռախոսով։ Ուշադրություն դարձրեք, որ օգտագործում եք այնպիսի սարքեր, որոնց ուրիշները հասանելիություն չունեն։
+whatsapp.instructions.p2.title=Ի՞նչ չատ ընտրել
+whatsapp.instructions.p2.body=Ժամանակ առ ժամանակ մարդիկ կարիք ունեն կարևոր հարցերի մասին խոսել վստահելի մարդկանց հետ, որոնց վրա կարող են հույս դնել։  Խոսքը ընտանիքի, ընկերների կամ այլ մարդկանց մասին է, որոնք Ձեզ աջակցել են։ <b>Ընտրեք հաղորդագրություններն այն մարդկանց հետ, որոնց հետ կարող եք խոսել Ձեր կյանքի կարևոր հարցերի մասին։</b> <br> <br><b>Ընտրեք 5-7 չատ այն մարդկանց հետ, որոնց հետ կարևոր թեմաներ եք քննարկում, կարող եք ընտրել նաև խմբային չատեր։ </b>
+whatsapp.instructions.p3.title=Ինչպե՞ս կարող եմ տվյալները ջնջել իմ սարքից
+whatsapp.instructions.p3.body=Մենք խորհուրդ ենք տալիս ներբեռնած ֆայլերը մասնակցությունից հետո ջնջել Ձեր սարքից և էլ․հասցեից, որով տվյալները հեռախոսից համակարգիչ եք ուղարկել։ Ուշադրություն դարձրեք, որ տվյալները վերջնականապես հեռացվում են սարքից, ոչ թե տեղափոխվում զամբյուղ։ Ֆայլերը ջնջելու մասին լրացուցիչ ինֆորմացիա կարող եք ստանալ  <a target="_blank" href="https://safecomputing.umich.edu/protect-yourself/prepare-devices-disposal/securely-delete-files">այստեղ</a>։
+
+
+whatsapp.description_html=<i>Note: The chat export function is not supported by all WhatsApp versions! <strong> Exporting and saving WhatsApp data does not work with the WhatsApp web version. Also, on different Android versions, you may not be able to store your data locally on your device.</i></strong> <br><br>From time to time, most people discuss important matters with other people, and we need people we can depend on for help. These can be family, friends, or people who have been really helpful to you – what we are interested in are the ones that you are most likely to talk about really important matters in your life. <br><br>Please choose <strong>5</strong> chats with people with whom you discuss important matters in your life (group chats are possible too). Please bear in mind that the chats can only be downloaded one after the other. Multiple selection of chats is currently not supported.
+whatsapp.external-documentation_html=Տվյալների ներբեռնման պաշտոնական հրահանգները կարող եք ստանալ այստեղ՝  <a target="_blank" href="https://faq.whatsapp.com/618575946635920/?cms_platform=iphone&helpref=platform_switcher" target="_blank">iOS</a> կամ <a target="_blank" href="https://faq.whatsapp.com/en/android/23756533" target="_blank">Android</a>։
+
+
+#Download and Donation procedure: whatsapp
+
+whatsapp.donation-procedure.1=Հեռախոսով բացեք WhatsApp հավելվածը
+whatsapp.donation-procedure.2=Մտածեք, թե որ չատերն են Ձեզ համար առավել կարևոր (մոտ ընկերներ և այլն)
+whatsapp.donation-procedure.3=Բացեք չատերից մեկը
+whatsapp.donation-procedure.4=Click on the contact's name in the top center.
+whatsapp.donation-procedure.5=Scroll down and click on "Export chat". A window will open. Select "WITHOUT MEDIA".
+whatsapp.donation-procedure.6=Select "Mail" (envelope) and send the mail with the attached chat file to yourself. Please only send from/to a secure mail service (e.g. university mail address). Alternatively, you can send the files to your computer via Bluetooth.
+whatsapp.donation-procedure.7=Download the chat file from the email to your computer. If your chat was exported in a <b>zip file</b>, you will need to unzip it so that only text files remain.
+whatsapp.donation-procedure.8=Repeat the steps 3-7 for all chats.
+whatsapp.instruction.gif=whatsapp_eng.mp4
+whatsapp.instruction.gif.subtitle=This is the chat export process on an iPhone. For other devices, the necessary steps may be slightly different.
+
+
+facebook.instructions.p1.title=What type of device should I use?
+facebook.instructions.p1.body=Please make sure that you are storing the data on a device that no one but you has access to. Because the amount of data for Facebook data donations can be quite large, we recommend using a computer.
+facebook.instructions.p2.title=How long does the data export from Facebook take?
+facebook.instructions.p2.body=The data is requested with just a few clicks on Facebook (see the instructions below). You will receive a notification from Facebook as soon as the data is available for download and can then start participating in the study.
+facebook.instructions.p3.title=How can I delete my data from my device?
+facebook.instructions.p3.body=We strongly recommend that you delete your original data after completing the donation. Note that simply deleting the files may not be enough to permanently remove the data from your device. Further information on the permanent deletion of files can for example be found <a target="_blank" href="https://safecomputing.umich.edu/protect-yourself/prepare-devices-disposal/securely-delete-files">on the website of the University of Michigan</a> or <a target="_blank" href="https://wethegeek.com/best-file-data-shredder-apps-to-permanently-delete-data-from-android/">wethegeek.com</a> and <a target="_blank" href="https://appletoolbox.com/how-to-delete-files-permanently-from-the-files-app-on-iphone-and-ipad/">appletoolbox.com</a>.
+
+
+
+
+facebook.description_html=Make a request to Facebook to download your Facebook data. You will receive a notification from Facebook once the data is available for download and can then start participating in the study. <strong>We recommend using a computer if donating from Facebook as the data size may be relatively large.</strong>
+facebook.external-documentation_html=The official documentation on how to download your data can be found <a target="_blank" href="https://www.facebook.com/help/contact/2032834846972583" target="_blank">here</a>.
+
+
+#Download and Donation procedure: Facebook
+
+facebook.donation-procedure.1=Open the Facebook App on your smartphone.
+facebook.donation-procedure.2=In the top right corner, click on the “Your Profile” button (arrowhead pointing down) and choose “Settings & Privacy”.
+facebook.donation-procedure.3=Select “Settings”. Then select "Privacy" in the navigation bar on the left. Then click on "Your Facebook information".
+facebook.donation-procedure.4=On the "Your Facebook information" page click on "Download profile information" and then change the format from HTML to JSON.
+facebook.donation-procedure.5=Pick a date range: We encourage you to <b>request the data for 2-3 years</b> but a shorter time span is possible as well.
+facebook.donation-procedure.6=In the interest of data minimization, please first deselect all categories. Then, tick the fields “Messages” and "Profile information".
+facebook.donation-procedure.7=Scroll down and click on "Request a download". As soon as the file is ready for download, you will receive a notification from Facebook. This may take a while.
+facebook.donation-procedure.8=Scroll back up and click on the "Available Files" tab. There you should see thr requested file and can download is as soon it is ready.
+facebook.instruction.gif=facebook_eng.mp4
+
+
+# Imprint
+
+imprint.title=Imprint
+imprint.imprint=Universität Bielefeld<br>Universitätsstrasse 25<br>D-33615 Bielefeld<p>National (0521) 106-00<br>International ++49 521 106-00</p><p>Telefax national (0521) 106-5844<br>Telefax international +49 521 106-5844</p><p>Prefix for the University: 0521-106-...</p><p>E-Mail: post@uni-bielefeld.de<br>Internet: <a href="https://www.uni-bielefeld.de" target="_blank">www.uni-bielefeld.de</a><p>Bielefeld University is a state-supported institution bound to public law. It is officially represented by the Rektor, Prof. Dr. Ing. Gerhard Sagerer.</p>
+imprint.rsa.title=Responsible supervisory authorities
+imprint.rsa.body=Ministry of Culture and Science in North Rhine-Westphalia<br>Völklinger Straße 49<br>40221 Düsseldorf<p><strong>Value Added Tax identification number</strong><br>Pursuant to § 27 a, VAT ID: DE811307718 - according to paragraph 27 a - Finanzamt (tax office) Bielefeld Innenstadt</p>
+imprint.responsibleDona.title=Responsibility for Content of the Donation Platform Dona
+imprint.responsibleDona.body=Prof. Dr. Hanna Drimalla<br>Leiterin der AG "Multimodal Behavior Processing"<br>E-mail: drimalla@techfak.uni-bielefeld.de<br><a href="https://www.uni-bielefeld.de/fakultaeten/technische-fakultaet/arbeitsgruppen/multimodal-behavior-processing/" target="_blank">Homepage</a><br>Telephone: +49 521 106-12043<br>Telephone secretary: +49 521 106-6891<br>Room: CITEC-3.108
+imprint.responsibleCentralWebsite.title=Responsibility for Content of the Central Websites
+imprint.responsibleCentralWebsite.body=<p>Referat für Kommunikation<br> Ingo Lohuis<br>ingo.lohuis@uni-bielefeld.de</p><p>Responsibility for the content of all other Internet pages (e.g. the faculties, institutes, seminars or administrative offices) lies with the facility or author who produced or published the pages. If you have any questions about these webpages, please contact the individuals or facility/office named on the Internet page.</p><p>There are also various decentralized services on their own servers that do not belong to the domain "www.uni-bielefeld.de". These are all the responsibility of their specific operators.</p><p>URLs beginning with "http://wwwhomes.uni-bielefeld.de" lead to private or personal web pages of members of Bielefeld University. The University has no influence on their contents, and these in no way represent any official publication of Bielefeld University.</p>
+imprint.liabilityDisclaimer.title=Liability Disclaimer
+imprint.liabilityDisclaimer.body=While Bielefeld University makes every effort to ensure that the contents of its website are correct, up-to-date, and without omissions, it cannot accept liability for the accuracy and quality of its website at any given time.</p><p>The website provides hyperlinks to other external websites. The authors and distributors of these sites are responsible for their content. Bielefeld University is not liable for the content of external websites and has no influence on the content of external links. Despite carefully checking the contents when linking to external websites, the University has no liability for the content of external links. The University distances itself expressly from the content of external websites, nor does it endorse it. Course offers and services from the University are not offered on external websites.</p>
+imprint.copyright.title=Copyright
+imprint.copyright.body=The copyright and usage rights for texts, graphics, photos, design and source code lie - unless otherwise stated - with Bielefeld University. Permission is needed to distribute, use or pass on copies in digital or printed form. This does not affect "copying" the data on to a personal computer to view pages on a browser.
+imprint.photoCredits.title=Photo Credits
+imprint.photoCredits.body=All photographs remain - unless otherwise stated - copyright of Bielefeld University.
