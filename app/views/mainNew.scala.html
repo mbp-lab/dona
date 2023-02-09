@@ -29,14 +29,6 @@
             <div class="row mx-0 mt-3 justify-content-center">
                 <div id="header-hpi-logo" class="col">
                     <a class="mr-1 mt-1 homeButton" href="/"><img src="@routes.Assets.at("images/homeButton.svg")" height="30px"></a>
-                        <button class="languageSelect dropdown-toggle languageSelectButton" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            @messages("language.current")
-                        </button>
-                        <div class="dropdown-menu languageSelectOption languageSelectButton" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item languageSelectOption" href="@routes.SocialDataDonationController.changeLanguage("en")">@messages("language.options.eng")</a>
-                            <a class="dropdown-item languageSelectOption" href="@routes.SocialDataDonationController.changeLanguage("de")">@messages("language.options.ger")</a>
-                            <a class="dropdown-item languageSelectOption" href="@routes.SocialDataDonationController.changeLanguage("am")">@messages("language.options.am")</a>
-                        </div>
                 </div>
                 <div id="header-content" class="col">
                 @header
