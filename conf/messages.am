@@ -302,7 +302,7 @@ feedback.graph.animatedPolarPlot.title=Մոլորակային պատկեր
 feedback.graph.animatedPolarPlot.description=Այս գրաֆիկում կենտրոնի դեղին կետը Դուք եք։ Շրջապատող սպիտակ կետերը Ձեր տրամադրած չատերն են։ Ինչքան ավելի մոտ է սպիտակ կետը Ձեզ, այնքան ավելի շատ բառեր են փոխանակվել այդ չատում։  Ներքևում կարող եք տեսնել ժամանակն ու ընտրել այն ամիսը, որը Ձեզ հետաքրքրում է։  Թափանցիկ սպիտակ կետերը ցույց են տալիս ակտիվությունը նախորդող ամիսների ժամանակ։ Սեղմել <a style="font-weight:bold" href="#polarPlotExplanation" data-toggle="modal" data-target="#polarPlotExplanation">այստեղ</a> բացատրական օրինակ տեսնելու համար։
 feedback.graph.animatedPolarPlot.legend.donor=Դուք
 feedback.graph.animatedPolarPlot.legend.others=Չատի ինտենսիվությունը
-feedback.graph.animatedPolarPlot.example.image=images/feedback_example_polarPlot_english.svg
+feedback.graph.animatedPolarPlot.example.image=images/feedback_example_polarPlot_armenian.svg
 feedback.graph.animatedPolarPlot.example.text=<p><b>(1)</b> Այս օրինակում սպիտակ կետը շատ մոտ է դեղինին։ Սա նշանակում է, որ ստորև ցուցադրվող ամսում այս չատն այլ ամիսների կամ չատերի համեմատ ավելի ինտենսիվ էր։ Այս օրինակում ընդամենը երկու թափանցիկ սպիտակ կետ կա, քանի որ տվյալները հասանելի են  կարճ ժամանակահատվածի համար։ </p><p><b>(2)</b> Այս օրինակում թափանցիկ կետեր գրեթե չեն երևում, քանի որ դրանք գտնվում են նույն տեղում ու համընկնում են։ Պատճառն այն է, որ այս չատում հաղորդակցության ինտենսիվությունը համեմատաբար կայուն է։ </p><p><b>(3)</b> Ի տարբերություն (2)-ի, այստեղ շատ թափանցիկ կետեր կան. այսինքն, ինտենսիվությունը շատ է փոխվել ամիսների ընթացքում։ Ցուցադրվող ամսվա համար խոշոր սպիտակ կետն ավելի հեռու է, քան թափանցիկ կետերից  շատերը, ինչը նշանակում է, որ նախկինում եղել են ամիսներ, երբ հաղորդակցությունն այս չատում ավելի ինտենսիվ է եղել։ Չնայած դրան եղել են նաև ամիսներ, երբ ինտենսիվությունն ավելի ցածր է եղել։ </p><p><b>(4)</b> Սեղմեք այստեղ պատկերը ներբեռնելու համար։</p>
 
 
@@ -312,7 +312,7 @@ feedback.graph.animatedHorizontalBarChart.title=Ուղարկած բառերի ը
 feedback.graph.animatedHorizontalBarChart.description=Այստեղ կարող եք տեսնել, թե գումարային քանի բառ եք գրել ամեն ամսում։ Ներքևում կարող եք տեսնել ժամանակն ու ընտրել Ձեզ հետաքրքրող տարին ու ամիսը։ Սեղմեք <a style="font-weight:bold" href="#animatedHorizontalBarChartExplanation" data-toggle="modal" data-target="#animatedHorizontalBarChartExplanation">այստեղ</a> բացատրական օրինակ տեսնելու համար։
 feedback.graph.animatedHorizontalBarChart.legend=Ուղարկած բառեր
 feedback.graph.animatedHorizontalBarChart.xAxis=Ուղարկած բառերի քանակ
-feedback.graph.animatedHorizontalBarChart.example.image=images/feedback_example_horizontalBarChart_english.svg
+feedback.graph.animatedHorizontalBarChart.example.image=images/feedback_example_horizontalBarChart_armenian.svg
 feedback.graph.animatedHorizontalBarChart.example.text=<p><b>(1)</b> Այս օրինակում ամենաշատ բառերն է ուղարկվել  F9, F10 կոնտակտներին՝ 140 հազարից ավել.</p><p><b>(2)</b>Ի տարբերություն (1)-ի,այստեղ ամենաքիչ բառերն են ուղարկվել։</p><p><b>(3)</b> Այստեղ ցուցադրված են տարին ու ամիսը։ Կարող եք տեսնել, թե քանի բառ է ուղարկվել տարբեր չատերում յուրաքանչյուր ամիս։</p><p><b>(4)</b> Սեղմեք այստեղ պատկերը ներբեռնելու համար։</p>
 
 
@@ -361,7 +361,7 @@ feedback.graph.dailyActivityHoursPlot.yAxis=Ժամանակ
 feedback.graph.dailyActivityHoursPlot.moreThanAverage=Ձեր միջինից ավել
 feedback.graph.dailyActivityHoursPlot.average=Ձեր միջինը
 feedback.graph.dailyActivityHoursPlot.lessThanAverage=Ձեր միջինից պակաս
-feedback.graph.dailyActivityHoursPlot.example.image=images/feedback_example_dailyActivityHoursPlot_english.svg
+feedback.graph.dailyActivityHoursPlot.example.image=images/feedback_example_dailyActivityHoursPlot_armenian.svg
 feedback.graph.dailyActivityHoursPlot.example.text=<p><b>(1)</b> Այս օրինակում կարող եք տեսնել ակտիվ ժամերի փոփոխություն։ Դատարկ քառակուսիները մատնանշում են օրվա այն ժամերը, որոնց ընթացքում հաղորդագրություններ չեք ուղարկել<b>(2)</b>-րդ հատվածում դա համապատասխանում է  8:00-ից 12:00-ն ընկած ժամանակահատվածին։ Սակայն <b>(3)</b>-րդ օրինակում  հաղորդագրություններ չեն ուղարկվել 2:00-ից 6:00-ը։ Պատճառը կարող է լինել այլ ժամային գոտի տեղափոխվելը կամ քնի ռեժիմի փոփոխությունը։ </p><p><b>(4)</b>-րդ օրինակում ավելի մուգ քառակուսիներ են երևում։ Հետևաբար, այս ժամանակահատվածում ավելի շատ հաղորդագրություններ են ուղարկվել քան սովորաբար։ </p><p><b>(5)</b>  Սեղմեք այստեղ պատկերը ներբեռնելու համար։</p>
 
 
@@ -392,7 +392,7 @@ feedback.graph.responseTimeBarChart.legend.donor=Ձեր պատասխանների
 feedback.graph.responseTimeBarChart.legend.friends=Կոնտակտների պատասխանների արագությունը
 feedback.graph.responseTimeBarChart.yAxis=Պատասխանների տոկոսը
 feedback.graph.responseTimeBarChart.xAxis=Պատասխանի արագություն
-feedback.graph.responseTimeBarChart.example.image=images/feedback_example_responseTimeBarChart_english.svg
+feedback.graph.responseTimeBarChart.example.image=images/feedback_example_responseTimeBarChart_armenian.svg
 feedback.graph.responseTimeBarChart.example.text=<p><b>(1)</b> Այս օրինակում կարող եք տեսնել, որ պատասխանների ավելի քան 40%-ը ուղարկվել է 1 րոպեից քիչ ժամանակում. Մոտ 30%-ը ուղարկվել կամ ստացվել է 1-2 րոպեում, այսինքն՝ ընդհանուր պատասխանների մոտ 70%-ը երկու րոպեից քիչ ժամանակում է ստացվել։ </p><p><b>(2)</b> Սեղմեք այստեղ պատկերը ներբեռնելու համար։</p>
 
 
