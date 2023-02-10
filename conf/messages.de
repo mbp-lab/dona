@@ -408,7 +408,7 @@ facebook.description_html=Bitte fordern Sie Ihre Nachrichtendaten von Facebook a
 facebook.external-documentation_html=Die offizielle Dokumentation zum Herunterladen Ihrer Daten können Sie <a target="_blank" href="https://www.facebook.com/help/contact/2032834846972583" target="_blank">hier</a> finden.
 
 #Download and Donation procedure: Facebook
-facebook.donation-procedure.1=Öffnen Sie die Facebook App auf Ihrem Smartphone.
+facebook.donation-procedure.1=Öffnen Sie Facebook und melden Sie sich an.
 facebook.donation-procedure.2=Klicken Sie in der oberen rechten Ecke auf die Schaltfläche "Dein Profil" (nach unten zeigende Pfeilspitze) und wählen Sie "Einstellungen & Privatsphäre".
 facebook.donation-procedure.3=Wählen Sie "Einstellungen". Wählen Sie dann "Privatsphäre" in der Navigationsleiste auf der linken Seite. Klicken Sie dann auf "Deine Facebook-Informationen".
 facebook.donation-procedure.4=Klicken Sie auf der Seite "Deine Facebook-Informationen" auf "Profilinformationen herunterladen" und ändern Sie dann das Format von HTML zu JSON.
