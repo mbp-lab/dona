@@ -410,7 +410,7 @@ facebook.description_html=Make a request to Facebook to download your Facebook d
 facebook.external-documentation_html=The official documentation on how to download your data can be found <a target="_blank" href="https://www.facebook.com/help/contact/2032834846972583" target="_blank">here</a>.
 
 #Download and Donation procedure: Facebook
-facebook.donation-procedure.1=Open the Facebook App on your smartphone.
+facebook.donation-procedure.1=Open Facebook and log in.
 facebook.donation-procedure.2=In the top right corner, click on the “Your Profile” button (arrowhead pointing down) and choose “Settings & Privacy”.
 facebook.donation-procedure.3=Select “Settings”. Then select "Privacy" in the navigation bar on the left. Then click on "Your Facebook information".
 facebook.donation-procedure.4=On the "Your Facebook information" page click on "Download profile information" and then change the format from HTML to JSON.
