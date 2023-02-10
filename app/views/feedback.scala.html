@@ -55,9 +55,9 @@
             </div>
         </div>
 
-        @helper.form(routes.SocialDataDonationController.landing) {
+        @helper.form(routes.FeedbackSurveyController.goToFeedback(donorId), '_feedbackTooltip -> "true", 'class -> "text-right") {
             <div class="mt-5 row justify-content-center mx-0">
-                <input type="submit" value="@messages("feedback.finishButton")" class="btn btn-outline footer-forward-button text-center"></input>
+                <input type="submit" value="@messages("feedback.toRaffleButton")" class="btn btn-outline footer-forward-button text-center"></input>
             </div>
         }
     </div>
