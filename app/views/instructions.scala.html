@@ -87,7 +87,7 @@
                     @Html(dataSourceDescription.documentation)
                     </p>
                 </div>
-                @if(dataSourceDescription.animation.isDefined){
+                @if(dataSourceDescription.animation.isDefined && dataSourceDescription.animation.get.source != ""){
                     <video controls autoplay height="@{dataSourceDescription.animation.get.height}" width="@{dataSourceDescription.animation.get.width}">
                         <source src="@routes.Assets.at(s"images/dataSourceImages/${dataSourceDescription.animation.get.source}")" type="video/mp4">
                     </video>
