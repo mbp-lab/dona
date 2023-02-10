@@ -12,6 +12,8 @@ POST    /consent-to-study              controllers.SocialDataDonationController.
 GET     /data-donation                 controllers.SocialDataDonationController.showDataDonationPage
 POST    /data-upload                   controllers.SocialDataDonationController.postData
 
+GET     /change-language/:language     controllers.SocialDataDonationController.changeLanguage(language: String)
+
 POST    /feedback-survey               controllers.FeedbackSurveyController.goToFeedback(donorId: String)
 
 GET     /health                        controllers.HealthController.status

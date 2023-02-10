@@ -11,6 +11,9 @@
 } {
     <div class="justify-content-center">
 
+        <script>
+                $('.languageSelectButton').addClass('d-none')
+        </script>
 
         @for((dataSource, GraphData(_, _, _, _, _, _, _, basicStatistics, _)) <- data) {
             <div class="top col-md text-center" style="margin-top: 3em">
@@ -86,7 +89,7 @@
     <script src="@routes.Assets.at("javascripts/plot.js")" type="text/javascript"></script>
 } {
 }{
-    <a href="@messages("links.reportProblem")" target="_blank" class="btn report-problem-button-header float-right">@messages("reportProblem.button")</a>
+    @headerButtons()
 }
 
 

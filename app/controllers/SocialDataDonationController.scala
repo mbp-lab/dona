@@ -1,6 +1,7 @@
 package controllers
 
 import config.SurveyConfig
+
 import javax.inject._
 import models.api._
 import models.domain.DonationDataSourceType.{DonationDataSourceType, _}
@@ -8,7 +9,7 @@ import models.domain.ExternalDonorId
 import org.slf4j.LoggerFactory
 import persistence.DonationService
 import play.api.data.Form
-import play.api.i18n.{I18nSupport, Messages}
+import play.api.i18n.{I18nSupport, Lang, Messages}
 import play.api.libs.json._
 import play.api.mvc._
 import scalaz.{-\/, \/-}
@@ -34,10 +35,14 @@ final class SocialDataDonationController @Inject()(
 
   private val GeneratedDonorIdKey = "GeneratedDonorId"
 
+  def changeLanguage(language: String): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
+    Redirect(request.headers.get(REFERER).getOrElse("/")).withLang(Lang(language))//withCookies(Cookie("language", language))
+  }
+
   def landing: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
     val designVersion = request.queryString.get("design").flatMap(_.headOption).map(_.filter(_.isLetterOrDigit))
     logger.info(s"""{"status": "landing-page"}""")
-    Ok(views.html.landing(designVersion)).withNewSession
+    Ok(views.html.landing(designVersion)).withNewSession//.withLang(Lang("en"))
   }
 
   def learnMore: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>

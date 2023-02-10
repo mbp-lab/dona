@@ -338,6 +338,11 @@ data-protection.participation.usage.body=The data and results of these surveys w
 
 # Text appearing on multiple pages
 
+language.current=ENG
+language.options.ger=Deutsch
+language.options.eng=English
+language.options.am=Հայերեն
+
 footer.title=Do you have your data ready?
 footer.projectNumber=Project No.: 01IS20046
 

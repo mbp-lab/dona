@@ -125,6 +125,36 @@
 
 }
 
+
+.languageSelect {
+    font-weight: 800 !important;
+    font-size: 12px !important;
+    padding: 10px 20px 10px 20px !important;
+    border-radius: 16px !important;
+    background: white !important;
+    color: #404040 !important;
+    text-decoration: none !important;
+}
+
+
+.languageSelect:hover {
+    background: #E2E2E2 !important;
+    color: #404040 !important;
+}
+
+.languageSelectOption {
+    font-weight: 800 !important;
+    font-size: 12px !important;
+    background: white !important;
+    color: #404040 !important;
+    text-decoration: none !important;
+}
+
+.languageSelectOption:hover {
+    background: #f1f1f1 !important;
+    color: #404040 !important;
+}
+
 .landing-container {
     margin-bottom: -2rem;
 }
@@ -292,7 +322,7 @@
 }
 
 .footer-links {
-    width: 200px;
+
     position: absolute;
     bottom: 10px;
     left: 10px;
