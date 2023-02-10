@@ -16,6 +16,7 @@ const horizontalBarChartOverall = require("./analysis_plot/horizontalBarChartOve
 $(document).ready(function () {
     // reminders to also do the next questionnaire, after 5 min and after 15min
     const reminder = i18n.reminder
+    alert(reminder)
     setTimeout(() => {
         alert(reminder)
     }, 300000)

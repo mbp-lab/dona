@@ -41,6 +41,7 @@ learn-more.imagePath=images/dataAnonymizationExample-English.png
 # data storage text body is reused, see below
 
 learn-more.storage.body1_html=<strong><em>Data donation: </strong></em>When donating your interaction data, we extract metadata (e.g. length and timestamp of message as well as pseudonyms of conversation participants) and no actual contents (e.g. message text or name of message sender). To ensure that, we anonymize your data client-side, meaning that your private data is anonymized locally and does not leave your device. This means that we will never see the content of your conversations. Before uploading, we will show you a preview of the data so that you can verify it is sufficiently anonymous.
+learn-more.storage.body2_html=<strong><em>Questionnaires: </strong></em>You first fill out questionnaires about your demographic information. You can then carry out the data donation and receive feedback. Questionnaire data is also collected completely anonymously using <a target="_blank" href="https://www.limesurvey.org/support/faq/39-data-protection-and-policy">LimeSurvey</a>.
 
 learn-more.data-handling.title=What happens to my data?
 learn-more.data-handling.body1=Since we are not collecting any names or other person-specific information, we will not be able to associate you with your data once the study has been completed - the donated data is anonymous. This means that your data cannot be deleted on request.
@@ -174,7 +175,7 @@ feedback.thanks.title=Thank you for the donation of your social media data!
 feedback.importantMessage.title=Important Note:
 feedback.importantMessage.disclaimer=The graphs and visualizations displayed <b>do <u>not</u> allow any direct conclusions</b> to be drawn about the quality of your social relationships. Your chats are analyzed and visualized regarding amount and timing only.
 
-feedback.reminder=You can continue to explore this page and take as much time as you like.
+feedback.reminder=Don't forget to register for the voucher raffle at the bottom of the page.
 
 feedback.graph.title=Feedback on your %s Messages
 feedback.graph.total-messages=Total messages
@@ -207,6 +208,7 @@ feedback.facebook.info=The potentially high number of facebook contacts could le
 
 feedback.nextButton=Next
 feedback.finishButton=Finish
+feedback.toRaffleButton=Sign up for raffle
 
 # plots more about titles
 feedback.moreAbout.interactionIntensity.title=More about your Interaction Intensity
@@ -355,6 +357,8 @@ reportProblem.title=Problem Report and Suggestions
 reportProblem.body=If you encounter a problem while using our application or you have other recommendations and feedback for us, please use the "Report Problem" button at the top right of the page. We are continuously working to improve the application.<br> Thank you!
 
 data-storage.body1_html=<em>Data Donation: </em>When donating your interaction data, we extract metadata (e.g. length and timestamp of message as well as pseudonyms of conversation participants) and no actual contents (e.g. message text or name of message sender). To ensure that, we anonymize your data client-side, meaning that your private data is anonymized locally and does not leave your device. This means that we will never see the content of your conversations. Before uploading, we will show you a preview of the data so that you can verify it is sufficiently anonymous.
+data-storage.body2_html=<em>Questionnaires: </em>You first fill out questionnaires about your demographic information. You can then carry out the data donation and receive feedback. Questionnaire data is also collected completely anonymously using <a target="_blank" href="https://www.limesurvey.org/support/faq/39-data-protection-and-policy">LimeSurvey</a>.
+
 
 links.learn-more=Learn more
 links.instructions=Start
