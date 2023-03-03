@@ -7,6 +7,7 @@ import models.domain._
 
 object SocialDataTransformer extends ((DonationId, ApiSocialData) => SocialDataDonation) {
 
+
   def apply(
     donationId: DonationId,
     socialData: ApiSocialData
@@ -52,7 +53,9 @@ object SocialDataTransformer extends ((DonationId, ApiSocialData) => SocialDataD
     def transformConversationParticipants(conversation: ApiConversation) = {
       val conversationId = getConversationId(conversation.conversationId)
       conversation.participants.map(
-        id => ConversationParticipant(ConversationParticipantId.generate, conversationId, getParticipantId(id))
+        id => {
+          ConversationParticipant(ConversationParticipantId.generate, conversationId, getParticipantId(id), id)
+        }
       )
     }
 
@@ -69,6 +72,7 @@ object SocialDataTransformer extends ((DonationId, ApiSocialData) => SocialDataD
     val conversations = socialData.conversations.map(conversation => transformConversation(conversation))
     val messages = socialData.conversations.flatMap(transformConversationMessages)
     val participants = socialData.conversations.flatMap(transformConversationParticipants)
+    println(socialData.conversations)
     SocialDataDonation(donorId, conversations, messages, participants)
   }
 }
