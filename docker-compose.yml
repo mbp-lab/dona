@@ -5,7 +5,7 @@ services:
     links:
       - postgres
     ports:
-      - "9003:9000"
+      - "9005:9000"
     environment:
      - "APPLICATION_SECRET=${APPLICATION_SECRET}"
      - "DATABASE_HOST=postgres"
@@ -13,7 +13,7 @@ services:
      - "DATABASE_NAME=kalinka"
      - "DATABASE_USER=${DATABASE_USER}"
      - "DATABASE_PASSWORD=${DATABASE_PASSWORD}"
-     - "KALINKA_HOST=dona.dev.mbp.tf.uni-bielefeld.de"
+     - "KALINKA_HOST=project03.dona.tf.uni-bielefeld.de"
      - "SOCIAL_DATA_SOURCE_ID=1234566"
      - "SOCIAL_DATA_INGESTION_ENABLED=on"
      - "DONOR_SURVEY_ENABLED=off"
@@ -27,8 +27,8 @@ services:
       POSTGRES_DB: "kalinka"
     image: postgres:12
     volumes:
-      - improvements_dev_dona_data:/var/lib/postgresql/data
+      - project03_dona_data:/var/lib/postgresql/data
     ports:
-      - "5558:5432"
+      - "5560:5432"
 volumes:
-    improvements_dev_dona_data:
+    project03_dona_data:
