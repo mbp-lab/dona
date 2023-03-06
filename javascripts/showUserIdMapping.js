@@ -6,8 +6,8 @@ function showUserIdMapping(userIdMapping, idsPerConv, systemName, donor, friendI
             let names = [];
             let deidentifiedNames = [];
             let friendMappings = [];
-            // get friendMappings and shorten them
-            //console.log("userIdMapping:", userIdMapping)
+
+            // get friendMappings and shorten them (e.g., from Contact1 to C1)
             Object.entries(userIdMapping).forEach((mapping) => {
 
                 if (mapping[0] !== systemName) {
