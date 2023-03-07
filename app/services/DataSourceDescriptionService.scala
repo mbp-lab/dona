@@ -56,7 +56,9 @@ object InMemoryDataSourceDescriptionService {
         messages("facebook.donation-procedure.5"),
         messages("facebook.donation-procedure.6"),
         messages("facebook.donation-procedure.7"),
-        messages("facebook.donation-procedure.8")
+        messages("facebook.donation-procedure.8"),
+        messages("facebook.donation-procedure.9"),
+        messages("facebook.donation-procedure.10")
       ),
       logo = Some(
         URI
