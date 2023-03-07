@@ -409,13 +409,15 @@ facebook.external-documentation_html=Die offizielle Dokumentation zum Herunterla
 
 #Download and Donation procedure: Facebook
 facebook.donation-procedure.1=Öffnen Sie Facebook und melden Sie sich an.
-facebook.donation-procedure.2=Klicken Sie in der oberen rechten Ecke auf die Schaltfläche "Dein Profil" (nach unten zeigende Pfeilspitze) und wählen Sie "Einstellungen & Privatsphäre".
-facebook.donation-procedure.3=Wählen Sie "Einstellungen". Wählen Sie dann "Privatsphäre" in der Navigationsleiste auf der linken Seite. Klicken Sie dann auf "Deine Facebook-Informationen".
-facebook.donation-procedure.4=Klicken Sie auf der Seite "Deine Facebook-Informationen" auf "Profilinformationen herunterladen" und ändern Sie dann das Format von HTML zu JSON.
-facebook.donation-procedure.5=Wählen Sie einen Datumsbereich: Wir empfehlen Ihnen, die <b>Daten für 2-3 Jahre anzufordern</b>, aber auch eine kürzere Zeitspanne ist möglich.
+facebook.donation-procedure.2=Klicken Sie in der oberen rechten Ecke auf die Schaltfläche "Dein Profil" und wählen Sie "Einstellungen & Privatsphäre".
+facebook.donation-procedure.3=Wählen Sie "Einstellungen". Klicken Sie dann auf der linken Seite auf "Deine Facebook-Informationen".
+facebook.donation-procedure.4=Klicken Sie auf der Seite "Deine Facebook-Informationen" auf "Deine Informationen herunterladen". Es erscheint dann ein Pop-up Fenster.
+facebook.donation-procedure.5=Klicken Sie auf “Download anfordern”. Danach wählen Sie “Arten von Informationen auswählen”.
 facebook.donation-procedure.6=Im Interesse der Datensparsamkeit heben Sie bitte zunächst die Markierung aller Kategorien auf. Anschließend markieren Sie die Felder "Nachrichten" und "Profilinformationen".
-facebook.donation-procedure.7=Scrollen Sie nach unten und klicken Sie auf "Download anfordern". Sobald die Datei zum Download bereit ist, erhalten Sie eine Benachrichtigung von Facebook. Dies kann einen Moment dauern.
-facebook.donation-procedure.8=Scrollen Sie zurück nach oben und klicken Sie auf die Registerkarte "Verfügbare Dateien". Dort sollten Sie die gewünschte Datei sehen. Sie können sie herunterladen, sobald sie bereit steht.
+facebook.donation-procedure.7=Wählen Sie einen Datumsbereich: Wir empfehlen Ihnen, die <b>Daten für 1 Jahr anzufordern</b>, aber auch eine kürzere Zeitspanne ist möglich.
+facebook.donation-procedure.8=Ändern Sie dann das Format von HTML zu JSON. Ändern Sie die Medienqualität von “Mittel” zu “Niedrig”.
+facebook.donation-procedure.9=Klicken Sie auf "Anfrage absenden". Sobald die Datei zum Download bereit ist, erhalten Sie eine Benachrichtigung von Facebook. Dies kann einen Moment dauern.
+facebook.donation-procedure.10=Scrollen Sie zurück nach oben und klicken Sie auf die Registerkarte "Verfügbare Dateien". Dort sollten Sie die gewünschte Datei sehen. Sie können sie herunterladen, sobald sie bereitsteht.
 facebook.instruction.gif = facebook_ger.mp4
 
 # Imprint
