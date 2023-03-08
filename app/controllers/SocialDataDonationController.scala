@@ -42,15 +42,15 @@ final class SocialDataDonationController @Inject()(
   def landing: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
     val designVersion = request.queryString.get("design").flatMap(_.headOption).map(_.filter(_.isLetterOrDigit))
     logger.info(s"""{"status": "landing-page"}""")
-    Ok(views.html.landing(designVersion)).withNewSession//.withLang(Lang("en"))
+    Ok(views.html.landing(designVersion)).withNewSession
   }
 
   def learnMore: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.learnMore()).withNewSession
+    Ok(views.html.learnMore())
   }
 
   def impressum: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.impressum()).withNewSession
+    Ok(views.html.impressum())
   }
 
   def donationInfo: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
@@ -58,7 +58,7 @@ final class SocialDataDonationController @Inject()(
   }
 
   def instructions: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.instructions(dataSourceDescriptionService.listAll)).withNewSession
+    Ok(views.html.instructions(dataSourceDescriptionService.listAll))
 
   }
 
@@ -150,7 +150,7 @@ final class SocialDataDonationController @Inject()(
                 // we need to have string keys in order for the transformation to a JSON object to work correctly front-end
                 messageAnalysisOut.map { case (key, value) => key.toString -> value }
               )
-            ).withNewSession
+            )
         }
       }
 
