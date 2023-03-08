@@ -41,11 +41,11 @@ final class SocialDataDonationController @Inject()(
   }
 
   def learnMore: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.learnMore())
+    Ok(views.html.learnMore()).withNewSession
   }
 
   def impressum: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.impressum())
+    Ok(views.html.impressum()).withNewSession
   }
 
   def donationInfo: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
@@ -53,7 +53,7 @@ final class SocialDataDonationController @Inject()(
   }
 
   def instructions: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.instructions(dataSourceDescriptionService.listAll))
+    Ok(views.html.instructions(dataSourceDescriptionService.listAll)).withNewSession
 
   }
 
@@ -145,7 +145,7 @@ final class SocialDataDonationController @Inject()(
                 // we need to have string keys in order for the transformation to a JSON object to work correctly front-end
                 messageAnalysisOut.map { case (key, value) => key.toString -> value }
               )
-            )
+            ).withNewSession
         }
       }
 
