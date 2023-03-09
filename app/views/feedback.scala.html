@@ -56,6 +56,7 @@
         </div>
 
         @helper.form(routes.FeedbackSurveyController.goToFeedback(donorId), '_feedbackTooltip -> "true", 'class -> "text-right") {
+            @helper.CSRF.formField
             <div class="mt-5 row justify-content-center mx-0">
                 <input type="submit" value="@messages("feedback.toRaffleButton")" class="btn btn-outline footer-forward-button text-center"></input>
             </div>
