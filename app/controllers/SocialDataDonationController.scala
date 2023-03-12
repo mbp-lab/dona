@@ -8,9 +8,10 @@ import models.domain.ExternalDonorId
 import org.slf4j.LoggerFactory
 import persistence.DonationService
 import play.api.data.Form
-import play.api.i18n.{I18nSupport, Messages}
+import play.api.i18n.{I18nSupport, Lang, Messages}
 import play.api.libs.json._
 import play.api.mvc._
+import play.filters.csrf.CSRF
 import scalaz.{-\/, \/-}
 import services._
 
@@ -19,14 +20,14 @@ import scala.concurrent.Future
 
 @Singleton
 final class SocialDataDonationController @Inject()(
-  socialDataService: SocialDataService,
-  donationService: DonationService,
-  surveyConfig: SurveyConfig,
-  cc: ControllerComponents,
-  messageAnalysisService: MessageAnalysisService,
-  dataSourceDescriptionService: DataSourceDescriptionService
-) extends AbstractController(cc)
-    with I18nSupport {
+                                                    socialDataService: SocialDataService,
+                                                    donationService: DonationService,
+                                                    surveyConfig: SurveyConfig,
+                                                    cc: ControllerComponents,
+                                                    messageAnalysisService: MessageAnalysisService,
+                                                    dataSourceDescriptionService: DataSourceDescriptionService
+                                                  ) extends AbstractController(cc)
+  with I18nSupport {
 
   private val logger = LoggerFactory.getLogger(classOf[AbstractController])
 
@@ -37,23 +38,27 @@ final class SocialDataDonationController @Inject()(
   def landing: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
     val designVersion = request.queryString.get("design").flatMap(_.headOption).map(_.filter(_.isLetterOrDigit))
     logger.info(s"""{"status": "landing-page"}""")
-    Ok(views.html.landing(designVersion)).withNewSession
+    Ok(views.html.landing(designVersion)).withNewSession//.withLang(Lang("en"))
   }
 
   def learnMore: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.learnMore()).withNewSession
+    val csrfToken = CSRF.getToken.get.value
+    Ok(views.html.learnMore()).withNewSession.withSession("csrfToken"->csrfToken)
   }
 
   def impressum: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.impressum()).withNewSession
+    val csrfToken = CSRF.getToken.get.value
+    Ok(views.html.impressum()).withNewSession.withSession("csrfToken"->csrfToken)
   }
 
   def donationInfo: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.donationInformation())
+    val csrfToken = CSRF.getToken.get.value
+    Ok(views.html.donationInformation()).withNewSession.withSession("csrfToken"->csrfToken)
   }
 
   def instructions: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.instructions(dataSourceDescriptionService.listAll)).withNewSession
+    val csrfToken = CSRF.getToken.get.value
+    Ok(views.html.instructions(dataSourceDescriptionService.listAll)).withNewSession.withSession("csrfToken"->csrfToken)
 
   }
 
@@ -72,15 +77,16 @@ final class SocialDataDonationController @Inject()(
     request.session.get(GeneratedDonorIdKey) match {
       case None => Redirect(routes.SocialDataDonationController.landing())
       case Some(donorId) =>
+        val csrfToken = CSRF.getToken.get.value
         logger.info(s"""{"status": "completed-survey"}""")
-        Ok(views.html.anonymisation(socialDataForm, donorId.toString, dataSourceDescriptionService.listAll))
+        Ok(views.html.anonymisation(socialDataForm, donorId.toString, dataSourceDescriptionService.listAll)).withNewSession.withSession("csrfToken"->csrfToken).withSession(request.session + (GeneratedDonorIdKey -> donorId.toString))
     }
   }
 
   private def failDonationProcess(
-    donationType: DonationDataSourceType,
-    errorMessage: String = "An error occurred while trying to receive your de-identified data. Please try again."
-  ): Result = {
+                                   donationType: DonationDataSourceType,
+                                   errorMessage: String = "An error occurred while trying to receive your de-identified data. Please try again."
+                                 ): Result = {
     logger.error(s"ERROR: $errorMessage")
     Redirect(routes.SocialDataDonationController.showDataDonationPage()).flashing("errorMessage" -> errorMessage)
   }
@@ -139,13 +145,14 @@ final class SocialDataDonationController @Inject()(
           case \/-(_) =>
             val messageAnalysisOut = messageAnalysisService.produceGraphData(socialData)
             logger.info(s"""{"status": "donated-successfully"}""")
+            val csrfToken = CSRF.getToken.get.value
             Ok(
               views.html.feedback(
                 donorId,
                 // we need to have string keys in order for the transformation to a JSON object to work correctly front-end
                 messageAnalysisOut.map { case (key, value) => key.toString -> value }
               )
-            ).withNewSession
+            ).withNewSession.withSession("csrfToken"->csrfToken).withSession(request.session + (GeneratedDonorIdKey -> donorId.toString))
         }
       }
 
