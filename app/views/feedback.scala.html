@@ -52,12 +52,8 @@
             </div>
         </div>
 
-        @helper.form(routes.FeedbackSurveyController.goToFeedback(donorId), '_feedbackTooltip -> "true", 'class -> "text-right") {
-            @helper.CSRF.formField
-            <div class="mt-5 row justify-content-center mx-0">
-                <input type="submit" value="@messages("feedback.nextButton")" class="btn btn-outline footer-forward-button text-center"></input>
-            </div>
-        }
+        @footer(nextLink = Some(routes.FeedbackSurveyController.goToFeedback(donorId).toString), nextCustomText=Some(messages("feedback.nextButton")))()
+
     </div>
 
     <script src="@routes.Assets.at("lib/jquery/jquery.min.js")" type="text/javascript"></script>
