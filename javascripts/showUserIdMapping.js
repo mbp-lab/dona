@@ -1,4 +1,4 @@
-function showUserIdMapping(userIdMapping, idsPerConv, systemName, donor, friendInitial, andMoreContacts, dataSource) {
+function showUserIdMapping(userIdMapping, idsPerConv, systemName, donor, friendInitial, andMoreContacts, chat, dataSource) {
 
 
     clearPreviousRenderedMappings(dataSource)
@@ -29,10 +29,12 @@ function showUserIdMapping(userIdMapping, idsPerConv, systemName, donor, friendI
             })
 
             // deidentify names to initials and stars
+            let indexOfDonor = 0
             if (dataSource === "WhatsApp") {
                 for (let i = 0; i < names.length; i++) {
                     if (friendMappings[i] === donor) {
                         deidentifiedNames.push(names[i])
+                        indexOfDonor = i;
                     } else {
                         let splitIntoWords = names[i].split(" ");
                         let deidentifiedName = "";
@@ -136,9 +138,13 @@ function showUserIdMapping(userIdMapping, idsPerConv, systemName, donor, friendI
                 resultMappingsPerChat.push(pseudosPerChat)
             }
 
+            // display donor mapping
+            $("#display-userIDMapping-" + dataSource).append("<p class='mapping-item name-pseudonym-mapping' style='font-weight: bold; font-size: 22px'><u>" + friendMappings[indexOfDonor] +"</u></p>")
+            $("#display-userIDMapping-" + dataSource).append("<p class='mapping-item' style='font-weight: bold'>" + deidentifiedNames[indexOfDonor] + " &rarr; " + friendMappings[indexOfDonor] + "</p>")
 
+            // display grouped other mappings
             for (let i = 0; i < resultMappingsPerChat.length; i++) {
-                $("#display-userIDMapping-" + dataSource).append("<p class='mapping-item name-pseudonym-mapping' style='font-weight: bold; font-size: 22px'><u>Chat " + (i+1) + "</u></p>")
+                $("#display-userIDMapping-" + dataSource).append("<p class='mapping-item name-pseudonym-mapping' style='font-weight: bold; font-size: 22px'><u>" + chat + " " + (i+1) + "</u></p>")
                 for (let j = 0; j < resultMappingsPerChat[i].length; j++) {
                     if (j >= 4) {
                         $("#display-userIDMapping-" + dataSource).append("<p class='mapping-item' style='font-weight: bold'>..." + andMoreContacts.replace("{0}", (resultMappingsPerChat[i].length-j)) + "</p>")
