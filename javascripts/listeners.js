@@ -246,7 +246,8 @@ function setUpFileHandler() {
 
                 // create data preview and user id mapping
                 renderTable(deIdentifiedJson.deIdentifiedJsonContents, dataSource);
-                renderUserIDMapping(deIdentifiedJson.participantNameToRandomIds, i18nSupport.data('system'), i18nSupport.data('donor'), i18nSupport.data('friend-initial'), dataSource)
+                let contactsPerConv = deIdentifiedJson.deIdentifiedJsonContents.map((conv) => conv.participants)
+                renderUserIDMapping(deIdentifiedJson.participantNameToRandomIds, contactsPerConv, i18nSupport.data('system'), i18nSupport.data('donor'), i18nSupport.data('friend-initial'), i18nSupport.data('and-more-contacts'), i18nSupport.data('chat'),  dataSource)
                 return transformJson(deIdentifiedJson.deIdentifiedJsonContents, donorId, dataSource);
             })
             .then((transformedJson) => {

@@ -27,6 +27,8 @@
         data-donor="@messages("donation.anonymisation.donor")"
         data-friend="@messages("donation.anonymisation.friend")"
         data-friend-initial="@messages("donation.anonymisation.friendInitial")"
+        data-and-more-contacts="@messages("donation.friendsMapping.moreFriends")"
+        data-chat="@messages("donation.friendsMapping.chat")"
         data-system="@messages("donation.anonymisation.system")"
         data-sender="@messages("donation.preview-data.sender")"
         data-receiver="@messages("donation.preview-data.receiver")"
@@ -237,7 +239,7 @@
                                 <p style="color: darkblue;"><i>Dies sind nur die Kontakte Ihrer 7 Facebook-Chats, in denen insgesamt die meisten Wörter gesendet wurden.</i></p>
                                 }
                             <p class="show-on-anonymisation-success-@{dataSourceDescription.name.toString}" style="overflow: scroll;
-                                height: 200px;
+                                height: 300px;
                                 margin-top: 10px;">
                             @Html("<span id=\"display-userIDMapping-" + dataSourceDescription.name.toString + "\"></span>")
                             </p>
