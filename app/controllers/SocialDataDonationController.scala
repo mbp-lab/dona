@@ -21,14 +21,14 @@ import scala.concurrent.Future
 
 @Singleton
 final class SocialDataDonationController @Inject()(
-                                                    socialDataService: SocialDataService,
-                                                    donationService: DonationService,
-                                                    surveyConfig: SurveyConfig,
-                                                    cc: ControllerComponents,
-                                                    messageAnalysisService: MessageAnalysisService,
-                                                    dataSourceDescriptionService: DataSourceDescriptionService
-                                                  ) extends AbstractController(cc)
-  with I18nSupport {
+  socialDataService: SocialDataService,
+  donationService: DonationService,
+  surveyConfig: SurveyConfig,
+  cc: ControllerComponents,
+  messageAnalysisService: MessageAnalysisService,
+  dataSourceDescriptionService: DataSourceDescriptionService
+) extends AbstractController(cc)
+    with I18nSupport {
 
   private val logger = LoggerFactory.getLogger(classOf[AbstractController])
 
@@ -37,7 +37,7 @@ final class SocialDataDonationController @Inject()(
   private val GeneratedDonorIdKey = "GeneratedDonorId"
 
   def changeLanguage(language: String): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
-    Redirect(request.headers.get(REFERER).getOrElse("/")).withLang(Lang(language))//withCookies(Cookie("language", language))
+    Redirect(request.headers.get(REFERER).getOrElse("/")).withLang(Lang(language)).withSession(request.session)//withCookies(Cookie("language", language))
   }
 
   def landing: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
@@ -89,9 +89,9 @@ final class SocialDataDonationController @Inject()(
   }
 
   private def failDonationProcess(
-                                   donationType: DonationDataSourceType,
-                                   errorMessage: String = "An error occurred while trying to receive your de-identified data. Please try again."
-                                 ): Result = {
+    donationType: DonationDataSourceType,
+    errorMessage: String = "An error occurred while trying to receive your de-identified data. Please try again."
+  ): Result = {
     logger.error(s"ERROR: $errorMessage")
     Redirect(routes.SocialDataDonationController.showDataDonationPage()).flashing("errorMessage" -> errorMessage)
   }
