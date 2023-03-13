@@ -140,8 +140,8 @@ function showUserIdMapping(userIdMapping, idsPerConv, systemName, donor, friendI
             for (let i = 0; i < resultMappingsPerChat.length; i++) {
                 $("#display-userIDMapping-" + dataSource).append("<p class='mapping-item name-pseudonym-mapping' style='font-weight: bold; font-size: 22px'><u>Chat " + (i+1) + "</u></p>")
                 for (let j = 0; j < resultMappingsPerChat[i].length; j++) {
-                    if (j > 4) {
-                        $("#display-userIDMapping-" + dataSource).append("<p class='mapping-item' style='font-weight: bold'>..." + (resultMappingsPerChat[i].length-j) + " " + andMoreContacts + "</p>")
+                    if (j >= 4) {
+                        $("#display-userIDMapping-" + dataSource).append("<p class='mapping-item' style='font-weight: bold'>..." + andMoreContacts.replace("{0}", (resultMappingsPerChat[i].length-j)) + "</p>")
                         break;
                     }
                     $("#display-userIDMapping-" + dataSource).append("<p class='mapping-item' style='font-weight: bold'>" + resultMappingsPerChat[i][j].name + " &rarr; " + resultMappingsPerChat[i][j].pseudonym + "</p>")
