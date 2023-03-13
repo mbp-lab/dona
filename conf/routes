@@ -14,7 +14,7 @@ POST    /data-upload                   controllers.SocialDataDonationController.
 
 GET     /change-language/:language     controllers.SocialDataDonationController.changeLanguage(language: String)
 
-POST    /feedback-survey               controllers.FeedbackSurveyController.goToFeedback(donorId: String)
+GET    /feedback-survey/:donorId       controllers.FeedbackSurveyController.goToFeedback(donorId: String)
 
 GET     /health                        controllers.HealthController.status
 GET     /data-protection               controllers.AboutController.dataProtection
