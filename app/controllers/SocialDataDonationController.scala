@@ -37,8 +37,7 @@ final class SocialDataDonationController @Inject()(
   private val GeneratedDonorIdKey = "GeneratedDonorId"
 
   def changeLanguage(language: String): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
-    val csrfToken = CSRF.getToken.get.value
-    Redirect(request.headers.get(REFERER).getOrElse("/")).withLang(Lang(language)).withSession("csrfToken"->csrfToken)//withCookies(Cookie("language", language))
+    Redirect(request.headers.get(REFERER).getOrElse("/")).withLang(Lang(language)).withSession(request.session)//withCookies(Cookie("language", language))
   }
 
   def landing: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
