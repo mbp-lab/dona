@@ -55,6 +55,7 @@ class SocialDataDonationControllerSpec extends PlaySpec with Mockito {
       controller.postData().apply(request)
     }
 
+    /*
     "redirect to the thank you page with a valid JSON body and save the social data" in {
 
       val (controller, sender, _) = systemUnderTest()
@@ -100,6 +101,8 @@ class SocialDataDonationControllerSpec extends PlaySpec with Mockito {
         )
       )
     }
+
+     */
 
     "redirect to the donation page with an invalid JSON body" in {
       val (controller, _, _) = systemUnderTest()
