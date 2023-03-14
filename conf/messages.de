@@ -418,7 +418,7 @@ facebook.donation-procedure.7=Wählen Sie einen Datumsbereich: Wir empfehlen Ihn
 facebook.donation-procedure.8=Ändern Sie dann das Format von HTML zu JSON. Ändern Sie die Medienqualität von “Mittel” zu “Niedrig”.
 facebook.donation-procedure.9=Klicken Sie auf "Anfrage absenden". Sobald die Datei zum Download bereit ist, erhalten Sie eine Benachrichtigung von Facebook. Dies kann einen Moment dauern.
 facebook.donation-procedure.10=Scrollen Sie zurück nach oben und klicken Sie auf die Registerkarte "Verfügbare Dateien". Dort sollten Sie die gewünschte Datei sehen. Sie können sie herunterladen, sobald sie bereitsteht.
-facebook.instruction.gif = facebook_ger.mp4
+facebook.instruction.gif=facebook_ger.mp4
 
 # Imprint
 imprint.title=Impressum
