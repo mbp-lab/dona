@@ -39,7 +39,7 @@ object InMemoryDataSourceDescriptionService {
         messages("whatsapp.donation-procedure.7"),
         messages("whatsapp.donation-procedure.8"),
       ),
-      logo = Some(URI.create("https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"))
+      logo = Some(messages("whatsapp.logo"))
     ),
     DataSourceDescription(
       name = DonationDataSourceType.Facebook,
@@ -60,10 +60,7 @@ object InMemoryDataSourceDescriptionService {
         messages("facebook.donation-procedure.9"),
         messages("facebook.donation-procedure.10")
       ),
-      logo = Some(
-        URI
-          .create("https://en.facebookbrand.com/wp-content/themes/fb-branding/release/static/media/f-logo.a2b1d8d6.svg")
-      ),
+      logo = Some(messages("facebook.logo")),
       requiresAlias = false
     )
   )
