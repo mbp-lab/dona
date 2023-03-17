@@ -142,9 +142,7 @@
                     dataSourceDescription.name.toString
                 }Collapse">
                         @if(dataSourceDescription.logo.isDefined) {
-                            <img class="logo" src="@{
-                                dataSourceDescription.logo
-                            }">
+                            <img class="logo" src="@routes.Assets.at(s"images/dataSourceImages/${dataSourceDescription.logo.get}")">
                         }
                         @{dataSourceDescription.name.toString}
                         @messages("donation.select-data.donation")

@@ -13,7 +13,7 @@ case class DataSourceDescription(
   animation: Option[AnimatedImage] = None,
   dataDownloadSteps: List[String],
   illustration: Option[String] = None,
-  logo: Option[URI] = None,
+  logo: Option[String] = None,
   requiresAlias: Boolean = true
 )
 
