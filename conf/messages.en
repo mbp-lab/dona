@@ -396,6 +396,7 @@ whatsapp.donation-procedure.7=Download the chat file from the email to your comp
 whatsapp.donation-procedure.8=Repeat the steps 3-7 for all chats.
 whatsapp.instruction.gif=whatsapp_eng.mp4
 whatsapp.instruction.gif.subtitle=This is the chat export process on an iPhone. For other devices, the necessary steps may be slightly different.
+whatsapp.logo=w-logo.svg
 
 facebook.instructions.p1.title=What type of device should I use?
 facebook.instructions.p1.body=Please make sure that you are storing the data on a device that no one but you has access to. Because the amount of data for Facebook data donations can be quite large, we recommend using a computer.
@@ -420,6 +421,7 @@ facebook.donation-procedure.8=Change the format from HTML to JSON. Then change t
 facebook.donation-procedure.9=Click on "Submit Request". As soon as the file is ready for download, you will receive a notification from Facebook. This may take a while.
 facebook.donation-procedure.10=Scroll back up and click on the "Available Files" tab. There you should see the requested file and can download is as soon it is ready.
 facebook.instruction.gif=facebook_eng.mp4
+facebook.logo=f-logo.svg
 
 # Imprint
 imprint.title=Imprint
