@@ -205,11 +205,11 @@ feedback.title.statisticsCard=Überblick über die gesamte Aktivität
 feedback.title.interactionIntensity=Interaktionsintensität
 feedback.title.dailyActivityTimes=Tägliche Aktivitätszeiten
 feedback.title.responseTimes=Antwortzeiten
-feedback.title.pleaseContinue=Wir hoffen Sie hatten spannende Erkenntnisse. <br> Bitte fahren Sie nun mit dem nächsten und letzten Fragebogen der Studie fort. Danke sehr!
+feedback.title.pleaseContinue=Danke sehr! <br> Wir hoffen Sie hatten spannende Erkenntnisse.
 
 feedback.facebook.info=Die möglicherweise hohe Anzahl an Facebook-Kontakten kann zu einer unübersichtlichen Darstellung führen. Daher werden im Folgenden nur Visualisierungen für Ihre 7 (oder weniger) Facebook-Chats mit den meisten Wörtern angezeigt.
 
-feedback.nextButton=Weiter
+feedback.nextButton=Beenden
 
 # plots more about titles
 feedback.moreAbout.interactionIntensity.title=Mehr über Ihre Interaktionsintensität
