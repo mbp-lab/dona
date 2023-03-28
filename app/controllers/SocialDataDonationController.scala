@@ -47,23 +47,22 @@ final class SocialDataDonationController @Inject()(
   }
 
   def learnMore: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
-    val csrfToken = CSRF.getToken.get.value
-    Ok(views.html.learnMore()).withNewSession.withSession("csrfToken"->csrfToken)
+    Ok(views.html.learnMore()).withSession(request.session)
   }
 
   def impressum: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
-    val csrfToken = CSRF.getToken.get.value
-    Ok(views.html.impressum()).withNewSession.withSession("csrfToken"->csrfToken)
+
+    Ok(views.html.impressum()).withSession(request.session)
   }
 
   def donationInfo: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
-    val csrfToken = CSRF.getToken.get.value
-    Ok(views.html.donationInformation()).withNewSession.withSession("csrfToken"->csrfToken)
+
+    Ok(views.html.donationInformation()).withSession(request.session)
   }
 
   def instructions: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
-    val csrfToken = CSRF.getToken.get.value
-    Ok(views.html.instructions(dataSourceDescriptionService.listAll)).withNewSession.withSession("csrfToken"->csrfToken)
+
+    Ok(views.html.instructions(dataSourceDescriptionService.listAll)).withSession(request.session)
 
   }
 
@@ -82,9 +81,9 @@ final class SocialDataDonationController @Inject()(
     request.session.get(GeneratedDonorIdKey) match {
       case None => Redirect(routes.SocialDataDonationController.landing())
       case Some(donorId) =>
-        val csrfToken = CSRF.getToken.get.value
+
         logger.info(s"""{"status": "completed-survey"}""")
-        Ok(views.html.anonymisation(socialDataForm, donorId.toString, dataSourceDescriptionService.listAll)).withNewSession.withSession("csrfToken"->csrfToken).withSession(request.session + (GeneratedDonorIdKey -> donorId.toString))
+        Ok(views.html.anonymisation(socialDataForm, donorId.toString, dataSourceDescriptionService.listAll)).withSession(request.session + (GeneratedDonorIdKey -> donorId.toString))
     }
   }
 
@@ -150,14 +149,14 @@ final class SocialDataDonationController @Inject()(
           case \/-(_) =>
             val messageAnalysisOut = messageAnalysisService.produceGraphData(socialData)
             logger.info(s"""{"status": "donated-successfully"}""")
-            val csrfToken = CSRF.getToken.get.value
+
             Ok(
               views.html.feedback(
                 donorId,
                 // we need to have string keys in order for the transformation to a JSON object to work correctly front-end
                 messageAnalysisOut.map { case (key, value) => key.toString -> value }
               )
-            ).withNewSession.withSession("csrfToken"->csrfToken).withSession(request.session + (GeneratedDonorIdKey -> donorId.toString))
+            ).withSession(request.session + (GeneratedDonorIdKey -> donorId.toString))
         }
       }
 
