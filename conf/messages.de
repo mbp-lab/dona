@@ -74,7 +74,7 @@ consent.about.body1=Ziel der Studie ist es, die soziale Einbindung von Menschen 
 consent.about.body2_html=Mit Ihrer Einwilligung bestätigen Sie, dass Sie die vorherige Informationswebseite zum Zweck, Ablauf und Umfang der Online-Studie gelesen und verstanden haben.
 
 consent.benefit.title=Nutzen und Risiken
-consent.benefit.body=Mit Ihrer Teilnahme helfen Sie dabei, neue Erkenntnisse über das soziales Interaktionsverhalten der Menschen zu identifizieren und charakterisieren. Sie erhalten zudem einen Einblick in Ihr eigenes Messaging-Verhalten. Außerdem können Sie am Ende der Studie an der Verlosung eines 50€ Gutscheins (Gewinnwahrscheinlichkeit: 1/100) teilnehmen. Wir erheben nur anonymisierte Daten. Vor der Datenspende müssen Sie die Messaging-Daten auf ihr Gerät herunterladen. Da es sich um sensible Daten handelt, empfehlen wir Ihnen ausdrücklich, die Original-Daten nach dem Abschluss der Spende von Ihrem Gerät zu löschen. Um Ihre Privatsphäre zu sichern, führen Sie die Studie in ungestörter Umgebung und allein durch.
+consent.benefit.body=Mit Ihrer Teilnahme helfen Sie dabei, neue Erkenntnisse über das soziales Interaktionsverhalten der Menschen zu identifizieren und charakterisieren. Sie erhalten zudem einen Einblick in Ihr eigenes Messaging-Verhalten. Außerdem können Sie am Ende der Studie an einer Verlosung eines 50€ Gutscheins (<a target="_blank" href="https://www.cadooz.com/produkte/bestchoice-einkaufsgutschein-von-cadooz/">Cadooz-Bestchoice</a>) teilnehmen. Dies ist eine fortlaufende Studie, daher wird je 100 TeilnehmerInnen ein Gutschein verlost (Gewinnchance: 1/100). Wir erheben nur anonymisierte Daten. Vor der Datenspende müssen Sie die Messaging-Daten auf Ihr Gerät herunterladen. Da es sich um sensible Daten handelt, empfehlen wir Ihnen ausdrücklich, die Original-Daten nach dem Abschluss der Spende von Ihrem Gerät zu löschen. Um Ihre Privatsphäre zu sichern, führen Sie die Studie in ungestörter Umgebung und allein durch.
 
 consent.data-storage.title=Erhobene Daten
 
@@ -178,7 +178,7 @@ feedback.thanks.title=Vielen Dank für die Spende Ihrer Social-Online-Daten!
 feedback.importantMessage.title=Wichtiger Hinweis:
 feedback.importantMessage.disclaimer=Die angezeigten Graphen und Visualisierungen erlauben <b><u>keine</u> direkten Rückschlüsse</b> auf die Qualität Ihrer sozialen Beziehungen. Ihre Chats werden lediglich hinsichtlich Umfang, Menge und Zeiten ausgewertet und dargestellt.
 
-feedback.reminder=Sie können sich die Seite in Ruhe weiter anschauen. Nehmen Sie sich soviel Zeit, wie Sie möchten. Bitte vergessen Sie nicht, im Anschluss den letzten Fragebogen der Studie auszufüllen. Vielen Dank!
+feedback.reminder=Vergessen Sie nicht, sich unten auf dieser Seite für die Gutscheinverlosung anzumelden.
 
 feedback.graph.title=Feedback zu Ihren %s-Nachrichten
 feedback.graph.total-messages=Gesamtzahl an Nachrichten
@@ -205,11 +205,13 @@ feedback.title.statisticsCard=Überblick über die gesamte Aktivität
 feedback.title.interactionIntensity=Interaktionsintensität
 feedback.title.dailyActivityTimes=Tägliche Aktivitätszeiten
 feedback.title.responseTimes=Antwortzeiten
-feedback.title.pleaseContinue=Danke sehr! <br> Wir hoffen Sie hatten spannende Erkenntnisse.
+feedback.title.pleaseContinue=Wir hoffen Sie hatten spannende Erkenntnisse. Danke sehr!
 
 feedback.facebook.info=Die möglicherweise hohe Anzahl an Facebook-Kontakten kann zu einer unübersichtlichen Darstellung führen. Daher werden im Folgenden nur Visualisierungen für Ihre 7 (oder weniger) Facebook-Chats mit den meisten Wörtern angezeigt.
 
-feedback.nextButton=Beenden
+feedback.nextButton=Weiter
+feedback.finishButton=Ende
+feedback.toRaffleButton=Für die Gutscheinverlosung anmelden
 
 # plots more about titles
 feedback.moreAbout.interactionIntensity.title=Mehr über Ihre Interaktionsintensität

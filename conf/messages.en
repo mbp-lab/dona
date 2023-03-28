@@ -73,7 +73,7 @@ consent.about.body1=The aim of this study is to measure social involvement of pe
 consent.about.body2_html=By agreeing, you confirm that you have read and understood the background and process of this online study.
 
 consent.benefit.title=Benefits and risks
-consent.benefit.body=With your participation you enable us to identify and characterise new insights about social interactions between humans. You gain insights into your own personal messaging behavior. Furthermore, you can participate in the end of the study in a raffle of a 50€ voucher coupon (one for each group of 100 participants). <br />We only collect anonymized data. Before the donation of your data you have to download the messaging data locally on your own device. Since this data contains sensitive information we recommend to delete the local copy of your data after the end of the study. <br />Please conduct the study alone and in a calm environment to ensure your privacy.
+consent.benefit.body=With your participation you enable us to identify and characterise new insights about social interactions between humans. You gain insights into your own personal messaging behavior. Furthermore, at the end of the study, you can participate in a raffle for a 50€ voucher (<a target="_blank" href="https://www.cadooz.com/en/products/bestchoice-shopping-gift-card/">Cadooz-Bestchoice</a>). This is an ongoing study, so a voucher is drawn every time a set of 100 participants is achieved (winning chance: 1/100). We only collect anonymized data. Before the donation of your data you have to download the messaging data locally on your own device. Since this data contains sensitive information we recommend to delete the local copy of your data after the end of the study. Please conduct the study alone and in a calm environment to ensure your privacy.
 
 consent.data-storage.title=Collected Data
 
@@ -177,7 +177,7 @@ feedback.thanks.title=Thank you for the donation of your social media data!
 feedback.importantMessage.title=Important Note:
 feedback.importantMessage.disclaimer=The graphs and visualizations displayed <b>do <u>not</u> allow any direct conclusions</b> to be drawn about the quality of your social relationships. Your chats are analyzed and visualized regarding amount and timing only.
 
-feedback.reminder=You can continue to explore this page and take as much time as you like. Please do not forget to fill out the last questionnaire of the study afterward. Thanks!
+feedback.reminder=Don't forget to register for the voucher raffle at the bottom of the page.
 
 feedback.graph.title=Feedback on your %s Messages
 feedback.graph.total-messages=Total messages
@@ -208,7 +208,9 @@ feedback.title.pleaseContinue=Thank you very much! <br> We hope you had exciting
 
 feedback.facebook.info=The potentially high number of facebook contacts could lead to a cluttered visualization. Therefore, in the following, only visualizations for your 7 (or less) Facebook chats with the most words are shown.
 
-feedback.nextButton=Finish
+feedback.nextButton=Next
+feedback.finishButton=Finish
+feedback.toRaffleButton=Sign up for raffle
 
 # plots more about titles
 feedback.moreAbout.interactionIntensity.title=More about your Interaction Intensity

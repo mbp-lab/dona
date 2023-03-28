@@ -18,7 +18,7 @@ services:
       - "SOCIAL_DATA_INGESTION_ENABLED=on"
       - "DONOR_SURVEY_ENABLED=on"
       - "DONOR_SURVEY_LINK=https://survey.mbp.tf.uni-bielefeld.de/index.php?r=survey/index&sid=757584&newtest=Y"
-      - "FEEDBACK_SURVEY_LINK="
+      - "FEEDBACK_SURVEY_LINK=https://survey.mbp.tf.uni-bielefeld.de/index.php?r=survey/&sid=551679&newtest=Y"
       - "SECURE_COOKIE=false"
   postgres:
     environment:
