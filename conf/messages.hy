@@ -198,7 +198,7 @@ donation.error=Ցավում ենք, ինչ-որ խնդիր է առաջացել։
 donation.anonymisation.donor=Նվիրատու
 donation.anonymisation.friend=Կոնտակտ
 donation.anonymisation.friendInitial=Կ
-donation.anonymisation.system=Համակարգ
+donation.anonymisation.system=System
 donation.anonymisation.chooseUsername=Խնդրում ենք ընտրել Ձեր օգտանունը։ Ձեր օգտանունը չի պահպանվելու, և մենք այն չենք իմանալու։
 donation.anonymisation.loading=Տվյալների ուղարկումը կարող է մի քանի րոպե տևել։ Խնդրում ենք սպասել և չփակել էջը։ Շնորհակալություն։
 
