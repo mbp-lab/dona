@@ -179,6 +179,8 @@ feedback.importantMessage.title=Wichtiger Hinweis:
 feedback.importantMessage.disclaimer=Die angezeigten Graphen und Visualisierungen erlauben <b><u>keine</u> direkten Rückschlüsse</b> auf die Qualität Ihrer sozialen Beziehungen. Ihre Chats werden lediglich hinsichtlich Umfang, Menge und Zeiten ausgewertet und dargestellt.
 
 feedback.reminder=Vergessen Sie nicht, sich unten auf dieser Seite für die Gutscheinverlosung anzumelden.
+feedback.startLabel=Start
+feedback.pauseLabel=Pause
 
 feedback.graph.title=Feedback zu Ihren %s-Nachrichten
 feedback.graph.total-messages=Gesamtzahl an Nachrichten

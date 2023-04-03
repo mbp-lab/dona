@@ -3,7 +3,7 @@ const _ = require("lodash");
 const zScoreCalc = require("./utils/zScoreCalcPolarPlot");
 const sortYearMonthKeys = require("./utils/sortYearMonthKeys");
 
-function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plotId) {
+function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plotId, startLabel, pauseLabel) {
 
     let zScoreLimit = 1.96
 
@@ -98,14 +98,14 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
                 ]
             },
             {
-                x: 0,
+                x: -0.05,
                 y: 0,
                 yanchor: 'top',
                 xanchor: 'left',
                 showactive: false,
                 direction: 'left',
                 type: 'buttons',
-                pad: {t: 127, r: 10},
+                pad: {t: 127, r: 10, l: 0},
                 buttons: [
                     {
                         method: "animate",
@@ -118,7 +118,7 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
                                 frame: {duration: 300, redraw: true}
                             }
                         ],
-                        label: "Start"
+                        label: startLabel
                     },
                     {
                         method: 'animate',
@@ -127,7 +127,7 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
                             transition: {duration: 0},
                             frame: {duration: 0, redraw: true}
                         }],
-                        label: 'Pause'
+                        label: pauseLabel
                     }
                 ]
             }

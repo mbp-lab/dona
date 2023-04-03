@@ -2,7 +2,7 @@ const sortGraphDataPoints = require('./utils/sortGraphDataPointsTimeWise');
 const _ = require("lodash");
 const sortYearMonthKeys = require("./utils/sortYearMonthKeys");
 
-function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversations, plotId) {
+function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversations, plotId, startLabel, pauseLabel) {
 
     const plotContainer = $(`#${plotId}`)
     plotContainer.removeClass('d-none');
@@ -37,7 +37,7 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
         hovermode: 'closest',
         updatemenus: [
             {
-                x: 0,
+                x: -0.05,
                 y: 0,
                 yanchor: 'top',
                 xanchor: 'left',
@@ -57,7 +57,7 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
                                 frame: {duration: 300, redraw: false}
                             }
                         ],
-                        label: "Start"
+                        label: startLabel
                     },
                     {
                         method: 'animate',
@@ -66,7 +66,7 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
                             transition: {duration: 0},
                             frame: {duration: 0, redraw: false}
                         }],
-                        label: 'Pause'
+                        label: pauseLabel
                     }
                 ]
             }

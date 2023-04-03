@@ -1,6 +1,6 @@
-let shortenFriendId = (friend, friendsInitial) => {
-    if (friend === "System") {
-        return "System"
+let shortenFriendId = (friend, friendsInitial, systemName) => {
+    if (friend === systemName) {
+        return systemName
     }
 
     //find index where number starts, all friends have the following form: "friend" + "i" where i is a number

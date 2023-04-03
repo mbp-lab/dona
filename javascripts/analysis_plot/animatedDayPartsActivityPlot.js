@@ -3,7 +3,7 @@ const _ = require("lodash");
 const sortYearMonthKeys = require("./utils/sortYearMonthKeys");
 
 
-function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
+function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId, startLabel, pauseLabel) {
 
     // dataReceived is not being used - everything using dataReceived is commented out
 
@@ -58,7 +58,7 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
         hovermode: 'x',
         updatemenus: [
             {
-                x: 0,
+                x: -0.05,
                 y: 0,
                 yanchor: 'top',
                 xanchor: 'left',
@@ -78,7 +78,7 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
                                 frame: {duration: 300, redraw: false}
                             }
                         ],
-                        label: "Start"
+                        label: startLabel
                     },
                     {
                         method: 'animate',
@@ -87,7 +87,7 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
                             transition: {duration: 0},
                             frame: {duration: 0, redraw: false}
                         }],
-                        label: 'Pause'
+                        label: pauseLabel
                     }
                 ]
             }

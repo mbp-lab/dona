@@ -178,6 +178,8 @@ feedback.importantMessage.title=Important Note:
 feedback.importantMessage.disclaimer=The graphs and visualizations displayed <b>do <u>not</u> allow any direct conclusions</b> to be drawn about the quality of your social relationships. Your chats are analyzed and visualized regarding amount and timing only.
 
 feedback.reminder=Don't forget to register for the voucher raffle at the bottom of the page.
+feedback.startLabel=Start
+feedback.pauseLabel=Pause
 
 feedback.graph.title=Feedback on your %s Messages
 feedback.graph.total-messages=Total messages

@@ -2,7 +2,7 @@ const _ = require("lodash");
 const sortYearMonthKeys = require("./utils/sortYearMonthKeys");
 
 
-function animatedResponseTimeBarChart(responseTimes, plotId) {
+function animatedResponseTimeBarChart(responseTimes, plotId, startLabel, pauseLabel) {
 
     const FIRST = "< 1 min"
     const SECOND = "1-2 min"
@@ -79,7 +79,7 @@ function animatedResponseTimeBarChart(responseTimes, plotId) {
         },
         updatemenus: [
             {
-                x: 0,
+                x: -0.05,
                 y: 0,
                 yanchor: 'top',
                 xanchor: 'left',
@@ -99,7 +99,7 @@ function animatedResponseTimeBarChart(responseTimes, plotId) {
                                 frame: {duration: 300, redraw: false}
                             }
                         ],
-                        label: "Start"
+                        label: startLabel
                     },
                     {
                         method: 'animate',
@@ -108,7 +108,7 @@ function animatedResponseTimeBarChart(responseTimes, plotId) {
                             transition: {duration: 0},
                             frame: {duration: 0, redraw: false}
                         }],
-                        label: 'Pause'
+                        label: pauseLabel
                     }
                 ]
             }
