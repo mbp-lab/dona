@@ -238,8 +238,8 @@ feedback.importantMessage.disclaimer=Ցուցադրվող գրաֆիկները <
 
 
 feedback.reminder=Կարող եք Ձեր հայեցողությամբ ուսումնասիրել այս էջը՝ առանց ժամանակային սահմանափակման։ Սակայն մի մոռացեք գրանցվել վիճակահանությանը՝ սեղմելով էջի ներքևում գտնվող կոճակը։
-feedback.startLabel=սկսել
-feedback.pauseLabel=Ընդմիջում
+feedback.startLabel=Սկիզբ
+feedback.pauseLabel=Դադար
 
 feedback.graph.title=Գրաֆիկներ Ձեր հաղորդագրությունների վերաբերյալ
 feedback.graph.total-messages=Հաղորդագրությունների քանակ
