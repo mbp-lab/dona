@@ -1,6 +1,7 @@
 version: "3.3"
 services:
   kalinka:
+    restart: unless-stopped
     build: .
     links:
       - postgres
@@ -21,6 +22,7 @@ services:
       - "FEEDBACK_SURVEY_LINK=https://survey.mbp.tf.uni-bielefeld.de/index.php?r=survey/&sid=551679&newtest=Y"
       - "SECURE_COOKIE=false"
   postgres:
+    restart: unless-stopped
     environment:
       POSTGRES_PASSWORD: "${DATABASE_PASSWORD}"
       POSTGRES_USER: "${DATABASE_USER}"
