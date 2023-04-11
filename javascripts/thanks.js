@@ -31,26 +31,44 @@ $(document).ready(function () {
         const systemName = i18n.systemName
         const chatWith = i18n.chatWith
         const friendsInitial = i18n.friendInitial
+        const startLabel = i18n.startLabel
+        const pauseLabel = i18n.pauseLabel
+        const chatLabel = i18n.chat
+        let chatInitial;
+
+        if (dataSourceType === "WhatsApp") {
+            chatInitial = i18n.chatInitialW
+        } else {
+            chatInitial = i18n.chatInitialF
+        }
+
         let conversationsWithoutSystem = []
         graphData.conversationsFriends.forEach((conversation) => {
             conversationsWithoutSystem.push(conversation.filter((friend) => friend !== systemName))
         })
         const listOfConversations = createListOfConversations(
             conversationsWithoutSystem,
+            chatLabel,
+            chatInitial,
             chatWith,
-            friendsInitial
+            friendsInitial,
+            systemName
         )
 
         animatedPolarPlot(
             graphData.sentReceivedPerMonthPerConversation,
             listOfConversations,
             `${dataSourceType}AnimatedPolarPlot`,
+            startLabel,
+            pauseLabel
         );
 
         animatedHorizontalBarChart(
             graphData.sentReceivedPerMonthPerConversation,
             listOfConversations,
-            `${dataSourceType}AnimatedHorizontalBarChart`
+            `${dataSourceType}AnimatedHorizontalBarChart`,
+            startLabel,
+            pauseLabel
         );
 
         dailyActivityTimes(
@@ -80,7 +98,9 @@ $(document).ready(function () {
             horizontalBarChartOverall(
                 graphData.basicStatistics.sentWordsTotal,
                 graphData.basicStatistics.receivedWordsTotal,
-                `${dataSourceType}AnimatedHorizontalBarChartOverall`
+                `${dataSourceType}AnimatedHorizontalBarChartOverall`,
+                startLabel,
+                pauseLabel
             )
 
             sentReceivedDailyPerConversation(
@@ -102,14 +122,18 @@ $(document).ready(function () {
             animatedDayPartsActivityPlot(
                 graphData.dailySentHoursPerConversation,
                 graphData.dailyReceivedHoursPerConversation,
-                `${dataSourceType}DayPartsActivityPlot`
+                `${dataSourceType}DayPartsActivityPlot`,
+                startLabel,
+                pauseLabel
             )
         })
 
         responseTimeModal.on('shown.bs.modal', () => {
             animatedResponseTimeBarChart(
                 graphData.responseTimes,
-                `${dataSourceType}AnimatedResponseTimeBarChart`
+                `${dataSourceType}AnimatedResponseTimeBarChart`,
+                startLabel,
+                pauseLabel
             );
 
             /*

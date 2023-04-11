@@ -1,5 +1,7 @@
-function showUserIdMapping(userIdMapping, idsPerConv, systemName, donor, friendInitial, andMoreContacts, chat, dataSource) {
+function showUserIdMapping(chatsToShowMapping, userIdMapping, idsPerConv, systemName, donor, friendInitial, chatInitialFOrW, onlyYouInConv, andMoreContacts, chat, dataSource) {
 
+
+    console.log("from js:", onlyYouInConv)
 
     clearPreviousRenderedMappings(dataSource)
         .then(() => {
@@ -33,6 +35,8 @@ function showUserIdMapping(userIdMapping, idsPerConv, systemName, donor, friendI
             if (dataSource === "WhatsApp") {
                 for (let i = 0; i < names.length; i++) {
                     if (friendMappings[i] === donor) {
+                        console.log("Hello:", friendMappings[i])
+                        console.log("names[i];", names[i])
                         deidentifiedNames.push(names[i])
                         indexOfDonor = i;
                     } else {
@@ -56,6 +60,7 @@ function showUserIdMapping(userIdMapping, idsPerConv, systemName, donor, friendI
                 for (let i = 0; i < names.length; i++) {
                     if (friendMappings[i] === donor) {
                         deidentifiedNames.push(names[i])
+                        indexOfDonor = i;
                     } else {
                         let splitIntoWords = names[i].split(" ");
                         let deidentifiedName = "";
@@ -122,7 +127,7 @@ function showUserIdMapping(userIdMapping, idsPerConv, systemName, donor, friendI
             }
 
             // create grouping for displaying the contactsmapping per chat
-            let contactsPerChat = idsPerConv.map(conv => conv.filter(obj => obj["name"] !== "System" && obj["name"] !== donor))
+            let contactsPerChat = chatsToShowMapping.map(conv => conv.filter(obj => obj["name"] !== "System" && obj["name"] !== donor))
 
             let resultMappingsPerChat = []
             for (let i = 0; i < contactsPerChat.length; i++) {
@@ -138,20 +143,48 @@ function showUserIdMapping(userIdMapping, idsPerConv, systemName, donor, friendI
                 resultMappingsPerChat.push(pseudosPerChat)
             }
 
+            // outer div for friendsmapping
+            $("#display-userIDMapping-" + dataSource).append(`<div id='display-userIDMapping-${dataSource}-donor' class='flex-row d-flex justify-content-center align-items-center mt-1 bg-light rounded-lg shadow-md px-5 py-2'></div>`)
+
             // display donor mapping
-            $("#display-userIDMapping-" + dataSource).append("<p class='mapping-item name-pseudonym-mapping' style='font-weight: bold; font-size: 22px'><u>" + friendMappings[indexOfDonor] +"</u></p>")
-            $("#display-userIDMapping-" + dataSource).append("<p class='mapping-item' style='font-weight: bold'>" + deidentifiedNames[indexOfDonor] + " &rarr; " + friendMappings[indexOfDonor] + "</p>")
+            // create div structure
+            $("#display-userIDMapping-" + dataSource + "-donor").append(`<div id='display-userIDMapping-${dataSource}-donorLeftSide' class='justify-content-center'></div>`)
+            $("#display-userIDMapping-" + dataSource + "-donor").append(`<div id='display-userIDMapping-${dataSource}-donorRightSide' class='pl-4'></div>`)
+            $("#display-userIDMapping-" + dataSource + "-donorLeftSide").append("" +
+                "<p class='mapping-item' style='font-weight: bold'>"
+                + deidentifiedNames[indexOfDonor]
+                + "</p>" )
+            $("#display-userIDMapping-" + dataSource + "-donorRightSide").append("<p class='mapping-item' style='font-weight: bold;'>&rarr; " + friendMappings[indexOfDonor] + "</p>")
 
             // display grouped other mappings
             for (let i = 0; i < resultMappingsPerChat.length; i++) {
-                $("#display-userIDMapping-" + dataSource).append("<p class='mapping-item name-pseudonym-mapping' style='font-weight: bold; font-size: 22px'><u>" + chat + " " + (i+1) + "</u></p>")
+                $("#display-userIDMapping-" + dataSource).append(`<div id='display-userIDMapping-${dataSource + i}' class='flex-row d-flex justify-content-center align-items-center mt-1 bg-light rounded-lg shadow-md px-5 py-2'></div>`)
+
+                //$("#display-userIDMapping-" + dataSource + i).append("<p class='mapping-item name-pseudonym-mapping pr-4 align-self-start' style='font-weight: bold; font-size: 24px'><u>" + "Chat mit" + "</u></p>")
+                $("#display-userIDMapping-" + dataSource + i).append(`<div id='display-userIDMapping-${dataSource + i}-leftSide' class='w-50'></div>`)
+                $("#display-userIDMapping-" + dataSource + i).append(`<div id='display-userIDMapping-${dataSource + i}-rightSide' class='pl-4 w-50'></div>`)
+
+                console.log("onlyYouInConv:", onlyYouInConv)
+                console.log(resultMappingsPerChat[i])
+                // if there is nobody else in this chat
+                if (resultMappingsPerChat[i].length === 0) {
+                    $("#display-userIDMapping-" + dataSource + i + "-leftSide").append("" +
+                        "<p class='mapping-item' style='font-weight: bold'>"
+                        + onlyYouInConv
+                        + "</p>" )
+                }
                 for (let j = 0; j < resultMappingsPerChat[i].length; j++) {
                     if (j >= 4) {
-                        $("#display-userIDMapping-" + dataSource).append("<p class='mapping-item' style='font-weight: bold'>..." + andMoreContacts.replace("{0}", (resultMappingsPerChat[i].length-j)) + "</p>")
+                        $("#display-userIDMapping-" + dataSource + i + "-leftSide").append("<p class='mapping-item text-right' style='font-weight: bold'>..." + andMoreContacts.replace("{0}", (resultMappingsPerChat[i].length-j)) + "</p>")
                         break;
                     }
-                    $("#display-userIDMapping-" + dataSource).append("<p class='mapping-item' style='font-weight: bold'>" + resultMappingsPerChat[i][j].name + " &rarr; " + resultMappingsPerChat[i][j].pseudonym + "</p>")
+                    $("#display-userIDMapping-" + dataSource + i + "-leftSide").append("" +
+                        "<p class='mapping-item text-right' style='font-weight: bold'>"
+                        + resultMappingsPerChat[i][j].name
+                        + "</p>" )
                 }
+                $("#display-userIDMapping-" + dataSource + i + "-rightSide").append("<p class='mapping-item text-left' style='font-weight: bold;'>&rarr; " + chat + " " + chatInitialFOrW + (i+1) + "</p>")
+
             }
 
 
