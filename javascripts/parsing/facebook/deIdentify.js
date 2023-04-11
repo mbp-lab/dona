@@ -12,7 +12,7 @@ async function deIdentify(zipFiles, messagesRelativePath, donorName) {
         if (!(name in participantNameToRandomIds)) {
             var friendLabel = i18n.data("friend");
             if(!friendLabel) {
-                friendLabel = "friend"
+                friendLabel = "contact"
             }
             participantNameToRandomIds[name] = friendLabel + i;
             i++;
@@ -61,6 +61,8 @@ async function deIdentify(zipFiles, messagesRelativePath, donorName) {
     })
 
     let chatsWithHighestWordCount = allWordCounts.sort((a, b) => b.wordCount - a.wordCount).slice(0, 7)
+
+    // TODO: this part could go if I switch to chats instead of participants!!!
     let participantsToShow = []
     chatsWithHighestWordCount.forEach(obj => {
         obj.participants.forEach(p => participantsToShow.push(p.name))
@@ -75,9 +77,11 @@ async function deIdentify(zipFiles, messagesRelativePath, donorName) {
         filteredParticipantNameToRandomIds[key] = p
     })
 
+
     let result = {
         deIdentifiedJsonContents: deIdentifiedJsonContents,
-        participantNameToRandomIds: filteredParticipantNameToRandomIds
+        participantNameToRandomIds: filteredParticipantNameToRandomIds,
+        chatsToShowMapping: chatsWithHighestWordCount.map(chat => chat.participants)
     }
 
     return result;

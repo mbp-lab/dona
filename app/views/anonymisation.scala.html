@@ -27,6 +27,9 @@
         data-donor="@messages("donation.anonymisation.donor")"
         data-friend="@messages("donation.anonymisation.friend")"
         data-friend-initial="@messages("donation.anonymisation.friendInitial")"
+        data-chat-initial-w="@messages("donation.anonymisation.chatInitialW")"
+        data-chat-initial-f="@messages("donation.anonymisation.chatInitialF")"
+        data-only-you="@messages("donation.friendsMapping.onlyYouInConv")"
         data-and-more-contacts="@messages("donation.friendsMapping.moreFriends")"
         data-chat="@messages("donation.friendsMapping.chat")"
         data-system="@messages("donation.anonymisation.system")"
@@ -236,13 +239,17 @@
                                 font-weight: bold">@Html(messages("donation.friendsMapping.title"))</p>
                             <p style="color: darkblue;">@Html(messages("donation.friendsMapping.subtitle"))</p>
                             @if(dataSourceDescription.name.toString == "Facebook") {
-                                <p style="color: darkblue;"><i>Dies sind nur die Kontakte Ihrer 7 Facebook-Chats, in denen insgesamt die meisten Wörter gesendet wurden.</i></p>
+                                <p style="color: darkblue;"><i>@messages("donation.friendsMapping.onlySeven")</i></p>
                                 }
-                            <p class="show-on-anonymisation-success-@{dataSourceDescription.name.toString}" style="overflow: scroll;
+                            <div class="show-on-anonymisation-success-@{dataSourceDescription.name.toString}" style="overflow: scroll;
                                 height: 300px;
                                 margin-top: 10px;">
-                            @Html("<span id=\"display-userIDMapping-" + dataSourceDescription.name.toString + "\"></span>")
-                            </p>
+
+
+                                    @Html("<span id=\"display-userIDMapping-" + dataSourceDescription.name.toString + "\"></span>")
+
+                            </div>
+
                         </div>
 
 
