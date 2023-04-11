@@ -1,9 +1,11 @@
 const shortenFriendId = require("./shortenFriendId");
 
-function createListOfConversations(conversationFriends, chatWith, friendsInitial, systemName) {
+function createListOfConversations(conversationFriends, chat, chatInitial, chatWith, friendsInitial, systemName) {
 
     let listOfConversations = []
+
     for (let i = 0; i < conversationFriends.length; i++) {
+
 
         conversationFriends[i] = conversationFriends[i].map((friend) => shortenFriendId(friend, friendsInitial, systemName))
 
@@ -29,6 +31,13 @@ function createListOfConversations(conversationFriends, chatWith, friendsInitial
                 }
             }
         }
+
+
+        console.log("!!!!!!!!!!!!!")
+        console.log("F" + (i+1))
+        console.log(listOfConversations[i])
+        console.log("!!!!!!!!!!!!!")
+        listOfConversations[i] = chat + " " + chatInitial + (i+1)
     }
     return listOfConversations
 }

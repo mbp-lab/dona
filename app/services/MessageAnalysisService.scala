@@ -44,7 +44,7 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
         var conversations = originalConversations
         if (dataSourceType == DonationDataSourceType.Facebook) {
           // for now: only produce graphData for 7 facebook chats with most words exchanged
-          conversations = produceFilteredConversations(conversations, 7)
+          conversations = produceFilteredConversations(conversations, 7).reverse
         }
         val sentReceivedMessagesMonthly = produceSentReceivedMessagedMonthly(socialData.donorId, conversations)
         //val sentReceivedWords = produceSentReceivedWordsGraphData(socialData.donorId, conversations)

@@ -34,12 +34,23 @@ $(document).ready(function () {
         const friendsInitial = i18n.friendInitial
         const startLabel = i18n.startLabel
         const pauseLabel = i18n.pauseLabel
+        const chatLabel = i18n.chat
+        let chatInitial;
+
+        if (dataSourceType === "WhatsApp") {
+            chatInitial = i18n.chatInitialW
+        } else {
+            chatInitial = i18n.chatInitialF
+        }
+
         let conversationsWithoutSystem = []
         graphData.conversationsFriends.forEach((conversation) => {
             conversationsWithoutSystem.push(conversation.filter((friend) => friend !== systemName))
         })
         const listOfConversations = createListOfConversations(
             conversationsWithoutSystem,
+            chatLabel,
+            chatInitial,
             chatWith,
             friendsInitial,
             systemName

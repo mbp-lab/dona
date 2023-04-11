@@ -167,8 +167,10 @@ donation.preview-data.group-conversation=Խմբային հաղորդագրութ
 
 donation.friendsMapping.title=<b>Ձեր կոնտակտների ծածկանունները</b>
 donation.friendsMapping.subtitle=Ձեր տվյալներն ու կոնտակտներն այժմ ապանույնականացված են, բովանդակությունը հեռացված։ Եթե գրաֆիկները ուսումնասիրելիս ինքներդ ցանկանում եք վերծանել, թե որ կոնտակտներն ու չատերն են ներառված, խնդրում ենք գրի առնել, թե որ ծածկանուն է համապատասխանում յուրաքանչյուր կոնտակտին։ Այսուհետ, միայն այս ծածկանուններն են երևալու։  Կոնտակների ու ծածկանունների համապատասխանությունը չի պահպանվում և կորչում է այս էջը լքելուց հետո։
+donation.friendsMapping.onlySeven=Սրանք ամենաշատ բառեր պարունակող Ձեր 7 չատերն են Ֆեյսբուքում
 donation.friendsMapping.moreFriends=ևս {0} կոնտակտ.
 donation.friendsMapping.chat=Չատի
+donation.friendsMapping.onlyYouInConv=Դուք այս չատի միակ մասնակիցն եք։ Հնարավոր պատճառն այն է, որ մյուս մասնակիցները լքել են չատը։
 
 donation.sendData.wait=Տվյալների ուղարկումը կարող է մի քանի րոպե տևել։ Խնդրում ենք սպասել և չփակել էջը։ Շնորհակալություն։
 
@@ -198,6 +200,8 @@ donation.error=Ցավում ենք, ինչ-որ խնդիր է առաջացել։
 donation.anonymisation.donor=Նվիրատու
 donation.anonymisation.friend=Կոնտակտ
 donation.anonymisation.friendInitial=Կ
+donation.anonymisation.chatInitialW=W
+donation.anonymisation.chatInitialF=F
 donation.anonymisation.system=System
 donation.anonymisation.chooseUsername=Խնդրում ենք ընտրել Ձեր օգտանունը։ Ձեր օգտանունը չի պահպանվելու, և մենք այն չենք իմանալու։
 donation.anonymisation.loading=Տվյալների ուղարկումը կարող է մի քանի րոպե տևել։ Խնդրում ենք սպասել և չփակել էջը։ Շնորհակալություն։

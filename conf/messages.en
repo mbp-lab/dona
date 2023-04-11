@@ -121,8 +121,10 @@ donation.preview-data.group-conversation=Group conversation
 
 donation.friendsMapping.title=<b>Aliases for your contacts</b>
 donation.friendsMapping.subtitle=We have anonymized your data and your contacts. If, in the next step, you want to reconstruct which conversations and contacts are involved in the anonymized evaluation, make a note of the following assignments of contacts (e.g. G**** M*****) and aliases (e.g. “C4 "). From now on, these are the anonymized aliases for your contacts. The assignment is not saved and is lost as soon as you leave this page.
+donation.friendsMapping.onlySeven=These are just the contacts of your 7 Facebook chats in which overall the most words were sent.
 donation.friendsMapping.moreFriends=and {0} others.
 donation.friendsMapping.chat=Chat
+donation.friendsMapping.onlyYouInConv=You are the only member in this chat. This could be because the other people have left the chat.
 
 donation.sendData.wait=Sending the data could take a few minutes. Please wait and keep this website open. Thanks!
 
@@ -146,6 +148,8 @@ donation.error=An error occured:
 donation.anonymisation.donor=Donor
 donation.anonymisation.friend=Contact
 donation.anonymisation.friendInitial=C
+donation.anonymisation.chatInitialW=W
+donation.anonymisation.chatInitialF=F
 donation.anonymisation.system=System
 donation.anonymisation.chooseUsername=Please choose your username. Your username will not be saved and we will not know it.
 donation.anonymisation.loading=Sending the anonymized data could take a few minutes. Please wait and keep this website open. Thanks!
