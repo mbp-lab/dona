@@ -26,7 +26,7 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
 
   private case class TimeFrameWithDaysHourMinute(year: Int, month: Month, date: Int, hour: Int, minute: Int)
 
-  private case class ConversationWordCountOverall(conversation: Conversation, wordCount: Int)
+  private case class ConversationWordCountOverall(conversation: Conversation, wordCount: Int, wordCountDonor: Int)
 
   private case class dailySentReceivedWithConvId(dailySentReceived: DailySentReceivedPoint, convId: Int)
 
@@ -44,7 +44,7 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
         var conversations = originalConversations
         if (dataSourceType == DonationDataSourceType.Facebook) {
           // for now: only produce graphData for 7 facebook chats with most words exchanged
-          conversations = produceFilteredConversations(conversations, 7).reverse
+          conversations = produceFilteredConversations(conversations, 7, socialData.donorId).reverse
         }
         val sentReceivedMessagesMonthly = produceSentReceivedMessagedMonthly(socialData.donorId, conversations)
         //val sentReceivedWords = produceSentReceivedWordsGraphData(socialData.donorId, conversations)
@@ -112,13 +112,36 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
    * @param nToTake       -> determines how many conversations are taken at most
    * @return the nToTake many conversations with most exchanged words
    */
-  private def produceFilteredConversations(conversations: List[Conversation], nToTake: Int): List[Conversation] = {
-    conversations.map(conversation => {
-      ConversationWordCountOverall(conversation, conversation.messages.map(_.wordCount).sum)
-    })
-      .sortBy(_.wordCount)
-      .takeRight(nToTake)
-      .map(_.conversation)
+  private def produceFilteredConversations(conversations: List[Conversation], nToTake: Int, donorId: String): List[Conversation] = {
+
+    val thresholdData = conversations.map(conversation => {
+      ConversationWordCountOverall(conversation, conversation.messages.map(_.wordCount).sum, conversation.messages.filter(_.sender.contains(donorId)).map(_.wordCount).sum)
+    }).filter(((conv) => {
+      if ((conv.wordCountDonor == 0) || (conv.wordCount == 0)) {
+        false
+      }
+      else if (conv.conversation.participants.length <= 2) {
+        !((conv.wordCountDonor.toFloat/conv.wordCount <= 0.1) || (conv.wordCountDonor.toFloat/conv.wordCount >= 0.9))
+      } else {
+        val toCompare = conv.wordCountDonor.toFloat/(conv.wordCount.toFloat/conv.conversation.participants.length)
+        !((toCompare <= 0.1) || (toCompare >= 0.9))
+      }
+    }))
+
+    if (thresholdData.length >= 7) {
+      thresholdData
+        .sortBy(_.wordCount)
+        .takeRight(nToTake)
+        .map(_.conversation)
+    } else {
+      conversations.map(conversation => {
+        ConversationWordCountOverall(conversation, conversation.messages.map(_.wordCount).sum, conversation.messages.filter(_.sender.contains(donorId)).map(_.wordCount).sum)
+      })
+        .sortBy(_.wordCount)
+        .takeRight(nToTake)
+        .map(_.conversation)
+    }
+
   }
 
 
