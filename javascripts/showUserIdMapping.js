@@ -1,8 +1,5 @@
 function showUserIdMapping(chatsToShowMapping, userIdMapping, idsPerConv, systemName, donor, friendInitial, chatInitialFOrW, onlyYouInConv, andMoreContacts, chat, dataSource) {
 
-
-    console.log("from js:", onlyYouInConv)
-
     clearPreviousRenderedMappings(dataSource)
         .then(() => {
             let names = [];
@@ -35,8 +32,6 @@ function showUserIdMapping(chatsToShowMapping, userIdMapping, idsPerConv, system
             if (dataSource === "WhatsApp") {
                 for (let i = 0; i < names.length; i++) {
                     if (friendMappings[i] === donor) {
-                        console.log("Hello:", friendMappings[i])
-                        console.log("names[i];", names[i])
                         deidentifiedNames.push(names[i])
                         indexOfDonor = i;
                     } else {
@@ -144,12 +139,12 @@ function showUserIdMapping(chatsToShowMapping, userIdMapping, idsPerConv, system
             }
 
             // outer div for friendsmapping
-            $("#display-userIDMapping-" + dataSource).append(`<div id='display-userIDMapping-${dataSource}-donor' class='flex-row d-flex justify-content-center align-items-center mt-1 bg-light rounded-lg shadow-md px-5 py-2'></div>`)
+            $("#display-userIDMapping-" + dataSource).append(`<div id='display-userIDMapping-${dataSource}-donor' class='mapping-item flex-row d-flex justify-content-center align-items-center mt-1 bg-light rounded-lg shadow-md px-5 py-2'></div>`)
 
             // display donor mapping
             // create div structure
-            $("#display-userIDMapping-" + dataSource + "-donor").append(`<div id='display-userIDMapping-${dataSource}-donorLeftSide' class='justify-content-center'></div>`)
-            $("#display-userIDMapping-" + dataSource + "-donor").append(`<div id='display-userIDMapping-${dataSource}-donorRightSide' class='pl-4'></div>`)
+            $("#display-userIDMapping-" + dataSource + "-donor").append(`<div id='display-userIDMapping-${dataSource}-donorLeftSide' class='mapping-item justify-content-center'></div>`)
+            $("#display-userIDMapping-" + dataSource + "-donor").append(`<div id='display-userIDMapping-${dataSource}-donorRightSide' class='mapping-item pl-4'></div>`)
             $("#display-userIDMapping-" + dataSource + "-donorLeftSide").append("" +
                 "<p class='mapping-item' style='font-weight: bold'>"
                 + deidentifiedNames[indexOfDonor]
@@ -158,14 +153,12 @@ function showUserIdMapping(chatsToShowMapping, userIdMapping, idsPerConv, system
 
             // display grouped other mappings
             for (let i = 0; i < resultMappingsPerChat.length; i++) {
-                $("#display-userIDMapping-" + dataSource).append(`<div id='display-userIDMapping-${dataSource + i}' class='flex-row d-flex justify-content-center align-items-center mt-1 bg-light rounded-lg shadow-md px-5 py-2'></div>`)
+                $("#display-userIDMapping-" + dataSource).append(`<div id='display-userIDMapping-${dataSource + i}' class='mapping-item flex-row d-flex justify-content-center align-items-center mt-1 bg-light rounded-lg shadow-md px-5 py-2'></div>`)
 
                 //$("#display-userIDMapping-" + dataSource + i).append("<p class='mapping-item name-pseudonym-mapping pr-4 align-self-start' style='font-weight: bold; font-size: 24px'><u>" + "Chat mit" + "</u></p>")
-                $("#display-userIDMapping-" + dataSource + i).append(`<div id='display-userIDMapping-${dataSource + i}-leftSide' class='w-50'></div>`)
-                $("#display-userIDMapping-" + dataSource + i).append(`<div id='display-userIDMapping-${dataSource + i}-rightSide' class='pl-4 w-50'></div>`)
+                $("#display-userIDMapping-" + dataSource + i).append(`<div id='display-userIDMapping-${dataSource + i}-leftSide' class='w-50 mapping-item'></div>`)
+                $("#display-userIDMapping-" + dataSource + i).append(`<div id='display-userIDMapping-${dataSource + i}-rightSide' class='pl-4 w-50 mapping-item'></div>`)
 
-                console.log("onlyYouInConv:", onlyYouInConv)
-                console.log(resultMappingsPerChat[i])
                 // if there is nobody else in this chat
                 if (resultMappingsPerChat[i].length === 0) {
                     $("#display-userIDMapping-" + dataSource + i + "-leftSide").append("" +

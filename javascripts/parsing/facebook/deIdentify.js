@@ -56,15 +56,54 @@ async function deIdentify(zipFiles, messagesRelativePath, donorName) {
     let allWordCounts = deIdentifiedJsonContents.map(conv => {
         return {
             participants: conv.participants,
-            wordCount: conv.messages.reduce((pv, cv) => pv + cv.word_count, 0)
+            wordCount: conv.messages.reduce((pv, cv) => pv + cv.word_count, 0),
+            wordCountDonor: conv.messages.reduce((pv, cv) => {
+                if (cv.sender_name === i18n.data("donor")) {
+                    return pv + cv.word_count
+                } else {
+                    return pv
+                }
+            }, 0)
         };
     })
 
-    let chatsWithHighestWordCount = allWordCounts.sort((a, b) => b.wordCount - a.wordCount).slice(0, 7)
+    // filter out those conversations where the donors participation is below a threshold
+    // if it is a group chat: threshold = donorWordCount/(totalWordCount/noOfParticipants)
+    // otherwise the donors participation must be between 0.1 and 0.9
+    let filteredWordCounts = allWordCounts.filter((wordCountObj) => {
+        if (wordCountObj.wordCountDonor === 0) {
+            return false
+        } else if (wordCountObj.participants.length <= 2) {
+            // in this case its not a group chat
+            let valueToCompare = wordCountObj.wordCountDonor/wordCountObj.wordCount
+            if (valueToCompare <= 0.1 || valueToCompare >= 0.9) {
+                return false
+            } else {
+                return true
+            }
+        } else {
+            // in this case it is a group chat
+            let valueToCompare = wordCountObj.wordCountDonor/(wordCountObj.wordCount/wordCountObj.participants.length)
+            if (valueToCompare <= 0.1 || valueToCompare >= 0.9) {
+                return false
+            } else {
+                return true
+            }
+        }
+    })
+
+    // get 7 most relevant chats to show feedback for
+    let chatsToShowFeedbackFor = []
+    if (filteredWordCounts.length < 7) {
+        chatsToShowFeedbackFor = allWordCounts.sort((a, b) => b.wordCount - a.wordCount).slice(0, 7)
+    } else {
+        chatsToShowFeedbackFor = filteredWordCounts.sort((a, b) => b.wordCount - a.wordCount).slice(0, 7)
+    }
+
 
     // TODO: this part could go if I switch to chats instead of participants!!!
     let participantsToShow = []
-    chatsWithHighestWordCount.forEach(obj => {
+    chatsToShowFeedbackFor.forEach(obj => {
         obj.participants.forEach(p => participantsToShow.push(p.name))
     })
     // get unique participants of those chats with the highest word counts
@@ -81,7 +120,7 @@ async function deIdentify(zipFiles, messagesRelativePath, donorName) {
     let result = {
         deIdentifiedJsonContents: deIdentifiedJsonContents,
         participantNameToRandomIds: filteredParticipantNameToRandomIds,
-        chatsToShowMapping: chatsWithHighestWordCount.map(chat => chat.participants)
+        chatsToShowMapping: chatsToShowFeedbackFor.map(chat => chat.participants)
     }
 
     return result;
