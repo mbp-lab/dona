@@ -101,7 +101,6 @@ async function deIdentify(zipFiles, messagesRelativePath, donorName) {
     }
 
 
-    // TODO: this part could go if I switch to chats instead of participants!!!
     let participantsToShow = []
     chatsToShowFeedbackFor.forEach(obj => {
         obj.participants.forEach(p => participantsToShow.push(p.name))
