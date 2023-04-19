@@ -8,16 +8,24 @@ async function deIdentify(zipFiles, messagesRelativePath, donorName) {
     participantNameToRandomIds[donorName] = i18n.data("donor");
     const deIdentifiedJsonContents = [];
 
+    // decode function from stackoverflow
+    function decode(s) {
+        let d = new TextDecoder;
+        let a = s.split('').map(r => r.charCodeAt());
+        return d.decode(new Uint8Array(a));
+    }
+
     function getDeIdentifiedId(name) {
-        if (!(name in participantNameToRandomIds)) {
+        let decodedName = decode(name)
+        if (!(decodedName in participantNameToRandomIds)) {
             var friendLabel = i18n.data("friend");
             if(!friendLabel) {
                 friendLabel = "contact"
             }
-            participantNameToRandomIds[name] = friendLabel + i;
+            participantNameToRandomIds[decodedName] = friendLabel + i;
             i++;
         }
-        return participantNameToRandomIds[name];
+        return participantNameToRandomIds[decodedName];
     }
 
     // Array<Promise<String>>

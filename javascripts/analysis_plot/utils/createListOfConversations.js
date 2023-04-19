@@ -32,11 +32,6 @@ function createListOfConversations(conversationFriends, chat, chatInitial, chatW
             }
         }
 
-
-        console.log("!!!!!!!!!!!!!")
-        console.log("F" + (i+1))
-        console.log(listOfConversations[i])
-        console.log("!!!!!!!!!!!!!")
         listOfConversations[i] = chat + " " + chatInitial + (i+1)
     }
     return listOfConversations
