@@ -121,7 +121,7 @@ donation.preview-data.timestamp=Zeitpunkt der Nachricht
 donation.preview-data.group-conversation=Gruppenunterhaltung
 
 donation.friendsMapping.title=<b>Decknamen für Ihre Kontakte</b>
-donation.friendsMapping.subtitle=Wir haben Ihre Daten und Ihre Kontakte anonymisiert. Falls Sie in der anonymisierten Auswertung im nächsten Schritt rekonstruieren wollen, um welche Konversationen und Kontakte es sich jeweils handelt, notieren Sie sich die folgenden Zuordnungen von Kontakten (z.B. G**** M*****) und Decknamen (z.B. “K4”). Ab jetzt sind dies die anonymisierten Decknamen für Ihre Kontakte. Die Zuordnung wird nicht gespeichert und geht verloren, sobald Sie diese Seite verlassen.
+donation.friendsMapping.subtitle=Wir haben Ihre Daten und Ihre Kontakte anonymisiert. Falls Sie in der anonymisierten Auswertung im nächsten Schritt rekonstruieren wollen, um welche Konversationen und Kontakte es sich jeweils handelt, notieren Sie sich die folgenden Zuordnungen von Kontakten (z.B. G**** M*****) und Chatnamen (z.B. “F4” oder “W4” ). Ab jetzt sind dies die anonymisierten Decknamen für Ihre Chats. Die Zuordnung wird nicht gespeichert und geht verloren, sobald Sie diese Seite verlassen.
 donation.friendsMapping.onlySeven=Dies sind nur die Kontakte Ihrer 7 Facebook-Chats, in denen insgesamt die meisten Wörter gesendet wurden.
 donation.friendsMapping.moreFriends=und {0} weitere.
 donation.friendsMapping.chat=Chat
