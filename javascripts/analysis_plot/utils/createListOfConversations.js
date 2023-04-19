@@ -31,6 +31,8 @@ function createListOfConversations(conversationFriends, chat, chatInitial, chatW
                 }
             }
         }
+
+        listOfConversations[i] = chat + " " + chatInitial + (i+1)
     }
     return listOfConversations
 }
