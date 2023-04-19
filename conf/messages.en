@@ -120,7 +120,7 @@ donation.preview-data.timestamp=Timestamp of message
 donation.preview-data.group-conversation=Group conversation
 
 donation.friendsMapping.title=<b>Aliases for your contacts</b>
-donation.friendsMapping.subtitle=We have anonymized your data and your contacts. If, in the next step, you want to reconstruct which conversations and contacts are involved in the anonymized evaluation, make a note of the following assignments of contacts (e.g. G**** M*****) and aliases (e.g. “C4 "). From now on, these are the anonymized aliases for your contacts. The assignment is not saved and is lost as soon as you leave this page.
+donation.friendsMapping.subtitle=We have anonymized your data and your contacts. If, in the next step, you want to reconstruct which conversations and contacts are involved in the anonymized evaluation, make a note of the following assignments of contacts (e.g. G**** M*****) and chats (e.g. “F4" or “W4"). From now on, these are the anonymized names for your chats. The assignment is not saved and is lost as soon as you leave this page.
 donation.friendsMapping.onlySeven=These are just the contacts of your 7 Facebook chats in which overall the most words were sent.
 donation.friendsMapping.moreFriends=and {0} others.
 donation.friendsMapping.chat=Chat
