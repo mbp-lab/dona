@@ -58,6 +58,13 @@ function showUserIdMapping(chatsToShowMapping, userIdMapping, idsPerConv, system
                         indexOfDonor = i;
                     } else {
                         let splitIntoWords = names[i].split(" ");
+
+                        // remove remaining white spaces
+                        splitIntoWords.map(word => word.trim())
+                        // and as sometimes there are double spaces -> remove words that have no content
+                        splitIntoWords = splitIntoWords.filter(word => word.length > 0)
+
+                        // now create the names with * symbols instead of letters
                         let deidentifiedName = "";
                         splitIntoWords.forEach((word) => {
                             if (word.length >= 4) {
