@@ -24,7 +24,6 @@ async function deIdentify(zipFiles, messagesRelativePath, donorName) {
             }
             participantNameToRandomIds[decodedName] = friendLabel + i;
             i++;
-            console.log(participantNameToRandomIds)
         }
         return participantNameToRandomIds[decodedName];
     }
@@ -40,7 +39,6 @@ async function deIdentify(zipFiles, messagesRelativePath, donorName) {
         delete jsonContent.title;
         delete jsonContent.is_still_participant;
         jsonContent.participants.forEach((participant) => {
-            console.log("here is the participants name:", participant.name)
             participant.name = getDeIdentifiedId(participant.name);
         });
         jsonContent.messages.forEach((message, i_1) => {
