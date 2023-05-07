@@ -106,6 +106,7 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
         initialX.push(0)
     })
 
+    // create one array with all data from all conversations and add the conversations name to the data objects on the way
     let flattenedSentReceived = sentReceivedPerConversation.map((array, i) => {
         array.forEach(obj => {
             obj["conversation"] = listOfConversations[i]
