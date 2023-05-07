@@ -28,7 +28,7 @@ $(document).ready(function () {
         const graphData = allData[dataSourceType];
         //console.log(graphData)
 
-        // remove friend "System" from friends of conversations
+        // get some messages necessary for the plats
         const systemName = i18n.systemName
         const chatWith = i18n.chatWith
         const friendsInitial = i18n.friendInitial
@@ -36,17 +36,18 @@ $(document).ready(function () {
         const pauseLabel = i18n.pauseLabel
         const chatLabel = i18n.chat
         let chatInitial;
-
         if (dataSourceType === "WhatsApp") {
             chatInitial = i18n.chatInitialW
         } else {
             chatInitial = i18n.chatInitialF
         }
 
+        // remove friend "System" from friends of conversations
         let conversationsWithoutSystem = []
         graphData.conversationsFriends.forEach((conversation) => {
             conversationsWithoutSystem.push(conversation.filter((friend) => friend !== systemName))
         })
+        // create the list of conversations
         const listOfConversations = createListOfConversations(
             conversationsWithoutSystem,
             chatLabel,
