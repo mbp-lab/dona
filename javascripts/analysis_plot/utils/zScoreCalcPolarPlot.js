@@ -1,6 +1,12 @@
 function ZScoreCalcPolarPlot(data, zScoreLimitArg) {
 
+    // the input data here are the monthly sent and received word counts per conversation
+    // so the flattened data is all data from all conversations in one array
     let flattened = data.flat();
+
+    // then the zscores are calculated over all those data objects adding the zscore property to the object
+    // when adding the zscore property to the object, the input data is also changed because of references !
+    // (this could be confusing!)
 
     // sums of sentCount and receivedCount
     const sums = flattened.map((obj) => obj.sentCount + obj.receivedCount)
