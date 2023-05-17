@@ -95,7 +95,8 @@ class SocialDataDonationControllerSpec extends PlaySpec with Mockito {
               "FooBar",
               List("1A2B3C", "AD44FF"),
               List(ConversationMessage(40, 1528101324250L, Some("1A2B3C"))),
-              DonationDataSourceType.WhatsApp
+              DonationDataSourceType.WhatsApp,
+              true
             )
           )
         )

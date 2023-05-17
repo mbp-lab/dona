@@ -69,6 +69,7 @@ object SocialDataTransformer extends ((DonationId, ApiSocialData) => SocialDataD
     val conversations = socialData.conversations.map(conversation => transformConversation(conversation))
     val messages = socialData.conversations.flatMap(transformConversationMessages)
     val participants = socialData.conversations.flatMap(transformConversationParticipants)
+
     SocialDataDonation(donorId, conversations, messages, participants)
   }
 }
