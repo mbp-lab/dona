@@ -55,14 +55,18 @@ async function deIdentify(zipFiles, messagesRelativePath, donorName) {
             }
         });
         jsonContent.messages = jsonContent.messages.filter(Boolean);
+        // add selected property
+        jsonContent.selected = false
         if (jsonContent.messages.length > 0)
             deIdentifiedJsonContents.push(jsonContent);
     });
 
+
     // find seven chats with highest wordcount - so only they will be displayed for friendsmapping
     // TODO: seven should be in some config file
-    let allWordCounts = deIdentifiedJsonContents.map(conv => {
+    let allWordCounts = deIdentifiedJsonContents.map((conv, index) => {
         return {
+            deIdentifiedJsonContentsIndex: index,
             participants: conv.participants,
             wordCount: conv.messages.reduce((pv, cv) => pv + cv.word_count, 0),
             wordCountDonor: conv.messages.reduce((pv, cv) => {
@@ -112,6 +116,10 @@ async function deIdentify(zipFiles, messagesRelativePath, donorName) {
     let participantsToShow = []
     chatsToShowFeedbackFor.forEach(obj => {
         obj.participants.forEach(p => participantsToShow.push(p.name))
+
+        // add a selected: true to the deIdentifiedJsonContents conversation if it is preselected and a selected: false otherwise
+        let index = obj.deIdentifiedJsonContentsIndex
+        deIdentifiedJsonContents[index]["selected"] = true
     })
     // get unique participants of those chats with the highest word counts
     participantsToShow = [... new Set(participantsToShow)]
@@ -127,7 +135,10 @@ async function deIdentify(zipFiles, messagesRelativePath, donorName) {
     let result = {
         deIdentifiedJsonContents: deIdentifiedJsonContents,
         participantNameToRandomIds: filteredParticipantNameToRandomIds,
-        chatsToShowMapping: chatsToShowFeedbackFor.map(chat => chat.participants)
+        allParticipantsNamesToRandomIds: participantNameToRandomIds,
+        chatsToShowMappingParticipants: chatsToShowFeedbackFor.map(chat => chat.participants),
+        chatsToShowMapping: chatsToShowFeedbackFor,
+        allWordCounts: allWordCounts
     }
 
     return result;

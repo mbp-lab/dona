@@ -1,7 +1,7 @@
 const _ = require("lodash");
 
 
-function responseTimeBarChart(responseTimes, plotId) {
+function responseTimeBarChart(responseTimes, plotId, isOnlyOneOrLessConv) {
 
     const FIRST = "< 1 min"
     const SECOND = "1-2 min"
@@ -146,28 +146,44 @@ function responseTimeBarChart(responseTimes, plotId) {
 
 
     plotContainer.html("");
-    Plotly.newPlot(plotId, [
-        {
-            name: legendDonor,
-            x: x,
-            y: yDonor,
-            type: "bar",
-            marker: {
-                //color: "#60BDFF"
+
+    if (isOnlyOneOrLessConv) {
+        Plotly.newPlot(plotId, [
+            {
+                name: legendDonor,
+                x: x,
+                y: yDonor,
+                type: "bar",
+                marker: {
+                    //color: "#60BDFF"
+                },
+                width: _.fill(Array(x.length), 0.8)
+            }
+        ], layout, config)
+    } else {
+        Plotly.newPlot(plotId, [
+            {
+                name: legendDonor,
+                x: x,
+                y: yDonor,
+                type: "bar",
+                marker: {
+                    //color: "#60BDFF"
+                },
+                width: _.fill(Array(x.length), 0.8)
             },
-            width: _.fill(Array(x.length), 0.8)
-        },
-        {
-            name: legendFriends,
-            x: x,
-            y: yFriends,
-            type: "bar",
-            marker: {
-                //color: "#FF8800",
-            },
-            width: _.fill(Array(x.length), 0.5)
-        }
-    ], layout, config)
+            {
+                name: legendFriends,
+                x: x,
+                y: yFriends,
+                type: "bar",
+                marker: {
+                    //color: "#FF8800",
+                },
+                width: _.fill(Array(x.length), 0.5)
+            }
+        ], layout, config)
+    }
 
 
 }

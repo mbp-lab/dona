@@ -220,7 +220,7 @@ object MessageAnalysisServiceTest {
 
     val participants = messages.map { case (_, _, sender) => sender }.distinct.toList
 
-    Conversation(participants.lengthCompare(2) > 0, "123", participants, parsedMessages, donationDataSourceType)
+    Conversation(participants.lengthCompare(2) > 0, "123", participants, parsedMessages, donationDataSourceType, true)
   }
 
   private def getEpochSeconds(year: Int, month: Int, date: Int, hour: Int, minute: Int): Long = {
