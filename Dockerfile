@@ -3,6 +3,7 @@ ARG CACHE_DOCKER_REPO=sjohannknecht
 ARG CACHE_IMAGE=hc-rp-kalinka-cache
 FROM ${CACHE_DOCKER_REPO}/${CACHE_IMAGE}:latest as builder
 
+RUN echo "deb http://archive.debian.org/debian stretch main contrib non-free" > /etc/apt/sources.list
 RUN apt-get update
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - && apt-get install -y nodejs
 WORKDIR /workspace
