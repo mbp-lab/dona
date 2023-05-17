@@ -75,7 +75,8 @@ class SocialDataDonationControllerSpec extends PlaySpec with Mockito {
           |          "sender": "1A2B3C"
           |        }
           |      ],
-          |      "donation_data_source_type": "WhatsApp"
+          |      "donation_data_source_type": "WhatsApp",
+          |      "selected": true
           |    }
           |  ]
           |}
