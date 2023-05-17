@@ -47,6 +47,21 @@ function whatsappTxtFilesHandler(filelist) {
         // determine possible usernames
         Promise.all(parsedFiles)
             .then((parsed) => {
+                let isRejected = false
+
+                // check if any textList of a chat is empty or there is only one person in that chat
+                parsed.forEach(({texts, contacts}) => {
+                    if (texts.length < 100 || contacts.length <= 1) {
+                        reject(i18nSupport.data('error-empty-or-onecontact'));
+                        isRejected = true
+                        return;
+                    }
+                })
+                // check if a rejection reason was found -> so dont continue if there was a reason to reject
+                if (isRejected) {
+                    return;
+                }
+
                 let textList = parsed.map((obj) => obj.texts)
                 let contacts = parsed.map((obj) => obj.contacts)
 
@@ -54,17 +69,80 @@ function whatsappTxtFilesHandler(filelist) {
                 let possibleUserNames = _.intersection(...contacts)
 
                 if (possibleUserNames.length === 1) {
-                    resolve(deIdentification(textList, possibleUserNames[0]));
+                    let result = deIdentification(textList, possibleUserNames[0])
+
+                    /*
+                    result.then((res) => {
+                        checkOneSidedThreshold(res.deIdentifiedJsonContents)
+                    })
+
+                     */
+
+                    resolve(result);
                 } else {
                     askUserForUsername(possibleUserNames)
                         .then(username => {
-                            resolve(deIdentification(textList, username));
+                            let result = deIdentification(textList, username)
+                            resolve(result);
                         })
                 }
             })
 
     })
 
+}
+
+
+function checkOneSidedThreshold(data) {
+    const i18nSupport = $('#i18n-support'); // TODO: This file should not be allowed to access jquery
+    let donor = i18nSupport.data('donor');
+    let allWordCounts = data.map(conv => {
+        return {
+            participants: conv.participants,
+            wordCount: conv.messages.reduce((pv, cv) => pv + cv.word_count, 0),
+            wordCountDonor: conv.messages.reduce((pv, cv) => {
+                if (cv.sender_name === donor) {
+                    return pv + cv.word_count
+                } else {
+                    return pv
+                }
+            }, 0)
+        };
+    })
+
+    // TODO: Change the following part!!!
+
+    // check if there is a conversation where the donors participation is below a threshold
+    // if it is a group chat: donorsParticipationValue = donorWordCount/(totalWordCount/noOfParticipants)
+    // donors participation value must be between 0.1 and 0.9 (in the follwing called valueToCompare)
+    let rejectionReason = false
+    allWordCounts.forEach((wordCountObj) => {
+        if (wordCountObj.wordCountDonor === 0) {
+            rejectionReason = true
+            return;
+        } else if (wordCountObj.participants.length <= 2) {
+            // in this case its not a group chat
+            let valueToCompare = wordCountObj.wordCountDonor/wordCountObj.wordCount
+            if (valueToCompare <= 0.1 || valueToCompare >= 0.9) {
+                console.log(wordCountObj.wordCountDonor)
+                console.log(wordCountObj.wordCount)
+                rejectionReason = true
+                return;
+            }
+        } else {
+            // in this case it is a group chat
+            let valueToCompare = wordCountObj.wordCountDonor/(wordCountObj.wordCount/wordCountObj.participants.length)
+            if (valueToCompare <= 0.1 || valueToCompare >= 0.9) {
+                console.log(wordCountObj.wordCountDonor)
+                console.log(wordCountObj.wordCount)
+                console.log(wordCountObj.participants.length)
+                rejectionReason = true
+                return;
+            }
+        }
+    })
+
+    console.log(rejectionReason)
 }
 
 function askUserForUsername(possibilities) {
@@ -174,8 +252,7 @@ function deIdentification(parsedFiles, alias) {
                 participantNameToRandomIds: participantNameToRandomIds,
                 chatsToShowMapping: deIdentifiedJsonContents.map(chat => chat.participants)
             }
-            //deIdentifiedJsonContents.push(participantNameToRandomIds)
-            //console.log(result)
+
             return result;
         });
 
