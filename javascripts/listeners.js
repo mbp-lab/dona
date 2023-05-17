@@ -1,5 +1,6 @@
 const facebookZipFileHandler = require('./parsing/facebook/facebookZipFileHandler');
 const whatsappTxtFileHandler = require('./parsing/whatsapp/whatsappTxtFileHandler');
+const createChooseFChatsModal = require('./createChooseFChatsModal')
 
 
 
@@ -9,6 +10,7 @@ const renderTable = require('./showResultsInTable');
 const renderUserIDMapping = require('./showUserIdMapping')
 const hammerJs = require('hammerjs');
 const messageService = require('./messageService');
+const deidentifyNamesWithStars = require("./deidentifyNamesWithStars");
 
 
 function addListeners() {
@@ -251,7 +253,16 @@ function setUpFileHandler() {
                 if (dataSource === "WhatsApp") {
                     renderUserIDMapping(deIdentifiedJson.chatsToShowMapping, deIdentifiedJson.participantNameToRandomIds, contactsPerConv, i18nSupport.data('system'), i18nSupport.data('donor'), i18nSupport.data('friend-initial'), i18nSupport.data('chat-initial-w'), i18nSupport.data('only-you'), i18nSupport.data('and-more-contacts'), i18nSupport.data('chat'),  dataSource)
                 } else {
-                    renderUserIDMapping(deIdentifiedJson.chatsToShowMapping, deIdentifiedJson.participantNameToRandomIds, contactsPerConv, i18nSupport.data('system'), i18nSupport.data('donor'), i18nSupport.data('friend-initial'), i18nSupport.data('chat-initial-f'), i18nSupport.data('only-you'), i18nSupport.data('and-more-contacts'), i18nSupport.data('chat'),  dataSource)
+                    // in this case it is Facebook!
+                    renderUserIDMapping(deIdentifiedJson.chatsToShowMappingParticipants, deIdentifiedJson.participantNameToRandomIds, contactsPerConv, i18nSupport.data('system'), i18nSupport.data('donor'), i18nSupport.data('friend-initial'), i18nSupport.data('chat-initial-f'), i18nSupport.data('only-you'), i18nSupport.data('and-more-contacts'), i18nSupport.data('chat'),  dataSource)
+
+                    // for facebook also fill information for the chat selection modal
+                    // ToDo: move this to its own function
+                    $("#openChooseFacebookChatsModalButton").on("click", function() {
+                        createChooseFChatsModal(deIdentifiedJson.allParticipantsNamesToRandomIds, deIdentifiedJson.allWordCounts)
+                        $('#chooseFacebookChatsModal').modal('show')
+
+                    })
 
                 }
                 return transformJson(deIdentifiedJson.deIdentifiedJsonContents, donorId, dataSource);
@@ -473,7 +484,6 @@ function setUpFileHandler() {
         // assign the filtered data to the inputJson
         $("#inputJson").attr('value', JSON.stringify(inputObjFiltered));
     })
-
 
 }
 

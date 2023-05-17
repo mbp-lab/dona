@@ -142,12 +142,15 @@ final class SocialDataDonationController @Inject()(
       }
 
       def saveData(socialData: SocialData): Future[Result] = {
+
         socialDataService.saveData(socialData).run.map {
           case -\/(error) =>
             logger.error(error)
             failDonationProcess(donationType)
           case \/-(_) =>
-            val messageAnalysisOut = messageAnalysisService.produceGraphData(socialData)
+            val filteredConversations = socialData.conversations.filter((c) => c.selected)
+            val filteredSocialData = SocialData(socialData.donorId, filteredConversations)
+            val messageAnalysisOut = messageAnalysisService.produceGraphData(filteredSocialData)
             logger.info(s"""{"status": "donated-successfully"}""")
 
             Ok(

@@ -83,7 +83,8 @@ $(document).ready(function () {
 
         responseTimeBarChart(
             graphData.responseTimes,
-            `${dataSourceType}ResponseTimeBarChart`
+            `${dataSourceType}ResponseTimeBarChart`,
+            (graphData.conversationsFriends.length <= 1)
         );
 
 

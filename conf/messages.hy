@@ -206,6 +206,8 @@ donation.anonymisation.system=System
 donation.anonymisation.chooseUsername=Խնդրում ենք ընտրել Ձեր օգտանունը։ Ձեր օգտանունը չի պահպանվելու, և մենք այն չենք իմանալու։
 donation.anonymisation.loading=Տվյալների ուղարկումը կարող է մի քանի րոպե տևել։ Խնդրում ենք սպասել և չփակել էջը։ Շնորհակալություն։
 
+donation.anonymisation.chatSelection.title=Այստեղ կարող եք 1-10 չատ ընտրել, որոնց մասին ցանկանում եք գրաֆիկներ ստանալ
+donation.anonymisation.chatSelection.clickHereToSelect=Click here to choose different chats to receive feedback for
 
 donation.anonymisation.loading.tooLong.title=Եթե այս գործընթացը 5 րոպեից ավել է տևում, ապա հնարավոր է, որ
 donation.anonymisation.loading.tooLong.issue.1=փորձում եք վերբեռնել չթույլատրված ֆորմատի ֆայլեր։ Ճիշտ ֆորմատներն են ․txt WhatsApp-ի ու .zip Facebook-ի համար
@@ -225,6 +227,7 @@ donation.errors.no-messages-time-period=Տվյալ ժամանակահատված�
 donation.errors.dates-no-sense=Ընտրված ժամանակահատվածը վավեր չէ։ Խնդրում ենք ստուգել ընտրված ամսաթվերի ճշտությունը։
 donation.errors.dates-not-enough-months=Տվյալները նվիրաբերելու համար խնդրում ենք ընտրել առնվազն վեց ամիս ընդգրկող ժամանակահատված։
 donation.errors.somewhereError=Ցավում ենք, ինչ-որ խնդիր է առաջացել։ Խնդրում ենք վերանայել գործընթացը։
+donation.errors.emptyOrJustOnePerson=All your chats should contain at least 100 messages and at least one contact (other than yourself).
 
 
 donation.submit=Ուղարկել

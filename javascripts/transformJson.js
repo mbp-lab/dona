@@ -14,6 +14,11 @@ function transformJson(deIdentifiedJsonContents, donorId, dataSource) {
 
 function generateConversation (jsonContent, dataSource) {
     var conversation = {}
+    if (dataSource === "Facebook") {
+        conversation["selected"] = jsonContent.selected
+    } else if (dataSource === "WhatsApp") {
+        conversation["selected"] = true
+    }
     conversation["conversation_id"] = uuid();
     conversation["is_group_conversation"] = translateIfGroupConversation(jsonContent["thread_type"]);
     conversation["participants"] = transformParticipants(jsonContent["participants"]);

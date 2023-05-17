@@ -121,7 +121,7 @@ donation.preview-data.group-conversation=Group conversation
 
 donation.friendsMapping.title=<b>Aliases for your contacts</b>
 donation.friendsMapping.subtitle=We have anonymized your data and your contacts. If, in the next step, you want to reconstruct which conversations and contacts are involved in the anonymized evaluation, make a note of the following assignments of contacts (e.g. G**** M*****) and chats (e.g. “F4" or “W4"). From now on, these are the anonymized names for your chats. The assignment is not saved and is lost as soon as you leave this page.
-donation.friendsMapping.onlySeven=These are just the contacts of your 7 Facebook chats in which overall the most words were sent.
+donation.friendsMapping.onlySeven=These are just the contacts of your 7 Facebook chats in which overall the most words were sent. <b> Below you can also select different chats. </b>
 donation.friendsMapping.moreFriends=and {0} others.
 donation.friendsMapping.chat=Chat
 donation.friendsMapping.onlyYouInConv=You are the only member in this chat. This could be because the other people have left the chat.
@@ -154,6 +154,9 @@ donation.anonymisation.system=System
 donation.anonymisation.chooseUsername=Please choose your username. Your username will not be saved and we will not know it.
 donation.anonymisation.loading=Sending the anonymized data could take a few minutes. Please wait and keep this website open. Thanks!
 
+donation.anonymisation.chatSelection.title=You can select 1-10 chats to receive feedback for
+donation.anonymisation.chatSelection.clickHereToSelect=Click here to choose different chats to receive feedback for
+
 donation.anonymisation.loading.tooLong.title=If this process is taking more than 5 minutes, it might be due to the following:
 donation.anonymisation.loading.tooLong.issue.1=You are trying to upload file types that are not supported (the correct input types are .txt for WhatsApp and .zip for Facebook)
 donation.anonymisation.loading.tooLong.issue.2=You have exported you WhatsApp chats from different devices
@@ -171,6 +174,7 @@ donation.errors.no-messages-time-period=There are no messages in the selected pe
 donation.errors.dates-no-sense=The selected period is not valid. Please check the correctness of the selected dates.
 donation.errors.dates-not-enough-months=To donate your data, please select a period of at least 6 months within the period of your donation.
 donation.errors.somewhereError=There is an error somewhere. Please check your data donation.
+donation.errors.emptyOrJustOnePerson=All your chats should contain at least 100 messages and at least one contact (other than yourself).
 
 donation.submit=Submit
 
@@ -212,7 +216,7 @@ feedback.title.dailyActivityTimes=Daily Activity Times
 feedback.title.responseTimes=Response Times
 feedback.title.pleaseContinue=We hope you had exciting insights. Thanks a lot!
 
-feedback.facebook.info=The potentially high number of facebook contacts could lead to a cluttered visualization. Therefore, in the following, only visualizations for your 7 (or less) Facebook chats with the most words are shown.
+feedback.facebook.info=The potentially high number of facebook contacts could lead to a cluttered visualization. Therefore, in the following, only visualizations for your 1-10 selected Facebook chats are shown.
 
 feedback.nextButton=Next
 feedback.finishButton=Finish

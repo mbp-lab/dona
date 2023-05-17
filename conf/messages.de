@@ -122,7 +122,7 @@ donation.preview-data.group-conversation=Gruppenunterhaltung
 
 donation.friendsMapping.title=<b>Decknamen für Ihre Kontakte</b>
 donation.friendsMapping.subtitle=Wir haben Ihre Daten und Ihre Kontakte anonymisiert. Falls Sie in der anonymisierten Auswertung im nächsten Schritt rekonstruieren wollen, um welche Konversationen und Kontakte es sich jeweils handelt, notieren Sie sich die folgenden Zuordnungen von Kontakten (z.B. G**** M*****) und Chatnamen (z.B. “F4” oder “W4” ). Ab jetzt sind dies die anonymisierten Decknamen für Ihre Chats. Die Zuordnung wird nicht gespeichert und geht verloren, sobald Sie diese Seite verlassen.
-donation.friendsMapping.onlySeven=Dies sind nur die Kontakte Ihrer 7 Facebook-Chats, in denen insgesamt die meisten Wörter gesendet wurden.
+donation.friendsMapping.onlySeven=Dies sind nur die Kontakte Ihrer 7 Facebook-Chats, in denen insgesamt die meisten Wörter gesendet wurden. <b>Unten können Sie auch andere Chats auswählen. </b>
 donation.friendsMapping.moreFriends=und {0} weitere.
 donation.friendsMapping.chat=Chat
 donation.friendsMapping.onlyYouInConv=Nur Sie befinden sich in diesem Chat. Es könnte z.B. sein, dass die andere Person/en den Chat verlassen haben.
@@ -155,6 +155,8 @@ donation.anonymisation.system=System
 donation.anonymisation.chooseUsername=Bitte wählen Sie Ihren Nutzernamen aus. Ihr Nutzername wird nicht gespeichert und wir werden ihn nicht erfahren.
 donation.anonymisation.loading=Das Senden der anonymisierten Daten kann ein paar Minuten dauern. Bitte warten Sie und lassen Sie diese Seite geöffnet. Danke!
 
+donation.anonymisation.chatSelection.title=Sie können 1-10 Chats auswählen, für die Sie Feedback erhalten möchten
+donation.anonymisation.chatSelection.clickHereToSelect=Klicken Sie hier, um andere Chats auszuwählen, für die Sie Feedback erhalten möchten
 
 donation.anonymisation.loading.tooLong.title=Wenn dieser Vorgang länger als 5 Minuten dauert, kann dies folgende Ursachen haben:
 donation.anonymisation.loading.tooLong.issue.1=Sie versuchen, Dateitypen hochzuladen, die nicht unterstützt werden (die korrekten Dateitypen sind .txt für WhatsApp und .zip für Facebook)
@@ -173,6 +175,7 @@ donation.errors.no-messages-time-period=In dem ausgewählten Zeitraum befinden s
 donation.errors.dates-no-sense=Der ausgewählte Zeitraum ist ungültig. Bitte überprüfen Sie die Richtigkeit der ausgewählten Daten.
 donation.errors.dates-not-enough-months=Bitte wählen Sie zum Spenden Ihrer Daten einen Zeitraum von mindestens 6 Monaten innerhalb des Zeitraums Ihrer Spende aus.
 donation.errors.somewhereError=Es gibt einen Fehler. Bitte überprüfen Sie Ihre Datenspende.
+donation.errors.emptyOrJustOnePerson=Alle Ihre Chats sollten mindestens 100 Nachrichten und mindestens einen Kontakt (der nicht Sie selbst sind) enthalten.
 
 donation.submit=Senden
 
@@ -214,7 +217,7 @@ feedback.title.dailyActivityTimes=Tägliche Aktivitätszeiten
 feedback.title.responseTimes=Antwortzeiten
 feedback.title.pleaseContinue=Wir hoffen Sie hatten spannende Erkenntnisse. Danke sehr!
 
-feedback.facebook.info=Die möglicherweise hohe Anzahl an Facebook-Kontakten kann zu einer unübersichtlichen Darstellung führen. Daher werden im Folgenden nur Visualisierungen für Ihre 7 (oder weniger) Facebook-Chats mit den meisten Wörtern angezeigt.
+feedback.facebook.info=Die möglicherweise hohe Anzahl an Facebook-Kontakten kann zu einer unübersichtlichen Darstellung führen. Daher werden im Folgenden nur Visualisierungen für Ihre 1-10 ausgewählten Facebook-Chats angezeigt.
 
 feedback.nextButton=Weiter
 feedback.finishButton=Ende

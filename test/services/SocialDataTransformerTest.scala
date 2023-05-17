@@ -18,14 +18,16 @@ final class SocialDataTransformerTest extends FreeSpec with Matchers {
             "someId",
             List("donorId", "other"),
             List(ApiMessage(1, 12413123L, Some("other")), ApiMessage(2, 5243234L, Some("donorId"))),
-            DonationDataSourceType.WhatsApp
+            DonationDataSourceType.WhatsApp,
+            true
           ),
           ApiConversation(
             true,
             "someOtherId",
             List("donorId", "other", "other2"),
             List(ApiMessage(3, 13413412L, None)),
-            DonationDataSourceType.Facebook
+            DonationDataSourceType.Facebook,
+            true
           )
         )
       )
@@ -49,14 +51,16 @@ final class SocialDataTransformerTest extends FreeSpec with Matchers {
             "someId",
             List("donorId", "other"),
             List(ApiMessage(15, 12355132L, Some("other"))),
-            DonationDataSourceType.WhatsApp
+            DonationDataSourceType.WhatsApp,
+            true
           ),
           ApiConversation(
             true,
             "someOtherId",
             List("yetAnother", "another", "donorId"),
             List(ApiMessage(12, 134131414L, Some("donorId"))),
-            DonationDataSourceType.Facebook
+            DonationDataSourceType.Facebook,
+            true
           )
         )
       )
@@ -83,7 +87,8 @@ final class SocialDataTransformerTest extends FreeSpec with Matchers {
             "someId",
             List("donorId", "other"),
             List(ApiMessage(15, originalTime.toEpochMilli, Some("other"))),
-            DonationDataSourceType.WhatsApp
+            DonationDataSourceType.WhatsApp,
+            true
           )
         )
       )
@@ -102,7 +107,8 @@ final class SocialDataTransformerTest extends FreeSpec with Matchers {
             "someId",
             List(donorId, "other"),
             List(ApiMessage(15, 12355132L, Some(donorId))),
-            DonationDataSourceType.Facebook
+            DonationDataSourceType.Facebook,
+            true
           )
         )
       )
@@ -125,14 +131,16 @@ final class SocialDataTransformerTest extends FreeSpec with Matchers {
           "someId",
           List("donorId", otherId),
           List(ApiMessage(15, 12355132L, Some(otherId))),
-          DonationDataSourceType.Facebook
+          DonationDataSourceType.Facebook,
+          true
         ),
         ApiConversation(
           true,
           "someOtherId",
           List(otherId, "another", "donorId"),
           List(ApiMessage(12, 134131414L, Some("donorId"))),
-          DonationDataSourceType.Facebook
+          DonationDataSourceType.Facebook,
+          true
         )
       )
     )
