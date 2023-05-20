@@ -245,7 +245,12 @@
                         <div class="container-fluid show-on-anonymisation-success-@{dataSourceDescription.name.toString} alert-info" style="border-radius: 16px;">
                             <p style="color: darkblue;
                                 font-weight: bold">@Html(messages("donation.friendsMapping.title"))</p>
-                            <p style="color: darkblue;">@Html(messages("donation.friendsMapping.subtitle"))</p>
+                            @if(dataSourceDescription.name.toString == "Facebook") {
+                                <p style="color: darkblue;">@Html(messages("donation.friendsMapping.subtitle.facebook"))</p>
+                            } else {
+                                <p style="color: darkblue;">@Html(messages("donation.friendsMapping.subtitle.whatsapp"))</p>
+                            }
+
                             @if(dataSourceDescription.name.toString == "Facebook") {
                                 <p style="color: darkblue;"><i>@Html(messages("donation.friendsMapping.onlySeven"))</i></p>
                                 }
