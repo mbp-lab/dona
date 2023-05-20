@@ -120,7 +120,8 @@ donation.preview-data.timestamp=Timestamp of message
 donation.preview-data.group-conversation=Group conversation
 
 donation.friendsMapping.title=<b>Aliases for your contacts</b>
-donation.friendsMapping.subtitle=We have anonymized your data and your contacts. If, in the next step, you want to reconstruct which conversations and contacts are involved in the anonymized evaluation, make a note of the following assignments of contacts (e.g. G**** M*****) and chats (e.g. “F4" or “W4"). From now on, these are the anonymized names for your chats. The assignment is not saved and is lost as soon as you leave this page.
+donation.friendsMapping.subtitle.facebook=We have anonymized your data and your contacts. If, in the next step, you want to reconstruct which conversations and contacts are involved in the anonymized evaluation, make a note of the following assignments of contacts (e.g. G**** M*****) and chats (e.g. “F4"). From now on, these are the anonymized names for your chats. The assignment is not saved and is lost as soon as you leave this page.
+donation.friendsMapping.subtitle.whatsapp=We have anonymized your data and your contacts. If, in the next step, you want to reconstruct which conversations and contacts are involved in the anonymized evaluation, make a note of the following assignments of contacts (e.g. G**** M*****) and chats (e.g. “W4"). From now on, these are the anonymized names for your chats. The assignment is not saved and is lost as soon as you leave this page.
 donation.friendsMapping.onlySeven=These are just the contacts of your 7 Facebook chats in which overall the most words were sent. <b> Below you can also select different chats. </b>
 donation.friendsMapping.moreFriends=and {0} others.
 donation.friendsMapping.chat=Chat
@@ -154,7 +155,7 @@ donation.anonymisation.system=System
 donation.anonymisation.chooseUsername=Please choose your username. Your username will not be saved and we will not know it.
 donation.anonymisation.loading=Sending the anonymized data could take a few minutes. Please wait and keep this website open. Thanks!
 
-donation.anonymisation.chatSelection.title=You can select 1-10 chats to receive feedback for
+donation.anonymisation.chatSelection.title=You can select up to 10 chats to receive feedback for
 donation.anonymisation.chatSelection.clickHereToSelect=Click here to choose different chats to receive feedback for
 
 donation.anonymisation.loading.tooLong.title=If this process is taking more than 5 minutes, it might be due to the following:
