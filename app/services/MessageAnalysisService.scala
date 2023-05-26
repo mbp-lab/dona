@@ -87,9 +87,11 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
 
         //println(produceSlidingWindowMean(dailyWordsGraphData))
         val allDays = new ListBuffer[TimeFrameWithDaysInts]()
-        val allDaysList = produceAllDays(dailyWordsGraphData.head.epochSeconds * 1000, dailyWordsGraphData.last.epochSeconds * 1000, allDays).toList
-        //println(allDaysList)
-        //println(allSentReceivedCounts)
+        var allDaysList = List[TimeFrameWithDaysInts]()
+        if (dailyWordsGraphData.length > 0) {
+          allDaysList = produceAllDays(dailyWordsGraphData.head.epochSeconds * 1000, dailyWordsGraphData.last.epochSeconds * 1000, allDays).toList
+
+        }
         val slidingWindowMeanPerConv = dailyWordsGraphDataPerConversation.map(c => produceSlidingWindowMeanPerConv(c, allDaysList))
 
 
@@ -692,8 +694,12 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
     val activeMonths = pointsMessages.length
     val activeYears = getNumberOfDistinctYears(pointsMessages)
 
-    val averageSentPerActiveMonth = overallSentMessages / activeMonths
-    val averageReceivedPerActiveMonth = overallReceivedMessages / activeMonths
+    var averageSentPerActiveMonth = 0
+    var averageReceivedPerActiveMonth = 0
+    if (activeMonths != 0) {
+      averageSentPerActiveMonth = overallSentMessages / activeMonths
+      averageReceivedPerActiveMonth = overallReceivedMessages / activeMonths
+    }
 
     BasicStatistics(
       sentMessagesTotal = overallSentMessages,
