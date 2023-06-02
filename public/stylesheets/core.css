@@ -1,4 +1,17 @@
 /* main */
+/*
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+*/
 
 .bgImage {
     background-size: cover;
@@ -37,7 +50,8 @@
 }
 
 .main-body-column {
-    width: 900px;
+        padding-right: 10%;
+        padding-left: 10%
 }
 
 .main-body a:not(.btn) {
@@ -114,7 +128,7 @@
   font-family: PT Sans;
     background-color: rgba(0,0,0,0.5);
     border-radius: 1.5rem;
-    margin-bottom: 250px;
+    margin-bottom: 150px;
 
 }
 
@@ -335,19 +349,6 @@
     left: 10px;
 }
 
-
-.logos {
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
-}
-
-/* instructions */
-
-.logo {
-    width: 32px;
-    height: 32px
-}
 
 /* feedback page */
 
