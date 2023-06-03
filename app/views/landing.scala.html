@@ -1,14 +1,14 @@
 @(designVersion: Option[String])(implicit request: RequestHeader, messages: Messages)
 
 @mainNew("Dona - ForMe", designVersion){
-<div class="header text-white mx-auto p-3 pr-4 pl-4 text-center landing-header">
+<div class="header text-white mt-2 mx-auto p-3 pr-4 pl-4 text-center landing-header">
     <h1 class="display-5 mb-3 landing-header-headline">@messages("landing.header.title")</h1>
     <p class="landing-header-text text-center">@messages("landing.header.body")</p>
 </div>
 } {
 <script>
         $(document).ready(function(){
-            alertIfMobile()
+            //alertIfMobile() // ToDo: Remove this part!
         });
 
         function alertIfMobile() {
@@ -86,26 +86,26 @@
     </div>
     <h3 class="headline">@messages("donation-info.title")</h3>
     <div class="row">
-        <div class="col">
+        <div class="col-sm">
             <p class="paragraph text-left">@Html(messages("donation-info.data-request"))</p>
         </div>
-        <div class="col">
+        <div class="col-sm">
             <img src="@routes.Assets.at(messages("landing.imagePath.donationProcedure1"))" class="img-fluid donation-info-image">
         </div>
     </div>
     <div class="row">
-        <div class="col">
+        <div class="col-sm">
             <p class="paragraph text-left">@Html(messages("donation-info.anonymisation"))</p>
         </div>
-        <div class="col">
+        <div class="col-sm">
             <img src="@routes.Assets.at(messages("landing.imagePath.donationProcedure2"))" class="img-fluid donation-info-image">
         </div>
     </div>
     <div class="row">
-        <div class="col">
+        <div class="col-sm">
             <p class="paragraph text-left">@Html(messages("donation-info.storage"))</p>
         </div>
-        <div class="col">
+        <div class="col-sm">
             <img src="@routes.Assets.at(messages("landing.imagePath.donationProcedure3"))" class="img-fluid donation-info-image">
         </div>
     </div>

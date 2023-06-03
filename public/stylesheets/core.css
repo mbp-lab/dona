@@ -120,15 +120,46 @@
 }
 
 .landing-header {
-    width: 700px;
+    width: 98%;
+    margin-bottom: 50px;
 }
+
+@media (min-width: 576px) {
+    .landing-header {
+        width: 500px;
+        margin-bottom: 150px;
+    }
+}
+
+@media (min-width: 768px) {
+    .landing-header {
+        width: 500px;
+        margin-bottom: 150px;
+    }
+}
+
+@media (min-width: 992px) {
+    .landing-header {
+        width: 700px;
+        margin-bottom: 150px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .landing-header {
+        width: 900px;
+        margin-bottom: 150px;
+    }
+}
+
+
+
 
 .header {
 
   font-family: PT Sans;
     background-color: rgba(0,0,0,0.5);
     border-radius: 1.5rem;
-    margin-bottom: 150px;
 
 }
 
@@ -257,24 +288,52 @@
     min-height: 120px;
 }
 
+
 .footer-forward-button {
     font-weight: 800;
     font-size: 24px;
-    min-width: 213px;
+    width: 100%;
     padding: 10px 20px 10px 20px;
-    margin-left: 2em;
     border-radius: 16px;
     background: #35b1a6;
     color: white !important;
-    margin-bottom: 2em;
+    margin-bottom: 4em;
     text-decoration: none;
 }
 
+@media (min-width: 576px) {
+    .footer-forward-button {
+        font-weight: 800;
+        font-size: 24px;
+        min-width: 213px;
+        padding: 10px 20px 10px 20px;
+        margin-left: 2em;
+        border-radius: 16px;
+        background: #35b1a6;
+        color: white !important;
+        margin-bottom: 2em;
+        text-decoration: none;
+    }
+}
+
+@media (min-width: 576px) {
+    .report-problem-button-footer {
+        min-width: 190px !important;
+        font-weight: 800 !important;
+        font-size: 12px !important;
+        padding: 10px 20px 10px 20px !important;
+        border-radius: 16px !important;
+        background: #888 !important;
+        color: white !important;
+        text-decoration: none !important;
+    }
+}
+
 .report-problem-button-footer {
-    min-width: 190px !important;
+    min-width: 100px !important;
     font-weight: 800 !important;
-    font-size: 12px !important;
-    padding: 10px 20px 10px 20px !important;
+    font-size: 10px !important;
+    padding: 5px 10px 5px 10px !important;
     border-radius: 16px !important;
     background: #888 !important;
     color: white !important;
