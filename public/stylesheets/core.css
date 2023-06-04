@@ -45,6 +45,9 @@
   color: #666;
 }
 
+.main-body-column {
+    width: 85%;
+}
 
 @media (min-width: 576px) {
     .main-body-column {
@@ -109,6 +112,18 @@
     font-size: 18px;
     color: #666666;
     font-family: PT Sans;
+    text-align: left;
+}
+
+@media (min-width: 576px) {
+    .paragraph {
+        margin-bottom: 2em;
+        margin-top: 2em;
+        font-size: 18px;
+        color: #666666;
+        font-family: PT Sans;
+        text-align: center;
+    }
 }
 
 .modalMaxWidth {
@@ -209,10 +224,6 @@
     color: #404040 !important;
 }
 
-.landing-container {
-    margin-bottom: -2rem;
-}
-
 .landing-subtitle {
     color: #36b3a8;
     text-transform: uppercase;
@@ -235,6 +246,7 @@
     font-size: 18px;
     color: #666666;
 }
+
 
 .landing-header-headline {
     font-size: 48px;
