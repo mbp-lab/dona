@@ -35,10 +35,12 @@
             data-target="#@{dataSourceDescription.name.toString}Panel"
             aria-expanded="true"
             aria-controls="@{dataSourceDescription.name.toString}Panel">
+                <div class="row">
                 @if(dataSourceDescription.logo.isDefined){
                     <img class="logo mr-3" src="@routes.Assets.at(s"images/dataSourceImages/${dataSourceDescription.logo.get}")">
                 }
                 <span>@{String.format(messages("instructions.datasource.title_format"), dataSourceDescription.name)}</span>
+                </div>
             </button>
         </div>
 

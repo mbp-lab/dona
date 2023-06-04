@@ -1,16 +1,12 @@
 /* main */
 /*
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) { ... }
+@media (min-width: 576px) {}
 
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) { ... }
+@media (min-width: 768px) {}
 
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) { ... }
+@media (min-width: 992px) {}
 
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) { ... }
+@media (min-width: 1200px) {}
 */
 
 .bgImage {
@@ -49,9 +45,29 @@
   color: #666;
 }
 
-.main-body-column {
-        padding-right: 10%;
-        padding-left: 10%
+
+@media (min-width: 576px) {
+    .main-body-column {
+        width: 500px;
+    }
+}
+
+@media (min-width: 768px) {
+    .main-body-column {
+        width: 700px;
+    }
+}
+
+@media (min-width: 992px) {
+    .main-body-column {
+        width: 900px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .main-body-column {
+        width: 900px;
+    }
 }
 
 .main-body a:not(.btn) {
@@ -124,16 +140,9 @@
     margin-bottom: 50px;
 }
 
-@media (min-width: 576px) {
-    .landing-header {
-        width: 500px;
-        margin-bottom: 150px;
-    }
-}
-
 @media (min-width: 768px) {
     .landing-header {
-        width: 500px;
+        width: 700px;
         margin-bottom: 150px;
     }
 }
@@ -147,7 +156,7 @@
 
 @media (min-width: 1200px) {
     .landing-header {
-        width: 900px;
+        width: 700px;
         margin-bottom: 150px;
     }
 }
@@ -307,7 +316,6 @@
         font-size: 24px;
         min-width: 213px;
         padding: 10px 20px 10px 20px;
-        margin-left: 2em;
         border-radius: 16px;
         background: #35b1a6;
         color: white !important;
