@@ -33,6 +33,11 @@
     min-height: 100vh;
 }
 
+.logo {
+    width: 36px;
+    height: 36px;
+}
+
 .main-dhc-logo {
     border: 10px solid #FFFFFF;
     background: #FFFFFF;
@@ -326,7 +331,7 @@
     .footer-forward-button {
         font-weight: 800;
         font-size: 24px;
-        min-width: 213px;
+        width: 275px;
         padding: 10px 20px 10px 20px;
         border-radius: 16px;
         background: #35b1a6;
@@ -397,16 +402,31 @@
     color: white !important;
 }
 
+
 .footer-backward-button {
     font-weight: 800;
     font-size: 24px;
-    width: 213px;
+    width: 100%;
     padding: 10px 20px;
     border-radius: 16px;
     color: white !important;
     background: #888;
     margin-bottom: 2em;
     text-decoration: none;
+}
+
+@media (min-width: 576px) {
+    .footer-backward-button {
+        font-weight: 800;
+        font-size: 24px;
+        width: 275px;
+        padding: 10px 20px;
+        border-radius: 16px;
+        color: white !important;
+        background: #888;
+        margin-bottom: 2em;
+        text-decoration: none;
+    }
 }
 
 .footer-backward-button:hover {
