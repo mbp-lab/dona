@@ -341,6 +341,36 @@
     }
 }
 
+.footer-forward-button-margin {
+    margin-left: 0;
+    font-weight: 800;
+    font-size: 24px;
+    width: 100%;
+    padding: 10px 20px 10px 20px;
+    border-radius: 16px;
+    background: #35b1a6;
+    color: white !important;
+    margin-bottom: 4em;
+    text-decoration: none;
+}
+
+@media (min-width: 576px) {
+    .footer-forward-button-margin {
+        margin-left: 8px;
+        font-weight: 800;
+        font-size: 24px;
+        width: 275px;
+        padding: 10px 20px 10px 20px;
+        border-radius: 16px;
+        background: #35b1a6;
+        color: white !important;
+        margin-bottom: 2em;
+        text-decoration: none;
+    }
+}
+
+
+
 @media (min-width: 576px) {
     .report-problem-button-footer {
         min-width: 190px !important;
