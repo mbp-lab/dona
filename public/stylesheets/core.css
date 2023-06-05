@@ -50,6 +50,7 @@
   color: #666;
 }
 
+
 .main-body-column {
     width: 85%;
 }
@@ -584,10 +585,6 @@
     background: #35b1a6;
     color: white !important;
     text-decoration: none;
-}
-
-.donation-page-body {
-    width: 940px;
 }
 
 .disabled-input {
