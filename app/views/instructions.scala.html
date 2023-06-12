@@ -129,10 +129,28 @@
                 <div class="col-md">
                 @if(dataSourceDescription.animation.isDefined){
                     <div class="">
-                        <video controls autoplay height="@{dataSourceDescription.animation.get.height}" width="@{dataSourceDescription.animation.get.width}">
-                            <source src="@routes.Assets.at(s"images/dataSourceImages/${dataSourceDescription.animation.get.source}")" type="video/mp4">
-                        </video>
-                        <p>@messages("whatsapp.instruction.gif.subtitle")</p>
+                        <ul class="nav nav-tabs flex-column flex-sm-row" id="myTab" role="tablist">
+                            <li class="nav-item flex-sm-fill">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#iOSGifTab" role="tab" aria-controls="home" aria-selected="true">iOS</a>
+                            </li>
+                            <li class="nav-item flex-sm-fill">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#androidGifTab" role="tab" aria-controls="profile" aria-selected="false">Android</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="iOSGifTab" role="tabpanel" aria-labelledby="iOSGif-tab">
+                                <video controls autoplay height="@{dataSourceDescription.animation.get.height}" width="@{dataSourceDescription.animation.get.width}">
+                                    <source src="@routes.Assets.at(s"images/dataSourceImages/${dataSourceDescription.animation.get.source}")" type="video/mp4">
+                                </video>
+                                <p>@messages("whatsapp.instruction.gif.subtitle")</p>
+                            </div>
+                            <div class="tab-pane fade" id="androidGifTab" role="tabpanel" aria-labelledby="androidGif-tab">
+                                <video controls autoplay height="@{dataSourceDescription.animation.get.height}" width="@{dataSourceDescription.animation.get.width}">
+                                    <source src="@routes.Assets.at(s"images/dataSourceImages/${dataSourceDescription.animation.get.source}")" type="video/mp4">
+                                </video>
+                                <p>Hier sollte ein Android-Text stehen</p>
+                            </div>
+                        </div>
                     </div>
                 }
                 </div>
