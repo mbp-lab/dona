@@ -19,7 +19,7 @@ services:
      - "SOCIAL_DATA_INGESTION_ENABLED=on"
      - "DONOR_SURVEY_ENABLED=off"
      - "DONOR_SURVEY_LINK="
-     - "FEEDBACK_SURVEY_LINK="
+     - "FEEDBACK_SURVEY_LINK=https://survey.mbp.tf.uni-bielefeld.de/index.php?r=survey/index&sid=216818"
      - "SECURE_COOKIE=false"
   postgres:
     restart: unless-stopped
