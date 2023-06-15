@@ -140,15 +140,15 @@
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="iOSGifTab" role="tabpanel" aria-labelledby="iOSGif-tab">
                                 <video controls autoplay height="@{dataSourceDescription.animation.get.height}" width="@{dataSourceDescription.animation.get.width}">
-                                    <source src="@routes.Assets.at(s"images/dataSourceImages/${dataSourceDescription.animation.get.source}")" type="video/mp4">
+                                    <source src="@routes.Assets.at(s"images/dataSourceImages/${messages("whatsapp.instruction.gifiOS")}")" type="video/mp4">
                                 </video>
-                                <p>@messages("whatsapp.instruction.gif.subtitle")</p>
+                                <p>@messages("whatsapp.instruction.gif.subtitle.iOS")</p>
                             </div>
                             <div class="tab-pane fade" id="androidGifTab" role="tabpanel" aria-labelledby="androidGif-tab">
                                 <video controls autoplay height="@{dataSourceDescription.animation.get.height}" width="@{dataSourceDescription.animation.get.width}">
-                                    <source src="@routes.Assets.at(s"images/dataSourceImages/${dataSourceDescription.animation.get.source}")" type="video/mp4">
+                                    <source src="@routes.Assets.at(s"images/dataSourceImages/${messages("whatsapp.instruction.gifAndroid")}")" type="video/mp4">
                                 </video>
-                                <p>Hier sollte ein Android-Text stehen</p>
+                                <p>@messages("whatsapp.instruction.gif.subtitle.android")</p>
                             </div>
                         </div>
                     </div>

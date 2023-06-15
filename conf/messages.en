@@ -412,7 +412,10 @@ whatsapp.donation-procedure.6=Select "Mail" (envelope) and send the mail with th
 whatsapp.donation-procedure.7=Download the chat file from the email to your computer. If your chat was exported in a <b>zip file</b>, you will need to unzip it so that only text files remain.
 whatsapp.donation-procedure.8=Repeat the steps 3-7 for all chats.
 whatsapp.instruction.gif=whatsapp_eng.mp4
-whatsapp.instruction.gif.subtitle=This is the chat export process on an iPhone. For other devices, the necessary steps may be slightly different.
+whatsapp.instruction.gifiOS=whatsapp_eng_iOS.mp4
+whatsapp.instruction.gifAndroid=whatsapp_eng_android.mp4
+whatsapp.instruction.gif.subtitle.iOS=This is the chat export process on an iPhone.
+whatsapp.instruction.gif.subtitle.android=This is the chat export process on an Android device. The process may vary on different devices.
 whatsapp.logo=w-logo.svg
 
 facebook.instructions.p1.title=What type of device should I use?
