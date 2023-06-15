@@ -524,6 +524,8 @@ whatsapp.donation-procedure.6=Ընտրեք, թե որտեղ եք ցանկանո�
 whatsapp.donation-procedure.7=Ներբեռնեք ֆայլերը Ձեր համակարգիչ։ Եթե չատը արտահանվել է <b>zip ձևաչափով</b>, խնդրում ենք առանձնացնել ներսում գտնվող .txt ձևաչափի ֆայլերը։
 whatsapp.donation-procedure.8=Կրկնեք 3-7 հրահանգները բոլոր չատերի համար։
 whatsapp.instruction.gif=whatsapp_am.mp4
+whatsapp.instruction.gifiOS = whatsapp_eng_iOS.mp4
+whatsapp.instruction.gifAndroid = whatsapp_eng_android.mp4
 whatsapp.instruction.gif.subtitle=Սա Android համակարգով ստեղված օրինակ է։ Այլ սարքերում քայլերը կարող են փոքր-ինչ տարբերվել, սակայն տրամաբանությունը նույնն է։
 whatsapp.logo=w-logo.svg
 
