@@ -32,9 +32,7 @@ final class FeedbackSurveyController @Inject()(
     val isolocaleString = messagesApi.preferred(request).lang.locale.getLanguage
     val link = feedbackSurveyConfig.createFeedbackLink(donorId, isolocaleString).toString
 
-    val refererUrl = "https://jdmxf-sxguz.dona.tf.uni-bielefeld.de/data-upload" // The referer URL
-
-    Redirect(link).withHeaders("Referer" -> refererUrl)
+    Redirect(link)
   }
 
 }
