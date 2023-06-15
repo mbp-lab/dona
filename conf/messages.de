@@ -404,8 +404,11 @@ whatsapp.donation-procedure.5=Scrollen Sie runter und klicken Sie auf „Chat ex
 whatsapp.donation-procedure.6=Wählen Sie "Mail" (Briefumschlag) aus und senden Sie die Mail mit der angehangenen Chat-Datei an sich selbst. Bitte (ver)senden Sie nur von/an einen sicheren Maildienst (z.B. Uni-Mailadresse). Alternativ können Sie die Dateien auch via Bluetooth an Ihren Computer senden.
 whatsapp.donation-procedure.7=Laden Sie die Chatdatei aus der E-mail auf Ihrem Computer herunter. Falls Ihr Chat in einer <b>Zip-Datei</b> exportiert wurde, müssen Sie diese entpacken, sodass nur Text-Dateien übrig bleiben.
 whatsapp.donation-procedure.8=Wiederholen Sie die Schritte 3-7 für alle Chats.
-whatsapp.instruction.gif = whatsapp_ger.mp4
-whatsapp.instruction.gif.subtitle=Dies ist der Chat Export-Prozess auf einem iPhone. Bei anderen Geräten können die notwendigen Schritte etwas anders sein.
+whatsapp.instruction.gif=whatsapp_ger.mp4
+whatsapp.instruction.gifiOS=whatsapp_ger_iOS.mp4
+whatsapp.instruction.gifAndroid=whatsapp_ger_android.mp4
+whatsapp.instruction.gif.subtitle.iOS=Dies ist der Chat Export-Prozess auf einem iPhone.
+whatsapp.instruction.gif.subtitle.android=Dies ist der Chat Export-Prozess auf einem Android-Gerät. Der Prozess könnte auf verschiedenen Geräten leicht anders sein.
 whatsapp.logo=w-logo.svg
 
 
