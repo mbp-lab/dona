@@ -18,7 +18,7 @@ services:
      - "SOCIAL_DATA_SOURCE_ID=1234566"
      - "SOCIAL_DATA_INGESTION_ENABLED=on"
      - "DONOR_SURVEY_ENABLED=off"
-     - "DONOR_SURVEY_LINK="
+     - "DONOR_SURVEY_LINK=https://survey.mbp.tf.uni-bielefeld.de/index.php?r=survey/index&sid=484671"
      - "FEEDBACK_SURVEY_LINK=https://survey.mbp.tf.uni-bielefeld.de/index.php?r=survey/index&sid=216818"
      - "SECURE_COOKIE=false"
   postgres:
