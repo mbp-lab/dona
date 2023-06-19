@@ -67,25 +67,40 @@ donation-info.storage=<strong> Storage: </strong>Only anonymized and reduced dat
 # Consent pop-up
 
 consent.title=Informed Consent
+consent.subtitle=Thank you for your interest in our study on social interactions. Please read the following information carefully.
 
-consent.about.title=Information about the Study
-consent.about.body1=The aim of this study is to measure the dynamics of social interaction of people by leveraging their social media data. This study is completely anonymous and online. It includes donation of your anonymized social media data as well as the completion of several online questionnaires. After having downloaded your interaction data from a platform of your choice, participation in the study will only take about 20 minutes.
-consent.about.body2_html=By agreeing, you confirm that you have read and understood the background and process of this online study.
+consent.purpose.title=Purpose of the study
+consent.purpose.body=The goal of the study is to anonymously capture people's social interaction dynamics based on their social media messages.
 
-consent.benefit.title=Benefits and risks
-consent.benefit.body=With your participation you enable us to identify and characterise new insights about social interactions between humans. You gain insights into your own personal messaging behavior. Furthermore, at the end of the study, you can participate in a raffle for a 50€ voucher (<a target="_blank" href="https://www.cadooz.com/en/products/bestchoice-shopping-gift-card/">Cadooz-Bestchoice</a>). This is an ongoing study, so a voucher is drawn every time a set of 100 participants is achieved (winning chance: 1/100). We only collect anonymized data. Before the donation of your data you have to download the messaging data locally on your own device. Since this data contains sensitive information we recommend to delete the local copy of your data after the end of the study. Please conduct the study alone and in a calm environment to ensure your privacy.
+consent.responsible.title=Persons responsible for this study
+consent.responsible.body1=The study "Exploring interaction patterns using anonymized network data from social networks" is conducted at the Technical Faculty of Bielefeld University, Multimodal Behavior Processing group of Prof. Dr. Hanna Drimalla.
+consent.responsible.body2=The study is funded by the German Federal Ministry of Education and Research (BMBF; 01IS20046).
+
+consent.about.title=Study Procedure - What exactly can you expect in this study?
+consent.about.body1=This study includes one session and takes approximately 20 minutes. The study takes place online.
+consent.about.body2=Your task is to donate your anonymized online messages and fill out some online questionnaires. You will be asked to answer questions about your demographic information (e.g. age in groups, gender, education level), about your donation, as well as about your current mood and messaging behavior. The data cannot be assigned to a specific person at any time.
+
+consent.benefit.title=Benefits and Risks
+consent.benefit.body1=Your participation will help identify and characterize new insights into people's social interaction behavior. You will also gain insight into your own messaging behavior. In addition, at the end of the study, you will have the opportunity to receive a 5€ voucher (<a target="_blank" href="https://www.cadooz.com/en/products/bestchoice-shopping-gift-card/">Cadooz-Bestchoice</a>).
+consent.benefit.body2=We only collect anonymized data. Before donating data, you will need to download the messaging data to your device. As this is sensitive data, we strongly recommend deleting the original data from your device after completing the donation. To ensure your privacy, please conduct the study in an undisturbed environment. No negative consequences or special stress are expected as a result of your participation. The study does not pose any risks to you.
 
 consent.data-storage.title=Collected Data
-
+consent.data-storage.body1=<i>Data donation:</i> When you donate your social media data, we only collect metadata (e.g. message length, message time, and conversation participants' pseudonyms) without any content (e.g. message text or conversation participants' name). Your online interaction data will be anonymized on your computer. We therefore never see your messages. Before we store your anonymized messages, you can review them. This way you can make sure that they are sufficiently anonymized.
+consent.data-storage.body2=<i>Questionnaires:</i> You first fill out questionnaires about your demographic information, your donation, and your current mood and messaging behavior. Afterwards, you can make the data donation and receive feedback. You will then fill out additional questionnaires on similar topics, as well as on the usability of the feedback. This survey also takes place completely anonymously on the LimeSurvey platform.
 # data storage text body is reused - see below
 
 consent.voluntary.title=Voluntary Participation
-consent.voluntary.body=The participation in this study is entirely voluntary. At any time you may revoke your consent concerning your participation in this study, without giving any reason and without any kind of negative consequences. Before uploading the data to our research platform, you may revoke, without giving reason, your consent concerning the storage of your anonymized data, without any negative consequences.
+consent.voluntary.body=The participation in this study is entirely voluntary. At any time you may revoke your consent concerning your participation in this study, without giving any reason and without any kind of negative consequences.
 
-consent.data-protection.title=Data Security
-consent.data-protection.body=Since we are not collecting any names or other person-specific data, we will not be able to associate you with your data once the study has been completed from your side - the donated data is anonymous. This means that your data cannot be deleted on your request after submission. Due to the completely anonymous data handling and processing, the General Data Protection Regulation (GDPR) does not apply. In case of questions or concerns, please contact the office for data protection at the University of Bielefeld:
+consent.data-protection.title=Data protection and data use
+consent.data-protection.body1=The data collected as part of this study will be treated confidentially. Before you submit your anonymized data, you have the option not to store your data by cancelling the study. You can do this simply by closing the browser window. We will not receive your data then. Once you have sent us the data, it is no longer possible to specifically delete your data, as we store your data exclusively in anonymized form.
+consent.data-protection.body2=To ensure complete and unique study participation and to send you the voucher, you will receive a token (participation code) from us, which you can enter at the end of the study together with your e-mail address. You will then receive the voucher at the address you provided, after which it and the token will be deleted. At no time can we associate your email address or token with your study data.
+consent.data-protection.body3=The study results are published in summarized form, e.g. in scientific journals, talks or courses.
+
 consent.data-protection.address_html=Data protection officer <br /> University Bielefeld <br /> Office: UHG T6-234  <br />Phone +49 521 106-5225 <br /><a href="mailto:datenschutzbeauftragte@uni-bielefeld.de">datenschutzbeauftragte@uni-bielefeld.de</a>
 
+consent.contact.title=Contact information
+consent.contact.body=If you have any questions about participation and data use, please contact the person responsible for the project: Prof. Dr. Hanna Drimalla, drimalla@techfak.uni-bielefeld.de, Tel. +49 521 106-12043
 
 consent.data-purpose.title=Usage of data
 consent.data-purpose.body=The data and results of these surveys will be published in scientific journals. The published data will be anonymous, meaning that it cannot be associated with individuals. The fully anonymized data will be uploaded to a research data repository and qualified scientists will be granted access.

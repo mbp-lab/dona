@@ -68,24 +68,38 @@ donation-info.storage=<strong> Speicherung: </strong>Nur diese anonymisierten un
 # Consent pop-up
 
 consent.title=Einwilligungserklärung
+consent.subtitle=Vielen Dank für Ihr Interesse an unserer Studie zu sozialen Interaktionen.  Bitte lesen Sie die folgenden Informationen aufmerksam durch.
 
-consent.about.title=Information zur Studie
-consent.about.body1=Ziel der Studie ist es, die soziale Interaktionsdynamiken von Menschen anhand ihrer Social Media Nachrichten zu erfassen. Die Studie findet komplett online und anonym statt. Die Studie beinhaltet die Datenspende Ihrer anonymisierten Online-Nachrichten sowie das Ausfüllen einiger Online-Fragebögen. Nachdem Sie Ihre Online-Interaktionsdaten heruntergeladen haben, dauert die Studie ungefähr 20 Minuten.
-consent.about.body2_html=Mit Ihrer Einwilligung bestätigen Sie, dass Sie die vorherige Informationswebseite zum Zweck, Ablauf und Umfang der Online-Studie gelesen und verstanden haben.
+consent.purpose.title=Studienzweck
+consent.purpose.body=Ziel der Studie ist es, die soziale Interaktionsdynamiken von Menschen anhand ihrer Social-Media-Nachrichten anonym zu erfassen.
+
+consent.responsible.title=Verantwortliche für diese Studie
+consent.responsible.body1=Die Studie „Erforschung der Interaktionsmuster anhand anonymisierter Netzwerkdaten aus sozialen Netzen“ wird durchgeführt durch die Technische Fakultät der Universität Bielefeld, Arbeitsgruppe Multimodal Behavior Processing von Prof. Dr. Hanna Drimalla.
+consent.responsible.body2=Die Studie wird gefördert durch das Bundesministerium für Bildung und Forschung (BMBF; 01IS20046).
+
+consent.about.title=Studienablauf – Was genau erwartet Sie in dieser Studie?
+consent.about.body1=Diese Studie umfasst eine Sitzung und nimmt erfahrungsgemäß 20 Minuten in Anspruch. Die Studie findet online statt.
+consent.about.body2=Ihre Aufgabe ist es, ihre anonymisierten Online-Nachrichten zu spenden sowie einige Online-Fragebögen auszufüllen.<br>Sie werden gebeten, Fragen zu zu Ihren demographischen Informationen (bspw. Alter in Gruppen, Geschlecht, Bildungsniveau), zu Ihrer Spende, sowie zu Ihrer momentanen Stimmung und zu Ihrem Messaging-Verhalten zu beantworten. Die  Daten lassen sich zu keinem Zeitpunkt einer konkreten Person zuordnen.
 
 consent.benefit.title=Nutzen und Risiken
-consent.benefit.body=Mit Ihrer Teilnahme helfen Sie dabei, neue Erkenntnisse über das soziales Interaktionsverhalten der Menschen zu identifizieren und charakterisieren. Sie erhalten zudem einen Einblick in Ihr eigenes Messaging-Verhalten. Außerdem können Sie am Ende der Studie an einer Verlosung eines 50€ Gutscheins (<a target="_blank" href="https://www.cadooz.com/produkte/bestchoice-einkaufsgutschein-von-cadooz/">Cadooz-Bestchoice</a>) teilnehmen. Dies ist eine fortlaufende Studie, daher wird je 100 TeilnehmerInnen ein Gutschein verlost (Gewinnchance: 1/100). Wir erheben nur anonymisierte Daten. Vor der Datenspende müssen Sie die Messaging-Daten auf Ihr Gerät herunterladen. Da es sich um sensible Daten handelt, empfehlen wir Ihnen ausdrücklich, die Original-Daten nach dem Abschluss der Spende von Ihrem Gerät zu löschen. Um Ihre Privatsphäre zu sichern, führen Sie die Studie in ungestörter Umgebung und allein durch.
+consent.benefit.body1=Mit Ihrer Teilnahme helfen Sie dabei, neue Erkenntnisse über das soziale Interaktionsverhalten der Menschen zu identifizieren und charakterisieren. Sie erhalten zudem einen Einblick in Ihr eigenes Messaging-Verhalten. Außerdem erhalten Sie am Ende der Studie die Möglichkeit, einen 5€ Gutschein (<a target="_blank" href="https://www.cadooz.com/produkte/bestchoice-einkaufsgutschein-von-cadooz/">Cadooz-Bestchoice</a>) zu erhalten.
+consent.benefit.body2=Wir erheben nur anonymisierte Daten. Vor der Datenspende müssen Sie die Messaging-Daten auf Ihr Gerät herunterladen. Da es sich um sensible Daten handelt, empfehlen wir Ihnen ausdrücklich, die Original-Daten nach dem Abschluss der Spende von Ihrem Gerät zu löschen. Um Ihre Privatsphäre zu sichern, führen Sie die Studie in ungestörter Umgebung durch. Durch die Teilnahme sind keine negativen Folgen oder besondere Belastungen zu erwarten. Die Untersuchung birgt keinerlei Risiken für Sie.
 
 consent.data-storage.title=Erhobene Daten
-
-# data storage text body is reused - see below
+consent.data-storage.body1=<i>Datenspende:</i> Bei der Datenspende Ihrer Social-Media-Daten erfassen wir ausschließlich Metadaten (e.g. Nachrichtenlänge, Nachrichtenzeitpunkt und Pseudonyme der UnterhaltungsteilnehmerInnen) und keine Inhalte (e.g. Nachrichtentext oder Name der UnterhaltungsteilnehmerInnen). Ihre Online-Interaktions-Daten werden bereits auf Ihrem Rechner anonymisiert. Wir sehen also niemals Ihre Nachrichten. Bevor wir Ihre anonymisierten Nachrichten speichern, können Sie diese begutachten. So können Sie sich davon überzeugen, dass diese ausreichend anonymisiert sind.
+consent.data-storage.body2=<i>Fragebögen:</i> Sie füllen zunächst Fragebögen zu Ihren demographischen Informationen, zu Ihrer Spende, sowie zu Ihrer momentanen Stimmung und zu Ihrem Messaging-Verhalten aus. Danach können Sie die Datenspende durchführen und erhalten Feedback. Anschließend füllen Sie weitere Fragebögen zu ähnlichen Themen aus, sowie zu der Benutzerfreundlichkeit des Feedbacks. Diese Erhebung findet ebenfalls komplett anonym auf der Plattform LimeSurvey statt.
 
 consent.voluntary.title=Freiwilligkeit
-consent.voluntary.body=Die Teilnahme an der Studie ist freiwillig. Sie können jederzeit und ohne Angabe von Gründen Ihre Einwilligung zur Teilnahme an dieser Studie widerrufen, ohne dass Ihnen daraus Nachteile entstehen. Sie können Ihre Einwilligung zur Speicherung der Daten bis zum Ende der Datenerhebung widerrufen, ohne dass Ihnen daraus Nachteile entstehen.
+consent.voluntary.body=Die Teilnahme an der Studie ist freiwillig. Sie können jederzeit und ohne Angabe von Gründen die Teilnahme an dieser Studie beenden, ohne dass Ihnen daraus Nachteile entstehen.
 
-consent.data-protection.title=Datenschutz
-consent.data-protection.body=Da wir weder Ihren Namen oder andere personenbezogenen Daten erheben, können wir nach Abschluss der Studie, Ihre Daten nicht mehr Ihrer Person zuordnen – der Datensatz ist anonym. Entsprechend können wir Ihren Datensatz jedoch auch nicht gezielt löschen. Aufgrund der von vornherein vollständig anonymisierter Verarbeitung findet außerdem die Datenschutzgrundverordnung keine Anwendung. Bei Fragen zum Datenschutz können Sie sich an den/die Datenschutzbeauftragte/n der Universität wenden:
+consent.data-protection.title=Datenschutz und Datennutzung
+consent.data-protection.body1=Die im Rahmen dieser Studie erhobenen Daten werden vertraulich behandelt. Bis zum Abschicken Ihrer anonymisierten Daten haben Sie die Möglichkeit, der Speicherung Ihrer Daten durch Abbruch der Studie zu widersprechen. Sie können dies einfach durch Schließen des Browserfensters tun. Wir werden Ihre Daten dann nicht erhalten. Sobald Sie uns die Daten geschickt haben, ist keine gezielte Datenlöschung mehr möglich, da wir Ihre Daten ausschließlich in anonymisierter Form speichern.
+consent.data-protection.body2=Um die vollständige und einmalige Studienteilnahme zu gewährleisten und Ihnen den Gutschein zukommen zu lassen, erhalten Sie einen Token (Teilnahmecode) von uns, den Sie am am Ende der Studie zusammen mit Ihrer E-Mail-Adresse eingeben können. Sie erhalten dann den Gutschein an die von Ihnen angegebene Adresse, woraufhin diese und der Token gelöscht wird. Zu keinem Zeitpunkt können wir Ihre E-Mail-Adresse oder Ihren Token mit Ihren Studiendaten in Verbindung bringen.
+consent.data-protection.body3=Die Studienergebnisse werden in zusammengefasster Form z.B. in wissenschaftlichen Zeitschriften, Vorträgen oder Lehrveranstaltungen veröffentlicht.
 consent.data-protection.address_html=Behördliche Datenschutzbeauftragte <br /> Universität Bielefeld <br /> Büro: UHG T6-234  <br />Telefon +49 521 106-5225 <br /><a href="mailto:datenschutzbeauftragte@uni-bielefeld.de">datenschutzbeauftragte@uni-bielefeld.de</a>
+
+consent.contact.title=Kontaktdaten
+consent.contact.body=Bei Fragen zur Teilnahme, Freiwilligkeit und Datennutzung melden Sie sich gerne bei dem*der Projektverantwortlichen: Prof. Dr. Hanna Drimalla, drimalla@techfak.uni-bielefeld.de, Tel. +49 521 106-12043
 
 consent.data-purpose.title=Verwendung der anonymisierten Daten
 consent.data-purpose.body=Die Ergebnisse und Daten dieser Studie werden als wissenschaftliche Publikation veröffentlicht. Dies geschieht in anonymisierter Form, d. h. ohne dass die Daten einer spezifischen Person zugeordnet werden können. Die vollständig anonymisierten Daten dieser Studie werden online in einem Forschungsdaten-Repositorium gespeichert und qualifizierten Wissenschaftlern auf Antrag zugänglich gemacht.
