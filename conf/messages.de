@@ -57,6 +57,7 @@ instructions.about.body_html=Bevor Sie an der Studie teilnehmen, fordern Sie bit
 instructions.datasource.title_format = Anleitung zum Erhalten von %s-Daten
 instructions.download-procedure.title=Übersicht über den Download & Datenspende Prozess:
 instructions.continue.body=Wenn Sie anhand dieser Anleitung Ihre Daten erhalten haben, können Sie jetzt mit der Einverständniserklärung und dem ersten Fragebogen der Studie beginnen. Im Anschluss können Sie dann Ihre Daten spenden.
+instructions.haveData=Sie brauchen 5-7 WhatsApp-Chats (.txt-Dateien).
 
 # Donation info page
 
@@ -183,7 +184,7 @@ donation.anonymisation.loading.tooLong.issue.6=Helfen Sie uns <a href="@messages
 
 donation.errors.no-profile=Die Datei enthält keine Profildaten.
 donation.errors.no-alias=Ein Nutzername muss angegeben werden. Sie können ihn in Ihrem WhatsApp-Profil finden.
-donation.errors.not-enough-chats_format=Bitte wählen Sie Ihre 5-7 wichtigsten Unterhaltungen aus. Sie haben %s ausgewählt.
+donation.errors.not-enough-chats_format=Bitte wählen Sie Ihre 5-7 wichtigsten Unterhaltungen aus. Sie haben %s ausgewählt. <br>Drücken und halten Sie die Strg-/Befehlstaste, um mehrere Dateien gleichzeitig auszuwählen.
 donation.errors.something-went-wrong=Etwas ist schief gelaufen! Bitte kehren Sie zum Start zurück und wiederholen Sie den Vorgang.
 donation.errors.same-file=Sie können nur Dateien auswählen, die sich voneinander unterscheiden. Bitte wählen Sie Ihre 5-7 wichtigsten Unterhaltungen aus.
 donation.errors.no-messages-time-period=In dem ausgewählten Zeitraum befinden sich keine Nachrichten. Bitte wählen Sie einen größeren und validen Zeitraum.
@@ -415,8 +416,8 @@ whatsapp.donation-procedure.2=Überlegen Sie, welche fünf Chats für Sie besond
 whatsapp.donation-procedure.3=Wählen Sie einen der Chats aus und öffnen Sie diesen.
 whatsapp.donation-procedure.4=Klicken Sie oben in der Mitte auf den Namen des Kontakts.
 whatsapp.donation-procedure.5=Scrollen Sie runter und klicken Sie auf „Chat exportieren“. Ein Fenster öffnet sich. Wählen Sie "OHNE MEDIEN".
-whatsapp.donation-procedure.6=Wählen Sie "Mail" (Briefumschlag) aus und senden Sie die Mail mit der angehangenen Chat-Datei an sich selbst. Bitte (ver)senden Sie nur von/an einen sicheren Maildienst (z.B. Uni-Mailadresse). Alternativ können Sie die Dateien auch via Bluetooth an Ihren Computer senden.
-whatsapp.donation-procedure.7=Laden Sie die Chatdatei aus der E-mail auf Ihrem Computer herunter. Falls Ihr Chat in einer <b>Zip-Datei</b> exportiert wurde, müssen Sie diese entpacken, sodass nur Text-Dateien übrig bleiben.
+whatsapp.donation-procedure.6=Wählen Sie "Mail" (Briefumschlag) aus und senden Sie die Mail mit der angehangenen Chat-Datei an sich selbst. Bitte (ver)senden Sie nur von/an einen sicheren Maildienst (z.B. Uni-Mailadresse). Alternativ können Sie die Dateien auch via Bluetooth oder Airdrop an Ihren Computer senden.
+whatsapp.donation-procedure.7=Laden Sie die Chatdatei aus der E-mail auf Ihrem Computer herunter. Falls Ihr Chat in einer <b>Zip-Datei</b> exportiert wurde, müssen Sie diese entpacken, sodass nur Text-Dateien (.txt) übrig bleiben.
 whatsapp.donation-procedure.8=Wiederholen Sie die Schritte 3-7 für alle Chats.
 whatsapp.instruction.gif=whatsapp_ger.mp4
 whatsapp.instruction.gifiOS=whatsapp_ger_iOS.mp4
