@@ -122,8 +122,11 @@
         <div class="row justify-content-center mx-0 d-none" id="stillAnErrorSomewhere">
             <p class="text-danger">@messages("donation.errors.somewhereError")</p>
         </div>
-        <div class="row justify-content-center mx-0">
-            <a class="btn footer-backward-button" href="/instructions">@messages("actions.previous")</a>
+        <div class="row mx-0">
+            <div class="col justify-content-center text-center">
+            <a class="btn footer-backward-button center" href="/instructions">@messages("actions.previous")</a>
+            </div>
+            <div class="col justify-content-center text-center">
             @helper.form(routes.SocialDataDonationController.postData()) {
                 @helper.CSRF.formField
                 <input type='hidden' name='inputJson' id='inputJson' />
@@ -136,6 +139,7 @@
                 value="@messages("donation.submit")"
                 />
             }
+            </div>
         </div>
     </div>
 
