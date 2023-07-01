@@ -31,7 +31,7 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
     }
 
     let layout = {
-        height: 600,
+        //height: 600,
         showlegend: true,
         barmode: 'overlay',
         legend: {

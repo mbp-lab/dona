@@ -37,8 +37,8 @@ function sentReceivedDailyPerConversation(dataSlidingWindow, plotId, listOfConve
             tickformat: '.0f',
         },
         legend: {
-            x: -0.1,
-            y: 1.15,
+            x: 0.03,
+            y: 1.3,
         }
     };
 
@@ -116,9 +116,9 @@ function sentReceivedDailyPerConversation(dataSlidingWindow, plotId, listOfConve
                 active: 0,
                 buttons: [],
                 pad: {'r': 10, 't': 10},
-                x: -0.1,
+                x: 0.03,
                 xanchor: 'left',
-                y: 1.32,
+                y: 1.60,
                 yanchor: 'top'
             },
             {
@@ -229,7 +229,7 @@ function sentReceivedDailyPerConversation(dataSlidingWindow, plotId, listOfConve
     layout.xaxis.range = [resultTraces[0].x[0], resultTraces[0].x[resultTraces[0].x.length - 1]]
 
     layout.xaxis.rangeslider = {}
-    layout.height = 700
+    //layout.height = 700
 
     plotContainer.html("");
     Plotly.newPlot(plotId, resultTraces, layout, config);

@@ -28,7 +28,7 @@ function dailyActivityTimes(dataSent, dataReceived, listOfConversations, plotId)
     let layout = {
         hovermode: "closest",
         autosize: true,
-        height: 550,
+        //height: 550,
         legend: {
             x: 1.01,
             y: 1.16,

@@ -27,7 +27,7 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
     }
 
     let layout = {
-        height: 550,
+        //height: 550,
         hovermode: false,
         showlegend: true,
         legend: {

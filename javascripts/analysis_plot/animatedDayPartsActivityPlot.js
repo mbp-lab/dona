@@ -38,7 +38,7 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
     }
 
     let layout = {
-        height: 700,
+        //height: 700,
         showlegend: true,
         barmode: 'overlay',
         legend: {

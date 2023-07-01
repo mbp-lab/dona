@@ -65,7 +65,7 @@ function animatedResponseTimeBarChart(responseTimes, plotId) {
     }
 
     let layout = {
-        height: 600,
+        //height: 600,
         showlegend: true,
         barmode: 'overlay',
         hovermode: 'x',
