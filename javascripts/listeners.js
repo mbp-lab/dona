@@ -145,6 +145,10 @@ function setUpFileHandler() {
 
     let onFileInputChange = (dataSource, files) => {
 
+        // variables
+        let testFileNames;
+        let testFileNameLength;
+
         if (files.length < 1) {
             messageService.hide(dataSource)
             $(".show-on-anonymisation-success" + "-" + dataSource).addClass('d-none');
@@ -177,6 +181,24 @@ function setUpFileHandler() {
 
         handler
             .then((deIdentifiedJson) => {
+
+                // check if names are testFileNames - if so then disable (later in the code) the date selection
+                const testFilesContactNames = [
+                    "Kyle Adkins",
+                    "System",
+                    "Donna Patterson",
+                    "Dr. Heather Hanson",
+                    "Jeffery Hill",
+                    "Michelle Morris",
+                    "Sherry Flores"
+                ]
+                testFileNames = true
+                testFileNameLength = Object.keys(deIdentifiedJson.participantNameToRandomIds).length === testFilesContactNames.length
+                Object.keys(deIdentifiedJson.participantNameToRandomIds).forEach((name) => {
+                    testFileNames = testFileNames && testFilesContactNames.includes(name)
+                })
+
+
                 const fileList = $("#" + dataSource + "FileList")
                 fileList.empty()
 
@@ -324,7 +346,6 @@ function setUpFileHandler() {
                 }
 
 
-
                 // show success messages
                 $(".show-on-anonymisation-success" + "-" + dataSource).removeClass('d-none');
                 //console.log(currentErrorFW)
@@ -339,6 +360,13 @@ function setUpFileHandler() {
 
                 earlierSuccess = true;
                 progressBar.stop(dataSource);
+
+
+                // disable date selection if files are test files!
+                if (testFileNames && testFileNameLength) {
+                    document.getElementById("startDate-" + dataSource).disabled = true
+                    document.getElementById("endDate-" + dataSource).disabled = true
+                }
 
                 /*
                 // check if number of whatsApp files is in the limits
