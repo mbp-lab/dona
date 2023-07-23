@@ -726,13 +726,6 @@
 
 /* mobileAlertModal */
 
-
-.modalMobileAlert .modalMobileAlert-dialog {
-    width: 90%;
-    max-width: none;
-    height: 100%;
-}
-
 .modalMobileAlert .modalMobileAlert-body {
     overflow-y: auto;
 }

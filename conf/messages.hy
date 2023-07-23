@@ -239,7 +239,7 @@ donation.submit=Ուղարկել
 
 
 feedback.thanks.title=Շնորհակալություն Ձեր տվյալների համար։
-
+feedback.landscapeMode=Hold your device <b>sideways</b> in case the graphics are not shown properly.
 
 feedback.importantMessage.title=Կարևոր նշում
 feedback.importantMessage.disclaimer=Ցուցադրվող գրաֆիկները <b>թույլ <u>չեն տալիս</u> ուղիղ եզրահանգումներ անել Ձեր հարաբերությունների որակի մասին։ Վերլուծությունը հիմնված է բացառապես հաղորդագրությունների քանակի ու ժամանակի վրա։

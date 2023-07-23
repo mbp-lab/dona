@@ -23,6 +23,8 @@ $(document).ready(function () {
         alert(reminder)
     }, 900000)
 
+    alertIfMobile()
+
     Object.keys(allData).forEach(function (dataSourceType) {
         const graphData = allData[dataSourceType];
         //console.log(graphData)
@@ -158,3 +160,33 @@ $(document).ready(function () {
     })
 
 });
+
+function alertIfMobile() {
+
+    var userAgent = navigator.userAgent.toLowerCase(),
+        width = screen.availWidth,
+        height = screen.availHeight,
+        userIsOnMobileDevice = checkIfUserIsOnMobileDevice(userAgent);
+
+    if(userIsOnMobileDevice) {
+        //alert("@messages("landing.mobileAlert")")
+        $('#mobileAlertModal').modal("show")
+    }
+
+    function checkIfUserIsOnMobileDevice($userAgent) {
+        if($userAgent.includes('mobi') || $userAgent.includes('tablet')){
+            return true;
+        }
+        if($userAgent.includes('android')) {
+            if(height > width && width < 800) {
+                // Screen is higher than it’s wide, so we have portrait mode
+                return true;
+            }
+            if(width > height && height < 800) {
+                // Screen is wider than it’s high, so we have landscape mode
+                return true;
+            }
+        }
+        return false;
+    }
+}

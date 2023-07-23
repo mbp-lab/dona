@@ -57,6 +57,17 @@
 
         @footer(nextLink = Some(routes.FeedbackSurveyController.goToFeedback(donorId).toString), nextCustomText=Some(messages("feedback.toRaffleButton")))()
 
+    </div >
+    @* modal for mobile alert to better use phone sideways *@
+    <div class="modal modalMobileAlert modal-xl" id="mobileAlertModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modalMobileAlert-dialog modal-dialog-centered" role="document">
+            <div class="modal-content modalMobileAlert-content">
+                <div class="modal-body">
+                    <h3 class="modal-title">@Html(messages("feedback.landscapeMode"))</h3>
+                    <button type="button" data-dismiss="modal" class="btn modal-forward-button float-right">OK</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="@routes.Assets.at("lib/jquery/jquery.min.js")" type="text/javascript"></script>
