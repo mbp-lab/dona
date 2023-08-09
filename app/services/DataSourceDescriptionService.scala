@@ -25,7 +25,7 @@ object InMemoryDataSourceDescriptionService {
     DataSourceDescription(
       name = DonationDataSourceType.WhatsApp,
       description = messages("whatsapp.description_html"),
-      parsingDetails = ParsingDetails(script = "", specificFileExtensionAccepted = Some(".txt")),
+      parsingDetails = ParsingDetails(script = "", specificFileExtensionAccepted = Some(".txt, .zip")),
       animation = Some(AnimatedImage(messages("whatsapp.instruction.gif"), 555, 270)),
       illustration = None,
       documentation = messages("whatsapp.external-documentation_html"),
