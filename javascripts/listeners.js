@@ -11,6 +11,8 @@ const renderUserIDMapping = require('./showUserIdMapping')
 const hammerJs = require('hammerjs');
 const messageService = require('./messageService');
 const deidentifyNamesWithStars = require("./deidentifyNamesWithStars");
+const JSZip = require("jszip");
+const whatsappZipFileHandler = require("./parsing/whatsapp/whatsappZipFileHandler");
 
 
 function addListeners() {
@@ -172,7 +174,30 @@ function setUpFileHandler() {
                 currentFiles.push(files[i])
             }
              */
-            handler = whatsappTxtFileHandler(files);
+
+            let txtFiles = []
+            let zipFiles = []
+
+            // there can be zip or txt files
+            // collect all txt files and extract txt files from zip files
+            for (let i = 0; i < files.length; i++) {
+                if (files[i].type == "text/plain") {
+                    txtFiles.push(files[i])
+                } else {
+                    zipFiles.push(whatsappZipFileHandler(files[i]))
+                }
+            }
+
+            if (zipFiles.length > 0) {
+                handler = Promise.all(zipFiles)
+                    .then(res => {
+                        // filter out null, null would be other files in the zip that are not .txt
+                        return whatsappTxtFileHandler(txtFiles.concat(res.flat().filter(file => file != null)))
+                    })
+            } else {
+                handler = whatsappTxtFileHandler(txtFiles);
+            }
+
 
         } else {
             handler = facebookZipFileHandler(files);
