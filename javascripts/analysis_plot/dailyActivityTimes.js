@@ -160,7 +160,8 @@ function dailyActivityTimes(dataSent, dataReceived, listOfConversations, plotId)
                     symbol: "square",
                     colorbar: {
                         tickvals: [-zScoreLimit, 0, zScoreLimit],
-                        ticktext: [colorscaleLessThanAverage, colorscaleAverage, colorscaleMoreThanAverage]
+                        ticktext: [colorscaleLessThanAverage, colorscaleAverage, colorscaleMoreThanAverage],
+                        tickangle: 30
                     }
                 },
                 visible: i === 0

@@ -52,18 +52,18 @@
 
 
 .main-body-column {
-    width: 85%;
+    width: 95%;
 }
 
 @media (min-width: 576px) {
     .main-body-column {
-        width: 500px;
+        width: 95%;
     }
 }
 
 @media (min-width: 768px) {
     .main-body-column {
-        width: 700px;
+        width: 95%;
     }
 }
 
@@ -75,7 +75,7 @@
 
 @media (min-width: 1200px) {
     .main-body-column {
-        width: 900px;
+        width: 900px
     }
 }
 
