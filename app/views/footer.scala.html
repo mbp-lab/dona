@@ -3,11 +3,10 @@
 @if(title.isDefined) {
     <div class="align-content-center text-center mb-3"><h2>@title.get</h2></div>
 }
-<div class="row justify-content-center mx-0">
+<div class="row justify-content-center mx-0 flex-wrap-reverse">
     @if(previousLink.isDefined) {
         <a class="btn footer-backward-button" href="@previousLink.get">@messages("actions.previous")</a>
     }
-
     @if(nextLink.isDefined) {
     <a class="btn footer-forward-button" href="@nextLink.get">@nextCustomText.getOrElse(messages("actions.next"))</a>
     }
