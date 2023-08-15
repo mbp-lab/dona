@@ -160,7 +160,7 @@ donation.anonymisation.chatSelection.title=Sie können bis zu 10 Chats auswähle
 donation.anonymisation.chatSelection.clickHereToSelect=Klicken Sie hier, um andere Chats auszuwählen, für die Sie Feedback erhalten möchten
 
 donation.anonymisation.loading.tooLong.title=Wenn dieser Vorgang länger als 5 Minuten dauert, kann dies folgende Ursachen haben:
-donation.anonymisation.loading.tooLong.issue.1=Sie versuchen, Dateitypen hochzuladen, die nicht unterstützt werden (die korrekten Dateitypen sind .txt für WhatsApp und .zip für Facebook)
+donation.anonymisation.loading.tooLong.issue.1=Sie versuchen, Dateitypen hochzuladen, die nicht unterstützt werden (die korrekten Dateitypen sind .txt oder .zip für WhatsApp und .zip für Facebook)
 donation.anonymisation.loading.tooLong.issue.2=Sie haben Ihre WhatsApp-Chats von verschiedenen Geräten exportiert
 donation.anonymisation.loading.tooLong.issue.3=Die Dateien, die Sie hochladen möchten, sind ungewöhnlich groß
 donation.anonymisation.loading.tooLong.issue.4=Ihre Internetverbindung ist langsam
