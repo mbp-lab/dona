@@ -124,8 +124,8 @@ function checkOneSidedThreshold(data) {
             // in this case its not a group chat
             let valueToCompare = wordCountObj.wordCountDonor/wordCountObj.wordCount
             if (valueToCompare <= 0.1 || valueToCompare >= 0.9) {
-                console.log(wordCountObj.wordCountDonor)
-                console.log(wordCountObj.wordCount)
+                //console.log(wordCountObj.wordCountDonor)
+                //console.log(wordCountObj.wordCount)
                 rejectionReason = true
                 return;
             }
@@ -133,9 +133,9 @@ function checkOneSidedThreshold(data) {
             // in this case it is a group chat
             let valueToCompare = wordCountObj.wordCountDonor/(wordCountObj.wordCount/wordCountObj.participants.length)
             if (valueToCompare <= 0.1 || valueToCompare >= 0.9) {
-                console.log(wordCountObj.wordCountDonor)
-                console.log(wordCountObj.wordCount)
-                console.log(wordCountObj.participants.length)
+                //console.log(wordCountObj.wordCountDonor)
+                //console.log(wordCountObj.wordCount)
+                //console.log(wordCountObj.participants.length)
                 rejectionReason = true
                 return;
             }
