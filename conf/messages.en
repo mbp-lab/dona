@@ -56,7 +56,7 @@ instructions.about.body_html=Before participating in the study, please request y
 instructions.datasource.title_format = Instructions for getting %s data
 instructions.download-procedure.title=Overview of the download & donation procedure:
 instructions.continue.body=If you have received your data using these instructions, you can now start with the declaration of consent and the first questionnaire of the study. Afterwards you can donate your data.
-instructions.haveData=You need 5-7 WhatsApp chat files (.txt).
+instructions.haveData=You need 5-7 WhatsApp chat files (.txt- or .zip-files).
 
 # Donation info page
 
@@ -175,7 +175,7 @@ donation.anonymisation.chatSelection.title=You can select up to 10 chats to rece
 donation.anonymisation.chatSelection.clickHereToSelect=Click here to choose different chats to receive feedback for
 
 donation.anonymisation.loading.tooLong.title=If this process is taking more than 5 minutes, it might be due to the following:
-donation.anonymisation.loading.tooLong.issue.1=You are trying to upload file types that are not supported (the correct input types are .txt for WhatsApp and .zip for Facebook)
+donation.anonymisation.loading.tooLong.issue.1=You are trying to upload file types that are not supported (the correct input types are .txt or .zip for WhatsApp and .zip for Facebook)
 donation.anonymisation.loading.tooLong.issue.2=You have exported you WhatsApp chats from different devices
 donation.anonymisation.loading.tooLong.issue.3=The files you are trying to upload have unusually large sizes
 donation.anonymisation.loading.tooLong.issue.4=Your internet connection is slow
@@ -417,7 +417,7 @@ whatsapp.donation-procedure.3=Pick one of the selected chats and open it.
 whatsapp.donation-procedure.4=Click on the contact's name in the top center.
 whatsapp.donation-procedure.5=Scroll down and click on "Export chat". A window will open. Select "WITHOUT MEDIA".
 whatsapp.donation-procedure.6=Select "Mail" (envelope) and send the mail with the attached chat file to yourself. Please only send from/to a secure mail service (e.g. university mail address). Alternatively, you can send the files to your computer via Bluetooth or Airdrop.
-whatsapp.donation-procedure.7=Download the chat file from the email to your computer. If your chat was exported in a <b>zip file</b>, you will need to unzip it so that only text files (.txt) remain.
+whatsapp.donation-procedure.7=Download the chat file from the email to your computer.
 whatsapp.donation-procedure.8=Repeat the steps 3-7 for all chats.
 whatsapp.instruction.gif=whatsapp_eng.mp4
 whatsapp.instruction.gifiOS=whatsapp_eng_iOS.mp4
