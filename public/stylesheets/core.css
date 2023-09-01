@@ -10,6 +10,7 @@
 */
 
 .bgImage {
+    width: 100%;
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
@@ -19,6 +20,7 @@
 
 @media only screen and (min-device-width: 400px) {
     .bgImage {
+        width: 100%;
         background-size: cover;
         background-attachment: fixed;
         background-position: center;
