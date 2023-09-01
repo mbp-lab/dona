@@ -15,7 +15,7 @@
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url("/assets/images/background3_4.jpg");
+    background-image: url("/assets/images/backgroud3_4_compressed.jpeg");
 }
 
 @media only screen and (min-device-width: 400px) {
@@ -25,7 +25,13 @@
         background-attachment: fixed;
         background-position: center;
         background-repeat: no-repeat;
-        background-image: url("/assets/images/background.jpg");
+        background-image: url("/assets/images/background_compressed.jpeg");
+    }
+}
+
+@media (min-width: 576px) {
+    .main-body-column {
+        width: 95%;
     }
 }
 
