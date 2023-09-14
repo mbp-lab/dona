@@ -247,8 +247,6 @@
                     <div class="w-100 text-align-center show-on-anonymisation-success-@{dataSourceDescription.name.toString}" align="center">
 
                         <div class="container-fluid show-on-anonymisation-success-@{dataSourceDescription.name.toString} alert-info" style="border-radius: 16px;">
-                            <p style="color: darkblue;
-                                font-weight: bold">@Html(messages("donation.friendsMapping.title"))</p>
                             @if(dataSourceDescription.name.toString == "Facebook") {
                                 <p style="color: darkblue;">@Html(messages("donation.friendsMapping.subtitle.facebook"))</p>
                             } else {
