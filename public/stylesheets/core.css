@@ -18,7 +18,7 @@
     background-image: url("/assets/images/backgroud3_4_compressed.jpeg");
 }
 
-@media only screen and (min-device-width: 400px) {
+@media (min-device-width: 400px) {
     .bgImage {
         width: 100%;
         background-size: cover;
