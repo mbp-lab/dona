@@ -13,6 +13,9 @@
     width: 100%;
     background-size: cover;
     background-attachment: fixed;
+    -o-background-size:cover;
+    -moz-background-size:cover;
+    -webkit-background-size:cover;
     background-position: center;
     background-repeat: no-repeat;
     background-image: url("/assets/images/backgroud3_4_compressed.jpg");
@@ -23,6 +26,9 @@
         width: 100%;
         background-size: cover;
         background-attachment: fixed;
+        -o-background-size:cover;
+        -moz-background-size:cover;
+        -webkit-background-size:cover;
         background-position: center;
         background-repeat: no-repeat;
         background-image: url("/assets/images/background_compressed.jpg");
