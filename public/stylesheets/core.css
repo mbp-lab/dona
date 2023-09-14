@@ -15,7 +15,7 @@
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url("/assets/images/backgroud3_4_compressed.jpeg");
+    background-image: url("/assets/images/backgroud3_4_compressed.jpg");
 }
 
 @media (min-device-width: 400px) {
@@ -25,13 +25,7 @@
         background-attachment: fixed;
         background-position: center;
         background-repeat: no-repeat;
-        background-image: url("/assets/images/background_compressed.jpeg");
-    }
-}
-
-@media (min-width: 576px) {
-    .main-body-column {
-        width: 95%;
+        background-image: url("/assets/images/background_compressed.jpg");
     }
 }
 
@@ -60,7 +54,7 @@
 
 
 .main-body-column {
-    width: 95%;
+    width: 90%;
 }
 
 @media (min-width: 576px) {
