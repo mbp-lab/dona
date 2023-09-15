@@ -8,7 +8,7 @@
         <a class="btn footer-backward-button" href="@previousLink.get">@messages("actions.previous")</a>
     }
     @if(nextLink.isDefined) {
-    <a class="btn footer-forward-button" href="@nextLink.get">@nextCustomText.getOrElse(messages("actions.next"))</a>
+    <a class="btn footer-forward-button-margin" href="@nextLink.get">@nextCustomText.getOrElse(messages("actions.next"))</a>
     }
 
     @extra
