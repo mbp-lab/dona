@@ -183,7 +183,7 @@ donation.submit=Senden
 # feedback
 
 feedback.thanks.title=Vielen Dank für die Spende Ihrer Social-Online-Daten!
-feedback.landscapeMode=Halten Sie Ihr Gerät <b>quer</b>, falls die Grafiken nicht richtig angezeigt werden.
+feedback.landscapeMode=Bitte halten Sie Ihr Gerät <b>quer</b>, um sich diese Seite anzugucken.
 
 feedback.importantMessage.title=Wichtiger Hinweis:
 feedback.importantMessage.disclaimer=Die angezeigten Graphen und Visualisierungen erlauben <b><u>keine</u> direkten Rückschlüsse</b> auf die Qualität Ihrer sozialen Beziehungen. Ihre Chats werden lediglich hinsichtlich Umfang, Menge und Zeiten ausgewertet und dargestellt.
