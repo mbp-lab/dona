@@ -165,7 +165,7 @@ donation.anonymisation.loading.tooLong.issue.2=Sie haben Ihre WhatsApp-Chats von
 donation.anonymisation.loading.tooLong.issue.3=Die Dateien, die Sie hochladen möchten, sind ungewöhnlich groß
 donation.anonymisation.loading.tooLong.issue.4=Ihre Internetverbindung ist langsam
 donation.anonymisation.loading.tooLong.issue.5=Andere unerwartete Probleme
-donation.anonymisation.loading.tooLong.issue.6=Helfen Sie uns <a href="@messages("links.reportProblem")" target="_blank">hier</a> diese Anwendung zu verbessern.
+donation.anonymisation.loading.tooLong.issue.6=Helfen Sie uns <a href="https://survey.mbp.tf.uni-bielefeld.de/index.php?r=survey/index&sid=486423&lang=de" target="_blank">hier</a> diese Anwendung zu verbessern.
 
 donation.errors.no-profile=Die Datei enthält keine Profildaten.
 donation.errors.no-alias=Ein Nutzername muss angegeben werden. Sie können ihn in Ihrem WhatsApp-Profil finden.
@@ -378,6 +378,7 @@ links.donation-info=Daten Spenden
 links.donate=Ja, jetzt teilnehmen
 links.data-protection=Datenschutz
 links.imprint=Impressum
+# when changing this also change donation.anonymisation.loading.tooLong.issue.6
 links.reportProblem=https://survey.mbp.tf.uni-bielefeld.de/index.php?r=survey/index&sid=486423&lang=de
 
 yes=Ja
