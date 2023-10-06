@@ -145,9 +145,6 @@ function setUpFileHandler() {
 
     let onFileInputChange = (dataSource, files) => {
 
-        console.log("datasource:", dataSource)
-        console.log("files:", files)
-
         if (files.length < 1) {
             messageService.hide(dataSource)
             $(".show-on-anonymisation-success" + "-" + dataSource).addClass('d-none');
@@ -372,11 +369,25 @@ function setUpFileHandler() {
 
     // when new files are selected, handle it
     $(".donation-file-selector>input[type='file']").on("change", (evt) => {
-
-        console.log("evt:", evt)
         const dataSource = evt.currentTarget.id;
         const files = evt.target.files
         onFileInputChange(dataSource, files)
+    })
+
+    // error handling of filereader
+    $(".donation-file-selector>input[type='file']").addEventListener("error", (error) => {
+        console.log("error:", error)
+
+        const dataSourceName = error.currentTarget.id;
+        messageService.showError("ERROR TESTING", dataSourceName);
+        if (earlierSuccess) {
+            $(".show-on-anonymisation-success" + "-" + dataSourceName).removeClass('d-none');
+            $('#submit-de-identified').prop('disabled', false);
+            $('#stillAnErrorSomewhere').addClass('d-none')
+        }
+        progressBar.stop(dataSourceName);
+
+
     })
 
     // filtering the selected data according to the dates that the user selects
