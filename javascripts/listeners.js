@@ -375,7 +375,7 @@ function setUpFileHandler() {
     })
 
     // error handling of filereader
-    /*
+
     $(".donation-file-selector>input[type='file']").on("error", (error) => {
         console.log("error:", error)
 
@@ -388,7 +388,6 @@ function setUpFileHandler() {
         }
         progressBar.stop(dataSourceName);
     })
-    */
 
     // filtering the selected data according to the dates that the user selects
     $(".date-selection").on("input", (evt) => {
