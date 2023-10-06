@@ -375,7 +375,7 @@ function setUpFileHandler() {
     })
 
     // error handling of filereader
-    $(".donation-file-selector>input[type='file']").addEventListener("error", (error) => {
+    $(".donation-file-selector>input[type='file']").on("error", (error) => {
         console.log("error:", error)
 
         const dataSourceName = error.currentTarget.id;
