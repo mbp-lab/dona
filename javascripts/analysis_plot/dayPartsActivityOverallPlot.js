@@ -1,4 +1,5 @@
 const _ = require("lodash");
+const {isMobile} = require("../utils");
 
 
 function dayPartsActivityOverallPlot(dataSent, dataReceived, plotId) {
@@ -51,6 +52,10 @@ function dayPartsActivityOverallPlot(dataSent, dataReceived, plotId) {
             fixedrange: true
         },
         hovermode: 'x',
+    }
+
+    if (!isMobile()) {
+        layout["height"] = 600
     }
 
 

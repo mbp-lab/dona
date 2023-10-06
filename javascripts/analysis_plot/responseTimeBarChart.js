@@ -1,4 +1,5 @@
 const _ = require("lodash");
+const {isMobile} = require("../utils");
 
 
 function responseTimeBarChart(responseTimes, plotId, isOnlyOneOrLessConv) {
@@ -74,6 +75,10 @@ function responseTimeBarChart(responseTimes, plotId, isOnlyOneOrLessConv) {
             title: xAxis,
             fixedrange: true
         }
+    }
+
+    if (!isMobile()) {
+        layout["height"] = 600
     }
 
 

@@ -1,5 +1,6 @@
 const formInputDataForDailyActivityPlot = require("./utils/formInputDataForDailyActivityPlot");
 const zScoreCalc = require("./utils/zScoreCalcDailyActivity");
+const {isMobile} = require("../utils");
 
 
 function dailyActivityTimes(dataSent, dataReceived, listOfConversations, plotId) {
@@ -48,6 +49,10 @@ function dailyActivityTimes(dataSent, dataReceived, listOfConversations, plotId)
             showgrid: true,
         },
     };
+
+    if (!isMobile()) {
+        layout["height"] = 550
+    }
 
     let displayOptions = [dataOverallName]
     displayOptions = displayOptions.concat(listOfConversations)

@@ -1,5 +1,6 @@
 const formInputDataForWordsPlotSync = require("./utils/formInputDataForWordsPlotSync");
 const _ = require('lodash');
+const {isMobile} = require("../utils");
 
 
 function sentReceivedDailyPerConversation(dataSlidingWindow, plotId, listOfConversations, slidingWindowMean) {
@@ -230,6 +231,9 @@ function sentReceivedDailyPerConversation(dataSlidingWindow, plotId, listOfConve
 
     layout.xaxis.rangeslider = {}
     //layout.height = 700
+    if (!isMobile()) {
+        layout["height"] = 700
+    }
 
     plotContainer.html("");
     Plotly.newPlot(plotId, resultTraces, layout, config);
