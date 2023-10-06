@@ -145,6 +145,9 @@ function setUpFileHandler() {
 
     let onFileInputChange = (dataSource, files) => {
 
+        console.log("datasource:", dataSource)
+        console.log("files:", files)
+
         if (files.length < 1) {
             messageService.hide(dataSource)
             $(".show-on-anonymisation-success" + "-" + dataSource).addClass('d-none');
@@ -369,6 +372,8 @@ function setUpFileHandler() {
 
     // when new files are selected, handle it
     $(".donation-file-selector>input[type='file']").on("change", (evt) => {
+
+        console.log("evt:", evt)
         const dataSource = evt.currentTarget.id;
         const files = evt.target.files
         onFileInputChange(dataSource, files)
