@@ -285,9 +285,9 @@ feedback.graph.monthlySentReceived.yAxis=Anzahl Nachrichten
 # dailyActivityTimes plot
 feedback.graph.dailyActivityHoursPlot.description=In diesem Diagramm können Sie sehen, zu welchen Stunden des Tages Sie während der gesamten Zeitspanne der von Ihnen gespendeten Daten aktiv waren. Wenn Sie in einer Stunde mehr Wörter als üblicherweise gesendet haben, hat diese Stunde (Viereck im Diagramm) eine dunklere Farbe. Wenn die Farbe heller ist, dann haben Sie weniger Wörter als üblicherweise gesendet. Wenn Sie sich einen bestimmten Zeitraum genauer ansehen möchten, können Sie hineinzoomen, indem Sie auf das Diagramm klicken und halten, während Sie die Maus nach links oder rechts bewegen, um das Zeitfenster zu erzeugen, in das Sie hineinzoomen möchten. Klicken Sie <a style="font-weight:bold" href="#dailyActivityHoursPlotExplanation" data-toggle="modal" data-target="#dailyActivityHoursPlotExplanation">HIER</a>, um eine Erklärung mit einem Beispiel zu sehen.
 feedback.graph.dailyActivityHoursPlot.yAxis=Uhrzeit
-feedback.graph.dailyActivityHoursPlot.moreThanAverage=Mehr als Ihr Durchschnitt
+feedback.graph.dailyActivityHoursPlot.moreThanAverage=Mehr als <br> Ihr Durchschnitt
 feedback.graph.dailyActivityHoursPlot.average=Ihr Durchschnitt
-feedback.graph.dailyActivityHoursPlot.lessThanAverage=Weniger als Ihr Durchschnitt
+feedback.graph.dailyActivityHoursPlot.lessThanAverage=Weniger als <br> Ihr Durchschnitt
 feedback.graph.dailyActivityHoursPlot.example.image=images/feedback_example_dailyActivityHoursPlot_german.svg
 feedback.graph.dailyActivityHoursPlot.example.text=<p><b>(1)</b> In diesem Beispiel lässt sich in diesem Bereich eine Veränderung der Aktivitätszeiten beobachten. In dem Zeitraum bei <b>(2)</b> kann man sehen, dass keine Nachrichten ungefähr zwischen 8:00 Uhr und 12:00 Uhr gesendet wurden. Dann in dem Zeitraum bei <b>(3)</b> hat sich dieser Bereich ohne Nachrichten zu den Uhrzeiten ungefähr zwischen 2:00 Uhr und 6:00 Uhr verschoben. Das könnte zum Beispiel an einem Umzug in eine andere Zeitzone oder an einer Veränderung des Schlafrhythmus liegen.</p><p><b>(4)</b> Zum Beispiel hier lassen sich vermehrt dunkle Vierecke beobachten. In diesem Bereich wurden also überdurchschnittlich viele Nachrichten gesendet.</p><p><b>(5)</b> Klicken Sie auf dieses Symbol, um den Graphen herunterzuladen.</p>
 
