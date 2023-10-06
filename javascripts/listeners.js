@@ -376,17 +376,22 @@ function setUpFileHandler() {
 
     // error handling of filereader
 
-    $(".donation-file-selector>input[type='file']").on("error", (error) => {
-        console.log("error:", error)
+    $(".donation-file-selector>input[type='file']").on("progress", (event) => {
 
-        const dataSourceName = error.currentTarget.id;
-        messageService.showError("ERROR TESTING", dataSourceName);
-        if (earlierSuccess) {
-            $(".show-on-anonymisation-success" + "-" + dataSourceName).removeClass('d-none');
-            $('#submit-de-identified').prop('disabled', false);
-            $('#stillAnErrorSomewhere').addClass('d-none')
+
+        if (event.type === "error") {
+            console.log("progress:", event)
+            const dataSourceName = event.currentTarget.id;
+            messageService.showError("ERROR TESTING", dataSourceName);
+            if (earlierSuccess) {
+                $(".show-on-anonymisation-success" + "-" + dataSourceName).removeClass('d-none');
+                $('#submit-de-identified').prop('disabled', false);
+                $('#stillAnErrorSomewhere').addClass('d-none')
+            }
+            progressBar.stop(dataSourceName);
         }
-        progressBar.stop(dataSourceName);
+
+
     })
 
     // filtering the selected data according to the dates that the user selects
