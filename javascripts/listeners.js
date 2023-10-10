@@ -162,8 +162,6 @@ function setUpFileHandler() {
 
         let handler;
 
-
-        console.log("we got here 1")
         if (dataSource == "WhatsApp") {
             /*
             for (let i = 0; i < files.length; i++) {
@@ -171,7 +169,6 @@ function setUpFileHandler() {
             }
              */
             handler = whatsappTxtFileHandler(files)
-            console.log("we got here 2")
         } else {
             handler = facebookZipFileHandler(files);
         }
@@ -179,7 +176,6 @@ function setUpFileHandler() {
 
         handler
             .then((deIdentifiedJson) => {
-                console.log("we got here 3")
                 const fileList = $("#" + dataSource + "FileList")
                 fileList.empty()
 
@@ -271,7 +267,6 @@ function setUpFileHandler() {
                 return transformJson(deIdentifiedJson.deIdentifiedJsonContents, donorId, dataSource);
             })
             .then((transformedJson) => {
-                console.log("we got here 4")
                 // if there are already conversations of the chosen dataSource, then first filter the old ones out
                 donaForMEDonation.conversations = donaForMEDonation.conversations.filter((conv) => conv["donation_data_source_type"] !== dataSource)
 
@@ -371,17 +366,6 @@ function setUpFileHandler() {
     }
 
 
-    // TESTING
-    const fileSelectors = document.getElementsByClassName("custom-file-input")
-    console.log("fileSelectors:", fileSelectors)
-
-    for (let i = 0; i < fileSelectors.length; i++) {
-            fileSelectors[i].onerror = (e) => {
-                console.log("errorrr:", e)
-            }
-            console.log("selector:", fileSelectors[i])
-    }
-
     // when new files are selected, handle it
     $(".donation-file-selector>input[type='file']").on("change", (evt) => {
         const dataSource = evt.currentTarget.id;
@@ -389,28 +373,6 @@ function setUpFileHandler() {
         console.log("files:", files)
         onFileInputChange(dataSource, files)
     })
-
-    // error handling of filereader
-    /*
-    $(".donation-file-selector>input[type='file']").on("progress", (event) => {
-
-
-        if (event.type === "error") {
-            console.log("progress:", event)
-            const dataSourceName = event.currentTarget.id;
-            messageService.showError("ERROR TESTING", dataSourceName);
-            if (earlierSuccess) {
-                $(".show-on-anonymisation-success" + "-" + dataSourceName).removeClass('d-none');
-                $('#submit-de-identified').prop('disabled', false);
-                $('#stillAnErrorSomewhere').addClass('d-none')
-            }
-            progressBar.stop(dataSourceName);
-        }
-
-
-    })
-
-     */
 
     // filtering the selected data according to the dates that the user selects
     $(".date-selection").on("input", (evt) => {

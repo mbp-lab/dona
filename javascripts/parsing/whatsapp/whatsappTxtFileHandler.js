@@ -14,9 +14,6 @@ function whatsappTxtFilesHandler(filelist) {
 
 
     return new Promise((resolve, reject) => {
-
-        console.log("we got here 5")
-
         // check if number of files is in the limits
         // TODO: put number of files in some config file
         if (files.length !== 0 && (files.length < 5 || files.length > 7)) {
@@ -46,8 +43,6 @@ function whatsappTxtFilesHandler(filelist) {
                 .then(makeArrayOfMessages)
                 .then(messages => parseMessages(messages))
         });
-
-        console.log("we got here 6")
 
         // determine possible usernames
         Promise.all(parsedFiles)
@@ -92,10 +87,8 @@ function whatsappTxtFilesHandler(filelist) {
                         })
                 }
             })
-            .catch((error) => {
-                console.log("we got here 10!")
-                console.log("error:", error)
-                reject(error)
+            .catch((event) => {
+                reject(event.target.error)
             })
 
 
@@ -135,8 +128,6 @@ function checkOneSidedThreshold(data) {
             // in this case its not a group chat
             let valueToCompare = wordCountObj.wordCountDonor/wordCountObj.wordCount
             if (valueToCompare <= 0.1 || valueToCompare >= 0.9) {
-                console.log(wordCountObj.wordCountDonor)
-                console.log(wordCountObj.wordCount)
                 rejectionReason = true
                 return;
             }
@@ -144,9 +135,6 @@ function checkOneSidedThreshold(data) {
             // in this case it is a group chat
             let valueToCompare = wordCountObj.wordCountDonor/(wordCountObj.wordCount/wordCountObj.participants.length)
             if (valueToCompare <= 0.1 || valueToCompare >= 0.9) {
-                console.log(wordCountObj.wordCountDonor)
-                console.log(wordCountObj.wordCount)
-                console.log(wordCountObj.participants.length)
                 rejectionReason = true
                 return;
             }
