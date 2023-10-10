@@ -174,9 +174,16 @@ function handlefile(file) {
     return new Promise((resolve, reject) => {
         reader.onload = event => resolve(event.target.result);
         reader.onprogress = progress => {
+            console.log("we got here 7!", progress)
             if (progress.type === "error") {
-                reject(error)
+                return reject("error in progress")
             }
+        }
+        reader.onloadend = event => {
+            console.log("we got here 8", event)
+        }
+        reader.onabort = event => {
+            console.log("we got here 9", event)
         }
         reader.onerror = error => reject(error);
         reader.readAsText(file);
