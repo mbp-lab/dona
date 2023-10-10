@@ -170,7 +170,7 @@ function setUpFileHandler() {
                 currentFiles.push(files[i])
             }
              */
-            handler = whatsappTxtFileHandler(files).catch((e) => console.log("error in catch 1:", e));
+            handler = whatsappTxtFileHandler(files)
             console.log("we got here 2")
         } else {
             handler = facebookZipFileHandler(files);
@@ -179,6 +179,7 @@ function setUpFileHandler() {
 
         handler
             .then((deIdentifiedJson) => {
+                console.log("we got here 3")
                 const fileList = $("#" + dataSource + "FileList")
                 fileList.empty()
 
@@ -270,7 +271,7 @@ function setUpFileHandler() {
                 return transformJson(deIdentifiedJson.deIdentifiedJsonContents, donorId, dataSource);
             })
             .then((transformedJson) => {
-
+                console.log("we got here 4")
                 // if there are already conversations of the chosen dataSource, then first filter the old ones out
                 donaForMEDonation.conversations = donaForMEDonation.conversations.filter((conv) => conv["donation_data_source_type"] !== dataSource)
 
@@ -369,6 +370,8 @@ function setUpFileHandler() {
             });
     }
 
+
+    // TESTING
     const fileSelectors = document.getElementsByClassName("custom-file-input")
     console.log("fileSelectors:", fileSelectors)
 

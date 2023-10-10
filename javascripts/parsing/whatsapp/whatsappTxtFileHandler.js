@@ -14,6 +14,9 @@ function whatsappTxtFilesHandler(filelist) {
 
 
     return new Promise((resolve, reject) => {
+
+        console.log("we got here 5")
+
         // check if number of files is in the limits
         // TODO: put number of files in some config file
         if (files.length !== 0 && (files.length < 5 || files.length > 7)) {
@@ -43,6 +46,8 @@ function whatsappTxtFilesHandler(filelist) {
                 .then(makeArrayOfMessages)
                 .then(messages => parseMessages(messages))
         });
+
+        console.log("we got here 6")
 
         // determine possible usernames
         Promise.all(parsedFiles)
@@ -168,6 +173,11 @@ function handlefile(file) {
     const reader = new FileReader();
     return new Promise((resolve, reject) => {
         reader.onload = event => resolve(event.target.result);
+        reader.onprogress = progress => {
+            if (progress.type === "error") {
+                reject(error)
+            }
+        }
         reader.onerror = error => reject(error);
         reader.readAsText(file);
     });
