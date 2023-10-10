@@ -92,6 +92,12 @@ function whatsappTxtFilesHandler(filelist) {
                         })
                 }
             })
+            .catch((error) => {
+                console.log("we got here 10!")
+                console.log("error:", error)
+                reject(error)
+            })
+
 
     })
 
@@ -274,7 +280,7 @@ function deIdentification(parsedFiles, alias) {
             }
 
             return result;
-        });
+        })
 
     function getDeIdentifiedId(name) {
         const i18nSupport = $('#i18n-support'); // TODO: This file should not be allowed to access jquery
