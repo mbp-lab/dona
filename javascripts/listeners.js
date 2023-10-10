@@ -162,14 +162,16 @@ function setUpFileHandler() {
 
         let handler;
 
+
+        console.log("we got here 1")
         if (dataSource == "WhatsApp") {
             /*
             for (let i = 0; i < files.length; i++) {
                 currentFiles.push(files[i])
             }
              */
-            handler = whatsappTxtFileHandler(files);
-
+            handler = whatsappTxtFileHandler(files).catch((e) => console.log("error in catch 1:", e));
+            console.log("we got here 2")
         } else {
             handler = facebookZipFileHandler(files);
         }
@@ -367,11 +369,21 @@ function setUpFileHandler() {
             });
     }
 
+    const fileSelectors = document.getElementsByClassName("custom-file-input")
+    console.log("fileSelectors:", fileSelectors)
+
+    for (let i = 0; i < fileSelectors.length; i++) {
+            fileSelectors[i].onerror = (e) => {
+                console.log("errorrr:", e)
+            }
+            console.log("selector:", fileSelectors[i])
+    }
+
     // when new files are selected, handle it
     $(".donation-file-selector>input[type='file']").on("change", (evt) => {
-        console.log("event from on change:", evt)
         const dataSource = evt.currentTarget.id;
         const files = evt.target.files
+        console.log("files:", files)
         onFileInputChange(dataSource, files)
     })
 
