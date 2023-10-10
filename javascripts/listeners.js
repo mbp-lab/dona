@@ -369,13 +369,14 @@ function setUpFileHandler() {
 
     // when new files are selected, handle it
     $(".donation-file-selector>input[type='file']").on("change", (evt) => {
+        console.log("event from on change:", evt)
         const dataSource = evt.currentTarget.id;
         const files = evt.target.files
         onFileInputChange(dataSource, files)
     })
 
     // error handling of filereader
-
+    /*
     $(".donation-file-selector>input[type='file']").on("progress", (event) => {
 
 
@@ -393,6 +394,8 @@ function setUpFileHandler() {
 
 
     })
+
+     */
 
     // filtering the selected data according to the dates that the user selects
     $(".date-selection").on("input", (evt) => {
