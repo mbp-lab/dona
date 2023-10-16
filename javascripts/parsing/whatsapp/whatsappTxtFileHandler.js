@@ -87,6 +87,10 @@ function whatsappTxtFilesHandler(filelist) {
                         })
                 }
             })
+            .catch((event) => {
+                reject(event.target.error)
+            })
+
 
     })
 
@@ -124,8 +128,6 @@ function checkOneSidedThreshold(data) {
             // in this case its not a group chat
             let valueToCompare = wordCountObj.wordCountDonor/wordCountObj.wordCount
             if (valueToCompare <= 0.1 || valueToCompare >= 0.9) {
-                //console.log(wordCountObj.wordCountDonor)
-                //console.log(wordCountObj.wordCount)
                 rejectionReason = true
                 return;
             }
@@ -133,16 +135,12 @@ function checkOneSidedThreshold(data) {
             // in this case it is a group chat
             let valueToCompare = wordCountObj.wordCountDonor/(wordCountObj.wordCount/wordCountObj.participants.length)
             if (valueToCompare <= 0.1 || valueToCompare >= 0.9) {
-                //console.log(wordCountObj.wordCountDonor)
-                //console.log(wordCountObj.wordCount)
-                //console.log(wordCountObj.participants.length)
                 rejectionReason = true
                 return;
             }
         }
     })
 
-    console.log(rejectionReason)
 }
 
 function askUserForUsername(possibilities) {
@@ -168,6 +166,21 @@ function handlefile(file) {
     const reader = new FileReader();
     return new Promise((resolve, reject) => {
         reader.onload = event => resolve(event.target.result);
+        reader.onprogress = event => {
+            if (event.target.error) {
+                return reject(event.target.error)
+            }
+        }
+        reader.onloadend = event => {
+            if (event.target.error) {
+                return reject(event.target.error)
+            }
+        }
+        reader.onabort = event => {
+            if (event.target.error) {
+                return reject(event.target.error)
+            }
+        }
         reader.onerror = error => reject(error);
         reader.readAsText(file);
     });
@@ -246,7 +259,6 @@ function deIdentification(parsedFiles, alias) {
 
              */
 
-
             let result = {
                 deIdentifiedJsonContents: deIdentifiedJsonContents,
                 participantNameToRandomIds: participantNameToRandomIds,
@@ -254,7 +266,7 @@ function deIdentification(parsedFiles, alias) {
             }
 
             return result;
-        });
+        })
 
     function getDeIdentifiedId(name) {
         const i18nSupport = $('#i18n-support'); // TODO: This file should not be allowed to access jquery

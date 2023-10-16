@@ -1,3 +1,5 @@
+const {isMobile} = require("../utils");
+
 function horizontalBarChartOverall(sentWordsTotal, receivedWordsTotal, plotId) {
 
     const plotContainer = $(`#${plotId}`)
@@ -26,7 +28,7 @@ function horizontalBarChartOverall(sentWordsTotal, receivedWordsTotal, plotId) {
     }
 
     let layout = {
-        height: 600,
+        //height: 600,
         showlegend: true,
         barmode: 'overlay',
         legend: {
@@ -39,6 +41,10 @@ function horizontalBarChartOverall(sentWordsTotal, receivedWordsTotal, plotId) {
             fixedrange: true
         },
         hovermode: 'closest',
+    }
+
+    if (!isMobile()) {
+        layout["height"] = 600
     }
 
 

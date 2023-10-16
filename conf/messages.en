@@ -198,6 +198,8 @@ donation.submit=Submit
 # feedback
 
 feedback.thanks.title=Thank you for the donation of your social media data!
+feedback.landscapeMode=Please hold your device <b>sideways</b> to view this page properly.
+
 
 feedback.importantMessage.title=Important Note:
 feedback.importantMessage.disclaimer=The graphs and visualizations displayed <b>do <u>not</u> allow any direct conclusions</b> to be drawn about the quality of your social relationships. Your chats are analyzed and visualized regarding amount and timing only.
@@ -298,9 +300,9 @@ feedback.graph.monthlySentReceived.yAxis=Number of messages
 # dailyActivityTimes plot
 feedback.graph.dailyActivityHoursPlot.description=In this plot, you can see in which hours of the day you were active for the whole time span of the data you donated. If an hour (square in the plot) has a darker color, you sent more words in that hour than in your average hour. If the color is lighter, then you sent fewer words than in the average case. If you want to look closer at a specific time span you can zoom in by clicking on the graph and holding while you move your mouse to the left or the right to produce the time window you want to zoom into. Click <a style="font-weight:bold" href="#dailyActivityHoursPlotExplanation" data-toggle="modal" data-target="#dailyActivityHoursPlotExplanation">HERE</a> to see an explanation with an example.
 feedback.graph.dailyActivityHoursPlot.yAxis=Time
-feedback.graph.dailyActivityHoursPlot.moreThanAverage=More than your average
+feedback.graph.dailyActivityHoursPlot.moreThanAverage=More than <br> your average
 feedback.graph.dailyActivityHoursPlot.average=Your average
-feedback.graph.dailyActivityHoursPlot.lessThanAverage=Less than your average
+feedback.graph.dailyActivityHoursPlot.lessThanAverage=Less than <br> your average
 feedback.graph.dailyActivityHoursPlot.example.image=images/feedback_example_dailyActivityHoursPlot_english.svg
 feedback.graph.dailyActivityHoursPlot.example.text=<p><b>(1)</b> In this example, a change in the activity hours can be observed in this area. In the period at <b>(2)</b> you can see that no messages were sent between approximately 8:00 AM and 12:00 PM. Then in the period at <b>(3)</b>, this area of no messages has shifted to the hours between about 2:00 AM and 6:00 AM. This could be due to moving to a different time zone or a change in sleep schedule.</p><p><b>(4)</b> For example, more dark squares can be observed here. Therefore, an above-average number of messages were sent in this period.</p><p><b>(5)</b> Click this icon to download the graph.</p>
 
