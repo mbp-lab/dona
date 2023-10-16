@@ -11,17 +11,29 @@ const animatedResponseTimeBarChart = require('./analysis_plot/animatedResponseTi
 const breaksInConvPlot = require("./analysis_plot/breaksInConvPlot");
 const createListOfConversations = require("./analysis_plot/utils/createListOfConversations");
 const horizontalBarChartOverall = require("./analysis_plot/horizontalBarChartOverall");
+const {isMobile} = require("./utils");
 
 
 $(document).ready(function () {
-    // reminders to also do the next questionnaire, after 5 min and after 15min
-    const reminder = i18n.reminder
-    setTimeout(() => {
-        alert(reminder)
-    }, 300000)
-    setTimeout(() => {
-        alert(reminder)
-    }, 900000)
+
+    // this is so that when a modal is open, clicking the back button will close the modal
+    if (window.history && window.history.pushState) {
+        $('.modal').on('show.bs.modal', function (e) {
+            window.history.pushState('openModal', null, './moreAbout');
+        });
+
+        $(window).on('popstate', function () {
+            $('.modal').modal('hide')
+        });
+
+        $('.modal').on('hide.bs.modal', function (e) {
+            if (window.history.state === "openModal") {
+                window.history.back()
+            }
+        });
+    }
+
+    alertIfMobile()
 
     Object.keys(allData).forEach(function (dataSourceType) {
         const graphData = allData[dataSourceType];
@@ -158,3 +170,16 @@ $(document).ready(function () {
     })
 
 });
+
+function alertIfMobile() {
+    if(isMobile()) {
+        $('#mobileAlertModal').modal("show")
+    }
+}
+
+
+function closeModals() {
+    if ($('.modal').is(':visible')) {
+        $('.modal').modal('hide');
+    }
+}

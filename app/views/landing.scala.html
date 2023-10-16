@@ -1,14 +1,14 @@
 @(designVersion: Option[String])(implicit request: RequestHeader, messages: Messages)
 
 @mainNew("Dona - ForMe", designVersion){
-<div class="header text-white mx-auto p-3 pr-4 pl-4 text-center landing-header">
+<div class="header text-white mt-2 mx-auto p-3 pr-4 pl-4 text-center landing-header">
     <h1 class="display-5 mb-3 landing-header-headline">@messages("landing.header.title")</h1>
     <p class="landing-header-text text-center">@messages("landing.header.body")</p>
 </div>
 } {
 <script>
         $(document).ready(function(){
-            alertIfMobile()
+            //alertIfMobile() // ToDo: Remove this part!
         });
 
         function alertIfMobile() {
@@ -42,14 +42,13 @@
         }
 
 </script>
-<div class="bg-white mt-4 text-center landing-container">
+<div class="mt-4 text-center">
 
     @* modal for mobile alert to better use a computer *@
     <div class="modal modalMobileAlert modal-xl" id="mobileAlertModal" tabindex="-1" role="dialog">
         <div class="modal-dialog modalMobileAlert-dialog modal-dialog-centered" role="document">
             <div class="modal-content modalMobileAlert-content">
                 <div class="modal-body">
-                    <h1 class="modal-title">@messages("landing.mobileAlert")</h1>
                     <button type="button" data-dismiss="modal" class="btn modal-forward-button float-right">OK</button>
                 </div>
             </div>
@@ -62,22 +61,22 @@
     <h2 class="headline mb-3">@messages("landing.why.title")</h2>
     <div class="row">
         <div class="col-sm">
-            <img src="@routes.Assets.at(messages("landing.imagePath.exampleFeedback"))" class="landing-column-feedback-image"></img>
+            <img src="@routes.Assets.at(messages("landing.imagePath.exampleFeedback"))" class="landing-column-feedback-image rounded-lg"></img>
             <h3 class="landing-subtitle">@messages("landing.why.col1.title")</h3>
             <p class="landing-column-text">@messages("landing.why.col1.body")</p>
         </div>
         <div class="col-sm">
-            <img src="@routes.Assets.at("images/support-research-illustration.jpg")" class="landing-column-image"></img>
-            <h3 class="landing-subtitle">@messages("landing.why.col2.title")</h3>
-            <p class="landing-column-text">@Html(messages("landing.why.col2.body_html"))</p>
-        </div>
-        <div class="col-sm">
-            <img src="@routes.Assets.at("images/stay-anonymous-illustration.jpg")" class="landing-column-image"></img>
+            <img src="@routes.Assets.at("images/stay-anonymous-illustration.jpg")" class="landing-column-image rounded-lg"></img>
             <h3 class="landing-subtitle">@messages("landing.why.col3.title")</h3>
             <p class="landing-column-text">@Html(messages("landing.why.col3.body_html"))</p>
         </div>
+        <div class="col-sm">
+            <img src="@routes.Assets.at("images/support-research-illustration.jpg")" class="landing-column-image rounded-lg"></img>
+            <h3 class="landing-subtitle">@messages("landing.why.col2.title")</h3>
+            <p class="landing-column-text">@Html(messages("landing.why.col2.body_html"))</p>
+        </div>
 
-        <div class="bg-white mt-4 text-center landing-container">
+        <div class="mx-3 mt-4">
             <h2 class="headline">@messages("learn-more.how-to-participate.title")</h2>
             <p class="paragraph mt-1">@messages("learn-more.how-to-participate.body")</p>
             <h2 class="headline">@messages("learn-more.how-to-cancel.title")</h2>
@@ -86,26 +85,26 @@
     </div>
     <h3 class="headline">@messages("donation-info.title")</h3>
     <div class="row">
-        <div class="col">
+        <div class="col-sm">
             <p class="paragraph text-left">@Html(messages("donation-info.data-request"))</p>
         </div>
-        <div class="col">
+        <div class="col-sm">
             <img src="@routes.Assets.at(messages("landing.imagePath.donationProcedure1"))" class="img-fluid donation-info-image">
         </div>
     </div>
     <div class="row">
-        <div class="col">
+        <div class="col-sm">
             <p class="paragraph text-left">@Html(messages("donation-info.anonymisation"))</p>
         </div>
-        <div class="col">
+        <div class="col-sm">
             <img src="@routes.Assets.at(messages("landing.imagePath.donationProcedure2"))" class="img-fluid donation-info-image">
         </div>
     </div>
     <div class="row">
-        <div class="col">
+        <div class="col-sm">
             <p class="paragraph text-left">@Html(messages("donation-info.storage"))</p>
         </div>
-        <div class="col">
+        <div class="col-sm">
             <img src="@routes.Assets.at(messages("landing.imagePath.donationProcedure3"))" class="img-fluid donation-info-image">
         </div>
     </div>

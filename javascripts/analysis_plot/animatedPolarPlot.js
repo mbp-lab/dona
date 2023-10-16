@@ -2,6 +2,7 @@ const sortGraphDataPoints = require('./utils/sortGraphDataPointsTimeWise');
 const _ = require("lodash");
 const zScoreCalc = require("./utils/zScoreCalcPolarPlot");
 const sortYearMonthKeys = require("./utils/sortYearMonthKeys");
+const {isMobile} = require("../utils");
 
 function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plotId) {
 
@@ -27,7 +28,7 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
     }
 
     let layout = {
-        height: 550,
+        //height: 550,
         hovermode: false,
         showlegend: true,
         legend: {
@@ -132,6 +133,10 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
                 ]
             }
         ]
+    }
+
+    if (!isMobile()) {
+        layout["height"] = 550
     }
 
     // only needed to start the animation when the plot is loaded

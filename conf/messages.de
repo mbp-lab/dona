@@ -8,7 +8,7 @@ landing.header.title=Bringen Sie Licht ins Dunkel mit Ihren Social-Online-Daten.
 landing.header.body=Wir forschen an digitalen Methoden, um soziale Interaktionen und ihren Einfluss auf die mentale Gesundheit besser zu verstehen und so Menschen zu helfen. Unterstützen Sie uns durch die Spende Ihrer anonymisierten Social-Online-Daten. Erhalten Sie als Dank erhellendes Feedback!
 landing.what.title=Worum geht es?
 landing.what.body1=Soziale Interaktionen spielen eine wichtige Rolle für die mentale Gesundheit. Um diese Rolle besser zu verstehen, entwickeln wir an der Universität Bielefeld neue digitale Messmethoden. Mit der aktuellen Studie möchten wir die Frage beantworten: Können wir die soziale Einbindung von Menschen anhand Ihrer Social Media Nachrichten erfassen?
-landing.what.body2=Wenn Sie uns bei unserer Forschung unterstützen möchten, können Sie Ihre Daten von einer Social Media Plattform anfordern (Facebook oder WhatsApp). Diese Daten können Sie dann auf unserer Webseite anonymisieren und für die Forschung spenden. <br><i>Wir empfehlen die Datenspende an einem Computer durchzuführen.</i>
+landing.what.body2=Wenn Sie uns bei unserer Forschung unterstützen möchten, können Sie Ihre Daten von einer Social Media Plattform anfordern (Facebook oder WhatsApp). Diese Daten können Sie dann auf unserer Webseite anonymisieren und für die Forschung spenden.
 
 landing.why.title=Warum sollte ich teilnehmen?
 landing.why.col1.title=Erhalten Sie Feedback
@@ -166,7 +166,7 @@ donation.anonymisation.loading.tooLong.issue.2=Sie haben Ihre WhatsApp-Chats von
 donation.anonymisation.loading.tooLong.issue.3=Die Dateien, die Sie hochladen möchten, sind ungewöhnlich groß
 donation.anonymisation.loading.tooLong.issue.4=Ihre Internetverbindung ist langsam
 donation.anonymisation.loading.tooLong.issue.5=Andere unerwartete Probleme
-donation.anonymisation.loading.tooLong.issue.6=Helfen Sie uns <a href="@messages("links.reportProblem")" target="_blank">hier</a> diese Anwendung zu verbessern.
+donation.anonymisation.loading.tooLong.issue.6=Helfen Sie uns <a href="https://survey.mbp.tf.uni-bielefeld.de/index.php?r=survey/index&sid=486423&lang=de" target="_blank">hier</a> diese Anwendung zu verbessern.
 
 donation.errors.no-profile=Die Datei enthält keine Profildaten.
 donation.errors.no-alias=Ein Nutzername muss angegeben werden. Sie können ihn in Ihrem WhatsApp-Profil finden.
@@ -184,6 +184,7 @@ donation.submit=Senden
 # feedback
 
 feedback.thanks.title=Vielen Dank für die Spende Ihrer Social-Online-Daten!
+feedback.landscapeMode=Bitte halten Sie Ihr Gerät <b>quer</b>, um sich diese Seite anzugucken.
 
 feedback.importantMessage.title=Wichtiger Hinweis:
 feedback.importantMessage.disclaimer=Die angezeigten Graphen und Visualisierungen erlauben <b><u>keine</u> direkten Rückschlüsse</b> auf die Qualität Ihrer sozialen Beziehungen. Ihre Chats werden lediglich hinsichtlich Umfang, Menge und Zeiten ausgewertet und dargestellt.
@@ -285,9 +286,9 @@ feedback.graph.monthlySentReceived.yAxis=Anzahl Nachrichten
 # dailyActivityTimes plot
 feedback.graph.dailyActivityHoursPlot.description=In diesem Diagramm können Sie sehen, zu welchen Stunden des Tages Sie während der gesamten Zeitspanne der von Ihnen gespendeten Daten aktiv waren. Wenn Sie in einer Stunde mehr Wörter als üblicherweise gesendet haben, hat diese Stunde (Viereck im Diagramm) eine dunklere Farbe. Wenn die Farbe heller ist, dann haben Sie weniger Wörter als üblicherweise gesendet. Wenn Sie sich einen bestimmten Zeitraum genauer ansehen möchten, können Sie hineinzoomen, indem Sie auf das Diagramm klicken und halten, während Sie die Maus nach links oder rechts bewegen, um das Zeitfenster zu erzeugen, in das Sie hineinzoomen möchten. Klicken Sie <a style="font-weight:bold" href="#dailyActivityHoursPlotExplanation" data-toggle="modal" data-target="#dailyActivityHoursPlotExplanation">HIER</a>, um eine Erklärung mit einem Beispiel zu sehen.
 feedback.graph.dailyActivityHoursPlot.yAxis=Uhrzeit
-feedback.graph.dailyActivityHoursPlot.moreThanAverage=Mehr als Ihr Durchschnitt
+feedback.graph.dailyActivityHoursPlot.moreThanAverage=Mehr als <br> Ihr Durchschnitt
 feedback.graph.dailyActivityHoursPlot.average=Ihr Durchschnitt
-feedback.graph.dailyActivityHoursPlot.lessThanAverage=Weniger als Ihr Durchschnitt
+feedback.graph.dailyActivityHoursPlot.lessThanAverage=Weniger als <br> Ihr Durchschnitt
 feedback.graph.dailyActivityHoursPlot.example.image=images/feedback_example_dailyActivityHoursPlot_german.svg
 feedback.graph.dailyActivityHoursPlot.example.text=<p><b>(1)</b> In diesem Beispiel lässt sich in diesem Bereich eine Veränderung der Aktivitätszeiten beobachten. In dem Zeitraum bei <b>(2)</b> kann man sehen, dass keine Nachrichten ungefähr zwischen 8:00 Uhr und 12:00 Uhr gesendet wurden. Dann in dem Zeitraum bei <b>(3)</b> hat sich dieser Bereich ohne Nachrichten zu den Uhrzeiten ungefähr zwischen 2:00 Uhr und 6:00 Uhr verschoben. Das könnte zum Beispiel an einem Umzug in eine andere Zeitzone oder an einer Veränderung des Schlafrhythmus liegen.</p><p><b>(4)</b> Zum Beispiel hier lassen sich vermehrt dunkle Vierecke beobachten. In diesem Bereich wurden also überdurchschnittlich viele Nachrichten gesendet.</p><p><b>(5)</b> Klicken Sie auf dieses Symbol, um den Graphen herunterzuladen.</p>
 
@@ -375,9 +376,10 @@ data-storage.body2_html=<em>Fragebögen: </em>Sie füllen zunächst Fragebögen 
 links.learn-more=Mehr Erfahren
 links.instructions=Start
 links.donation-info=Daten Spenden
-links.donate=Ja, jetzt Teilnehmen
+links.donate=Ja, jetzt teilnehmen
 links.data-protection=Datenschutz
 links.imprint=Impressum
+# when changing this also change donation.anonymisation.loading.tooLong.issue.6
 links.reportProblem=https://survey.mbp.tf.uni-bielefeld.de/index.php?r=survey/index&sid=486423&lang=de
 
 yes=Ja

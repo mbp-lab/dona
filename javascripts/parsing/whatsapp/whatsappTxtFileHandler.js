@@ -87,6 +87,10 @@ function whatsappTxtFilesHandler(filelist) {
                         })
                 }
             })
+            .catch((event) => {
+                reject(event.target.error)
+            })
+
 
     })
 
@@ -168,6 +172,21 @@ function handlefile(file) {
     const reader = new FileReader();
     return new Promise((resolve, reject) => {
         reader.onload = event => resolve(event.target.result);
+        reader.onprogress = event => {
+            if (event.target.error) {
+                return reject(event.target.error)
+            }
+        }
+        reader.onloadend = event => {
+            if (event.target.error) {
+                return reject(event.target.error)
+            }
+        }
+        reader.onabort = event => {
+            if (event.target.error) {
+                return reject(event.target.error)
+            }
+        }
         reader.onerror = error => reject(error);
         reader.readAsText(file);
     });

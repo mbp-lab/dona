@@ -315,7 +315,6 @@ function setUpFileHandler() {
                 return transformJson(deIdentifiedJson.deIdentifiedJsonContents, donorId, dataSource);
             })
             .then((transformedJson) => {
-
                 // if there are already conversations of the chosen dataSource, then first filter the old ones out
                 donaForMEDonation.conversations = donaForMEDonation.conversations.filter((conv) => conv["donation_data_source_type"] !== dataSource)
 
@@ -369,6 +368,7 @@ function setUpFileHandler() {
                         .concat(dataSourceConv)
                     inputJson.attr('value', JSON.stringify(inputObjFiltered));
                 }
+
 
 
                 // show success messages

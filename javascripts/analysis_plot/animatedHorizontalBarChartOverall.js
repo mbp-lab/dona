@@ -1,6 +1,7 @@
 const sortGraphDataPoints = require('./utils/sortGraphDataPointsTimeWise');
 const _ = require("lodash");
 const sortYearMonthKeys = require("./utils/sortYearMonthKeys");
+const {isMobile} = require("../utils");
 
 function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversations, plotId) {
 
@@ -31,7 +32,7 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
     }
 
     let layout = {
-        height: 600,
+        //height: 600,
         showlegend: true,
         barmode: 'overlay',
         legend: {
@@ -80,6 +81,9 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
                 ]
             }
         ]
+    }
+    if (!isMobile()) {
+        layout["height"] = 600
     }
 
 
