@@ -186,6 +186,9 @@ donation.submit=Submit
 # feedback
 
 feedback.thanks.title=Thank you for the donation of your social media data!
+feedback.landscapeMode=Please hold your device <b>sideways</b> to view this page properly.
+
+
 
 feedback.importantMessage.title=Important Note:
 feedback.importantMessage.disclaimer=The graphs and visualizations displayed <b>do <u>not</u> allow any direct conclusions</b> to be drawn about the quality of your social relationships. Your chats are analyzed and visualized regarding amount and timing only.
