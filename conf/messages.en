@@ -127,6 +127,7 @@ donation.friendsMapping.moreFriends=and {0} others.
 donation.friendsMapping.chat=Chat
 donation.friendsMapping.onlyYouInConv=You are the only member in this chat. This could be because the other people have left the chat.
 
+
 donation.sendData.wait=Sending the data could take a few minutes. Please wait and keep this website open. Thanks!
 
 donation.raw-data-explanation_format=Below, you may view %s of your anonymized messages. In case you want to view all anonymized messages, <b>take a look at the</b>
@@ -155,8 +156,10 @@ donation.anonymisation.system=System
 donation.anonymisation.chooseUsername=Please choose your username. Your username will not be saved and we will not know it.
 donation.anonymisation.loading=Sending the anonymized data could take a few minutes. Please wait and keep this website open. Thanks!
 
+
 donation.anonymisation.chatSelection.title=You can select up to 10 chats to receive feedback for
 donation.anonymisation.chatSelection.clickHereToSelect=Click here to choose different chats to receive feedback for
+
 
 donation.anonymisation.loading.tooLong.title=If this process is taking more than 5 minutes, it might be due to the following:
 donation.anonymisation.loading.tooLong.issue.1=You are trying to upload file types that are not supported (the correct input types are .txt or .zip for WhatsApp and .zip for Facebook)

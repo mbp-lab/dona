@@ -19,7 +19,7 @@
     </div>
 <div class="mt-5">
     @footer(title = Some(messages("footer.title")), previousLink = Some("/")){
-        <button class="btn btn-outline footer-forward-button text-center" data-toggle="modal" data-target="#consent-dialog">@messages("links.donate")</button>
+        <button class="btn btn-outline footer-forward-button-margin text-center" data-toggle="modal" data-target="#consent-dialog">@messages("links.donate")</button>
     }
 </div>
 } {
@@ -35,10 +35,12 @@
             data-target="#@{dataSourceDescription.name.toString}Panel"
             aria-expanded="true"
             aria-controls="@{dataSourceDescription.name.toString}Panel">
+                <div class="">
                 @if(dataSourceDescription.logo.isDefined){
                     <img class="logo mr-3" src="@routes.Assets.at(s"images/dataSourceImages/${dataSourceDescription.logo.get}")">
                 }
                 <span>@{String.format(messages("instructions.datasource.title_format"), dataSourceDescription.name)}</span>
+                </div>
             </button>
         </div>
 
@@ -87,15 +89,17 @@
                     @Html(dataSourceDescription.documentation)
                     </p>
                 </div>
+                <div class="embed-responsive embed-responsive-16by9">
                 @if(dataSourceDescription.animation.isDefined && dataSourceDescription.animation.get.source != ""){
-                    <video controls autoplay height="@{dataSourceDescription.animation.get.height}" width="@{dataSourceDescription.animation.get.width}">
+                    <video controls height="@{dataSourceDescription.animation.get.height}" width="@{dataSourceDescription.animation.get.width}">
                         <source src="@routes.Assets.at(s"images/dataSourceImages/${dataSourceDescription.animation.get.source}")" type="video/mp4">
                     </video>
                 }
+                </div>
             </div>
         } else {
-            <div class="card-body d-flex lg-w-50">
-                <div>
+            <div class="card-body row">
+                <div class="col-md">
 
                     <h4 class="serif-text" align="center">
                     @Html(messages("whatsapp.instructions.p1.title"))
@@ -122,14 +126,16 @@
 
 
                 </div>
+                <div class="col-md">
                 @if(dataSourceDescription.animation.isDefined){
-                    <div class="ml-5">
+                    <div class="">
                         <video controls autoplay height="@{dataSourceDescription.animation.get.height}" width="@{dataSourceDescription.animation.get.width}">
                             <source src="@routes.Assets.at(s"images/dataSourceImages/${dataSourceDescription.animation.get.source}")" type="video/mp4">
                         </video>
                         <p>@messages("whatsapp.instruction.gif.subtitle")</p>
                     </div>
                 }
+                </div>
             </div>
             <div>
                 <h4 class="serif-text" align="center">

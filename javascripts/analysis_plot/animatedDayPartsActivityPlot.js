@@ -1,6 +1,7 @@
 const sortGraphDataPointsSync = require("./utils/sortGraphDataPointsSync");
 const _ = require("lodash");
 const sortYearMonthKeys = require("./utils/sortYearMonthKeys");
+const {isMobile} = require("../utils");
 
 
 function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId, startLabel, pauseLabel) {
@@ -38,7 +39,7 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId, startLabel
     }
 
     let layout = {
-        height: 700,
+        //height: 700,
         showlegend: true,
         barmode: 'overlay',
         legend: {
@@ -92,6 +93,10 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId, startLabel
                 ]
             }
         ]
+    }
+
+    if (!isMobile()) {
+        layout["height"] = 700
     }
 
     let startAnimation = (groupOrFrames, mode) => {

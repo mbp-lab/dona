@@ -315,7 +315,6 @@ function setUpFileHandler() {
                 return transformJson(deIdentifiedJson.deIdentifiedJsonContents, donorId, dataSource);
             })
             .then((transformedJson) => {
-
                 // if there are already conversations of the chosen dataSource, then first filter the old ones out
                 donaForMEDonation.conversations = donaForMEDonation.conversations.filter((conv) => conv["donation_data_source_type"] !== dataSource)
 
@@ -371,6 +370,7 @@ function setUpFileHandler() {
                 }
 
 
+
                 // show success messages
                 $(".show-on-anonymisation-success" + "-" + dataSource).removeClass('d-none');
                 //console.log(currentErrorFW)
@@ -419,6 +419,7 @@ function setUpFileHandler() {
                 progressBar.stop(dataSource);
             });
     }
+
 
     // when new files are selected, handle it
     $(".donation-file-selector>input[type='file']").on("change", (evt) => {

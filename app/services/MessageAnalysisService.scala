@@ -43,7 +43,7 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
       .map { case (dataSourceType, originalConversations) =>
         var conversations = originalConversations
 
-        println(socialData)
+        // println(socialData)
         // TODO ! The information for which chats feedback should be shown should be passed with the socialData!!!
         /*
         if (dataSourceType == DonationDataSourceType.Facebook) {

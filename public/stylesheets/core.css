@@ -1,20 +1,37 @@
 /* main */
+/*
+@media (min-width: 576px) {}
+
+@media (min-width: 768px) {}
+
+@media (min-width: 992px) {}
+
+@media (min-width: 1200px) {}
+*/
 
 .bgImage {
+    width: 100%;
     background-size: cover;
     background-attachment: fixed;
+    -o-background-size:cover;
+    -moz-background-size:cover;
+    -webkit-background-size:cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url("/assets/images/background3_4.jpg");
+    background-image: url("/assets/images/backgroud3_4_compressed.jpg");
 }
 
-@media only screen and (min-device-width: 400px) {
+@media (min-device-width: 400px) {
     .bgImage {
+        width: 100%;
         background-size: cover;
         background-attachment: fixed;
+        -o-background-size:cover;
+        -moz-background-size:cover;
+        -webkit-background-size:cover;
         background-position: center;
         background-repeat: no-repeat;
-        background-image: url("/assets/images/background.jpg");
+        background-image: url("/assets/images/background_compressed.jpg");
     }
 }
 
@@ -22,6 +39,11 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+}
+
+.logo {
+    width: 36px;
+    height: 36px;
 }
 
 .main-dhc-logo {
@@ -36,8 +58,33 @@
   color: #666;
 }
 
+
 .main-body-column {
-    width: 900px;
+    width: 90%;
+}
+
+@media (min-width: 576px) {
+    .main-body-column {
+        width: 95%;
+    }
+}
+
+@media (min-width: 768px) {
+    .main-body-column {
+        width: 95%;
+    }
+}
+
+@media (min-width: 992px) {
+    .main-body-column {
+        width: 900px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .main-body-column {
+        width: 900px
+    }
 }
 
 .main-body a:not(.btn) {
@@ -79,6 +126,18 @@
     font-size: 18px;
     color: #666666;
     font-family: PT Sans;
+    text-align: left;
+}
+
+@media (min-width: 576px) {
+    .paragraph {
+        margin-bottom: 2em;
+        margin-top: 2em;
+        font-size: 18px;
+        color: #666666;
+        font-family: PT Sans;
+        text-align: center;
+    }
 }
 
 .modalMaxWidth {
@@ -106,15 +165,39 @@
 }
 
 .landing-header {
-    width: 700px;
+    width: 98%;
+    margin-bottom: 50px;
 }
+
+@media (min-width: 768px) {
+    .landing-header {
+        width: 700px;
+        margin-bottom: 150px;
+    }
+}
+
+@media (min-width: 992px) {
+    .landing-header {
+        width: 700px;
+        margin-bottom: 150px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .landing-header {
+        width: 700px;
+        margin-bottom: 150px;
+    }
+}
+
+
+
 
 .header {
 
   font-family: PT Sans;
     background-color: rgba(0,0,0,0.5);
     border-radius: 1.5rem;
-    margin-bottom: 250px;
 
 }
 
@@ -155,10 +238,6 @@
     color: #404040 !important;
 }
 
-.landing-container {
-    margin-bottom: -2rem;
-}
-
 .landing-subtitle {
     color: #36b3a8;
     text-transform: uppercase;
@@ -181,6 +260,7 @@
     font-size: 18px;
     color: #666666;
 }
+
 
 .landing-header-headline {
     font-size: 48px;
@@ -243,24 +323,81 @@
     min-height: 120px;
 }
 
+
 .footer-forward-button {
     font-weight: 800;
     font-size: 24px;
-    min-width: 213px;
+    width: 100%;
     padding: 10px 20px 10px 20px;
-    margin-left: 2em;
     border-radius: 16px;
     background: #35b1a6;
     color: white !important;
-    margin-bottom: 2em;
+    margin-bottom: 4em;
     text-decoration: none;
 }
 
+@media (min-width: 576px) {
+    .footer-forward-button {
+        font-weight: 800;
+        font-size: 24px;
+        width: 275px;
+        padding: 10px 20px 10px 20px;
+        border-radius: 16px;
+        background: #35b1a6;
+        color: white !important;
+        margin-bottom: 2em;
+        text-decoration: none;
+    }
+}
+
+.footer-forward-button-margin {
+    margin-left: 0;
+    font-weight: 800;
+    font-size: 24px;
+    width: 100%;
+    padding: 10px 20px 10px 20px;
+    border-radius: 16px;
+    background: #35b1a6;
+    color: white !important;
+    margin-bottom: 1em;
+    text-decoration: none;
+}
+
+@media (min-width: 576px) {
+    .footer-forward-button-margin {
+        margin-left: 8px;
+        font-weight: 800;
+        font-size: 24px;
+        width: 275px;
+        padding: 10px 20px 10px 20px;
+        border-radius: 16px;
+        background: #35b1a6;
+        color: white !important;
+        margin-bottom: 2em;
+        text-decoration: none;
+    }
+}
+
+
+
+@media (min-width: 576px) {
+    .report-problem-button-footer {
+        min-width: 190px !important;
+        font-weight: 800 !important;
+        font-size: 12px !important;
+        padding: 10px 20px 10px 20px !important;
+        border-radius: 16px !important;
+        background: #888 !important;
+        color: white !important;
+        text-decoration: none !important;
+    }
+}
+
 .report-problem-button-footer {
-    min-width: 190px !important;
+    min-width: 100px !important;
     font-weight: 800 !important;
-    font-size: 12px !important;
-    padding: 10px 20px 10px 20px !important;
+    font-size: 10px !important;
+    padding: 5px 10px 5px 10px !important;
     border-radius: 16px !important;
     background: #888 !important;
     color: white !important;
@@ -304,16 +441,31 @@
     color: white !important;
 }
 
+
 .footer-backward-button {
     font-weight: 800;
     font-size: 24px;
-    width: 213px;
+    width: 100%;
     padding: 10px 20px;
     border-radius: 16px;
     color: white !important;
     background: #888;
     margin-bottom: 2em;
     text-decoration: none;
+}
+
+@media (min-width: 576px) {
+    .footer-backward-button {
+        font-weight: 800;
+        font-size: 24px;
+        width: 275px;
+        padding: 10px 20px;
+        border-radius: 16px;
+        color: white !important;
+        background: #888;
+        margin-bottom: 2em;
+        text-decoration: none;
+    }
 }
 
 .footer-backward-button:hover {
@@ -335,19 +487,6 @@
     left: 10px;
 }
 
-
-.logos {
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
-}
-
-/* instructions */
-
-.logo {
-    width: 32px;
-    height: 32px
-}
 
 /* feedback page */
 
@@ -454,10 +593,6 @@
     background: #35b1a6;
     color: white !important;
     text-decoration: none;
-}
-
-.donation-page-body {
-    width: 940px;
 }
 
 .disabled-input {
@@ -598,13 +733,6 @@
 }
 
 /* mobileAlertModal */
-
-
-.modalMobileAlert .modalMobileAlert-dialog {
-    width: 90%;
-    max-width: none;
-    height: 100%;
-}
 
 .modalMobileAlert .modalMobileAlert-body {
     overflow-y: auto;

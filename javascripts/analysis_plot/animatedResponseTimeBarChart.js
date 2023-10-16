@@ -1,5 +1,6 @@
 const _ = require("lodash");
 const sortYearMonthKeys = require("./utils/sortYearMonthKeys");
+const {isMobile} = require("../utils");
 
 
 function animatedResponseTimeBarChart(responseTimes, plotId, startLabel, pauseLabel) {
@@ -65,7 +66,7 @@ function animatedResponseTimeBarChart(responseTimes, plotId, startLabel, pauseLa
     }
 
     let layout = {
-        height: 600,
+        //height: 600,
         showlegend: true,
         barmode: 'overlay',
         hovermode: 'x',
@@ -113,6 +114,10 @@ function animatedResponseTimeBarChart(responseTimes, plotId, startLabel, pauseLa
                 ]
             }
         ]
+    }
+
+    if (!isMobile()) {
+        layout["height"] = 600
     }
 
     let startAnimation = (groupOrFrames, mode) => {

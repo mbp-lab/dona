@@ -7,6 +7,8 @@
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/roboto_google_font.css")">
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/ptSerif_google_font.css")">
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/ptSans_google_font.css")">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("lib/bootstrap/css/bootstrap.min.css")">
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("lib/font-awesome/css/font-awesome.min.css")">
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/core.css")">
@@ -26,16 +28,16 @@
         <script src="@routes.Assets.at("lib/jquery/jquery.min.js")" type="text/javascript"></script>
         <div class="main-container">
             <div id="unsupported-browser-warning" class="d-none p-3 w-100 bg-danger text-white text-center">@messages("browser-warning.text")</div>
-            <div class="row mx-0 mt-3 justify-content-center">
-                <div id="header-hpi-logo" class="col">
+            <div class="row mx-2 mt-3 justify-content-between">
+                <div id="header-hpi-logo">
                     <a class="mr-1 mt-1 homeButton" href="/"><img src="@routes.Assets.at("images/homeButton.svg")" height="30px"></a>
                 </div>
-                <div id="header-content" class="col">
-                @header
-                </div>
-                <div id="header-uni-logo" class="col">
+                <div id="header-uni-logo" class="w-75 float-right">
                 @headerRight
                 </div>
+            </div>
+            <div>
+                @header
             </div>
             <section class="ml-0 mr-0 pt-4 bg-white mt-4 pb-5 w-100 main-body">
                 <a target="_blank" href="https://www.uni-bielefeld.de/"><img src="@routes.Assets.at("images/UBF-logo_graustufen.svg")" height="75px" class="main-dhc-logo ml-1"></a>
@@ -43,44 +45,46 @@
                 @content
                 </div>
             </section>
-            <section class="w-100 position-relative footer-container bg-white mb-4">
-                @footer
-            <ul class="list-inline footer-links ml-4">
+            <section class="w-100 bg-white mb-4">
+            <div class="container-fluid row justify-content-between">
+
+                <div class="col-md row align-content-end">
+                <ul class="list-inline ml-4">
+                    @footer
                     <li class="list-inline-item"><a href="@routes.AboutController.dataProtection" class="text-black-50" target="_blank">@messages("links.data-protection")</a></li>
                     <li class="list-inline-item text-white">&middot;</li>
                     <li class="list-inline-item"><a href="/impressum" class="text-black-50" target="_blank">@messages("links.imprint")</a></li>
                 </ul>
-                <div class="logos ml-4">
-                    <div class="row justify-content-end mb-1 mr-1">
-                        <div class="col-sm">
+
+                </div>
+                <div class="ml-4 flex-wrap col-md" style="max-width: 400px;">
+                    <div class="row mb-1 mr-1">
+                        <div class="col">
                             <a target="_blank" href="https://www.bmbf.de/">
-                                <img src="@routes.Assets.at("images/BMBF_logo.png")" height="70px" width="130px" alt="BMBF">
+                                <img src="@routes.Assets.at("images/BMBF_logo.png")" class="img-fluid" alt="BMBF">
                             </a>
                         </div>
-                        <div class="col-sm">
+                        <div class="col">
                             <a target="_blank" href="https://www.hpi.de">
-                                <img src="@routes.Assets.at("images/HPI_logo.png")" height="70px" width="130px" alt="hpi">
+                                <img src="@routes.Assets.at("images/HPI_logo.png")" class="img-fluid" alt="hpi">
                             </a>
                         </div>
-                        <div class="col-sm">
+                        <div class="col">
                             <a target="_blank" href="https://www.data4life.care/">
-                                <img src="@routes.Assets.at("images/data4life-blueLogo.svg")" height="70px" width="70px" alt="d4l">
+                                <img src="@routes.Assets.at("images/data4life-blueLogo.svg")" alt="d4l" class="img-fluid">
                             </a>
                         </div>
                     </div>
-                    <div class="row justify-content-end mb-3 mr-1">
-                        <div class="col-sm">
-                            <span class="float-right" height="70px" width="130px" style="font-size: x-small">
-                                @messages("footer.projectNumber")
+                    <div class="row mb-3">
+                        <div class="col">
+                            <span class="float-left" style="font-size: x-small">
+                            @messages("footer.projectNumber")
                             </span>
-                        </div>
-                        <div class="col-sm">
-                        </div>
-                        <div class="col-sm">
                         </div>
                     </div>
 
                 </div>
+            </div>
             </section>
         </div>
         <script src="@routes.Assets.at("lib/bootstrap/js/bootstrap.bundle.min.js")" type="text/javascript"></script>
