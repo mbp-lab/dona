@@ -29,8 +29,8 @@ services:
       POSTGRES_DB: "kalinka"
     image: postgres:12
     volumes:
-      - demoChangingDomain_dona_data:/var/lib/postgresql/data
+      - project03demo_dona_data:/var/lib/postgresql/data
     ports:
       - "5561:5432"
 volumes:
-  demoChangingDomain_dona_data:
+  project03demo_dona_data:
