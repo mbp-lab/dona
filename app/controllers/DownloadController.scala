@@ -15,14 +15,6 @@ final class DownloadController @Inject()(cc: ControllerComponents) extends Abstr
   def informedConsent: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
     val isolocaleString = request.lang.language
 
-    val customLang = request.lang
-    val languageCode = customLang.language
-    val countryCode = customLang.country
-
-    // Print the information to the console
-    logger.info(s"""{"status": "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"}""")
-
-
     var filepath = ""
       if (isolocaleString == "en") {
         filepath = "public/informedConsents/informedConsent_eng.pdf"
@@ -32,7 +24,7 @@ final class DownloadController @Inject()(cc: ControllerComponents) extends Abstr
 
     val file = new java.io.File(filepath)
     Ok.sendFile(file, inline = false).withHeaders(
-      CACHE_CONTROL -> "max-age=3600",
+      CACHE_CONTROL -> "max-age=0",
       CONTENT_DISPOSITION -> s"attachment; filename=${file.getName}"
     )
   }
