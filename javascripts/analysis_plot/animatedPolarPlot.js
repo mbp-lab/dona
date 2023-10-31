@@ -25,6 +25,7 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
             "lasso2d",
             "toggleHover"
         ],
+        displaylogo: false
     }
 
     let layout = {

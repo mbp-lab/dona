@@ -18,6 +18,7 @@ function sentReceived(data, plotId) {
             "hoverClosestCartesian",
             "hoverCompareCartesian",
         ],
+        displaylogo: false
     }
 
 

@@ -63,6 +63,7 @@ function animatedResponseTimeBarChart(responseTimes, plotId) {
             "autoScale2d",
             "resetScale2d"
         ],
+        displaylogo: false
     }
 
     let layout = {

@@ -60,6 +60,7 @@ function responseTimeBarChart(responseTimes, plotId, isOnlyOneOrLessConv) {
             "autoScale2d",
             "resetScale2d"
         ],
+        displaylogo: false
     }
 
     let layout = {

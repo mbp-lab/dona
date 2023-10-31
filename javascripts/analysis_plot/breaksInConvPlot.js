@@ -17,6 +17,7 @@ function breaksInConvPlot(wordsPerConv, listOfConversations, plotId) {
             "hoverClosestCartesian",
             "hoverCompareCartesian",
         ],
+        displaylogo: false
     }
 
     const layout = {

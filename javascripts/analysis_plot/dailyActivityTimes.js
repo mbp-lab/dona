@@ -24,6 +24,7 @@ function dailyActivityTimes(dataSent, dataReceived, listOfConversations, plotId)
             "hoverCompareCartesian",
             "toggleSpikelines"
         ],
+        displaylogo: false
     }
 
     let layout = {

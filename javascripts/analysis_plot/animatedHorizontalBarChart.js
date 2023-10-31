@@ -20,6 +20,7 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
             "hoverClosestCartesian",
             "hoverCompareCartesian"
         ],
+        displaylogo: false
     }
 
     let layout = {

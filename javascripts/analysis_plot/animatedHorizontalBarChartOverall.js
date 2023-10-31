@@ -29,6 +29,7 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
             "autoScale2d",
             "resetScale2d"
         ],
+        displaylogo: false
     }
 
     let layout = {

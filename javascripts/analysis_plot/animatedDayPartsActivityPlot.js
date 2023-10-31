@@ -36,6 +36,7 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
             "autoScale2d",
             "resetScale2d"
         ],
+        displaylogo: false
     }
 
     let layout = {

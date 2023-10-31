@@ -22,6 +22,7 @@ function sentReceivedDailyPerConversation(dataSlidingWindow, plotId, listOfConve
             "hoverClosestCartesian",
             "hoverCompareCartesian",
         ],
+        displaylogo: false
     }
 
     const layout = {

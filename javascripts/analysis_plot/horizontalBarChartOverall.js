@@ -25,6 +25,7 @@ function horizontalBarChartOverall(sentWordsTotal, receivedWordsTotal, plotId) {
             "autoScale2d",
             "resetScale2d"
         ],
+        displaylogo: false
     }
 
     let layout = {
