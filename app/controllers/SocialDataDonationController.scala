@@ -42,7 +42,6 @@ final class SocialDataDonationController @Inject()(
 
   def landing: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
     val designVersion = request.queryString.get("design").flatMap(_.headOption).map(_.filter(_.isLetterOrDigit))
-
     logger.info(s"""{"status": "landing-page"}""")
     // only do a new session if there is no session yet
     // otherwise take the old session (as users might open two tabs to read information from earlier pages)
@@ -91,6 +90,7 @@ final class SocialDataDonationController @Inject()(
     request.session.get(GeneratedDonorIdKey) match {
       case None => Redirect(routes.SocialDataDonationController.landing())
       case Some(donorId) =>
+
         logger.info(s"""{"status": "completed-survey"}""")
         Ok(views.html.anonymisation(socialDataForm, donorId.toString, dataSourceDescriptionService.listAll)).withSession(request.session + (GeneratedDonorIdKey -> donorId.toString))
     }
