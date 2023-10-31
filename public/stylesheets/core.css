@@ -245,6 +245,11 @@
     font-weight: 900;
 }
 
+.highlighted-text {
+    color: #36b3a8;
+    font-weight: 900;
+}
+
 .landing-column-image {
     height: 170px;
     margin-bottom: 1rem;
@@ -310,6 +315,7 @@
 /* donation info */
 
 .donation-info-image {
+    background-color: #B6D1E2;
     max-width: 100%;
     margin-top: 10px;
     min-width: 100%;
