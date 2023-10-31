@@ -9,8 +9,7 @@ import slick.lifted.MappedTo
 case class ConversationParticipant(
   id: ConversationParticipantId,
   conversationId: ConversationId,
-  participantId: ParticipantId,
-  participantPseudonym: String,
+  participantId: ParticipantId
 )
 
 case class ConversationParticipantId(value: UUID) extends MappedTo[UUID]
