@@ -42,8 +42,18 @@ final class SocialDataDonationController @Inject()(
 
   def landing: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
     val designVersion = request.queryString.get("design").flatMap(_.headOption).map(_.filter(_.isLetterOrDigit))
+
     logger.info(s"""{"status": "landing-page"}""")
-    Ok(views.html.landing(designVersion)).withNewSession//.withLang(Lang("en"))
+    // only do a new session if there is no session yet
+    // otherwise take the old session (as users might open two tabs to read information from earlier pages)
+    // the donor id gets recreated later - so it is no problem that the session contains the donorId of the old session
+    // furthermore, playframework takes care of removing a session cookie after one hour (check application.conf for that)
+    if (request.session.isEmpty)
+      Ok(views.html.landing(designVersion)).withNewSession
+    else (
+      Ok(views.html.landing(designVersion)).withSession(request.session)
+    )
+
   }
 
   def learnMore: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
@@ -81,7 +91,6 @@ final class SocialDataDonationController @Inject()(
     request.session.get(GeneratedDonorIdKey) match {
       case None => Redirect(routes.SocialDataDonationController.landing())
       case Some(donorId) =>
-
         logger.info(s"""{"status": "completed-survey"}""")
         Ok(views.html.anonymisation(socialDataForm, donorId.toString, dataSourceDescriptionService.listAll)).withSession(request.session + (GeneratedDonorIdKey -> donorId.toString))
     }
