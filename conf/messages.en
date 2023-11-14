@@ -63,7 +63,7 @@ instructions.haveData=You need 5-7 WhatsApp chat files (.txt- or .zip-files).
 donation-info.title=How do I donate my data?
 donation-info.data-request=<strong>Data request: </strong>You request your social media data from a platform of your choice (currently supported: Facebook and WhatsApp) and download it to your device.
 donation-info.anonymisation=<strong>Anonymization: </strong>We will remove all content, contact names and phone numbers from your data and limit it to metadata (e.g. length and timestamp of message).
-donation-info.storage=<strong> Storage: </strong>Only anonymized and reduced data will be uploaded to one of our secure servers. <strong class="highlighted-text">No message content or names and no media files (pictures, voice messages, gifs, etc.) will be donated to us.</strong>
+donation-info.storage=<strong> Storage: </strong>Only anonymized and reduced data will be uploaded to one of our secure servers. <strong class="highlighted-text">No message text or names and no media files (pictures, voice messages, gifs, etc.) will be donated to us.</strong>
 
 # Consent pop-up
 

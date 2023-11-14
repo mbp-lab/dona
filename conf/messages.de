@@ -63,8 +63,8 @@ instructions.haveData=Sie brauchen 5-7 WhatsApp-Chats (.txt oder .zip-Dateien).
 
 donation-info.title=Wie spende ich meine Daten?
 donation-info.data-request=<strong>Datenanfrage: </strong>Sie fordern Ihre Online-Nachrichten-Daten vom Online-Netzwerk (z.B. Facebook) an und laden diese auf Ihren Rechner.
-donation-info.anonymisation=<strong> Anonymisierung: </strong>Wir entfernen den Inhalt aus diesen Daten und reduzieren die Daten auf sogenannte Meta-Informationen (z.B. Länge und Zeitpunkt der Nachrichten). Ihr Name sowie die Namen aller Ihrer Kontakte werden durch zufällige Pseudonyme (z.B. „Tim“ &rarr;„anonymous13“) ersetzt. Sie können den Inhalt der anonymisierten Datei vor dem Upload begutachten.
-donation-info.storage=<strong> Speicherung: </strong>Nur diese anonymisierten und reduzierten Daten werden hochgeladen und von uns auf einem sicheren Server gespeichert.
+donation-info.anonymisation=<strong> Anonymisierung: </strong>Wir entfernen den Inhalt aus diesen Daten und reduzieren die Daten auf sogenannte Meta-Informationen (z.B. Länge und Zeitpunkt der Nachrichten).
+donation-info.storage=<strong> Speicherung: </strong>Nur diese anonymisierten und reduzierten Daten werden hochgeladen und von uns auf einem sicheren Server gespeichert. <strong class="highlighted-text">Kein Nachrichteninhalt oder Namen und keine Mediadateien (Bilder, Sprachnachrichten, Gifs, etc.) werden an uns gesendet.</strong>
 
 # Consent pop-up
 
