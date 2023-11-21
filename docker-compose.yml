@@ -29,8 +29,8 @@ services:
       POSTGRES_DB: "kalinka"
     image: postgres:12
     volumes:
-      - mobile_dev_dona_data:/var/lib/postgresql/data
+      - mobile_dev2_dona_data:/var/lib/postgresql/data
     ports:
       - "5560:5432"
 volumes:
-  mobile_dev_dona_data:
+  mobile_dev2_dona_data:
