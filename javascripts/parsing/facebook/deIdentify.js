@@ -33,22 +33,8 @@ async function deIdentify(zipFiles, messagesRelativePath, donorName) {
 
     // Promise<Array<Object>>
     const textList = await Promise.all(zipFileTexts);
-
-
-
-    let jsonContents = {}
-
-    // ToDo: combine messages from textLists from different zipfiles if they are from the same chat
     textList.forEach(textContent => {
-        let jsonContent = JSON.parse(textContent);
-        if (jsonContents[jsonContent.thread_path] != undefined) {
-            jsonContents[jsonContent.thread_path].messages = jsonContents[jsonContent.thread_path].messages.concat(jsonContent.messages)
-        } else {
-            jsonContents[jsonContent.thread_path] = jsonContent
-        }
-    })
-
-    Object.values(jsonContents).forEach(jsonContent => {
+        const jsonContent = JSON.parse(textContent);
         delete jsonContent.thread_path;
         delete jsonContent.title;
         delete jsonContent.is_still_participant;

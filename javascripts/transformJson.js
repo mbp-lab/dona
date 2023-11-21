@@ -20,7 +20,7 @@ function generateConversation (jsonContent, dataSource) {
         conversation["selected"] = true
     }
     conversation["conversation_id"] = uuid();
-    conversation["is_group_conversation"] = translateIfGroupConversation(jsonContent["participants"]);
+    conversation["is_group_conversation"] = translateIfGroupConversation(jsonContent["thread_type"]);
     conversation["participants"] = transformParticipants(jsonContent["participants"]);
     let transformedMessages = transformMessages(jsonContent["messages"])
     conversation["messages"] =  transformedMessages.transformedMessages;
@@ -28,11 +28,12 @@ function generateConversation (jsonContent, dataSource) {
     return {conversation: conversation, earliestDate: transformedMessages.earliestDate, latestDate: transformedMessages.latestDate};
 };
 
-function translateIfGroupConversation(participants) {
-    if (participants.length <= 2) {
-        return false
-    } else {
-        return true
+function translateIfGroupConversation(threadType) {
+    if (threadType == "Regular") return false;
+    else if (threadType == "RegularGroup") return true;
+    else {
+        console.log("Unsupported thread type!");
+        return false;
     }
 };
 

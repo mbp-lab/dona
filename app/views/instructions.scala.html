@@ -3,7 +3,7 @@
 @(dataSourceDescriptions: List[DataSourceDescription])(implicit request: RequestHeader, messages: Messages)
 
 
-@mainNew("Dona - ForMe")() {
+@mainNew("Dona - ForMe")(){
     <div class="bg-white mt-4 text-center">
         <h2 class="headline">@messages("instructions.about.title")</h2>
         <p class="paragraph serif-text">@Html(messages("instructions.about.body_html"))</p>
@@ -14,51 +14,39 @@
         </div>
         <p class="paragraph">@messages("instructions.continue.body")</p>
     </div>
-    <div class="modal fade" id="consent-dialog" role="dialog">
+    <div class="modal fade" id="consent-dialog"  role="dialog">
     @consent()
     </div>
-    <div class="mt-5">
-    @footer(title = Some(messages("footer.title")), previousLink = Some("/")) {
+<div class="mt-5">
+    @footer(title = Some(messages("footer.title")), previousLink = Some("/")){
         <button class="btn btn-outline footer-forward-button-margin text-center" data-toggle="modal" data-target="#consent-dialog">@messages("links.donate")</button>
     }
-    </div>
+</div>
 } {
-} {
+}{
     @headerButtons()
 }
 
-@getDataPanel(dataSourceDescription: DataSourceDescription) = {
+@getDataPanel(dataSourceDescription:DataSourceDescription) = {
     <div class="card">
-        <div class="card-header" id="@{
-            dataSourceDescription.name.toString
-        }Header">
+        <div class="card-header" id="@{dataSourceDescription.name.toString}Header">
             <button class="btn btn-link"
             data-toggle="collapse"
-            data-target="#@{
-                dataSourceDescription.name.toString
-            }Panel"
+            data-target="#@{dataSourceDescription.name.toString}Panel"
             aria-expanded="true"
-            aria-controls="@{
-                dataSourceDescription.name.toString
-            }Panel">
+            aria-controls="@{dataSourceDescription.name.toString}Panel">
                 <div class="">
-                    @if(dataSourceDescription.logo.isDefined) {
-                        <img class="logo mr-3" src="@routes.Assets.at(s"images/dataSourceImages/${dataSourceDescription.logo.get}")">
-                    }
-                    <span>@{
-                        String.format(messages("instructions.datasource.title_format"), dataSourceDescription.name)
-                    }</span>
+                @if(dataSourceDescription.logo.isDefined){
+                    <img class="logo mr-3" src="@routes.Assets.at(s"images/dataSourceImages/${dataSourceDescription.logo.get}")">
+                }
+                <span>@{String.format(messages("instructions.datasource.title_format"), dataSourceDescription.name)}</span>
                 </div>
             </button>
         </div>
 
 
-        <div id="@{
-            dataSourceDescription.name.toString
-        }Panel" class="collapse serif-text" aria-labelledby="@{
-            dataSourceDescription.name.toString
-        }Header" data-parent="#accordion">
-        @if(dataSourceDescription.name.toString == "Facebook") {
+        <div id="@{dataSourceDescription.name.toString}Panel" class="collapse serif-text" aria-labelledby="@{dataSourceDescription.name.toString}Header" data-parent="#accordion">
+        @if(dataSourceDescription.name.toString == "Facebook"){
             <div class="card-body d-flex flex-column lg-w-50">
                 <div>
                     <h4 class="serif-text" align="center">
@@ -80,7 +68,7 @@
                     @Html(messages("facebook.instructions.p3.body"))
                     </p>
 
-                    @if(dataSourceDescription.illustration.isDefined) {
+                    @if(dataSourceDescription.illustration.isDefined){
                         <img src="@routes.Assets.at(s"images/dataSourceImages/${dataSourceDescription.illustration.get}")" width="400px"></img>
                     }
 
@@ -102,105 +90,87 @@
                     </p>
                 </div>
                 <div class="embed-responsive embed-responsive-16by9">
-                @if(dataSourceDescription.animation.isDefined && dataSourceDescription.animation.get.source != "") {
-                    <video controls height="@{
-                        dataSourceDescription.animation.get.height
-                    }" width="@{
-                        dataSourceDescription.animation.get.width
-                    }">
+                @if(dataSourceDescription.animation.isDefined && dataSourceDescription.animation.get.source != ""){
+                    <video controls height="@{dataSourceDescription.animation.get.height}" width="@{dataSourceDescription.animation.get.width}">
                         <source src="@routes.Assets.at(s"images/dataSourceImages/${dataSourceDescription.animation.get.source}")" type="video/mp4">
                     </video>
                 }
                 </div>
             </div>
         } else {
-            <div class="card-body">
-                <div class="mb-5">
-                    <ul class="nav nav-tabs flex-sm-row" id="myTab" role="tablist">
-                        <li class="nav-item flex-fill flex-sm-fill">
-                            <a class="nav-link active landing-subtitle" id="home-tab" data-toggle="tab" href="#iOSGifTab" role="tab" aria-controls="home" aria-selected="true">
-                                iOS</a>
-                        </li>
-                        <li class="nav-item flex-fill flex-sm-fill">
-                            <a class="nav-link landing-subtitle" id="profile-tab" data-toggle="tab" href="#androidGifTab" role="tab" aria-controls="profile" aria-selected="false">
-                                Android</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="row">
-                    <div class="col-md">
+            <div class="card-body row">
+                <div class="col-md">
 
-                        <h4 class="serif-text" align="center">
-                        @Html(messages("whatsapp.instructions.p1.title"))
-                        </h4>
-                        <p class="serif-text" align="left">
+                    <h4 class="serif-text" align="center">
+                    @Html(messages("whatsapp.instructions.p1.title"))
+                    </h4>
+                    <p class="serif-text" align="left">
                         @Html(messages("whatsapp.instructions.p1.body"))
-                        </p>
-                        <h4 class="serif-text mt-4" align="center">
-                        @Html(messages("whatsapp.instructions.p2.title"))
-                        </h4>
-                        <p class="serif-text" align="left">
-                        @Html(messages("whatsapp.instructions.p2.body"))
-                        </p>
-                        <h4 class="serif-text mt-4" align="center">
-                        @Html(messages("whatsapp.instructions.p3.title"))
-                        </h4>
-                        <p class="serif-text" align="left">
-                        @Html(messages("whatsapp.instructions.p3.body"))
-                        </p>
+                    </p>
+                    <h4 class="serif-text mt-4" align="center">
+                    @Html(messages("whatsapp.instructions.p2.title"))
+                    </h4>
+                    <p class="serif-text" align="left">
+                    @Html(messages("whatsapp.instructions.p2.body"))
+                    </p>
+                    <h4 class="serif-text mt-4" align="center">
+                    @Html(messages("whatsapp.instructions.p3.title"))
+                    </h4>
+                    <p class="serif-text" align="left">
+                    @Html(messages("whatsapp.instructions.p3.body"))
+                    </p>
 
-                        @if(dataSourceDescription.illustration.isDefined) {
-                            <img src="@routes.Assets.at(s"images/dataSourceImages/${dataSourceDescription.illustration.get}")" width="400px"></img>
-                        }
+                    @if(dataSourceDescription.illustration.isDefined){
+                        <img src="@routes.Assets.at(s"images/dataSourceImages/${dataSourceDescription.illustration.get}")" width="400px"></img>
+                    }
 
 
-                    </div>
-                    <div class="col-md">
-                    @if(dataSourceDescription.animation.isDefined) {
-                        <div class="">
-                            <div class="tab-content" id="myTabContent">
-                                <div class="tab-pane fade show active" id="iOSGifTab" role="tabpanel" aria-labelledby="iOSGif-tab">
-                                    <video controls autoplay height="@{
-                                        dataSourceDescription.animation.get.height
-                                    }" width="@{
-                                        dataSourceDescription.animation.get.width
-                                    }">
-                                        <source src="@routes.Assets.at(s"images/dataSourceImages/${messages("whatsapp.instruction.gifiOS")}")" type="video/mp4">
-                                    </video>
-                                    <p>@messages("whatsapp.instruction.gif.subtitle.iOS")</p>
-                                </div>
-                                <div class="tab-pane fade" id="androidGifTab" role="tabpanel" aria-labelledby="androidGif-tab">
-                                    <video controls autoplay height="@{
-                                        dataSourceDescription.animation.get.height
-                                    }" width="@{
-                                        dataSourceDescription.animation.get.width
-                                    }">
-                                        <source src="@routes.Assets.at(s"images/dataSourceImages/${messages("whatsapp.instruction.gifAndroid")}")" type="video/mp4">
-                                    </video>
-                                    <p>@messages("whatsapp.instruction.gif.subtitle.android")</p>
-                                </div>
+                </div>
+                <div class="col-md">
+                @if(dataSourceDescription.animation.isDefined){
+                    <div class="">
+                        <ul class="nav nav-tabs flex-sm-row" id="myTab" role="tablist">
+                            <li class="nav-item flex-fill flex-sm-fill">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#iOSGifTab" role="tab" aria-controls="home" aria-selected="true">iOS</a>
+                            </li>
+                            <li class="nav-item flex-fill flex-sm-fill">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#androidGifTab" role="tab" aria-controls="profile" aria-selected="false">Android</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="iOSGifTab" role="tabpanel" aria-labelledby="iOSGif-tab">
+                                <video controls autoplay height="@{dataSourceDescription.animation.get.height}" width="@{dataSourceDescription.animation.get.width}">
+                                    <source src="@routes.Assets.at(s"images/dataSourceImages/${messages("whatsapp.instruction.gifiOS")}")" type="video/mp4">
+                                </video>
+                                <p>@messages("whatsapp.instruction.gif.subtitle.iOS")</p>
+                            </div>
+                            <div class="tab-pane fade" id="androidGifTab" role="tabpanel" aria-labelledby="androidGif-tab">
+                                <video controls autoplay height="@{dataSourceDescription.animation.get.height}" width="@{dataSourceDescription.animation.get.width}">
+                                    <source src="@routes.Assets.at(s"images/dataSourceImages/${messages("whatsapp.instruction.gifAndroid")}")" type="video/mp4">
+                                </video>
+                                <p>@messages("whatsapp.instruction.gif.subtitle.android")</p>
                             </div>
                         </div>
+                    </div>
+                }
+                </div>
+            </div>
+            <div>
+                <h4 class="serif-text" align="center">
+                @messages("instructions.download-procedure.title")
+                </h4>
+
+                <div class="serif-text text-left mb-3">
+                    <ol>
+                    @for(procedureStep <- dataSourceDescription.dataDownloadSteps) {
+                        <li><p>@Html(procedureStep)</p></li>
                     }
-                    </div>
+                    </ol>
                 </div>
-                <div>
-                    <h4 class="serif-text" align="center">
-                    @messages("instructions.download-procedure.title")
-                    </h4>
 
-                    <div class="serif-text text-left mb-3">
-                        <ol>
-                        @for(procedureStep <- dataSourceDescription.dataDownloadSteps) {
-                            <li><p>@Html(procedureStep)</p></li>
-                        }
-                        </ol>
-                    </div>
-
-                    <p class="serif-text">
-                    @Html(dataSourceDescription.documentation)
-                    </p>
-                </div>
+                <p class="serif-text">
+                @Html(dataSourceDescription.documentation)
+                </p>
             </div>
         }
         </div>
