@@ -527,6 +527,8 @@ whatsapp.instruction.gif=whatsapp_am.mp4
 whatsapp.instruction.gifiOS = whatsapp_eng_iOS.mp4
 whatsapp.instruction.gifAndroid = whatsapp_eng_android.mp4
 whatsapp.instruction.gif.subtitle=Սա Android համակարգով ստեղված օրինակ է։ Այլ սարքերում քայլերը կարող են փոքր-ինչ տարբերվել, սակայն տրամաբանությունը նույնն է։
+whatsapp.instruction.gif.subtitle.iOS=This is the chat export process on an iPhone.
+whatsapp.instruction.gif.subtitle.android=This is the chat export process on an Android device. The process may vary on different devices.
 whatsapp.logo=w-logo.svg
 
 facebook.instructions.p1.title=Ի՞նչ սարք պետք է օգտագործել մասնակցության համար
