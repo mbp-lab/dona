@@ -2,13 +2,25 @@ var JSZip = require('jszip');
 var deIdentify = require('./deIdentify');
 
 function facebookZipFileHandler(fileList) {
-    const file = fileList[0];
     const i18n = $("#i18n-support");
 
     var messagesRelativePath = [];
     var zipFiles = {};
     return new Promise((resolve, reject) => {
-        JSZip.loadAsync(file)
+
+        // load all files together
+        // nedded: object with keys: files
+
+        let jszip = JSZip();
+
+        // when using jszip.loadAsync() it merges the zip files -> see documentation
+        let aggregatedZip
+        for (let i = 0; i < fileList.length; i++) {
+            aggregatedZip = jszip.loadAsync(fileList[i])
+        }
+
+        //jszip.loadAsync(file)
+        aggregatedZip
             .then(function (zip) {
                 const zipFilesNames = Object.keys(zip.files);
                 var profileInfoPath = zipFilesNames.find(name => name.includes("profile_information.json"));

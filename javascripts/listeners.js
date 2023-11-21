@@ -18,7 +18,7 @@ const whatsappZipFileHandler = require("./parsing/whatsapp/whatsappZipFileHandle
 function addListeners() {
 
     $("#btn-fb-download-finished").on("click", function (e) {
-        e.preventDefault();
+        e.preventDefault();d
         $(".enable-after-fb-download").attr("disabled", false);
         $(".enable-after-fb-download").removeClass("disabled");
     })
