@@ -423,6 +423,7 @@ function setUpFileHandler() {
     // when new files are selected, handle it
     $(".donation-file-selector>input[type='file']").on("change", (evt) => {
         const dataSource = evt.currentTarget.id;
+        console.log("listener - evt:", evt)
         const files = evt.target.files
         onFileInputChange(dataSource, files)
     })

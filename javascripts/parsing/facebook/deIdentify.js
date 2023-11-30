@@ -1,7 +1,9 @@
 var validateMessage = require('./validateMessage');
 var wordCount = require('../../stringWordCount')
 
-async function deIdentify(zipFiles, messagesRelativePath, donorName) {
+async function deIdentify(zipFiles, messagesRelativePath, donorName, textListPromise) {
+    //console.log("deIdentify:", zipFiles)
+    //console.log("messagesRelativePath:", messagesRelativePath)
     const i18n = $("#i18n-support");
     let participantNameToRandomIds = {};
     let i = 1;
@@ -29,13 +31,12 @@ async function deIdentify(zipFiles, messagesRelativePath, donorName) {
     }
 
     // Array<Promise<String>>
-    const zipFileTexts = messagesRelativePath.map(path => zipFiles[path].async('text'));
+    //const zipFileTexts = messagesRelativePath.map(path => zipFiles[path].async('text'));
 
     // Promise<Array<Object>>
-    const textList = await Promise.all(zipFileTexts);
+    //const textList = await Promise.all(zipFileTexts);
 
-
-
+    const textList = await textListPromise
     let jsonContents = {}
 
     // ToDo: combine messages from textLists from different zipfiles if they are from the same chat
@@ -47,6 +48,24 @@ async function deIdentify(zipFiles, messagesRelativePath, donorName) {
             jsonContents[jsonContent.thread_path] = jsonContent
         }
     })
+
+    //console.log("jsonContents old:", jsonContents)
+
+    /*
+    let textListNew = await textListTest
+    let jsonContentsTest = {}
+    textListNew.forEach(textContent => {
+        let jsonContent = JSON.parse(textContent);
+        if (jsonContentsTest[jsonContent.thread_path] != undefined) {
+            jsonContentsTest[jsonContent.thread_path].messages = jsonContentsTest[jsonContent.thread_path].messages.concat(jsonContent.messages)
+        } else {
+            jsonContentsTest[jsonContent.thread_path] = jsonContent
+        }
+    })
+
+    console.log("jsonContents new:", jsonContentsTest)
+
+     */
 
     Object.values(jsonContents).forEach(jsonContent => {
         delete jsonContent.thread_path;
