@@ -2,7 +2,7 @@ const fs = require('fs');
 const chai = require('chai');
 const chaiAsPromised = require('chai-as-promised');
 const jsdom = require('jsdom');
-const handleFile = require('../../../parsing/facebook/facebookZipFileHandler');
+//const handleFile = require('../../../parsing/facebook/facebookZipFileHandler');
 
 chai.use(chaiAsPromised);
 const expect = require('chai').expect;

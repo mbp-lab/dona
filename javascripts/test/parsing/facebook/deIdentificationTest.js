@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const handleFile = require('../../../parsing/facebook/facebookZipFileHandler');
+//const handleFile = require('../../../parsing/facebook/facebookZipFileHandler');
 const fs = require('fs');
 const jsdom = require('jsdom');
 
