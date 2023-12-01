@@ -11,7 +11,8 @@ global.window = window;
 global.$ = require('jquery');
 
 describe('DeIdentifying a zip file', function () {
-    const zipFile = fs.readFileSync("javascripts/test/resources/validZip.zip");
+    let zipFile = fs.readFileSync("javascripts/test/resources/validZip.zip");
+    zipFile = new Blob([zipFile])
     it('should return messages with number of words rather than content', function () {
         return handleFile([zipFile]).then(deIdentifiedJson => {
             deIdentifiedJson["deIdentifiedJsonContents"][0].messages.forEach((message) => {

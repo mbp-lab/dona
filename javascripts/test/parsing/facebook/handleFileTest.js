@@ -16,8 +16,10 @@ global.window = window;
 global.$ = require('jquery');
 
 describe('Unzip file', function () {
-    const validInputZip = fs.readFileSync("javascripts/test/resources/validZip.zip");
-    const invalidInputZip = fs.readFileSync("javascripts/test/resources/invalidZip.zip");
+    let validInputZip = fs.readFileSync("javascripts/test/resources/validZip.zip");
+    let invalidInputZip = fs.readFileSync("javascripts/test/resources/invalidZip.zip");
+    validInputZip = new Blob([validInputZip])
+    invalidInputZip = new Blob([invalidInputZip])
     it('should not throw processing a valid zip file', function () {
         expect(handleFile([validInputZip])).not.to.throw;
     });

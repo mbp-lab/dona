@@ -2,33 +2,36 @@ var JSZip = require('jszip');
 var deIdentify = require('./deIdentify');
 const zip = require("@zip.js/zip.js");
 
-function facebookZipFileHandler(fileList) {
+async function facebookZipFileHandler(fileList) {
 
-    //console.log("fzipfh - FileList:", fileList)
+    console.log("fzipfh - FileList:", fileList)
     const i18n = $("#i18n-support");
 
 
     var messagesRelativePath = [];
     var zipFiles = {};
-    return new Promise(async (resolve, reject) => {
+
+    // first get all entries in the zip file
+    let allEntries = []
+    for (let i = 0; i < fileList.length; i++) {
+        const zipFileReader = new zip.BlobReader(fileList[i]);
+        const zipReader = new zip.ZipReader(zipFileReader);
+
+        allEntries = allEntries.concat(await zipReader.getEntries())
+        await zipReader.close();
+    }
 
 
-        // first get all entries in the zip file
-        let allEntries = []
-        for (let i = 0; i < fileList.length; i++) {
-            const zipFileReader = new zip.BlobReader(fileList[i]);
-            const zipReader = new zip.ZipReader(zipFileReader);
-
-            allEntries = allEntries.concat(await zipReader.getEntries())
-            await zipReader.close();
-        }
-
-        console.log("allEntries length:", allEntries.length)
+    return new Promise( (resolve, reject) => {
 
         // then check if profileInfo is there and extract the donor name
         let profileInfoEntry = allEntries.find(entry => entry.filename.includes("profile_information.json"))
-        if (!profileInfoEntry) reject(i18n.data('error-no-profile'));
+        console.log("profileInfoEntry:", profileInfoEntry)
+        if (profileInfoEntry === undefined) {
+            reject(i18n.data('error-no-profile'))
+        }
 
+        console.log("this getting here ??? ")
         extractDonorNameFromEntry(profileInfoEntry)
             .then((donorName) => {
                 // get all messageEntries
@@ -40,8 +43,10 @@ function facebookZipFileHandler(fileList) {
                     }
                 })
                 console.log("entries with messages:", messagesEntries.length)
+                console.log("messageEntries:", messagesEntries)
                 // if there is no messages then reject
-                if (messagesEntries.length === 0) reject("error");
+                console.log("is rejecting? messagesEntries.length < 1", messagesEntries.length < 1)
+                if (messagesEntries.length < 1) reject("error");
 
                 // get the contents of the messageEntries
                 let textList = messagesEntries.map((entry) => {
