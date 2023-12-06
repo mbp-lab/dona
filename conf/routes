@@ -19,6 +19,6 @@ GET    /feedback-survey/:donorId       controllers.FeedbackSurveyController.goTo
 GET     /health                        controllers.HealthController.status
 GET     /data-protection               controllers.AboutController.dataProtection
 
-GET     /download/informedConsent      controllers.DownloadController.informedConsent()
+GET     /download/informedConsent      controllers.Assets.at(path="/public", file="informedConsents/informedConsent_eng.pdf")
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

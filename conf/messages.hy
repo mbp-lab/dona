@@ -135,7 +135,7 @@ donation-info.storage=<strong> Պահպանում - </strong>Անանուն մե
 
 
 consent.title=Համաձայնություն
-
+informedConsent.pdf=informedConsents/informedConsent_eng.pdf
 
 
 

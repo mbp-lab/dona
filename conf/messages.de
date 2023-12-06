@@ -90,7 +90,7 @@ donation-info.storage=<strong> Speicherung: </strong>Nur diese anonymisierten un
 
 
 consent.title=Einwilligungserklärung
-
+informedConsent.pdf=informedConsents/informedConsent_de.pdf
 
 consent.about.title=Information zur Studie
 consent.about.body1=Same variable name twice?
