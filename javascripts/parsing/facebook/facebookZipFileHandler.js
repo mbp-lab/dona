@@ -4,7 +4,6 @@ const zip = require("@zip.js/zip.js");
 
 async function facebookZipFileHandler(fileList) {
 
-    console.log("fzipfh - FileList:", fileList)
     const i18n = $("#i18n-support");
 
 
@@ -26,12 +25,10 @@ async function facebookZipFileHandler(fileList) {
 
         // then check if profileInfo is there and extract the donor name
         let profileInfoEntry = allEntries.find(entry => entry.filename.includes("profile_information.json"))
-        console.log("profileInfoEntry:", profileInfoEntry)
         if (profileInfoEntry === undefined) {
             reject(i18n.data('error-no-profile'))
         }
 
-        console.log("this getting here ??? ")
         extractDonorNameFromEntry(profileInfoEntry)
             .then((donorName) => {
                 // get all messageEntries
@@ -39,13 +36,10 @@ async function facebookZipFileHandler(fileList) {
                 allEntries.forEach((entry) => {
                     if (validateContentEntry("message.json", entry) || validateContentEntry("message_1.json", entry)) {
                         messagesEntries.push(entry);
-                        console.log(entry.filename)
                     }
                 })
-                console.log("entries with messages:", messagesEntries.length)
-                console.log("messageEntries:", messagesEntries)
+
                 // if there is no messages then reject
-                console.log("is rejecting? messagesEntries.length < 1", messagesEntries.length < 1)
                 if (messagesEntries.length < 1) reject("error");
 
                 // get the contents of the messageEntries
@@ -53,7 +47,6 @@ async function facebookZipFileHandler(fileList) {
                     const textWriter = new zip.TextWriter();
                     return entry.getData(textWriter)
                 })
-                console.log("textList Entries:", textList)
 
                 resolve([resolve(deIdentify(zipFiles, messagesRelativePath, donorName, Promise.all(textList)))]);
             })
