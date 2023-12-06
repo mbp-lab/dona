@@ -15,11 +15,11 @@ final class DownloadController @Inject()(cc: ControllerComponents) extends Abstr
   def informedConsent: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
     val isolocaleString = request.lang.language
 
-    var filepath = "./public/informedConsents/informedConsent_eng.pdf"
+    var filepath = "/public/informedConsents/informedConsent_eng.pdf"
       if (isolocaleString == "en") {
-        filepath = "./public/informedConsents/informedConsent_eng.pdf"
+        filepath = "/public/informedConsents/informedConsent_eng.pdf"
       } else if (isolocaleString == "de") {
-        filepath = "./public/informedConsents/informedConsent_de.pdf"
+        filepath = "/public/informedConsents/informedConsent_de.pdf"
       }
 
     val file = new java.io.File(filepath)
