@@ -17,7 +17,7 @@ landing.why.col2.body_html=Die Ergebnisse dieser Studie werden zu dem übergeord
 
 
 landing.why.col3.title=Sie bleiben anonym
-landing.why.col3.body_html=Wir werden Sie bitten, <strong><a href="/learn-more">anonyme Chat-Metadaten</a></strong> (Nachrichtenlänge, Zeitstempel der Nachricht und Pseudonyme der Chat-Teilnehmer). Wir haben keinen Zugang zu Namen oder Nachrichtentexten.
+landing.why.col3.body_html=Wir werden Sie bitten, <strong><a href="/learn-more">anonyme Chat-Metadaten</a></strong> (Nachrichtenlänge, Zeitstempel der Nachricht und Pseudonyme der Chat-TeilnehmerInnen). Wir haben keinen Zugang zu Namen oder Nachrichtentexten.
 
 
 landing.contact.body_html=Auf dieser Webseite erläutern wir Ihnen den Hintergrund und Ablauf der Online-Studie damit Sie entscheiden können, ob Sie teilnehmen möchten. Sollten Sie noch Fragen haben, so wenden Sie sich bitte an die Versuchsleiterin (Prof. Dr. Hanna Drimalla, AG Multimodal Behavior Processing, Technische Fakultät, Universität Bielefeld, <a href="mailto:drimalla@techfak.uni-bielefeld.de">drimalla@techfak.uni-bielefeld.de</a>, Tel. +49 521 106-12043).
@@ -34,7 +34,7 @@ landing.imagePath.exampleFeedback =images/landingExampleFeedback_German.png
 
 
 learn-more.how-to-participate.title=Wie kann ich teilnehmen?
-learn-more.how-to-participate.body=Diese Studie wird komplett anonym und online durchgeführt. Um an dieser Studie teilzunehmen, bitten wir Sie, Ihre anonymisierten Nachrichten zu spenden und Fragebögen auszufüllen. Nach dem Herunterladen der Interaktionsdaten von einer Plattform Ihrer Wahl wird die Studie nur etwa 20 Minuten dauern.
+learn-more.how-to-participate.body=Diese Studie wird komplett anonym und online durchgeführt. Um an dieser Studie teilzunehmen, bitten wir Sie, Ihre anonymisierten Nachrichten zu spenden und Fragebögen auszufüllen. Nach dem Herunterladen der Interaktionsdaten von einer Plattform Ihrer Wahl wird die Studie nur etwa 10 Minuten dauern.
 
 
 learn-more.how-to-cancel.title=Und wenn ich abbrechen möchte?
@@ -71,7 +71,7 @@ instructions.about.title=Wie erhalte ich meine Daten?
 instructions.about.body_html=Bevor Sie an der Studie teilnehmen, fordern Sie bitte Ihre Daten direkt von Facebook und/oder WhatsApp an. Sie können Daten von beiden Plattformen spenden. Falls Sie nur Daten von einer Plattform spenden möchten, wählen Sie bitte die Plattform, die für Sie wichtiger ist. <b>Bitte sehen Sie sich die entsprechenden Anleitungen genau an, da sie wichtige Informationen für die weiteren Schritte enthalten.</b>
 instructions.datasource.title_format =Anleitung zum Erhalten von %s-Daten
 instructions.download-procedure.title=Übersicht über den Download & Datenspende Prozess:
-instructions.continue.body=Wenn Sie anhand dieser Anleitung Ihre Daten erhalten haben, können Sie jetzt mit der Einverständniserklärung und dem ersten Fragebogen der Studie beginnen. Im Anschluss können Sie dann Ihre Daten spenden.
+instructions.continue.body=Wenn Sie anhand dieser Anleitung Ihre Daten erhalten haben, können Sie jetzt mit der Einverständniserklärung und dem  Fragebogen beginnen. Im Anschluss können Sie dann Ihre Daten spenden.
 instructions.haveData=Sie brauchen 5-7 WhatsApp-Chats (.txt-Dateien).
 
 
@@ -90,16 +90,16 @@ donation-info.storage=<strong> Speicherung: </strong>Nur diese anonymisierten un
 
 
 consent.title=Einwilligungserklärung
-informedConsent.pdf=informedConsents/informedConsent_de.pdf
+
 
 consent.about.title=Information zur Studie
 consent.about.body1=Same variable name twice?
-consent.about.body1=Ziel der Studie ist es, die soziale Interaktionsdynamiken von Menschen anhand ihrer Social Media Nachrichten zu erfassen. Die Studie findet komplett online und anonym statt. Die Studie beinhaltet lediglich die Datenspende Ihrer anonymisierten Online-Nachrichten. Nachdem Sie Ihre Online-Interaktionsdaten heruntergeladen haben, dauert die Studie nur 5 Minuten.
+consent.about.body1=Ziel der Studie ist es, die soziale Interaktionsdynamiken von Menschen anhand ihrer Social Media Nachrichten zu erfassen. Die Studie findet komplett online und anonym statt. Die Studie beinhaltet lediglich die Datenspende Ihrer anonymisierten Online-Nachrichten. Nachdem Sie Ihre Online-Interaktionsdaten heruntergeladen haben, dauert die Studie nur 10 Minuten.
 consent.about.body2_html=Mit Ihrer Einwilligung bestätigen Sie, dass Sie die vorherige Informationswebseite zum Zweck, Ablauf und Umfang der Online-Studie gelesen und verstanden haben.
 
 
 consent.benefit.title=Nutzen und Risiken
-consent.benefit.body=Mit Ihrer Teilnahme helfen Sie dabei, neue Erkenntnisse über das soziales Interaktionsverhalten der Menschen zu identifizieren und charakterisieren. Sie erhalten zudem einen Einblick in Ihr eigenes Messaging-Verhalten. Außerdem können Sie am Ende der Studie an einer Verlosung eines 50€ Gutscheins (<a target="_blank" href="https://www.cadooz.com/produkte/bestchoice-einkaufsgutschein-von-cadooz/">Cadooz-Bestchoice</a>) teilnehmen. Dies ist eine fortlaufende Studie, daher wird je 100 TeilnehmerInnen ein Gutschein verlost (Gewinnchance: 1/100). Wir erheben nur anonymisierte Daten. Vor der Datenspende müssen Sie die Messaging-Daten auf Ihr Gerät herunterladen. Da es sich um sensible Daten handelt, empfehlen wir Ihnen ausdrücklich, die Original-Daten nach dem Abschluss der Spende von Ihrem Gerät zu löschen. Um Ihre Privatsphäre zu sichern, führen Sie die Studie in ungestörter Umgebung und allein durch.
+consent.benefit.body=Mit Ihrer Teilnahme helfen Sie dabei, neue Erkenntnisse über das soziale Interaktionsverhalten der Menschen zu identifizieren und charakterisieren. Sie erhalten zudem einen Einblick in Ihr eigenes Messaging-Verhalten. Außerdem können Sie am Ende der Studie an einer Verlosung eines 50€ Gutscheins (<a target="_blank" href="https://www.cadooz.com/produkte/bestchoice-einkaufsgutschein-von-cadooz/">Cadooz-Bestchoice</a>) teilnehmen. Dies ist eine fortlaufende Studie, daher wird je 100 TeilnehmerInnen ein Gutschein verlost (Gewinnchance: 1/100). Wir erheben nur anonymisierte Daten. Vor der Datenspende müssen Sie die Messaging-Daten auf Ihr Gerät herunterladen. Da es sich um sensible Daten handelt, empfehlen wir Ihnen ausdrücklich, die Original-Daten nach dem Abschluss der Spende von Ihrem Gerät zu löschen. Um Ihre Privatsphäre zu sichern, führen Sie die Studie in ungestörter Umgebung und allein durch.
 
 
 consent.data-storage.title=Erhobene Daten
@@ -127,7 +127,7 @@ consent.confirmation=Hiermit versichere ich, dass ich die oben beschriebenen Tei
 
 consent.buttons.agree.caption=Einverstanden
 consent.buttons.close.caption=Schließen
-
+informedConsent.pdf=informedConsents/InformedConsent_de.pdf
 
 # Donation page
 
@@ -583,3 +583,5 @@ imprint.copyright.title=Urheberrecht
 imprint.copyright.body=<p>Die Urheber- und Nutzungsrechte für Texte, Grafiken, Bilder, Design und Quellcode liegen - soweit nicht anders angegeben - bei der Universität Bielefeld. Die Erstellung, Verwendung und Weitergabe von Kopien in elektronischer oder ausgedruckter Form bedarf der Genehmigung. Unberührt davon bleibt das "Kopieren" der Dateien auf dem eigenen Rechner, um sich die Seiten auf einem Browser anzusehen.</p>
 imprint.photoCredits.title=Bildnachweis
 imprint.photoCredits.body=<p>Die Bildrechte liegen - soweit nicht anders vermerkt - bei der Universität Bielefeld.</p>
+
+

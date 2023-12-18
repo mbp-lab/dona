@@ -9,7 +9,7 @@ landing.what.body2=You can support us by anonymously donating your chat meta-dat
 
 landing.why.title=Why should I participate?
 landing.why.col1.title=Receive feedback
-landing.why.col1.body=You will receive graphs on your messaging behavior, such as in which chats you write the most, when are you the most active, how fast you reply etc. This study is not intended to be a clinical-psychological diagnosis.
+landing.why.col1.body=You will receive graphs on your messaging behavior, such as in which chats you write the most, when are you the most active, how fast you reply, etc. This study is not intended to be a clinical-psychological diagnosis.
 
 
 landing.why.col2.title=Support research
@@ -32,7 +32,7 @@ landing.imagePath.exampleFeedback =images/landingExampleFeedback_English.png
 
 
 learn-more.how-to-participate.title=How do I participate in the study?
-learn-more.how-to-participate.body=This study will be completely anonymous and online. To participate in this study, we will ask you to donate your anonymized messages and complete  questionnaires. After  downloading the interaction data of a platform of your choice, the study will only last for about 20 minutes.
+learn-more.how-to-participate.body=This study will be completely anonymous and online. To participate in this study, we will ask you to donate your anonymized messages and complete  questionnaires. After  downloading the interaction data of a platform of your choice, the study will only last for about 10 minutes.
 
 
 learn-more.how-to-cancel.title=Can I drop out during the study?
@@ -69,7 +69,7 @@ instructions.about.title=How do I request data from social media platforms?
 instructions.about.body_html=Before participating in the study, please request your data directly from Facebook and/or WhatsApp. You can donate data from both platforms. If you only want to donate data from one platform, please select the platform that is more important to you. <b>Please take a close look at the corresponding instructions, as they contain important information for the further steps.</b>
 instructions.datasource.title_format =Instructions for getting %s data
 instructions.download-procedure.title=Overview of the download & donation procedure:
-instructions.continue.body=If you have received your data using these instructions, you can now start with the declaration of consent and the first questionnaire of the study. Afterwards you can donate your data.
+instructions.continue.body=If you have received your data using these instructions, you can now start with the declaration of consent and survey. Afterwards you can donate your data.
 instructions.haveData=You need 5-7 WhatsApp chat files.
 
 
@@ -88,10 +88,10 @@ donation-info.storage=<strong> Storage: </strong>Only anonymized and reduced dat
 
 
 consent.title=Informed Consent
-informedConsent.pdf=informedConsents/informedConsent_eng.pdf
+
 
 consent.about.title=Information about the Study
-consent.about.body1=The aim of this study is to measure the dynamics of social interaction of people by leveraging their social media data. This study is completely anonymous and online. It includes only the donation of your anonymized social media data. After having downloaded your interaction data from a platform of your choice, participation in the study will only take about 5 minutes.
+consent.about.body1=The aim of this study is to measure the dynamics of social interaction of people by leveraging their social media data. This study is completely anonymous and online. It includes only the donation of your anonymized social media data. After having downloaded your interaction data from a platform of your choice, participation in the study will only take about 10 minutes.
 consent.about.body2_html=By agreeing, you confirm that you have read and understood the background and process of this online study.
 
 
@@ -126,7 +126,7 @@ consent.confirmation=I hereby confirm that I have read and understood the inform
 
 consent.buttons.agree.caption=Agree
 consent.buttons.close.caption=Close
-
+informedConsent.pdf=informedConsents/InformedConsent_eng.pdf
 
 # Donation page
 
