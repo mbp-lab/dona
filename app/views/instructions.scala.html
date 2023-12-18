@@ -17,11 +17,11 @@
     <div class="modal fade" id="consent-dialog"  role="dialog">
     @consent()
     </div>
-<div class="mt-5">
+    <div class="mt-5">
     @footer(title = Some(messages("footer.title")), previousLink = Some("/")){
         <button class="btn btn-outline footer-forward-button-margin text-center" data-toggle="modal" data-target="#consent-dialog">@messages("links.donate")</button>
     }
-</div>
+    </div>
 } {
 }{
     @headerButtons()
@@ -36,10 +36,10 @@
             aria-expanded="true"
             aria-controls="@{dataSourceDescription.name.toString}Panel">
                 <div class="">
-                @if(dataSourceDescription.logo.isDefined){
-                    <img class="logo mr-3" src="@routes.Assets.at(s"images/dataSourceImages/${dataSourceDescription.logo.get}")">
-                }
-                <span>@{String.format(messages("instructions.datasource.title_format"), dataSourceDescription.name)}</span>
+                    @if(dataSourceDescription.logo.isDefined){
+                        <img class="logo mr-3" src="@routes.Assets.at(s"images/dataSourceImages/${dataSourceDescription.logo.get}")">
+                    }
+                    <span>@{String.format(messages("instructions.datasource.title_format"), dataSourceDescription.name)}</span>
                 </div>
             </button>
         </div>
@@ -105,7 +105,7 @@
                     @Html(messages("whatsapp.instructions.p1.title"))
                     </h4>
                     <p class="serif-text" align="left">
-                        @Html(messages("whatsapp.instructions.p1.body"))
+                    @Html(messages("whatsapp.instructions.p1.body"))
                     </p>
                     <h4 class="serif-text mt-4" align="center">
                     @Html(messages("whatsapp.instructions.p2.title"))

@@ -245,6 +245,11 @@
     font-weight: 900;
 }
 
+.highlighted-text {
+    color: #36b3a8;
+    font-weight: 900;
+}
+
 .landing-column-image {
     height: 170px;
     margin-bottom: 1rem;
@@ -275,6 +280,8 @@
     padding-right: 20px;
     margin-top: 1em;
 }
+
+
 
 /* data protection */
 

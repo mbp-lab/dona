@@ -18,7 +18,7 @@ const whatsappZipFileHandler = require("./parsing/whatsapp/whatsappZipFileHandle
 function addListeners() {
 
     $("#btn-fb-download-finished").on("click", function (e) {
-        e.preventDefault();
+        e.preventDefault();d
         $(".enable-after-fb-download").attr("disabled", false);
         $(".enable-after-fb-download").removeClass("disabled");
     })
@@ -423,6 +423,7 @@ function setUpFileHandler() {
     // when new files are selected, handle it
     $(".donation-file-selector>input[type='file']").on("change", (evt) => {
         const dataSource = evt.currentTarget.id;
+        console.log("listener - evt:", evt)
         const files = evt.target.files
         onFileInputChange(dataSource, files)
     })
