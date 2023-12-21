@@ -97,15 +97,37 @@
 }
 
 .headline {
-    font-size: 36px;
+    font-size: 28px;
     color: #666666;
     margin-top: 10px;
+    word-break: break-word;
 }
 
-.headline0 {
-    font-size: 42px;
-    color: #666666;
+@media (min-width: 576px) {
+    .headline {
+        font-size: 36px;
+        color: #666666;
+        margin-top: 10px;
+        word-break: break-word;
+    }
 }
+
+
+.headline0 {
+    font-size: 30px;
+    color: #666666;
+    word-break: break-word;
+}
+@media (min-width: 576px) {
+    .headline0 {
+        font-size: 42px;
+        color: #666666;
+        word-break: break-word;
+    }
+}
+
+
+
 
 .headline2 {
     font-size: 28px;
@@ -267,10 +289,21 @@
 }
 
 
+
 .landing-header-headline {
-    font-size: 48px;
+    font-size: 32px;
     font-weight: 800;
+    word-break: break-word;
 }
+
+@media (min-width: 576px) {
+    .landing-header-headline {
+        font-size: 48px;
+        font-weight: 800;
+        word-break: break-word;
+    }
+}
+
 
 .landing-header-text {
     color: white;
@@ -621,7 +654,7 @@
 }
 
 .message-card-heading {
-    font-weight: 400px;
+    font-weight: 400;
     font-size: 18px;
     margin-top: 0.25em;
     margin-bottom: 0.25em;
