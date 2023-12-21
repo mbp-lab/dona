@@ -88,7 +88,7 @@ donation-info.storage=<strong> Storage: </strong>Only anonymized and reduced dat
 
 
 consent.title=Informed Consent
-
+consent.pdf=Download PDF
 
 consent.about.title=Information about the Study
 consent.about.body1=The aim of this study is to measure the dynamics of social interaction of people by leveraging their social media data. This study is completely anonymous and online. It includes only the donation of your anonymized social media data. After having downloaded your interaction data from a platform of your choice, participation in the study will only take about 10 minutes.
