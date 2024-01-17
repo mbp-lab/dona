@@ -16,7 +16,7 @@ case class Donation(
 
 object DonationDataSourceType extends Enumeration(1) {
   type DonationDataSourceType = Value
-  val Facebook, WhatsApp, Multiple = Value
+  val Facebook, WhatsApp, Instagram, Multiple = Value
 
   implicit val jsonFormat: Format[DonationDataSourceType] = EnumFormat.format(DonationDataSourceType)
 }
