@@ -1,8 +1,7 @@
-var JSZip = require('jszip');
-var deIdentify = require('../shared/deIdentify');
 const zip = require("@zip.js/zip.js");
+const deIdentify = require("../shared/deIdentify");
 
-async function facebookZipFileHandler(fileList) {
+async function instagramZipFileHandler(fileList) {
 
     const i18n = $("#i18n-support");
 
@@ -24,13 +23,14 @@ async function facebookZipFileHandler(fileList) {
     return new Promise( (resolve, reject) => {
 
         // then check if profileInfo is there and extract the donor name
-        let profileInfoEntry = allEntries.find(entry => entry.filename.includes("profile_information.json"))
+        let profileInfoEntry = allEntries.find(entry => entry.filename.includes("personal_information.json"))
         if (profileInfoEntry === undefined) {
             reject(i18n.data('error-no-profile'))
         }
 
         extractDonorNameFromEntry(profileInfoEntry)
             .then((donorName) => {
+
                 // get all messageEntries
                 let messagesEntries = []
                 allEntries.forEach((entry) => {
@@ -57,42 +57,20 @@ async function facebookZipFileHandler(fileList) {
     });
 }
 
-function extractDonorName(zipFiles, profileInfoPath) {
-    return zipFiles[profileInfoPath].async('text')
-        .then((profileFileText) => {
-            return new Promise((resolve, reject) => {
-                const profileJson = JSON.parse(profileFileText);
-                // find appropriate profile key: it could be "profile" or "profile_v2", or "profile_v3", ...
-                let profileKey = Object.keys(profileJson).filter((profile) => /profile/.test(profile));
-                if (profileJson[profileKey].name.full_name) resolve(profileJson[profileKey].name.full_name);
-                else reject(profileInfoPath);
-            });
-        });
-}
-
-
-// new - it works!
 function extractDonorNameFromEntry(entry) {
     const textWriter = new zip.TextWriter();
     return entry.getData(textWriter).then((profileFileText) => {
         return new Promise((resolve, reject) => {
             const profileJson = JSON.parse(profileFileText);
-            // find appropriate profile key: it could be "profile" or "profile_v2", or "profile_v3", ...
-            let profileKey = Object.keys(profileJson).filter((profile) => /profile/.test(profile));
-            if (profileJson[profileKey].name.full_name) resolve(profileJson[profileKey].name.full_name);
+            if (profileJson["profile_user"][0]["string_map_data"]["Name"]["value"]) resolve(profileJson["profile_user"][0]["string_map_data"]["Name"]["value"]);
             else reject(profileInfoPath);
         });
     });
 }
-
-function validateContent(contentPattern, zipEntry) {
-    if (zipEntry.name.trim().indexOf(contentPattern) >= 0) return true;
-    return false;
-};
 
 function validateContentEntry(contentPattern, entry) {
     if (entry.filename.trim().indexOf(contentPattern) >= 0) return true;
     return false;
 };
 
-module.exports = facebookZipFileHandler
+module.exports = instagramZipFileHandler

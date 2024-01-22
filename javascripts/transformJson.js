@@ -16,6 +16,8 @@ function generateConversation (jsonContent, dataSource) {
     var conversation = {}
     if (dataSource === "Facebook") {
         conversation["selected"] = jsonContent.selected
+    } else if (dataSource === "Instagram") {
+        conversation["selected"] = jsonContent.selected
     } else if (dataSource === "WhatsApp") {
         conversation["selected"] = true
     }

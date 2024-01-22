@@ -49,8 +49,10 @@ $(document).ready(function () {
         let chatInitial;
         if (dataSourceType === "WhatsApp") {
             chatInitial = i18n.chatInitialW
-        } else {
+        } else if (dataSourceType === "Facebook") {
             chatInitial = i18n.chatInitialF
+        } else {
+            chatInitial = i18n.chatInitialI
         }
 
         // remove friend "System" from friends of conversations

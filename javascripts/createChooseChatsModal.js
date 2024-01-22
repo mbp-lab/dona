@@ -3,28 +3,28 @@ const showUserIdMapping = require("./showUserIdMapping");
 
 const i18nSupport= $("#i18n-support");
 
-function createChooseFChatsModal(allParticipantsNamesToRandomIds, allWordCounts) {
+function createChooseChatsModal(allParticipantsNamesToRandomIds, allWordCounts, dataSource) {
 
     clearPrevious()
         .then(() => {
 
-            let facebookChatSelectionModalBody = $("#facebookChatSelectionModalBody")
+            let chatSelectionModalBody = $(`#${dataSource}ChatSelectionModalBody`)
 
-            // get all facebook conversations
+            // get all dataSrouce conversations
             let inputJson = JSON.parse($("#inputJson")[0].value)
-            let facebookConversations = inputJson.conversations.filter((conv) => conv.donation_data_source_type == "Facebook")
+            let conversations = inputJson.conversations.filter((conv) => conv.donation_data_source_type == dataSource)
 
             // get deidentified names for all chats
-            let mappingsPerChat = deidentifyNamesWithStars(allParticipantsNamesToRandomIds, facebookConversations.map(conv => {
+            let mappingsPerChat = deidentifyNamesWithStars(allParticipantsNamesToRandomIds, conversations.map(conv => {
                 let result = []
                 conv.participants.forEach(p => result.push({name: p}))
                 return result
-            }), i18nSupport.data('friend-initial'), i18nSupport.data('system'), i18nSupport.data('donor'), "Facebook")
+            }), i18nSupport.data('friend-initial'), i18nSupport.data('system'), i18nSupport.data('donor'), dataSource)
 
 
             // combine information to keep necessary infos together for sorting
             let combinedConvAndMappingsAndWordCount = []
-            facebookConversations.forEach((conv, index) => {
+            conversations.forEach((conv, index) => {
                 combinedConvAndMappingsAndWordCount.push({
                     conv: conv,
                     mappings: mappingsPerChat[index],
@@ -36,15 +36,15 @@ function createChooseFChatsModal(allParticipantsNamesToRandomIds, allWordCounts)
             combinedConvAndMappingsAndWordCount.sort((a,b) => b.wordCount - a.wordCount)
 
             combinedConvAndMappingsAndWordCount.forEach((obj) => {
-                facebookChatSelectionModalBody.append(createCheckBoxElem(obj.conv, obj.mappings))
-                $('#checkBox_' + obj.conv.conversation_id).on("click", () => onClickCheckbox(obj.conv.conversation_id, allParticipantsNamesToRandomIds))
+                chatSelectionModalBody.append(createCheckBoxElem(obj.conv, obj.mappings))
+                $('#checkBox_' + obj.conv.conversation_id).on("click", () => onClickCheckbox(obj.conv.conversation_id, allParticipantsNamesToRandomIds, dataSource))
             })
 
             // Check if now there is only 1 or 10 selected chats - if so, disable the correct checkboxes
             // if there is only 1 chat selected, disable this ones checkbox
             // if there are already 10 chats selected, disable all not selected checkboxes
             // count now selected chats:
-            let selectedCount = facebookConversations.reduce((count, curElem) => {
+            let selectedCount = conversations.reduce((count, curElem) => {
                 if (curElem.selected) {
                     return count + 1
                 } else return count
@@ -52,7 +52,7 @@ function createChooseFChatsModal(allParticipantsNamesToRandomIds, allWordCounts)
 
 
 
-            facebookConversations.forEach(conv => {
+            conversations.forEach(conv => {
                 let checkbox = $('#checkBox_' + conv.conversation_id)
                 if (conv.selected && selectedCount === 1) {
                     checkbox.prop("disabled", true)
@@ -67,7 +67,7 @@ function createChooseFChatsModal(allParticipantsNamesToRandomIds, allWordCounts)
 
 function clearPrevious() {
     return new Promise((resolve) => {
-        $(".chooseFChatsCheckboxElem").remove();
+        $(".chooseChatsCheckboxElem").remove();
         resolve();
     });
 }
@@ -75,7 +75,7 @@ function clearPrevious() {
 const createCheckBoxElem = (conv, names) => {
     //console.log("names:", names.map(n => n.name))
 
-    let checkBoxElemString = ` <div class="chooseFChatsCheckboxElem flex-row w-100 d-flex justify-content-center align-items-center mt-1 bg-white rounded-lg shadow-md px-5 py-2">
+    let checkBoxElemString = ` <div class="chooseChatsCheckboxElem flex-row w-100 d-flex justify-content-center align-items-center mt-1 bg-white rounded-lg shadow-md px-5 py-2">
                     <div class="w-25">
                         <input 
                             type="checkbox" 
@@ -118,7 +118,7 @@ const createNamesElem = (names) => {
 
 }
 
-const onClickCheckbox = (convId, allParticipantsNamesToRandomIds) => {
+const onClickCheckbox = (convId, allParticipantsNamesToRandomIds, dataSource) => {
     let inputJson = $("#inputJson")
     // allAnonymizedData also needs to be adjusted with the selected prop - as that is used when changing the date range
     let allAnonymizedData = $("#allAnonymizedData")
@@ -129,23 +129,23 @@ const onClickCheckbox = (convId, allParticipantsNamesToRandomIds) => {
     let allDataObj = JSON.parse(allAnonymizedData[0].value)
     let allDataConv = allDataObj.conversations
 
-    // get all facebook conversations
-    let facebookConversations = inputObjConv.filter((conv) => conv.donation_data_source_type === "Facebook")
-    let allDataFacebookConversations = allDataConv.filter((conv) => conv.donation_data_source_type === "Facebook")
+    // get all conversations
+    let conversations = inputObjConv.filter((conv) => conv.donation_data_source_type === dataSource)
+    let allDataDataSourceConversations = allDataConv.filter((conv) => conv.donation_data_source_type === dataSource)
 
 
-    let convClickedIndex = facebookConversations.findIndex(elem => elem.conversation_id == convId)
-    let allDataConvClickedIndex = allDataFacebookConversations.findIndex(elem => elem.conversation_id == convId)
-    facebookConversations[convClickedIndex].selected = !facebookConversations[convClickedIndex].selected
-    allDataFacebookConversations[allDataConvClickedIndex].selected = !allDataFacebookConversations[allDataConvClickedIndex].selected
+    let convClickedIndex = conversations.findIndex(elem => elem.conversation_id == convId)
+    let allDataConvClickedIndex = allDataDataSourceConversations.findIndex(elem => elem.conversation_id == convId)
+    conversations[convClickedIndex].selected = !conversations[convClickedIndex].selected
+    allDataDataSourceConversations[allDataConvClickedIndex].selected = !allDataDataSourceConversations[allDataConvClickedIndex].selected
 
     // create the new conversations value and set it in the inputJson
-    inputObj.conversations = inputObjConv.filter((conv) => conv["donation_data_source_type"] !== "Facebook")
-        .concat(facebookConversations)
+    inputObj.conversations = inputObjConv.filter((conv) => conv["donation_data_source_type"] !== dataSource)
+        .concat(conversations)
     inputJson.attr('value', JSON.stringify(inputObj));
 
-    allDataObj.conversations = allDataConv.filter((conv) => conv["donation_data_source_type"] !== "Facebook")
-        .concat(allDataFacebookConversations)
+    allDataObj.conversations = allDataConv.filter((conv) => conv["donation_data_source_type"] !== dataSource)
+        .concat(allDataDataSourceConversations)
     allAnonymizedData.attr('value', JSON.stringify(allDataObj));
 
 
@@ -153,7 +153,7 @@ const onClickCheckbox = (convId, allParticipantsNamesToRandomIds) => {
 
     // create arguments needed to re-render the userIdMapping
     let chatsToShowMappingParticipants = []
-    let allMappings = facebookConversations.map((conv) => {
+    let allMappings = conversations.map((conv) => {
         let result = []
         conv.participants.forEach(p => result.push({name: p}))
         if (conv.selected) {
@@ -163,19 +163,19 @@ const onClickCheckbox = (convId, allParticipantsNamesToRandomIds) => {
     })
 
     // re-render userIdMapping
-    showUserIdMapping(chatsToShowMappingParticipants, allParticipantsNamesToRandomIds, allMappings, i18nSupport.data('system'), i18nSupport.data('donor'), i18nSupport.data('friend-initial'), i18nSupport.data('chat-initial-f'), i18nSupport.data('only-you'), i18nSupport.data('and-more-contacts'), i18nSupport.data('chat'),  "Facebook")
+    showUserIdMapping(chatsToShowMappingParticipants, allParticipantsNamesToRandomIds, allMappings, i18nSupport.data('system'), i18nSupport.data('donor'), i18nSupport.data('friend-initial'), i18nSupport.data('chat-initial-f'), i18nSupport.data('only-you'), i18nSupport.data('and-more-contacts'), i18nSupport.data('chat'),  dataSource)
 
     // Check if now there is only 1 or 10 selected chats - if so, disable the correct checkboxes
     // if there is only 1 chat selected, disable this ones checkbox
     // if there are already 10 chats selected, disable all not selected checkboxes
     // count now selected chats:
-    let selectedCount = facebookConversations.reduce((count, curElem) => {
+    let selectedCount = conversations.reduce((count, curElem) => {
         if (curElem.selected) {
             return count + 1
         } else return count
     }, 0)
 
-    facebookConversations.forEach(conv => {
+    conversations.forEach(conv => {
         let checkbox = $('#checkBox_' + conv.conversation_id)
         if (conv.selected && selectedCount === 1) {
             checkbox.prop("disabled", true)
@@ -189,4 +189,4 @@ const onClickCheckbox = (convId, allParticipantsNamesToRandomIds) => {
 }
 
 
-module.exports = createChooseFChatsModal;
+module.exports = createChooseChatsModal;

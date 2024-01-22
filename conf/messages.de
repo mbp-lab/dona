@@ -199,6 +199,7 @@ donation.anonymisation.friend=Kontakt
 donation.anonymisation.friendInitial=K
 donation.anonymisation.chatInitialW=W
 donation.anonymisation.chatInitialF=F
+donation.anonymisation.chatInitialI=I
 donation.anonymisation.system=System
 donation.anonymisation.chooseUsername=Bitte wählen Sie Ihren Nutzernamen aus. Ihr Nutzername wird nicht gespeichert u"nd wir werden ihn nicht erfahren.
 donation.anonymisation.loading=Das Senden der anonymisierten Daten kann ein paar Minuten dauern. Bitte warten Sie und lassen Sie diese Seite geöffnet. Danke!
@@ -281,6 +282,7 @@ feedback.title.pleaseContinue=Wir hoffen Sie hatten spannende Erkenntnisse. Dank
 
 
 feedback.facebook.info=Die möglicherweise hohe Anzahl an Facebook-Kontakten kann zu einer unübersichtlichen Darstellung führen. Daher werden im Folgenden nur Visualisierungen für Ihre 1-10 ausgewählten Facebook-Chats angezeigt.
+feedback.instagram.info=Die möglicherweise hohe Anzahl an Instagram-Kontakten kann zu einer unübersichtlichen Darstellung führen. Daher werden im Folgenden nur Visualisierungen für Ihre 1-10 ausgewählten Instagram-Chats angezeigt.
 
 
 feedback.nextButton=Weiter

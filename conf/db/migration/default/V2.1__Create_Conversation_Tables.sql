@@ -37,7 +37,8 @@ CREATE TABLE data_sources (
 
 INSERT INTO data_sources (id, name) VALUES
 (1, 'Facebook'),
-(2, 'WhatsApp');
+(2, 'WhatsApp'),
+(3, 'Instagram');
 
 CREATE TABLE conversations (
     id                      uuid            PRIMARY KEY,

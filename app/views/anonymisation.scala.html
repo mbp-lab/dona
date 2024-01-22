@@ -29,6 +29,7 @@
         data-friend-initial="@messages("donation.anonymisation.friendInitial")"
         data-chat-initial-w="@messages("donation.anonymisation.chatInitialW")"
         data-chat-initial-f="@messages("donation.anonymisation.chatInitialF")"
+        data-chat-initial-i="@messages("donation.anonymisation.chatInitialI")"
         data-only-you="@messages("donation.friendsMapping.onlyYouInConv")"
         data-and-more-contacts="@messages("donation.friendsMapping.moreFriends")"
         data-chat="@messages("donation.friendsMapping.chat")"
@@ -74,7 +75,12 @@
 
                 <!-- Modal for choosing facebook chats to show feedback for -->
             <div class="modal fade" id="chooseFacebookChatsModal" role="dialog">
-            @anonymisation_facebookChatSelectionModal()
+            @anonymisation_chatSelectionModal("Facebook")
+            </div>
+
+                <!-- Modal for choosing instagram chats to show feedback for -->
+            <div class="modal fade" id="chooseInstagramChatsModal" role="dialog">
+            @anonymisation_chatSelectionModal("Instagram")
             </div>
             </div>
         <div class="mt-5 w-100 d-none" align="center" id="spinner-submit-div">
@@ -264,6 +270,11 @@
                                     @Html("<span id=\"display-userIDMapping-" + dataSourceDescription.name.toString + "\"></span>")
                                 @if(dataSourceDescription.name.toString == "Facebook") {
                                     <button class="btn btn-outline text-center selectorsAndInputs" id="openChooseFacebookChatsModalButton">
+                                        <h5 class="mb-3"><i><b>@messages("donation.anonymisation.chatSelection.clickHereToSelect")</b></i></h5>
+                                    </button>
+                                }
+                                @if(dataSourceDescription.name.toString == "Instagram") {
+                                    <button class="btn btn-outline text-center selectorsAndInputs" id="openChooseInstagramChatsModalButton">
                                         <h5 class="mb-3"><i><b>@messages("donation.anonymisation.chatSelection.clickHereToSelect")</b></i></h5>
                                     </button>
                                 }
