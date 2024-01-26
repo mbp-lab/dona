@@ -4,7 +4,7 @@ landing.header.title=Bringen Sie Licht ins Dunkel mit Ihren Social-Online-Daten.
 landing.header.body=Wir untersuchen, wie Menschen digital interagieren und was diese Interaktionen für ihr Wohlbefinden bedeuten.
 landing.what.title=Worum geht es?
 landing.what.body1=Soziale Interaktionen spielen eine wichtige Rolle für menschliches Wohlbefinden. Um diesen Zusammenhang besser zu verstehen, entwickeln wir Methoden, die digitale sozialen Interaktionen für die Forschung messbar machen.
-landing.what.body2=Sie können uns unterstützen, indem Sie Ihre Chat-Metadaten von WhatsApp oder Facebook anonym spenden.
+landing.what.body2=Sie können uns unterstützen, indem Sie Ihre Chat-Metadaten von WhatsApp, Facebook oder Instagram anonym spenden.
 
 
 landing.why.title=Warum sollte ich teilnehmen?
@@ -576,19 +576,23 @@ instagram.instructions.p3.title=Wie kann ich meine Daten von meinem Gerät wiede
 instagram.instructions.p3.body=Wir empfehlen Ihnen ausdrücklich, Ihre Originaldaten nach dem Abschluss der Spende wieder zu löschen.  Beachten Sie, dass ein einfaches Löschen der Dateien ggf. nicht ausreicht, um die Daten endgültig von Ihrem Gerät zu entfernen. Weitere Informationen zur endgültigen Löschung von Dateien finden Sie unter anderem <a target="_blank" href="https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Daten-sichern-verschluesseln-und-loeschen/Daten-endgueltig-loeschen/daten-endgueltig-loeschen.html">auf der Seite des Bundesamt für Sicherheit in der Informationstechnik</a> und <a target="_blank" href="https://www.datenschutz.org/daten-loeschen/"> Datenschutz.org</a>.
 
 
-instagram.description_html=TODO: IST DAS SO?: Bitte fordern Sie Ihre Nachrichtendaten von Instagram an. Sie erhalten eine Benachrichtigung von Instagram, sobald die Daten zum Download bereitstehen, und können dann mit der Teilnahme an der Studie beginnen. <strong>Wir empfehlen, einen Computer zu verwenden, wenn Sie von Instagram spenden, da die Datenmenge relativ groß sein kann.</strong>
-instagram.external-documentation_html=TODO: change to iOS vs Android? - Die offizielle Dokumentation zum Herunterladen Ihrer Daten können Sie <a target="_blank" href="https://help.instagram.com/181231772500920?cms_id=181231772500920" target="_blank">hier</a> finden.
+instagram.description_html=Bitte fordern Sie Ihre Nachrichtendaten von Instagram an. Sie erhalten eine Benachrichtigung von Instagram, sobald die Daten zum Download bereitstehen, und können dann mit der Teilnahme an der Studie beginnen. TODO: -> ja? <strong>Wir empfehlen, einen Computer zu verwenden, wenn Sie von Instagram spenden, da die Datenmenge relativ groß sein kann.</strong>
+instagram.external-documentation_html=Die offizielle Dokumentation zum Herunterladen Ihrer Daten können Sie <a target="_blank" href="https://help.instagram.com/181231772500920?cms_id=181231772500920" target="_blank">hier</a> finden.
 
 #Download and Donation procedure: instagram
 
-instagram.donation-procedure.1=Todo
-instagram.donation-procedure.2=TODO
-instagram.donation-procedure.3=Wählen Sie einen der Chats aus und öffnen Sie diesen.
-instagram.donation-procedure.4=Klicken Sie oben in der Mitte auf den Namen des Kontakts.
-instagram.donation-procedure.5=Scrollen Sie runter und klicken Sie auf „Chat exportieren“. Ein Fenster öffnet sich. Wählen Sie "OHNE MEDIEN".
-instagram.donation-procedure.6=Wählen Sie "Mail" (Briefumschlag) aus und senden Sie die Mail mit der angehangenen Chat-Datei an sich selbst. Bitte (ver)senden Sie nur von/an einen sicheren Maildienst (z.B. Uni-Mailadresse). Alternativ können Sie die Dateien auch via Bluetooth oder Airdrop an Ihren Computer senden.
-instagram.donation-procedure.7=Laden Sie die Chatdatei aus der E-mail auf Ihrem Computer herunter.
-instagram.donation-procedure.8=Wiederholen Sie die Schritte 3-7 für alle Chats.
+instagram.donation-procedure.1=Öffnen Sie Instagram und melden Sie sich an.
+instagram.donation-procedure.2=Klicken Sie in Ihrem Profil auf den "Menü"-Knopf (drei Striche) und wählen Sie "Deine Aktivitäten".
+instagram.donation-procedure.3=Klicken Sie ganz unten auf “Deine Informationen herunterladen” und gehen Sie weiter zur "Kontenübersicht".
+instagram.donation-procedure.4=Klicken Sie auf “Download anfordern”.
+instagram.donation-procedure.5=Klicken Sie auf “Arten von Informationen auswählen”.
+instagram.donation-procedure.6=Wählen Sie “Nachrichten” (unter “Deine Aktivitäten auf Instagram”) und “Personenbezogene Informationen” (unter “Personenbezogene Informationen”).
+instagram.donation-procedure.7=Klicken Sie auf "Weiter".
+instagram.donation-procedure.8=Wählen Sie einen Datumsbereich: Wir empfehlen Ihnen, die <b>Daten für 1 Jahr anzufordern</b>, aber auch eine kürzere Zeitspanne ist möglich.
+instagram.donation-procedure.9=Ändern Sie dann das Format von HTML zu JSON. Ändern Sie die Medienqualität von “Mittel” zu “Niedrig”.
+instagram.donation-procedure.10=Klicken Sie auf "Anfrage absenden". Sobald die Datei zum Download bereit ist, erhalten Sie eine Benachrichtigung von Instagram. Dies kann einen Moment dauern.
+instagram.donation-procedure.11=Scrollen Sie zurück nach oben und klicken Sie auf die Registerkarte "Verfügbare Dateien". Dort sollten Sie die gewünschte Datei sehen. Sie können sie herunterladen, sobald sie bereitsteht.
+
 instagram.instruction.gif=whatsapp_ger.mp4
 instagram.instruction.gifiOS=whatsapp_ger_iOS.mp4
 instagram.instruction.gifAndroid=whatsapp_ger_android.mp4

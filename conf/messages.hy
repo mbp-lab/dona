@@ -392,7 +392,7 @@ feedback.title.pleaseContinue=Հուսով ենք հետաքրքիր բացահ�
 
 
 feedback.facebook.info=Facebook-ում կոնտակտների հնարավոր մեծ թվի պատճառով գրաֆիկներ տրամադրվում են մինչև 10 չատի համար։
-
+feedback.instagram.info=The potentially high number of Instagram contacts could lead to a cluttered visualization. Therefore, in the following, only visualizations for your 1-10 selected Instagram chats are shown.
 
 
 
@@ -786,7 +786,38 @@ facebook.donation-procedure.10=Ծանուցումը ստանալուց հետո 
 facebook.instruction.gif=facebook_hy.mp4
 facebook.logo=f-logo.svg
 
+instagram.instructions.p1.title=What type of device should I use?
+instagram.instructions.p1.body=Please make sure that you are storing the data on a device that no one but you has access to. Because the amount of data for Facebook data donations can be quite large, we recommend using a computer.
+instagram.instructions.p2.title=How long does the data export from Facebook take?
+instagram.instructions.p2.body=The data is requested with just a few clicks on Facebook (see the instructions below). You will receive a notification from Facebook as soon as the data is available for download and can then start participating in the study.
+instagram.instructions.p3.title=How can I delete my data from my device?
+instagram.instructions.p3.body=We strongly recommend that you delete your original data after completing the donation. Note that simply deleting the files may not be enough to permanently remove the data from your device. Further information on the permanent deletion of files can for example be found <a target="_blank" href="https://safecomputing.umich.edu/protect-yourself/prepare-devices-disposal/securely-delete-files">on the website of the University of Michigan</a> or <a target="_blank" href="https://wethegeek.com/best-file-data-shredder-apps-to-permanently-delete-data-from-android/">wethegeek.com</a> and <a target="_blank" href="https://appletoolbox.com/how-to-delete-files-permanently-from-the-files-app-on-iphone-and-ipad/">appletoolbox.com</a>.
 
+
+
+instagram.description_html=ToDo: Make a request to Facebook to download your Facebook data. You will receive a notification from Facebook once the data is available for download and can then start participating in the study. <strong>We recommend using a computer if donating from Facebook as the data size may be relatively large.</strong>
+instagram.external-documentation_html=ToDo: The official documentation on how to download your data can be found <a target="_blank" href="https://help.instagram.com/181231772500920?cms_id=181231772500920" target="_blank">here</a>.
+
+
+instagram.donation-procedure.1=Open Instagram and log in.
+instagram.donation-procedure.2=In your profile click on the "Menu" button (three lines) and select "Your activity".
+instagram.donation-procedure.3=All the way on the bottom select “Download your information” and continue to the Accounts Center.
+instagram.donation-procedure.4=Click on “Request a download”.
+instagram.donation-procedure.5=Click on “Select types of information”.
+instagram.donation-procedure.6=Select “Messages” (under “Your Instagram activity”) and “Personal information” (under “Personal information”).
+instagram.donation-procedure.7=Click on "Next".
+instagram.donation-procedure.8=Pick a date range: We encourage you to <b>request the data for 1 year</b> but a shorter time span is possible as well.
+instagram.donation-procedure.9=Change the format from HTML to JSON. Then change the media quality from “Medium” to “Low”.
+instagram.donation-procedure.10=Click on "Submit Request". As soon as the file is ready for download, you will receive a notification from Facebook. This may take a while.
+instagram.donation-procedure.11=Scroll back up and click on the "Available Files" tab. There you should see the requested file and can download is as soon it is ready.
+
+
+instagram.instruction.gif=whatsapp_ger.mp4
+instagram.instruction.gifiOS=whatsapp_ger_iOS.mp4
+instagram.instruction.gifAndroid=whatsapp_ger_android.mp4
+instagram.instruction.gif.subtitle.iOS=Dies ist der Chat Export-Prozess auf einem iPhone.
+instagram.instruction.gif.subtitle.android=Dies ist der Chat Export-Prozess auf einem Android-Gerät. Der Prozess könnte auf verschiedenen Geräten leicht anders sein.
+instagram.logo=i-logo.png
 
 
 # Imprint

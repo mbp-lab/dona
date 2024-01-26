@@ -80,7 +80,8 @@ object InMemoryDataSourceDescriptionService {
         messages("instagram.donation-procedure.7"),
         messages("instagram.donation-procedure.8"),
         messages("instagram.donation-procedure.9"),
-        messages("instagram.donation-procedure.10")
+        messages("instagram.donation-procedure.10"),
+        messages("instagram.donation-procedure.11")
       ),
       logo = Some(messages("instagram.logo")),
       requiresAlias = false
