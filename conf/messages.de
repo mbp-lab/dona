@@ -68,7 +68,7 @@ learn-more.image.caption=Abbildung 3. Beispiel der Anonymisierung einer Nachrich
 
 
 instructions.about.title=Wie erhalte ich meine Daten?
-instructions.about.body_html=Bevor Sie an der Studie teilnehmen, fordern Sie bitte Ihre Daten direkt von Facebook und/oder WhatsApp an. Sie können Daten von beiden Plattformen spenden. Falls Sie nur Daten von einer Plattform spenden möchten, wählen Sie bitte die Plattform, die für Sie wichtiger ist. <b>Bitte sehen Sie sich die entsprechenden Anleitungen genau an, da sie wichtige Informationen für die weiteren Schritte enthalten.</b>
+instructions.about.body_html=Bevor Sie an der Studie teilnehmen, fordern Sie bitte Ihre Daten direkt von Facebook und/oder WhatsApp und/oder Instagram an. Sie können Daten von jeder dieser Plattformen spenden. Falls Sie nur Daten von einer Plattform spenden möchten, wählen Sie bitte die Plattform, die für Sie wichtiger ist. <b>Bitte sehen Sie sich die entsprechenden Anleitungen genau an, da sie wichtige Informationen für die weiteren Schritte enthalten.</b>
 instructions.datasource.title_format =Anleitung zum Erhalten von %s-Daten
 instructions.download-procedure.title=Übersicht über den Download & Datenspende Prozess:
 instructions.continue.body=Wenn Sie anhand dieser Anleitung Ihre Daten erhalten haben, können Sie jetzt mit der Einverständniserklärung und dem  Fragebogen beginnen. Im Anschluss können Sie dann Ihre Daten spenden.
@@ -161,9 +161,10 @@ donation.preview-data.group-conversation=Gruppenunterhaltung
 
 
 donation.friendsMapping.title=<b>Decknamen für Ihre Kontakte</b>
-donation.friendsMapping.subtitle.facebook=Wir haben Ihre Daten und Ihre Kontakte anonymisiert. Falls Sie in der anonymisierten Auswertung im nächsten Schritt rekonstruieren wollen, um welche Konversationen und Kontakte es sich jeweils handelt, notieren Sie sich die folgenden Zuordnungen von Kontakten (z.B. G**** M*****) und Chatnamen (z.B. “F4”). Ab jetzt sind dies die anonymisierten Decknamen für Ihre Chats. Die Zuordnung wird nicht gespeichert und geht verloren, sobald Sie diese Seite verlassen.
-donation.friendsMapping.subtitle.whatsapp=Wir haben Ihre Daten und Ihre Kontakte anonymisiert. Falls Sie in der anonymisierten Auswertung im nächsten Schritt rekonstruieren wollen, um welche Konversationen und Kontakte es sich jeweils handelt, notieren Sie sich die folgenden Zuordnungen von Kontakten (z.B. G**** M*****) und Chatnamen (z.B. “W4” ). Ab jetzt sind dies die anonymisierten Decknamen für Ihre Chats. Die Zuordnung wird nicht gespeichert und geht verloren, sobald Sie diese Seite verlassen.
-donation.friendsMapping.onlySeven=Dies sind nur die Kontakte Ihrer 7 Facebook-Chats, in denen insgesamt die meisten Wörter gesendet wurden. <b>Unten können Sie auch andere Chats auswählen. </b>
+donation.friendsMapping.subtitle.facebook=Wir haben Ihre Daten und Ihre Kontakte anonymisiert. Falls Sie in der anonymisierten Auswertung im nächsten Schritt rekonstruieren wollen, um welche Konversationen und Kontakte es sich jeweils handelt, notieren Sie sich die folgenden Zuordnungen von Kontakten (z.B. A**** B*****) und Chatnamen (z.B. “F4”). Ab jetzt sind dies die anonymisierten Decknamen für Ihre Chats. Die Zuordnung wird nicht gespeichert und geht verloren, sobald Sie diese Seite verlassen.
+donation.friendsMapping.subtitle.whatsapp=Wir haben Ihre Daten und Ihre Kontakte anonymisiert. Falls Sie in der anonymisierten Auswertung im nächsten Schritt rekonstruieren wollen, um welche Konversationen und Kontakte es sich jeweils handelt, notieren Sie sich die folgenden Zuordnungen von Kontakten (z.B. A**** B*****) und Chatnamen (z.B. “W4” ). Ab jetzt sind dies die anonymisierten Decknamen für Ihre Chats. Die Zuordnung wird nicht gespeichert und geht verloren, sobald Sie diese Seite verlassen.
+donation.friendsMapping.subtitle.instagram=Wir haben Ihre Daten und Ihre Kontakte anonymisiert. Falls Sie in der anonymisierten Auswertung im nächsten Schritt rekonstruieren wollen, um welche Konversationen und Kontakte es sich jeweils handelt, notieren Sie sich die folgenden Zuordnungen von Kontakten (z.B. A**** B*****) und Chatnamen (z.B. “I4”). Ab jetzt sind dies die anonymisierten Decknamen für Ihre Chats. Die Zuordnung wird nicht gespeichert und geht verloren, sobald Sie diese Seite verlassen.
+donation.friendsMapping.onlySeven=Dies sind nur die Kontakte Ihrer 7 Chats, in denen insgesamt die meisten Wörter gesendet wurden. <b>Unten können Sie auch andere Chats auswählen. </b>
 donation.friendsMapping.moreFriends=und {0} weitere.
 donation.friendsMapping.chat=Chat
 donation.friendsMapping.onlyYouInConv=Nur Sie befinden sich in diesem Chat. Es könnte z.B. sein, dass die andere Person/en den Chat verlassen haben.
@@ -210,7 +211,7 @@ donation.anonymisation.chatSelection.clickHereToSelect=Klicken Sie hier, um ande
 
 
 donation.anonymisation.loading.tooLong.title=Wenn dieser Vorgang länger als 5 Minuten dauert, kann dies folgende Ursachen haben:
-donation.anonymisation.loading.tooLong.issue.1=Sie versuchen, Dateitypen hochzuladen, die nicht unterstützt werden (die korrekten Dateitypen sind .txt oder .zip für WhatsApp und .zip für Facebook)
+donation.anonymisation.loading.tooLong.issue.1=Sie versuchen, Dateitypen hochzuladen, die nicht unterstützt werden (die korrekten Dateitypen sind .txt oder .zip für WhatsApp und .zip für Facebook und Instagram)
 donation.anonymisation.loading.tooLong.issue.2=Sie haben Ihre WhatsApp-Chats von verschiedenen Geräten exportiert
 donation.anonymisation.loading.tooLong.issue.3=Die Dateien, die Sie hochladen möchten, sind ungewöhnlich groß
 donation.anonymisation.loading.tooLong.issue.4=Ihre Internetverbindung ist langsam

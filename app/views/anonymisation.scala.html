@@ -255,8 +255,10 @@
                         <div class="container-fluid show-on-anonymisation-success-@{dataSourceDescription.name.toString} alert-info" style="border-radius: 16px;">
                             @if(dataSourceDescription.name.toString == "Facebook") {
                                 <p style="color: darkblue;">@Html(messages("donation.friendsMapping.subtitle.facebook"))</p>
-                            } else {
+                            } @if(dataSourceDescription.name.toString == "WhatsApp") {
                                 <p style="color: darkblue;">@Html(messages("donation.friendsMapping.subtitle.whatsapp"))</p>
+                            } @if(dataSourceDescription.name.toString == "Instagram") {
+                            <p style="color: darkblue;">@Html(messages("donation.friendsMapping.subtitle.instagram"))</p>
                             }
 
                             @if(dataSourceDescription.name.toString == "Facebook") {

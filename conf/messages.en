@@ -4,7 +4,7 @@ landing.header.title=Illuminate the darkness with your social media data
 landing.header.body=We are researching how people interact in the digital space and what those interactions mean for human well-being.
 landing.what.title=What is this about?
 landing.what.body1=Social interactions play a significant role in human well-being. To better understand this relationship, we are developing methods to measure digital social interactions for research.
-landing.what.body2=You can support us by anonymously donating your chat meta-data from WhatsApp or Facebook.
+landing.what.body2=You can support us by anonymously donating your chat meta-data from WhatsApp, Facebook or Instagram.
 
 
 landing.why.title=Why should I participate?
@@ -66,7 +66,7 @@ learn-more.image.caption=Figure 3. Example of an anonymized message.
 
 
 instructions.about.title=How do I request data from social media platforms?
-instructions.about.body_html=Before participating in the study, please request your data directly from Facebook and/or WhatsApp. You can donate data from both platforms. If you only want to donate data from one platform, please select the platform that is more important to you. <b>Please take a close look at the corresponding instructions, as they contain important information for the further steps.</b>
+instructions.about.body_html=Before participating in the study, please request your data directly from Facebook and/or WhatsApp and/or Instagram. You can donate data from each of these platforms. If you only want to donate data from one platform, please select the platform that is more important to you. <b>Please take a close look at the corresponding instructions, as they contain important information for the further steps.</b>
 instructions.datasource.title_format =Instructions for getting %s data
 instructions.download-procedure.title=Overview of the download & donation procedure:
 instructions.continue.body=If you have received your data using these instructions, you can now start with the declaration of consent and survey. Afterwards you can donate your data.
@@ -78,7 +78,7 @@ instructions.haveData=You need 5-7 WhatsApp chat files.
 
 
 donation-info.title=How do I donate my data?
-donation-info.data-request=<strong>Data request: </strong>You request your social media data from a platform of your choice (currently supported: Facebook and WhatsApp) and download it to your device.
+donation-info.data-request=<strong>Data request: </strong>You request your social media data from a platform of your choice (currently supported: Facebook, WhatsApp, and Instagram) and download it to your device.
 donation-info.anonymisation=<strong>Anonymization: </strong>We will remove all content from your data and limit it to metadata (e.g. length and timestamp of message). Your name, as well as the names of other participants, will get replaced by random pseudonyms (eg. "James" &rarr; "anonymous13"). You may examine the anonymization of your data before uploading it to our servers.
 donation-info.storage=<strong> Storage: </strong>Only anonymized and reduced data will be uploaded to one of our secure servers.
 
@@ -158,9 +158,10 @@ donation.preview-data.group-conversation=Group conversation
 
 
 donation.friendsMapping.title=<b>Aliases for your contacts</b>
-donation.friendsMapping.subtitle.facebook=We have anonymized your data and your contacts. If, in the next step, you want to reconstruct which conversations and contacts are involved in the anonymized evaluation, make a note of the following assignments of contacts (e.g. G**** M*****) and chats (e.g. “F4"). From now on, these are the anonymized names for your chats. The assignment is not saved and is lost as soon as you leave this page.
-donation.friendsMapping.subtitle.whatsapp=We have anonymized your data and your contacts. If, in the next step, you want to reconstruct which conversations and contacts are involved in the anonymized evaluation, make a note of the following assignments of contacts (e.g. G**** M*****) and chats (e.g. “W4"). From now on, these are the anonymized names for your chats. The assignment is not saved and is lost as soon as you leave this page.
-donation.friendsMapping.onlySeven=These are just the contacts of your 7 Facebook chats in which overall the most words were sent. <b> Below you can also select different chats. </b>
+donation.friendsMapping.subtitle.facebook=We have anonymized your data and your contacts. If, in the next step, you want to reconstruct which conversations and contacts are involved in the anonymized evaluation, make a note of the following assignments of contacts (e.g. A**** B*****) and chats (e.g. “F4"). From now on, these are the anonymized names for your chats. The assignment is not saved and is lost as soon as you leave this page.
+donation.friendsMapping.subtitle.whatsapp=We have anonymized your data and your contacts. If, in the next step, you want to reconstruct which conversations and contacts are involved in the anonymized evaluation, make a note of the following assignments of contacts (e.g. A**** B*****) and chats (e.g. “W4"). From now on, these are the anonymized names for your chats. The assignment is not saved and is lost as soon as you leave this page.
+donation.friendsMapping.subtitle.instagram=We have anonymized your data and your contacts. If, in the next step, you want to reconstruct which conversations and contacts are involved in the anonymized evaluation, make a note of the following assignments of contacts (e.g. A**** B*****) and chats (e.g. “I4"). From now on, these are the anonymized names for your chats. The assignment is not saved and is lost as soon as you leave this page.
+donation.friendsMapping.onlySeven=These are just the contacts of your 7 chats in which overall the most words were sent. <b> Below you can also select different chats. </b>
 donation.friendsMapping.moreFriends=and {0} others.
 donation.friendsMapping.chat=Chat
 donation.friendsMapping.onlyYouInConv=You are the only member in this chat. This could be because the other people have left the chat.
@@ -212,7 +213,7 @@ donation.anonymisation.chatSelection.clickHereToSelect=Click here to choose diff
 
 
 donation.anonymisation.loading.tooLong.title=If this process is taking more than 5 minutes, it might be due to the following:
-donation.anonymisation.loading.tooLong.issue.1=You are trying to upload file types that are not supported (the correct input types are .txt or .zip for WhatsApp and .zip for Facebook)
+donation.anonymisation.loading.tooLong.issue.1=You are trying to upload file types that are not supported (the correct input types are .txt or .zip for WhatsApp and .zip for Facebook and Instagram)
 donation.anonymisation.loading.tooLong.issue.2=You have exported you WhatsApp chats from different devices
 donation.anonymisation.loading.tooLong.issue.3=The files you are trying to upload have unusually large sizes
 donation.anonymisation.loading.tooLong.issue.4=Your internet connection is slow
@@ -597,7 +598,7 @@ instagram.donation-procedure.6=Select “Messages” (under “Your Instagram ac
 instagram.donation-procedure.7=Click on "Next".
 instagram.donation-procedure.8=Pick a date range: We encourage you to <b>request the data for 1 year</b> but a shorter time span is possible as well.
 instagram.donation-procedure.9=Change the format from HTML to JSON. Then change the media quality from “Medium” to “Low”.
-instagram.donation-procedure.10=Click on "Submit Request". As soon as the file is ready for download, you will receive a notification from Facebook. This may take a while.
+instagram.donation-procedure.10=Click on "Submit Request". As soon as the file is ready for download, you will receive a notification from Instagram. This may take a while.
 instagram.donation-procedure.11=Scroll back up and click on the "Available Files" tab. There you should see the requested file and can download is as soon it is ready.
 
 
