@@ -449,7 +449,7 @@ data-protection.technical-details.title=Datenschutzhinweise – Anonyme Nutzung 
 data-protection.technical-details.body1=Bei Aufruf und Nutzung der Website werden keine personenbezogenen Daten von Ihnen erhoben oder gespeichert.. Wenn Sie unsere Website aufrufen, teilt Ihr Webbrowser unserem Webserver Ihre IP-Adresse mit, um eine Kommunikation zu ermöglichen. Die IP-Adresse wird von uns dabei nur gekürzt gespeichert, um eine Identifikation Ihrer Person bei Aufruf der Website vollständig ausschließen zu können
 data-protection.technical-details.body2=Bei jedem Zugriff auf die Website werden die folgenden technischen Daten übertragen: Name der abgerufenen Datei; Datum und Uhrzeit des Abrufs; Übertragene Datenmenge; Benachrichtigung, ob der Abruf erfolgreich war; die Webadresse, von der aus auf die Datei zugegriffen wurde (Referrer URL); Informationen über das Betriebssystem und den Browser (User-Agent-String); IP-Adresse (wird nur gekürzt gespeichert)
 data-protection.technical-details.body3=Die Daten werden nach Beendigung Ihrer Sitzung automatisch gelöscht und nicht von uns gespeichert (z.B. in Protokolldateien).
-data-protection.technical-details.body4=Außerdem verwenden wir Cookies, um die technische Funktionalität unserer Webseite gewähren zu können. Cookies sind kleine Textdateien mit Informationen über die Nutzung unseres Dienstes, die auf Ihrer Festplatte/Gerätgespeichert werden, wenn Sie diese Speicherung über die Einstellung Ihres Browsers erlauben. Cookies können keine Programme ausführen oder Viren aufIhren Computer übertragen. Die von uns eingesetzten Cookies sind sog. Session Cookies, die nur für die Dauer des Websitebesuchs gespeichert werden, nicht darüber hinaus. Anhand dieser Cookies ist keine Identifikation Ihrer Person möglich.
+data-protection.technical-details.body4=Außerdem verwenden wir Cookies, um die technische Funktionalität unserer Webseite gewähren zu können. Cookies sind kleine Textdateien mit Informationen über die Nutzung unseres Dienstes, die auf Ihrer Festplatte/Gerätgespeichert werden, wenn Sie diese Speicherung über die Einstellung Ihres Browsers erlauben. Cookies können keine Programme ausführen oder Viren auf Ihren Computer übertragen. Die von uns eingesetzten Cookies sind sog. Session Cookies, die nur für die Dauer des Websitebesuchs gespeichert werden, nicht darüber hinaus. Anhand dieser Cookies ist keine Identifikation Ihrer Person möglich.
 
 
 data-protection.participation.title=Datenschutzhinweise – Teilnahme an der Studie/Datenspende
@@ -570,14 +570,14 @@ facebook.logo=f-logo.svg
 
 
 instagram.instructions.p1.title=Was für ein Gerät sollte ich benutzen?
-instagram.instructions.p1.body=Bitte beachten Sie, dass Sie die Daten auf einem Gerät speichern, auf das niemand außer Ihnen Zugriff hat. Da die Datenmenge bei Facebook-Datenspenden relativ groß sein kann, empfehlen wir, einen Computer zu verwenden.
+instagram.instructions.p1.body=Bitte beachten Sie, dass Sie die Daten auf einem Gerät speichern, auf das niemand außer Ihnen Zugriff hat.
 instagram.instructions.p2.title=Wie lange dauert der Datenexport von Instagram?
 instagram.instructions.p2.body=Die Anforderung der Daten erfolgt durch wenige Klicks auf Instagram (siehe die Anleitung unten). Sie erhalten eine Benachrichtigung von Instagram, sobald die Daten zum Download bereitstehen, und können dann mit der Teilnahme an der Studie beginnen.
 instagram.instructions.p3.title=Wie kann ich meine Daten von meinem Gerät wieder löschen?
 instagram.instructions.p3.body=Wir empfehlen Ihnen ausdrücklich, Ihre Originaldaten nach dem Abschluss der Spende wieder zu löschen.  Beachten Sie, dass ein einfaches Löschen der Dateien ggf. nicht ausreicht, um die Daten endgültig von Ihrem Gerät zu entfernen. Weitere Informationen zur endgültigen Löschung von Dateien finden Sie unter anderem <a target="_blank" href="https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Daten-sichern-verschluesseln-und-loeschen/Daten-endgueltig-loeschen/daten-endgueltig-loeschen.html">auf der Seite des Bundesamt für Sicherheit in der Informationstechnik</a> und <a target="_blank" href="https://www.datenschutz.org/daten-loeschen/"> Datenschutz.org</a>.
 
 
-instagram.description_html=Bitte fordern Sie Ihre Nachrichtendaten von Instagram an. Sie erhalten eine Benachrichtigung von Instagram, sobald die Daten zum Download bereitstehen, und können dann mit der Teilnahme an der Studie beginnen. TODO: -> ja? <strong>Wir empfehlen, einen Computer zu verwenden, wenn Sie von Instagram spenden, da die Datenmenge relativ groß sein kann.</strong>
+instagram.description_html=Bitte fordern Sie Ihre Nachrichtendaten von Instagram an. Sie erhalten eine Benachrichtigung von Instagram, sobald die Daten zum Download bereitstehen, und können dann mit der Teilnahme an der Studie beginnen.
 instagram.external-documentation_html=Die offizielle Dokumentation zum Herunterladen Ihrer Daten können Sie <a target="_blank" href="https://help.instagram.com/181231772500920?cms_id=181231772500920" target="_blank">hier</a> finden.
 
 #Download and Donation procedure: instagram

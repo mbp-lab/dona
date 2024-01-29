@@ -789,16 +789,16 @@ facebook.instruction.gif=facebook_hy.mp4
 facebook.logo=f-logo.svg
 
 instagram.instructions.p1.title=What type of device should I use?
-instagram.instructions.p1.body=Please make sure that you are storing the data on a device that no one but you has access to. Because the amount of data for Facebook data donations can be quite large, we recommend using a computer.
-instagram.instructions.p2.title=How long does the data export from Facebook take?
-instagram.instructions.p2.body=The data is requested with just a few clicks on Facebook (see the instructions below). You will receive a notification from Facebook as soon as the data is available for download and can then start participating in the study.
+instagram.instructions.p1.body=Please make sure that you are storing the data on a device that no one but you has access to.
+instagram.instructions.p2.title=How long does the data export from Instagram take?
+instagram.instructions.p2.body=The data is requested with just a few clicks on Instagram (see the instructions below). You will receive a notification from Instagram as soon as the data is available for download and can then start participating in the study.
 instagram.instructions.p3.title=How can I delete my data from my device?
 instagram.instructions.p3.body=We strongly recommend that you delete your original data after completing the donation. Note that simply deleting the files may not be enough to permanently remove the data from your device. Further information on the permanent deletion of files can for example be found <a target="_blank" href="https://safecomputing.umich.edu/protect-yourself/prepare-devices-disposal/securely-delete-files">on the website of the University of Michigan</a> or <a target="_blank" href="https://wethegeek.com/best-file-data-shredder-apps-to-permanently-delete-data-from-android/">wethegeek.com</a> and <a target="_blank" href="https://appletoolbox.com/how-to-delete-files-permanently-from-the-files-app-on-iphone-and-ipad/">appletoolbox.com</a>.
 
 
 
-instagram.description_html=ToDo: Make a request to Facebook to download your Facebook data. You will receive a notification from Facebook once the data is available for download and can then start participating in the study. <strong>We recommend using a computer if donating from Facebook as the data size may be relatively large.</strong>
-instagram.external-documentation_html=ToDo: The official documentation on how to download your data can be found <a target="_blank" href="https://help.instagram.com/181231772500920?cms_id=181231772500920" target="_blank">here</a>.
+instagram.description_html=Make a request to Instagram to download your Instagram data. You will receive a notification from Instagram once the data is available for download and can then start participating in the study.
+instagram.external-documentation_html=The official documentation on how to download your data can be found <a target="_blank" href="https://help.instagram.com/181231772500920?cms_id=181231772500920" target="_blank">here</a>.
 
 
 instagram.donation-procedure.1=Open Instagram and log in.

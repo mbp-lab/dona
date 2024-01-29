@@ -578,7 +578,7 @@ facebook.logo=f-logo.svg
 
 
 instagram.instructions.p1.title=What type of device should I use?
-instagram.instructions.p1.body=Please make sure that you are storing the data on a device that no one but you has access to. Because the amount of data for Instagram data donations can be quite large, we recommend using a computer.
+instagram.instructions.p1.body=Please make sure that you are storing the data on a device that no one but you has access to.
 instagram.instructions.p2.title=How long does the data export from Instagram take?
 instagram.instructions.p2.body=The data is requested with just a few clicks on Instagram (see the instructions below). You will receive a notification from Instagram as soon as the data is available for download and can then start participating in the study.
 instagram.instructions.p3.title=How can I delete my data from my device?
@@ -586,7 +586,7 @@ instagram.instructions.p3.body=We strongly recommend that you delete your origin
 
 
 
-instagram.description_html=Make a request to Instagram to download your Instagram data. You will receive a notification from Instagram once the data is available for download and can then start participating in the study. <strong> TODO: ??? -> We recommend using a computer if donating from Instagram as the data size may be relatively large.</strong>
+instagram.description_html=Make a request to Instagram to download your Instagram data. You will receive a notification from Instagram once the data is available for download and can then start participating in the study.
 instagram.external-documentation_html=The official documentation on how to download your data can be found <a target="_blank" href="https://help.instagram.com/181231772500920?cms_id=181231772500920" target="_blank">here</a>.
 
 
