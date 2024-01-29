@@ -199,6 +199,7 @@ donation.anonymisation.friend=Contact
 donation.anonymisation.friendInitial=C
 donation.anonymisation.chatInitialW=W
 donation.anonymisation.chatInitialF=F
+donation.anonymisation.chatInitialI=I
 donation.anonymisation.system=System
 donation.anonymisation.chooseUsername=Please choose your username. Your username will not be saved and we will not know it.
 donation.anonymisation.loading=Sending the anonymized data could take a few minutes. Please wait and keep this website open. Thanks!

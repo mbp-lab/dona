@@ -291,6 +291,7 @@ donation.anonymisation.friend=Կոնտակտ
 donation.anonymisation.friendInitial=Կ
 donation.anonymisation.chatInitialW=W
 donation.anonymisation.chatInitialF=F
+donation.anonymisation.chatInitialI=I
 donation.anonymisation.system=System
 donation.anonymisation.chooseUsername=Խնդրում ենք ընտրել Ձեր օգտանունը։ Ձեր օգտանունը չի պահպանվելու, և մենք այն չենք իմանալու։
 donation.anonymisation.loading=Տվյալների ուղարկումը կարող է մի քանի րոպե տևել։ Խնդրում ենք սպասել և չփակել էջը։ Շնորհակալություն։
