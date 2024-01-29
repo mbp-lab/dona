@@ -585,8 +585,8 @@ instagram.external-documentation_html=Die offizielle Dokumentation zum Herunterl
 instagram.donation-procedure.1=Öffnen Sie Instagram und melden Sie sich an.
 instagram.donation-procedure.2=Klicken Sie in Ihrem Profil auf den "Menü"-Knopf (drei Striche) und wählen Sie "Deine Aktivitäten".
 instagram.donation-procedure.3=Klicken Sie ganz unten auf “Deine Informationen herunterladen” und gehen Sie weiter zur "Kontenübersicht".
-instagram.donation-procedure.4=Klicken Sie auf “Download anfordern”.
-instagram.donation-procedure.5=Klicken Sie auf “Arten von Informationen auswählen”.
+instagram.donation-procedure.4=Klicken Sie auf “Informationen herunterladen oder übertragen”.
+instagram.donation-procedure.5=Klicken Sie auf “Einige deiner Informationen”.
 instagram.donation-procedure.6=Wählen Sie “Nachrichten” (unter “Deine Aktivitäten auf Instagram”) und “Personenbezogene Informationen” (unter “Personenbezogene Informationen”).
 instagram.donation-procedure.7=Klicken Sie auf "Weiter".
 instagram.donation-procedure.8=Wählen Sie einen Datumsbereich: Wir empfehlen Ihnen, die <b>Daten für 1 Jahr anzufordern</b>, aber auch eine kürzere Zeitspanne ist möglich.
@@ -594,12 +594,8 @@ instagram.donation-procedure.9=Ändern Sie dann das Format von HTML zu JSON. Än
 instagram.donation-procedure.10=Klicken Sie auf "Anfrage absenden". Sobald die Datei zum Download bereit ist, erhalten Sie eine Benachrichtigung von Instagram. Dies kann einen Moment dauern.
 instagram.donation-procedure.11=Scrollen Sie zurück nach oben und klicken Sie auf die Registerkarte "Verfügbare Dateien". Dort sollten Sie die gewünschte Datei sehen. Sie können sie herunterladen, sobald sie bereitsteht.
 
-instagram.instruction.gif=whatsapp_ger.mp4
-instagram.instruction.gifiOS=whatsapp_ger_iOS.mp4
-instagram.instruction.gifAndroid=whatsapp_ger_android.mp4
-instagram.instruction.gif.subtitle.iOS=Dies ist der Chat Export-Prozess auf einem iPhone.
-instagram.instruction.gif.subtitle.android=Dies ist der Chat Export-Prozess auf einem Android-Gerät. Der Prozess könnte auf verschiedenen Geräten leicht anders sein.
-instagram.logo=i-logo.png
+instagram.instruction.gif=instagram_ger.mp4
+instagram.logo=i-logo.svg
 
 
 # Imprint

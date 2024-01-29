@@ -803,22 +803,18 @@ instagram.external-documentation_html=ToDo: The official documentation on how to
 instagram.donation-procedure.1=Open Instagram and log in.
 instagram.donation-procedure.2=In your profile click on the "Menu" button (three lines) and select "Your activity".
 instagram.donation-procedure.3=All the way on the bottom select “Download your information” and continue to the Accounts Center.
-instagram.donation-procedure.4=Click on “Request a download”.
-instagram.donation-procedure.5=Click on “Select types of information”.
+instagram.donation-procedure.4=Click on “Download or transfer information”.
+instagram.donation-procedure.5=Click on “Some of your information”.
 instagram.donation-procedure.6=Select “Messages” (under “Your Instagram activity”) and “Personal information” (under “Personal information”).
 instagram.donation-procedure.7=Click on "Next".
 instagram.donation-procedure.8=Pick a date range: We encourage you to <b>request the data for 1 year</b> but a shorter time span is possible as well.
 instagram.donation-procedure.9=Change the format from HTML to JSON. Then change the media quality from “Medium” to “Low”.
-instagram.donation-procedure.10=Click on "Submit Request". As soon as the file is ready for download, you will receive a notification from Facebook. This may take a while.
-instagram.donation-procedure.11=Scroll back up and click on the "Available Files" tab. There you should see the requested file and can download is as soon it is ready.
+instagram.donation-procedure.10=Click on "Create files". As soon as the file is ready for download, you will receive a notification from Instagram. This may take a while.
+instagram.donation-procedure.11=Scroll back up and click on the "Available downloads" tab. There you should see the requested file and can download is as soon it is ready.
 
 
-instagram.instruction.gif=whatsapp_ger.mp4
-instagram.instruction.gifiOS=whatsapp_ger_iOS.mp4
-instagram.instruction.gifAndroid=whatsapp_ger_android.mp4
-instagram.instruction.gif.subtitle.iOS=Dies ist der Chat Export-Prozess auf einem iPhone.
-instagram.instruction.gif.subtitle.android=Dies ist der Chat Export-Prozess auf einem Android-Gerät. Der Prozess könnte auf verschiedenen Geräten leicht anders sein.
-instagram.logo=i-logo.png
+instagram.instruction.gif=instagram_eng.mp4
+instagram.logo=i-logo.svg
 
 
 # Imprint
