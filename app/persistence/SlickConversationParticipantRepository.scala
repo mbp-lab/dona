@@ -24,8 +24,9 @@ final class SlickConversationParticipantRepository @Inject()(protected val dbCon
     def id = column[ConversationParticipantId]("id", O.PrimaryKey)
     def conversationId = column[ConversationId]("conversation_id")
     def participantId = column[ParticipantId]("participant_id")
+    def participantPseudonym = column[String]("participant_pseudonym")
 
     override def * =
-      (id, conversationId, participantId) <> ((ConversationParticipant.apply _).tupled, ConversationParticipant.unapply)
+      (id, conversationId, participantId, participantPseudonym) <> ((ConversationParticipant.apply _).tupled, ConversationParticipant.unapply)
   }
 }

@@ -49,7 +49,8 @@ CREATE TABLE conversations (
 CREATE TABLE conversation_participants (
     id                      uuid            PRIMARY KEY,
     conversation_id         uuid            NOT NULL REFERENCES conversations(id),
-    participant_id          uuid            NOT NULL
+    participant_id          uuid            NOT NULL,
+    participant_pseudonym   VARCHAR(1024)   NOT NULL
 );
 
 CREATE TABLE messages(

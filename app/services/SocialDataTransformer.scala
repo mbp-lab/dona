@@ -54,7 +54,7 @@ object SocialDataTransformer extends ((DonationId, ApiSocialData) => SocialDataD
       val conversationId = getConversationId(conversation.conversationId)
       conversation.participants.map(
         id => {
-          ConversationParticipant(ConversationParticipantId.generate, conversationId, getParticipantId(id))
+          ConversationParticipant(ConversationParticipantId.generate, conversationId, getParticipantId(id), id)
         }
       )
     }
