@@ -12,16 +12,15 @@
 .bgImage {
     width: 100%;
     background-size: cover;
-    background-attachment: fixed;
     -o-background-size:cover;
     -moz-background-size:cover;
     -webkit-background-size:cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-image: url("/assets/images/backgroud3_4_compressed.jpg");
 }
 
-@media (min-device-width: 400px) {
+@media (min-device-width: 700px) {
     .bgImage {
         width: 100%;
         background-size: cover;
@@ -35,7 +34,44 @@
     }
 }
 
+.background-image::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background-image: url("/assets/images/backgroud3_4_compressed.jpg");
+    background-size: cover;
+    background-position: center;
+    pointer-events: none; /* Make sure clicks go through the pseudo-element */
+}
+
+@media (min-device-width: 700px) {
+    .background-image::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        background-image: url("/assets/images/background_compressed.jpg");
+        background-size: cover;
+        background-position: center;
+        pointer-events: none; /* Make sure clicks go through the pseudo-element */
+    }
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    /* Your content styles go here */
+}
+
 .main-container {
+    position: relative;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
