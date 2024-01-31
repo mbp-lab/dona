@@ -18,6 +18,23 @@ const whatsappZipFileHandler = require("./parsing/whatsapp/whatsappZipFileHandle
 
 function addListeners() {
 
+    // this is so that when a modal is open, clicking the back button will close the modal
+    if (window.history && window.history.pushState) {
+        $('.modal').on('show.bs.modal', function (e) {
+            window.history.pushState('openModal', null, './more');
+        });
+
+        $(window).on('popstate', function () {
+            $('.modal').modal('hide')
+        });
+
+        $('.modal').on('hide.bs.modal', function (e) {
+            if (window.history.state === "openModal") {
+                window.history.back()
+            }
+        });
+    }
+
     $("#btn-fb-download-finished").on("click", function (e) {
         e.preventDefault();d
         $(".enable-after-fb-download").attr("disabled", false);

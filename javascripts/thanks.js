@@ -16,23 +16,6 @@ const {isMobile} = require("./utils");
 
 $(document).ready(function () {
 
-    // this is so that when a modal is open, clicking the back button will close the modal
-    if (window.history && window.history.pushState) {
-        $('.modal').on('show.bs.modal', function (e) {
-            window.history.pushState('openModal', null, './moreAbout');
-        });
-
-        $(window).on('popstate', function () {
-            $('.modal').modal('hide')
-        });
-
-        $('.modal').on('hide.bs.modal', function (e) {
-            if (window.history.state === "openModal") {
-                window.history.back()
-            }
-        });
-    }
-
     alertIfMobile()
 
     Object.keys(allData).forEach(function (dataSourceType) {
