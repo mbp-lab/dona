@@ -657,6 +657,8 @@ language.current=Հայ
 language.options.ger=Deutsch
 language.options.eng=English
 language.options.am=Հայերեն
+language.options.rus=Russian #TODO: adapt to Russian
+language.options.ukr=Ukrainian #TODO: adapt to Ukrainian
 
 
 footer.title=Ստացե՞լ եք Ձեր տվյալները

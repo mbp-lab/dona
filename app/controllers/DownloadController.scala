@@ -20,7 +20,12 @@ final class DownloadController @Inject()(cc: ControllerComponents) extends Abstr
         filepath = "/public/informedConsents/informedConsent_eng.pdf"
       } else if (isolocaleString == "de") {
         filepath = "/public/informedConsents/informedConsent_de.pdf"
+      } else if (isolocaleString == "ukr") {
+        filepath = "/public/informedConsents/informedConsent_eng.pdf" //TODO: Change this to translated pdf version
+      } else if (isolocaleString == "rus") {
+        filepath = "/public/informedConsents/informedConsent_eng.pdf" //TODO: Change this to translated pdf version
       }
+    
 
     val file = new java.io.File(filepath)
     Ok.sendFile(file, inline = false).withHeaders(
