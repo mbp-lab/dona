@@ -199,6 +199,10 @@ they progress through the system.
 
 The external_id is used to connect the data with questionnaires stored 
 in soscisurvey.
+In order to map feedback from surveys on specific contacts (e.g. "Is this contact
+a family member") to chats, the `conversation_participant` table has a field
+`participant_pseudonym` that contains the anonymous display name of the contact,
+e.g. "Chat W2".
 
 The `status` field can have values `notstarted`, `pending`, `complete` and `deleted`.
 These have the following meanings:
