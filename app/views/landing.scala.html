@@ -55,6 +55,16 @@
             </div>
         </div>
 
+        <h2 class="headline">@messages("landing.video.title")</h2>
+
+        <div class="col-md">
+            <video controls autoplay style="max-width: 70%; height: auto;"> 
+                <source src="@routes.Assets.at(s"images/dataSourceImages/${messages("landing.video.video")}")" type="video/mp4">
+            </video>
+            <p>@messages("landing.video.subtitle")</p>
+        </div>
+                
+
         <h2 class="headline">@messages("landing.what.title")</h2>
         <p class="paragraph mt-1">@messages("landing.what.body1")</p>
         <p class="paragraph">@Html(messages("landing.what.body2"))</p>

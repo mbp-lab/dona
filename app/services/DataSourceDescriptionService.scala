@@ -23,25 +23,6 @@ object InMemoryDataSourceDescriptionService {
 
   private def dataDownloadInstructions(implicit messages: Messages) = List(
     DataSourceDescription(
-      name = DonationDataSourceType.WhatsApp,
-      description = messages("whatsapp.description_html"),
-      parsingDetails = ParsingDetails(script = "", specificFileExtensionAccepted = Some(".txt, .zip")),
-      animation = Some(AnimatedImage(messages("whatsapp.instruction.gif"), 555, 270)),
-      illustration = None,
-      documentation = messages("whatsapp.external-documentation_html"),
-      dataDownloadSteps = List(
-        messages("whatsapp.donation-procedure.1"),
-        messages("whatsapp.donation-procedure.2"),
-        messages("whatsapp.donation-procedure.3"),
-        messages("whatsapp.donation-procedure.4"),
-        messages("whatsapp.donation-procedure.5"),
-        messages("whatsapp.donation-procedure.6"),
-        messages("whatsapp.donation-procedure.7"),
-        messages("whatsapp.donation-procedure.8"),
-      ),
-      logo = Some(messages("whatsapp.logo"))
-    ),
-    DataSourceDescription(
       name = DonationDataSourceType.Facebook,
       description = messages("facebook.description_html"),
       parsingDetails = ParsingDetails(script = "", specificFileExtensionAccepted = Some(".zip")),

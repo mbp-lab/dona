@@ -7,6 +7,9 @@ landing.what.title=What is this about?
 landing.what.body1=Social interactions play a significant role in human well-being. To better understand this relationship, we are developing methods to measure digital social interactions for research.
 landing.what.body2=You can support us by anonymously donating your chat meta-data from WhatsApp or Facebook.
 
+landing.video.title=Explanation video
+landing.video.video=explanation_video_en.mp4
+landing.video.subtitle=This is the explanation video of the whole study. Please watch it.
 
 landing.why.title=Why should I participate?
 landing.why.col1.title=Receive feedback
@@ -573,7 +576,7 @@ facebook.donation-procedure.7=Pick a date range: We encourage you to <b>request 
 facebook.donation-procedure.8=Change the format from HTML to JSON. Then change the media quality from “Medium” to “Low”.
 facebook.donation-procedure.9=Click on "Submit Request". As soon as the file is ready for download, you will receive a notification from Facebook. This may take a while.
 facebook.donation-procedure.10=Scroll back up and click on the "Available Files" tab. There you should see the requested file and can download is as soon it is ready.
-facebook.instruction.gif=facebook_eng.mp4
+facebook.instruction.gif=facebook_rus.mp4
 facebook.logo=f-logo.svg
 
 
