@@ -219,11 +219,11 @@
                         <div class="row mt-0 w-100" align="center">
                         <div class="col">
                             <label for="startDate-@{dataSourceDescription.name.toString}">@messages("donation.select-date.start")</label>
-                            <input type="date" id="startDate-@{dataSourceDescription.name.toString}" class="date-selection m-2 selectorsAndInputs" name="startdate">
+                            <input type="hidden" id="startDate-@{dataSourceDescription.name.toString}" class="date-selection m-2 selectorsAndInputs" name="startdate">
                         </div>
                         <div class="col">
                             <label for="endDate-@{dataSourceDescription.name.toString}">@messages("donation.select-date.end")</label>
-                            <input type="date" id="endDate-@{dataSourceDescription.name.toString}" class="date-selection m-2 selectorsAndInputs" name="enddate">
+                            <input type="hidden" id="endDate-@{dataSourceDescription.name.toString}" class="date-selection m-2 selectorsAndInputs" name="enddate">
                         </div>
                         </div>
                     </div>
