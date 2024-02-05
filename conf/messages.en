@@ -492,6 +492,9 @@ reportProblem.title=Problem Report and Suggestions
 reportProblem.body=If you encounter a problem while using our application or you have other recommendations and feedback for us, please use the "Report Problem" button at the top right of the page. We are continuously working to improve the application.<br> Thank you!
 
 
+help.button=Get help
+
+
 data-storage.body1_html=<em>Data Donation: </em>When donating your interaction data, we extract metadata (e.g. length and timestamp of message as well as pseudonyms of conversation participants) and no actual contents (e.g. message text or name of message sender). To ensure that, we anonymize your data client-side, meaning that your private data is anonymized locally and does not leave your device. This means that we will never see the content of your conversations. Before uploading, we will show you a preview of the data so that you can verify it is sufficiently anonymous.
 data-storage.body2_html=<em>Questionnaires: </em>You first fill out questionnaires about your demographic information. You can then carry out the data donation and receive feedback. Questionnaire data is also collected completely anonymously using <a target="_blank" href="https://www.limesurvey.org/support/faq/39-data-protection-and-policy">LimeSurvey</a>.
 

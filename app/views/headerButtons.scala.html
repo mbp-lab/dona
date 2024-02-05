@@ -1,6 +1,11 @@
 @()(implicit request: RequestHeader, messages: Messages)
 
+<div class="modal fade" id="psychHelp-dialog"  role="dialog">
+@psychHelp()
+</div>
+
 <div class="bg-secondary">
     @languageSelectButton()
     <a href="@messages("links.reportProblem")" target="_blank" class="btn report-problem-button-header float-right">@messages("reportProblem.button")</a>
+    <button class="btn psych-help-button-header float-right" data-toggle="modal" data-target="#psychHelp-dialog">@messages("help.button")</a>
 </div>

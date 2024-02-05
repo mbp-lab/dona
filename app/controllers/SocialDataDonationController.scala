@@ -69,6 +69,11 @@ final class SocialDataDonationController @Inject()(
     Ok(views.html.donationInformation()).withSession(request.session)
   }
 
+  def psychHelp: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
+
+    Ok(views.html.psychHelp()).withSession(request.session)
+  }
+
   def instructions: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
 
     Ok(views.html.instructions(dataSourceDescriptionService.listAll)).withSession(request.session)

@@ -464,6 +464,21 @@
     color: #404040 !important;
 }
 
+.psych-help-button-header {
+    font-weight: 800 !important;
+    font-size: 12px !important;
+    padding: 10px 20px 10px 20px !important;
+    border-radius: 16px !important;
+    background: white !important;
+    color: #404040 !important;
+    text-decoration: none !important;
+}
+
+.psych-help-button-header:hover {
+    background: #E2E2E2 !important;
+    color: #404040 !important;
+}
+
 .modal-forward-button {
     font-weight: 800;
     font-size: 24px;
