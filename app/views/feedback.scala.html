@@ -62,8 +62,7 @@
             </div>
         </div>
 
-        @footer(nextLink = Some(routes.FeedbackSurveyController.goToFeedback(donorId).toString), nextCustomText=Some(messages("feedback.toRaffleButton")))()
-
+        @footer(nextLink = Some("/"), nextCustomText=Some(messages("feedback.finishButton")))()
 
     </div >
     @* modal for mobile alert to better use phone sideways *@
