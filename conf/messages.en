@@ -1,10 +1,10 @@
 # Landing page
 
 landing.header.title=Illuminate the darkness with your social media data
-landing.header.body=We are researching how people interact in the digital space and what those interactions mean for human well-being.
+landing.header.body=We are examining the messaging behavior in the context of war in relation to mental well-being.
 landing.what.title=What is this about?
-landing.what.body1=Social interactions play a significant role in human well-being. To better understand this relationship, we are developing methods to measure digital social interactions for research.
-landing.what.body2=You can support us by anonymously donating your chat meta-data from WhatsApp or Facebook.
+landing.what.body1=We want to better understand the messaging behavior of people affected by war and the impact of digital social interactions on mental well-being.
+landing.what.body2=You can support us by anonymously donating your chat meta-data from Facebook.
 
 landing.video.title=Explanation video
 landing.video.video=explanation_video_en.mp4
@@ -20,7 +20,7 @@ landing.why.col2.body_html=The results of this study will contribute to the over
 
 
 landing.why.col3.title=Stay anonymous
-landing.why.col3.body_html=We will ask you to donate  <strong><a href="/learn-more">anonymized chat data </a></strong>  (message length, message timestamp and pseudonyms of the chat participants). We will have no access to any names or message texts.
+landing.why.col3.body_html=We will ask you to donate <strong><a href="/learn-more">anonymized chat data </a></strong>  (message length, message timestamp and pseudonyms of the chat participants). We will have no access to any names or message texts.
 landing.contact.body_html=The purpose of this website is to inform you about the background and process of this online study. If any questions or concerns arise during the process, please write to the principal investigator (Prof. Dr. Hanna Drimalla, AG Multimodal Behavior Processing, Technische Fakultät, Universität Bielefeld, <a href="mailto:drimalla@techfak.uni-bielefeld.de">drimalla@techfak.uni-bielefeld.de</a>, Tel. +49 521 106-12043)
 
 
@@ -35,11 +35,10 @@ landing.imagePath.exampleFeedback =images/landingExampleFeedback_English.png
 
 
 learn-more.how-to-participate.title=How do I participate in the study?
-learn-more.how-to-participate.body=This study will be completely anonymous and online. To participate in this study, we will ask you to donate your anonymized messages and complete  questionnaires. After  downloading the interaction data of a platform of your choice, the study will only last for about 10 minutes.
-
+learn-more.how-to-participate.body=This study will be completely anonymous and online. To participate in this study, we will ask you to donate your anonymized messages and complete  questionnaires. After  downloading the interaction data from facebook, the questionnaires take about 30 minutes of your time.
 
 learn-more.how-to-cancel.title=Can I drop out during the study?
-learn-more.how-to-cancel.body=First things first: participation is entirely voluntary. You can drop out at any point during the study. Please note that due to the anonymous nature of the data, we cannot identify and delete your data after participation.
+learn-more.how-to-cancel.body=First things first: participation is entirely voluntary. You can drop out at any point during the study. Please note that due to the anonymous nature of the data, we cannot identify and delete your data after participation. If you feel unwell at any time and want to talk to someone, please press the „Get support" button to receive contact information of people and organizations that can help you.
 
 
 learn-more.data-storage.title=What data will be used?
@@ -53,7 +52,7 @@ learn-more.imagePath=images/dataAnonymizationExample-English.png
 
 
 learn-more.storage.body1_html=<strong><em>Data donation: </strong></em>When donating your interaction data, we extract metadata (e.g. length and timestamp of message as well as pseudonyms of conversation participants) and no actual contents (e.g. message text or name of message sender). To ensure that, we anonymize your data on the user-side, meaning that your private data is anonymized locally and does not leave your device. This means that we will never see the content of your conversations. Before uploading, we will show you a preview of the data so that you can verify that it is sufficiently anonymous.
-learn-more.storage.body2_html=<strong><em>Questionnaires: </strong></em>You first fill out questionnaires about your demographic information. You can then carry out the data donation and receive feedback. Questionnaire data is also collected completely anonymously using <a target="_blank" href="https://www.limesurvey.org/support/faq/39-data-protection-and-policy">LimeSurvey</a>.
+learn-more.storage.body2_html=<strong><em>Questionnaires: </strong></em>You first fill out multiple questionnaires about your socio-demographic information, messaging usage, experiences during the war and questionaires about psychological well-being, feelings of support and loneliness . You can then carry out the data donation and will receive feedback on your messaging data. The questionnaire data is collected completely anonymously using <a target="_blank" href="https://www.limesurvey.org/support/faq/39-data-protection-and-policy">LimeSurvey</a>.
 
 
 learn-more.data-handling.title=What happens to my data?
@@ -69,11 +68,10 @@ learn-more.image.caption=Figure 3. Example of an anonymized message.
 
 
 instructions.about.title=How do I request data from social media platforms?
-instructions.about.body_html=Before participating in the study, please request your data directly from Facebook and/or WhatsApp. You can donate data from both platforms. If you only want to donate data from one platform, please select the platform that is more important to you. <b>Please take a close look at the corresponding instructions, as they contain important information for the further steps.</b>
+instructions.about.body_html=Before participating in the study, please request your data directly from Facebook. <b>Please take a close look at the corresponding instructions, as they contain important information for the further steps.</b>
 instructions.datasource.title_format =Instructions for getting %s data
 instructions.download-procedure.title=Overview of the download & donation procedure:
 instructions.continue.body=If you have received your data using these instructions, you can now start with the declaration of consent and survey. Afterwards you can donate your data.
-instructions.haveData=You need 5-7 WhatsApp chat files.
 
 
 # Donation info page
@@ -81,8 +79,8 @@ instructions.haveData=You need 5-7 WhatsApp chat files.
 
 
 donation-info.title=How do I donate my data?
-donation-info.data-request=<strong>Data request: </strong>You request your social media data from a platform of your choice (currently supported: Facebook and WhatsApp) and download it to your device.
-donation-info.anonymisation=<strong>Anonymization: </strong>We will remove all content from your data and limit it to metadata (e.g. length and timestamp of message). Your name, as well as the names of other participants, will get replaced by random pseudonyms (eg. "James" &rarr; "anonymous13"). You may examine the anonymization of your data before uploading it to our servers.
+donation-info.data-request=<strong>Data request: </strong>You request your social media data from Facebook Messenger and download it to your device.
+donation-info.anonymisation=<strong>Anonymization: </strong>We will remove all content (text message, pictures, audio-files) from your data and limit it to metadata (e.g. length and timestamp of message). Your name, as well as the names of other participants, will get replaced by random pseudonyms (eg. "James" &rarr; "anonymous13"). You may examine the anonymization of your data before uploading it to our servers.
 donation-info.storage=<strong> Storage: </strong>Only anonymized and reduced data will be uploaded to one of our secure servers.
 
 # Psychological Help Pop-up
@@ -96,19 +94,18 @@ psychHelp.young=Psychosocial counselling via text or WhatsApp for children and a
 psychHelp.ukrain=Ukrainian helpline (available Monday &ndash; Friday 2pm to 5pm in Ukrainian and Russian) <br /> &middot; 0800 500 225 0
 
 
-
 # Consent pop-up
 
 consent.title=Informed Consent
 consent.pdf=Download PDF
 
 consent.about.title=Information about the Study
-consent.about.body1=The aim of this study is to measure the dynamics of social interaction of people by leveraging their social media data. This study is completely anonymous and online. It includes only the donation of your anonymized social media data. After having downloaded your interaction data from a platform of your choice, participation in the study will only take about 10 minutes.
+consent.about.body1=The aim of this study is to analyze the messaging behavior in the context of war and identify how social interactions change due to armed conflict or displacement. This study is completely anonymous and online. It includes the donation of your anonymized social media data and answering questionnaires. After having downloaded your interaction data from facebook, participation in the study will take around 30 minutes.
 consent.about.body2_html=By agreeing, you confirm that you have read and understood the background and process of this online study.
 
 
 consent.benefit.title=Benefits and risks
-consent.benefit.body=With your participation you enable us to identify and characterise new insights about social interactions between humans. You gain insights into your own personal messaging behavior. Furthermore, at the end of the study, you can participate in a raffle for a 50€ voucher (<a target="_blank" href="https://www.cadooz.com/en/products/bestchoice-shopping-gift-card/">Cadooz-Bestchoice</a>). This is an ongoing study, so a voucher is drawn every time a set of 100 participants is achieved (winning chance: 1/100). We only collect anonymized data. Before the donation of your data you have to download the messaging data locally on your own device. Since this data contains sensitive information we recommend to delete the local copy of your data after the end of the study. Please conduct the study alone and in a calm environment to ensure your privacy.
+consent.benefit.body=With your participation you enable us to identify and characterize new insights about the adverse effects of war on social interactions. You gain insights into your own personal messaging behavior through visualizations after your donation. Furthermore, at the end of the study, you receive a 10€ voucher (<a target="_blank" href="https://europe-premium-catalog.cadooz.com/">Cadooz-Bestchoice</a>).  We only collect anonymized data. During the study we ask you to fill out questionnaires. These include questions about war events that might have happened to you, your displacement status, questions on psychological well-being, questions about loneliness, resilience and support from friends and family. As these questions are potentially triggering or might elicit strong emotions, we ask you to only participate if you feel healthy and able to answer these kind of questions. You can stop the study at any time, without a reason and without any repercussions for you. Before the donation of your data you have to download the messaging data locally on your own device. Since this data contains sensitive information we recommend to delete the local copy of your data after the end of the study. Please conduct the study alone and in a calm environment to ensure your privacy.
 
 
 consent.data-storage.title=Collected Data
@@ -119,7 +116,7 @@ consent.data-storage.title=Collected Data
 
 
 consent.voluntary.title=Voluntary Participation
-consent.voluntary.body=The participation in this study is entirely voluntary. At any time you may revoke your consent concerning your participation in this study, without giving any reason and without any kind of negative consequences. Before uploading the data to our research platform, you may revoke, without giving reason, your consent concerning the storage of your anonymized data, without any negative consequences.
+consent.voluntary.body=The participation in this study is entirely voluntary. At any time you may stop the study and revoke your consent concerning your participation in this study, without giving any reason and without any kind of negative consequences. Before uploading the data to our research platform, you may revoke, without giving reason, your consent concerning the storage of your anonymized data, without any negative consequences.
 
 
 consent.data-protection.title=Data Security
@@ -145,7 +142,7 @@ informedConsent.pdf=informedConsents/InformedConsent_eng.pdf
 
 
 donation.select-data.title=Choose data for donation
-donation.select-data.body1=Please choose the platform from which you want to donate your data. To successfully anonymize your data your username is automatically determined. Your username will not be saved or donated.
+donation.select-data.body1=To successfully anonymize your data your username is automatically determined. Your username will not be saved or donated.
 donation.select-data.body2=You can now upload your files to your browser for anonymization. Note that you will have the opportunity to view your anonymized data before submitting it to us.
 donation.select-data.donation=Data Donation
 donation.select-data.input1=Choose files
@@ -171,7 +168,6 @@ donation.preview-data.group-conversation=Group conversation
 
 donation.friendsMapping.title=<b>Aliases for your contacts</b>
 donation.friendsMapping.subtitle.facebook=We have anonymized your data and your contacts. If, in the next step, you want to reconstruct which conversations and contacts are involved in the anonymized evaluation, make a note of the following assignments of contacts (e.g. G**** M*****) and chats (e.g. “F4"). From now on, these are the anonymized names for your chats. The assignment is not saved and is lost as soon as you leave this page.
-donation.friendsMapping.subtitle.whatsapp=We have anonymized your data and your contacts. If, in the next step, you want to reconstruct which conversations and contacts are involved in the anonymized evaluation, make a note of the following assignments of contacts (e.g. G**** M*****) and chats (e.g. “W4"). From now on, these are the anonymized names for your chats. The assignment is not saved and is lost as soon as you leave this page.
 donation.friendsMapping.onlySeven=These are just the contacts of your 7 Facebook chats in which overall the most words were sent. <b> Below you can also select different chats. </b>
 donation.friendsMapping.moreFriends=and {0} others.
 donation.friendsMapping.chat=Chat
@@ -224,8 +220,7 @@ donation.anonymisation.chatSelection.clickHereToSelect=Click here to choose diff
 
 
 donation.anonymisation.loading.tooLong.title=If this process is taking more than 5 minutes, it might be due to the following:
-donation.anonymisation.loading.tooLong.issue.1=You are trying to upload file types that are not supported (the correct input types are .txt or .zip for WhatsApp and .zip for Facebook)
-donation.anonymisation.loading.tooLong.issue.2=You have exported you WhatsApp chats from different devices
+donation.anonymisation.loading.tooLong.issue.1=You are trying to upload file types that are not supported (the correct input types are .txt or .zip)
 donation.anonymisation.loading.tooLong.issue.3=The files you are trying to upload have unusually large sizes
 donation.anonymisation.loading.tooLong.issue.4=Your internet connection is slow
 donation.anonymisation.loading.tooLong.issue.5=Other unexpected issues
@@ -233,13 +228,13 @@ donation.anonymisation.loading.tooLong.issue.6=Help us improve <a href="@message
 
 
 donation.errors.no-profile=The uploaded data does not include profile information.
-donation.errors.no-alias=Please enter your username. You can find it in your WhatsApp profile.
+donation.errors.no-alias=Please enter your username.
 donation.errors.not-enough-chats_format=Please choose your 5-7 most important conversations. You have selected %s. <br>Press and hold the ctrl/command key to select multiple files at the same time.
 donation.errors.something-went-wrong=Something went wrong! Please go back to the start and repeat the process.
 donation.errors.same-file=You can only select files that differ. Please choose your 5-7 most important conversations.
 donation.errors.no-messages-time-period=There are no messages in the selected period. Please select a longer and valid period.
 donation.errors.dates-no-sense=The selected period is not valid. Please check the correctness of the selected dates.
-donation.errors.dates-not-enough-months=To donate your data, please select a period of at least 6 months within the period of your donation.
+donation.errors.dates-not-enough-months=To donate your data, please select the period from 01.02.2021 to 31.01.2024.
 donation.errors.somewhereError=There is an error somewhere. Please check your data donation.
 donation.errors.emptyOrJustOnePerson=All your chats should contain at least 100 messages and at least one contact (other than yourself).
 
@@ -263,7 +258,7 @@ feedback.importantMessage.title=Important Note:
 feedback.importantMessage.disclaimer=The graphs and visualizations displayed <b>do <u>not</u> allow any direct conclusions</b> to be drawn about the quality of your social relationships. Your chats are analyzed and visualized regarding amount and timing only.
 
 
-feedback.reminder=Don't forget to register for the voucher raffle at the bottom of the page.
+feedback.reminder=Don't forget to register for your 10€ voucher at the bottom of the page.
 feedback.startLabel=Start
 feedback.pauseLabel=Pause
 
@@ -296,7 +291,7 @@ feedback.title.statisticsCard=Overview of all Activity
 feedback.title.interactionIntensity=Interaction Intensity
 feedback.title.dailyActivityTimes=Daily Activity Times
 feedback.title.responseTimes=Response Times
-feedback.title.pleaseContinue=We hope you had exciting insights. Thanks a lot!
+feedback.title.pleaseContinue=We hope you had exciting insights. Thank you for participating in our study!
 
 
 feedback.facebook.info=The potentially high number of facebook contacts could lead to a cluttered visualization. Therefore, in the following, only visualizations for your 1-10 selected Facebook chats are shown.
@@ -304,7 +299,7 @@ feedback.facebook.info=The potentially high number of facebook contacts could le
 
 feedback.nextButton=Next
 feedback.finishButton=Finish
-feedback.toRaffleButton=Sign up for raffle
+feedback.toRaffleButton=Sign up to receive your voucher
 
 
 # plots more about titles
@@ -483,8 +478,8 @@ language.current=ENG
 language.options.ger=Deutsch
 language.options.eng=English
 language.options.am=Հայերեն
-language.options.rus=Russian #TODO: adapt to Russian
-language.options.ukr=Ukrainian #TODO: adapt to Ukrainian
+language.options.rus=Русскоговорящий
+language.options.ukr=Українська
 
 
 footer.title=Do you have your data ready?
@@ -505,7 +500,7 @@ help.button=Get support
 
 
 data-storage.body1_html=<em>Data Donation: </em>When donating your interaction data, we extract metadata (e.g. length and timestamp of message as well as pseudonyms of conversation participants) and no actual contents (e.g. message text or name of message sender). To ensure that, we anonymize your data client-side, meaning that your private data is anonymized locally and does not leave your device. This means that we will never see the content of your conversations. Before uploading, we will show you a preview of the data so that you can verify it is sufficiently anonymous.
-data-storage.body2_html=<em>Questionnaires: </em>You first fill out questionnaires about your demographic information. You can then carry out the data donation and receive feedback. Questionnaire data is also collected completely anonymously using <a target="_blank" href="https://www.limesurvey.org/support/faq/39-data-protection-and-policy">LimeSurvey</a>.
+data-storage.body2_html=<em>Questionnaires: </em>You first fill out multiple questionnaires about your socio-demographic information, messaging usage, experiences during the war, questionnaires about your psychological well-being and questionnaires about feelings of support and loneliness . You can then carry out the data donation and will receive feedback on your messagin data. The questionnaire data is collected completely anonymously using <a target="_blank" href="https://www.limesurvey.org/support/faq/39-data-protection-and-policy">LimeSurvey</a>.
 
 
 
@@ -515,7 +510,7 @@ links.instructions=Start
 links.donation-info=Donate data
 links.donate=Yes, participate now
 links.data-protection=Data Protection
-links.imprint=Imprint
+links.imprint=Legal Notice
 links.reportProblem=https://survey.mbp.tf.uni-bielefeld.de/index.php?r=survey/index&sid=486423&lang=en
 
 
@@ -529,36 +524,6 @@ actions.next=Continue
 
 # Data source specific text
 
-
-
-whatsapp.instructions.p1.title=What type of device should I use?
-whatsapp.instructions.p1.body=You need your smartphone, on which you use WhatsApp. Please make sure that you are storing the data on a device that no one but you has access to.
-whatsapp.instructions.p2.title=Which chats should I choose?
-whatsapp.instructions.p2.body=From time to time most people discuss important matters with others and we need people we can rely on for help. They may be family, friends, or people who have really helped you - <b>we are interested in the chats with the people you are most likely to talk to about really important things in your life.</b> <br> <br><b>Please select 5-7 chats with people with whom you discuss important things in your life (group chats are also possible).</b>
-whatsapp.instructions.p3.title=How can I delete my data from my device?
-whatsapp.instructions.p3.body=We strongly recommend that you delete your original data (chat files) from your device and from your e-mail system (inbox and sent) after completing the donation. Note that simply deleting the files may not be enough to permanently remove the data from your device. Further information on the permanent deletion of files can be found <a target="_blank" href="https://safecomputing.umich.edu/protect-yourself/prepare-devices-disposal/securely-delete-files">on the website of the University of Michigan</a>.
-
-
-whatsapp.description_html=<i>Note: The chat export function is not supported by all WhatsApp versions! <strong> Exporting and saving WhatsApp data does not work with the WhatsApp web version. Also, on different Android versions, you may not be able to store your data locally on your device.</i></strong> <br><br>From time to time, most people discuss important matters with other people, and we need people we can depend on for help. These can be family, friends, or people who have been really helpful to you – what we are interested in are the ones that you are most likely to talk about really important matters in your life. <br><br>Please choose <strong>5</strong> chats with people with whom you discuss important matters in your life (group chats are possible too). Please bear in mind that the chats can only be downloaded one after the other. Multiple selection of chats is currently not supported.
-whatsapp.external-documentation_html=The official documentation on how to download your data can be found here for <a target="_blank" href="https://faq.whatsapp.com/618575946635920/?cms_platform=iphone&helpref=platform_switcher" target="_blank">iOS</a> or <a target="_blank" href="https://faq.whatsapp.com/en/android/23756533" target="_blank">Android</a>.
-
-
-#Download and Donation procedure: whatsapp
-
-whatsapp.donation-procedure.1=Open WhatsApp on your smartphone.
-whatsapp.donation-procedure.2=Think about which five chats are most relevant to you (e.g. close friend, partner).
-whatsapp.donation-procedure.3=Pick one of the selected chats and open it.
-whatsapp.donation-procedure.4=Click on the contact's name in the top center.
-whatsapp.donation-procedure.5=Scroll down and click on "Export chat". A window will open. Select "WITHOUT MEDIA".
-whatsapp.donation-procedure.6=Select "Mail" (envelope) and send the mail with the attached chat file to yourself. Please only send from/to a secure mail service (e.g. university mail address). Alternatively, you can send the files to your computer via Bluetooth or Airdrop.
-whatsapp.donation-procedure.7=Download the chat file from the email to your computer.
-whatsapp.donation-procedure.8=Repeat the steps 3-7 for all chats.
-whatsapp.instruction.gif=whatsapp_eng.mp4
-whatsapp.instruction.gifiOS=whatsapp_eng_iOS.mp4
-whatsapp.instruction.gifAndroid=whatsapp_eng_android.mp4
-whatsapp.instruction.gif.subtitle.iOS=This is the chat export process on an iPhone.
-whatsapp.instruction.gif.subtitle.android=This is the chat export process on an Android device. The process may vary on different devices.
-whatsapp.logo=w-logo.svg
 
 
 facebook.instructions.p1.title=What type of device should I use?
@@ -578,14 +543,14 @@ facebook.external-documentation_html=The official documentation on how to downlo
 #Download and Donation procedure: Facebook
 
 facebook.donation-procedure.1=Open Facebook and log in.
-facebook.donation-procedure.2=In the top right corner, click on the “Your Profile” button and Select “Settings and privacy”.
-facebook.donation-procedure.3=Select “Settings”. Then select "Your Facebook information" in the navigation bar on the left.
-facebook.donation-procedure.4=On the "Your Facebook information" page click on "Download your information". A pop-up appears.
-facebook.donation-procedure.5=Click on “Request a download”. Then choose “Select types of information”.
-facebook.donation-procedure.6=In the interest of data minimization, please first deselect all categories. Then, tick the fields “Messages” and "Profile information". Then click “Next”.
-facebook.donation-procedure.7=Pick a date range: We encourage you to <b>request the data for 1 year</b> but a shorter time span is possible as well.
+facebook.donation-procedure.2=In the top right corner, click on the “Your Profile” button and Select “Settings and privacy” and then "Settings".
+facebook.donation-procedure.3=Now click on the "Meta Accounts Center" on the left hand side.
+facebook.donation-procedure.4=Choose "Your information and permissions" on the left hand side and then click on "Download your information". A pop-up appears.
+facebook.donation-procedure.5=Click on “Request a download” and select only your facebook profil. (If your instagram profil also appears, deselect it.) Click "Next" and then choose “Specific types of information”.
+facebook.donation-procedure.6=Under "Your Facebook activity" select "Messages" and under "Personal Information" select "Profile information". Then click “Next”.
+facebook.donation-procedure.7=Pick a date range: Click on "Edit" next to custom date range and choose the <b>01.02.2021</b> as the start date and the <b>31.01.2024</b> as the end date. Then click on "Save"
 facebook.donation-procedure.8=Change the format from HTML to JSON. Then change the media quality from “Medium” to “Low”.
-facebook.donation-procedure.9=Click on "Submit Request". As soon as the file is ready for download, you will receive a notification from Facebook. This may take a while.
+facebook.donation-procedure.9=Click on "Submit Request". As soon as the file is ready for download, you will receive a notification from Facebook. This may take a while (up to 48 hours).
 facebook.donation-procedure.10=Scroll back up and click on the "Available Files" tab. There you should see the requested file and can download is as soon it is ready.
 facebook.instruction.gif=facebook_eng.mp4
 facebook.logo=f-logo.svg
@@ -593,8 +558,8 @@ facebook.logo=f-logo.svg
 
 # Imprint
 
-imprint.title=Imprint
-imprint.imprint=Universität Bielefeld<br>Universitätsstrasse 25<br>D-33615 Bielefeld<p>National (0521) 106-00<br>International ++49 521 106-00</p><p>Telefax national (0521) 106-5844<br>Telefax international +49 521 106-5844</p><p>Prefix for the University: 0521-106-...</p><p>E-Mail: post@uni-bielefeld.de<br>Internet: <a href="https://www.uni-bielefeld.de" target="_blank">www.uni-bielefeld.de</a><p>Bielefeld University is a state-supported institution bound to public law. It is officially represented by the Rektor, Prof. Dr. Ing. Gerhard Sagerer.</p>
+imprint.title=Legal Notice
+imprint.imprint=Universität Bielefeld<br>Universitätsstrasse 25<br>D-33615 Bielefeld<p>National (0521) 106-00<br>International ++49 521 106-00</p><p>Telefax national (0521) 106-5844<br>Telefax international +49 521 106-5844</p><p>Prefix for the University: 0521-106-...</p><p>E-Mail: post@uni-bielefeld.de<br>Internet: <a href="https://www.uni-bielefeld.de" target="_blank">www.uni-bielefeld.de</a><p>Bielefeld University is a state-supported institution bound to public law. It is officially represented by the Rektor, Prof. Dr. Angelika Epple.</p>
 imprint.rsa.title=Responsible supervisory authorities
 imprint.rsa.body=Ministry of Culture and Science in North Rhine-Westphalia<br>Völklinger Straße 49<br>40221 Düsseldorf<p><strong>Value Added Tax identification number</strong><br>Pursuant to § 27 a, VAT ID: DE811307718 - according to paragraph 27 a - Finanzamt (tax office) Bielefeld Innenstadt</p>
 imprint.responsibleDona.title=Responsibility for Content of the Donation Platform Dona

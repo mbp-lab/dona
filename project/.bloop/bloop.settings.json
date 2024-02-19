@@ -1,6 +1,6 @@
 {
-    "javaSemanticDBVersion": "0.9.8",
-    "semanticDBVersion": "4.8.14",
+    "javaSemanticDBVersion": "0.9.9",
+    "semanticDBVersion": "4.8.15",
     "supportedScalaVersions": [
         "2.13.12",
         "2.12.18",
