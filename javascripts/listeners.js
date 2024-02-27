@@ -132,8 +132,6 @@ function setUpFileHandler() {
         "conversations": []
     };
     //let currentFiles = [] // this would be for file removing functionality
-    let possibleEarliestDate = 0
-    let possibleLatestDate = 0
 
     $(".donation-file-selector>input[type='file']").on("click", function(evt) {
         //const requiresAlias = evt.currentTarget.getAttribute('data-requires-alias');
@@ -146,10 +144,6 @@ function setUpFileHandler() {
     });
 
     let onFileInputChange = (dataSource, files) => {
-
-        // variables
-        let testFileNames;
-        let testFileNameLength;
 
         if (files.length < 1) {
             messageService.hide(dataSource)
@@ -206,22 +200,6 @@ function setUpFileHandler() {
 
         handler
             .then((deIdentifiedJson) => {
-
-                // check if names are testFileNames - if so then disable (later in the code) the date selection
-                const testFilesContactNames = [
-                    "Kyle Adkins",
-                    "System",
-                    "Donna Patterson",
-                    "Dr. Heather Hanson",
-                    "Jeffery Hill",
-                    "Michelle Morris",
-                    "Sherry Flores"
-                ]
-                testFileNames = true
-                testFileNameLength = Object.keys(deIdentifiedJson.participantNameToRandomIds).length === testFilesContactNames.length
-                Object.keys(deIdentifiedJson.participantNameToRandomIds).forEach((name) => {
-                    testFileNames = testFileNames && testFilesContactNames.includes(name)
-                })
 
 
                 const fileList = $("#" + dataSource + "FileList")
@@ -332,20 +310,6 @@ function setUpFileHandler() {
                     }
                 })
 
-                possibleEarliestDate = earliestDate
-                possibleLatestDate = latestDate
-                let earliestDateObj = new Date(earliestDate);
-                let earliestDateString = earliestDateObj.toISOString().substring(0, 10)
-                let latestDateObj = new Date(latestDate)
-                let latestDateString = latestDateObj.toISOString().substring(0, 10)
-
-                document.getElementById("startDate-" + dataSource).value = earliestDateString;
-                document.getElementById("startDate-" + dataSource).min = earliestDateString;
-                document.getElementById("startDate-" + dataSource).max = latestDateString;
-                document.getElementById("endDate-" + dataSource).value = latestDateString;
-                document.getElementById("endDate-" + dataSource).min = earliestDateString;
-                document.getElementById("endDate-" + dataSource).max = latestDateString;
-
                 // all anonymized data is to be kept separate from the data that is actually donated
                 // because of dynamic time span selection
                 $("#allAnonymizedData").attr('value', JSON.stringify(donaForMEDonation));
@@ -387,12 +351,6 @@ function setUpFileHandler() {
                 progressBar.stop(dataSource);
 
 
-                // disable date selection if files are test files!
-                if (testFileNames && testFileNameLength) {
-                    document.getElementById("startDate-" + dataSource).disabled = true
-                    document.getElementById("endDate-" + dataSource).disabled = true
-                }
-
                 /*
                 // check if number of whatsApp files is in the limits
                 let whatsAppConv = donaForMEDonation.conversations.filter((conv) => conv["donation_data_source_type"] === "WhatsApp")
@@ -427,116 +385,6 @@ function setUpFileHandler() {
         onFileInputChange(dataSource, files)
     })
 
-    // filtering the selected data according to the dates that the user selects
-    $(".date-selection").on("input", (evt) => {
-        let dataSource = evt.currentTarget.id.substring(evt.currentTarget.id.indexOf('-') + 1, evt.currentTarget.id.length);
-
-        let startDate = document.getElementById("startDate-" + dataSource).value
-        let endDate = document.getElementById("endDate-" + dataSource).value
-
-        // start and end date to ms
-        let startDateMs = new Date(startDate).getTime()
-        let endDateMs = new Date(endDate).getTime()
-        endDateMs = endDateMs + 86340000 // standard is at 00:00, add 23:59h so that the whole day of the end day is regarded
-
-        /*
-        console.log("Start:", startDate)
-        console.log("End:", endDate)
-        console.log("StartMs:", startDateMs)
-        console.log("EndMs:", endDateMs)
-        console.log("startDateMs > possibleLatestDate", startDateMs > possibleLatestDate)
-        console.log("endDateMs < possibleEarliestDate", endDateMs < possibleEarliestDate)
-        console.log("startDateMs >= endDateMs", startDateMs >= endDateMs)
-        console.log("error?", startDateMs > possibleLatestDate || endDateMs < possibleEarliestDate || startDateMs >= endDateMs)
-
-         */
-
-        // remove all current notifications
-        messageService.hideErrorShowSuccess(dataSource)
-
-        // in case the date is not selected at all - error
-        if (startDate === "" || endDate === "" || isNaN(startDateMs) || isNaN(endDateMs)) {
-            messageService.showError(i18nSupport.data("error-dates-no-sense"), dataSource);
-            $('#submit-de-identified').prop('disabled', true);
-            $('#stillAnErrorSomewhere').removeClass('d-none')
-            currentError = true;
-            currentErrorFW[dataSource] = true
-            return;
-        } // in case the dates don't make sense - error
-        else if (startDateMs > possibleLatestDate || endDateMs < possibleEarliestDate || startDateMs >= endDateMs) {
-            messageService.showError(i18nSupport.data("error-dates-no-sense"), dataSource);
-            $('#submit-de-identified').prop('disabled', true);
-            $('#stillAnErrorSomewhere').removeClass('d-none')
-            currentError = true;
-            currentErrorFW[dataSource] = true
-            return;
-        } // in this case at least x months of data have to be selected
-        else if (possibleLatestDate - possibleEarliestDate >= 1.577e+10) { // ToDo: Put this in config! 6 months in ms
-            if (Math.abs(possibleEarliestDate - endDateMs) < (1.577e+10 - 8.64e+7)
-                || Math.abs(startDateMs - possibleLatestDate) < (1.577e+10 - 8.64e+7)
-                || Math.abs(startDateMs - endDateMs) < (1.577e+10 - 8.64e+7)
-            ) {
-                messageService.showError(i18nSupport.data("error-not-enough-months"), dataSource);
-                $('#submit-de-identified').prop('disabled', true);
-                $('#stillAnErrorSomewhere').removeClass('d-none')
-                currentError = true;
-                currentErrorFW[dataSource] = true
-                return;
-            }
-        }
-
-        // get the selected data that was already anonymized from the inputJson
-        let inputObjAllData = JSON.parse($("#allAnonymizedData")[0].value)
-        let inputObjConvAllData = inputObjAllData.conversations
-        let inputObjFiltered = JSON.parse($("#inputJson")[0].value)
-        let inputObjConvFiltered = inputObjFiltered.conversations
-        // filter the conversations to only get the dataSource that is concerned
-        let dataSourceConv = inputObjConvAllData.filter((conv) => conv["donation_data_source_type"] === dataSource)
-        // filter the messages
-        dataSourceConv.forEach(conv => {
-            conv.messages = conv.messages.filter((message) =>
-                message.timestamp_ms >= startDateMs && message.timestamp_ms <= endDateMs)
-        })
-        // create the new conversations object
-        inputObjFiltered.conversations = inputObjConvFiltered.filter((conv) => conv["donation_data_source_type"] !== dataSource)
-            .concat(dataSourceConv)
-
-
-        // show success
-        messageService.hideErrorShowSuccess(dataSource)
-        currentError = false;
-        currentErrorFW[dataSource] = false
-
-        // check if there is at least one message in the timespan that was selected
-        let allConvEmpty = true
-        inputObjFiltered.conversations.forEach((conv) => {
-            if (conv.messages.length !== 0) {
-                allConvEmpty = false
-                return
-            }
-        })
-        if (allConvEmpty) {
-            messageService.showError(i18nSupport.data("error-no-messages-time-period"), dataSource);
-            $('#submit-de-identified').prop('disabled', true);
-            $('#stillAnErrorSomewhere').removeClass('d-none')
-            currentError = true
-            currentErrorFW[dataSource] = true
-            return;
-        } else {
-            // show success
-            messageService.hideErrorShowSuccess(dataSource)
-            $(".show-on-anonymisation-success").removeClass('d-none');
-            if (!currentErrorFW["Facebook"] && !currentErrorFW["WhatsApp"]) {
-                $('#stillAnErrorSomewhere').addClass('d-none')
-                $('#submit-de-identified').prop('disabled', false);
-            }
-            currentError = false
-            currentErrorFW[dataSource] = false
-        }
-
-        // assign the filtered data to the inputJson
-        $("#inputJson").attr('value', JSON.stringify(inputObjFiltered));
-    })
 
 }
 
