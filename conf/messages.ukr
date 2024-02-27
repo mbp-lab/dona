@@ -24,9 +24,9 @@ landing.why.col3.body_html=Ми попросимо Вас пожертвуват
 landing.contact.body_html=Мета цього веб-сайту - проінформувати Вас про передумови та проведення цього онлайн-дослідження. Якщо у Вас виникнуть будь-які питання або проблеми під час проведення дослідження, будь ласка, зверніться до керівниці проекту (Prof. Dr. Hanna Drimalla (Ганна Дрімалла), робоча група "Multimodal Behavior Processing" (Мультимодальна обробка поведінки), технічний факультет, Білефельдський університет, <a href="mailto:drimalla@techfak.uni-bielefeld.de">drimalla@techfak.uni-bielefeld.de</a>, Телефон +49 521 106-12043 ).
 
 
-landing.imagePath.donationProcedure1 =images/landingDonationProcedure_1_English.png
-landing.imagePath.donationProcedure2 =images/landingDonationProcedure_2_English.png
-landing.imagePath.donationProcedure3 =images/landingDonationProcedure_3_English.png
+landing.imagePath.donationProcedure1 =images/landingDonationProcedure_1_Ukrainian.png
+landing.imagePath.donationProcedure2 =images/landingDonationProcedure_2_Ukrainian.png
+landing.imagePath.donationProcedure3 =images/landingDonationProcedure_3_Ukrainian.png
 landing.imagePath.exampleFeedback =images/landingExampleFeedback_English.png
 
 
@@ -44,7 +44,7 @@ learn-more.how-to-cancel.body=Перш за все: участь у дослід
 learn-more.data-storage.title=Які дані будуть використані?
 
 
-learn-more.imagePath=images/dataAnonymizationExample-English.png
+learn-more.imagePath=images/dataAnonymizationExample-Ukrainian.png
 
 
 # data storage text body is reused, see below
