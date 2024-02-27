@@ -76,6 +76,7 @@ class SocialDataDonationControllerSpec extends PlaySpec with Mockito {
           |        }
           |      ],
           |      "donation_data_source_type": "WhatsApp",
+          |      "conversation_pseudonym": "Conversation1",
           |      "selected": true
           |    }
           |  ]
@@ -96,6 +97,7 @@ class SocialDataDonationControllerSpec extends PlaySpec with Mockito {
               List("1A2B3C", "AD44FF"),
               List(ConversationMessage(40, 1528101324250L, Some("1A2B3C"))),
               DonationDataSourceType.WhatsApp,
+              "Conversation1",
               true
             )
           )

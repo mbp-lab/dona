@@ -1,8 +1,7 @@
 const uuid = require('uuid/v4');
 
-function transformJson(deIdentifiedJsonContents, donorId, dataSource) {
-
-    const conversations = deIdentifiedJsonContents.map((jsonContent) => generateConversation(jsonContent, dataSource));
+function transformJson(deIdentifiedJsonContents, donorId, dataSource, randomIdMappings) {
+    const conversations = deIdentifiedJsonContents.map((jsonContent, index) => generateConversation(jsonContent, dataSource, randomIdMappings, index));
     return Promise.all(conversations).then((res) => {
         const transformedJson = {
             'donor_id': donorId,
@@ -12,20 +11,25 @@ function transformJson(deIdentifiedJsonContents, donorId, dataSource) {
     });
 };
 
-function generateConversation (jsonContent, dataSource) {
+function generateConversation(jsonContent, dataSource, randomIdMappings, index) {
     var conversation = {}
+    var dataSourceString = ""
     if (dataSource === "Facebook") {
         conversation["selected"] = jsonContent.selected
+        dataSourceString = "F";
     } else if (dataSource === "WhatsApp") {
         conversation["selected"] = true
+        dataSourceString = "W";
     }
+
     conversation["conversation_id"] = uuid();
     conversation["is_group_conversation"] = translateIfGroupConversation(jsonContent["participants"]);
     conversation["participants"] = transformParticipants(jsonContent["participants"]);
     let transformedMessages = transformMessages(jsonContent["messages"])
-    conversation["messages"] =  transformedMessages.transformedMessages;
+    conversation["messages"] = transformedMessages.transformedMessages;
     conversation["donation_data_source_type"] = dataSource;
-    return {conversation: conversation, earliestDate: transformedMessages.earliestDate, latestDate: transformedMessages.latestDate};
+    conversation["conversation_pseudonym"] = "Chat" + " " + dataSourceString + (index + 1);
+    return { conversation: conversation, earliestDate: transformedMessages.earliestDate, latestDate: transformedMessages.latestDate };
 };
 
 function translateIfGroupConversation(participants) {
@@ -61,7 +65,7 @@ function transformMessages(messages) {
         };
         transformedMessages.push(messageObject);
     });
-    return {transformedMessages, earliestDate, latestDate};
+    return { transformedMessages, earliestDate, latestDate };
 };
 
 module.exports = transformJson;

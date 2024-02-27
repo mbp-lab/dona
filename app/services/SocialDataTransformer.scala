@@ -58,14 +58,14 @@ object SocialDataTransformer extends ((DonationId, ApiSocialData) => SocialDataD
         }
       )
     }
-
     def transformConversation(conversation: ApiConversation) = {
       import conversation._
       Conversation(
         getConversationId(conversationId),
         donationId,
         isGroupConversation,
-        donationDataSourceType
+        donationDataSourceType,
+        conversation_pseudonym
       )
     }
 

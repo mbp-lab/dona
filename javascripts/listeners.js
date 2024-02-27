@@ -18,14 +18,14 @@ const whatsappZipFileHandler = require("./parsing/whatsapp/whatsappZipFileHandle
 function addListeners() {
 
     $("#btn-fb-download-finished").on("click", function (e) {
-        e.preventDefault();d
+        e.preventDefault(); d
         $(".enable-after-fb-download").attr("disabled", false);
         $(".enable-after-fb-download").removeClass("disabled");
     })
 
     $("#submit-de-identified").on("click", function (e) {
         $(".selectorsAndInputs").addClass('disabled');
-        $('.selectorsAndInputs').attr('disabled','disabled');
+        $('.selectorsAndInputs').attr('disabled', 'disabled');
 
         $(".accordion").addClass('d-none');
         $("#anonymizationTextHeadlines").addClass('d-none');
@@ -126,7 +126,7 @@ function setUpFileHandler() {
         "Facebook": false,
         "WhatsApp": false
     }
-    const i18nSupport= $("#i18n-support");
+    const i18nSupport = $("#i18n-support");
     let donaForMEDonation = {
         "donor_id": i18nSupport.data('donor'),
         "conversations": []
@@ -135,7 +135,7 @@ function setUpFileHandler() {
     let possibleEarliestDate = 0
     let possibleLatestDate = 0
 
-    $(".donation-file-selector>input[type='file']").on("click", function(evt) {
+    $(".donation-file-selector>input[type='file']").on("click", function (evt) {
         //const requiresAlias = evt.currentTarget.getAttribute('data-requires-alias');
         const requiresAlias = false; // TODO: clean up
         const dataSourceName = evt.currentTarget.id;
@@ -298,21 +298,21 @@ function setUpFileHandler() {
                 let contactsPerConv = deIdentifiedJson.deIdentifiedJsonContents.map((conv) => conv.participants)
 
                 if (dataSource === "WhatsApp") {
-                    renderUserIDMapping(deIdentifiedJson.chatsToShowMapping, deIdentifiedJson.participantNameToRandomIds, contactsPerConv, i18nSupport.data('system'), i18nSupport.data('donor'), i18nSupport.data('friend-initial'), i18nSupport.data('chat-initial-w'), i18nSupport.data('only-you'), i18nSupport.data('and-more-contacts'), i18nSupport.data('chat'),  dataSource)
+                    renderUserIDMapping(deIdentifiedJson.chatsToShowMapping, deIdentifiedJson.participantNameToRandomIds, contactsPerConv, i18nSupport.data('system'), i18nSupport.data('donor'), i18nSupport.data('friend-initial'), i18nSupport.data('chat-initial-w'), i18nSupport.data('only-you'), i18nSupport.data('and-more-contacts'), i18nSupport.data('chat'), dataSource)
                 } else {
                     // in this case it is Facebook!
-                    renderUserIDMapping(deIdentifiedJson.chatsToShowMappingParticipants, deIdentifiedJson.participantNameToRandomIds, contactsPerConv, i18nSupport.data('system'), i18nSupport.data('donor'), i18nSupport.data('friend-initial'), i18nSupport.data('chat-initial-f'), i18nSupport.data('only-you'), i18nSupport.data('and-more-contacts'), i18nSupport.data('chat'),  dataSource)
+                    renderUserIDMapping(deIdentifiedJson.chatsToShowMappingParticipants, deIdentifiedJson.participantNameToRandomIds, contactsPerConv, i18nSupport.data('system'), i18nSupport.data('donor'), i18nSupport.data('friend-initial'), i18nSupport.data('chat-initial-f'), i18nSupport.data('only-you'), i18nSupport.data('and-more-contacts'), i18nSupport.data('chat'), dataSource)
 
                     // for facebook also fill information for the chat selection modal
                     // ToDo: move this to its own function
-                    $("#openChooseFacebookChatsModalButton").on("click", function() {
+                    $("#openChooseFacebookChatsModalButton").on("click", function () {
                         createChooseFChatsModal(deIdentifiedJson.allParticipantsNamesToRandomIds, deIdentifiedJson.allWordCounts)
                         $('#chooseFacebookChatsModal').modal('show')
 
                     })
 
                 }
-                return transformJson(deIdentifiedJson.deIdentifiedJsonContents, donorId, dataSource);
+                return transformJson(deIdentifiedJson.deIdentifiedJsonContents, donorId, dataSource, deIdentifiedJson.participantNameToRandomIds);
             })
             .then((transformedJson) => {
                 // if there are already conversations of the chosen dataSource, then first filter the old ones out
@@ -368,8 +368,6 @@ function setUpFileHandler() {
                         .concat(dataSourceConv)
                     inputJson.attr('value', JSON.stringify(inputObjFiltered));
                 }
-
-
 
                 // show success messages
                 $(".show-on-anonymisation-success" + "-" + dataSource).removeClass('d-none');

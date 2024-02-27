@@ -10,6 +10,7 @@ case class Conversation(
   participants: List[String],
   messages: List[ConversationMessage],
   donationDataSourceType: DonationDataSourceType,
+  conversation_pseudonym: String,
   selected: Boolean
 )
 

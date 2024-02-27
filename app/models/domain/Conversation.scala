@@ -10,7 +10,8 @@ case class Conversation(
   id: ConversationId,
   donationId: DonationId,
   isGroupConversation: Boolean,
-  donationDataSourceType: DonationDataSourceType
+  donationDataSourceType: DonationDataSourceType,
+  conversationPseudonym: String
 )
 
 case class ConversationId(value: UUID) extends MappedTo[UUID]

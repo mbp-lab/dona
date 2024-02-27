@@ -43,7 +43,8 @@ CREATE TABLE conversations (
     id                      uuid            PRIMARY KEY,
     is_group_conversation   BOOLEAN         NOT NULL,
     data_source_id          INTEGER         NOT NULL REFERENCES data_sources(id),
-    donation_id             uuid            NOT NULL REFERENCES donations(id)
+    donation_id             uuid            NOT NULL REFERENCES donations(id),
+    conversation_pseudonym  VARCHAR(1024)   NOT NULL
 );
 
 CREATE TABLE conversation_participants (

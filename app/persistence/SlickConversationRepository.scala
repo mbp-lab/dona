@@ -28,8 +28,10 @@ final class SlickConversationRepository @Inject()(protected val dbConfigProvider
     def donationId = column[DonationId]("donation_id")
     def isGroupConversation = column[Boolean]("is_group_conversation")
     def dataSourceType = column[DonationDataSourceType]("data_source_id")
+    def conversationPseudonym = column[String]("conversation_pseudonym")
 
     override def * =
-      (id, donationId, isGroupConversation, dataSourceType) <> ((Conversation.apply _).tupled, Conversation.unapply)
+      (id, donationId, isGroupConversation, dataSourceType, conversationPseudonym) <> ((Conversation.apply _).tupled, Conversation.unapply)
+      // (id, donationId, isGroupConversation, dataSourceType) <> ((Conversation.apply _).tupled, Conversation.unapply)
   }
 }

@@ -81,7 +81,7 @@ object MessageAnalysisServiceTest {
 
   lazy val singleConvoSingleMonth: TestCase = {
     val conversation =
-      createConversation(DonationDataSourceType.Facebook, (2017, 1, donorName), (2017, 1, "4"), (2017, 1, donorName))
+      createConversation(DonationDataSourceType.Facebook, "Chat F1", (2017, 1, donorName), (2017, 1, "4"), (2017, 1, donorName))
     val socialData = SocialData(donorName, List(conversation))
     TestCase(
       "containing one conversation with three messages taking place in one month at the same date-time",
@@ -108,6 +108,7 @@ object MessageAnalysisServiceTest {
   lazy val singleConvoMultipleMonths: TestCase = {
     val conversation = createConversation(
       DonationDataSourceType.Facebook,
+      "Chat F1",
       (2017, 1, donorName),
       (2018, 3, donorName),
       (2008, 12, "someone")
@@ -153,9 +154,9 @@ object MessageAnalysisServiceTest {
 
 
     lazy val multipleConvos: TestCase = {
-      val firstConversation = createConversation(DonationDataSourceType.Facebook, (2017, 1, donorName))
+      val firstConversation = createConversation(DonationDataSourceType.Facebook, "Chat F1", (2017, 1, donorName))
       val secondConversation =
-        createConversation(DonationDataSourceType.Facebook, (2017, 1, "someone else"), (2017, 2, donorName))
+        createConversation(DonationDataSourceType.Facebook, "Chat F1", (2017, 1, "someone else"), (2017, 2, donorName))
       val socialData =
         SocialData(
           donorName,
@@ -210,7 +211,8 @@ object MessageAnalysisServiceTest {
 
   private def createConversation(
                                   donationDataSourceType: DonationDataSourceType,
-                                  messages: (Int, Int, String)*
+                                  conversation_pseudonym: String,
+                                  messages: (Int, Int, String)*,
                                 ): Conversation = {
     val parsedMessages = messages.map {
       case (year, month, donor) =>
@@ -220,7 +222,7 @@ object MessageAnalysisServiceTest {
 
     val participants = messages.map { case (_, _, sender) => sender }.distinct.toList
 
-    Conversation(participants.lengthCompare(2) > 0, "123", participants, parsedMessages, donationDataSourceType, true)
+    Conversation(participants.lengthCompare(2) > 0, "123", participants, parsedMessages, donationDataSourceType, conversation_pseudonym, true)
   }
 
   private def getEpochSeconds(year: Int, month: Int, date: Int, hour: Int, minute: Int): Long = {
