@@ -31,6 +31,7 @@ LABEL version="0.1.1"
 EXPOSE 9000
 
 RUN useradd --user-group --system --create-home --no-log-init dona
+RUN mkdir -p logs; touch logs/errors.log; chown -R dona:dona logs 
 USER dona
 
 CMD ["java", "-jar", "/opt/hc-rp-kalinka.jar"]
