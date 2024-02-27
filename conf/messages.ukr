@@ -1,28 +1,27 @@
-# TODO: Update this with ukrainian version
 # Landing page
 
 landing.header.title=Освітіть темряву своїми даними з соціальних мереж
-landing.header.body=We are researching how people interact in the digital space and what those interactions mean for human well-being.
-landing.what.title=What is this about?
-landing.what.body1=Social interactions play a significant role in human well-being. To better understand this relationship, we are developing methods to measure digital social interactions for research.
-landing.what.body2=You can support us by anonymously donating your chat meta-data from WhatsApp or Facebook.
+landing.header.body=Ми досліджуємо поведінку в онлайн-спілкуванні в контексті війни у зв'язку з психологічним благополуччям.
+landing.what.title=Про що йдеться?
+landing.what.body1=Ми хочемо краще зрозуміти поведінку в онлайн-спілкуванні людей, які постраждали від війни, та вплив цифрової соціальної взаємодії на психічне благополуччя.
+landing.what.body2=Ви можете підтримати наше дослідження, пожертвувавши свої анонімізовані метадані чатів з Facebook.
 
-landing.video.title=Explanation video
+landing.video.title=Відео з поясненням
 landing.video.video=explanation_video_en.mp4
-landing.video.subtitle=This is the explanation video of the whole study. Please watch it.
+landing.video.subtitle=Тут Ви знайдете повне пояснення дослідження. Будь ласка, подивіться відео.
 
-landing.why.title=Why should I participate?
-landing.why.col1.title=Receive feedback
-landing.why.col1.body=You will receive graphs on your messaging behavior, such as in which chats you write the most, when are you the most active, how fast you reply, etc. This study is not intended to be a clinical-psychological diagnosis.
-
-
-landing.why.col2.title=Support research
-landing.why.col2.body_html=The results of this study will contribute to the overall goal of better understanding the effects of social interactions on human well-being.
+landing.why.title=Чому мені варто взяти участь?
+landing.why.col1.title=Отримуйте аналітику щодо Вашого спілкування
+landing.why.col1.body=Ви отримаєте графіки щодо Вашої поведінки в онлайн-спілкуванні, наприклад, в яких чатах Ви найбільше пишете, коли Ви найбільш активні та як швидко Ви відповідаєте. Це дослідження не є клініко-психологічним (і не ставить діагнозів).
 
 
-landing.why.col3.title=Stay anonymous
-landing.why.col3.body_html=We will ask you to donate  <strong><a href="/learn-more">anonymized chat data </a></strong>  (message length, message timestamp and pseudonyms of the chat participants). We will have no access to any names or message texts.
-landing.contact.body_html=The purpose of this website is to inform you about the background and process of this online study. If any questions or concerns arise during the process, please write to the principal investigator (Prof. Dr. Hanna Drimalla, AG Multimodal Behavior Processing, Technische Fakultät, Universität Bielefeld, <a href="mailto:drimalla@techfak.uni-bielefeld.de">drimalla@techfak.uni-bielefeld.de</a>, Tel. +49 521 106-12043)
+landing.why.col2.title=Підтримайте дослідження
+landing.why.col2.body_html=Результати цього дослідження допоможуть краще зрозуміти поведінку в онлайн-спілкуванні в контексті війни та її зв'язок із психологічним благополуччям.
+
+
+landing.why.col3.title=Ви залишитесь анонімним
+landing.why.col3.body_html=Ми попросимо Вас пожертвувати <strong><a href="/learn-more">анонімізовані дані Ваших чатів</a></strong> (довжина повідомлення, мітка часу та псевдоніми учасників чату). Ми не матимемо жодного доступу до справжніх імен чи змісту текстів повідомлень.
+landing.contact.body_html=Мета цього веб-сайту - проінформувати Вас про передумови та проведення цього онлайн-дослідження. Якщо у Вас виникнуть будь-які питання або проблеми під час проведення дослідження, будь ласка, зверніться до керівниці проекту (Prof. Dr. Hanna Drimalla (Ганна Дрімалла), робоча група "Multimodal Behavior Processing" (Мультимодальна обробка поведінки), технічний факультет, Білефельдський університет, <a href="mailto:drimalla@techfak.uni-bielefeld.de">drimalla@techfak.uni-bielefeld.de</a>, Телефон +49 521 106-12043 ).
 
 
 landing.imagePath.donationProcedure1 =images/landingDonationProcedure_1_English.png
@@ -35,15 +34,14 @@ landing.imagePath.exampleFeedback =images/landingExampleFeedback_English.png
 
 
 
-learn-more.how-to-participate.title=How do I participate in the study?
-learn-more.how-to-participate.body=This study will be completely anonymous and online. To participate in this study, we will ask you to donate your anonymized messages and complete  questionnaires. After  downloading the interaction data of a platform of your choice, the study will only last for about 10 minutes.
+learn-more.how-to-participate.title=Як я беру участь у дослідженні?
+learn-more.how-to-participate.body=Це дослідження проходитиме виключно онлайн та буде повністю анонімним. Для участі в цьому дослідженні ми попросимо Вас пожертвувати анонімізовані повідомлення та заповнити декілька анкет. Після завантаження даних онлайн спілкування з Facebook, заповнення анкет займе близько 30 хвилин Вашого часу.
+
+learn-more.how-to-cancel.title=Чи можу я припинити свою участь у дослідженні?
+learn-more.how-to-cancel.body=Перш за все: участь у дослідженні є повністю добровільною. Ви можете відмовитися від участі в будь-який момент під час дослідження. Зверніть увагу, що через анонімний характер даних ми не зможемо ідентифікувати та видалити Ваші особисті дані після завершення Вашої участі. Якщо Ви відчуваєте психічний дискомфорт в будь-який момент під час участі й хочете поговорити з кимось, будь ласка, натисніть кнопку «Отримати допомогу», щоб отримати контактну інформацію про людей та організації, які можуть Вам допомогти.
 
 
-learn-more.how-to-cancel.title=Can I drop out during the study?
-learn-more.how-to-cancel.body=First things first: participation is entirely voluntary. You can drop out at any point during the study. Please note that due to the anonymous nature of the data, we cannot identify and delete your data after participation.
-
-
-learn-more.data-storage.title=What data will be used?
+learn-more.data-storage.title=Які дані будуть використані?
 
 
 learn-more.imagePath=images/dataAnonymizationExample-English.png
@@ -53,546 +51,526 @@ learn-more.imagePath=images/dataAnonymizationExample-English.png
 
 
 
-learn-more.storage.body1_html=<strong><em>Data donation: </strong></em>When donating your interaction data, we extract metadata (e.g. length and timestamp of message as well as pseudonyms of conversation participants) and no actual contents (e.g. message text or name of message sender). To ensure that, we anonymize your data on the user-side, meaning that your private data is anonymized locally and does not leave your device. This means that we will never see the content of your conversations. Before uploading, we will show you a preview of the data so that you can verify that it is sufficiently anonymous.
-learn-more.storage.body2_html=<strong><em>Questionnaires: </strong></em>You first fill out questionnaires about your demographic information. You can then carry out the data donation and receive feedback. Questionnaire data is also collected completely anonymously using <a target="_blank" href="https://www.limesurvey.org/support/faq/39-data-protection-and-policy">LimeSurvey</a>.
+learn-more.storage.body1_html=<strong><em>Пожертва даних: </strong></em>Якщо Ви надаєте нам Ваші дані щодо онлайн-спілкування, ми отримуємо з них лише метадані (тобто довжину й мітку часу повідомлення та псевдоніми учасників чату), але не отримуємо ніякий вміст (наприклад, текст повідомлення або справжнє ім'я відправника повідомлення). Ми досягаємо цього шляхом анонімізації даних на стороні користувача: Ваші особисті дані анонімізуються локально на Вашому пристрої і ніколи не залишають його, що гарантує, що ми не зможемо бачити зміст Ваших розмов. Дані, які ми отримуватимемо, Ви зможете ще раз переглянути перед їх фінальним завантаженням, щоб переконатися, що вони в достатній мірі анонімізовані.
+learn-more.storage.body2_html=<strong><em>Анкети: </strong></em>Спочатку Ви заповните декілька анкет про Ваші соціально-демографічні характеристики; Ваше використання сервісів обміну повідомленнями; ситуації, з якими Ви могли стикатися під час війни; психологічне благополуччя; та анкети про відчуття соціальної підтримки та самотності. Після цього Ви можете здійснити пожертвування даних і отримаєте аналітику щодо Вашого онлайн-спілкування. Дані анкети збираються повністю анонімно за допомогою платформи <a target="_blank" href="https://www.limesurvey.org/uk">LimeSurvey</a>.
 
 
-learn-more.data-handling.title=What happens to my data?
-learn-more.data-handling.body1=Since we are not collecting any names or other person-specific information, we will not be able to associate you with your data once the study has been completed - the donated data is anonymous. This means that your data cannot be deleted on request.
-learn-more.data-handling.body2=The data and results of this study will be published in scientific journals. The published data will be anonymous, meaning that individuals cannot be identified. The fully anonymized data will be uploaded to a research data repository and qualified scientists will be granted access.
+learn-more.data-handling.title=Що далі відбуватиметься з моїми даними?
+learn-more.data-handling.body1=Оскільки ми не збираємо жодних імен чи іншої персональної інформації, пов'язати Вас з Вашими даними після завершення дослідження неможливо, адже надані дані є анонімними. Це означає, що Ви не зможете вимагати видалення Ваших анонімізованих даних після того, як Ви їх переглянули й погодилися їх завантажити.
+learn-more.data-handling.body2=Дані та результати цього дослідження будуть опубліковані в наукових журналах. Опубліковані дані будуть анонімними, тобто не можуть бути пов'язані з конкретними особами. Повністю анонімізовані дані будуть завантажені до сховища дослідницьких даних, доступ до якого отримають кваліфіковані науковці.
 
 
-learn-more.image.caption=Figure 3. Example of an anonymized message.
+learn-more.image.caption=Рис. 3 Приклад анонімізованого повідомлення.
 
 
 # Instructions page
 
 
 
-instructions.about.title=How do I request data from social media platforms?
-instructions.about.body_html=Before participating in the study, please request your data directly from Facebook and/or WhatsApp. You can donate data from both platforms. If you only want to donate data from one platform, please select the platform that is more important to you. <b>Please take a close look at the corresponding instructions, as they contain important information for the further steps.</b>
-instructions.datasource.title_format =Instructions for getting %s data
-instructions.download-procedure.title=Overview of the download & donation procedure:
-instructions.continue.body=If you have received your data using these instructions, you can now start with the declaration of consent and survey. Afterwards you can donate your data.
-instructions.haveData=You need 5-7 WhatsApp chat files.
+instructions.about.title=Як я можу отримати свої дані з платформ соціальних мереж?
+instructions.about.body_html=Перед тим, як взяти участь у дослідженні, будь ласка, запитайте свої дані з Facebook. <b>Будь ласка, уважно перегляньте наступні інструкції, оскільки вони містять важливу інформацію для наступних кроків.</b>
+instructions.datasource.title_format =Інструкції для отримання даних з %s
+instructions.download-procedure.title=Огляд процедури завантаження та надання Ваших даних:
+instructions.continue.body=Якщо Ви отримали свої дані відповідно до інструкцій, Ви можете розпочати перегляд заяви про згоду на участь та заповнення опитування. Після цього Ви зможете пожертвувати нам свої дані.
 
 
 # Donation info page
 
 
 
-donation-info.title=How do I donate my data?
-donation-info.data-request=<strong>Data request: </strong>You request your social media data from a platform of your choice (currently supported: Facebook and WhatsApp) and download it to your device.
-donation-info.anonymisation=<strong>Anonymization: </strong>We will remove all content from your data and limit it to metadata (e.g. length and timestamp of message). Your name, as well as the names of other participants, will get replaced by random pseudonyms (eg. "James" &rarr; "anonymous13"). You may examine the anonymization of your data before uploading it to our servers.
-donation-info.storage=<strong> Storage: </strong>Only anonymized and reduced data will be uploaded to one of our secure servers.
+donation-info.title=Як я можу надати свої дані?
+donation-info.data-request=<strong>Запит даних: </strong> Ви запитуєте свої дані з Facebook Messenger і завантажуєте їх на свій пристрій.
+donation-info.anonymisation=<strong>Анонімізація: </strong>Ми видаляємо весь інформаційний вміст з Ваших даних (тексти повідомлень, світлини, аудіофайли/голосові повідомлення) і зберігаємо лише метадані (наприклад, довжину та мітку часу повідомлення). Ваше ім'я, та імена інших учасників чату будуть замінені випадковими псевдонімами (наприклад, «Саша» &rarr; «anonymous13»). Ви зможете перевірити анонімізацію Ваших даних перед фінальним завантаженням їх на наші сервери.
+donation-info.storage=<strong> Зберігання: </strong>Тільки анонімізовані та скорочені дані (метадані) будуть завантажені на наш власний безпечний сервер.
+
+# Psychological Help Pop-up
+
+psychHelp.title=Контактна інформація для швидкого отримання психологічної підтримки
+
+psychHelp.info=Всі ці номери та консультації є безкоштовними та анонімними. Будь ласка, не соромтеся/вагайтеся звертатися до них, якщо Ви відчуваєте психічний дискомфорт. Всі номери та онлайн-чати доступні в будь-який час доби й цілий рік, якщо не вказано інше.
+psychHelp.german=Гаряча лінія психологічної допомоги Telefonseelsorge (допомога доступна лише німецькою мовою)  <br/> &middot; 0800 111 0 111 чи 0800 111 0 222 <br/> &middot; чат на сторінці <a target="_blank" href="https://www.telefonseelsorge.de/">www.telefonseelsorge.de</a>
+psychHelp.women=Гаряча лінія психологічної допомоги для жінок Hilfetelefon (допомога доступна українською, англійською та німецькою мовою): <br/> &middot; 116 016 <br /> &middot; чат на сторінці <a target="_blank" href="https://www.hilfetelefon.de/">www.hilfetelefon.de</a>
+psychHelp.young=Психосоціальне консультування SOS-krisenchat Ukraine через SMS або WhatsApp для дітей та підлітків до 26 років (доступне німецькою, українською та російською мовою) <br/> &middot; +49 1573 5993126 (SMS або WhatsApp) -> може стягуватися плата за SMS-повідомлення
+psychHelp.ukrain=Українська гаряча лінія психологічної допомоги Helpline Ukraine (працює з понеділка по п'ятницю з 14:00 до 17:00, українською та російською мовою) <br/> &middot; 0800 500 225 0
+psychHelp.ukrain_numbers=На наступній сторінці також перераховані різні лінії та онлайн-платформи з України, які теж надають психологічну допомогу. Зверніть увагу, що дзвінки на ці номери з Німеччини можуть бути платними. <a target="_blank" href="https://gluzd.org.ua/articles/iak-otrymaty-bezkoshtovnupsykholohichnu-dopomohu/">https://gluzd.org.ua/</a>
 
 
 # Consent pop-up
 
+consent.title=Інформована згода
+consent.pdf=Завантажити pdf
+
+consent.about.title=Інформація про це дослідження
+consent.about.body1=Мета цього дослідження - проаналізувати поведінку в онлайн-спілкуванні в контексті війни та визначити, як змінюються соціальні взаємодії внаслідок збройних конфліктів або переміщення. Це дослідження проходитиме виключно онлайн та буде повністю анонімним. Для участі в цьому дослідженні ми попросимо Вас пожертвувати анонімізовані повідомлення та заповнити декілька анкет. Після завантаження даних онлайн спілкування з Facebook, заповнення анкет займе близько 30 хвилин Вашого часу.
+consent.about.body2_html=Погоджуючись, Ви підтверджуєте, що прочитали й зрозуміли передумови та процес цього онлайн-дослідження.
 
 
-consent.title=Informed Consent
-consent.pdf=Download PDF
-
-consent.about.title=Information about the Study
-consent.about.body1=The aim of this study is to measure the dynamics of social interaction of people by leveraging their social media data. This study is completely anonymous and online. It includes only the donation of your anonymized social media data. After having downloaded your interaction data from a platform of your choice, participation in the study will only take about 10 minutes.
-consent.about.body2_html=By agreeing, you confirm that you have read and understood the background and process of this online study.
+consent.benefit.title=Переваги та ризики
+consent.benefit.body=За допомогою Вашої участі ми можемо виявити та описати нові уявлення про негативний, шкідливий вплив війни на соціальну взаємодію. Крім того, Ви отримаєте уявлення про свою власну поведінку під час обміну повідомленнями через візуалізацію після Вашого пожертвування. Крім того, ви отримуєте інформацію та аналітику щодо вашого особистого онлайн-спілкування за допомогою візуалізацій після вашого пожертвування. Також, Ви отримаєте подарунковий сертифікат на 10€ від (<a target="_blank" href="https://europe-premium-catalog.cadooz.com/">Cadooz-Bestchoice</a>) наприкінці дослідження, де Ви можете вибрати з різних онлайн-магазинів. Ми збираємо лише анонімізовані дані. Під час дослідження, ми попросимо Вас заповнити анкети. Вони включатимуть запитання про воєнні події, з якими Ви могли зіткнутися; про Ваше переміщення; про психологічне благополуччя; а також про самотність, резильєнтність (психологічну пружність) та підтримку з боку друзів та родини. Оскільки ці запитання можуть викликати психічний дискомфорт або сильні емоції, ми просимо Вас брати участь у дослідженні лише тоді, коли Ви почуваєтеся емоційно здатними відповідати на такі запитання. Ви можете припинити участь у дослідженні в будь-який час, без пояснення причин і без будь-яких наслідків для Вас. Перед тим, як Ви зможете пожертвувати свої дані про спілкування, Ви повинні завантажити їх на Ваш власний пристрій. Перед тим, як Ви зможете пожертвувати свої дані про спілкування, Ви повинні завантажити їх на Ваш власний пристрій. Оскільки ці дані містять конфіденційну інформацію, ми рекомендуємо видалити локальну копію даних з Вашого пристрою після завершення дослідження. Будь ласка, проводьте дослідження наодинці та в спокійній обстановці, щоб забезпечити Вашу конфіденційність.
 
 
-consent.benefit.title=Benefits and risks
-consent.benefit.body=With your participation you enable us to identify and characterise new insights about social interactions between humans. You gain insights into your own personal messaging behavior. Furthermore, at the end of the study, you can participate in a raffle for a 50€ voucher (<a target="_blank" href="https://www.cadooz.com/en/products/bestchoice-shopping-gift-card/">Cadooz-Bestchoice</a>). This is an ongoing study, so a voucher is drawn every time a set of 100 participants is achieved (winning chance: 1/100). We only collect anonymized data. Before the donation of your data you have to download the messaging data locally on your own device. Since this data contains sensitive information we recommend to delete the local copy of your data after the end of the study. Please conduct the study alone and in a calm environment to ensure your privacy.
-
-
-consent.data-storage.title=Collected Data
+consent.data-storage.title=Зібрані дані
 
 
 # data storage text body is reused - see below
 
 
 
-consent.voluntary.title=Voluntary Participation
-consent.voluntary.body=The participation in this study is entirely voluntary. At any time you may revoke your consent concerning your participation in this study, without giving any reason and without any kind of negative consequences. Before uploading the data to our research platform, you may revoke, without giving reason, your consent concerning the storage of your anonymized data, without any negative consequences.
+consent.voluntary.title=Добровільна участь
+consent.voluntary.body=Участь у цьому дослідженні є повністю добровільною. Ви можете в будь-який момент припинити участь у дослідженні та відкликати свою згоду на участь у ньому без пояснення причин і без будь-яких негативних наслідків. Аналогічно, перед завантаженням даних на нашу дослідницьку платформу Ви також можете без пояснення причин відкликати свою згоду на зберігання Ваших анонімних даних без будь-яких негативних наслідків.
 
 
-consent.data-protection.title=Data Security
-consent.data-protection.body=Since we are not collecting any names or other person-specific data, we will not be able to associate you with your data once the study has been completed from your side - the donated data is anonymous. This means that your data cannot be deleted on your request after submission. Due to the completely anonymous data handling and processing, the General Data Protection Regulation (GDPR) does not apply. In case of questions or concerns, please contact the office for data protection at the University of Bielefeld:
-consent.data-protection.address_html=Data protection officer <br /> University Bielefeld <br /> Office: UHG T6-234  <br />Phone +49 521 106-5225 <br /><a href="mailto:datenschutzbeauftragte@uni-bielefeld.de">datenschutzbeauftragte@uni-bielefeld.de</a>
+consent.data-protection.title=Безпека даних
+consent.data-protection.body=Оскільки ми не збираємо жодних імен чи інших персональних даних, неможливо пов'язати Вас з Вашими даними після завершення дослідження з Вашого боку - надані дані є анонімними. Це означає, що Ваші дані не можуть бути видалені за Вашим запитом після їх надання. Через повністю анонімну обробку даних до них не застосовується Загальний регламент про захист даних (англ. General Data Protection Regulation, GDPR). У разі виникнення запитань або проблем, будь ласка, звертайтеся до відділу захисту даних Білефельдського університету:
+consent.data-protection.address_html=Відповідальний за захист даних <br /> Білефельдський університет <br /> Кімната: UHG T6-234  <br />Телефон +49 521 106-5225 <br /><a href="mailto:datenschutzbeauftragte@uni-bielefeld.de">datenschutzbeauftragte@uni-bielefeld.de</a>
 
 
 
 
-consent.data-purpose.title=Usage of data
-consent.data-purpose.body=The data and results of these surveys will be published in scientific journals. The published data will be anonymous, meaning that it cannot be associated with individuals. The fully anonymized data will be uploaded to a research data repository and qualified scientists will be granted access.
+consent.data-purpose.title=Використання даних
+consent.data-purpose.body=Дані та результати цього дослідження будуть опубліковані в наукових журналах. Опубліковані дані будуть анонімними, тобто не можуть бути пов'язані з конкретними особами. Повністю анонімізовані дані будуть завантажені до сховища дослідницьких даних, доступ до якого отримають кваліфіковані науковці.
 
 
-consent.confirmation=I hereby confirm that I have read and understood the information above and agree to the conditions for participation.
+consent.confirmation=Я підтверджую, що прочитав/-ла й зрозумів/-ла наведену інформацію та погоджуюсь з умовами участі в дослідженні.
 
 
-consent.buttons.agree.caption=Agree
-consent.buttons.close.caption=Close
+consent.buttons.agree.caption=Погоджуюcь
+consent.buttons.close.caption=Закрити
 informedConsent.pdf=informedConsents/InformedConsent_eng.pdf
 
 # Donation page
 
 
 
-donation.select-data.title=Choose data for donation
-donation.select-data.body1=Please choose the platform from which you want to donate your data. To successfully anonymize your data your username is automatically determined. Your username will not be saved or donated.
-donation.select-data.body2=You can now upload your files to your browser for anonymization. Note that you will have the opportunity to view your anonymized data before submitting it to us.
-donation.select-data.donation=Data Donation
-donation.select-data.input1=Choose files
-donation.select-data.input2=Browse
-donation.select-data.remove=Remove
+donation.select-data.title=Виберіть дані для пожертвування
+donation.select-data.body1=Для успішної анонімізації Ваших даних Ваше ім'я користувача визначається автоматично. Ім'я користувача не зберігається і не передається нам.
+donation.select-data.body2=Тепер Ви можете завантажити свої файли у Ваш браузер для анонімізації. Зверніть увагу, що у Вас буде можливість переглянути свої анонімізовані дані перед тим, як відправити їх нам остаточно.
+donation.select-data.donation=Пожертвування даних
+donation.select-data.input1=Виберіть файл(и)
+donation.select-data.input2=Переглянути файли
+donation.select-data.remove=Видалити
 
 
-donation.select-date.start=Start of donation:
-donation.select-date.end=End of donation:
+donation.select-date.start=Початок періоду, за який надаються дані:
+donation.select-date.end=Кінець періоду, за який надаються дані:
 
 
-donation.preview-data.title=Preview of your anonymized data
-donation.preview-data.button=Click here for a preview of your anonymized data
-donation.preview-data.body1=No private information has left your device. Only the meta-information has been extracted.
-donation.preview-data.body2=As you can see, all the usernames have been anonymized and the message content has been replaced by the word count.
-donation.preview-data.message=Message
-donation.preview-data.sender=Sender of message
-donation.preview-data.receiver=Receiver of message
-donation.preview-data.word-count=Word count
-donation.preview-data.timestamp=Timestamp of message
-donation.preview-data.group-conversation=Group conversation
+donation.preview-data.title=Попередній перегляд Ваших анонімізованих даних
+donation.preview-data.button=Натисніть тут, щоб переглянути Ваші анонімізовані дані
+donation.preview-data.body1=Жодна приватна інформація не залишила Ваш пристрій. Нами були отримані лише метадані.
+donation.preview-data.body2=Як бачите, всі імена учасників чату були анонімізовані, а зміст повідомлення був замінений на кількість слів.
+donation.preview-data.message=Повідомлення
+donation.preview-data.sender=Відправник повідомлення
+donation.preview-data.receiver=Одержувач повідомлення
+donation.preview-data.word-count=Кількість слів
+donation.preview-data.timestamp=Мітка часу повідомлення
+donation.preview-data.group-conversation=Груповий чат
 
 
-donation.friendsMapping.title=<b>Aliases for your contacts</b>
-donation.friendsMapping.subtitle.facebook=We have anonymized your data and your contacts. If, in the next step, you want to reconstruct which conversations and contacts are involved in the anonymized evaluation, make a note of the following assignments of contacts (e.g. G**** M*****) and chats (e.g. “F4"). From now on, these are the anonymized names for your chats. The assignment is not saved and is lost as soon as you leave this page.
-donation.friendsMapping.subtitle.whatsapp=We have anonymized your data and your contacts. If, in the next step, you want to reconstruct which conversations and contacts are involved in the anonymized evaluation, make a note of the following assignments of contacts (e.g. G**** M*****) and chats (e.g. “W4"). From now on, these are the anonymized names for your chats. The assignment is not saved and is lost as soon as you leave this page.
-donation.friendsMapping.onlySeven=These are just the contacts of your 7 Facebook chats in which overall the most words were sent. <b> Below you can also select different chats. </b>
-donation.friendsMapping.moreFriends=and {0} others.
-donation.friendsMapping.chat=Chat
-donation.friendsMapping.onlyYouInConv=You are the only member in this chat. This could be because the other people have left the chat.
+donation.friendsMapping.title=<b>Псевдоніми для Ваших контактів</b>
+donation.friendsMapping.subtitle.facebook=Ми анонімізували Ваші повідомлення та імена Ваших контактів. Якщо на наступному кроці Ви захочете дізнатися, які саме чати та контакти залучені до анонімного оцінювання, запишіть наступні відповідності контактів (наприклад, С**** Б*****) та чатів (наприклад, «F4»). Відтепер це будуть анонімізовані імена Ваших чатів. Ці відповідності не зберігаються й будуть втрачені, як тільки Ви залишите цю сторінку.
+donation.friendsMapping.onlySeven=Це лише контакти Ваших 7 чатів у Facebook, в яких було надіслано найбільше слів. <b> Нижче Ви також можете вибрати інші чати. </b>
+donation.friendsMapping.moreFriends=та ще {0}.
+donation.friendsMapping.chat=Чат
+donation.friendsMapping.onlyYouInConv=Ви єдиний учасник цього чату. Це може бути пов'язано з тим, що інші люди залишили групу.
 
 
 
 
-donation.sendData.wait=Sending the data could take a few minutes. Please wait and keep this website open. Thanks!
+donation.sendData.wait=Надсилання даних може зайняти декілька хвилин. Будь ласка, зачекайте і тримайте цей сайт відкритим. Дякуємо!
 
 
-donation.raw-data-explanation_format=Below, you may view %s of your anonymized messages. In case you want to view all anonymized messages, <b>take a look at the</b>
-donation.raw-data-link.text=<b>raw data</b>
+donation.raw-data-explanation_format=Нижче Ви можете переглянути %s Ваших анонімізованих повідомлень. Якщо Ви хочете побачити всі анонімізовані повідомлення, <b>перегляньте</b>
+donation.raw-data-link.text=<b>необроблені дані</b>
 
 
 # provided by Astrid
 
 
 
-donation.alias-not-required=Not required
-donation.alias=Username
-donation.please-insert-alias=Please enter your username to enable anonymization.
-donation.choose-files-here=Select the files you would like to donate here:
-donation.choose-period=Here you can limit the period of your data donation:
-donation.aliases-overview=Aliases of your contacts:
+donation.alias-not-required=Необов'язково
+donation.alias=Ім'я користувача
+donation.please-insert-alias=Будь ласка, введіть своє ім'я користувача, щоб щоб зробити можливою анонімізацію.
+donation.choose-files-here=Виберіть тут файли, які Ви бажаєте пожертвувати:
+donation.choose-period=Тут Ви можете обмежити період, за який Ви надаєте свої дані:
+donation.aliases-overview=Псевдоніми Ваших контактів:
 
 
-donation.processing=Your data is being extracted and anonymized...
-donation.be-patient=The data extraction process may take some time. Please be patient...
-donation.successful=Your data has been successfully anonymized.
-donation.error=An error occured:
+donation.processing=Ми отримуємо та анонімізуємо Ваші дані ...
+donation.be-patient=Процес отримування нами даних може зайняти деякий час. Будь ласка, зачекайте …
+donation.successful=Ваші дані успішно анонімізовані.
+donation.error=Сталася помилка:
 
 
-donation.anonymisation.donor=Donor
-donation.anonymisation.friend=Contact
-donation.anonymisation.friendInitial=C
+donation.anonymisation.donor=Ви
+donation.anonymisation.friend=Контакт
+donation.anonymisation.friendInitial=K
 donation.anonymisation.chatInitialW=W
 donation.anonymisation.chatInitialF=F
-donation.anonymisation.system=System
-donation.anonymisation.chooseUsername=Please choose your username. Your username will not be saved and we will not know it.
-donation.anonymisation.loading=Sending the anonymized data could take a few minutes. Please wait and keep this website open. Thanks!
+donation.anonymisation.system=Система
+donation.anonymisation.chooseUsername=Будь ласка, виберіть своє ім'я користувача. Ваше ім'я користувача не буде збережено, й воно не буде відоме нам.
+donation.anonymisation.loading=Надсилання анонімізованих даних може зайняти декілька хвилин. Будь ласка, зачекайте і тримайте цей сайт відкритим. Дякуємо!
 
 
 
 
-donation.anonymisation.chatSelection.title=You can select up to 10 chats to receive feedback for
-donation.anonymisation.chatSelection.clickHereToSelect=Click here to choose different chats to receive feedback for
+donation.anonymisation.chatSelection.title=Ви можете вибрати до 10 чатів для отримання аналітики.
+donation.anonymisation.chatSelection.clickHereToSelect=Натисніть тут, щоб вибрати інші чати для отримання аналітики.
 
 
 
 
-donation.anonymisation.loading.tooLong.title=If this process is taking more than 5 minutes, it might be due to the following:
-donation.anonymisation.loading.tooLong.issue.1=You are trying to upload file types that are not supported (the correct input types are .txt or .zip for WhatsApp and .zip for Facebook)
-donation.anonymisation.loading.tooLong.issue.2=You have exported you WhatsApp chats from different devices
-donation.anonymisation.loading.tooLong.issue.3=The files you are trying to upload have unusually large sizes
-donation.anonymisation.loading.tooLong.issue.4=Your internet connection is slow
-donation.anonymisation.loading.tooLong.issue.5=Other unexpected issues
-donation.anonymisation.loading.tooLong.issue.6=Help us improve <a href="@messages("links.reportProblem")" target="_blank">here</a>
+donation.anonymisation.loading.tooLong.title=Якщо цей процес займає більше 5 хвилин, це може бути пов'язано з наступними причинами:
+donation.anonymisation.loading.tooLong.issue.1=Ви намагаєтеся завантажити файли у форматах, які не підтримуються (правильні формати - .txt або .zip)
+donation.anonymisation.loading.tooLong.issue.3=Файли, які Ви намагаєтеся завантажити, надзвичайно великого розміру
+donation.anonymisation.loading.tooLong.issue.4=Ваше інтернет-з'єднання повільне
+donation.anonymisation.loading.tooLong.issue.5=Інші несподівані проблеми
+donation.anonymisation.loading.tooLong.issue.6=Допоможіть нам удосконалюватись <a href="@messages("links.reportProblem")" target="_blank">тут</a>
 
 
-donation.errors.no-profile=The uploaded data does not include profile information.
-donation.errors.no-alias=Please enter your username. You can find it in your WhatsApp profile.
-donation.errors.not-enough-chats_format=Please choose your 5-7 most important conversations. You have selected %s. <br>Press and hold the ctrl/command key to select multiple files at the same time.
-donation.errors.something-went-wrong=Something went wrong! Please go back to the start and repeat the process.
-donation.errors.same-file=You can only select files that differ. Please choose your 5-7 most important conversations.
-donation.errors.no-messages-time-period=There are no messages in the selected period. Please select a longer and valid period.
-donation.errors.dates-no-sense=The selected period is not valid. Please check the correctness of the selected dates.
-donation.errors.dates-not-enough-months=To donate your data, please select a period of at least 6 months within the period of your donation.
-donation.errors.somewhereError=There is an error somewhere. Please check your data donation.
-donation.errors.emptyOrJustOnePerson=All your chats should contain at least 100 messages and at least one contact (other than yourself).
+donation.errors.no-profile=Завантажені дані не включають профільну інформацію.
+donation.errors.no-alias=Будь ласка, введіть своє ім'я користувача. 
+donation.errors.not-enough-chats_format=Будь ласка, оберіть 5-7 найважливіших чатів. Ви обрали %s. <br>Натисніть і утримуйте клавішу Ctrl/Command, щоб обрати декілька файлів одночасно.
+donation.errors.something-went-wrong=Щось пішло не так! Будь ласка, поверніться до початку й повторіть процес.
+donation.errors.same-file=Ви можете обрати лише ті файли, які розрізняються. Будь ласка, оберіть 5-7 найважливіших чатів.
+donation.errors.no-messages-time-period=В обраному періоді немає повідомлень. Будь ласка, виберіть довший та дійсний період.
+donation.errors.dates-no-sense=Обраний період не є дійсним. Будь ласка, перевірте правильність обраних дат.
+donation.errors.dates-not-enough-months=Щоб пожертвувати Ваші дані, будь ласка, оберіть період з 01.02.2021 по 31.01.2024.
+donation.errors.somewhereError=Десь сталася помилка. Будь ласка, перевірте Ваші надані дані.
+donation.errors.emptyOrJustOnePerson=Усі ваші чати повинні включати щонайменше 100 повідомлень та щонайменше один контакт (окрім Вас).
 
 
-donation.submit=Submit
+donation.submit=Відправити
 
 
 # feedback
 
 
 
-feedback.thanks.title=Thank you for the donation of your social media data!
-feedback.landscapeMode=Please hold your device <b>sideways</b> to view this page properly.
+feedback.thanks.title=Щиро дякуємо за участь!
+feedback.landscapeMode=Будь ласка, тримайте пристрій <b>у горизонтальному положенні</b> для правильного відображення цієї сторінки.
 
 
 
 
 
 
-feedback.importantMessage.title=Important Note:
-feedback.importantMessage.disclaimer=The graphs and visualizations displayed <b>do <u>not</u> allow any direct conclusions</b> to be drawn about the quality of your social relationships. Your chats are analyzed and visualized regarding amount and timing only.
+feedback.importantMessage.title=Важливе зауваження:
+feedback.importantMessage.disclaimer=Відображені графіки та візуалізації <b><u>не</u> дозволяють зробити прямих висновків</b> про якість Ваших соціальних стосунків. Ваші чати аналізуються та візуалізуються лише щодо кількості слів та часових факторів.
 
 
-feedback.reminder=Don't forget to register for the voucher raffle at the bottom of the page.
-feedback.startLabel=Start
-feedback.pauseLabel=Pause
+feedback.reminder=Не забудьте зареєструватися для отримання подарункового сертифікату на 10€ у кінці сторінки.
+feedback.startLabel=Запустити
+feedback.pauseLabel=Призупинити
 
 
-feedback.graph.title=Feedback on your %s Messages
-feedback.graph.total-messages=Total messages
-feedback.graph.average-per-active-month=Average messages per active month
-feedback.graph.active-years-explanation_format=In total, there are %s years in which you participated in conversation (i.e. you sent or received at least one message during the year)
+feedback.graph.title=Аналітики щодо Ваших повідомлень з %s
+feedback.graph.total-messages=Загальна кількість повідомлень
+feedback.graph.average-per-active-month=Середня кількість повідомлень за місяць активності
+feedback.graph.active-years-explanation_format=Загальна кількість років, протягом яких Ви брали участь в онлайн-розмовах (тобто Ви надсилали або отримували щонайменше одне повідомлення протягом року): %s 
 # minor grammar correction by astrid
 
-feedback.graph.active-months-explanation_format=In total, there are %s months in which you participated in conversation (i.e. you sent or received at least one message during the month)
-feedback.graph.messages=Messages
-feedback.graph.messages-over-time=%s messages over time
-feedback.graph.time=Time
-feedback.graph.number-of-messages=Number of messages
-feedback.graph.sent=Sent
-feedback.graph.received=Received
-feedback.graph.response-times=%s response times
-feedback.graph.response-time=Response time
-feedback.graph.median-response-time=Median response time
-feedback.graph.overview=Overview
-feedback.graph.detail=Detail
-feedback.graph.you=You
-feedback.graph.friends=Contacts
+feedback.graph.active-months-explanation_format=Загальна кількість місяців, протягом яких Ви брали участь в онлайн-розмовах (тобто Ви надсилали або отримували щонайменше одне повідомлення протягом місяця): %s
+feedback.graph.messages=Повідомлення
+feedback.graph.messages-over-time=Повідомлення з плином часу: %s
+feedback.graph.time=Час
+feedback.graph.number-of-messages=Кількість повідомлень
+feedback.graph.sent=Надіслано
+feedback.graph.received=Отримано
+feedback.graph.response-times=Часи до відповіді в %s 
+feedback.graph.response-time=Час до відповіді
+feedback.graph.median-response-time=Середній час до відповіді (Медіана)
+feedback.graph.overview=Загальний огляд
+feedback.graph.detail=Деталь
+feedback.graph.you=Ви
+feedback.graph.friends=Контакти
+
 
 
 # plots main page titles
 
-feedback.title.statisticsCard=Overview of all Activity
-feedback.title.interactionIntensity=Interaction Intensity
-feedback.title.dailyActivityTimes=Daily Activity Times
-feedback.title.responseTimes=Response Times
-feedback.title.pleaseContinue=We hope you had exciting insights. Thanks a lot!
+feedback.title.statisticsCard=Огляд всієї активності
+feedback.title.interactionIntensity=Інтенсивність спілкування
+feedback.title.dailyActivityTimes=Часи щоденної активності
+feedback.title.responseTimes=Часи до відповіді
+feedback.title.pleaseContinue=Сподіваємося, що Ви отримали цікаві відомості. Дякуємо за участь у дослідженні!
 
 
-feedback.facebook.info=The potentially high number of facebook contacts could lead to a cluttered visualization. Therefore, in the following, only visualizations for your 1-10 selected Facebook chats are shown.
+feedback.facebook.info=Через потенційно велику кількість контактів у Facebook візуалізація може бути перевантаженою. Тому далі ми покажемо лише візуалізації для 1-10 Ваших вибраних чатів у Facebook.
 
 
-feedback.nextButton=Next
-feedback.finishButton=Finish
-feedback.toRaffleButton=Sign up for raffle
+feedback.nextButton=Далі
+feedback.finishButton=Завершити
+feedback.toRaffleButton=Зареєструйтеся, щоб отримати подарунковий сертифікат
 
 
 # plots more about titles
 
-feedback.moreAbout.interactionIntensity.title=More about your Interaction Intensity
-feedback.moreAbout.dailyActivityTimes.title=More about your Daily Activity Times
-feedback.moreAbout.responseTimes.title=More about your Response Times
+feedback.moreAbout.interactionIntensity.title=Дізнайтеся докладніше про інтенсивність Вашого спілкування
+feedback.moreAbout.dailyActivityTimes.title=Дізнайтеся докладніше про часи щоденної активності
+feedback.moreAbout.responseTimes.title=Дізнайтеся докладніше про час до відповіді
 
 
 # plot descriptions
 
-feedback.graph.yearMonth=Year-Month:
-feedback.graph.chatWith=Chat with:
-feedback.graph.overallData=All chats
-feedback.graph.resetView=Reset view
+feedback.graph.yearMonth=Рік-Місяць:
+feedback.graph.chatWith=Чат з:
+feedback.graph.overallData=Всі чати
+feedback.graph.resetView=Скинути перегляд
 
 
 # plots example title
 
-feedback.graph.example.title=This is an <b>example</b> created from example data - <u>not</u> from your data.
+feedback.graph.example.title=Це <b>приклад</b>, який створений на основі уявних даних, а <u>не</u> на основі Ваших даних.
 
 
 # polar plot
 
-feedback.graph.animatedPolarPlot.title=Planet representation
-feedback.graph.animatedPolarPlot.description=This visualization displays you as the yellow dot in the middle. The chats you donated are the white dots around you. The closer a dot is to you, the more words you have written in this chat. In the time-slider below you can see and select the month and year for which the data is shown. The smaller lighter white dots show the activity in the respective chats in other months. Click <a style="font-weight:bold" href="#polarPlotExplanation" data-toggle="modal" data-target="#polarPlotExplanation">HERE</a> to see an explanation with an example.
-feedback.graph.animatedPolarPlot.legend.donor=You
-feedback.graph.animatedPolarPlot.legend.others=Chat Intensity
+feedback.graph.animatedPolarPlot.title=Зображення за допомогою планет
+feedback.graph.animatedPolarPlot.description=На цій візуалізації Ви зображені жовтою крапкою у центрі. Білими крапками навколо Вас позначені чати, дані яких Ви надали. Чим ближче до Вас крапка, тим більше слів Ви написали в цій розмові. Нижче, використовуючи повзунок для вибору часу, Ви можете обрати місяць та рік, за який будуть показані дані. Менші та світліші білі крапки показують активність у відповідних чатах в інші місяці. Натисніть <a style="font-weight:bold" href="#polarPlotExplanation" data-toggle="modal" data-target="#polarPlotExplanation">ТУТ</a>, щоб переглянути пояснення з прикладом.
+feedback.graph.animatedPolarPlot.legend.donor=Ви
+feedback.graph.animatedPolarPlot.legend.others=Інтенсивність спілкування
 feedback.graph.animatedPolarPlot.example.image=images/feedback_example_polarPlot_english.svg
-feedback.graph.animatedPolarPlot.example.text=<p><b>(1)</b> Here the white solid dot is very close to the large yellow dot in the center. This means that in the month shown below, the communication in this chat was very intense compared to the previous months and the other chats. In this example, there are only a few transparent small dots on the trajectory. This is because the data only covers a few months.</p><p><b>(2)</b> Hardly any transparent history dots can be seen here, as they all lie on top of each other in roughly the same place. This is because the intensity has been very stable over the months in this chat.</p><p><b>(3)</b> In contrast to (2), many transparent points are visible here. So the intensity of this chat has changed a lot over the months. In the currently displayed month, the big intense white dot is further away than some other transparent small points: Accordingly, there were months before in which more words were exchanged in this chat. However, there have also been months when the intensity was lower.</p><p><b>(4)</b> Click this icon to download the graph.</p>
+feedback.graph.animatedPolarPlot.example.text=<p><b>(1)</b>  У цьому прикладі біла крапка знаходиться дуже близько до великої жовтої крапки в центрі. Це означає, що протягом місяця, який показаний нижче, спілкування в цьому чаті було дуже інтенсивним, порівняно з попередніми місяцями та іншими чатами. Крім того, в цьому прикладі на траєкторії є лише невелика кількість прозорих маленьких крапок. Це пов'язано з тим, що дані стосуються лише декілька місяців.</p><p><b>(2)</b> Тут майже не видно прозорих точок минулого, оскільки всі вони розташовані одна над одною приблизно в одному місці. Це пояснюється тим, що інтенсивність спілкування була дуже стабільною протягом місяців, яких стосуються дані цієї розмови.</p><p><b>(3)</b>  На відміну від (2), тут видно багато прозорих крапок. Отже, інтенсивність спілкування в цьому чаті значно змінювалася протягом місяців. У місяці, який зараз відображається, велика насичена біла крапка знаходиться далі, ніж деякі інші прозорі менші крапки: Відповідно, бували місяці, коли в цьому чаті обмінювалися більшою кількістю слів. Однак бували й такі місяці, коли інтенсивність спілкування була нижчою.</p><p><b>(4)</b> Натисніть на цю іконку, щоб завантажити графік.</p>
 
 
 # animatedHorizontalBarChart
 
-feedback.graph.animatedHorizontalBarChart.title=Total sent words
-feedback.graph.animatedHorizontalBarChart.description=Here you can see the total amount of words you sent in your different chats adding up per month. In the time-slider below you can see and select the month and year for which the data is shown. Click <a style="font-weight:bold" href="#animatedHorizontalBarChartExplanation" data-toggle="modal" data-target="#animatedHorizontalBarChartExplanation">HERE</a> to see an explanation with an example.
-feedback.graph.animatedHorizontalBarChart.legend=Sent words
-feedback.graph.animatedHorizontalBarChart.xAxis=Number of sent words
+feedback.graph.animatedHorizontalBarChart.title=Загальна кількість надісланих слів
+feedback.graph.animatedHorizontalBarChart.description=Тут Ви можете побачити загальну кількість слів, які Ви надіслали в різних чатах, в підсумку за місяць. Нижче, використовуючи повзунок для вибору часу, Ви можете обрати місяць та рік, за який будуть показані дані. Натисніть <a style="font-weight:bold" href="#animatedHorizontalBarChartExplanation" data-toggle="modal" data-target="#animatedHorizontalBarChartExplanation">ТУТ</a>, щоб переглянути пояснення з прикладом.
+feedback.graph.animatedHorizontalBarChart.legend=Надіслані слова
+feedback.graph.animatedHorizontalBarChart.xAxis=Кількість надісланих слів
 feedback.graph.animatedHorizontalBarChart.example.image=images/feedback_example_horizontalBarChart_english.svg
-feedback.graph.animatedHorizontalBarChart.example.text=<p><b>(1)</b> In this example, over the entire period the most words were sent in the chat with F9, F10: just over 140 thousand.</p><p><b>(2)</b> In contrast to (1), this example chat had the fewest sent words.</p><p><b>(3)</b> The year and month are displayed here. You can see how many words were sent in the chats per month. Try out the time slider!</p><p><b>(4)</b> Click this icon to download the graph.</p>
+feedback.graph.animatedHorizontalBarChart.example.text=<p><b>(1)</b> У цьому прикладі за весь період часу найбільше слів було надіслано в чаті з F9, F10: трохи більше 140 тисяч.</p><p><b>(2)</b> На відміну від (1), у цьому  умовному чаті було надіслано найменше слів.</p><p><b>(3)</b> Рік та місяць показані тут. Ви можете побачити, скільки слів було надіслано в чатах за місяць. Спробуйте повзунок для вибору часу!</p><p><b>(4)</b> Натисніть на цю іконку, щоб завантажити графік.</p>
 
 
 
 
 # horizontalBarChart overall
 
-feedback.graph.horizontalBarChartOverall.description=This graph shows the total number of words you received and sent across all your donated chats.
-feedback.graph.horizontalBarChartOverall.legend.sent=Sent words
-feedback.graph.horizontalBarChartOverall.legend.received=Received words
-feedback.graph.horizontalBarChartOverall.xAxis=Number of words
-feedback.graph.horizontalBarChartOverall.yAxis.sent=Sent
-feedback.graph.horizontalBarChartOverall.yAxis.received=Received
+feedback.graph.horizontalBarChartOverall.description=Цей графік показує загальну кількість слів, які Ви отримали та надіслали в усіх наданих Вами чатах.
+feedback.graph.horizontalBarChartOverall.legend.sent=Надіслані слова
+feedback.graph.horizontalBarChartOverall.legend.received=Отримані слова
+feedback.graph.horizontalBarChartOverall.xAxis=Кількість слів
+feedback.graph.horizontalBarChartOverall.yAxis.sent=Надіслано
+feedback.graph.horizontalBarChartOverall.yAxis.received=Отримано
 
 
 # slidingWindowMean of sent and received words plot
 
-feedback.graph.slidingWindowMean.description=Here you can see the average number of your sent and received words per day (more precisely, we calculate a so-called sliding window average with a window size of 30 days). At the top left you can also select your individual chats to see the graph of your sent words for the selected chat.<br><br> <i> If there is no value for the <u>received words</u> in the overview for one or more days, then it has been hidden due to data protection reasons. Only aggregated information from which no direct conclusions can be drawn about your individual contacts is displayed.</i>
-feedback.graph.slidingWindowMean.legend.sent=Sent words
-feedback.graph.slidingWindowMean.legend.received=Received words
-feedback.graph.slidingWindowMean.legend.receivedNotShown=Privacy: Received words are not displayed
-feedback.graph.slidingWindowMean.yAxis=Average number of words
+feedback.graph.slidingWindowMean.description=Тут Ви можете побачити середню кількість надісланих та отриманих Вами слів за день (точніше, ми підраховуємо так зване рухоме середнє на часовому інтервалі 30 днів). У верхньому лівому куті Ви також можете вибрати певні чати, щоб побачити графік надісланих Вами слів для відповідного чату.<br><br> <i> Якщо в огляді немає значення для <u>отриманих слів</u> за один або декілька днів, то він був прихований з причин захисту даних. Відображається лише узагальнена інформація, з якої не можна зробити висновки про Ваші індивідуальні контакти.</i>
+feedback.graph.slidingWindowMean.legend.sent=Надіслані слова
+feedback.graph.slidingWindowMean.legend.received=Отримані слова
+feedback.graph.slidingWindowMean.legend.receivedNotShown=Конфіденційність: Отримані слова не зображені
+feedback.graph.slidingWindowMean.yAxis=Середня кількість слів
 feedback.graph.slidingWindowMean.example.image=images/feedback_example_slidingWindowMean_english.svg
-feedback.graph.slidingWindowMean.example.text=<p class="text-left"><b>(1)</b> In this example, a significant increase in the number of sent and received words can be observed. In this period the sent words were more than the received words. </p><p class="text-left"><b>(2)</b> Here you can see an even bigger increase in sent and received words. But in that period, across all chats, more words were received.</p>
+feedback.graph.slidingWindowMean.example.text=<p class="text-left"><b>(1)</b> У цьому прикладі спостерігається значне збільшення кількості надісланих та отриманих слів. У цей період відправлених слів було більше, ніж отриманих. </p><p class="text-left"><b>(2)</b> Але за цей період, по всіх чатах, було отримано більше слів.</p>
 
 
 # dailySentReceivedWords plot
 
-feedback.graph.dailySentReceived.description=This graph shows the exact word count of your sent and received messages per day.
-feedback.graph.dailySentReceived.legend.sent=Sent words
-feedback.graph.dailySentReceived.legend.received=Received words
-feedback.graph.dailySentReceived.yAxis=Number of words
+feedback.graph.dailySentReceived.description=Цей графік показує точну кількість слів у Ваших надісланих та отриманих повідомленнях за день.
+feedback.graph.dailySentReceived.legend.sent=Надіслані слова
+feedback.graph.dailySentReceived.legend.received=Отримані слова
+feedback.graph.dailySentReceived.yAxis=Кількість слів
 
 
 # monthlySentReceivedWords plot
 
-feedback.graph.monthlySentReceived.description=This graph shows the exact word count of your sent and received messages per day. At the top left you can also select your individual chats to see the graph of your sent words for the selected chat.
-feedback.graph.monthlySentReceived.legend.sent=Sent messages
-feedback.graph.monthlySentReceived.legend.received=Received messages
-feedback.graph.monthlySentReceived.yAxis=Number of messages
+feedback.graph.monthlySentReceived.description=Цей графік показує точну кількість слів у Ваших надісланих та отриманих повідомленнях за день. У верхньому лівому куті Ви також можете вибрати певні чати, щоб побачити графік надісланих Вами слів для відповідного чату.
+feedback.graph.monthlySentReceived.legend.sent=Надіслані повідомлення
+feedback.graph.monthlySentReceived.legend.received=Отримані повідомлення
+feedback.graph.monthlySentReceived.yAxis=Кількість повідомлень
 
 
 # dailyActivityTimes plot
 
-feedback.graph.dailyActivityHoursPlot.description=In this plot, you can see in which hours of the day you were active for the whole time span of the data you donated. If an hour (square in the plot) has a darker color, you sent more words in that hour than in your average hour. If the color is lighter, then you sent fewer words than in the average case. If you want to look closer at a specific time span you can zoom in by clicking on the graph and holding while you move your mouse to the left or the right to produce the time window you want to zoom into. Click <a style="font-weight:bold" href="#dailyActivityHoursPlotExplanation" data-toggle="modal" data-target="#dailyActivityHoursPlotExplanation">HERE</a> to see an explanation with an example.
-feedback.graph.dailyActivityHoursPlot.yAxis=Time
-feedback.graph.dailyActivityHoursPlot.moreThanAverage=More than your average
-feedback.graph.dailyActivityHoursPlot.average=Your average
-feedback.graph.dailyActivityHoursPlot.lessThanAverage=Less than your average
+feedback.graph.dailyActivityHoursPlot.description=На цьому графіку Ви можете побачити, в які години дня Ви були найактивнішими за весь період часу, протягом якого Ви надали дані. Якщо година (квадрат на графіку) темнішого кольору, це означає, що в цю годину Ви надсилали більше слів, ніж у середньому за годину. Якщо колір світліший, то Ви надіслали менше слів, ніж у середньому. Якщо Ви хочете детальніше розглянути певний проміжок часу, Ви можете збільшити масштаб: натисніть на графік і тримайте його, одночасно рухаючи мишею вліво або вправо, щоб отримати той проміжок часу, який Ви бажаєте збільшити. Натисніть <a style="font-weight:bold" href="#dailyActivityHoursPlotExplanation" data-toggle="modal" data-target="#dailyActivityHoursPlotExplanation">ТУТ</a>, щоб переглянути пояснення з прикладом.
+feedback.graph.dailyActivityHoursPlot.yAxis=Час
+feedback.graph.dailyActivityHoursPlot.moreThanAverage=Більше середнього рівня
+feedback.graph.dailyActivityHoursPlot.average=Ваш середній рівень
+feedback.graph.dailyActivityHoursPlot.lessThanAverage=Менше середнього рівня
 feedback.graph.dailyActivityHoursPlot.example.image=images/feedback_example_dailyActivityHoursPlot_english.svg
-feedback.graph.dailyActivityHoursPlot.example.text=<p><b>(1)</b> In this example, a change in the activity hours can be observed in this area. In the period at <b>(2)</b> you can see that no messages were sent between approximately 8:00 AM and 12:00 PM. Then in the period at <b>(3)</b>, this area of no messages has shifted to the hours between about 2:00 AM and 6:00 AM. This could be due to moving to a different time zone or a change in sleep schedule.</p><p><b>(4)</b> For example, more dark squares can be observed here. Therefore, an above-average number of messages were sent in this period.</p><p><b>(5)</b> Click this icon to download the graph.</p>
+feedback.graph.dailyActivityHoursPlot.example.text=<p><b>(1)</b> У цьому прикладі можна спостерігати зміну годин активності в цьому проміжку. В період <b>(2)</b> Ви можете побачити, що між приблизно 8:00 ранку та 12:00 дня не було надіслано жодного повідомлення. Потім, в період <b>(3)</b>, цей проміжок відсутності повідомлень змістився на години між приблизно 2:00 ночі та 6:00 ранку. Це може бути пов'язано з переїздом в інший часовий пояс або зміною графіка сну.</p><p><b>(4)</b> Наприклад, тут можна спостерігати більше темних квадратів. Отже, в цей період була надіслана кількість повідомлень, яка була вища за середню. </p><p><b>(5)</b> Натисніть на цю іконку, щоб завантажити графік.</p>
 
 
 # dayPartsPlot overall
 
-feedback.graph.dayPartsOverall.description=In this graph, you can see how the words you sent and received are distributed over different parts of the day. You see  averaged values over the entire period of your data donation.
-feedback.graph.dayPartsOverall.legend.sent=Sent words
-feedback.graph.dayPartsOverall.legend.received=Received words
-feedback.graph.dayPartsOverall.yAxis=Percentage of all words
-feedback.graph.dayPartsOverall.xAxis=Four parts of the day
+feedback.graph.dayPartsOverall.description=На цьому графіку Ви можете побачити, як розподіляються надіслані та отримані Вами слова по різних частинах доби. Ви бачите усереднені значення за весь період надання даних.
+feedback.graph.dayPartsOverall.legend.sent=Надіслані слова
+feedback.graph.dayPartsOverall.legend.received=Отримані слова
+feedback.graph.dayPartsOverall.yAxis=Відсоток від загальної кількості слів
+feedback.graph.dayPartsOverall.xAxis=Чотири частини доби
 feedback.graph.dayPartsOverall.example.image=images/feedback_example_dayPartsPlot_english.svg
-feedback.graph.dayPartsOverall.example.text=<p class="text-left"><b>(1)</b> In this example, between midnight and 6:00 AM and between 6:00 AM and noon less than 10% of all words were sent and received. In both of those parts of the day, a few more words were sent than received.</p><p class="text-left"><b>(2)</b> On the other hand, between noon and 6:00 PM a little less than 40% of all words were sent and received.<br> Between 6:00 PM and midnight just under 45% of all words were sent and received. In both of those parts of the day, a few more words were received than sent.</p>
+feedback.graph.dayPartsOverall.example.text=<p class="text-left"><b>(1)</b> У цьому прикладі між північчю й 6:00 ранку та між 6:00 ранку й полуднем було надіслано та отримано менше 10% усіх слів. В обидві ці частини доби було надіслано дещо більше слів, ніж було отримано. </p><p class="text-left"><b>(2)</b> З іншого боку, між полуднем і 6:00 вечора було надіслано та отримано трохи менше 40% усіх слів.<br> Між 6:00 вечора та північчю було надіслано та отримано трохи менше 45% усіх слів. В обидві ці частини доби було отримано дещо більше слів, ніж надіслано.</p>
 
 
 # animatedDayPartsPlot monthly
 
-feedback.graph.dayPartsMonthly.description=Contrary to the graph above, in this graph you can see how the words you sent are distributed over different parts of the day <u>per month</u>.
-feedback.graph.dayPartsMonthly.legend.sent=Sent words
-feedback.graph.dayPartsMonthly.legend.received=Received words
-feedback.graph.dayPartsMonthly.yAxis=Percentage of all words
-feedback.graph.dayPartsMonthly.xAxis=Four parts of the day
+feedback.graph.dayPartsMonthly.description=На відміну від графіка вище, на цьому графіку Ви можете побачити, як Вами  надіслані слова розподіляються по різних частинах доби <u>за місяць</u>.
+feedback.graph.dayPartsMonthly.legend.sent=Надіслані слова
+feedback.graph.dayPartsMonthly.legend.received=Отримані слова
+feedback.graph.dayPartsMonthly.yAxis=Відсоток від загальної кількості слів
+feedback.graph.dayPartsMonthly.xAxis=Чотири частини доби
 
 
 # responseTimesBarChart
 
-feedback.graph.responseTimeBarChart.description=Here you can see how fast you reply to your contacts and vice versa. You see the percentages of all your responses and the replies from your contacts that took place in the specified time. Responses are messages sent directly after a message from someone else. You can see what percentage of your responses you sent or received quicker than after 1 minute, after 1-2 minutes, 3-5 minutes, 6-15 minutes, 16-30 minutes, 31-60 minutes, and slower than 60 minutes. The bar for > 60 minutes includes longer breaks in the conversation. Click <a style="font-weight:bold" href="#responseTimeBarChartExplanation" data-toggle="modal" data-target="#responseTimeBarChartExplanation">HERE</a> to see an explanation with an example.
-feedback.graph.responseTimeBarChart.legend.donor=Your Response Times
-feedback.graph.responseTimeBarChart.legend.friends=Contacts Response Times
-feedback.graph.responseTimeBarChart.yAxis=Percentage of all responses
-feedback.graph.responseTimeBarChart.xAxis=Time until response
+feedback.graph.responseTimeBarChart.description=Тут Ви можете побачити, як швидко Ви відповідаєте своїм контактам - і навпаки. Ви бачите,  який відсоток усіх Ваших відповідей та відповідей Ваших контактів відбулися за вказаний інтервал часу. Це означає, що показується відсоток відповідей, які Ви надіслали або отримали швидше, ніж через 1 хвилину; через 1-2 хвилини; 3-5 хвилин; 6-15 хвилин; 16-30 хвилин; 31-60 хвилин; та повільніше, ніж через 60 хвилин. Стовпчик > 60 хвилин включає довші перерви в розмові. Натисніть <a style="font-weight:bold" href="#responseTimeBarChartExplanation" data-toggle="modal" data-target="#responseTimeBarChartExplanation">ТУТ</a>, щоб переглянути пояснення з прикладом.
+feedback.graph.responseTimeBarChart.legend.donor=Ваш час до відповіді
+feedback.graph.responseTimeBarChart.legend.friends=Час до відповіді Ваших контактів
+feedback.graph.responseTimeBarChart.yAxis=Відсоток від усіх відповідей
+feedback.graph.responseTimeBarChart.xAxis=Час до відповіді
 feedback.graph.responseTimeBarChart.example.image=images/feedback_example_responseTimeBarChart_english.svg
-feedback.graph.responseTimeBarChart.example.text=<p><b>(1)</b> In this example you can see that more than 40% of all replies were sent and received in under a minute. Just under 30% of all replies were sent in 1-2 minutes and just under 30% of all replies were received in 1-2 minutes. I.e. a total of around 70% of all sent replies were sent in less than two minutes and around 70% of all received replies were received in less than two minutes.</p><p><b>(2)</b> Click this icon to download the graph.</p>
+feedback.graph.responseTimeBarChart.example.text=<p><b>(1)</b> У цьому прикладі Ви можете побачити, що понад 40% усіх відповідей були надіслані та отримані менш ніж за хвилину. Трохи менше 30% всіх відповідей були надіслані за 1-2 хвилини й трохи менше 30% всіх відповідей були отримані  за 1-2 хвилини. Тобто загалом, близько 70% всіх надісланих відповідей були надіслані менш ніж за дві хвилини й близько 70% всіх отриманих відповідей були отримані менш ніж за дві хвилини. </p><p><b>(2)</b> Натисніть на цю іконку, щоб завантажити графік.</p>
 
 
 # responseTimeBarChart monthly
 
-feedback.graph.responseTimeBarChartMonthly.description=Here you see <u>per month</u> your response times. So, the figure shows the percentage of responses (i.e. a message that you sent after a message from a contact) that took place in the specified amount of time. You can see what percentage of your responses you sent quicker than after 1 minute, after 1-2 minutes, 3-5 minutes, 6-15 minutes, 16-30 minutes, 31-60 minutes, and slower than 60 minutes. The bar for > 60 minutes includes longer breaks in the conversation.
-feedback.graph.responseTimeBarChartMonthly.legend.donor=Your Response Times
-feedback.graph.responseTimeBarChartMonthly.legend.friends=Contacts Response Times
-feedback.graph.responseTimeBarChartMonthly.yAxis=Percentage of all responses
-feedback.graph.responseTimeBarChartMonthly.xAxis=Time until response
+feedback.graph.responseTimeBarChartMonthly.description=Тут Ви бачите час до Ваших відповідей <u>за місяць</u>. Отже, на графіку показано відсоток Ваших відповідей (тобто повідомлення, які Ви відправили після повідомлення від контакту), які відбулися за вказаний інтервал часу. Ви можете побачити, який відсоток Ваших відповідей Ви надіслали швидше, ніж через 1 хвилину; через 1-2 хвилини; 3-5 хвилин; 6-15 хвилин; 16-30 хвилин; 31-60 хвилин; та повільніше, ніж через 60 хвилин. Стовпчик > 60 хвилин включає довші перерви в розмові.
+feedback.graph.responseTimeBarChartMonthly.legend.donor=Ваш час до відповіді
+feedback.graph.responseTimeBarChartMonthly.legend.friends=Час до відповіді Ваших контактів
+feedback.graph.responseTimeBarChartMonthly.yAxis=Відсоток від усіх відповідей
+feedback.graph.responseTimeBarChartMonthly.xAxis=Час до відповіді
 
 
 # breaksInConv plot
 
-feedback.graph.breaksInConv.description=This graph shows for the selected chat per month the longest consecutive period in days, in which no message was written in this chat. Click <a style="font-weight:bold" href="#breaksInConvExplanationModal" data-dismiss="modal" data-toggle="modal" data-target="#breaksInConvExplanationModal">HERE</a> to see an explanation with an example.
-feedback.graph.breaksInConv.yAxis=Longest period in days without a message
-feedback.graph.breaksInConv.days=Day/s
+feedback.graph.breaksInConv.description=Цей графік показує найдовший період часу в днях за місяць, протягом якого у вибраному чаті не було написано жодного повідомлення. Натисніть <a style="font-weight:bold" href="#breaksInConvExplanationModal" data-dismiss="modal" data-toggle="modal" data-target="#breaksInConvExplanationModal">ТУТ</a>, щоб переглянути пояснення з прикладом.
+feedback.graph.breaksInConv.yAxis=Найдовший період без повідомлень в днях
+feedback.graph.breaksInConv.days=День/Дні
 feedback.graph.breaksInConv.example.image=images/feedback_example_breaksInConv_english.svg
-feedback.graph.breaksInConv.example.text=<p class="text-left"><b>(1)</b> In this example, in the on the top left selected chat, the longest periods without contact in this first period were mostly under 5 days. For example, in January 2019 (the first month), the length of the longest period without a message is less than 5 days. I.e. in that month, there was no time in the chat when not a single message was written for more than 5 days.</p><p class="text-left"><b>(2)</b> In contrast to (1), the lengths of the conversation pauses are already significantly longer in this area. In some months the longest period without a message is about 10 days. In two months in this time period, there was no activity in this chat for almost 20 days straight.</p><p class="text-left"><b>(3)</b> A dot is visible here, showing that there was not a single message in the selected chat for the whole of July 2021.</p><p class="text-left"><b>(4)</b> Click this icon to download the graph.</p>
+feedback.graph.breaksInConv.example.text=<p class="text-left"><b>(1)</b> У цьому прикладі в чаті, який був вибраний у верхньому лівому куті, найдовший період відсутності спілкування в цей перший період був переважно менше 5 днів. Наприклад, у січні 2019 року (перший місяць) тривалість найдовшого періоду без повідомлень - менше 5 днів.</p><p class="text-left"><b>(2)</b> На відміну від (1), тривалість перерв у розмовах у цьому сегменті вже значно більша. У деякі місяці найдовший період без повідомлень - близько 10 днів. За два місяці в цьому проміжку часу в чаті не було жодного спілкування майже 20 днів підряд..</p><p class="text-left"><b>(3)</b> Тут видно крапку, яка показує, що за весь липень 2021 року у вибраному чаті не було жодного повідомлення.</p><p class="text-left"><b>(4)</b> Натисніть на цю іконку, щоб завантажити графік.</p>
 
 
 
 
 # provided by Astrid
 
-feedback.graph.loading=Loading graph...
-feedback.buttons.complete-survey.caption=Complete questionnaires
+feedback.graph.loading=Графік завантажується …
+feedback.buttons.complete-survey.caption=Заповнити анкети
 
 
 # data protection page
 
 
 
-data-protection.title=Data protection
+data-protection.title=Захист даних
 
 
-data-protection.technical-details.title=Data Protection Notice - Anonymous usage of website
-data-protection.technical-details.body1=During the access and use of the website, no private information will be saved. If you access our website, your browser will transmit your IP address to our server in order to establish communication via the Internet. Your IP address will be saved but modified in order to eliminate any chance of identification.
-data-protection.technical-details.body2=When calling up our website the following technical data will be transmitted: Name of accessed file; date and time of visit; transmitted data volume; notification whether the transfer was successful; web address, from which the data was accessed (Referrer URL); operating system as well as browser type (User Agent string); IP address (will only be saved in modified form)
-data-protection.technical-details.body3=At the end of your session, i.e. after leaving our website or upon closing your browser, this information is automatically deleted and will not be saved (e.g. in log files)
-data-protection.technical-details.body4=This website uses cookies in order to allow technical functionality and a smooth user experience. Cookies are small text files with information about the use of specific services, such as ours, which are stored on your device locally if you give permission through your browser settings. Cookies cannot execute programs or transmit viruses. This website is only using session cookies, which save information during the ongoing session but are deleted once the session finishes. No identification of your person is possible through these cookies.
+data-protection.technical-details.title=Повідомлення про захист даних - Анонімне користування веб-сайтом
+data-protection.technical-details.body1=При доступі та користуванні веб-сайтом ніяка персональна інформація не зберігається. У рамках користування нашим веб-сайтом, Ваш браузер передаватиме Вашу IP-адресу на наш сервер для встановлення зв'язку через інтернет. Ваша IP-адреса зберігається, але лише у зміненому вигляді, аби Вас не можна було за нею ідентифікувати.
+data-protection.technical-details.body2=При відвідуванні нашого веб-сайту передаються наступні технічні дані: назва файлу, до якого здійснюється доступ; дата й час відвідування; обсяг переданих даних; повідомлення про успішність передачі; веб-адреса, з якої здійснюється доступ до даних (URL-адреса перенаправлення); операційна система та браузер (рядок агента користувача); IP-адреса (зберігається лише у зміненому вигляді).
+data-protection.technical-details.body3=В кінці сеансу, тобто після виходу з нашого веб-сайту або закриття браузера, ця інформація автоматично видаляється і не зберігається (наприклад, у файлах журналів / лог-файлах).
+data-protection.technical-details.body4=Цей веб-сайт використовує файли cookie для забезпечення технічної функціональності та безпроблемного користування. Файли cookie - це невеликі текстові файли з інформацією про використання певних сервісів, таких як наш, які зберігаються на Вашому пристрої локально, якщо Ви даєте на це дозвіл у налаштуваннях браузера. Файли cookie не можуть виконувати програми або передавати віруси. Цей веб-сайт використовує лише сесійні файли cookie, які зберігають інформацію під час триваючого сеансу, але видаляються після його закінчення. За допомогою цих файлів cookie неможливо ідентифікувати Вас.
 
 
-data-protection.participation.title=Data Protection Notice - Participation in the study
+data-protection.participation.title=Повідомлення про захист даних - Участь у дослідженні
 # now get basically all the text from the consent page...
 
-data-protection.participation.usage.title=Usage of data
-data-protection.participation.usage.body=The data and results of these surveys will be published in scientific journals. The published data will be anonymous, meaning that it cannot be associated with individuals. The fully anonymized data will be uploaded to a research data repository and qualified scientists will be granted access.
+data-protection.participation.usage.title=Використання даних
+data-protection.participation.usage.body=Дані та результати цього дослідження будуть опубліковані в наукових журналах. Опубліковані дані будуть анонімними, тобто не можуть бути пов'язані з конкретними особами. Повністю анонімізовані дані будуть завантажені до сховища дослідницьких даних, доступ до якого отримають кваліфіковані науковці.
 
 
 # Text appearing on multiple pages
 
 
 
-language.current=UKR
+language.current=УКР
 language.options.ger=Deutsch
 language.options.eng=English
 language.options.am=Հայերեն
-language.options.rus=Russian #adapt to Russian
-language.options.ukr=Ukrainian #adapt to Ukrainian
+language.options.rus=Русский
+language.options.ukr=Українська
 
 
-footer.title=Do you have your data ready?
-footer.projectNumber=Project No.: 01IS20046
+footer.title=Ваші дані вже готові?
+footer.projectNumber=Проект № 01IS20046
 
 
-browser-warning.text=You are using an unsupported browser. The page may not appear or work correctly as a result. Please use the latest version of Chrome or Firefox to view this page.
+browser-warning.text=Ви використовуєте браузер, який не підтримується. Можливо, сторінка не відображатиметься або працюватиме некоректно. Будь ласка, використовуйте останню версію Chrome або Firefox для перегляду цієї сторінки.
 
 
-reportProblem.button=Report Problem
-reportProblem.next=Continue
+reportProblem.button=Повідомити про проблему
+reportProblem.next=Далі
 reportProblem.image=images/problemReport_eng.png
-reportProblem.title=Problem Report and Suggestions
-reportProblem.body=If you encounter a problem while using our application or you have other recommendations and feedback for us, please use the "Report Problem" button at the top right of the page. We are continuously working to improve the application.<br> Thank you!
+reportProblem.title=Звіт про проблему та пропозиції
+reportProblem.body=Якщо Ви натрапили на проблему, користуючись нашим веб-сайтом або якщо Ви бажаєте поділитися пропозиціями чи відгуком, будь ласка, натисніть кнопку "Повідомити про проблему" у верхньому правому куті сторінки. Ми постійно працюємо над покращенням програми.<br> Дякуємо!
 
 
-data-storage.body1_html=<em>Data Donation: </em>When donating your interaction data, we extract metadata (e.g. length and timestamp of message as well as pseudonyms of conversation participants) and no actual contents (e.g. message text or name of message sender). To ensure that, we anonymize your data client-side, meaning that your private data is anonymized locally and does not leave your device. This means that we will never see the content of your conversations. Before uploading, we will show you a preview of the data so that you can verify it is sufficiently anonymous.
-data-storage.body2_html=<em>Questionnaires: </em>You first fill out questionnaires about your demographic information. You can then carry out the data donation and receive feedback. Questionnaire data is also collected completely anonymously using <a target="_blank" href="https://www.limesurvey.org/support/faq/39-data-protection-and-policy">LimeSurvey</a>.
+help.button=Отримати допомогу
+
+
+data-storage.body1_html=<em>Пожертва даних: </em>Якщо Ви надаєте нам Ваші дані щодо онлайн-спілкування, ми отримуємо з них лише метадані (тобто довжину й мітку часу повідомлення та псевдоніми учасників чату), але не отримуємо ніякий вміст (наприклад, текст повідомлення або справжнє ім'я відправника повідомлення). Ми досягаємо цього шляхом анонімізації даних на стороні користувача: Ваші особисті дані анонімізуються локально на Вашому пристрої і ніколи не залишають його, що гарантує, що ми не зможемо дізнатися зміст ваших розмов. Дані, які ми отримуватимемо, Ви зможете ще раз переглянути перед їх фінальним завантаженням, щоб переконатися, що вони в достатній мірі анонімізовані.
+data-storage.body2_html=<strong><em>Анкети: </strong></em>Спочатку Ви заповните декілька анкет про Ваші соціально-демографічні характеристики; Ваше використання сервісів обміну повідомленнями; ситуації, з якими Ви могли стикатися під час війни; психологічне благополуччя; та анкети про відчуття соціальної підтримки та самотності. Після цього Ви можете здійснити пожертвування даних і отримаєте аналітику щодо Вашого онлайн-спілкування. Дані анкети збираються повністю анонімно за допомогою платформи <a target="_blank" href="https://www.limesurvey.org/uk">LimeSurvey</a>.
 
 
 
 
-links.learn-more=Learn more
-links.instructions=Start
-links.donation-info=Donate data
-links.donate=Yes, participate now
-links.data-protection=Data Protection
-links.imprint=Imprint
+links.learn-more=Дізнатися більше
+links.instructions=Почати
+links.donation-info=Пожертвувати дані
+links.donate=Так, взяти участь зараз
+links.data-protection=Захист даних
+links.imprint=Вихідні дані
 links.reportProblem=https://survey.mbp.tf.uni-bielefeld.de/index.php?r=survey/index&sid=486423&lang=en
 
 
-yes=Yes
-no=No
+yes=Так
+no=Ні
 
 
-actions.previous=Back
-actions.next=Continue
+actions.previous=Назад
+actions.next=Далі
 
 
 # Data source specific text
 
 
 
-whatsapp.instructions.p1.title=What type of device should I use?
-whatsapp.instructions.p1.body=You need your smartphone, on which you use WhatsApp. Please make sure that you are storing the data on a device that no one but you has access to.
-whatsapp.instructions.p2.title=Which chats should I choose?
-whatsapp.instructions.p2.body=From time to time most people discuss important matters with others and we need people we can rely on for help. They may be family, friends, or people who have really helped you - <b>we are interested in the chats with the people you are most likely to talk to about really important things in your life.</b> <br> <br><b>Please select 5-7 chats with people with whom you discuss important things in your life (group chats are also possible).</b>
-whatsapp.instructions.p3.title=How can I delete my data from my device?
-whatsapp.instructions.p3.body=We strongly recommend that you delete your original data (chat files) from your device and from your e-mail system (inbox and sent) after completing the donation. Note that simply deleting the files may not be enough to permanently remove the data from your device. Further information on the permanent deletion of files can be found <a target="_blank" href="https://safecomputing.umich.edu/protect-yourself/prepare-devices-disposal/securely-delete-files">on the website of the University of Michigan</a>.
-
-
-whatsapp.description_html=<i>Note: The chat export function is not supported by all WhatsApp versions! <strong> Exporting and saving WhatsApp data does not work with the WhatsApp web version. Also, on different Android versions, you may not be able to store your data locally on your device.</i></strong> <br><br>From time to time, most people discuss important matters with other people, and we need people we can depend on for help. These can be family, friends, or people who have been really helpful to you – what we are interested in are the ones that you are most likely to talk about really important matters in your life. <br><br>Please choose <strong>5</strong> chats with people with whom you discuss important matters in your life (group chats are possible too). Please bear in mind that the chats can only be downloaded one after the other. Multiple selection of chats is currently not supported.
-whatsapp.external-documentation_html=The official documentation on how to download your data can be found here for <a target="_blank" href="https://faq.whatsapp.com/618575946635920/?cms_platform=iphone&helpref=platform_switcher" target="_blank">iOS</a> or <a target="_blank" href="https://faq.whatsapp.com/en/android/23756533" target="_blank">Android</a>.
-
-
-#Download and Donation procedure: whatsapp
-
-whatsapp.donation-procedure.1=Open WhatsApp on your smartphone.
-whatsapp.donation-procedure.2=Think about which five chats are most relevant to you (e.g. close friend, partner).
-whatsapp.donation-procedure.3=Pick one of the selected chats and open it.
-whatsapp.donation-procedure.4=Click on the contact's name in the top center.
-whatsapp.donation-procedure.5=Scroll down and click on "Export chat". A window will open. Select "WITHOUT MEDIA".
-whatsapp.donation-procedure.6=Select "Mail" (envelope) and send the mail with the attached chat file to yourself. Please only send from/to a secure mail service (e.g. university mail address). Alternatively, you can send the files to your computer via Bluetooth or Airdrop.
-whatsapp.donation-procedure.7=Download the chat file from the email to your computer.
-whatsapp.donation-procedure.8=Repeat the steps 3-7 for all chats.
-whatsapp.instruction.gif=whatsapp_eng.mp4
-whatsapp.instruction.gifiOS=whatsapp_eng_iOS.mp4
-whatsapp.instruction.gifAndroid=whatsapp_eng_android.mp4
-whatsapp.instruction.gif.subtitle.iOS=This is the chat export process on an iPhone.
-whatsapp.instruction.gif.subtitle.android=This is the chat export process on an Android device. The process may vary on different devices.
-whatsapp.logo=w-logo.svg
-
-
-facebook.instructions.p1.title=What type of device should I use?
-facebook.instructions.p1.body=Please make sure that you are storing the data on a device that no one but you has access to. Because the amount of data for Facebook data donations can be quite large, we recommend using a computer.
-facebook.instructions.p2.title=How long does the data export from Facebook take?
-facebook.instructions.p2.body=The data is requested with just a few clicks on Facebook (see the instructions below). You will receive a notification from Facebook as soon as the data is available for download and can then start participating in the study.
-facebook.instructions.p3.title=How can I delete my data from my device?
-facebook.instructions.p3.body=We strongly recommend that you delete your original data after completing the donation. Note that simply deleting the files may not be enough to permanently remove the data from your device. Further information on the permanent deletion of files can for example be found <a target="_blank" href="https://safecomputing.umich.edu/protect-yourself/prepare-devices-disposal/securely-delete-files">on the website of the University of Michigan</a> or <a target="_blank" href="https://wethegeek.com/best-file-data-shredder-apps-to-permanently-delete-data-from-android/">wethegeek.com</a> and <a target="_blank" href="https://appletoolbox.com/how-to-delete-files-permanently-from-the-files-app-on-iphone-and-ipad/">appletoolbox.com</a>.
+facebook.instructions.p1.title=Який тип пристрою краще використовувати?
+facebook.instructions.p1.body=Будь ласка, переконайтеся, що Ви зберігаєте дані на пристрої, до якого ніхто, крім Вас, не має доступу. Оскільки обсяг Ваших даних для пожертвування може бути досить великим, ми рекомендуємо використовувати комп'ютер.
+facebook.instructions.p2.title=Скільки часу займає експорт даних з Facebook?
+facebook.instructions.p2.body=Для запиту даних достатньо лише кількох кліків на Facebook (див. інструкцію нижче). Ви отримаєте повідомлення від Facebook, як тільки дані будуть доступні для завантаження, після чого зможете розпочати участь у дослідженні.
+facebook.instructions.p3.title=Як видалити свої дані з пристрою?
+facebook.instructions.p3.body=Ми настійно рекомендуємо видалити Ваші дані після завершення пожертвування. Зверніть увагу, що простого видалення файлів може бути недостатньо для остаточного видалення даних з Вашого пристрою - тобто повного видалення файлів без можливості відновлення. Додаткову інформацію про остаточне видалення файлів можна знайти, наприклад, <a target="_blank" href="https://safecomputing.umich.edu/protect-yourself/prepare-devices-disposal/securely-delete-files">на веб-сайті Мічиганського університету (англійською мовою)</a> чи <a target="_blank" href="https://wethegeek.com/best-file-data-shredder-apps-to-permanently-delete-data-from-android/">wethegeek.com (англійською мовою)</a> та <a target="_blank" href="https://appletoolbox.com/how-to-delete-files-permanently-from-the-files-app-on-iphone-and-ipad/">appletoolbox.com (англійською мовою)</a>. Ви також можете дізнатися більше про це українською мовою на цьому <a target="_blank" href="https://cip.gov.ua/ua/news/yak-pravilno-vidalyati-faili">державному сайті України</a>, на сторінцi <a target="_blank" href="http://uk.wondershare.com/recover-data/permanently-delete-files-from-windows-and-mac.html">Wondershare</a> чи у додатку <a target="_blank" href="https://play.google.com/store/apps/details?id=com.palmtronix.shreddit.v1&hl=uk&gl=US&pli=1">Shreddit</a> (Android). Ви також самі можете запустити пошук за ключовими словами «надійне видалення файлів»; «безпечне видалення»; «файловий шредер».
 
 
 
 
-facebook.description_html=Make a request to Facebook to download your Facebook data. You will receive a notification from Facebook once the data is available for download and can then start participating in the study. <strong>We recommend using a computer if donating from Facebook as the data size may be relatively large.</strong>
-facebook.external-documentation_html=The official documentation on how to download your data can be found <a target="_blank" href="https://www.facebook.com/help/contact/2032834846972583" target="_blank">here</a>.
+facebook.description_html=Надішліть запит до Facebook на завантаження Вашої інформації з Facebook. Ви отримаєте повідомлення від Facebook, як тільки дані будуть доступні для завантаження, після чого зможете розпочати участь у дослідженні. <strong>Ми рекомендуємо використовувати комп'ютер, якщо Ви надаєте дані з Facebook, оскільки їхній розмір може бути досить великим.</strong>
+facebook.external-documentation_html=Офіційні інструкції щодо завантаження даних можна знайти  <a target="_blank" href="https://www.facebook.com/help/212802592074644">тут</a>.
 
 
 #Download and Donation procedure: Facebook
 
-facebook.donation-procedure.1=Open Facebook and log in.
-facebook.donation-procedure.2=In the top right corner, click on the “Your Profile” button and Select “Settings and privacy”.
-facebook.donation-procedure.3=Select “Settings”. Then select "Your Facebook information" in the navigation bar on the left.
-facebook.donation-procedure.4=On the "Your Facebook information" page click on "Download your information". A pop-up appears.
-facebook.donation-procedure.5=Click on “Request a download”. Then choose “Select types of information”.
-facebook.donation-procedure.6=In the interest of data minimization, please first deselect all categories. Then, tick the fields “Messages” and "Profile information". Then click “Next”.
-facebook.donation-procedure.7=Pick a date range: We encourage you to <b>request the data for 1 year</b> but a shorter time span is possible as well.
-facebook.donation-procedure.8=Change the format from HTML to JSON. Then change the media quality from “Medium” to “Low”.
-facebook.donation-procedure.9=Click on "Submit Request". As soon as the file is ready for download, you will receive a notification from Facebook. This may take a while.
-facebook.donation-procedure.10=Scroll back up and click on the "Available Files" tab. There you should see the requested file and can download is as soon it is ready.
-facebook.instruction.gif=facebook_ukr.mp4
+facebook.donation-procedure.1=Відкрийте Facebook і увійдіть в систему.
+facebook.donation-procedure.2=Натисніть «обліковий запис» (основну світлину) у правому верхньому куті сторінки, а потім – «Налаштування та конфіденційність». Натисніть «Налаштування».
+facebook.donation-procedure.3=У верхній частині бічної панелі зліва натисніть «Центр облікових записів».
+facebook.donation-procedure.4=Оберіть «Ваша інформація та дозволи» і натисніть «Завантаження вашої інформації» (має з'явитися спливаюче вікно).
+facebook.donation-procedure.5=Натисніть «Надіслати запит» і виберіть лише профіль у Facebook (якщо ваш профіль Instagram також з'являється у списку зверху, зніміть позначку з нього). Не вибирайте повну копію даних, а натисніть «Певні типи інформації».
+facebook.donation-procedure.6=Нам потрібні не всі, а лише деякі конкретні типи Ваших даних: Відмітьте поля поряд із пунктами «Повідомлення» в розділі «Ваша активність у Facebook» та «Інформація в профілі» в розділі «Особиста інформація». Натисніть «Далі».
+facebook.donation-procedure.7=Натисніть на «Діапазон дат» і виберіть «Змінити» поруч із «Налаштувати». Будь ласка, встановіть дату початку на <b>01.02.2021</b> та дату завершення на <b>31.01.2024</b>. Потім натисніть кнопку «Зберегти».
+facebook.donation-procedure.8=Змініть формат з HTML на JSON  та якість медіафайлу з «Середня» на «Низька».
+facebook.donation-procedure.9=Натисніть «Надіслати запит». Коли Ваш файл буде готовий до завантаження на мобільний пристрій або комп'ютер, Ви отримаєте повідомлення електронним листом від Facebook. Це може зайняти деякий час (до 48 годин).
+facebook.donation-procedure.10=Їх можна буде завантажити зі сторінки «Завантаження вашої інформації». Коли Ваш файл буде готовий, ви матимете 4 дні на те, щоб завантажити інформацію з цієї сторінки.
+facebook.instruction.gif=facebook_eng.mp4
 facebook.logo=f-logo.svg
 
 
 # Imprint
 
-imprint.title=Imprint
-imprint.imprint=Universität Bielefeld<br>Universitätsstrasse 25<br>D-33615 Bielefeld<p>National (0521) 106-00<br>International ++49 521 106-00</p><p>Telefax national (0521) 106-5844<br>Telefax international +49 521 106-5844</p><p>Prefix for the University: 0521-106-...</p><p>E-Mail: post@uni-bielefeld.de<br>Internet: <a href="https://www.uni-bielefeld.de" target="_blank">www.uni-bielefeld.de</a><p>Bielefeld University is a state-supported institution bound to public law. It is officially represented by the Rektor, Prof. Dr. Ing. Gerhard Sagerer.</p>
-imprint.rsa.title=Responsible supervisory authorities
-imprint.rsa.body=Ministry of Culture and Science in North Rhine-Westphalia<br>Völklinger Straße 49<br>40221 Düsseldorf<p><strong>Value Added Tax identification number</strong><br>Pursuant to § 27 a, VAT ID: DE811307718 - according to paragraph 27 a - Finanzamt (tax office) Bielefeld Innenstadt</p>
-imprint.responsibleDona.title=Responsibility for Content of the Donation Platform Dona
-imprint.responsibleDona.body=Prof. Dr. Hanna Drimalla<br>Leiterin der AG "Multimodal Behavior Processing"<br>E-mail: drimalla@techfak.uni-bielefeld.de<br><a href="https://www.uni-bielefeld.de/fakultaeten/technische-fakultaet/arbeitsgruppen/multimodal-behavior-processing/" target="_blank">Homepage</a><br>Telephone: +49 521 106-12043<br>Telephone secretary: +49 521 106-6891<br>Room: CITEC-3.108
-imprint.responsibleCentralWebsite.title=Responsibility for Content of the Central Websites
-imprint.responsibleCentralWebsite.body=<p>Referat für Kommunikation<br> Ingo Lohuis<br>ingo.lohuis@uni-bielefeld.de</p><p>Responsibility for the content of all other Internet pages (e.g. the faculties, institutes, seminars or administrative offices) lies with the facility or author who produced or published the pages. If you have any questions about these webpages, please contact the individuals or facility/office named on the Internet page.</p><p>There are also various decentralized services on their own servers that do not belong to the domain "www.uni-bielefeld.de". These are all the responsibility of their specific operators.</p><p>URLs beginning with "http://wwwhomes.uni-bielefeld.de" lead to private or personal web pages of members of Bielefeld University. The University has no influence on their contents, and these in no way represent any official publication of Bielefeld University.</p>
-imprint.liabilityDisclaimer.title=Liability Disclaimer
-imprint.liabilityDisclaimer.body=While Bielefeld University makes every effort to ensure that the contents of its website are correct, up-to-date, and without omissions, it cannot accept liability for the accuracy and quality of its website at any given time.</p><p>The website provides hyperlinks to other external websites. The authors and distributors of these sites are responsible for their content. Bielefeld University is not liable for the content of external websites and has no influence on the content of external links. Despite carefully checking the contents when linking to external websites, the University has no liability for the content of external links. The University distances itself expressly from the content of external websites, nor does it endorse it. Course offers and services from the University are not offered on external websites.</p>
-imprint.copyright.title=Copyright
-imprint.copyright.body=The copyright and usage rights for texts, graphics, photos, design and source code lie - unless otherwise stated - with Bielefeld University. Permission is needed to distribute, use or pass on copies in digital or printed form. This does not affect "copying" the data on to a personal computer to view pages on a browser.
-imprint.photoCredits.title=Photo Credits
-imprint.photoCredits.body=All photographs remain - unless otherwise stated - copyright of Bielefeld University.
+imprint.title=Вихідні дані
+imprint.imprint=Адреса Білефедського університету:<br>Universität Bielefeld <br>Universitätsstrasse 25<br>D-33615 Bielefeld<br>Телефон: +49 521 106-00</p><p>Факс: +49 521 106-5844</p><p>Телефонний код університету: +49 521 106-…</p><p>Електронна пошта: post@uni-bielefeld.de<br>Веб-сайт:  <a href="https://www.uni-bielefeld.de" target="_blank">www.uni-bielefeld.de</a><p>Білефельдський університет - це державна установа, що діє на основі публічного права. Його офіційно представляє ректор, Prof. Dr. Angelika Epple (Анґеліка Еппле).</p>
+imprint.rsa.title=Відповідальні наглядові органи
+imprint.rsa.body=Ministerium für Kultur und Wissenschaft des Landes Nordrhein-Westfalen (Міністерство культури й науки землі Північний Рейн-Вестфалія)<br>Völklinger Straße 49<br>40221 Düsseldorf<p><strong>ІПН платника ПДВ</strong><br>Відповідно до §27a ІПН платника ПДВ: DE811307718 - відповідно до §27а податкової служби міста Білефельд (Finanzamt Bielefeld Innenstadt)</p>
+imprint.responsibleDona.title=Відповідальність за зміст платформи пожертв «Dona»
+imprint.responsibleDona.body=Prof. Dr. Hanna Drimalla (Ганна Дрімалла)<br>, Керівниця робочої групи "Multimodal Behavior Processing" (Мультимодальна обробка поведінки)<br>Електронна пошта: drimalla@techfak.uni-bielefeld.de<br><a href="https://www.uni-bielefeld.de/fakultaeten/technische-fakultaet/arbeitsgruppen/multimodal-behavior-processing/" target="_blank">Веб-сайт</a><br>Телефон: +49 521 106-12043<br>Телефон секретарської служби: +49 521 106-6891<br>Кімната: CITEC-3.108
+imprint.responsibleCentralWebsite.title=Відповідальність за зміст центральних веб-сайтів
+imprint.responsibleCentralWebsite.body=<p>Відділ комунікації<br> Ingo Lohuis (Інґо Логуїс)<br>ingo.lohuis@uni-bielefeld.de</p><p>Відповідальність за зміст усіх інших веб-сайтів (наприклад, факультетів, інститутів, семінарів або адміністративних офісів) несе установа або автор, який створив або опублікував ці сторінки. Якщо у Вас є питання щодо цих веб-сайтів, будь ласка, зв'яжіться з особами або установою/офісом, зазначеними на веб-сайті.</p><p>Існують також різні децентралізовані сервіси на власних серверах, які не належать до домену "www.uni-bielefeld.de". За все це відповідають їхні конкретні власники.</p><p>URL-адреси, що починаються з "http://wwwhomes.uni-bielefeld.de", ведуть на приватні або особисті веб-сайти співробітників Білефельдського університету. Університет не має жодного впливу на їхній зміст, і вони жодним чином не є офіційною публікацією Білефельдського університету.</p>
+imprint.liabilityDisclaimer.title=Відмова від відповідальності (Дисклеймер)
+imprint.liabilityDisclaimer.body=Хоча Білефельдський університет докладає всіх зусиль для того, щоб зміст його веб-сайту був правильним, актуальним і не містив пропусків, він не може нести відповідальність за точність та якість свого веб-сайту в будь-який момент.</p><p>Цей веб-сайт містить гіперпосилання на інші зовнішні веб-сайти. Автори та власники цих веб-сайтів несуть відповідальність за їхній зміст. Білефельдський університет не несе жодної відповідальності за зміст зовнішніх веб-сайтів і не має жодного впливу на зміст зовнішніх посилань. Незважаючи на ретельну перевірку змісту при розміщенні зовнішніх посилань, університет не несе відповідальності за зміст зовнішніх посилань. Університет чітко дистанціюється від змісту зовнішніх веб-сайтів і не підтримує його. Курси та послуги університету не пропонуються на зовнішніх веб-сайтах.</p>
+imprint.copyright.title=Авторське право
+imprint.copyright.body=Авторські права та права на використання текстів, графіків, світлин, дизайна та початкового коду належать Білефельдському університету,  якщо не вказано інше. Поширення, використання та копіювання в цифровому або друкованому вигляді без дозволу заборонено. Це не стосується "копіювання" даних на персональний комп'ютер для перегляду сторінок у браузері.
+imprint.photoCredits.title=Авторське право на світлини
+imprint.photoCredits.body=Авторські права на всі світлини належать Білефельдському університету, якщо не вказано інше.

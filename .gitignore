@@ -287,3 +287,4 @@ conf/target
 conf/local.conf
 /.bsp/
 /null/
+.metals/
