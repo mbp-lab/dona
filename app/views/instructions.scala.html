@@ -71,18 +71,6 @@
                         <img src="@routes.Assets.at(s"images/dataSourceImages/${dataSourceDescription.illustration.get}")" width="400px"></img>
                     }
 
-                    <h4 class="serif-text mt-4">
-                    @messages("instructions.download-procedure.title")
-                    </h4>
-
-                    <div class="serif-text text-left mb-3">
-                        <ol>
-                        @for(procedureStep <- dataSourceDescription.dataDownloadSteps) {
-                            <li><p>@Html(procedureStep)</p></li>
-                        }
-                        </ol>
-                    </div>
-
 
                     <p class="serif-text">
                     @Html(dataSourceDescription.documentation)
