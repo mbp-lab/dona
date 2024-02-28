@@ -16,6 +16,8 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
     const legendOthers = plotContainer.attr("data-legend-others");
     const yearMonth = plotContainer.attr("data-description-yearMonth");
     const resetView = plotContainer.attr("data-reset-view");
+    const start = plotContainer.attr("data-start");
+    const pause = plotContainer.attr("data-pause");
 
     let config = {
         responsive: true,
@@ -135,7 +137,7 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
                                 frame: {duration: 300, redraw: true}
                             }
                         ],
-                        label: "Start"
+                        label: start
                     },
                     {
                         method: 'animate',
@@ -144,7 +146,7 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
                             transition: {duration: 0},
                             frame: {duration: 0, redraw: true}
                         }],
-                        label: 'Pause'
+                        label: pause
                     }
                 ]
             }

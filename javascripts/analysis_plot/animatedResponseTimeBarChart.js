@@ -47,6 +47,8 @@ function animatedResponseTimeBarChart(responseTimes, plotId) {
     const legendDonor = plotContainer.attr("data-legend-donor");
     const legendFriends = plotContainer.attr("data-legend-friends");
     const yearMonth = plotContainer.attr("data-description-yearMonth");
+    const start = plotContainer.attr("data-start");
+    const pause = plotContainer.attr("data-pause");
 
     let config = {
         responsive: true,
@@ -116,7 +118,7 @@ function animatedResponseTimeBarChart(responseTimes, plotId) {
                                 frame: {duration: 300, redraw: false}
                             }
                         ],
-                        label: "Start"
+                        label: start
                     },
                     {
                         method: 'animate',
@@ -125,7 +127,7 @@ function animatedResponseTimeBarChart(responseTimes, plotId) {
                             transition: {duration: 0},
                             frame: {duration: 0, redraw: false}
                         }],
-                        label: 'Pause'
+                        label: pause
                     }
                 ]
             }

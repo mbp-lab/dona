@@ -10,6 +10,8 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
     const xAxis = plotContainer.attr("data-x-axis");
     const sent = plotContainer.attr("data-sent-trace-name");
     const yearMonth = plotContainer.attr("data-description-yearMonth");
+    const start = plotContainer.attr("data-start");
+    const pause = plotContainer.attr("data-pause");
 
     let config = {
         responsive: true,
@@ -74,7 +76,7 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
                                 frame: {duration: 300, redraw: false}
                             }
                         ],
-                        label: "Start"
+                        label: start
                     },
                     {
                         method: 'animate',
@@ -83,7 +85,7 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
                             transition: {duration: 0},
                             frame: {duration: 0, redraw: false}
                         }],
-                        label: 'Pause'
+                        label: pause
                     }
                 ]
             }
