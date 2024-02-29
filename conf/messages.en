@@ -135,7 +135,7 @@ consent.confirmation=I hereby confirm that I have read and understood the inform
 
 consent.buttons.agree.caption=Agree
 consent.buttons.close.caption=Close
-informedConsent.pdf=informedConsents/InformedConsent_eng.pdf
+informedConsent.pdf=informedConsents/InformedConsent_en.pdf
 
 # Donation page
 
