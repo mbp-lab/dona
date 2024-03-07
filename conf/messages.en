@@ -88,11 +88,11 @@ donation-info.storage=<strong> Storage: </strong>Only anonymized and reduced dat
 psychHelp.title=Contact Information for emergency psychological counselling
 
 psychHelp.info=All these numbers and consultations are free and anonymous. Please do not hesitate to reach out to them if you feel mentally unwell. All numbers and online-chats are available at all times of the day and year-round unless stated otherwise.
-psychHelp.german=Psychological help line (help available only in German) <br /> &middot; 0800 111 0 111 or 0800 111 0 222 <br /> &middot; chat on <a target="_blank" href="https://www.telefonseelsorge.de/">www.telefonseelsorge.de</a>
-psychHelp.women=Psychological help line for women (help available in Ukrainian, English and German): <br /> &middot; 116 016 <br /> &middot; Chat on <a target="_blank" href="https://www.hilfetelefon.de/">www.hilfetelefon.de</a>
-psychHelp.young=Psychosocial counselling via text or WhatsApp for children and adolescents under 26 (available in German, Ukrainian and Russian) <br /> &middot; +49 1573 5993126 (text or WhatsApp) -> via text phone charges may apply
+psychHelp.german=Psychological help line "Telefonseelsorge" (help available only in German) <br /> &middot; 0800 111 0 111 or 0800 111 0 222 <br /> &middot; chat on <a target="_blank" href="https://www.telefonseelsorge.de/">www.telefonseelsorge.de</a>
+psychHelp.women=Psychological help line for women "Das Hilfetelefon" (help available in Ukrainian, English and German): <br /> &middot; 116 016 <br /> &middot; Chat on <a target="_blank" href="https://www.hilfetelefon.de/">www.hilfetelefon.de</a>
+psychHelp.young="Krisenchat Ukrainian" Psychosocial counselling via text or WhatsApp for children and adolescents under 26 (available in German, Ukrainian and Russian) <br /> &middot; +49 1573 5993126 (text or WhatsApp) -> via text phone charges may apply
 psychHelp.ukrain=Ukrainian helpline (available Monday &ndash; Friday 2pm to 5pm in Ukrainian and Russian) <br /> &middot; 0800 500 225 0
-
+psychHelp.ukrain_numbers=The following page additionally lists various lines and online platforms from Ukraine that also provide psychological help. Please note that calls to these numbers from Germany may be charged. <a target="_blank" href="https://gluzd.org.ua/articles/iak-otrymaty-bezkoshtovnupsykholohichnu-dopomohu/">https://gluzd.org.ua/</a> 
 
 # Consent pop-up
 
@@ -105,8 +105,7 @@ consent.about.body2_html=By agreeing, you confirm that you have read and underst
 
 
 consent.benefit.title=Benefits and risks
-consent.benefit.body=With your participation you enable us to identify and characterize new insights about the adverse effects of war on social interactions. You gain insights into your own personal messaging behavior through visualizations after your donation. Furthermore, at the end of the study, you receive a 10€ voucher (<a target="_blank" href="https://europe-premium-catalog.cadooz.com/">Cadooz-Bestchoice</a>).  We only collect anonymized data. During the study we ask you to fill out questionnaires. These include questions about war events that might have happened to you, your displacement status, questions on psychological well-being, questions about loneliness, resilience and support from friends and family. As these questions are potentially triggering or might elicit strong emotions, we ask you to only participate if you feel healthy and able to answer these kind of questions. You can stop the study at any time, without a reason and without any repercussions for you. Before the donation of your data you have to download the messaging data locally on your own device. Since this data contains sensitive information we recommend to delete the local copy of your data after the end of the study. Please conduct the study alone and in a calm environment to ensure your privacy.
-
+consent.benefit.body=With your participation you enable us to identify and characterize new insights about the adverse effects of war on social interactions. You gain insights into your own personal messaging behavior through visualizations after your donation. Furthermore, at the end of the study, you receive a 10€ voucher (<a target="_blank" href="https://europe-premium-catalog.cadooz.com/">Cadooz-Bestchoice</a>).  We only collect anonymized data. During the study we ask you to fill out questionnaires. These include questions about distressing war-related events that might have happened to you such as the loss of loved ones, questions on your displacement status, questions on psychological well-being, questions about loneliness, resilience and support from friends and family. As these questions are potentially triggering or might elicit strong emotions, we ask you to only participate if you feel healthy and able to answer these kind of questions.  Receiving visual feedback may be triggering or elicit strong emotions, as the sudden stop in communication, such as in cases of bereavement, is apparent in the feedback graphs and could lead to re-exposure. You can stop the study at any time, without a reason and without any repercussions for you. Before the donation of your data you have to download the messaging data locally on your own device. Since this data contains sensitive information we recommend to delete the local copy of your data after the end of the study. Please conduct the study alone and in a calm environment to ensure your privacy.
 
 consent.data-storage.title=Collected Data
 
@@ -122,7 +121,7 @@ consent.voluntary.body=The participation in this study is entirely voluntary. At
 consent.data-protection.title=Data Security
 consent.data-protection.body=Since we are not collecting any names or other person-specific data, we will not be able to associate you with your data once the study has been completed from your side - the donated data is anonymous. This means that your data cannot be deleted on your request after submission. Due to the completely anonymous data handling and processing, the General Data Protection Regulation (GDPR) does not apply. In case of questions or concerns, please contact the office for data protection at the University of Bielefeld:
 consent.data-protection.address_html=Data protection officer <br /> University Bielefeld <br /> Office: UHG T6-234  <br />Phone +49 521 106-5225 <br /><a href="mailto:datenschutzbeauftragte@uni-bielefeld.de">datenschutzbeauftragte@uni-bielefeld.de</a>
-
+consent.data-protection.email=The email you use to sign-up for the voucher will not be connected to your messaging or questionnaire. You will receive further information when signing up for the voucher at the end of the study.
 
 
 
@@ -478,7 +477,7 @@ language.current=ENG
 language.options.ger=Deutsch
 language.options.eng=English
 language.options.am=Հայերեն
-language.options.rus=Русскоговорящий
+language.options.rus=Русский
 language.options.ukr=Українська
 
 
