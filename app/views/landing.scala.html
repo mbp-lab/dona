@@ -129,14 +129,9 @@
             @footer(nextLink = Some("/instructions"), nextCustomText = Some(messages("links.instructions")))()
         </div>
 
-        <div class="modal fade" id="reportProblem-dialog" role="dialog">
-        @reportProblem()
-        </div>
-
     </div>
 
 } {
-    <a role="button" href="@messages("links.reportProblem")" target="_blank" class="btn report-problem-button-footer footer-links-above ml-4">@messages("reportProblem.button")</a>
 } {
     @languageSelectButton()
 }

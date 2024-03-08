@@ -142,9 +142,13 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="psychHelp-dialog"  role="dialog">
+        @psychHelp()
+    </div>
 
     </div>
 } {
+    <button class="btn psych-help-button-footer float-right" data-toggle="modal" data-target="#psychHelp-dialog">@messages("help.button")</a>
 }{
     @headerButtons()
 }

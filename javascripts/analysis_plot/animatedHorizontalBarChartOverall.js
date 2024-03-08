@@ -13,8 +13,8 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
     const sent = plotContainer.attr("data-sent-trace-name");
     const received = plotContainer.attr("data-received-trace-name");
     const yearMonth = plotContainer.attr("data-description-yearMonth");
-    const start = plotContainer.attr("data-start");
-    const pause = plotContainer.attr("data-pause");
+    const start = '▶️';
+    const pause = '⏸️';
 
     let config = {
         responsive: true,

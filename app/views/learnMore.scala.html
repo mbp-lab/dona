@@ -20,7 +20,11 @@
     <div class="mt-5">
     @footer(previousLink = Some("/"), nextLink = Some("/instructions"), nextCustomText=Some(messages("links.instructions")))()
     </div>
+    <div class="modal fade" id="psychHelp-dialog"  role="dialog">
+        @psychHelp()
+    </div>
 } {
+    <button class="btn psych-help-button-footer float-right" data-toggle="modal" data-target="#psychHelp-dialog">@messages("help.button")</a>
 }{
     @headerButtons()
 }

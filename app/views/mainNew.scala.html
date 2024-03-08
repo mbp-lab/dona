@@ -46,10 +46,14 @@
                 </div>
             </section>
             <section class="w-100 bg-white mb-4">
+                <div class="modal fade" id="psychHelp-dialog"  role="dialog">
+                    @psychHelp()
+                </div>
             <div class="container-fluid row justify-content-between">
 
                 <div class="col-md row align-content-end">
                 <ul class="list-inline ml-4">
+                    <button class="btn psych-help-button-footer float-right" data-toggle="modal" data-target="#psychHelp-dialog">@messages("help.button")</a>
                     @footer
                     <li class="list-inline-item"><a href="@routes.AboutController.dataProtection" class="text-black-50" target="_blank">@messages("links.data-protection")</a></li>
                     <li class="list-inline-item text-white">&middot;</li>
