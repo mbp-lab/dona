@@ -20,6 +20,8 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
     const sent = plotContainer.attr("data-sent-trace-name");
     //const received = plotContainer.attr("data-received-trace-name");
     const yearMonth = plotContainer.attr("data-description-yearMonth");
+    const start = '▶️';
+    const pause = '⏸️';
 
     let config = {
         responsive: true,

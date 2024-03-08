@@ -47,6 +47,8 @@ function animatedResponseTimeBarChart(responseTimes, plotId) {
     const legendDonor = plotContainer.attr("data-legend-donor");
     const legendFriends = plotContainer.attr("data-legend-friends");
     const yearMonth = plotContainer.attr("data-description-yearMonth");
+    const start = '▶️';
+    const pause = '⏸️';
 
     let config = {
         responsive: true,

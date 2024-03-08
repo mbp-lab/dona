@@ -10,6 +10,8 @@ function animatedHorizontalBarChart(sentReceivedPerConversation, listOfConversat
     const xAxis = plotContainer.attr("data-x-axis");
     const sent = plotContainer.attr("data-sent-trace-name");
     const yearMonth = plotContainer.attr("data-description-yearMonth");
+    const start = '▶️';
+    const pause = '⏸️';
 
     let config = {
         responsive: true,

@@ -16,6 +16,8 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
     const legendOthers = plotContainer.attr("data-legend-others");
     const yearMonth = plotContainer.attr("data-description-yearMonth");
     const resetView = plotContainer.attr("data-reset-view");
+    const start = '▶️';
+    const pause = '⏸️';
 
     let config = {
         responsive: true,
