@@ -46,20 +46,25 @@
                 </div>
             </section>
             <section class="w-100 bg-white mb-4">
-                <div class="modal fade" id="psychHelp-dialog"  role="dialog">
-                    @psychHelp()
-                </div>
+            <div class="modal fade" id="psychHelp-dialog"  role="dialog">
+                @psychHelp()
+            </div>
             <div class="container-fluid row justify-content-between">
 
                 <div class="col-md row align-content-end">
                 <ul class="list-inline ml-4">
-                    <button class="btn psych-help-button-footer float-right" data-toggle="modal" data-target="#psychHelp-dialog">@messages("help.button")</a>
                     @footer
                     <li class="list-inline-item"><a href="@routes.AboutController.dataProtection" class="text-black-50" target="_blank">@messages("links.data-protection")</a></li>
                     <li class="list-inline-item text-white">&middot;</li>
                     <li class="list-inline-item"><a href="/impressum" class="text-black-50" target="_blank">@messages("links.imprint")</a></li>
                 </ul>
-
+                <div class="col-md row align-content-end">
+                    <ul class="list-inline ml-4">
+                        <li class="list-inline-item">
+                            <button class="btn psych-help-button-footer float-right" data-toggle="modal" data-target="#psychHelp-dialog">@messages("help.button")</button>
+                        </li>
+                    </ul>
+                </div>
                 </div>
                 <div class="ml-4 flex-wrap col-md" style="max-width: 400px;">
                     <div class="row mb-1 mr-1">
