@@ -198,11 +198,10 @@ they progress through the system.
 ![Data model](./diagrams/datamodel.jpg)
 
 The external_id is used to connect the data with questionnaires stored 
-in soscisurvey.
-In order to map feedback from surveys on specific contacts (e.g. "Is this contact
-a family member") to chats, the `conversation_participant` table has a field
-`participant_pseudonym` that contains the anonymous display name of the contact,
-e.g. "Chat W2".
+in soscisurvey. Participants can also answer questionnaires specific to conversations, e.g. 'is 
+`Chat W1` a family member'? In order to connect these questionnaire answers to the donated data, we
+need to save the name by which a chat is displayed in the questionnaire after anonymization. This 
+is done with an additional field `conversation_pseudonym`. Example values are `Chat F3` & `Chat W2`.
 
 The `status` field can have values `notstarted`, `pending`, `complete` and `deleted`.
 These have the following meanings:
