@@ -1,11 +1,18 @@
 # Landing page
 
 
+
+
+
 landing.header.title=Օգնեք տարածել գիտության լույսը
 landing.header.body=Մենք հետազոտում ենք մարդկանց հաղորդակցությունը սոցհարթակներում ու դրա հնարավոր ազդեցությունը հոգեվիճակի վրա
 landing.what.title=Ուսումնասիրության մասին
 landing.what.body1=Սոցիալական շփումները կարևոր ազդեցություն ունեն հոգեվիճակի վրա։ Մեր խումբը մշակում է թվային գործիքներ այդ դերն ավելի լավ հասկանալու համար։
-landing.what.body2=Մասնակցության համար կարող եք Facebook կամ  WhatsApp TODO: INSTAGRAM հարթակներից Ձեր անանուն տվյալները նվիրաբերել։
+landing.what.body2=Մասնակցության համար կարող եք Ձեր անանուն տվյալները նվիրաբերել Facebook,  WhatsApp կամ Instagram հարթակներից։
+
+
+
+
 
 
 
@@ -17,8 +24,16 @@ landing.why.col1.body=Որպես շնորհակալություն կտրամադ
 
 
 
+
+
+
+
 landing.why.col2.title=Աջակցեք գիտությանը
-landing.why.col2.body_html=Ուսումնասիրության երկարաժամկետ նպատակը պարզելն է, թե ինչ ազդեցություն ունեն սոցիալական շփումները հոգեկան առողջության վրա։
+landing.why.col2.body_html=Ուսումնասիրության երկարաժամկետ նպատակը պարզելն է, թե ինչ ազդեցություն ունեն սոցիալական շփումները հոգեվիճակի վրա։
+
+
+
+
 
 
 
@@ -26,6 +41,10 @@ landing.why.col2.body_html=Ուսումնասիրության երկարաժամ
 landing.why.col3.title=Մնացեք անանուն
 landing.why.col3.body_html=Մենք ընդունում ու վերլուծում ենք <strong><a href="/learn-more">բացառապես անանուն տվյալներ </a></strong> (հաղորդագրության երկարությունը, ժամանակը, թվեր՝ հաղորդագրության մասնակիցների անունների փոխարեն), հաղորդագրության տեքստը կամ մասնակիցների անունները չեն գրանցվում։ Հավաստիացնում ենք, որ հասանելիություն չունենք Ձեր հաղորդագրությունների բովանդակությանը։
 landing.contact.body_html=Հարցերի դեպքում խնդրում ենք կապ հաստատել ծրագրի ղեկավար պրոֆ․ դր․ Հաննա Դրիմալլայի հետ (AG Multimodal Behavior Processing, Technische Fakultät, Universität Bielefeld, <a href="mailto:drimalla@techfak.uni-bielefeld.de">drimalla@techfak.uni-bielefeld.de</a>, հեռ. +49 521 106-12043)
+
+
+
+
 
 
 
@@ -38,7 +57,19 @@ landing.imagePath.exampleFeedback =images/landingExampleFeedback_Armenian.png
 
 
 
+
+
+
+
 # Learn More page
+
+
+
+
+
+
+
+
 
 
 
@@ -52,8 +83,16 @@ learn-more.how-to-participate.body=Մասնակցության համար խնդ�
 
 
 
+
+
+
+
 learn-more.how-to-cancel.title=Կամավոր մասնակցություն
 learn-more.how-to-cancel.body=Մասնակցությունը միանգամայն կամավոր է։ Այն ամեն պահին կարող եք դադարեցնել՝ առանց ինչ-որ պատճառ նշելու կամ բացասական հետևանքների։ Համաձայնությունը կարեղ եք չեղարկել մինչև տվյալները մեզ ուղարկելը։
+
+
+
+
 
 
 
@@ -63,12 +102,28 @@ learn-more.data-storage.title=Ի՞նչ տվյալներ են օգտագործվ�
 
 
 
+
+
+
+
 learn-more.imagePath=images/dataAnonymizationExample-Armenian.svg
 
 
 
 
+
+
+
+
 # data storage text body is reused, see below
+
+
+
+
+
+
+
+
 
 
 
@@ -82,6 +137,10 @@ learn-more.storage.body2_html=<strong><em>Հարցաշար: </strong></em>մաս
 
 
 
+
+
+
+
 learn-more.data-handling.title=Ինչպե՞ս են օգտագործվելու իմ տվյալները
 learn-more.data-handling.body1=Քանի որ անուններ կամ նույնականացնող այլ տվյալներ չենք հավաքում, հնարավոր չէ տվյալները կապել Ձեր անձի հետ․ տվյալների բազան լիովին անանուն է։ Անձնական ոչ մի տվյալ չունենալով՝ չենք կարող ավարտից հետո առանձնացնել ու ջնջել Ձեր տվյալները։
 learn-more.data-handling.body2=Տվյալներն ու ուսումնասիրության արդյունքները հրապարակվելու են գիտական ամսագրերում։ Հրապարակված տվյալները լինելու են անանուն, այսինքն մարդկանց նույնականացումն անհնար է։ Ամբողջովին անանուն տվյալները պահպանելու ենք հետազոտական պահոցում և կարող ենք տրամադրել այլ գիտնականների։
@@ -89,7 +148,15 @@ learn-more.data-handling.body2=Տվյալներն ու ուսումնասիրո�
 
 
 
+
+
+
+
 learn-more.image.caption=Պատկեր 3․ Անանուն հաղորդագրության օրինակ
+
+
+
+
 
 
 
@@ -102,8 +169,16 @@ learn-more.image.caption=Պատկեր 3․ Անանուն հաղորդագրու
 
 
 
+
+
+
+
+
+
+
+
 instructions.about.title=Ինչպե՞ս կարող եմ ներբեռնել տվյալներս
-instructions.about.body_html=Մասնակցելուց առաջ խնդրում ենք ներբեռնել Ձեր տվյալները Facebook կամ WhatsApp TODO AND OR INSTAGRAM հարթակներից։ Կարող եք տվյալներ նվիրաբերել միաժամանակ երկու հարթակից։ Եթե ընտրում եք հարթակներից միայն մեկը, խնդրում ենք ընտրել այն հարթակը, որն ավելի կարևոր է Ձեզ համար։  <b>Խնդրում ենք ուշադիր կարդալ ստորև տրամադրված հրահանգները, քանի որ դրանք կարևոր են հաջորդ քայլերի համար</b>
+instructions.about.body_html=Մասնակցելուց առաջ խնդրում ենք ներբեռնել Ձեր տվյալները Facebook, WhatsApp կամ Instagram հարթակներից։ Կարող եք տվյալներ նվիրաբերել միաժամանակ երկու հարթակից։ Եթե ընտրում եք հարթակներից միայն մեկը, խնդրում ենք ընտրել այն հարթակը, որն ավելի կարևոր է Ձեզ համար։  <b>Խնդրում ենք ուշադիր կարդալ ստորև տրամադրված հրահանգները, քանի որ դրանք կարևոր են հաջորդ քայլերի համար</b>
 instructions.datasource.title_format =Ներբեռնելու հրահանգներ %s հարթակի համար
 instructions.download-procedure.title=Ներբեռնման հրահանգներ
 instructions.continue.body=Ձեր հաղորդագրությունները ներբեռնելուց հետո, հաջորդ քայլով կարող եք տալ Ձեր համաձայնությունն ու սկսել մասնակցությունը։ Այնուհետև կարող եք տվյալները վերբեռնել, անանուն դարձնել ու նվիրաբերել։
@@ -111,7 +186,19 @@ instructions.continue.body=Ձեր հաղորդագրությունները նե�
 
 
 
+
+
+
+
 # Donation info page
+
+
+
+
+
+
+
+
 
 
 
@@ -127,7 +214,19 @@ donation-info.storage=<strong> Պահպանում - </strong>Անանուն մե
 
 
 
+
+
+
+
 # Consent pop-up
+
+
+
+
+
+
+
+
 
 
 
@@ -140,9 +239,16 @@ consent.pdf=Ներբեռնել PDF
 
 
 
+
+
+
 consent.about.title=Տեղեկություն ուսումնասիրության մասին
 consent.about.body1=Այս ուսումնասիրության նպատակն է սոցհարթակների տվյալների միջոցով չափելի դարձնել մարդկանց սոցիալական շփումները։ Ուսումնասիրությունը կատարվում է առցանց, անանուն և ներառում է միայն ապանույնականացված տվյալներ, որոնց բովանդակությունը հեռացվում է։ Սոցհարթակներից Ձեր տվյալները ներբեռնելուց հետո, մասնակցությունը Ձեզանից կխլի մոտ 10 րոպե։
 consent.about.body2_html=Ձեր համաձայնությունը տալով հաստատում եք, որ կարդացել ու հասկացել եք այս ուսումնասիրության  նպատակներն ու ընթացքը։
+
+
+
+
 
 
 
@@ -153,7 +259,15 @@ consent.benefit.body=Ձեր մասնակցությունը մեզ հնարավո
 
 
 
+
+
+
+
 consent.data-storage.title=Տվյալների հավաքում
+
+
+
+
 
 
 
@@ -166,8 +280,20 @@ consent.data-storage.title=Տվյալների հավաքում
 
 
 
+
+
+
+
+
+
+
+
 consent.voluntary.title=Կամավոր մասնակցություն
 consent.voluntary.body=Ձեր մասնակցությունը միանգամայն կամավոր է։ Ամեն պահին կարող եք դադարեցնել Ձեր մասնակցությունը՝ առանց ինչ-որ պատճառ նշելու կամ բացասական հետևանքների։ Մինչև Ձեր անանուն տվյալները մեզ ուղարկելը կարող եք չեղարկել Ձեր համաձայնությունը՝ առանց բացասական հետևանքների։
+
+
+
+
 
 
 
@@ -183,13 +309,29 @@ consent.data-protection.address_html=Տվյալների պաշտպանությա
 
 
 
+
+
+
+
+
+
+
+
 consent.data-purpose.title=Տվյալների օգտագործում
 consent.data-purpose.body=Տվյալներն ու ուսումնասիրության արդյունքները հրապարակվելու են գիտական ամսագրերում։ Հրապարակված տվյալները լինելու են անանուն, այսինքն մարդկանց նույնականացումն անհնար է։ Ամբողջովին անանուն տվյալները պահպանելու ենք հետազոտական պահոցում և կարող ենք տրամադրել այլ գիտնականների։
 
 
 
 
+
+
+
+
 consent.confirmation=Սույնով հաստատում եմ, որ կարդացել ու հասկացել եմ վերը նշված տեղեկությունները և համաձայն եմ մասնակցության պայմաններին։
+
+
+
+
 
 
 
@@ -200,7 +342,18 @@ informedConsent.pdf=informedConsents/InformedConsent_hy.pdf
 
 
 
+
+
+
 # Donation page
+
+
+
+
+
+
+
+
 
 
 
@@ -219,8 +372,16 @@ donation.select-data.remove=Հեռացնել
 
 
 
+
+
+
+
 donation.select-date.start=Սկիզբ
 donation.select-date.end=Վերջ
+
+
+
+
 
 
 
@@ -239,6 +400,10 @@ donation.preview-data.group-conversation=Խմբային հաղորդագրութ
 
 
 
+
+
+
+
 donation.friendsMapping.title=<b>Ձեր կոնտակտների ծածկանունները</b>
 donation.friendsMapping.subtitle.facebook=Ձեր տվյալներն ու կոնտակտներն այժմ ապանույնականացված են, բովանդակությունը հեռացված։ Եթե գրաֆիկները ուսումնասիրելիս ինքներդ ցանկանում եք վերծանել, թե որ չատերն են ներառված, խնդրում ենք գրի առնել, թե որ համարն է (օր․՝ “F4") համապատասխանում յուրաքանչյուր կոնտակտին (օր․ ՝ A**** B*****) ։ Այսուհետ, միայն այս համարներն են երևալու։ Կոնտակների ու համարների համապատասխանությունը չի պահպանվում և կորչում է այս էջը լքելուց հետո։
 donation.friendsMapping.subtitle.whatsapp=Ձեր տվյալներն ու կոնտակտներն այժմ ապանույնականացված են, բովանդակությունը հեռացված։ Եթե գրաֆիկները ուսումնասիրելիս ինքներդ ցանկանում եք վերծանել, թե որ չատերն են ներառված, խնդրում ենք գրի առնել, թե որ համարն է (օր․՝ “W4") համապատասխանում յուրաքանչյուր կոնտակտին (օր․ ՝ A**** B*****) ։ Այսուհետ, միայն այս համարներն են երևալու։ Կոնտակների ու համարների համապատասխանությունը չի պահպանվում և կորչում է այս էջը լքելուց հետո։
@@ -249,7 +414,13 @@ donation.friendsMapping.chat=Չատ
 donation.friendsMapping.onlyYouInConv=Դուք այս չատի միակ մասնակիցն եք։ Հնարավոր պատճառն այն է, որ մյուս մասնակիցները լքել են չատը։
 
 
+
+
 donation.sendData.wait=Տվյալների ուղարկումը կարող է մի քանի րոպե տևել։ Խնդրում ենք սպասել և չփակել էջը։ Շնորհակալություն։
+
+
+
+
 
 
 
@@ -260,7 +431,19 @@ donation.raw-data-link.text=<b>այստեղ</b>
 
 
 
+
+
+
+
 # provided by Astrid
+
+
+
+
+
+
+
+
 
 
 
@@ -278,10 +461,18 @@ donation.aliases-overview=Ձեր կոնտակտների ծածկանուններ
 
 
 
+
+
+
+
 donation.processing=Ձեր տվյալները ապանույնականացվում են, բովանդակությունը հեռացվում
 donation.be-patient=Խնդրում ենք սպասել, այս գործընթացը կարող է փոքր-ինչ երկար տևել
 donation.successful=Ձեր տվյալները հաջողությամբ ապանույնականացված են, բովանդակությունը՝ հեռացված։
 donation.error=Ցավում ենք, ինչ-որ խնդիր է առաջացել։
+
+
+
+
 
 
 
@@ -297,17 +488,25 @@ donation.anonymisation.chooseUsername=Խնդրում ենք ընտրել Ձեր 
 donation.anonymisation.loading=Տվյալների ուղարկումը կարող է մի քանի րոպե տևել։ Խնդրում ենք սպասել և չփակել էջը։ Շնորհակալություն։
 
 
+
+
 donation.anonymisation.chatSelection.title=Այստեղ կարող եք մինչև 10 չատ ընտրել, որոնց մասին ցանկանում եք գրաֆիկներ ստանալ
 donation.anonymisation.chatSelection.clickHereToSelect=Սեղմեք այստեղ, եթե ցանկանում եք այլ չատեր ընտրել
 
 
+
+
 donation.anonymisation.loading.tooLong.title=Եթե այս գործընթացը 5 րոպեից ավել է տևում, ապա հնարավոր է, որ
-donation.anonymisation.loading.tooLong.issue.1=փորձում եք վերբեռնել չթույլատրված ֆորմատի ֆայլեր։ Ճիշտ ֆորմատներն են ․txt WhatsApp-ի ու .zip Facebook-ի համար TODO: and Instagram
+donation.anonymisation.loading.tooLong.issue.1=փորձում եք վերբեռնել չթույլատրված ֆորմատի ֆայլեր։ Ճիշտ ֆորմատներն են ․txt WhatsApp-ի ու .zip Facebook-ի և Instagram-ի համար
 donation.anonymisation.loading.tooLong.issue.2=Ձեր WhatsApp-ի չատերը տարբեր սարքերից եք ներբեռնել
 donation.anonymisation.loading.tooLong.issue.3=Ձեր տրամադրած ֆայլերը սպասվածից մեծ են
 donation.anonymisation.loading.tooLong.issue.4=Ձեր ինտերնետային կապը դանդաղ է
 donation.anonymisation.loading.tooLong.issue.5=Այլ խնդիր է առաջացել
 donation.anonymisation.loading.tooLong.issue.6=Օգնեք մեզ բարելավել այս հարթակը  <a href="@messages("links.reportProblem")" target="_blank">այստեղ</a>
+
+
+
+
 
 
 
@@ -326,7 +525,15 @@ donation.errors.emptyOrJustOnePerson=Յուրաքանչյուր չատ պետք 
 
 
 
+
+
+
+
 donation.submit=Ուղարկել
+
+
+
+
 
 
 
@@ -339,12 +546,26 @@ donation.submit=Ուղարկել
 
 
 
+
+
+
+
+
+
+
+
 feedback.thanks.title=Շնորհակալություն նվիրատվության համար
 feedback.landscapeMode=Գրաֆիկները լավ տեսնելու համար էկրանը <b>կողքի</b> շրջեք
 
 
+
+
 feedback.importantMessage.title=Կարևոր նշում
 feedback.importantMessage.disclaimer=Ցուցադրվող գրաֆիկները <b>թույլ <u>չեն տալիս</u> ուղիղ եզրահանգումներ անել Ձեր հարաբերությունների որակի մասին։ Վերլուծությունը հիմնված է բացառապես հաղորդագրությունների քանակի ու ժամանակի վրա։
+
+
+
+
 
 
 
@@ -354,11 +575,17 @@ feedback.startLabel=Սկիզբ
 feedback.pauseLabel=Դադար
 
 
+
+
 feedback.graph.title=Գրաֆիկներ Ձեր հաղորդագրությունների վերաբերյալ
 feedback.graph.total-messages=Հաղորդագրությունների քանակ
 feedback.graph.average-per-active-month=Ամսական հաղորդագրությունների միջին քանակ
 feedback.graph.active-years-explanation_format=Ձեր տվյալներն ընդգրկում են %s տարի, որի ընթացքում ուղարկել կամ ստացել եք առնվազն մեկ հաղորդագրություն։
 # minor grammar correction by astrid
+
+
+
+
 
 
 
@@ -380,7 +607,15 @@ feedback.graph.friends=Ձեր կոնտակտները
 
 
 
+
+
+
+
 # plots main page titles
+
+
+
+
 
 
 
@@ -388,13 +623,20 @@ feedback.title.statisticsCard=Պատկերացում Ձեր ակտիվությա
 feedback.title.interactionIntensity=Շփումների ինտենսիվություն
 feedback.title.dailyActivityTimes=Ակտիվ ժամեր
 feedback.title.responseTimes=Պատասխանի արագություն
-feedback.title.pleaseContinue=Հուսով ենք հետաքրքիր բացահայտումներ ունեցաք։ Շնորհակալություն։
+feedback.title.pleaseContinue=Հուսով ենք հետաքրքիր էր։ Շնորհակալություն։
+
+
+
+
 
 
 
 
 feedback.facebook.info=Facebook-ում կոնտակտների հնարավոր մեծ թվի պատճառով գրաֆիկներ տրամադրվում են մինչև 10 չատի համար։
-feedback.instagram.info=The potentially high number of Instagram contacts could lead to a cluttered visualization. Therefore, in the following, only visualizations for your 1-10 selected Instagram chats are shown.
+feedback.instagram.info=Instagram-ում կոնտակտների հնարավոր մեծ թվի պատճառով գրաֆիկներ տրամադրվում են մինչև 10 չատի համար։
+
+
+
 
 
 
@@ -405,7 +647,15 @@ feedback.toRaffleButton=Գրանցվել վիճակահանությանը
 
 
 
+
+
+
+
 # plots more about titles
+
+
+
+
 
 
 
@@ -416,7 +666,15 @@ feedback.moreAbout.responseTimes.title=Ավելին Ձեր պատասխաննե�
 
 
 
+
+
+
+
 # plot descriptions
+
+
+
+
 
 
 
@@ -428,7 +686,15 @@ feedback.graph.resetView=Թարմացնել
 
 
 
+
+
+
+
 # plots example title
+
+
+
+
 
 
 
@@ -437,7 +703,15 @@ feedback.graph.example.title=Սա  <b> բացատրական օրինակ </b> է
 
 
 
+
+
+
+
 # polar plot
+
+
+
+
 
 
 
@@ -451,7 +725,15 @@ feedback.graph.animatedPolarPlot.example.text=<p><b>(1)</b> Այս օրինակ�
 
 
 
+
+
+
+
 # animatedHorizontalBarChart
+
+
+
+
 
 
 
@@ -469,7 +751,19 @@ feedback.graph.animatedHorizontalBarChart.example.text=<p><b>(1)</b> Այս օր
 
 
 
+
+
+
+
+
+
+
+
 # horizontalBarChart overall
+
+
+
+
 
 
 
@@ -483,7 +777,13 @@ feedback.graph.horizontalBarChartOverall.yAxis.received=Ստացած
 
 
 
+
+
+
+
 # slidingWindowMean of sent and received words plot
+
+
 
 feedback.graph.slidingWindowMean.description=Այստեղ կարող եք տեսնել ուղարկած ու ստացած բառերի քանակը ըստ օրերի (ավելի կոնկրետ՝ մենք հաշվում ենք միջին արժեքն այսպես կոչված սահող պատուհանի մեթոդով 30 օրվա համար)։ Վերին ձախ մասում կարող եք ընտրել առանձին չատեր ու ուսումնասիրել, թե քանի բառ եք ուղարկել այդ չատում։ <br><br> <i>Եթե <u>ստացված բառերի համար</u> ոչ մի արժեք չի ցուցադրվում, ապա այդ արժեքները թաքցված են տվյալների գաղտնիությունից ելնելով։ Մենք ցուցադրում ենք միայն այն տվյալները, որոնց դեպքում հնարավոր չէ ուղիղ ինֆորմացիա ստանալ ձեր առանձին կոնտակների վարքի մասին, քանի որ Դուք, այլ ոչ թե նրանք են մասնակցության համաձայնություն տվել։ </i>
 feedback.graph.slidingWindowMean.legend.sent=Ուղարկած բառեր
@@ -496,7 +796,15 @@ feedback.graph.slidingWindowMean.example.text=<p class="text-left"><b>(1)</b>Ա�
 
 
 
+
+
+
+
 # dailySentReceivedWords plot
+
+
+
+
 
 
 
@@ -508,7 +816,15 @@ feedback.graph.dailySentReceived.yAxis=Բառերի քանակ
 
 
 
+
+
+
+
 # monthlySentReceivedWords plot
+
+
+
+
 
 
 
@@ -520,7 +836,15 @@ feedback.graph.monthlySentReceived.yAxis=Հաղորդագրություններ�
 
 
 
+
+
+
+
 # dailyActivityTimes plot
+
+
+
+
 
 
 
@@ -535,7 +859,15 @@ feedback.graph.dailyActivityHoursPlot.example.text=<p><b>(1)</b> Այս օրին
 
 
 
+
+
+
+
 # dayPartsPlot overall
+
+
+
+
 
 
 
@@ -550,7 +882,15 @@ feedback.graph.dayPartsOverall.example.text=<p class="text-left"><b>(1)</b> Այ
 
 
 
+
+
+
+
 # animatedDayPartsPlot monthly
+
+
+
+
 
 
 
@@ -563,7 +903,15 @@ feedback.graph.dayPartsMonthly.xAxis=Օրվա չորս հատվածները
 
 
 
+
+
+
+
 # responseTimesBarChart
+
+
+
+
 
 
 
@@ -578,7 +926,15 @@ feedback.graph.responseTimeBarChart.example.text=<p><b>(1)</b> Այս օրինա
 
 
 
+
+
+
+
 # responseTimeBarChart monthly
+
+
+
+
 
 
 
@@ -591,7 +947,15 @@ feedback.graph.responseTimeBarChartMonthly.xAxis=Պատասխանի ժամանա
 
 
 
+
+
+
+
 # breaksInConv plot
+
+
+
+
 
 
 
@@ -608,12 +972,28 @@ feedback.graph.breaksInConv.example.text=<p class="text-left"><b>(1)</b> In this
 
 
 
+
+
+
+
+
+
+
+
 # provided by Astrid
+
+
+
+
 
 
 
 feedback.graph.loading=Գրաֆիկը բեռնվում է
 feedback.buttons.complete-survey.caption=Լրացնել հարցաշարը
+
+
+
+
 
 
 
@@ -626,7 +1006,19 @@ feedback.buttons.complete-survey.caption=Լրացնել հարցաշարը
 
 
 
+
+
+
+
+
+
+
+
 data-protection.title=Գաղտնության քաղաքականություն
+
+
+
+
 
 
 
@@ -640,8 +1032,16 @@ data-protection.technical-details.body4=Այս կայքն օգտագործում
 
 
 
+
+
+
+
 data-protection.participation.title=Մասնակցություն
 # now get basically all the text from the consent page...
+
+
+
+
 
 
 
@@ -651,7 +1051,15 @@ data-protection.participation.usage.body=Տվյալներն ու ուսումն�
 
 
 
+
+
+
+
 # Text appearing on multiple pages
+
+
+
+
 
 
 
@@ -661,13 +1069,23 @@ language.options.eng=English
 language.options.am=Հայերեն
 
 
+
+
 footer.title=Ստացե՞լ եք Ձեր տվյալները
 footer.projectNumber=Project No.: 01IS20046
 
 
 
 
+
+
+
+
 browser-warning.text=Ձեր օգտագործած բրաուզերը չի սպասարկվում, ուստի էջի անխափան ու ճիշտ աշխատանքը չի երաշխավորվում։ Խնդրում ենք այս կայքի համար օգտագործել  Chrome կամ Firefox բրաուզերների ամենաթարմ տարբերակները։
+
+
+
+
 
 
 
@@ -681,8 +1099,16 @@ reportProblem.body=Եթե մասնակցելիս ինչ-որ խնդրի եք բ�
 
 
 
+
+
+
+
 data-storage.body1_html=<em>Տվյալների նվիրաբերում-  </em> Մենք ստանում ենք միայն մետա-տվյալներ (հաղորդագրության երկարությունն ու ժամանակը, թվեր՝ հաղորդագրության մասնակիցների անունների փոխարեն), չենք ստանում հաղորդագրությունների բովանդակությունը (տեքստը կամ մասնակիցների անունները)։  Անձնական տվյալները չեն լքում Ձեր սարքը, քանի որ տվյալների մշակումը կատարվում է տեղում՝ Ձեր բրաուզերում։ Հետևաբար մենք չենք տեսնում հաղորդագրությունների բովանդակությունը։ Վերբեռնելուց առաջ կարող եք տեսնել, թե ինչ տվյալներ եք մեզ ուղարկում՝ համոզվելով, որ դրանք անանուն են։
 data-storage.body2_html=<em>Հարցաշար: </em>մասնակցությունը սկսելիս անհրաժեշտ է մի քանի սոցիոդեմոգրաֆիկ հարցի պատասխանել։ Այնուհետև կարող եք նվիրաբերել Ձեր տվյալներն ու ստանալ գրաֆիկներ։ Հարցաշարերից ստացված տվյալները ևս բոլորովին անանուն են և հավաքվում են <a target="_blank" href="https://www.limesurvey.org/support/faq/39-data-protection-and-policy">LimeSurvey</a> հարթակի օգնությամբ.
+
+
+
+
 
 
 
@@ -698,8 +1124,16 @@ links.reportProblem=https://survey.mbp.tf.uni-bielefeld.de/index.php?r=survey/in
 
 
 
+
+
+
+
 yes=Այո
 no=Ոչ
+
+
+
+
 
 
 
@@ -710,7 +1144,19 @@ actions.next=Շարունակել
 
 
 
+
+
+
+
 # Data source specific text
+
+
+
+
+
+
+
+
 
 
 
@@ -728,13 +1174,25 @@ whatsapp.instructions.p3.body=Խորհուրդ ենք տալիս մասնակց�
 
 
 
+
+
+
+
 whatsapp.description_html=<i>Note: The chat export function is not supported by all WhatsApp versions! <strong> Exporting and saving WhatsApp data does not work with the WhatsApp web version. Also, on different Android versions, you may not be able to store your data locally on your device.</i></strong> <br><br>From time to time, most people discuss important matters with other people, and we need people we can depend on for help. These can be family, friends, or people who have been really helpful to you – what we are interested in are the ones that you are most likely to talk about really important matters in your life. <br><br>Please choose <strong>5</strong> chats with people with whom you discuss important matters in your life (group chats are possible too). Please bear in mind that the chats can only be downloaded one after the other. Multiple selection of chats is currently not supported.
 whatsapp.external-documentation_html=Տվյալների ներբեռնման պաշտոնական հրահանգները կարող եք ստանալ այստեղ՝  <a target="_blank" href="https://faq.whatsapp.com/618575946635920/?cms_platform=iphone&helpref=platform_switcher" target="_blank">iOS</a> կամ <a target="_blank" href="https://faq.whatsapp.com/en/android/23756533" target="_blank">Android</a>։
 
 
 
 
+
+
+
+
 #Download and Donation procedure: whatsapp
+
+
+
+
 
 
 
@@ -749,10 +1207,12 @@ whatsapp.donation-procedure.8=Կրկնեք 3-7 հրահանգները բոլոր
 whatsapp.instruction.gif=whatsapp_am.mp4
 whatsapp.instruction.gifiOS =whatsapp_eng_iOS.mp4
 whatsapp.instruction.gifAndroid =whatsapp_eng_android.mp4
-whatsapp.instruction.gif.subtitle=Սա Android համակարգով ստեղված օրինակ է։ Այլ սարքերում քայլերը կարող են փոքր-ինչ տարբերվել, սակայն տրամաբանությունը նույնն է։
-whatsapp.instruction.gif.subtitle.iOS=This is the chat export process on an iPhone.
-whatsapp.instruction.gif.subtitle.android=This is the chat export process on an Android device. The process may vary on different devices.
+whatsapp.instruction.gif.subtitle=Սա Android համակարգով ստեղծված օրինակ է։ Այլ սարքերում քայլերը կարող են փոքր-ինչ տարբերվել, սակայն տրամաբանությունը նույնն է։
+whatsapp.instruction.gif.subtitle.iOS=Սա տեսանյութի համար օգտագործվել է iPhone։
+whatsapp.instruction.gif.subtitle.android=Այս տեսանյութի համար օգտագործվել է Android սարք։ Կախված սարքից՝ քայլերը կարող են փոքր-ինչ տարբերվել։
 whatsapp.logo=w-logo.svg
+
+
 
 
 facebook.instructions.p1.title=Ի՞նչ սարք պետք է օգտագործել մասնակցության համար
@@ -765,13 +1225,25 @@ facebook.instructions.p3.body=Խորհուրդ ենք տալիս մասնակց�
 
 
 
-facebook.description_html=Make a request to Facebook to download your Facebook data. You will receive a notification from Facebook once the data is available for download and can then start participating in the study. <strong>We recommend using a computer if donating from Facebook as the data size may be relatively large.</strong>
+
+
+
+
+facebook.description_html=Facebook-ին Ձեր տվյալները ներբեռնելու հայտ ուղարկեք։ Երբ տվյալները պատրաստ լինեն, կստանաք ծանուցում։ Տվյալները ներբեռնելուց հետո կարող եք սկսել մասնակցությունը։  <strong>Քանի որ Facebook-ից ներբեռնված ֆայլերը կարող են մեծ լինել, խորհուրդ ենք տալիս օգտագործել համակարգիչ։</strong>
 facebook.external-documentation_html=Տվյալների ներբեռնման պաշտոնական հրահանգները կարող եք ստանալ <a target="_blank" href="https://www.facebook.com/help/contact/2032834846972583" target="_blank">այստեղ</a>։
 
 
 
 
+
+
+
+
 #Download and Donation procedure: Facebook
+
+
+
+
 
 
 
@@ -788,37 +1260,51 @@ facebook.donation-procedure.10=Ծանուցումը ստանալուց հետո 
 facebook.instruction.gif=facebook_hy.mp4
 facebook.logo=f-logo.svg
 
-instagram.instructions.p1.title=What type of device should I use?
-instagram.instructions.p1.body=Please make sure that you are storing the data on a device that no one but you has access to.
-instagram.instructions.p2.title=How long does the data export from Instagram take?
-instagram.instructions.p2.body=The data is requested with just a few clicks on Instagram (see the instructions below). You will receive a notification from Instagram as soon as the data is available for download and can then start participating in the study.
-instagram.instructions.p3.title=How can I delete my data from my device?
-instagram.instructions.p3.body=We strongly recommend that you delete your original data after completing the donation. Note that simply deleting the files may not be enough to permanently remove the data from your device. Further information on the permanent deletion of files can for example be found <a target="_blank" href="https://safecomputing.umich.edu/protect-yourself/prepare-devices-disposal/securely-delete-files">on the website of the University of Michigan</a> or <a target="_blank" href="https://wethegeek.com/best-file-data-shredder-apps-to-permanently-delete-data-from-android/">wethegeek.com</a> and <a target="_blank" href="https://appletoolbox.com/how-to-delete-files-permanently-from-the-files-app-on-iphone-and-ipad/">appletoolbox.com</a>.
+
+instagram.instructions.p1.title=Ի՞նչ սարք պետք է օգտագործել մասնակցության համար
+instagram.instructions.p1.body=Ուշադրություն դարձրեք, որ օգտագործեք այնպիսի սարքեր, որոնց ուրիշները հասանելիություն չունեն։
+instagram.instructions.p2.title=Ինչքա՞ն է տևում տվյալների ներբեռնումը  Instagram-ից
+instagram.instructions.p2.body=Տվյալների պահանջումը կատարվում է կայքի կարգավորումներում մի քանի տարբերակ ընտրելով (տես ստորև): Երբ տվյալները պատրաստ լինեն ներբեռնման համար, Instagram-ից ծանուցում կստանաք։ Այդ ժամանակ կարող եք ներբեռնել տվյալները Ձեր համակարգիչ ու սկսել մասնակցությունը։
+instagram.instructions.p3.title=Ինչպե՞ս կարող եմ ներբեռնած տվյալները ջնջել իմ սարքից
+instagram.instructions.p3.body=Խորհուրդ ենք տալիս մասնակցությունից հետո ներբեռնած ֆայլերը  ջնջել Ձեր սարքից կամ էլ․ հասցեից։ Ուշադրություն դարձրեք, որ տվյալները վերջնականապես հեռացվեն սարքից, ոչ թե տեղափոխվեն զամբյուղ։ Ֆայլերը ջնջելու մասին լրացուցիչ ինֆորմացիա կարող եք ստանալ <a target="_blank" href="https://safecomputing.umich.edu/protect-yourself/prepare-devices-disposal/securely-delete-files">այստեղ</a> կամ <a target="_blank" href="https://wethegeek.com/best-file-data-shredder-apps-to-permanently-delete-data-from-android/">wethegeek.com</a> և <a target="_blank" href="https://appletoolbox.com/how-to-delete-files-permanently-from-the-files-app-on-iphone-and-ipad/">appletoolbox.com</a> կայքերում.
 
 
 
-instagram.description_html=Make a request to Instagram to download your Instagram data. You will receive a notification from Instagram once the data is available for download and can then start participating in the study.
-instagram.external-documentation_html=The official documentation on how to download your data can be found <a target="_blank" href="https://help.instagram.com/181231772500920?cms_id=181231772500920" target="_blank">here</a>.
 
 
-instagram.donation-procedure.1=Open Instagram and log in.
-instagram.donation-procedure.2=In your profile click on the "Menu" button (three lines) and select "Your activity".
-instagram.donation-procedure.3=All the way on the bottom select “Download your information” and continue to the Accounts Center.
-instagram.donation-procedure.4=Click on “Download or transfer information”.
-instagram.donation-procedure.5=Click on “Some of your information”.
-instagram.donation-procedure.6=Select “Messages” (under “Your Instagram activity”) and “Personal information” (under “Personal information”).
-instagram.donation-procedure.7=Click on "Next".
-instagram.donation-procedure.8=Pick a date range: We encourage you to <b>request the data for 1 year</b> but a shorter time span is possible as well.
-instagram.donation-procedure.9=Change the format from HTML to JSON. Then change the media quality from “Medium” to “Low”.
-instagram.donation-procedure.10=Click on "Create files". As soon as the file is ready for download, you will receive a notification from Instagram. This may take a while.
-instagram.donation-procedure.11=Scroll back up and click on the "Available downloads" tab. There you should see the requested file and can download is as soon it is ready.
+
+instagram.description_html=Instagram-ին Ձեր տվյալները ներբեռնելու հայտ ուղարկեք։ Երբ տվյալները պատրաստ լինեն, կստանաք ծանուցում։ Տվյալները ներբեռնելուց հետո կարող եք սկսել մասնակցությունը։
+instagram.external-documentation_html=Տվյալների ներբեռնման պաշտոնական հրահանգները կարող եք ստանալ  <a target="_blank" href="https://help.instagram.com/181231772500920?cms_id=181231772500920" target="_blank">այստեղ</a>.
 
 
-instagram.instruction.gif=instagram_eng.mp4
+
+
+instagram.donation-procedure.1=Մուտք գործեք Instagram-ի Ձեր հաշիվ։
+instagram.donation-procedure.2=Ձեր պրոֆիլում սեղմեք վերին աջ մասում գտնվող երեք գծերի վրա, ապա ընտրեք  "Ваши действия/Your activity":
+instagram.donation-procedure.3=Ամենաներքևում ընտրեք  “Скачать информацию/Download your information” տարբերակը։
+instagram.donation-procedure.4=Ընտրեք  “Скачать или перенести информацию/Download or transfer information” տարբերակը։ Ընտրեք ինստագրամյան Ձեր պրոֆիլը և շարժվեք առաջ։
+instagram.donation-procedure.5=Ընտրեք “Некоторые из Ваших данных/ Some of your information ” տարբերակը։
+instagram.donation-procedure.6=Ընտրեք “Сообщения/Messages ” ( “Ваши действия в  Instagram/Your Instagram activity” հատվածում) և “Личная информация/Personal information ” (“Личная информация/Personal information” հատվածում).
+instagram.donation-procedure.7=Սեղմեք "Далее " կոճակը.
+instagram.donation-procedure.8=Այնուհետև նշեք ամսաթվերի միջակայքը (диапазон/date range)։ Հետաքրքիր գրաֆիկներ տեսնելու և հետազոտության համար արժեքավոր երկարաժամկետ տվյալներ տրամադրելու համար խնդրում ենք ընտրել մեկ տարի տարբերակը, սակայն կարող եք նաև ավելի կարճ ժամանակ ընտրել։
+instagram.donation-procedure.9=Ձևաչափ հատվածում ընտրեք JSON տարբերակը։ Մեդիայի որակի համար ընտրեք ցածր տարբերակը։
+instagram.donation-procedure.10=Սեղմեք "Создать файлы/Create files" կոճակը. Երբ տվյալները պատրաստ լինեն, կստանաք ծանուցում։ Այս գործընթացը կարող է ժամեր կամ մեկ օրից ավել տևել։
+instagram.donation-procedure.11=Ծանուցումը ստանալուց հետո ներբեռնեք Ձեր տվյալները հետևելով 1-3 քայլերին, ապա "Доступные файлы/Available downloads"  ընտրելով։
+
+
+
+
+instagram.instruction.gif=instagram_rus.mp4
 instagram.logo=i-logo.svg
 
 
+
+
 # Imprint
+
+
+
+
 
 
 
