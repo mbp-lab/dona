@@ -1,7 +1,11 @@
 var validateMessage = require('./validateMessage');
 var wordCount = require('../../stringWordCount')
+const isVoiceMessage = require("./isVoiceMessage");
+const musicMetadata = require('music-metadata-browser');
+const {json} = require("mocha/lib/reporters");
+const zip = require("@zip.js/zip.js");
 
-async function deIdentify(zipFiles, messagesRelativePath, donorName, textListPromise) {
+async function deIdentify(donorName, dataPromise, allEntries) {
     //console.log("deIdentify:", zipFiles)
     //console.log("messagesRelativePath:", messagesRelativePath)
     const i18n = $("#i18n-support");
@@ -30,17 +34,10 @@ async function deIdentify(zipFiles, messagesRelativePath, donorName, textListPro
         return participantNameToRandomIds[decodedName];
     }
 
-    // Array<Promise<String>>
-    //const zipFileTexts = messagesRelativePath.map(path => zipFiles[path].async('text'));
-
-    // Promise<Array<Object>>
-    //const textList = await Promise.all(zipFileTexts);
-
-    const textList = await textListPromise
+    let textList = await dataPromise
     let jsonContents = {}
 
-    // ToDo: combine messages from textLists from different zipfiles if they are from the same chat
-    textList.forEach(textContent => {
+    textList.forEach((textContent) => {
         let jsonContent = JSON.parse(textContent);
         if (jsonContents[jsonContent.thread_path] != undefined) {
             jsonContents[jsonContent.thread_path].messages = jsonContents[jsonContent.thread_path].messages.concat(jsonContent.messages)
@@ -49,23 +46,9 @@ async function deIdentify(zipFiles, messagesRelativePath, donorName, textListPro
         }
     })
 
-    //console.log("jsonContents old:", jsonContents)
 
-    /*
-    let textListNew = await textListTest
-    let jsonContentsTest = {}
-    textListNew.forEach(textContent => {
-        let jsonContent = JSON.parse(textContent);
-        if (jsonContentsTest[jsonContent.thread_path] != undefined) {
-            jsonContentsTest[jsonContent.thread_path].messages = jsonContentsTest[jsonContent.thread_path].messages.concat(jsonContent.messages)
-        } else {
-            jsonContentsTest[jsonContent.thread_path] = jsonContent
-        }
-    })
-
-    console.log("jsonContents new:", jsonContentsTest)
-
-     */
+    //console.log("data:", data)
+    //console.log("textList", textList)
 
     Object.values(jsonContents).forEach(jsonContent => {
         delete jsonContent.thread_path;
@@ -75,7 +58,31 @@ async function deIdentify(zipFiles, messagesRelativePath, donorName, textListPro
             participant.name = getDeIdentifiedId(participant.name);
         });
         jsonContent.messages.forEach((message, i_1) => {
-            if (validateMessage(message)) {
+            if (isVoiceMessage(message)) {
+                console.log(message.audio_files[0].uri)
+
+                // find the entry for the voice message
+                let voiceMessage = allEntries.find(entry => entry.filename == message.audio_files[0].uri)
+                console.log("voiceMessage:", voiceMessage)
+
+                // now read and get metadata
+
+                if (voiceMessage != undefined) {
+                    const blobWriter = new zip.BlobWriter();
+                    voiceMessage.getData(blobWriter).then(blob => {
+                        musicMetadata.parseBlob(blob).then(metadata => {
+                            // metadata has all the metadata found in the blob or file
+                            console.log("hello", metadata)
+                            // toDo: now extract duration
+                        });
+                    })
+                } else {
+                    // todo
+                    // some voice messages arent stored -> still count them
+                }
+
+            }
+            else if (validateMessage(message)) {
                 message.sender_name = getDeIdentifiedId(message.sender_name);
                 message.word_count = wordCount(message.content);
                 delete message.content;

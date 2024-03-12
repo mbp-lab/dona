@@ -48,7 +48,7 @@ async function instagramZipFileHandler(fileList) {
                     return entry.getData(textWriter)
                 })
 
-                resolve([resolve(deIdentify(zipFiles, messagesRelativePath, donorName, Promise.all(textList)))]);
+                resolve([resolve(deIdentify(donorName, Promise.all(textList), allEntries))]);
             })
             .catch(function (e) {
                 reject(e);
