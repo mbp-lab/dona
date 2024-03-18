@@ -401,6 +401,7 @@ function setUpFileHandler() {
 
 
 
+
                 // show success messages
                 $(".show-on-anonymisation-success" + "-" + dataSource).removeClass('d-none');
                 //console.log(currentErrorFWI)
@@ -566,7 +567,6 @@ function setUpFileHandler() {
 
         // assign the filtered data to the inputJson
         $("#inputJson").attr('value', JSON.stringify(inputObjFiltered));
-        console.log("inputJson:", JSON.stringify(inputObjFiltered))
     })
 
 }

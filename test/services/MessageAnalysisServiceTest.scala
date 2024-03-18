@@ -218,9 +218,15 @@ object MessageAnalysisServiceTest {
         ConversationMessage(15, timestamp, Some(donor))
     }.toList
 
+    val parsedMessagesAudio = messages.map {
+      case (year, month, donor) =>
+        val timestamp = LocalDateTime.of(year, month, 1, 12, 0).toInstant(ZoneOffset.UTC).toEpochMilli
+        ConversationMessageAudio(15, timestamp, Some(donor))
+    }.toList
+
     val participants = messages.map { case (_, _, sender) => sender }.distinct.toList
 
-    Conversation(participants.lengthCompare(2) > 0, "123", participants, parsedMessages, donationDataSourceType, true)
+    Conversation(participants.lengthCompare(2) > 0, "123", participants, parsedMessages, parsedMessagesAudio, donationDataSourceType, true)
   }
 
   private def getEpochSeconds(year: Int, month: Int, date: Int, hour: Int, minute: Int): Long = {

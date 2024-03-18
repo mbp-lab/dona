@@ -12,7 +12,7 @@ async function deIdentify(donorName, dataPromise, allEntries) {
     let participantNameToRandomIds = {};
     let i = 1;
     participantNameToRandomIds[donorName] = i18n.data("donor");
-    const deIdentifiedJsonContents = [];
+    let deIdentifiedJsonContents = [];
 
     // decode function from stackoverflow
     function decode(s) {
@@ -50,37 +50,48 @@ async function deIdentify(donorName, dataPromise, allEntries) {
     //console.log("data:", data)
     //console.log("textList", textList)
 
-    Object.values(jsonContents).forEach(jsonContent => {
+    let deIdentifiedJsonContentsNew = await Promise.all(Object.values(jsonContents).map(async jsonContent => {
         delete jsonContent.thread_path;
         delete jsonContent.title;
         delete jsonContent.is_still_participant;
         jsonContent.participants.forEach((participant) => {
             participant.name = getDeIdentifiedId(participant.name);
         });
-        jsonContent.messages.forEach((message, i_1) => {
+        let messagePromises = jsonContent.messages.map(async (message, i_1) => {
+            message.isVoiceMessage = false
             if (isVoiceMessage(message)) {
-                console.log(message.audio_files[0].uri)
-
+                message.isVoiceMessage = true
+                //message.length_seconds = 0
                 // find the entry for the voice message
                 let voiceMessage = allEntries.find(entry => entry.filename == message.audio_files[0].uri)
-                console.log("voiceMessage:", voiceMessage)
 
-                // now read and get metadata
+                if (voiceMessage !== undefined) {
+                    // now read and get metadata
 
-                if (voiceMessage != undefined) {
+                    // ToDO: I think I have to await these PROMISES !
                     const blobWriter = new zip.BlobWriter();
-                    voiceMessage.getData(blobWriter).then(blob => {
-                        musicMetadata.parseBlob(blob).then(metadata => {
+                    let blob = await voiceMessage.getData(blobWriter)
+                    let metadata = await musicMetadata.parseBlob(blob)
                             // metadata has all the metadata found in the blob or file
-                            console.log("hello", metadata)
-                            // toDo: now extract duration
-                        });
-                    })
-                } else {
-                    // todo
-                    // some voice messages arent stored -> still count them
-                }
+                            message.sender_name = getDeIdentifiedId(message.sender_name);
 
+                            message.length_seconds =  parseInt(metadata.format.duration);
+
+                            delete message.content;
+                            delete message.type;
+                            if (message.users)
+                                delete message.users;
+                            delete message.audio_files
+                } else {
+                    // some voice messages aren't stored -> still count them
+                    message.sender_name = getDeIdentifiedId(message.sender_name);
+                    message.length_seconds = 0;
+                    delete message.content;
+                    delete message.type;
+                    if (message.users)
+                        delete message.users;
+                    delete message.audio_files
+                }
             }
             else if (validateMessage(message)) {
                 message.sender_name = getDeIdentifiedId(message.sender_name);
@@ -91,15 +102,26 @@ async function deIdentify(donorName, dataPromise, allEntries) {
                     delete message.users;
             }
             else {
-                delete jsonContent.messages[i_1];
+                return null;
             }
+
+            return message
         });
-        jsonContent.messages = jsonContent.messages.filter(Boolean);
+
+        let resolvedMessages = await Promise.all(messagePromises)
+
+        // Filter out any null values
+        jsonContent.messages = resolvedMessages.filter(Boolean);
         // add selected property
         jsonContent.selected = false
         if (jsonContent.messages.length > 0)
-            deIdentifiedJsonContents.push(jsonContent);
-    });
+            //deIdentifiedJsonContents.push(jsonContent);
+            return jsonContent
+        else
+            return null
+    }))
+
+    deIdentifiedJsonContents = deIdentifiedJsonContentsNew.filter(Boolean);
 
 
     // find seven chats with highest wordcount - so only they will be displayed for friendsmapping

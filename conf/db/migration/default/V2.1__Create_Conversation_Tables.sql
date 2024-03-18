@@ -60,3 +60,11 @@ CREATE TABLE messages(
     datetime                TIMESTAMP       NOT NULL,
     word_count              INTEGER         NOT NULL
 );
+
+CREATE TABLE messages_audio(
+                         id                      uuid            PRIMARY KEY,
+                         conversation_id         uuid            NOT NULL REFERENCES conversations(id),
+                         sender_id               uuid            NOT NULL,
+                         datetime                TIMESTAMP       NOT NULL,
+                         length_seconds          INTEGER
+);

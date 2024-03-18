@@ -2,7 +2,7 @@ package controllers
 
 import akka.http.scaladsl.model.Uri
 import config.{FeedbackConfig, SurveyConfig}
-import models.api.{Conversation, ConversationMessage, SocialData}
+import models.api.{Conversation, ConversationMessage, ConversationMessageAudio, SocialData}
 import models.domain.{DonationDataSourceType, ExternalDonorId}
 import org.mockito.Mockito._
 import org.scalatestplus.play._
@@ -95,6 +95,7 @@ class SocialDataDonationControllerSpec extends PlaySpec with Mockito {
               "FooBar",
               List("1A2B3C", "AD44FF"),
               List(ConversationMessage(40, 1528101324250L, Some("1A2B3C"))),
+              List(ConversationMessageAudio(20, 1528101324250L, Some("1A2B3C"))),
               DonationDataSourceType.WhatsApp,
               true
             )
