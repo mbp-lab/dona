@@ -75,6 +75,13 @@ class SocialDataDonationControllerSpec extends PlaySpec with Mockito {
           |          "sender": "1A2B3C"
           |        }
           |      ],
+          |      "messages_audio": [
+          |        {
+          |          "length_seconds": 20,
+          |          "timestamp_ms": 1528101324250,
+          |          "sender": "1A2B3C"
+          |        }
+          |      ],
           |      "donation_data_source_type": "WhatsApp",
           |      "selected": true
           |    }
