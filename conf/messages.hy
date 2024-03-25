@@ -39,7 +39,7 @@ landing.why.col2.body_html=Ուսումնասիրության երկարաժամ
 
 
 landing.why.col3.title=Մնացեք անանուն
-landing.why.col3.body_html=Մենք ընդունում ու վերլուծում ենք <strong><a href="/learn-more">բացառապես անանուն տվյալներ </a></strong> (հաղորդագրության երկարությունը, ժամանակը, թվեր՝ հաղորդագրության մասնակիցների անունների փոխարեն), հաղորդագրության տեքստը կամ մասնակիցների անունները չեն գրանցվում։ Հավաստիացնում ենք, որ հասանելիություն չունենք Ձեր հաղորդագրությունների բովանդակությանը։
+landing.why.col3.body_html=TODO:Մենք ընդունում ու վերլուծում ենք <strong><a href="/learn-more">բացառապես անանուն տվյալներ </a></strong> (հաղորդագրության երկարությունը, ժամանակը, թվեր՝ հաղորդագրության մասնակիցների անունների փոխարեն), հաղորդագրության տեքստը կամ մասնակիցների անունները չեն գրանցվում։ Հավաստիացնում ենք, որ հասանելիություն չունենք Ձեր հաղորդագրությունների բովանդակությանը։
 landing.contact.body_html=Հարցերի դեպքում խնդրում ենք կապ հաստատել ծրագրի ղեկավար պրոֆ․ դր․ Հաննա Դրիմալլայի հետ (AG Multimodal Behavior Processing, Technische Fakultät, Universität Bielefeld, <a href="mailto:drimalla@techfak.uni-bielefeld.de">drimalla@techfak.uni-bielefeld.de</a>, հեռ. +49 521 106-12043)
 
 
@@ -394,8 +394,10 @@ donation.preview-data.message=Հաղորդագրություն
 donation.preview-data.sender=Ուղարկող
 donation.preview-data.receiver=Ստացող
 donation.preview-data.word-count=Բառերի քանակ
+donation.preview-data.length-seconds=ToDo: Length in seconds
 donation.preview-data.timestamp=Ժամանակ
 donation.preview-data.group-conversation=Խմբային հաղորդագրություն
+donation.preview-data.voice-message=ToDo: Voice Message
 
 
 

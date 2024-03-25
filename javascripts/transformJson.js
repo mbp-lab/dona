@@ -73,8 +73,8 @@ function transformMessages(messages) {
                 'timestamp_ms': message.timestamp_ms,
                 'length_seconds': message["length_seconds"]
             };
-            console.log(messageObject)
             transformedMessagesAudio.push(messageObject);
+
         } else {
             messageObject = {
                 'sender': message.sender_name,

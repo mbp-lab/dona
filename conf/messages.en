@@ -17,7 +17,7 @@ landing.why.col2.body_html=The results of this study will contribute to the over
 
 
 landing.why.col3.title=Stay anonymous
-landing.why.col3.body_html=We will ask you to donate  <strong><a href="/learn-more">anonymized chat data </a></strong>  (message length, message timestamp and pseudonyms of the chat participants). We will have no access to any names or message texts.
+landing.why.col3.body_html=We will ask you to donate  <strong><a href="/learn-more">anonymized chat data </a></strong>  (number of words for text messages, length in seconds for voice messages, message timestamp and pseudonyms of the chat participants). We will have no access to any names or message texts.
 landing.contact.body_html=The purpose of this website is to inform you about the background and process of this online study. If any questions or concerns arise during the process, please write to the principal investigator (Prof. Dr. Hanna Drimalla, AG Multimodal Behavior Processing, Technische Fakultät, Universität Bielefeld, <a href="mailto:drimalla@techfak.uni-bielefeld.de">drimalla@techfak.uni-bielefeld.de</a>, Tel. +49 521 106-12043)
 
 
@@ -153,8 +153,10 @@ donation.preview-data.message=Message
 donation.preview-data.sender=Sender of message
 donation.preview-data.receiver=Receiver of message
 donation.preview-data.word-count=Word count
+donation.preview-data.length-seconds=Length in seconds
 donation.preview-data.timestamp=Timestamp of message
 donation.preview-data.group-conversation=Group conversation
+donation.preview-data.voice-message=Voice message
 
 
 donation.friendsMapping.title=<b>Aliases for your contacts</b>
