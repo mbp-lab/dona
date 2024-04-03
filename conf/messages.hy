@@ -191,8 +191,8 @@ learn-more.data-storage.title=Ի՞նչ տվյալներ են օգտագործվ�
 
 
 
-
-learn-more.imagePath=images/dataAnonymizationExample-Armenian.svg
+learn-more.imagePath.text=images/dataAnonymizationExample-text-Armenian.svg
+learn-more.imagePath.voice=images/dataAnonymizationExample-voice-Armenian.svg
 
 
 
@@ -278,7 +278,8 @@ learn-more.data-handling.body2=Տվյալներն ու ուսումնասիրո�
 
 
 
-learn-more.image.caption=Պատկեր 3․ Անանուն հաղորդագրության օրինակ
+learn-more.image.text-messages.caption=Example of an anonymized text message.
+learn-more.image.voice-messages.caption=Example of an anonymized voice message.
 
 
 
