@@ -278,8 +278,8 @@ learn-more.data-handling.body2=Տվյալներն ու ուսումնասիրո�
 
 
 
-learn-more.image.text-messages.caption=Example of an anonymized text message.
-learn-more.image.voice-messages.caption=Example of an anonymized voice message.
+learn-more.image.text-messages.caption= Ապանույնականացված հաղորդագրության օրինակ
+learn-more.image.voice-messages.caption=Ապանույնականացված ձայնային հաղորդագրության օրինակ
 
 
 
