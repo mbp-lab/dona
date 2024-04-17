@@ -68,7 +68,6 @@ async function deIdentify(donorName, dataPromise, allEntries) {
                 if (voiceMessage !== undefined) {
                     // now read and get metadata
 
-                    // ToDO: I think I have to await these PROMISES !
                     const blobWriter = new zip.BlobWriter();
                     let blob = await voiceMessage.getData(blobWriter)
                     let metadata = await musicMetadata.parseBlob(blob)

@@ -324,7 +324,6 @@ function setUpFileHandler() {
                     renderUserIDMapping(deIdentifiedJson.chatsToShowMappingParticipants, deIdentifiedJson.participantNameToRandomIds, contactsPerConv, i18nSupport.data('system'), i18nSupport.data('donor'), i18nSupport.data('friend-initial'), i18nSupport.data('chat-initial-f'), i18nSupport.data('only-you'), i18nSupport.data('and-more-contacts'), i18nSupport.data('chat'),  dataSource)
 
                     // for facebook also fill information for the chat selection modal
-                    // ToDo: move this to its own function
                     $("#openChooseFacebookChatsModalButton").on("click", function() {
                         createChooseChatsModal(deIdentifiedJson.allParticipantsNamesToRandomIds, deIdentifiedJson.allWordCounts, dataSource)
                         $('#chooseFacebookChatsModal').modal('show')
