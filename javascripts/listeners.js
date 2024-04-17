@@ -470,18 +470,6 @@ function setUpFileHandler() {
         let endDateMs = new Date(endDate).getTime()
         endDateMs = endDateMs + 86340000 // standard is at 00:00, add 23:59h so that the whole day of the end day is regarded
 
-        /*
-        console.log("Start:", startDate)
-        console.log("End:", endDate)
-        console.log("StartMs:", startDateMs)
-        console.log("EndMs:", endDateMs)
-        console.log("startDateMs > possibleLatestDate", startDateMs > possibleLatestDate)
-        console.log("endDateMs < possibleEarliestDate", endDateMs < possibleEarliestDate)
-        console.log("startDateMs >= endDateMs", startDateMs >= endDateMs)
-        console.log("error?", startDateMs > possibleLatestDate || endDateMs < possibleEarliestDate || startDateMs >= endDateMs)
-
-         */
-
         // remove all current notifications
         messageService.hideErrorShowSuccess(dataSource)
 
@@ -525,7 +513,11 @@ function setUpFileHandler() {
         let dataSourceConv = inputObjConvAllData.filter((conv) => conv["donation_data_source_type"] === dataSource)
         // filter the messages
         dataSourceConv.forEach(conv => {
+            // only leave messages that are in the timespan
             conv.messages = conv.messages.filter((message) =>
+                message.timestamp_ms >= startDateMs && message.timestamp_ms <= endDateMs)
+            // only leave audio messages that are in the timespan
+            conv.messages_audio = conv.messages_audio.filter((message) =>
                 message.timestamp_ms >= startDateMs && message.timestamp_ms <= endDateMs)
         })
         // create the new conversations object
