@@ -27,9 +27,6 @@ function generateMessageList(deIdentifiedJsonList) {
         const threadType = conversation.thread_type;
         return conversation.messages.map( message => {
             var result = JSON.parse(JSON.stringify(message));
-            if (result.isVoiceMessage) {
-                console.log(message)
-            }
             result.participants = participants;
             result.isGroup = threadType == "RegularGroup" ? i18nSupport.data("yes") : i18nSupport.data("no");
             result.isAudio = result.isVoiceMessage ? i18nSupport.data("yes") : i18nSupport.data("no");

@@ -73,9 +73,6 @@ async function deIdentify(donorName, dataPromise, allEntries) {
                         let blob = await voiceMessage.getData(blobWriter)
                         let metadata = await musicMetadata.parseBlob(blob)
 
-                        console.log("blob:", blob)
-                        console.log("metadata:", metadata)
-
                         // metadata has all the metadata found in the blob or file
                         message.sender_name = getDeIdentifiedId(message.sender_name);
 
@@ -87,13 +84,22 @@ async function deIdentify(donorName, dataPromise, allEntries) {
                             delete message.users;
                         delete message.audio_files
                     } catch (e) {
-                       console.log("error from catch clause:", e)
+                       console.log("error from catch clause (the audio file is being stored with a length of -1):", e)
+                        // some voice messages aren't stored -> still count them
+                        console.log("error occured for this message:", message)
+                        message.sender_name = getDeIdentifiedId(message.sender_name);
+                        message.length_seconds = -2;
+                        delete message.content;
+                        delete message.type;
+                        if (message.users)
+                            delete message.users;
+                        delete message.audio_files
                     }
 
                 } else {
                     // some voice messages aren't stored -> still count them
                     message.sender_name = getDeIdentifiedId(message.sender_name);
-                    message.length_seconds = 0;
+                    message.length_seconds = -1;
                     delete message.content;
                     delete message.type;
                     if (message.users)
