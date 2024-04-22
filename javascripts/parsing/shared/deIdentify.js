@@ -68,19 +68,28 @@ async function deIdentify(donorName, dataPromise, allEntries) {
                 if (voiceMessage !== undefined) {
                     // now read and get metadata
 
-                    const blobWriter = new zip.BlobWriter();
-                    let blob = await voiceMessage.getData(blobWriter)
-                    let metadata = await musicMetadata.parseBlob(blob)
-                            // metadata has all the metadata found in the blob or file
-                            message.sender_name = getDeIdentifiedId(message.sender_name);
+                    try {
+                        const blobWriter = new zip.BlobWriter();
+                        let blob = await voiceMessage.getData(blobWriter)
+                        let metadata = await musicMetadata.parseBlob(blob)
 
-                            message.length_seconds =  parseInt(metadata.format.duration);
+                        console.log("blob:", blob)
+                        console.log("metadata:", metadata)
 
-                            delete message.content;
-                            delete message.type;
-                            if (message.users)
-                                delete message.users;
-                            delete message.audio_files
+                        // metadata has all the metadata found in the blob or file
+                        message.sender_name = getDeIdentifiedId(message.sender_name);
+
+                        message.length_seconds =  parseInt(metadata.format.duration);
+
+                        delete message.content;
+                        delete message.type;
+                        if (message.users)
+                            delete message.users;
+                        delete message.audio_files
+                    } catch (e) {
+                       console.log("error from catch clause:", e)
+                    }
+
                 } else {
                     // some voice messages aren't stored -> still count them
                     message.sender_name = getDeIdentifiedId(message.sender_name);
