@@ -17,7 +17,7 @@ landing.why.col2.body_html=Die Ergebnisse dieser Studie werden zu dem übergeord
 
 
 landing.why.col3.title=Sie bleiben anonym
-landing.why.col3.body_html=Wir werden Sie bitten, <strong><a href="/learn-more">anonyme Chat-Metadaten</a></strong> (Nachrichtenlänge, Zeitstempel der Nachricht und Pseudonyme der Chat-TeilnehmerInnen). Wir haben keinen Zugang zu Namen oder Nachrichtentexten.
+landing.why.col3.body_html=Wir werden Sie bitten, <strong><a href="/learn-more">anonyme Chat-Metadaten</a></strong> (Wortanzahl bei Textnachrichten, Länge in Sekunden bei Sprachnachrichten, Zeitstempel der Nachricht und Pseudonyme der Chat-TeilnehmerInnen). Wir haben keinen Zugang zu Namen, Nachrichtentexten, Inhalten von Sprachnachrichten oder anderen Inhalten.
 
 
 landing.contact.body_html=Auf dieser Webseite erläutern wir Ihnen den Hintergrund und Ablauf der Online-Studie damit Sie entscheiden können, ob Sie teilnehmen möchten. Sollten Sie noch Fragen haben, so wenden Sie sich bitte an die Versuchsleiterin (Prof. Dr. Hanna Drimalla, AG Multimodal Behavior Processing, Technische Fakultät, Universität Bielefeld, <a href="mailto:drimalla@techfak.uni-bielefeld.de">drimalla@techfak.uni-bielefeld.de</a>, Tel. +49 521 106-12043).
@@ -44,7 +44,8 @@ learn-more.how-to-cancel.body=Das Wichtigste zuerst: Die Teilnahme ist völlig f
 learn-more.data-storage.title=Welche Daten werden gespeichert?
 
 
-learn-more.imagePath=images/dataAnonymizationExample-German.png
+learn-more.imagePath.text=images/dataAnonymizationExample-text-German.svg
+learn-more.imagePath.voice=images/dataAnonymizationExample-voice-German.svg
 
 
 # data storage text body is reused, see below
@@ -60,7 +61,8 @@ learn-more.data-handling.body1=Da wir weder Ihren Namen oder andere personenbezo
 learn-more.data-handling.body2=Die Ergebnisse und Daten dieser Studie werden als wissenschaftliche Publikation veröffentlicht. Dies geschieht in anonymisierter Form, d. h. ohne dass die Daten einer spezifischen Person zugeordnet werden können. Die vollständig anonymisierten Daten dieser Studie werden online in einem Forschungsdaten-Repositorium gespeichert und qualifizierten Wissenschaftlern auf Antrag zugänglich gemacht.
 
 
-learn-more.image.caption=Abbildung 3. Beispiel der Anonymisierung einer Nachricht
+learn-more.image.text-messages.caption=Beispiel der Anonymisierung einer Textnachricht
+learn-more.image.voice-messages.caption=Beispiel der Anonymisierung einer Sprachnachricht
 
 
 # Instructions page
@@ -156,8 +158,10 @@ donation.preview-data.message=Nachricht
 donation.preview-data.sender=Sender der Nachricht
 donation.preview-data.receiver=Empfänger der Nachricht
 donation.preview-data.word-count=Anzahl an Wörtern
+donation.preview-data.length-seconds=Länge in Sekunden
 donation.preview-data.timestamp=Zeitpunkt der Nachricht
 donation.preview-data.group-conversation=Gruppenunterhaltung
+donation.preview-data.voice-message=Sprachnachricht
 
 
 donation.friendsMapping.title=<b>Decknamen für Ihre Kontakte</b>

@@ -2,7 +2,7 @@ package services
 
 import java.time.Instant
 
-import models.api.{SocialData, Conversation => ApiConversation, ConversationMessage => ApiMessage}
+import models.api.{SocialData, Conversation => ApiConversation, ConversationMessage => ApiMessage, ConversationMessageAudio => ApiMessageAudio}
 import models.domain.{DonationDataSourceType, DonationId, SocialDataDonation}
 import org.scalatest.{FreeSpec, Matchers}
 
@@ -18,6 +18,7 @@ final class SocialDataTransformerTest extends FreeSpec with Matchers {
             "someId",
             List("donorId", "other"),
             List(ApiMessage(1, 12413123L, Some("other")), ApiMessage(2, 5243234L, Some("donorId"))),
+            List(ApiMessageAudio(1, 12413123L, Some("other")), ApiMessageAudio(2, 5243234L, Some("donorId"))),
             DonationDataSourceType.WhatsApp,
             true
           ),
@@ -26,16 +27,18 @@ final class SocialDataTransformerTest extends FreeSpec with Matchers {
             "someOtherId",
             List("donorId", "other", "other2"),
             List(ApiMessage(3, 13413412L, None)),
+            List(ApiMessageAudio(3, 13413412L, None)),
             DonationDataSourceType.Facebook,
             true
           )
         )
       )
 
-      val SocialDataDonation(_, mappedConversations, mappedMessages, _) = SocialDataTransformer(donationId, socialData)
+      val SocialDataDonation(_, mappedConversations, mappedMessages, mappedMessagesAudio, _) = SocialDataTransformer(donationId, socialData)
 
       mappedConversations.length shouldBe 2
       mappedMessages.length shouldBe 3
+      mappedMessagesAudio.length shouldBe 3
 
       val messagesByWordCount = mappedMessages.groupBy(_.wordCount).mapValues(_.head)
 
@@ -51,6 +54,7 @@ final class SocialDataTransformerTest extends FreeSpec with Matchers {
             "someId",
             List("donorId", "other"),
             List(ApiMessage(15, 12355132L, Some("other"))),
+            List(ApiMessageAudio(15, 12355132L, Some("other"))),
             DonationDataSourceType.WhatsApp,
             true
           ),
@@ -59,13 +63,14 @@ final class SocialDataTransformerTest extends FreeSpec with Matchers {
             "someOtherId",
             List("yetAnother", "another", "donorId"),
             List(ApiMessage(12, 134131414L, Some("donorId"))),
+            List(ApiMessageAudio(12, 134131414L, Some("donorId"))),
             DonationDataSourceType.Facebook,
             true
           )
         )
       )
 
-      val SocialDataDonation(_, mappedConversations, _, _) = SocialDataTransformer(donationId, socialData)
+      val SocialDataDonation(_, mappedConversations, _, _, _) = SocialDataTransformer(donationId, socialData)
 
       val (groupConversation :: Nil, singleConversation :: Nil) = mappedConversations.partition(_.isGroupConversation)
 
@@ -87,14 +92,16 @@ final class SocialDataTransformerTest extends FreeSpec with Matchers {
             "someId",
             List("donorId", "other"),
             List(ApiMessage(15, originalTime.toEpochMilli, Some("other"))),
+            List(ApiMessageAudio(15, originalTime.toEpochMilli, Some("other"))),
             DonationDataSourceType.WhatsApp,
             true
           )
         )
       )
 
-      val SocialDataDonation(_, _, message :: Nil, _) = SocialDataTransformer(donationId, socialData)
+      val SocialDataDonation(_, _, message :: Nil, messageAudio :: Nil, _) = SocialDataTransformer(donationId, socialData)
       message.timestamp shouldBe originalTime
+      messageAudio.timestamp shouldBe originalTime
     }
 
     "should consistently map the donor" in {
@@ -107,17 +114,19 @@ final class SocialDataTransformerTest extends FreeSpec with Matchers {
             "someId",
             List(donorId, "other"),
             List(ApiMessage(15, 12355132L, Some(donorId))),
+            List(ApiMessageAudio(15, 12355132L, Some(donorId))),
             DonationDataSourceType.Facebook,
             true
           )
         )
       )
 
-      val SocialDataDonation(mappedDonorId, _, mappedMessage :: Nil, mappedParticipants) =
+      val SocialDataDonation(mappedDonorId, _, mappedMessage :: Nil, mappedMessageAudio :: Nil, mappedParticipants) =
         SocialDataTransformer(donationId, socialData)
 
       mappedParticipants.map(_.participantId) should contain(mappedDonorId.asParticipant)
       mappedMessage.sender shouldBe Some(mappedDonorId.asParticipant)
+      mappedMessageAudio.sender shouldBe Some(mappedDonorId.asParticipant)
     }
   }
 
@@ -131,6 +140,7 @@ final class SocialDataTransformerTest extends FreeSpec with Matchers {
           "someId",
           List("donorId", otherId),
           List(ApiMessage(15, 12355132L, Some(otherId))),
+          List(ApiMessageAudio(15, 12355132L, Some(otherId))),
           DonationDataSourceType.Facebook,
           true
         ),
@@ -139,13 +149,14 @@ final class SocialDataTransformerTest extends FreeSpec with Matchers {
           "someOtherId",
           List(otherId, "another", "donorId"),
           List(ApiMessage(12, 134131414L, Some("donorId"))),
+          List(ApiMessageAudio(15, 12355132L, Some(otherId))),
           DonationDataSourceType.Facebook,
           true
         )
       )
     )
 
-    val SocialDataDonation(mappedDonorId, mappedConversations, mappedMessages, mappedParticipants) =
+    val SocialDataDonation(mappedDonorId, mappedConversations, mappedMessages, mappedMessagesAudio, mappedParticipants) =
       SocialDataTransformer(donationId, socialData)
     val (mappedGroupConversation :: Nil, _) = mappedConversations.partition(_.isGroupConversation)
     val (groupParticipants, singleParticipants) =

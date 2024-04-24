@@ -22,6 +22,7 @@
     "@zip.js/zip.js": "^2.7.31",
     "gifffer": "^1.5.1",
     "hammerjs": "^2.0.8",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "music-metadata-browser": "^2.5.10"
   }
 }

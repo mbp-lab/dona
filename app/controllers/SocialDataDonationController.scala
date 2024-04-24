@@ -125,6 +125,7 @@ final class SocialDataDonationController @Inject()(
       }
 
       def validateInput(inputJson: String): Either[String, SocialData] = {
+        logger.error(inputJson)
         val parseError = "Error parsing social data from client."
         try {
           Json

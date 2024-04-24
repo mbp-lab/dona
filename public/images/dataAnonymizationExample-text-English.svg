@@ -13,7 +13,7 @@
    overflow="hidden"
    version="1.1"
    id="svg200"
-   sodipodi:docname="2-Armenian.svg"
+   sodipodi:docname="2-English.svg"
    style="overflow:hidden"
    inkscape:version="0.92.1 r15371">
   <metadata
@@ -24,7 +24,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -41,17 +41,17 @@
      inkscape:window-height="1001"
      id="namedview202"
      showgrid="false"
-     fit-margin-top="20"
-     fit-margin-left="20"
-     fit-margin-right="20"
-     fit-margin-bottom="20"
-     inkscape:zoom="1.1222222"
-     inkscape:cx="605.94551"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="0.79353094"
+     inkscape:cx="868.06392"
      inkscape:cy="216.2792"
      inkscape:window-x="-9"
      inkscape:window-y="-9"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g1936" />
+     inkscape:current-layer="g182" />
   <defs
      id="defs40">
     <clipPath
@@ -279,48 +279,48 @@
              stroke-miterlimit="10"
              d="M -12.676535,199.336 H 1093.38" />
           <text
-             y="145.58064"
-             x="21.842102"
+             y="148.25391"
+             x="40.554974"
              style="font-weight:700;font-size:24px;font-family:Calibri, Calibri_MSFontService, sans-serif;fill:#ffffff"
              id="text84"
              font-size="24"
-             font-weight="700">Ուղարկող</text>
+             font-weight="700">Sender</text>
           <text
              y="148.07227"
              x="207.87613"
              style="font-weight:700;font-size:24px;font-family:Calibri, Calibri_MSFontService, sans-serif;fill:#ffffff"
              id="text86"
              font-size="24"
-             font-weight="700">Ստացող</text>
+             font-weight="700">Receiver</text>
           <text
              y="148.07227"
-             x="369.13907"
+             x="379.83212"
              style="font-weight:700;font-size:24px;font-family:Calibri, Calibri_MSFontService, sans-serif;fill:#ffffff"
              id="text88"
              font-size="24"
-             font-weight="700">Ժամանակ</text>
+             font-weight="700">Datetime</text>
           <text
              y="146.08008"
              x="546.36963"
              style="font-weight:700;font-size:24px;font-family:Calibri, Calibri_MSFontService, sans-serif;fill:#ffffff"
              id="text90"
              font-size="24"
-             font-weight="700">Չատի տեսակը</text>
+             font-weight="700">Conversation type</text>
           <text
-             y="143.91118"
-             x="823.23584"
+             y="145.69336"
+             x="882.04773"
              style="font-weight:700;font-size:24px;font-family:Calibri, Calibri_MSFontService, sans-serif;fill:#ffffff"
              id="text92"
              font-size="24"
-             font-weight="700">Հաղորդագրություն</text>
+             font-weight="700">Message</text>
           <text
              y="187"
-             x="39.84013"
+             x="26.259399"
              style="font-style:italic;font-weight:400;font-size:24px;font-family:Calibri, Calibri_MSFontService, sans-serif"
              id="text94"
              font-size="24"
              font-weight="400"
-             font-style="italic">Նարեկ</text>
+             font-style="italic">Tim Meier</text>
           <text
              y="187"
              x="205.631"
@@ -328,7 +328,7 @@
              id="text96"
              font-size="24"
              font-weight="400"
-             font-style="italic">Անի</text>
+             font-style="italic">Maria M.</text>
           <text
              y="187"
              x="371.67001"
@@ -339,14 +339,14 @@
              font-style="italic">121348134</text>
           <text
              y="187"
-             x="574.58252"
+             x="599.37701"
              style="font-style:italic;font-weight:400;font-size:24px;font-family:Calibri, Calibri_MSFontService, sans-serif"
              id="text100"
              font-size="24"
              font-weight="400"
-             font-style="italic">հասարակ</text>
+             font-style="italic">Regular</text>
           <g
-             transform="translate(74.456199)"
+             transform="translate(-12)"
              id="g104"
              clip-path="url(#clip1)">
             <text
@@ -355,7 +355,7 @@
                transform="translate(782.723,187)"
                font-size="24"
                font-weight="400"
-               font-style="italic">Բարև, ո՞նց ես</text>
+               font-style="italic">„Hallo, Maria! Wie geht es dir?“</text>
           </g>
         </g>
         <g
@@ -467,27 +467,27 @@
              d="M -11.99643,551.832 H 1092.7" />
           <text
              y="501"
-             x="19.209526"
+             x="41.209526"
              style="font-weight:700;font-size:24px;font-family:Calibri, Calibri_MSFontService, sans-serif;fill:#ffffff"
              id="text144"
              font-size="24"
-             font-weight="700">Ուղարկող</text>
+             font-weight="700">Sender</text>
           <text
              y="501.25375"
              x="208.47963"
              style="font-weight:700;font-size:24px;font-family:Calibri, Calibri_MSFontService, sans-serif;fill:#ffffff"
              id="text146"
              font-size="24"
-             font-weight="700">Ստացող</text>
+             font-weight="700">Receiver</text>
           <text
              y="501.25375"
-             x="376.38409"
+             x="380.38409"
              style="font-weight:700;font-size:24px;font-family:Calibri, Calibri_MSFontService, sans-serif;fill:#ffffff"
              id="text148"
              font-size="24"
-             font-weight="700">Ժամանակ</text>
+             font-weight="700">Datetime</text>
           <g
-             transform="translate(14.112641)"
+             transform="translate(6.1126406)"
              id="g152"
              clip-path="url(#clip2)">
             <text
@@ -495,31 +495,31 @@
                id="text150"
                transform="translate(540.748,501)"
                font-size="24"
-               font-weight="700">Խմբային չատ</text>
+               font-weight="700">Group conversation</text>
           </g>
           <text
              y="501.43539"
-             x="846.2467"
+             x="870.2467"
              style="font-weight:700;font-size:24px;font-family:Calibri, Calibri_MSFontService, sans-serif;fill:#ffffff"
              id="text154"
              font-size="24"
-             font-weight="700">Բառերի քանակ</text>
+             font-weight="700">Wordcount</text>
           <text
              y="540"
-             x="27.277885"
+             x="13.9639"
              style="font-style:italic;font-weight:400;font-size:24px;font-family:Calibri, Calibri_MSFontService, sans-serif"
              id="text156"
              font-size="24"
              font-weight="400"
-             font-style="italic">անանուն1</text>
+             font-style="italic">anonymous1</text>
           <text
              y="540"
-             x="201.285"
+             x="189.285"
              style="font-style:italic;font-weight:400;font-size:24px;font-family:Calibri, Calibri_MSFontService, sans-serif"
              id="text158"
              font-size="24"
              font-weight="400"
-             font-style="italic">անանուն2</text>
+             font-style="italic">anonymous2</text>
           <text
              y="540"
              x="372.22198"
@@ -535,7 +535,7 @@
              id="text162"
              font-size="24"
              font-weight="400"
-             font-style="italic">ոչ</text>
+             font-style="italic">no</text>
           <text
              y="540"
              x="919.86102"
@@ -543,7 +543,7 @@
              id="text164"
              font-size="24"
              font-weight="400"
-             font-style="italic">3</text>
+             font-style="italic">6</text>
         </g>
         <g
            id="g459"

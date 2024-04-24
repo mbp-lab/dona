@@ -401,6 +401,7 @@
 
 
 .footer-forward-button {
+    word-break: break-all;
     font-weight: 800;
     font-size: 24px;
     width: 100%;
@@ -414,6 +415,7 @@
 
 @media (min-width: 576px) {
     .footer-forward-button {
+        word-break: break-all;
         font-weight: 800;
         font-size: 24px;
         width: 275px;
@@ -431,6 +433,7 @@
     font-weight: 800;
     font-size: 24px;
     width: 100%;
+    word-break: break-all;
     padding: 10px 20px 10px 20px;
     border-radius: 16px;
     background: #35b1a6;
@@ -441,6 +444,7 @@
 
 @media (min-width: 576px) {
     .footer-forward-button-margin {
+        word-break: break-all;
         margin-left: 8px;
         font-weight: 800;
         font-size: 24px;
@@ -458,6 +462,7 @@
 
 @media (min-width: 576px) {
     .report-problem-button-footer {
+        word-break: break-all;
         min-width: 190px !important;
         font-weight: 800 !important;
         font-size: 12px !important;
@@ -470,6 +475,7 @@
 }
 
 .report-problem-button-footer {
+    word-break: break-all;
     min-width: 100px !important;
     font-weight: 800 !important;
     font-size: 10px !important;
@@ -486,6 +492,7 @@
 }
 
 .report-problem-button-header {
+    word-break: break-all;
     font-weight: 800 !important;
     font-size: 12px !important;
     padding: 10px 20px 10px 20px !important;
@@ -501,6 +508,7 @@
 }
 
 .modal-forward-button {
+    word-break: break-all;
     font-weight: 800;
     font-size: 24px;
     min-width: 213px;
@@ -519,6 +527,7 @@
 
 
 .footer-backward-button {
+    word-break: break-all;
     font-weight: 800;
     font-size: 24px;
     width: 100%;
@@ -532,6 +541,7 @@
 
 @media (min-width: 576px) {
     .footer-backward-button {
+        word-break: break-all;
         font-weight: 800;
         font-size: 24px;
         width: 275px;
@@ -659,6 +669,7 @@
 /* donation page */
 
 .donate-collapse-button {
+    word-break: break-all;
     font-weight: 800;
     font-size: 24px;
     min-width: 213px;
@@ -785,6 +796,7 @@
 /* consent dialog */
 
 .consent-button {
+    word-break: break-all;
     font-size: 18px;
     font-weight: normal;
     width: 150px;

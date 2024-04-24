@@ -1,14 +1,18 @@
 var validateMessage = require('./validateMessage');
 var wordCount = require('../../stringWordCount')
+const isVoiceMessage = require("./isVoiceMessage");
+const musicMetadata = require('music-metadata-browser');
+const {json} = require("mocha/lib/reporters");
+const zip = require("@zip.js/zip.js");
 
-async function deIdentify(zipFiles, messagesRelativePath, donorName, textListPromise) {
+async function deIdentify(donorName, dataPromise, allEntries) {
     //console.log("deIdentify:", zipFiles)
     //console.log("messagesRelativePath:", messagesRelativePath)
     const i18n = $("#i18n-support");
     let participantNameToRandomIds = {};
     let i = 1;
     participantNameToRandomIds[donorName] = i18n.data("donor");
-    const deIdentifiedJsonContents = [];
+    let deIdentifiedJsonContents = [];
 
     // decode function from stackoverflow
     function decode(s) {
@@ -30,17 +34,10 @@ async function deIdentify(zipFiles, messagesRelativePath, donorName, textListPro
         return participantNameToRandomIds[decodedName];
     }
 
-    // Array<Promise<String>>
-    //const zipFileTexts = messagesRelativePath.map(path => zipFiles[path].async('text'));
-
-    // Promise<Array<Object>>
-    //const textList = await Promise.all(zipFileTexts);
-
-    const textList = await textListPromise
+    let textList = await dataPromise
     let jsonContents = {}
 
-    // ToDo: combine messages from textLists from different zipfiles if they are from the same chat
-    textList.forEach(textContent => {
+    textList.forEach((textContent) => {
         let jsonContent = JSON.parse(textContent);
         if (jsonContents[jsonContent.thread_path] != undefined) {
             jsonContents[jsonContent.thread_path].messages = jsonContents[jsonContent.thread_path].messages.concat(jsonContent.messages)
@@ -49,33 +46,68 @@ async function deIdentify(zipFiles, messagesRelativePath, donorName, textListPro
         }
     })
 
-    //console.log("jsonContents old:", jsonContents)
 
-    /*
-    let textListNew = await textListTest
-    let jsonContentsTest = {}
-    textListNew.forEach(textContent => {
-        let jsonContent = JSON.parse(textContent);
-        if (jsonContentsTest[jsonContent.thread_path] != undefined) {
-            jsonContentsTest[jsonContent.thread_path].messages = jsonContentsTest[jsonContent.thread_path].messages.concat(jsonContent.messages)
-        } else {
-            jsonContentsTest[jsonContent.thread_path] = jsonContent
-        }
-    })
+    //console.log("data:", data)
+    //console.log("textList", textList)
 
-    console.log("jsonContents new:", jsonContentsTest)
-
-     */
-
-    Object.values(jsonContents).forEach(jsonContent => {
+    let deIdentifiedJsonContentsNew = await Promise.all(Object.values(jsonContents).map(async jsonContent => {
         delete jsonContent.thread_path;
         delete jsonContent.title;
         delete jsonContent.is_still_participant;
         jsonContent.participants.forEach((participant) => {
             participant.name = getDeIdentifiedId(participant.name);
         });
-        jsonContent.messages.forEach((message, i_1) => {
-            if (validateMessage(message)) {
+        let messagePromises = jsonContent.messages.map(async (message, i_1) => {
+            message.isVoiceMessage = false
+            if (isVoiceMessage(message)) {
+                message.isVoiceMessage = true
+                //message.length_seconds = 0
+                // find the entry for the voice message
+                let voiceMessage = allEntries.find(entry => entry.filename == message.audio_files[0].uri)
+
+                if (voiceMessage !== undefined) {
+                    // now read and get metadata
+
+                    try {
+                        const blobWriter = new zip.BlobWriter();
+                        let blob = await voiceMessage.getData(blobWriter)
+                        let metadata = await musicMetadata.parseBlob(blob)
+
+                        // metadata has all the metadata found in the blob or file
+                        message.sender_name = getDeIdentifiedId(message.sender_name);
+
+                        message.length_seconds =  parseInt(metadata.format.duration);
+
+                        delete message.content;
+                        delete message.type;
+                        if (message.users)
+                            delete message.users;
+                        delete message.audio_files
+                    } catch (e) {
+                       console.log("error from catch clause (the audio file is being stored with a length of -1):", e)
+                        // some voice messages aren't stored -> still count them
+                        console.log("error occured for this message:", message)
+                        message.sender_name = getDeIdentifiedId(message.sender_name);
+                        message.length_seconds = -2;
+                        delete message.content;
+                        delete message.type;
+                        if (message.users)
+                            delete message.users;
+                        delete message.audio_files
+                    }
+
+                } else {
+                    // some voice messages aren't stored -> still count them
+                    message.sender_name = getDeIdentifiedId(message.sender_name);
+                    message.length_seconds = -1;
+                    delete message.content;
+                    delete message.type;
+                    if (message.users)
+                        delete message.users;
+                    delete message.audio_files
+                }
+            }
+            else if (validateMessage(message)) {
                 message.sender_name = getDeIdentifiedId(message.sender_name);
                 message.word_count = wordCount(message.content);
                 delete message.content;
@@ -84,15 +116,26 @@ async function deIdentify(zipFiles, messagesRelativePath, donorName, textListPro
                     delete message.users;
             }
             else {
-                delete jsonContent.messages[i_1];
+                return null;
             }
+
+            return message
         });
-        jsonContent.messages = jsonContent.messages.filter(Boolean);
+
+        let resolvedMessages = await Promise.all(messagePromises)
+
+        // Filter out any null values
+        jsonContent.messages = resolvedMessages.filter(Boolean);
         // add selected property
         jsonContent.selected = false
         if (jsonContent.messages.length > 0)
-            deIdentifiedJsonContents.push(jsonContent);
-    });
+            //deIdentifiedJsonContents.push(jsonContent);
+            return jsonContent
+        else
+            return null
+    }))
+
+    deIdentifiedJsonContents = deIdentifiedJsonContentsNew.filter(Boolean);
 
 
     // find seven chats with highest wordcount - so only they will be displayed for friendsmapping
