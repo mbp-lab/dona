@@ -14,7 +14,7 @@ services:
       - "DATABASE_NAME=kalinka"
       - "DATABASE_USER=${DATABASE_USER}"
       - "DATABASE_PASSWORD=${DATABASE_PASSWORD}"
-      - "KALINKA_HOST=dona.war.dev.mbp.tf.uni-bielefeld.de"
+      - "KALINKA_HOST=digital-footprint-war.dona.tf.uni-bielefeld.de"
       - "SOCIAL_DATA_SOURCE_ID=1234566"
       - "SOCIAL_DATA_INGESTION_ENABLED=on"
       - "DONOR_SURVEY_ENABLED=on"
@@ -29,8 +29,8 @@ services:
       POSTGRES_DB: "kalinka"
     image: postgres:12
     volumes:
-      - dona_war_dev_data:/var/lib/postgresql/data
+      - dona_war_data:/var/lib/postgresql/data
     ports:
       - "5563:5432"
 volumes:
-  dona_war_dev_data:
+  dona_war_data:
