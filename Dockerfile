@@ -2,10 +2,10 @@
 ARG CACHE_DOCKER_REPO=sjohannknecht
 ARG CACHE_IMAGE=hc-rp-kalinka-cache
 FROM ${CACHE_DOCKER_REPO}/${CACHE_IMAGE}:latest as builder
-
-RUN echo "deb http://archive.debian.org/debian stretch main contrib non-free" > /etc/apt/sources.list
+RUN sed -i '/http:\/\/security.debian.org\/debian-security\|http:\/\/deb.debian.org\/debian/d' /etc/apt/sources.list
+RUN echo "deb http://archive.debian.org/debian stretch main contrib non-free" >> /etc/apt/sources.list
 RUN apt-get update
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - && apt-get install -y nodejs
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - && apt-get install -y nodejs
 WORKDIR /workspace
 COPY build.sbt ./build.sbt
 COPY project ./project
@@ -17,7 +17,7 @@ RUN npm install -g browserify
 
 RUN npm test
 RUN sbt test
-RUN sbt assembly
+RUN sbt -J-Xms2048m -J-Xmx2048m assembly
 
 # final container to run kalinka
 # Needs JRE-8, because JRE-11 is not fully supported yet:
