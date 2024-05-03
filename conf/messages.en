@@ -498,7 +498,7 @@ links.instructions=Start
 links.donation-info=Donate data
 links.donate=Yes, participate now
 links.data-protection=Data Protection
-links.imprint=Imprint
+links.imprint=Legal Notice
 links.reportProblem=https://survey.mbp.tf.uni-bielefeld.de/index.php?r=survey/index&sid=486423&lang=en
 
 
@@ -577,7 +577,7 @@ facebook.logo=f-logo.svg
 # Imprint
 
 imprint.title=Imprint
-imprint.imprint=Universität Bielefeld<br>Universitätsstrasse 25<br>D-33615 Bielefeld<p>National (0521) 106-00<br>International ++49 521 106-00</p><p>Telefax national (0521) 106-5844<br>Telefax international +49 521 106-5844</p><p>Prefix for the University: 0521-106-...</p><p>E-Mail: post@uni-bielefeld.de<br>Internet: <a href="https://www.uni-bielefeld.de" target="_blank">www.uni-bielefeld.de</a><p>Bielefeld University is a state-supported institution bound to public law. It is officially represented by the Rektor, Prof. Dr. Ing. Gerhard Sagerer.</p>
+imprint.imprint=Universität Bielefeld<br>Universitätsstrasse 25<br>D-33615 Bielefeld<p>National (0521) 106-00<br>International ++49 521 106-00</p><p>Telefax national (0521) 106-5844<br>Telefax international +49 521 106-5844</p><p>Prefix for the University: 0521-106-...</p><p>E-Mail: post@uni-bielefeld.de<br>Internet: <a href="https://www.uni-bielefeld.de" target="_blank">www.uni-bielefeld.de</a><p>Bielefeld University is a state-supported institution bound to public law. It is officially represented by the rector, Prof. Dr. Angelika Epple.</p>
 imprint.rsa.title=Responsible supervisory authorities
 imprint.rsa.body=Ministry of Culture and Science in North Rhine-Westphalia<br>Völklinger Straße 49<br>40221 Düsseldorf<p><strong>Value Added Tax identification number</strong><br>Pursuant to § 27 a, VAT ID: DE811307718 - according to paragraph 27 a - Finanzamt (tax office) Bielefeld Innenstadt</p>
 imprint.responsibleDona.title=Responsibility for Content of the Donation Platform Dona
