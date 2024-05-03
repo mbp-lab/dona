@@ -1,6 +1,6 @@
 const uuid = require('uuid/v4');
 const countWords = require('../../stringWordCount');
-const {makeArrayOfMessages, parseMessages} = require('./whatsappParser.js');
+const { makeArrayOfMessages, parseMessages } = require('./whatsappParser.js');
 const _ = require("lodash");
 const messageService = require("../../messageService");
 
@@ -50,7 +50,7 @@ function whatsappTxtFilesHandler(filelist) {
                 let isRejected = false
 
                 // check if any textList of a chat is empty or there is only one person in that chat
-                parsed.forEach(({texts, contacts}) => {
+                parsed.forEach(({ texts, contacts }) => {
                     if (texts.length < 100 || contacts.length <= 1) {
                         reject(i18nSupport.data('error-empty-or-onecontact'));
                         isRejected = true
@@ -126,7 +126,7 @@ function checkOneSidedThreshold(data) {
             return;
         } else if (wordCountObj.participants.length <= 2) {
             // in this case its not a group chat
-            let valueToCompare = wordCountObj.wordCountDonor/wordCountObj.wordCount
+            let valueToCompare = wordCountObj.wordCountDonor / wordCountObj.wordCount
             if (valueToCompare <= 0.1 || valueToCompare >= 0.9) {
                 //console.log(wordCountObj.wordCountDonor)
                 //console.log(wordCountObj.wordCount)
@@ -135,7 +135,7 @@ function checkOneSidedThreshold(data) {
             }
         } else {
             // in this case it is a group chat
-            let valueToCompare = wordCountObj.wordCountDonor/(wordCountObj.wordCount/wordCountObj.participants.length)
+            let valueToCompare = wordCountObj.wordCountDonor / (wordCountObj.wordCount / wordCountObj.participants.length)
             if (valueToCompare <= 0.1 || valueToCompare >= 0.9) {
                 //console.log(wordCountObj.wordCountDonor)
                 //console.log(wordCountObj.wordCount)
@@ -202,14 +202,19 @@ function deIdentification(parsedFiles, alias) {
         .then(textList => {
             //let textList = parsed.map((obj) => obj.texts)
             //let contacts = parsed.map((obj) => obj.contacts)
-            //console.log(textList)
+            console.log(textList);
             //console.log(contacts)
             textList.forEach(lines => {
-                const jsonContent = {"participants": [], "messages": [], thread_type: "Regular"};
+                const jsonContent = { "participants": [], "messages": [], thread_type: "Regular" };
                 var eachFileParticipants = new Set();
                 const i18nSupport = $('#i18n-support'); // TODO: This file should not be allowed to access jquery
                 participantNameToRandomIds[alias] = i18nSupport.data('donor');
                 const messages = lines.map(line => {
+                    // console.log("=== Start ===");
+                    // console.log(line);
+                    // console.log(line.message);
+                    // console.log(line.message.includes(systemMessage));
+                    // console.log("=== End ===");
                     if (!line.message.includes(systemMessage)) {
                         const participant = getDeIdentifiedId(line.author);
                         eachFileParticipants.add(participant);
