@@ -555,20 +555,20 @@ facebook.instructions.p3.body=We strongly recommend that you delete your origina
 
 
 facebook.description_html=Make a request to Facebook to download your Facebook data. You will receive a notification from Facebook once the data is available for download and can then start participating in the study. <strong>We recommend using a computer if donating from Facebook as the data size may be relatively large.</strong>
-facebook.external-documentation_html=The official documentation on how to download your data can be found <a target="_blank" href="https://www.facebook.com/help/contact/2032834846972583" target="_blank">here</a>.
+facebook.external-documentation_html=The official documentation on how to download your data can be found <a target="_blank" href="https://www.facebook.com/help/212802592074644" target="_blank">here</a>.
 
 
 #Download and Donation procedure: Facebook
 
 facebook.donation-procedure.1=Open Facebook and log in.
-facebook.donation-procedure.2=In the top right corner, click on the “Your Profile” button and Select “Settings and privacy”.
-facebook.donation-procedure.3=Select “Settings”. Then select "Your Facebook information" in the navigation bar on the left.
-facebook.donation-procedure.4=On the "Your Facebook information" page click on "Download your information". A pop-up appears.
-facebook.donation-procedure.5=Click on “Request a download”. Then choose “Select types of information”.
-facebook.donation-procedure.6=In the interest of data minimization, please first deselect all categories. Then, tick the fields “Messages” and "Profile information". Then click “Next”.
-facebook.donation-procedure.7=Pick a date range: We encourage you to <b>request the data for 1 year</b> but a shorter time span is possible as well.
+facebook.donation-procedure.2=In the top right corner, click on the “Your Profile” button and select “Settings and privacy” and then "Settings".
+facebook.donation-procedure.3=Now click on the "Meta Accounts Center" on the left hand side.
+facebook.donation-procedure.4=Choose "Your information and permissions" on the left hand side and then click on "Download your information". A pop-up appears.
+facebook.donation-procedure.5=Click on “Request a download” and select only your facebook profile. (If your instagram profil also appears, deselect it.) Click "Next" and then choose “Specific types of information”.
+facebook.donation-procedure.6=Under "Your Facebook activity" select "Messages" and under "Personal Information" select "Profile information". Then click “Next”, "Download to device" and "Next" again.
+facebook.donation-procedure.7=Pick a date range: We encourage you to <b>request the data for 1 year</b> but a shorter time span is possible as well. To do so, you can click on "Edit" next to custom date range and choose the desired interval. Then click on "Save".
 facebook.donation-procedure.8=Change the format from HTML to JSON. Then change the media quality from “Medium” to “Low”.
-facebook.donation-procedure.9=Click on "Submit Request". As soon as the file is ready for download, you will receive a notification from Facebook. This may take a while.
+facebook.donation-procedure.9=Click on "Submit Request". As soon as the file is ready for download, you will receive a notification from Facebook. This may take a while (up to 48 hours).
 facebook.donation-procedure.10=Scroll back up and click on the "Available Files" tab. There you should see the requested file and can download is as soon it is ready.
 facebook.instruction.gif=facebook_eng.mp4
 facebook.logo=f-logo.svg

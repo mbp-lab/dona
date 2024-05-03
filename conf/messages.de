@@ -548,20 +548,20 @@ facebook.instructions.p3.body=Wir empfehlen Ihnen ausdrücklich, Ihre Originalda
 
 
 facebook.description_html=Bitte fordern Sie Ihre Nachrichtendaten von Facebook an. Sie erhalten eine Benachrichtigung von Facebook, sobald die Daten zum Download bereitstehen, und können dann mit der Teilnahme an der Studie beginnen. <strong>Wir empfehlen, einen Computer zu verwenden, wenn Sie von Facebook spenden, da die Datenmenge relativ groß sein kann.</strong>
-facebook.external-documentation_html=Die offizielle Dokumentation zum Herunterladen Ihrer Daten können Sie <a target="_blank" href="https://www.facebook.com/help/contact/2032834846972583" target="_blank">hier</a> finden.
+facebook.external-documentation_html=Die offizielle Dokumentation zum Herunterladen Ihrer Daten können Sie <a target="_blank" href="https://www.facebook.com/help/212802592074644" target="_blank">hier</a> finden.
 
 
 #Download and Donation procedure: Facebook
 
 facebook.donation-procedure.1=Öffnen Sie Facebook und melden Sie sich an.
-facebook.donation-procedure.2=Klicken Sie in der oberen rechten Ecke auf die Schaltfläche "Dein Profil" und wählen Sie "Einstellungen & Privatsphäre".
-facebook.donation-procedure.3=Wählen Sie "Einstellungen". Klicken Sie dann auf der linken Seite auf "Deine Facebook-Informationen".
-facebook.donation-procedure.4=Klicken Sie auf der Seite "Deine Facebook-Informationen" auf "Deine Informationen herunterladen". Es erscheint dann ein Pop-up Fenster.
-facebook.donation-procedure.5=Klicken Sie auf “Download anfordern”. Danach wählen Sie “Arten von Informationen auswählen”.
-facebook.donation-procedure.6=Im Interesse der Datensparsamkeit heben Sie bitte zunächst die Markierung aller Kategorien auf. Anschließend markieren Sie die Felder "Nachrichten" und "Profilinformationen".
-facebook.donation-procedure.7=Wählen Sie einen Datumsbereich: Wir empfehlen Ihnen, die <b>Daten für 1 Jahr anzufordern</b>, aber auch eine kürzere Zeitspanne ist möglich.
-facebook.donation-procedure.8=Ändern Sie dann das Format von HTML zu JSON. Ändern Sie die Medienqualität von “Mittel” zu “Niedrig”.
-facebook.donation-procedure.9=Klicken Sie auf "Anfrage absenden". Sobald die Datei zum Download bereit ist, erhalten Sie eine Benachrichtigung von Facebook. Dies kann einen Moment dauern.
+facebook.donation-procedure.2=Klicken Sie in der oberen rechten Ecke auf die Schaltfläche "Dein Profil" und wählen Sie "Einstellungen & Privatsphäre", dann "Einstellungen".
+facebook.donation-procedure.3=Klicken Sie dann auf der linken Seite auf "Meta Kontenübersicht".
+facebook.donation-procedure.4=Klicken Sie auf "Deine Informationen und Berechtigungen" und dann auf "Deine Informationen herunterladen". Es erscheint dann ein Pop-up Fenster.
+facebook.donation-procedure.5=Klicken Sie auf “Informationen herunterladen oder übertragen” und wählen Sie nur Ihr Facebook-Profil aus. (Falls ihr Instagram-Profil ebenfalls auftaucht, wählen Sie es ab.) Drücken Sie auf "Weiter" und danach auf “Bestimmte Arten von Informationen”.
+facebook.donation-procedure.6=Wählen Sie "Nachrichten" unter "Deine Aktivitäten auf Facebook" und "Profilinformationen" unter "Personenbezogene Informationen". Klicken Sie anschließend auf "Weiter" und dann "Auf Gerät herunterladen".
+facebook.donation-procedure.7=Wählen Sie einen Datumsbereich: Wir empfehlen Ihnen, die <b>Daten für mindestens 1 Jahr anzufordern</b>, aber auch eine kürzere Zeitspanne ist möglich. Dazu können Sie auf "Zeitraum" klicken, bei "Selbstdefiniert" auf "Bearbeiten" und anschließend das gewünschte Start- und Enddatum wählen. Drücken Sie dann auf "Speichern".
+facebook.donation-procedure.8=Ändern Sie dann das Format von "HTML" zu "JSON". Ändern Sie die Medienqualität von “Mittel” zu “Niedrig”.
+facebook.donation-procedure.9=Klicken Sie auf "Anfrage absenden". Sobald die Datei zum Download bereit ist, erhalten Sie eine Benachrichtigung von Facebook. Dies kann eine Weile dauern (bis zu 48 Stunden).
 facebook.donation-procedure.10=Scrollen Sie zurück nach oben und klicken Sie auf die Registerkarte "Verfügbare Dateien". Dort sollten Sie die gewünschte Datei sehen. Sie können sie herunterladen, sobald sie bereitsteht.
 facebook.instruction.gif=facebook_ger.mp4
 facebook.logo=f-logo.svg

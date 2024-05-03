@@ -764,7 +764,7 @@ facebook.instructions.p3.body=Խորհուրդ ենք տալիս մասնակց�
 
 
 facebook.description_html=Make a request to Facebook to download your Facebook data. You will receive a notification from Facebook once the data is available for download and can then start participating in the study. <strong>We recommend using a computer if donating from Facebook as the data size may be relatively large.</strong>
-facebook.external-documentation_html=Տվյալների ներբեռնման պաշտոնական հրահանգները կարող եք ստանալ <a target="_blank" href="https://www.facebook.com/help/contact/2032834846972583" target="_blank">այստեղ</a>։
+facebook.external-documentation_html=Տվյալների ներբեռնման պաշտոնական հրահանգները կարող եք ստանալ <a target="_blank" href="https://www.facebook.com/help/212802592074644" target="_blank">այստեղ</a>։
 
 
 
