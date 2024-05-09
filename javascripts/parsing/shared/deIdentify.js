@@ -5,16 +5,16 @@ const musicMetadata = require('music-metadata-browser');
 const {json} = require("mocha/lib/reporters");
 const zip = require("@zip.js/zip.js");
 
-async function deIdentify(donorName, dataPromise, allEntries) {
-    //console.log("deIdentify:", zipFiles)
-    //console.log("messagesRelativePath:", messagesRelativePath)
+async function deIdentify(donorName, textListPromise, postListPromise, commentListPromise, reactionListPromise, allEntries) {
+
     const i18n = $("#i18n-support");
     let participantNameToRandomIds = {};
     let i = 1;
     participantNameToRandomIds[donorName] = i18n.data("donor");
-    let deIdentifiedJsonContents = [];
+    let messages_deIdentifiedJsonContents = [];
 
     // decode function from stackoverflow
+    // this is just so that names are shown using the correct symbols
     function decode(s) {
         let d = new TextDecoder;
         let a = s.split('').map(r => r.charCodeAt());
@@ -34,113 +34,35 @@ async function deIdentify(donorName, dataPromise, allEntries) {
         return participantNameToRandomIds[decodedName];
     }
 
-    let textList = await dataPromise
-    let jsonContents = {}
+    let textList = await textListPromise
+    let postList = await postListPromise
+    let commentList = await commentListPromise
+    let reactionList = await reactionListPromise
 
+    let messages_jsonContents = {}
+
+    // dealing with textList (for messages)
     textList.forEach((textContent) => {
         let jsonContent = JSON.parse(textContent);
-        if (jsonContents[jsonContent.thread_path] != undefined) {
-            jsonContents[jsonContent.thread_path].messages = jsonContents[jsonContent.thread_path].messages.concat(jsonContent.messages)
+        if (messages_jsonContents[jsonContent.thread_path] != undefined) {
+            messages_jsonContents[jsonContent.thread_path].messages = messages_jsonContents[jsonContent.thread_path].messages.concat(jsonContent.messages)
         } else {
-            jsonContents[jsonContent.thread_path] = jsonContent
+            messages_jsonContents[jsonContent.thread_path] = jsonContent
         }
     })
-
-
-    //console.log("data:", data)
-    //console.log("textList", textList)
-
-    let deIdentifiedJsonContentsNew = await Promise.all(Object.values(jsonContents).map(async jsonContent => {
-        delete jsonContent.thread_path;
-        delete jsonContent.title;
-        delete jsonContent.is_still_participant;
-        jsonContent.participants.forEach((participant) => {
-            participant.name = getDeIdentifiedId(participant.name);
-        });
-        let messagePromises = jsonContent.messages.map(async (message, i_1) => {
-            message.isVoiceMessage = false
-            if (isVoiceMessage(message)) {
-                message.isVoiceMessage = true
-                //message.length_seconds = 0
-                // find the entry for the voice message
-                let voiceMessage = allEntries.find(entry => entry.filename == message.audio_files[0].uri)
-
-                if (voiceMessage !== undefined) {
-                    // now read and get metadata
-
-                    try {
-                        const blobWriter = new zip.BlobWriter();
-                        let blob = await voiceMessage.getData(blobWriter)
-                        let metadata = await musicMetadata.parseBlob(blob)
-
-                        // metadata has all the metadata found in the blob or file
-                        message.sender_name = getDeIdentifiedId(message.sender_name);
-
-                        message.length_seconds =  parseInt(metadata.format.duration);
-
-                        delete message.content;
-                        delete message.type;
-                        if (message.users)
-                            delete message.users;
-                        delete message.audio_files
-                    } catch (e) {
-                       console.log("error from catch clause (the audio file is being stored with a length of -1):", e)
-                        // some voice messages aren't stored -> still count them
-                        console.log("error occured for this message:", message)
-                        message.sender_name = getDeIdentifiedId(message.sender_name);
-                        message.length_seconds = -2;
-                        delete message.content;
-                        delete message.type;
-                        if (message.users)
-                            delete message.users;
-                        delete message.audio_files
-                    }
-
-                } else {
-                    // some voice messages aren't stored -> still count them
-                    message.sender_name = getDeIdentifiedId(message.sender_name);
-                    message.length_seconds = -1;
-                    delete message.content;
-                    delete message.type;
-                    if (message.users)
-                        delete message.users;
-                    delete message.audio_files
-                }
-            }
-            else if (validateMessage(message)) {
-                message.sender_name = getDeIdentifiedId(message.sender_name);
-                message.word_count = wordCount(message.content);
-                delete message.content;
-                delete message.type;
-                if (message.users)
-                    delete message.users;
-            }
-            else {
-                return null;
-            }
-
-            return message
-        });
-
-        let resolvedMessages = await Promise.all(messagePromises)
-
-        // Filter out any null values
-        jsonContent.messages = resolvedMessages.filter(Boolean);
-        // add selected property
-        jsonContent.selected = false
-        if (jsonContent.messages.length > 0)
-            //deIdentifiedJsonContents.push(jsonContent);
-            return jsonContent
-        else
-            return null
+    let messages_deIdentifiedJsonContentsNew = await Promise.all(Object.values(messages_jsonContents).map(async jsonContent => {
+        return processMessages(jsonContent, getDeIdentifiedId, allEntries)
     }))
+    messages_deIdentifiedJsonContents = messages_deIdentifiedJsonContentsNew.filter(Boolean);
 
-    deIdentifiedJsonContents = deIdentifiedJsonContentsNew.filter(Boolean);
+    // toDo: dealing with postList
+    // toDo: dealing with commentList
+    // toDo: dealing with reactionList
 
 
     // find seven chats with highest wordcount - so only they will be displayed for friendsmapping
     // TODO: seven should be in some config file
-    let allWordCounts = deIdentifiedJsonContents.map((conv, index) => {
+    let allWordCounts = messages_deIdentifiedJsonContents.map((conv, index) => {
         return {
             deIdentifiedJsonContentsIndex: index,
             participants: conv.participants,
@@ -193,9 +115,9 @@ async function deIdentify(donorName, dataPromise, allEntries) {
     chatsToShowFeedbackFor.forEach(obj => {
         obj.participants.forEach(p => participantsToShow.push(p.name))
 
-        // add a selected: true to the deIdentifiedJsonContents conversation if it is preselected and a selected: false otherwise
+        // add a selected: true to the messages_deIdentifiedJsonContents conversation if it is preselected and a selected: false otherwise
         let index = obj.deIdentifiedJsonContentsIndex
-        deIdentifiedJsonContents[index]["selected"] = true
+        messages_deIdentifiedJsonContents[index]["selected"] = true
     })
     // get unique participants of those chats with the highest word counts
     participantsToShow = [... new Set(participantsToShow)]
@@ -209,7 +131,7 @@ async function deIdentify(donorName, dataPromise, allEntries) {
 
 
     let result = {
-        deIdentifiedJsonContents: deIdentifiedJsonContents,
+        deIdentifiedJsonContents: messages_deIdentifiedJsonContents,
         participantNameToRandomIds: filteredParticipantNameToRandomIds,
         allParticipantsNamesToRandomIds: participantNameToRandomIds,
         chatsToShowMappingParticipants: chatsToShowFeedbackFor.map(chat => chat.participants),
@@ -221,3 +143,89 @@ async function deIdentify(donorName, dataPromise, allEntries) {
 };
 
 module.exports = deIdentify
+
+
+async function processMessages(jsonContent, getDeIdentifiedId, allEntries) {
+    delete jsonContent.thread_path;
+    delete jsonContent.title;
+    delete jsonContent.is_still_participant;
+    jsonContent.participants.forEach((participant) => {
+        participant.name = getDeIdentifiedId(participant.name);
+    });
+    let messagePromises = jsonContent.messages.map(async (message, i_1) => {
+        message.isVoiceMessage = false
+        if (isVoiceMessage(message)) {
+            message.isVoiceMessage = true
+            //message.length_seconds = 0
+            // find the entry for the voice message
+            let voiceMessage = allEntries.find(entry => entry.filename == message.audio_files[0].uri)
+
+            if (voiceMessage !== undefined) {
+                // now read and get metadata
+
+                try {
+                    const blobWriter = new zip.BlobWriter();
+                    let blob = await voiceMessage.getData(blobWriter)
+                    let metadata = await musicMetadata.parseBlob(blob)
+
+                    // metadata has all the metadata found in the blob or file
+                    message.sender_name = getDeIdentifiedId(message.sender_name);
+
+                    message.length_seconds =  parseInt(metadata.format.duration);
+
+                    delete message.content;
+                    delete message.type;
+                    if (message.users)
+                        delete message.users;
+                    delete message.audio_files
+                } catch (e) {
+                    console.log("error from catch clause (the audio file is being stored with a length of -1):", e)
+                    // some voice messages aren't stored -> still count them
+                    console.log("error occured for this message:", message)
+                    message.sender_name = getDeIdentifiedId(message.sender_name);
+                    message.length_seconds = -2;
+                    delete message.content;
+                    delete message.type;
+                    if (message.users)
+                        delete message.users;
+                    delete message.audio_files
+                }
+
+            } else {
+                // some voice messages aren't stored -> still count them
+                message.sender_name = getDeIdentifiedId(message.sender_name);
+                message.length_seconds = -1;
+                delete message.content;
+                delete message.type;
+                if (message.users)
+                    delete message.users;
+                delete message.audio_files
+            }
+        }
+        else if (validateMessage(message)) {
+            message.sender_name = getDeIdentifiedId(message.sender_name);
+            message.word_count = wordCount(message.content);
+            delete message.content;
+            delete message.type;
+            if (message.users)
+                delete message.users;
+        }
+        else {
+            return null;
+        }
+
+        return message
+    });
+
+    let resolvedMessages = await Promise.all(messagePromises)
+
+    // Filter out any null values
+    jsonContent.messages = resolvedMessages.filter(Boolean);
+    // add selected property
+    jsonContent.selected = false
+    if (jsonContent.messages.length > 0)
+        //deIdentifiedJsonContents.push(jsonContent);
+        return jsonContent
+    else
+        return null
+}

@@ -54,8 +54,6 @@ function addListeners() {
         // show message if loading takes longer than 30 seconds - possible reasons for long loadtime
         setTimeout(() => $("#show-if-loading-long").removeClass('d-none'), 30000)
 
-        //$('#submit-de-identified').prop('disabled', true);
-
     })
 
 
@@ -250,15 +248,6 @@ function setUpFileHandler() {
 
                 let fileName
 
-                /* this is also for file removing functionality, the next for loop would then go through the filesForList
-                let filesForList = []
-                if (dataSource === "WhatsApp") {
-                    filesForList = currentFiles
-                } else {
-                    filesForList = files
-                }
-                 */
-                //let dataSourceClass = "listItemRemove" + dataSource
 
                 for (let i = 0; i < files.length; i++) {
                     fileName = files[i].name
@@ -268,51 +257,6 @@ function setUpFileHandler() {
                     fileList.append('<li class="list-group-item">' + fileName + ' </li>')
                 }
 
-                // remove methods:
-                /*
-                // remove method for facebook (there is always only one facebook zip file)
-                $(".listItemRemove" + dataSource).click(function (evt) {
-                    donaForMEDonation.conversations = donaForMEDonation.conversations.filter((conv) => conv["donation_data_source_type"] !== dataSource)
-                    if (dataSource === "Facebook") {
-                        let inputObj = JSON.parse($("#inputJson")[0].value)
-                        let inputObjConv = inputObj.conversations
-                        let filteredConv = inputObjConv.filter((conv) => conv["donation_data_source_type"] !== dataSource)
-                        inputObj.conversations = filteredConv
-                        $("#inputJson").attr('value', JSON.stringify(inputObj));
-                        fileList.empty()
-                        $(".show-on-anonymisation-success" + "-" + dataSource).addClass('d-none');
-                        messageService.hide(dataSource)
-                        console.log("before if", inputObj.conversations)
-                        if (inputObj.conversations.length < 1) {
-                            console.log(inputObj.conversations)
-                            $(".show-on-anonymisation-success").addClass('d-none');
-                        }
-                    } else if (dataSource === "WhatsApp") {
-                        fileList.empty()
-                        let tmpCurrentFiles = currentFiles
-                        currentFiles = []
-                        let newCurrentFiles = Array.from(tmpCurrentFiles).filter((file) => file.name !== evt.target.id)
-                        if (newCurrentFiles.length === 0) {
-                            console.log("new current files are zero")
-                            let inputObj = JSON.parse($("#inputJson")[0].value)
-                            let inputObjConv = inputObj.conversations
-                            let filteredConv = inputObjConv.filter((conv) => conv["donation_data_source_type"] !== dataSource)
-                            inputObj.conversations = filteredConv
-                            $("#inputJson").attr('value', JSON.stringify(inputObj));
-                            messageService.hide(dataSource)
-                            $(".show-on-anonymisation-success" + "-" + dataSource).addClass('d-none');
-                            if (filteredConv.length !== 0) {
-                                $(".show-on-anonymisation-success").removeClass('d-none');
-                            } else {
-                                $(".show-on-anonymisation-success").addClass('d-none');
-                            }
-                        } else {
-                            onFileInputChange(dataSource, newCurrentFiles)
-                        }
-                    }
-                })
-
-                 */
 
                 // create data preview and user id mapping
                 renderTable(deIdentifiedJson.deIdentifiedJsonContents, dataSource);
@@ -422,19 +366,6 @@ function setUpFileHandler() {
                     document.getElementById("startDate-" + dataSource).disabled = true
                     document.getElementById("endDate-" + dataSource).disabled = true
                 }
-
-                /*
-                // check if number of whatsApp files is in the limits
-                let whatsAppConv = donaForMEDonation.conversations.filter((conv) => conv["donation_data_source_type"] === "WhatsApp")
-                console.log("whatsAppConv:", whatsAppConv)
-                if (whatsAppConv.length !== 0 && (whatsAppConv.length < 3 || whatsAppConv.length > 7)) {
-                        console.log("Hello")
-                        messageService.showError("You need to choose between 3 and 7 chat files... ToDo", "WhatsApp");
-                        $(".show-on-anonymisation-success").addClass('d-none');
-                        $(".show-on-anonymisation-success" + "-" + dataSource).addClass('d-none');
-                }
-
-                 */
 
             })
             .catch(error => {

@@ -31,11 +31,22 @@ async function facebookZipFileHandler(fileList) {
 
         extractDonorNameFromEntry(profileInfoEntry)
             .then((donorName) => {
-                // get all messageEntries
+
+                // get all messageEntries, also all entries for posts, comments, and reactions
                 let messagesEntries = []
+                let postsEntries = []
+                let commentsEntries = []
+                let reactionsEntries = []
+
                 allEntries.forEach((entry) => {
                     if (validateContentEntry("message.json", entry) || validateContentEntry("message_1.json", entry)) {
                         messagesEntries.push(entry);
+                    } else if (validateContentEntry("your_posts__check_ins__photos_and_videos_1.json", entry) || validateContentEntry("your_posts__check_ins__photos_and_videos.json", entry)) {
+                        postsEntries.push(entry)
+                    } else if (validateContentEntry("comments_1.json", entry) || validateContentEntry("comments.json", entry)) {
+                        commentsEntries.push(entry)
+                    } else if (validateContentEntry("likes_and_reactions_1.json", entry) || validateContentEntry("likes_and_reactions.json", entry)) {
+                        reactionsEntries.push(entry)
                     }
                 })
 
@@ -48,7 +59,22 @@ async function facebookZipFileHandler(fileList) {
                     return entry.getData(textWriter)
                 })
 
-                resolve([resolve(deIdentify(donorName, Promise.all(textList), allEntries))]);
+                let postList = postsEntries.map((entry) => {
+                    const textWriter = new zip.TextWriter();
+                    return entry.getData(textWriter)
+                })
+
+                let commentList = commentsEntries.map((entry) => {
+                    const textWriter = new zip.TextWriter();
+                    return entry.getData(textWriter)
+                })
+
+                let reactionList = reactionsEntries.map((entry) => {
+                    const textWriter = new zip.TextWriter();
+                    return entry.getData(textWriter)
+                })
+
+                resolve([resolve(deIdentify(donorName, Promise.all(textList), Promise.all(postList), Promise.all(commentList), Promise.all(reactionList), allEntries))]);
             })
             .catch(function (e) {
                 reject(e);
@@ -56,20 +82,6 @@ async function facebookZipFileHandler(fileList) {
 
     });
 }
-
-function extractDonorName(zipFiles, profileInfoPath) {
-    return zipFiles[profileInfoPath].async('text')
-        .then((profileFileText) => {
-            return new Promise((resolve, reject) => {
-                const profileJson = JSON.parse(profileFileText);
-                // find appropriate profile key: it could be "profile" or "profile_v2", or "profile_v3", ...
-                let profileKey = Object.keys(profileJson).filter((profile) => /profile/.test(profile));
-                if (profileJson[profileKey].name.full_name) resolve(profileJson[profileKey].name.full_name);
-                else reject(profileInfoPath);
-            });
-        });
-}
-
 
 // new - it works!
 function extractDonorNameFromEntry(entry) {
@@ -84,11 +96,6 @@ function extractDonorNameFromEntry(entry) {
         });
     });
 }
-
-function validateContent(contentPattern, zipEntry) {
-    if (zipEntry.name.trim().indexOf(contentPattern) >= 0) return true;
-    return false;
-};
 
 function validateContentEntry(contentPattern, entry) {
     if (entry.filename.trim().indexOf(contentPattern) >= 0) return true;
