@@ -68,7 +68,7 @@ async function facebookZipFileHandler(fileList) {
                 let groupPostList = createContentListFromEntries(groupPostsEntries)
                 let groupCommentList = createContentListFromEntries(groupCommentsEntries)
 
-                resolve([resolve(deIdentify(donorName, Promise.all(textList), Promise.all(postList), Promise.all(commentList), Promise.all(reactionList), Promise.all(groupPostList), Promise.all(groupCommentList), allEntries))]);
+                resolve([resolve(deIdentify(donorName, Promise.all(textList), Promise.all(postList), Promise.all(commentList), Promise.all(reactionList), Promise.all(groupPostList), Promise.all(groupCommentList), allEntries, "Facebook"))]);
             })
             .catch(function (e) {
                 reject(e);

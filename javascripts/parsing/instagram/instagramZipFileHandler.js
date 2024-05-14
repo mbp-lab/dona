@@ -31,24 +31,41 @@ async function instagramZipFileHandler(fileList) {
         extractDonorNameFromEntry(profileInfoEntry)
             .then((donorName) => {
 
-                // get all messageEntries
+
+                // get all messageEntries, also all entries for posts, comments, and reactions
                 let messagesEntries = []
+                let postsEntries = []
+                let commentsEntries = []
+                let reactionsEntries = []
+
+                // toDo: maybe also add group posts and comments ???
                 allEntries.forEach((entry) => {
                     if (validateContentEntry("message.json", entry) || validateContentEntry("message_1.json", entry)) {
                         messagesEntries.push(entry);
+                    } else if ((validateContentEntry("/posts_1.json", entry) || validateContentEntry("/posts.json", entry))) {
+                        postsEntries.push(entry)
+                    } else if (validateContentEntry("post_comments_1.json", entry) || validateContentEntry("post_comments.json", entry)) {
+                        commentsEntries.push(entry)
+                    } else if (validateContentEntry("liked_comments.json", entry) || validateContentEntry("liked_posts.json", entry)) {
+                        reactionsEntries.push(entry)
                     }
                 })
 
                 // if there is no messages then reject
                 if (messagesEntries.length < 1) reject("error");
 
-                // get the contents of the messageEntries
-                let textList = messagesEntries.map((entry) => {
-                    const textWriter = new zip.TextWriter();
-                    return entry.getData(textWriter)
-                })
+                // get the contents of the entries
+                let textList = createContentListFromEntries(messagesEntries)
+                let postList = createContentListFromEntries(postsEntries)
+                let commentList = createContentListFromEntries(commentsEntries)
+                let reactionList = createContentListFromEntries(reactionsEntries)
 
-                resolve([resolve(deIdentify(donorName, Promise.all(textList), allEntries))]);
+                console.log(messagesEntries)
+                console.log(postsEntries)
+                console.log(commentsEntries)
+                console.log(reactionsEntries)
+
+                resolve([resolve(deIdentify(donorName, Promise.all(textList), Promise.all(postList), Promise.all(commentList), Promise.all(reactionList), [], [], allEntries, "Instagram"))]);
             })
             .catch(function (e) {
                 reject(e);
@@ -72,5 +89,13 @@ function validateContentEntry(contentPattern, entry) {
     if (entry.filename.trim().indexOf(contentPattern) >= 0) return true;
     return false;
 };
+
+function createContentListFromEntries(entriesList) {
+    return entriesList.map((entry) => {
+        const textWriter = new zip.TextWriter();
+        return entry.getData(textWriter)
+    })
+}
+
 
 module.exports = instagramZipFileHandler

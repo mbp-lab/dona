@@ -242,18 +242,12 @@ function setUpFileHandler() {
                     testFileNames = testFileNames && testFilesContactNames.includes(name)
                 })
 
-
+                // take care that the list of uploaded files is correctly shown to user
                 const fileList = $("#" + dataSource + "FileList")
                 fileList.empty()
-
                 let fileName
-
-
                 for (let i = 0; i < files.length; i++) {
                     fileName = files[i].name
-                    // li item with remove button:
-                    //fileList.append('<li class="list-group-item">' + fileName + '<button class="btn badge badge-secondary float-right ' + dataSourceClass +'" id="' + fileName + '">' + i18nSupport.data("remove") + '</button> </li>')
-                    // li item without remove button
                     fileList.append('<li class="list-group-item">' + fileName + ' </li>')
                 }
 
@@ -281,6 +275,9 @@ function setUpFileHandler() {
                         $('#chooseInstagramChatsModal').modal('show')
                     })
                 }
+
+                console.log("from listeners.js: result:", result)
+
                 return transformJson(result.messages_deIdentifiedJsonContents, donorId, dataSource);
             })
             .then((transformedJson) => {
@@ -292,7 +289,7 @@ function setUpFileHandler() {
                 let earliestDate = transformedJson.result[0].earliestDate
                 let latestDate = transformedJson.result[0].latestDate
 
-
+                // put result but filtered by date into donaForMEDonation and determine earliestDate and latestDate
                 transformedJson.result.forEach((res) => {
                     donaForMEDonation.conversations = donaForMEDonation.conversations.concat(res.conversation);
                     if (res.earliestDate < earliestDate) {
@@ -301,6 +298,8 @@ function setUpFileHandler() {
                         latestDate = res.latestDate
                     }
                 })
+
+                console.log("donaForMEDonation:", donaForMEDonation)
 
                 possibleEarliestDate = earliestDate
                 possibleLatestDate = latestDate
@@ -315,6 +314,7 @@ function setUpFileHandler() {
                 document.getElementById("endDate-" + dataSource).value = latestDateString;
                 document.getElementById("endDate-" + dataSource).min = earliestDateString;
                 document.getElementById("endDate-" + dataSource).max = latestDateString;
+
 
                 // all anonymized data is to be kept separate from the data that is actually donated
                 // because of dynamic time span selection

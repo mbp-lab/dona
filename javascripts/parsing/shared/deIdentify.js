@@ -5,7 +5,7 @@ const musicMetadata = require('music-metadata-browser');
 const {json} = require("mocha/lib/reporters");
 const zip = require("@zip.js/zip.js");
 
-async function deIdentify(donorName, textListPromise, postListPromise, commentListPromise, reactionListPromise, groupPostListPromise, groupCommentListPromise,  allEntries) {
+async function deIdentify(donorName, textListPromise, postListPromise, commentListPromise, reactionListPromise, groupPostListPromise, groupCommentListPromise,  allEntries, dataSource) {
 
     const i18n = $("#i18n-support");
     let participantNameToRandomIds = {};
@@ -57,21 +57,23 @@ async function deIdentify(donorName, textListPromise, postListPromise, commentLi
     }))
     messages_deIdentifiedJsonContents = messages_deIdentifiedJsonContentsHelper.filter(Boolean);
 
-    // toDo: this works for FACEBOOK - next up: INSTAGRAM
-    let deIdentifiedPosts = processPosts(postList)
-    console.log(deIdentifiedPosts)
+    // deal with posts, group posts, comments, group comments, reactions
+        let deIdentifiedPosts = processPosts(postList, dataSource)
+        console.log("1:", deIdentifiedPosts)
 
-    let deIdentifiedGroupPosts = processGroupPosts(groupPostList)
-    console.log(deIdentifiedGroupPosts)
+        let deIdentifiedGroupPosts = processGroupPosts(groupPostList)
+        console.log(deIdentifiedGroupPosts)
 
-    let deIdentifiedComments = processComments(commentList)
-    console.log(deIdentifiedComments)
+        let deIdentifiedComments = processComments(commentList, dataSource)
+        console.log(deIdentifiedComments)
 
-    let deIdentifiedGroupComments = processGroupComments(groupCommentList)
-    console.log(deIdentifiedGroupComments)
+        let deIdentifiedGroupComments = processGroupComments(groupCommentList)
+        console.log(deIdentifiedGroupComments)
 
-    let deIdentifiedReactions = processReactions(reactionList)
-    console.log(deIdentifiedReactions)
+        let deIdentifiedReactions = processReactions(reactionList, dataSource)
+        console.log(deIdentifiedReactions)
+
+
 
     // find seven chats with highest wordcount - so only they will be displayed for friendsmapping
     // TODO: seven should be in some config file
@@ -244,29 +246,67 @@ async function processMessages(jsonContent, getDeIdentifiedId, allEntries) {
 
 // delivers the processed posts data
 // per post that is: timestamp, number of media elements, number of words of text
-function processPosts(postList) {
+function processPosts(postList, dataSource) {
     let result = []
     postList.forEach((elem) => {
         let jsonContent = JSON.parse(elem);
         jsonContent.forEach((post) => {
-            if (post.data[0]?.post) {
-                post.word_count = wordCount(post.data[0]?.post)
-            } else {
-                post.word_count = 0
+
+            if (dataSource === "Facebook") {
+                if (post.data[0]?.post) {
+                    post.word_count = wordCount(post.data[0]?.post)
+                } else {
+                    post.word_count = 0
+                }
+
+                if (post.attachments) {
+                    post.media_count = post.attachments.length
+                } else {
+                    post.media_count = 0
+                }
+
+                delete post.title
+                delete post.attachments
+                delete post.data
+                delete post.tags
+
+                result.push(post)
+            } else if (dataSource === "Instagram") {
+
+                // the post has a overall title if there is more than one media element
+                // otherwise it has only the title on the single media element
+                if (post.title) {
+                    post.word_count = wordCount(post.title)
+                } else {
+                    if (post.media && post.media.length > 0) {
+                        post.word_count = wordCount(post.media[0].title)
+                    } else {
+                        post.word_count = 0
+                    }
+                }
+
+                if (post.media) {
+                    post.media_count = post.media.length
+                } else {
+                    post.media_count = 0
+                }
+
+                if (post.creation_timestamp) {
+                    post.timestamp = post.creation_timestamp
+                } else if (post.media && post.media.length > 0) {
+                    post.timestamp = post.media[0].creation_timestamp
+                } else {
+                    post.timestamp = -1
+                }
+
+
+                delete post.media
+                delete post.title
+                delete post.creation_timestamp
+
+                result.push(post)
             }
 
-            if (post.attachments) {
-                post.media_count = post.attachments.length
-            } else {
-                post.media_count = 0
-            }
-
-            delete post.title
-            delete post.attachments
-            delete post.data
-            delete post.tags
-
-            result.push(post)
         })
     })
 
@@ -318,40 +358,65 @@ function processGroupPosts(postList) {
 
 // delivers the processed comments data
 // per comment that is: timestamp, number of words of text, number of media elements
-function processComments(commentList) {
+function processComments(commentList, dataSource) {
     let result = []
     commentList.forEach((elem) => {
         let jsonContent = JSON.parse(elem);
-        // first get all entries that are actually about group posts
-        // also do it this way, because there are comments_v2 (v1 then probably also exists...)
-        let availableKeys = Object.keys(jsonContent)
-        let relevantKeys = []
-        availableKeys.forEach(key => {
-            if(key.includes("comment")) {
-                relevantKeys.push(key)
-            }
-        })
+        console.log("jsonContent comments", jsonContent)
 
-        relevantKeys.forEach((key) => {
-            jsonContent[key].forEach(comment => {
-                if (comment.data && comment.data[0]?.comment) {
-                    comment.word_count = wordCount(comment.data[0]?.comment.comment)
+        if (dataSource === "Facebook") {
+            // first get all entries that are actually about group posts
+            // also do it this way, because there are comments_v2 (v1 then probably also exists...)
+            let availableKeys = Object.keys(jsonContent)
+            let relevantKeys = []
+            availableKeys.forEach(key => {
+                if(key.includes("comment")) {
+                    relevantKeys.push(key)
+                }
+            })
+
+            relevantKeys.forEach((key) => {
+                jsonContent[key].forEach(comment => {
+                    if (comment.data && comment.data[0]?.comment) {
+                        comment.word_count = wordCount(comment.data[0]?.comment.comment)
+                    } else {
+                        comment.word_count = 0
+                    }
+
+                    if (comment.attachments) {
+                        comment.media_count = comment.attachments.length
+                    } else {
+                        comment.media_count = 0
+                    }
+
+                    delete comment.attachments
+                    delete comment.title
+                    delete comment.data
+                    result.push(comment)
+                })
+            })
+        } else if (dataSource === "Instagram") {
+            jsonContent.forEach((comment) => {
+                if (comment.string_map_data && comment.string_map_data.Comment && comment.string_map_data.Comment.value) {
+                    comment.word_count = wordCount(comment.string_map_data.Comment.value)
                 } else {
                     comment.word_count = 0
                 }
 
-                if (comment.attachments) {
-                    comment.media_count = comment.attachments.length
+                comment.media_count = -1
+
+                if (comment.string_map_data && comment.string_map_data.Time && comment.string_map_data.Time.timestamp) {
+                    comment.timestamp = comment.string_map_data.Time.timestamp
                 } else {
-                    comment.media_count = 0
+                    comment.timestamp = -1
                 }
 
-                delete comment.attachments
-                delete comment.title
-                delete comment.data
-               result.push(comment)
+                delete comment.string_map_data
+                delete comment.media_list_data
+
+                result.push(comment)
             })
-        })
+        }
 
     })
     return result
@@ -402,22 +467,57 @@ function processGroupComments(commentList) {
 
 // delivers the processed reactions data
 // per reaction that is: timestamp, type
-function processReactions(reactionList) {
+function processReactions(reactionList, dataSource) {
     let result = []
     reactionList.forEach((elem) => {
         let jsonContent = JSON.parse(elem);
-        jsonContent.forEach((reaction) => {
-            if (reaction.data && reaction.data[0]?.reaction?.reaction) {
-                reaction.type = reaction.data[0]?.reaction?.reaction
-            } else {
-                reaction.type = "unknown"
-            }
+        console.log("jsonContent reactions", jsonContent)
 
-            delete reaction.data
-            delete reaction.title
+        if (dataSource === "Facebook") {
+            jsonContent.forEach((reaction) => {
+                if (reaction.data && reaction.data[0]?.reaction?.reaction) {
+                    reaction.type = reaction.data[0]?.reaction?.reaction
+                } else {
+                    reaction.type = "unknown"
+                }
 
-            result.push(reaction)
-        })
+                delete reaction.data
+                delete reaction.title
+
+                result.push(reaction)
+            })
+        } else if (dataSource === "Instagram") {
+            console.log("processReactions:", jsonContent)
+
+            let availableKeys = Object.keys(jsonContent)
+            let relevantKeys = []
+            availableKeys.forEach(key => {
+                if(key.includes("likes")) {
+                    relevantKeys.push(key)
+                }
+            })
+
+            relevantKeys.forEach((key) => {
+                jsonContent[key].forEach(reaction => {
+
+                    if (reaction.string_list_data && reaction.string_list_data.length > 0) {
+                        reaction.type = reaction.string_list_data[0].value
+                        reaction.timestamp = reaction.string_list_data[0].timestamp
+                    } else {
+                        reaction.type = "unknown"
+                        reaction.timestamp = -1
+                    }
+
+
+                    delete reaction.title
+                    delete reaction.string_list_data
+                    result.push(reaction)
+                })
+            })
+
+
+        }
+
     })
     return result
 }
