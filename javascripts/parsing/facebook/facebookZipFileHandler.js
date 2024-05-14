@@ -35,15 +35,22 @@ async function facebookZipFileHandler(fileList) {
                 // get all messageEntries, also all entries for posts, comments, and reactions
                 let messagesEntries = []
                 let postsEntries = []
+                let groupPostsEntries = []
                 let commentsEntries = []
+                let groupCommentsEntries = []
                 let reactionsEntries = []
 
+                // toDo: maybe also add group posts and comments ???
                 allEntries.forEach((entry) => {
                     if (validateContentEntry("message.json", entry) || validateContentEntry("message_1.json", entry)) {
                         messagesEntries.push(entry);
                     } else if (validateContentEntry("your_posts__check_ins__photos_and_videos_1.json", entry) || validateContentEntry("your_posts__check_ins__photos_and_videos.json", entry)) {
                         postsEntries.push(entry)
-                    } else if (validateContentEntry("comments_1.json", entry) || validateContentEntry("comments.json", entry)) {
+                    } else if (validateContentEntry("your_comments_in_groups_1.json", entry) || validateContentEntry("your_comments_in_groups.json", entry)) {
+                        groupCommentsEntries.push(entry)
+                    } else if (validateContentEntry("group_posts_and_comments_1.json", entry) || validateContentEntry("group_posts_and_comments.json", entry)) {
+                        groupPostsEntries.push(entry)
+                    } else if (!groupCommentsEntries.includes(entry) && !groupPostsEntries.includes(entry) && (validateContentEntry("comments_1.json", entry) || validateContentEntry("comments.json", entry))) {
                         commentsEntries.push(entry)
                     } else if (validateContentEntry("likes_and_reactions_1.json", entry) || validateContentEntry("likes_and_reactions.json", entry)) {
                         reactionsEntries.push(entry)
@@ -53,28 +60,15 @@ async function facebookZipFileHandler(fileList) {
                 // if there is no messages then reject
                 if (messagesEntries.length < 1) reject("error");
 
-                // get the contents of the messageEntries
-                let textList = messagesEntries.map((entry) => {
-                    const textWriter = new zip.TextWriter();
-                    return entry.getData(textWriter)
-                })
+                // get the contents of the entries
+                let textList = createContentListFromEntries(messagesEntries)
+                let postList = createContentListFromEntries(postsEntries)
+                let commentList = createContentListFromEntries(commentsEntries)
+                let reactionList = createContentListFromEntries(reactionsEntries)
+                let groupPostList = createContentListFromEntries(groupPostsEntries)
+                let groupCommentList = createContentListFromEntries(groupCommentsEntries)
 
-                let postList = postsEntries.map((entry) => {
-                    const textWriter = new zip.TextWriter();
-                    return entry.getData(textWriter)
-                })
-
-                let commentList = commentsEntries.map((entry) => {
-                    const textWriter = new zip.TextWriter();
-                    return entry.getData(textWriter)
-                })
-
-                let reactionList = reactionsEntries.map((entry) => {
-                    const textWriter = new zip.TextWriter();
-                    return entry.getData(textWriter)
-                })
-
-                resolve([resolve(deIdentify(donorName, Promise.all(textList), Promise.all(postList), Promise.all(commentList), Promise.all(reactionList), allEntries))]);
+                resolve([resolve(deIdentify(donorName, Promise.all(textList), Promise.all(postList), Promise.all(commentList), Promise.all(reactionList), Promise.all(groupPostList), Promise.all(groupCommentList), allEntries))]);
             })
             .catch(function (e) {
                 reject(e);
@@ -101,5 +95,12 @@ function validateContentEntry(contentPattern, entry) {
     if (entry.filename.trim().indexOf(contentPattern) >= 0) return true;
     return false;
 };
+
+function createContentListFromEntries(entriesList) {
+    return entriesList.map((entry) => {
+        const textWriter = new zip.TextWriter();
+        return entry.getData(textWriter)
+    })
+}
 
 module.exports = facebookZipFileHandler

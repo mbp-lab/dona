@@ -224,7 +224,7 @@ function setUpFileHandler() {
 
 
         handler
-            .then((deIdentifiedJson) => {
+            .then((result) => {
 
                 // check if names are testFileNames - if so then disable (later in the code) the date selection
                 const testFilesContactNames = [
@@ -237,8 +237,8 @@ function setUpFileHandler() {
                     "Sherry Flores"
                 ]
                 testFileNames = true
-                testFileNameLength = Object.keys(deIdentifiedJson.participantNameToRandomIds).length === testFilesContactNames.length
-                Object.keys(deIdentifiedJson.participantNameToRandomIds).forEach((name) => {
+                testFileNameLength = Object.keys(result.participantNameToRandomIds).length === testFilesContactNames.length
+                Object.keys(result.participantNameToRandomIds).forEach((name) => {
                     testFileNames = testFileNames && testFilesContactNames.includes(name)
                 })
 
@@ -259,29 +259,29 @@ function setUpFileHandler() {
 
 
                 // create data preview and user id mapping
-                renderTable(deIdentifiedJson.deIdentifiedJsonContents, dataSource);
-                let contactsPerConv = deIdentifiedJson.deIdentifiedJsonContents.map((conv) => conv.participants)
+                renderTable(result.messages_deIdentifiedJsonContents, dataSource);
+                let contactsPerConv = result.messages_deIdentifiedJsonContents.map((conv) => conv.participants)
 
                 if (dataSource === "WhatsApp") {
-                    renderUserIDMapping(deIdentifiedJson.chatsToShowMapping, deIdentifiedJson.participantNameToRandomIds, contactsPerConv, i18nSupport.data('system'), i18nSupport.data('donor'), i18nSupport.data('friend-initial'), i18nSupport.data('chat-initial-w'), i18nSupport.data('only-you'), i18nSupport.data('and-more-contacts'), i18nSupport.data('chat'),  dataSource)
+                    renderUserIDMapping(result.chatsToShowMapping, result.participantNameToRandomIds, contactsPerConv, i18nSupport.data('system'), i18nSupport.data('donor'), i18nSupport.data('friend-initial'), i18nSupport.data('chat-initial-w'), i18nSupport.data('only-you'), i18nSupport.data('and-more-contacts'), i18nSupport.data('chat'),  dataSource)
                 } else if (dataSource === "Facebook") {
-                    renderUserIDMapping(deIdentifiedJson.chatsToShowMappingParticipants, deIdentifiedJson.participantNameToRandomIds, contactsPerConv, i18nSupport.data('system'), i18nSupport.data('donor'), i18nSupport.data('friend-initial'), i18nSupport.data('chat-initial-f'), i18nSupport.data('only-you'), i18nSupport.data('and-more-contacts'), i18nSupport.data('chat'),  dataSource)
+                    renderUserIDMapping(result.chatsToShowMappingParticipants, result.participantNameToRandomIds, contactsPerConv, i18nSupport.data('system'), i18nSupport.data('donor'), i18nSupport.data('friend-initial'), i18nSupport.data('chat-initial-f'), i18nSupport.data('only-you'), i18nSupport.data('and-more-contacts'), i18nSupport.data('chat'),  dataSource)
 
                     // for facebook also fill information for the chat selection modal
                     $("#openChooseFacebookChatsModalButton").on("click", function() {
-                        createChooseChatsModal(deIdentifiedJson.allParticipantsNamesToRandomIds, deIdentifiedJson.allWordCounts, dataSource)
+                        createChooseChatsModal(result.allParticipantsNamesToRandomIds, result.allWordCounts, dataSource)
                         $('#chooseFacebookChatsModal').modal('show')
                     })
 
                 } else {
                     // this is Instagram then
-                    renderUserIDMapping(deIdentifiedJson.chatsToShowMappingParticipants, deIdentifiedJson.participantNameToRandomIds, contactsPerConv, i18nSupport.data('system'), i18nSupport.data('donor'), i18nSupport.data('friend-initial'), i18nSupport.data('chat-initial-i'), i18nSupport.data('only-you'), i18nSupport.data('and-more-contacts'), i18nSupport.data('chat'),  dataSource)
+                    renderUserIDMapping(result.chatsToShowMappingParticipants, result.participantNameToRandomIds, contactsPerConv, i18nSupport.data('system'), i18nSupport.data('donor'), i18nSupport.data('friend-initial'), i18nSupport.data('chat-initial-i'), i18nSupport.data('only-you'), i18nSupport.data('and-more-contacts'), i18nSupport.data('chat'),  dataSource)
                     $("#openChooseInstagramChatsModalButton").on("click", function() {
-                        createChooseChatsModal(deIdentifiedJson.allParticipantsNamesToRandomIds, deIdentifiedJson.allWordCounts, dataSource)
+                        createChooseChatsModal(result.allParticipantsNamesToRandomIds, result.allWordCounts, dataSource)
                         $('#chooseInstagramChatsModal').modal('show')
                     })
                 }
-                return transformJson(deIdentifiedJson.deIdentifiedJsonContents, donorId, dataSource);
+                return transformJson(result.messages_deIdentifiedJsonContents, donorId, dataSource);
             })
             .then((transformedJson) => {
 

@@ -267,7 +267,7 @@ function deIdentification(parsedFiles, alias) {
 
 
             let result = {
-                deIdentifiedJsonContents: deIdentifiedJsonContents,
+                messages_deIdentifiedJsonContents: deIdentifiedJsonContents,
                 participantNameToRandomIds: participantNameToRandomIds,
                 chatsToShowMapping: deIdentifiedJsonContents.map(chat => chat.participants)
             }

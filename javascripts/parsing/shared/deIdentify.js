@@ -5,7 +5,7 @@ const musicMetadata = require('music-metadata-browser');
 const {json} = require("mocha/lib/reporters");
 const zip = require("@zip.js/zip.js");
 
-async function deIdentify(donorName, textListPromise, postListPromise, commentListPromise, reactionListPromise, allEntries) {
+async function deIdentify(donorName, textListPromise, postListPromise, commentListPromise, reactionListPromise, groupPostListPromise, groupCommentListPromise,  allEntries) {
 
     const i18n = $("#i18n-support");
     let participantNameToRandomIds = {};
@@ -38,6 +38,8 @@ async function deIdentify(donorName, textListPromise, postListPromise, commentLi
     let postList = await postListPromise
     let commentList = await commentListPromise
     let reactionList = await reactionListPromise
+    let groupPostList = await groupPostListPromise
+    let groupCommentList = await groupCommentListPromise
 
     let messages_jsonContents = {}
 
@@ -50,15 +52,26 @@ async function deIdentify(donorName, textListPromise, postListPromise, commentLi
             messages_jsonContents[jsonContent.thread_path] = jsonContent
         }
     })
-    let messages_deIdentifiedJsonContentsNew = await Promise.all(Object.values(messages_jsonContents).map(async jsonContent => {
+    let messages_deIdentifiedJsonContentsHelper = await Promise.all(Object.values(messages_jsonContents).map(async jsonContent => {
         return processMessages(jsonContent, getDeIdentifiedId, allEntries)
     }))
-    messages_deIdentifiedJsonContents = messages_deIdentifiedJsonContentsNew.filter(Boolean);
+    messages_deIdentifiedJsonContents = messages_deIdentifiedJsonContentsHelper.filter(Boolean);
 
-    // toDo: dealing with postList
-    // toDo: dealing with commentList
-    // toDo: dealing with reactionList
+    // toDo: this works for FACEBOOK - next up: INSTAGRAM
+    let deIdentifiedPosts = processPosts(postList)
+    console.log(deIdentifiedPosts)
 
+    let deIdentifiedGroupPosts = processGroupPosts(groupPostList)
+    console.log(deIdentifiedGroupPosts)
+
+    let deIdentifiedComments = processComments(commentList)
+    console.log(deIdentifiedComments)
+
+    let deIdentifiedGroupComments = processGroupComments(groupCommentList)
+    console.log(deIdentifiedGroupComments)
+
+    let deIdentifiedReactions = processReactions(reactionList)
+    console.log(deIdentifiedReactions)
 
     // find seven chats with highest wordcount - so only they will be displayed for friendsmapping
     // TODO: seven should be in some config file
@@ -131,7 +144,8 @@ async function deIdentify(donorName, textListPromise, postListPromise, commentLi
 
 
     let result = {
-        deIdentifiedJsonContents: messages_deIdentifiedJsonContents,
+        messages_deIdentifiedJsonContents: messages_deIdentifiedJsonContents,
+        deIdentifiedPosts, deIdentifiedGroupPosts, deIdentifiedComments, deIdentifiedGroupComments, deIdentifiedReactions,
         participantNameToRandomIds: filteredParticipantNameToRandomIds,
         allParticipantsNamesToRandomIds: participantNameToRandomIds,
         chatsToShowMappingParticipants: chatsToShowFeedbackFor.map(chat => chat.participants),
@@ -179,9 +193,7 @@ async function processMessages(jsonContent, getDeIdentifiedId, allEntries) {
                         delete message.users;
                     delete message.audio_files
                 } catch (e) {
-                    console.log("error from catch clause (the audio file is being stored with a length of -1):", e)
                     // some voice messages aren't stored -> still count them
-                    console.log("error occured for this message:", message)
                     message.sender_name = getDeIdentifiedId(message.sender_name);
                     message.length_seconds = -2;
                     delete message.content;
@@ -228,4 +240,184 @@ async function processMessages(jsonContent, getDeIdentifiedId, allEntries) {
         return jsonContent
     else
         return null
+}
+
+// delivers the processed posts data
+// per post that is: timestamp, number of media elements, number of words of text
+function processPosts(postList) {
+    let result = []
+    postList.forEach((elem) => {
+        let jsonContent = JSON.parse(elem);
+        jsonContent.forEach((post) => {
+            if (post.data[0]?.post) {
+                post.word_count = wordCount(post.data[0]?.post)
+            } else {
+                post.word_count = 0
+            }
+
+            if (post.attachments) {
+                post.media_count = post.attachments.length
+            } else {
+                post.media_count = 0
+            }
+
+            delete post.title
+            delete post.attachments
+            delete post.data
+            delete post.tags
+
+            result.push(post)
+        })
+    })
+
+    return result
+}
+
+// delivers the processed groupPosts data
+// per post that is: timestamp, number of media elements, number of words of text
+function processGroupPosts(postList) {
+    let result = []
+    postList.forEach((elem) => {
+        let jsonContent = JSON.parse(elem);
+        // first get all entries that are actually about group posts
+        // also do it this way, because there are group_posts_v2 (v1 then probably also exists...)
+        let availableKeys = Object.keys(jsonContent)
+        let relevantKeys = []
+        availableKeys.forEach(key => {
+            if(key.includes("post")) {
+                relevantKeys.push(key)
+            }
+        })
+
+        relevantKeys.forEach((key) => {
+            jsonContent[key].forEach(post => {
+                if (post.data && post.data[0]?.post) {
+                    post.word_count = wordCount(post.data[0]?.post)
+                } else {
+                    post.word_count = 0
+                }
+
+                if (post.attachments) {
+                    post.media_count = post.attachments.length
+                } else {
+                    post.media_count = 0
+                }
+
+                delete post.title
+                delete post.attachments
+                delete post.data
+                delete post.tags
+
+                result.push(post)
+            })
+        })
+
+    })
+    return result
+}
+
+// delivers the processed comments data
+// per comment that is: timestamp, number of words of text, number of media elements
+function processComments(commentList) {
+    let result = []
+    commentList.forEach((elem) => {
+        let jsonContent = JSON.parse(elem);
+        // first get all entries that are actually about group posts
+        // also do it this way, because there are comments_v2 (v1 then probably also exists...)
+        let availableKeys = Object.keys(jsonContent)
+        let relevantKeys = []
+        availableKeys.forEach(key => {
+            if(key.includes("comment")) {
+                relevantKeys.push(key)
+            }
+        })
+
+        relevantKeys.forEach((key) => {
+            jsonContent[key].forEach(comment => {
+                if (comment.data && comment.data[0]?.comment) {
+                    comment.word_count = wordCount(comment.data[0]?.comment.comment)
+                } else {
+                    comment.word_count = 0
+                }
+
+                if (comment.attachments) {
+                    comment.media_count = comment.attachments.length
+                } else {
+                    comment.media_count = 0
+                }
+
+                delete comment.attachments
+                delete comment.title
+                delete comment.data
+               result.push(comment)
+            })
+        })
+
+    })
+    return result
+}
+
+
+// delivers the processed group comments data
+// per comment that is: timestamp, number of words of text, number of media elements
+function processGroupComments(commentList) {
+    let result = []
+    commentList.forEach((elem) => {
+        let jsonContent = JSON.parse(elem);
+        // first get all entries that are actually about group posts
+        // also do it this way, because there are comments_v2 (v1 then probably also exists...)
+        let availableKeys = Object.keys(jsonContent)
+        let relevantKeys = []
+        availableKeys.forEach(key => {
+            if(key.includes("comment")) {
+                relevantKeys.push(key)
+            }
+        })
+
+        relevantKeys.forEach((key) => {
+            jsonContent[key].forEach(comment => {
+                if (comment.data && comment.data[0]?.comment) {
+                    comment.word_count = wordCount(comment.data[0]?.comment.comment)
+                } else {
+                    comment.word_count = 0
+                }
+
+                if (comment.attachments) {
+                    comment.media_count = comment.attachments.length
+                } else {
+                    comment.media_count = 0
+                }
+
+                delete comment.attachments
+                delete comment.title
+                delete comment.data
+                result.push(comment)
+            })
+        })
+
+    })
+    return result
+}
+
+
+// delivers the processed reactions data
+// per reaction that is: timestamp, type
+function processReactions(reactionList) {
+    let result = []
+    reactionList.forEach((elem) => {
+        let jsonContent = JSON.parse(elem);
+        jsonContent.forEach((reaction) => {
+            if (reaction.data && reaction.data[0]?.reaction?.reaction) {
+                reaction.type = reaction.data[0]?.reaction?.reaction
+            } else {
+                reaction.type = "unknown"
+            }
+
+            delete reaction.data
+            delete reaction.title
+
+            result.push(reaction)
+        })
+    })
+    return result
 }
