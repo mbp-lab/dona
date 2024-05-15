@@ -146,7 +146,8 @@ function setUpFileHandler() {
     const i18nSupport= $("#i18n-support");
     let donaForMEDonation = {
         "donor_id": i18nSupport.data('donor'),
-        "conversations": []
+        "conversations": [],
+        "posts": []
     };
     //let currentFiles = [] // this would be for file removing functionality
     let possibleEarliestDate = 0
@@ -278,12 +279,17 @@ function setUpFileHandler() {
 
                 console.log("from listeners.js: result:", result)
 
-                return transformJson(result.messages_deIdentifiedJsonContents, donorId, dataSource);
+                console.log("result.messages_deIdentifiedJsonContents:", result.messages_deIdentifiedJsonContents)
+
+                return transformJson(result.messages_deIdentifiedJsonContents, result.deIdentifiedPosts, result.deIdentifiedGroupPosts, result.deIdentifiedComments, result.deIdentifiedGroupComments, result.deIdentifiedReactions, donorId, dataSource);
             })
             .then((transformedJson) => {
 
+                console.log("transformedJson:", transformedJson)
+
                 // if there are already conversations of the chosen dataSource, then first filter the old ones out
                 donaForMEDonation.conversations = donaForMEDonation.conversations.filter((conv) => conv["donation_data_source_type"] !== dataSource)
+                donaForMEDonation.posts = donaForMEDonation.posts.filter((post) => post["donation_data_source_type"] !== dataSource)
 
                 // get earliest and latest date of all conversations
                 let earliestDate = transformedJson.result[0].earliestDate
@@ -298,6 +304,9 @@ function setUpFileHandler() {
                         latestDate = res.latestDate
                     }
                 })
+
+                donaForMEDonation.posts = donaForMEDonation.posts.concat(transformedJson.posts);
+
 
                 console.log("donaForMEDonation:", donaForMEDonation)
 

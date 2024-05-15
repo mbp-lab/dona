@@ -5,5 +5,6 @@ case class SocialDataDonation(
   conversations: List[Conversation],
   messages: List[Message],
   messagesAudio: List[MessageAudio],
-  participants: List[ConversationParticipant]
+  participants: List[ConversationParticipant],
+  posts: Option[List[Post]] = None,
 )

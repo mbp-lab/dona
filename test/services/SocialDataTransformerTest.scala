@@ -34,7 +34,7 @@ final class SocialDataTransformerTest extends FreeSpec with Matchers {
         )
       )
 
-      val SocialDataDonation(_, mappedConversations, mappedMessages, mappedMessagesAudio, _) = SocialDataTransformer(donationId, socialData)
+      val SocialDataDonation(_, mappedConversations, mappedMessages, mappedMessagesAudio, _, _) = SocialDataTransformer(donationId, socialData)
 
       mappedConversations.length shouldBe 2
       mappedMessages.length shouldBe 3
@@ -70,7 +70,7 @@ final class SocialDataTransformerTest extends FreeSpec with Matchers {
         )
       )
 
-      val SocialDataDonation(_, mappedConversations, _, _, _) = SocialDataTransformer(donationId, socialData)
+      val SocialDataDonation(_, mappedConversations, _, _, _, _) = SocialDataTransformer(donationId, socialData)
 
       val (groupConversation :: Nil, singleConversation :: Nil) = mappedConversations.partition(_.isGroupConversation)
 
@@ -99,7 +99,7 @@ final class SocialDataTransformerTest extends FreeSpec with Matchers {
         )
       )
 
-      val SocialDataDonation(_, _, message :: Nil, messageAudio :: Nil, _) = SocialDataTransformer(donationId, socialData)
+      val SocialDataDonation(_, _, message :: Nil, messageAudio :: Nil, _, _) = SocialDataTransformer(donationId, socialData)
       message.timestamp shouldBe originalTime
       messageAudio.timestamp shouldBe originalTime
     }
@@ -121,7 +121,7 @@ final class SocialDataTransformerTest extends FreeSpec with Matchers {
         )
       )
 
-      val SocialDataDonation(mappedDonorId, _, mappedMessage :: Nil, mappedMessageAudio :: Nil, mappedParticipants) =
+      val SocialDataDonation(mappedDonorId, _, mappedMessage :: Nil, mappedMessageAudio :: Nil, mappedParticipants, _) =
         SocialDataTransformer(donationId, socialData)
 
       mappedParticipants.map(_.participantId) should contain(mappedDonorId.asParticipant)
@@ -156,7 +156,7 @@ final class SocialDataTransformerTest extends FreeSpec with Matchers {
       )
     )
 
-    val SocialDataDonation(mappedDonorId, mappedConversations, mappedMessages, mappedMessagesAudio, mappedParticipants) =
+    val SocialDataDonation(mappedDonorId, mappedConversations, mappedMessages, mappedMessagesAudio, mappedParticipants, _) =
       SocialDataTransformer(donationId, socialData)
     val (mappedGroupConversation :: Nil, _) = mappedConversations.partition(_.isGroupConversation)
     val (groupParticipants, singleParticipants) =

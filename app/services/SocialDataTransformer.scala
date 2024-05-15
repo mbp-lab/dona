@@ -2,7 +2,7 @@ package services
 
 import java.time.Instant
 
-import models.api.{SocialData => ApiSocialData, Conversation => ApiConversation}
+import models.api.{SocialData => ApiSocialData, Conversation => ApiConversation, Post => ApiPost}
 import models.domain._
 
 object SocialDataTransformer extends ((DonationId, ApiSocialData) => SocialDataDonation) {
@@ -84,11 +84,24 @@ object SocialDataTransformer extends ((DonationId, ApiSocialData) => SocialDataD
       )
     }
 
+    def transformPost(post: ApiPost) = {
+      import post._
+      Post(
+        PostId.generate,
+        donationId,
+        donationDataSourceType,
+        wordCount,
+        mediaCount,
+        Instant.ofEpochMilli(timestampMs)
+      )
+    }
+
     val conversations = socialData.conversations.map(conversation => transformConversation(conversation))
     val messages = socialData.conversations.flatMap(transformConversationMessages)
     val messagesAudio = socialData.conversations.flatMap(transformConversationMessagesAudio)
     val participants = socialData.conversations.flatMap(transformConversationParticipants)
+    val posts = socialData.posts.map(_.map(post => transformPost(post)))
 
-    SocialDataDonation(donorId, conversations, messages, messagesAudio, participants)
+    SocialDataDonation(donorId, conversations, messages, messagesAudio, participants, posts)
   }
 }

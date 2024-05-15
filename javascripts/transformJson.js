@@ -1,12 +1,18 @@
 const uuid = require('uuid/v4');
 
-function transformJson(deIdentifiedJsonContents, donorId, dataSource) {
+function transformJson(messages_deIdentifiedJsonContents, deIdentifiedPosts, deIdentifiedGroupPosts, deIdentifiedComments, deIdentifiedGroupComments, deIdentifiedReactions, donorId, dataSource) {
 
-    const conversations = deIdentifiedJsonContents.map((jsonContent) => generateConversation(jsonContent, dataSource));
+    // ToDo: also transform post, comment, reaction stuff
+
+    const posts = deIdentifiedPosts.map((post) => generatePost(post, dataSource))
+    console.log(posts)
+
+    const conversations = messages_deIdentifiedJsonContents.map((jsonContent) => generateConversation(jsonContent, dataSource));
     return Promise.all(conversations).then((res) => {
         const transformedJson = {
             'donor_id': donorId,
             'result': res,
+            'posts': posts,
         };
         return transformedJson;
     });
@@ -88,5 +94,13 @@ function transformMessages(messages) {
     });
     return {transformedMessages, transformedMessagesAudio, earliestDate, latestDate};
 };
+
+function generatePost(post, dataSource) {
+    post["post_id"] = uuid();
+    post["donation_data_source_type"] = dataSource;
+    post["timestamp_ms"] = post.timestamp
+    delete post.timestamp
+    return post
+}
 
 module.exports = transformJson;

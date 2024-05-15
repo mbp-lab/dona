@@ -60,11 +60,6 @@ async function instagramZipFileHandler(fileList) {
                 let commentList = createContentListFromEntries(commentsEntries)
                 let reactionList = createContentListFromEntries(reactionsEntries)
 
-                console.log(messagesEntries)
-                console.log(postsEntries)
-                console.log(commentsEntries)
-                console.log(reactionsEntries)
-
                 resolve([resolve(deIdentify(donorName, Promise.all(textList), Promise.all(postList), Promise.all(commentList), Promise.all(reactionList), [], [], allEntries, "Instagram"))]);
             })
             .catch(function (e) {
