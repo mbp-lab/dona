@@ -4,7 +4,7 @@ landing.header.title=Bringen Sie Licht ins Dunkel mit Ihren Social-Online-Daten.
 landing.header.body=Wir untersuchen, wie Menschen digital interagieren und was diese Interaktionen für ihr Wohlbefinden bedeuten.
 landing.what.title=Worum geht es?
 landing.what.body1=Soziale Interaktionen spielen eine wichtige Rolle für menschliches Wohlbefinden. Um diesen Zusammenhang besser zu verstehen, entwickeln wir Methoden, die digitale sozialen Interaktionen für die Forschung messbar machen.
-landing.what.body2=Sie können uns unterstützen, indem Sie Ihre Chat-Metadaten von WhatsApp oder Facebook anonym spenden.
+landing.what.body2=Sie können uns unterstützen, indem Sie Ihre Chat-Metadaten von WhatsApp, Facebook oder Instagram anonym spenden.
 
 
 landing.why.title=Warum sollte ich teilnehmen?
@@ -17,7 +17,7 @@ landing.why.col2.body_html=Die Ergebnisse dieser Studie werden zu dem übergeord
 
 
 landing.why.col3.title=Sie bleiben anonym
-landing.why.col3.body_html=Wir werden Sie bitten, <strong><a href="/learn-more">anonyme Chat-Metadaten</a></strong> (Nachrichtenlänge, Zeitstempel der Nachricht und Pseudonyme der Chat-TeilnehmerInnen). Wir haben keinen Zugang zu Namen oder Nachrichtentexten.
+landing.why.col3.body_html=Wir werden Sie bitten, <strong><a href="/learn-more">anonyme Chat-Metadaten</a></strong> (Wortanzahl bei Textnachrichten, Länge in Sekunden bei Sprachnachrichten, Zeitstempel der Nachricht und Pseudonyme der Chat-TeilnehmerInnen). Wir haben keinen Zugang zu Namen, Nachrichtentexten, Inhalten von Sprachnachrichten oder anderen Inhalten.
 
 
 landing.contact.body_html=Auf dieser Webseite erläutern wir Ihnen den Hintergrund und Ablauf der Online-Studie damit Sie entscheiden können, ob Sie teilnehmen möchten. Sollten Sie noch Fragen haben, so wenden Sie sich bitte an die Versuchsleiterin (Prof. Dr. Hanna Drimalla, AG Multimodal Behavior Processing, Technische Fakultät, Universität Bielefeld, <a href="mailto:drimalla@techfak.uni-bielefeld.de">drimalla@techfak.uni-bielefeld.de</a>, Tel. +49 521 106-12043).
@@ -44,7 +44,8 @@ learn-more.how-to-cancel.body=Das Wichtigste zuerst: Die Teilnahme ist völlig f
 learn-more.data-storage.title=Welche Daten werden gespeichert?
 
 
-learn-more.imagePath=images/dataAnonymizationExample-German.png
+learn-more.imagePath.text=images/dataAnonymizationExample-text-German.svg
+learn-more.imagePath.voice=images/dataAnonymizationExample-voice-German.svg
 
 
 # data storage text body is reused, see below
@@ -60,7 +61,8 @@ learn-more.data-handling.body1=Da wir weder Ihren Namen oder andere personenbezo
 learn-more.data-handling.body2=Die Ergebnisse und Daten dieser Studie werden als wissenschaftliche Publikation veröffentlicht. Dies geschieht in anonymisierter Form, d. h. ohne dass die Daten einer spezifischen Person zugeordnet werden können. Die vollständig anonymisierten Daten dieser Studie werden online in einem Forschungsdaten-Repositorium gespeichert und qualifizierten Wissenschaftlern auf Antrag zugänglich gemacht.
 
 
-learn-more.image.caption=Abbildung 3. Beispiel der Anonymisierung einer Nachricht
+learn-more.image.text-messages.caption=Beispiel der Anonymisierung einer Textnachricht
+learn-more.image.voice-messages.caption=Beispiel der Anonymisierung einer Sprachnachricht
 
 
 # Instructions page
@@ -68,7 +70,7 @@ learn-more.image.caption=Abbildung 3. Beispiel der Anonymisierung einer Nachrich
 
 
 instructions.about.title=Wie erhalte ich meine Daten?
-instructions.about.body_html=Bevor Sie an der Studie teilnehmen, fordern Sie bitte Ihre Daten direkt von Facebook und/oder WhatsApp an. Sie können Daten von beiden Plattformen spenden. Falls Sie nur Daten von einer Plattform spenden möchten, wählen Sie bitte die Plattform, die für Sie wichtiger ist. <b>Bitte sehen Sie sich die entsprechenden Anleitungen genau an, da sie wichtige Informationen für die weiteren Schritte enthalten.</b>
+instructions.about.body_html=Bevor Sie an der Studie teilnehmen, fordern Sie bitte Ihre Daten direkt von Facebook und/oder WhatsApp und/oder Instagram an. Sie können Daten von jeder dieser Plattformen spenden. Falls Sie nur Daten von einer Plattform spenden möchten, wählen Sie bitte die Plattform, die für Sie wichtiger ist. <b>Bitte sehen Sie sich die entsprechenden Anleitungen genau an, da sie wichtige Informationen für die weiteren Schritte enthalten.</b>
 instructions.datasource.title_format =Anleitung zum Erhalten von %s-Daten
 instructions.download-procedure.title=Übersicht über den Download & Datenspende Prozess:
 instructions.continue.body=Wenn Sie anhand dieser Anleitung Ihre Daten erhalten haben, können Sie jetzt mit der Einverständniserklärung und dem  Fragebogen beginnen. Im Anschluss können Sie dann Ihre Daten spenden.
@@ -156,14 +158,17 @@ donation.preview-data.message=Nachricht
 donation.preview-data.sender=Sender der Nachricht
 donation.preview-data.receiver=Empfänger der Nachricht
 donation.preview-data.word-count=Anzahl an Wörtern
+donation.preview-data.length-seconds=Länge in Sekunden
 donation.preview-data.timestamp=Zeitpunkt der Nachricht
 donation.preview-data.group-conversation=Gruppenunterhaltung
+donation.preview-data.voice-message=Sprachnachricht
 
 
 donation.friendsMapping.title=<b>Decknamen für Ihre Kontakte</b>
-donation.friendsMapping.subtitle.facebook=Wir haben Ihre Daten und Ihre Kontakte anonymisiert. Falls Sie in der anonymisierten Auswertung im nächsten Schritt rekonstruieren wollen, um welche Konversationen und Kontakte es sich jeweils handelt, notieren Sie sich die folgenden Zuordnungen von Kontakten (z.B. G**** M*****) und Chatnamen (z.B. “F4”). Ab jetzt sind dies die anonymisierten Decknamen für Ihre Chats. Die Zuordnung wird nicht gespeichert und geht verloren, sobald Sie diese Seite verlassen.
-donation.friendsMapping.subtitle.whatsapp=Wir haben Ihre Daten und Ihre Kontakte anonymisiert. Falls Sie in der anonymisierten Auswertung im nächsten Schritt rekonstruieren wollen, um welche Konversationen und Kontakte es sich jeweils handelt, notieren Sie sich die folgenden Zuordnungen von Kontakten (z.B. G**** M*****) und Chatnamen (z.B. “W4” ). Ab jetzt sind dies die anonymisierten Decknamen für Ihre Chats. Die Zuordnung wird nicht gespeichert und geht verloren, sobald Sie diese Seite verlassen.
-donation.friendsMapping.onlySeven=Dies sind nur die Kontakte Ihrer 7 Facebook-Chats, in denen insgesamt die meisten Wörter gesendet wurden. <b>Unten können Sie auch andere Chats auswählen. </b>
+donation.friendsMapping.subtitle.facebook=Wir haben Ihre Daten und Ihre Kontakte anonymisiert. Falls Sie in der anonymisierten Auswertung im nächsten Schritt rekonstruieren wollen, um welche Konversationen und Kontakte es sich jeweils handelt, notieren Sie sich die folgenden Zuordnungen von Kontakten (z.B. A**** B*****) und Chatnamen (z.B. “F4”). Ab jetzt sind dies die anonymisierten Decknamen für Ihre Chats. Die Zuordnung wird nicht gespeichert und geht verloren, sobald Sie diese Seite verlassen.
+donation.friendsMapping.subtitle.whatsapp=Wir haben Ihre Daten und Ihre Kontakte anonymisiert. Falls Sie in der anonymisierten Auswertung im nächsten Schritt rekonstruieren wollen, um welche Konversationen und Kontakte es sich jeweils handelt, notieren Sie sich die folgenden Zuordnungen von Kontakten (z.B. A**** B*****) und Chatnamen (z.B. “W4” ). Ab jetzt sind dies die anonymisierten Decknamen für Ihre Chats. Die Zuordnung wird nicht gespeichert und geht verloren, sobald Sie diese Seite verlassen.
+donation.friendsMapping.subtitle.instagram=Wir haben Ihre Daten und Ihre Kontakte anonymisiert. Falls Sie in der anonymisierten Auswertung im nächsten Schritt rekonstruieren wollen, um welche Konversationen und Kontakte es sich jeweils handelt, notieren Sie sich die folgenden Zuordnungen von Kontakten (z.B. A**** B*****) und Chatnamen (z.B. “I4”). Ab jetzt sind dies die anonymisierten Decknamen für Ihre Chats. Die Zuordnung wird nicht gespeichert und geht verloren, sobald Sie diese Seite verlassen.
+donation.friendsMapping.onlySeven=Dies sind nur die Kontakte Ihrer 7 Chats, in denen insgesamt die meisten Wörter gesendet wurden. <b>Unten können Sie auch andere Chats auswählen. </b>
 donation.friendsMapping.moreFriends=und {0} weitere.
 donation.friendsMapping.chat=Chat
 donation.friendsMapping.onlyYouInConv=Nur Sie befinden sich in diesem Chat. Es könnte z.B. sein, dass die andere Person/en den Chat verlassen haben.
@@ -199,6 +204,7 @@ donation.anonymisation.friend=Kontakt
 donation.anonymisation.friendInitial=K
 donation.anonymisation.chatInitialW=W
 donation.anonymisation.chatInitialF=F
+donation.anonymisation.chatInitialI=I
 donation.anonymisation.system=System
 donation.anonymisation.chooseUsername=Bitte wählen Sie Ihren Nutzernamen aus. Ihr Nutzername wird nicht gespeichert u"nd wir werden ihn nicht erfahren.
 donation.anonymisation.loading=Das Senden der anonymisierten Daten kann ein paar Minuten dauern. Bitte warten Sie und lassen Sie diese Seite geöffnet. Danke!
@@ -209,7 +215,7 @@ donation.anonymisation.chatSelection.clickHereToSelect=Klicken Sie hier, um ande
 
 
 donation.anonymisation.loading.tooLong.title=Wenn dieser Vorgang länger als 5 Minuten dauert, kann dies folgende Ursachen haben:
-donation.anonymisation.loading.tooLong.issue.1=Sie versuchen, Dateitypen hochzuladen, die nicht unterstützt werden (die korrekten Dateitypen sind .txt oder .zip für WhatsApp und .zip für Facebook)
+donation.anonymisation.loading.tooLong.issue.1=Sie versuchen, Dateitypen hochzuladen, die nicht unterstützt werden (die korrekten Dateitypen sind .txt oder .zip für WhatsApp und .zip für Facebook und Instagram)
 donation.anonymisation.loading.tooLong.issue.2=Sie haben Ihre WhatsApp-Chats von verschiedenen Geräten exportiert
 donation.anonymisation.loading.tooLong.issue.3=Die Dateien, die Sie hochladen möchten, sind ungewöhnlich groß
 donation.anonymisation.loading.tooLong.issue.4=Ihre Internetverbindung ist langsam
@@ -281,6 +287,7 @@ feedback.title.pleaseContinue=Wir hoffen Sie hatten spannende Erkenntnisse. Dank
 
 
 feedback.facebook.info=Die möglicherweise hohe Anzahl an Facebook-Kontakten kann zu einer unübersichtlichen Darstellung führen. Daher werden im Folgenden nur Visualisierungen für Ihre 1-10 ausgewählten Facebook-Chats angezeigt.
+feedback.instagram.info=Die möglicherweise hohe Anzahl an Instagram-Kontakten kann zu einer unübersichtlichen Darstellung führen. Daher werden im Folgenden nur Visualisierungen für Ihre 1-10 ausgewählten Instagram-Chats angezeigt.
 
 
 feedback.nextButton=Weiter
@@ -446,7 +453,7 @@ data-protection.technical-details.title=Datenschutzhinweise – Anonyme Nutzung 
 data-protection.technical-details.body1=Bei Aufruf und Nutzung der Website werden keine personenbezogenen Daten von Ihnen erhoben oder gespeichert.. Wenn Sie unsere Website aufrufen, teilt Ihr Webbrowser unserem Webserver Ihre IP-Adresse mit, um eine Kommunikation zu ermöglichen. Die IP-Adresse wird von uns dabei nur gekürzt gespeichert, um eine Identifikation Ihrer Person bei Aufruf der Website vollständig ausschließen zu können
 data-protection.technical-details.body2=Bei jedem Zugriff auf die Website werden die folgenden technischen Daten übertragen: Name der abgerufenen Datei; Datum und Uhrzeit des Abrufs; Übertragene Datenmenge; Benachrichtigung, ob der Abruf erfolgreich war; die Webadresse, von der aus auf die Datei zugegriffen wurde (Referrer URL); Informationen über das Betriebssystem und den Browser (User-Agent-String); IP-Adresse (wird nur gekürzt gespeichert)
 data-protection.technical-details.body3=Die Daten werden nach Beendigung Ihrer Sitzung automatisch gelöscht und nicht von uns gespeichert (z.B. in Protokolldateien).
-data-protection.technical-details.body4=Außerdem verwenden wir Cookies, um die technische Funktionalität unserer Webseite gewähren zu können. Cookies sind kleine Textdateien mit Informationen über die Nutzung unseres Dienstes, die auf Ihrer Festplatte/Gerätgespeichert werden, wenn Sie diese Speicherung über die Einstellung Ihres Browsers erlauben. Cookies können keine Programme ausführen oder Viren aufIhren Computer übertragen. Die von uns eingesetzten Cookies sind sog. Session Cookies, die nur für die Dauer des Websitebesuchs gespeichert werden, nicht darüber hinaus. Anhand dieser Cookies ist keine Identifikation Ihrer Person möglich.
+data-protection.technical-details.body4=Außerdem verwenden wir Cookies, um die technische Funktionalität unserer Webseite gewähren zu können. Cookies sind kleine Textdateien mit Informationen über die Nutzung unseres Dienstes, die auf Ihrer Festplatte/Gerätgespeichert werden, wenn Sie diese Speicherung über die Einstellung Ihres Browsers erlauben. Cookies können keine Programme ausführen oder Viren auf Ihren Computer übertragen. Die von uns eingesetzten Cookies sind sog. Session Cookies, die nur für die Dauer des Websitebesuchs gespeichert werden, nicht darüber hinaus. Anhand dieser Cookies ist keine Identifikation Ihrer Person möglich.
 
 
 data-protection.participation.title=Datenschutzhinweise – Teilnahme an der Studie/Datenspende
@@ -504,8 +511,6 @@ actions.next=Vor
 
 
 # Data source specific text
-
-
 
 whatsapp.instructions.p1.title=Was für ein Gerät soll ich benutzen?
 whatsapp.instructions.p1.body=Sie benötigen Ihr Smartphone, auf dem Sie WhatsApp nutzen. Bitte stellen Sie sicher, dass Sie die Daten auf einem Gerät speichern, auf das außer Ihnen niemand Zugriff hat.
@@ -565,6 +570,36 @@ facebook.donation-procedure.9=Klicken Sie auf "Anfrage absenden". Sobald die Dat
 facebook.donation-procedure.10=Scrollen Sie zurück nach oben und klicken Sie auf die Registerkarte "Verfügbare Dateien". Dort sollten Sie die gewünschte Datei sehen. Sie können sie herunterladen, sobald sie bereitsteht.
 facebook.instruction.gif=facebook_ger.mp4
 facebook.logo=f-logo.svg
+
+
+
+instagram.instructions.p1.title=Was für ein Gerät sollte ich benutzen?
+instagram.instructions.p1.body=Bitte beachten Sie, dass Sie die Daten auf einem Gerät speichern, auf das niemand außer Ihnen Zugriff hat.
+instagram.instructions.p2.title=Wie lange dauert der Datenexport von Instagram?
+instagram.instructions.p2.body=Die Anforderung der Daten erfolgt durch wenige Klicks auf Instagram (siehe die Anleitung unten). Sie erhalten eine Benachrichtigung von Instagram, sobald die Daten zum Download bereitstehen, und können dann mit der Teilnahme an der Studie beginnen.
+instagram.instructions.p3.title=Wie kann ich meine Daten von meinem Gerät wieder löschen?
+instagram.instructions.p3.body=Wir empfehlen Ihnen ausdrücklich, Ihre Originaldaten nach dem Abschluss der Spende wieder zu löschen.  Beachten Sie, dass ein einfaches Löschen der Dateien ggf. nicht ausreicht, um die Daten endgültig von Ihrem Gerät zu entfernen. Weitere Informationen zur endgültigen Löschung von Dateien finden Sie unter anderem <a target="_blank" href="https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Daten-sichern-verschluesseln-und-loeschen/Daten-endgueltig-loeschen/daten-endgueltig-loeschen.html">auf der Seite des Bundesamt für Sicherheit in der Informationstechnik</a> und <a target="_blank" href="https://www.datenschutz.org/daten-loeschen/"> Datenschutz.org</a>.
+
+
+instagram.description_html=Bitte fordern Sie Ihre Nachrichtendaten von Instagram an. Sie erhalten eine Benachrichtigung von Instagram, sobald die Daten zum Download bereitstehen, und können dann mit der Teilnahme an der Studie beginnen.
+instagram.external-documentation_html=Die offizielle Dokumentation zum Herunterladen Ihrer Daten können Sie <a target="_blank" href="https://help.instagram.com/181231772500920?cms_id=181231772500920" target="_blank">hier</a> finden.
+
+#Download and Donation procedure: instagram
+
+instagram.donation-procedure.1=Öffnen Sie Instagram und melden Sie sich an.
+instagram.donation-procedure.2=Klicken Sie in Ihrem Profil auf den "Menü"-Knopf (drei Striche) und wählen Sie "Deine Aktivitäten".
+instagram.donation-procedure.3=Klicken Sie ganz unten auf “Deine Informationen herunterladen” und gehen Sie weiter zur "Kontenübersicht".
+instagram.donation-procedure.4=Klicken Sie auf “Informationen herunterladen oder übertragen”.
+instagram.donation-procedure.5=Klicken Sie auf “Einige deiner Informationen”.
+instagram.donation-procedure.6=Wählen Sie “Nachrichten” (unter “Deine Aktivitäten auf Instagram”) und “Personenbezogene Informationen” (unter “Personenbezogene Informationen”).
+instagram.donation-procedure.7=Klicken Sie auf "Weiter".
+instagram.donation-procedure.8=Wählen Sie einen Datumsbereich: Wir empfehlen Ihnen, die <b>Daten für 1 Jahr anzufordern</b>, aber auch eine kürzere Zeitspanne ist möglich.
+instagram.donation-procedure.9=Ändern Sie dann das Format von HTML zu JSON. Ändern Sie die Medienqualität von “Mittel” zu “Niedrig”.
+instagram.donation-procedure.10=Klicken Sie auf "Anfrage absenden". Sobald die Datei zum Download bereit ist, erhalten Sie eine Benachrichtigung von Instagram. Dies kann einen Moment dauern.
+instagram.donation-procedure.11=Scrollen Sie zurück nach oben und klicken Sie auf die Registerkarte "Verfügbare Dateien". Dort sollten Sie die gewünschte Datei sehen. Sie können sie herunterladen, sobald sie bereitsteht.
+
+instagram.instruction.gif=instagram_ger.mp4
+instagram.logo=i-logo.svg
 
 
 # Imprint

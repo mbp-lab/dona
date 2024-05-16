@@ -4,7 +4,7 @@ landing.header.title=Illuminate the darkness with your social media data
 landing.header.body=We are researching how people interact in the digital space and what those interactions mean for human well-being.
 landing.what.title=What is this about?
 landing.what.body1=Social interactions play a significant role in human well-being. To better understand this relationship, we are developing methods to measure digital social interactions for research.
-landing.what.body2=You can support us by anonymously donating your chat meta-data from WhatsApp or Facebook.
+landing.what.body2=You can support us by anonymously donating your chat meta-data from WhatsApp, Facebook or Instagram.
 
 
 landing.why.title=Why should I participate?
@@ -17,7 +17,7 @@ landing.why.col2.body_html=The results of this study will contribute to the over
 
 
 landing.why.col3.title=Stay anonymous
-landing.why.col3.body_html=We will ask you to donate  <strong><a href="/learn-more">anonymized chat data </a></strong>  (message length, message timestamp and pseudonyms of the chat participants). We will have no access to any names or message texts.
+landing.why.col3.body_html=We will ask you to donate  <strong><a href="/learn-more">anonymized chat data </a></strong>  (number of words for text messages, length in seconds for voice messages, message timestamp and pseudonyms of the chat participants). We will have no access to any names, message texts, voice message content or any other content.
 landing.contact.body_html=The purpose of this website is to inform you about the background and process of this online study. If any questions or concerns arise during the process, please write to the principal investigator (Prof. Dr. Hanna Drimalla, AG Multimodal Behavior Processing, Technische Fakultät, Universität Bielefeld, <a href="mailto:drimalla@techfak.uni-bielefeld.de">drimalla@techfak.uni-bielefeld.de</a>, Tel. +49 521 106-12043)
 
 
@@ -42,8 +42,8 @@ learn-more.how-to-cancel.body=First things first: participation is entirely volu
 learn-more.data-storage.title=What data will be used?
 
 
-learn-more.imagePath=images/dataAnonymizationExample-English.png
-
+learn-more.imagePath.text=images/dataAnonymizationExample-text-English.svg
+learn-more.imagePath.voice=images/dataAnonymizationExample-voice-English.svg
 
 # data storage text body is reused, see below
 
@@ -58,7 +58,8 @@ learn-more.data-handling.body1=Since we are not collecting any names or other pe
 learn-more.data-handling.body2=The data and results of this study will be published in scientific journals. The published data will be anonymous, meaning that individuals cannot be identified. The fully anonymized data will be uploaded to a research data repository and qualified scientists will be granted access.
 
 
-learn-more.image.caption=Figure 3. Example of an anonymized message.
+learn-more.image.text-messages.caption=Example of an anonymized text message.
+learn-more.image.voice-messages.caption=Example of an anonymized voice message.
 
 
 # Instructions page
@@ -66,7 +67,7 @@ learn-more.image.caption=Figure 3. Example of an anonymized message.
 
 
 instructions.about.title=How do I request data from social media platforms?
-instructions.about.body_html=Before participating in the study, please request your data directly from Facebook and/or WhatsApp. You can donate data from both platforms. If you only want to donate data from one platform, please select the platform that is more important to you. <b>Please take a close look at the corresponding instructions, as they contain important information for the further steps.</b>
+instructions.about.body_html=Before participating in the study, please request your data directly from Facebook and/or WhatsApp and/or Instagram. You can donate data from each of these platforms. If you only want to donate data from one platform, please select the platform that is more important to you. <b>Please take a close look at the corresponding instructions, as they contain important information for the further steps.</b>
 instructions.datasource.title_format =Instructions for getting %s data
 instructions.download-procedure.title=Overview of the download & donation procedure:
 instructions.continue.body=If you have received your data using these instructions, you can now start with the declaration of consent and survey. Afterwards you can donate your data.
@@ -78,7 +79,7 @@ instructions.haveData=You need 5-7 WhatsApp chat files.
 
 
 donation-info.title=How do I donate my data?
-donation-info.data-request=<strong>Data request: </strong>You request your social media data from a platform of your choice (currently supported: Facebook and WhatsApp) and download it to your device.
+donation-info.data-request=<strong>Data request: </strong>You request your social media data from a platform of your choice (currently supported: Facebook, WhatsApp, and Instagram) and download it to your device.
 donation-info.anonymisation=<strong>Anonymization: </strong>We will remove all content from your data and limit it to metadata (e.g. length and timestamp of message). Your name, as well as the names of other participants, will get replaced by random pseudonyms (eg. "James" &rarr; "anonymous13"). You may examine the anonymization of your data before uploading it to our servers.
 donation-info.storage=<strong> Storage: </strong>Only anonymized and reduced data will be uploaded to one of our secure servers.
 
@@ -153,14 +154,17 @@ donation.preview-data.message=Message
 donation.preview-data.sender=Sender of message
 donation.preview-data.receiver=Receiver of message
 donation.preview-data.word-count=Word count
+donation.preview-data.length-seconds=Length in seconds
 donation.preview-data.timestamp=Timestamp of message
 donation.preview-data.group-conversation=Group conversation
+donation.preview-data.voice-message=Voice message
 
 
 donation.friendsMapping.title=<b>Aliases for your contacts</b>
-donation.friendsMapping.subtitle.facebook=We have anonymized your data and your contacts. If, in the next step, you want to reconstruct which conversations and contacts are involved in the anonymized evaluation, make a note of the following assignments of contacts (e.g. G**** M*****) and chats (e.g. “F4"). From now on, these are the anonymized names for your chats. The assignment is not saved and is lost as soon as you leave this page.
-donation.friendsMapping.subtitle.whatsapp=We have anonymized your data and your contacts. If, in the next step, you want to reconstruct which conversations and contacts are involved in the anonymized evaluation, make a note of the following assignments of contacts (e.g. G**** M*****) and chats (e.g. “W4"). From now on, these are the anonymized names for your chats. The assignment is not saved and is lost as soon as you leave this page.
-donation.friendsMapping.onlySeven=These are just the contacts of your 7 Facebook chats in which overall the most words were sent. <b> Below you can also select different chats. </b>
+donation.friendsMapping.subtitle.facebook=We have anonymized your data and your contacts. If, in the next step, you want to reconstruct which conversations and contacts are involved in the anonymized evaluation, make a note of the following assignments of contacts (e.g. A**** B*****) and chats (e.g. “F4"). From now on, these are the anonymized names for your chats. The assignment is not saved and is lost as soon as you leave this page.
+donation.friendsMapping.subtitle.whatsapp=We have anonymized your data and your contacts. If, in the next step, you want to reconstruct which conversations and contacts are involved in the anonymized evaluation, make a note of the following assignments of contacts (e.g. A**** B*****) and chats (e.g. “W4"). From now on, these are the anonymized names for your chats. The assignment is not saved and is lost as soon as you leave this page.
+donation.friendsMapping.subtitle.instagram=We have anonymized your data and your contacts. If, in the next step, you want to reconstruct which conversations and contacts are involved in the anonymized evaluation, make a note of the following assignments of contacts (e.g. A**** B*****) and chats (e.g. “I4"). From now on, these are the anonymized names for your chats. The assignment is not saved and is lost as soon as you leave this page.
+donation.friendsMapping.onlySeven=These are just the contacts of your 7 chats in which overall the most words were sent. <b> Below you can also select different chats. </b>
 donation.friendsMapping.moreFriends=and {0} others.
 donation.friendsMapping.chat=Chat
 donation.friendsMapping.onlyYouInConv=You are the only member in this chat. This could be because the other people have left the chat.
@@ -198,6 +202,7 @@ donation.anonymisation.friend=Contact
 donation.anonymisation.friendInitial=C
 donation.anonymisation.chatInitialW=W
 donation.anonymisation.chatInitialF=F
+donation.anonymisation.chatInitialI=I
 donation.anonymisation.system=System
 donation.anonymisation.chooseUsername=Please choose your username. Your username will not be saved and we will not know it.
 donation.anonymisation.loading=Sending the anonymized data could take a few minutes. Please wait and keep this website open. Thanks!
@@ -212,7 +217,7 @@ donation.anonymisation.chatSelection.clickHereToSelect=Click here to choose diff
 
 
 donation.anonymisation.loading.tooLong.title=If this process is taking more than 5 minutes, it might be due to the following:
-donation.anonymisation.loading.tooLong.issue.1=You are trying to upload file types that are not supported (the correct input types are .txt or .zip for WhatsApp and .zip for Facebook)
+donation.anonymisation.loading.tooLong.issue.1=You are trying to upload file types that are not supported (the correct input types are .txt or .zip for WhatsApp and .zip for Facebook and Instagram)
 donation.anonymisation.loading.tooLong.issue.2=You have exported you WhatsApp chats from different devices
 donation.anonymisation.loading.tooLong.issue.3=The files you are trying to upload have unusually large sizes
 donation.anonymisation.loading.tooLong.issue.4=Your internet connection is slow
@@ -287,7 +292,8 @@ feedback.title.responseTimes=Response Times
 feedback.title.pleaseContinue=We hope you had exciting insights. Thanks a lot!
 
 
-feedback.facebook.info=The potentially high number of facebook contacts could lead to a cluttered visualization. Therefore, in the following, only visualizations for your 1-10 selected Facebook chats are shown.
+feedback.facebook.info=The potentially high number of Facebook contacts could lead to a cluttered visualization. Therefore, in the following, only visualizations for your 1-10 selected Facebook chats are shown.
+feedback.instagram.info=The potentially high number of Instagram contacts could lead to a cluttered visualization. Therefore, in the following, only visualizations for your 1-10 selected Instagram chats are shown.
 
 
 feedback.nextButton=Next
@@ -573,6 +579,35 @@ facebook.donation-procedure.10=Scroll back up and click on the "Available Files"
 facebook.instruction.gif=facebook_eng.mp4
 facebook.logo=f-logo.svg
 
+
+instagram.instructions.p1.title=What type of device should I use?
+instagram.instructions.p1.body=Please make sure that you are storing the data on a device that no one but you has access to.
+instagram.instructions.p2.title=How long does the data export from Instagram take?
+instagram.instructions.p2.body=The data is requested with just a few clicks on Instagram (see the instructions below). You will receive a notification from Instagram as soon as the data is available for download and can then start participating in the study.
+instagram.instructions.p3.title=How can I delete my data from my device?
+instagram.instructions.p3.body=We strongly recommend that you delete your original data after completing the donation. Note that simply deleting the files may not be enough to permanently remove the data from your device. Further information on the permanent deletion of files can for example be found <a target="_blank" href="https://safecomputing.umich.edu/protect-yourself/prepare-devices-disposal/securely-delete-files">on the website of the University of Michigan</a> or <a target="_blank" href="https://wethegeek.com/best-file-data-shredder-apps-to-permanently-delete-data-from-android/">wethegeek.com</a> and <a target="_blank" href="https://appletoolbox.com/how-to-delete-files-permanently-from-the-files-app-on-iphone-and-ipad/">appletoolbox.com</a>.
+
+
+
+instagram.description_html=Make a request to Instagram to download your Instagram data. You will receive a notification from Instagram once the data is available for download and can then start participating in the study.
+instagram.external-documentation_html=The official documentation on how to download your data can be found <a target="_blank" href="https://help.instagram.com/181231772500920?cms_id=181231772500920" target="_blank">here</a>.
+
+
+instagram.donation-procedure.1=Open Instagram and log in.
+instagram.donation-procedure.2=In your profile click on the "Menu" button (three lines) and select "Your activity".
+instagram.donation-procedure.3=All the way on the bottom select “Download your information” and continue to the Accounts Center.
+instagram.donation-procedure.4=Click on “Download or transfer information”.
+instagram.donation-procedure.5=Click on “Some of your information”.
+instagram.donation-procedure.6=Select “Messages” (under “Your Instagram activity”) and “Personal information” (under “Personal information”).
+instagram.donation-procedure.7=Click on "Next".
+instagram.donation-procedure.8=Pick a date range: We encourage you to <b>request the data for 1 year</b> but a shorter time span is possible as well.
+instagram.donation-procedure.9=Change the format from HTML to JSON. Then change the media quality from “Medium” to “Low”.
+instagram.donation-procedure.10=Click on "Create files". As soon as the file is ready for download, you will receive a notification from Instagram. This may take a while.
+instagram.donation-procedure.11=Scroll back up and click on the "Available downloads" tab. There you should see the requested file and can download is as soon it is ready.
+
+
+instagram.instruction.gif=instagram_eng.mp4
+instagram.logo=i-logo.svg
 
 # Imprint
 

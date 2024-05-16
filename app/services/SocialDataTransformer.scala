@@ -50,6 +50,21 @@ object SocialDataTransformer extends ((DonationId, ApiSocialData) => SocialDataD
         )
       }
     }
+
+    def transformConversationMessagesAudio(conversation: ApiConversation) = {
+      val conversationId = getConversationId(conversation.conversationId)
+      conversation.messagesAudio.map { messageAudio =>
+        import messageAudio._
+        MessageAudio(
+          MessageId.generate,
+          conversationId,
+          lengthSeconds,
+          sender.map(getParticipantId),
+          Instant.ofEpochMilli(timestampMs)
+        )
+      }
+    }
+
     def transformConversationParticipants(conversation: ApiConversation) = {
       val conversationId = getConversationId(conversation.conversationId)
       conversation.participants.map(
@@ -71,8 +86,9 @@ object SocialDataTransformer extends ((DonationId, ApiSocialData) => SocialDataD
 
     val conversations = socialData.conversations.map(conversation => transformConversation(conversation))
     val messages = socialData.conversations.flatMap(transformConversationMessages)
+    val messagesAudio = socialData.conversations.flatMap(transformConversationMessagesAudio)
     val participants = socialData.conversations.flatMap(transformConversationParticipants)
 
-    SocialDataDonation(donorId, conversations, messages, participants)
+    SocialDataDonation(donorId, conversations, messages, messagesAudio, participants)
   }
 }

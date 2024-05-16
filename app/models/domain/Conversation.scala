@@ -28,5 +28,13 @@ case class Message(
   timestamp: Instant
 )
 
+case class MessageAudio(
+                    id: MessageId,
+                    conversationId: ConversationId,
+                    lengthSeconds: Int,
+                    sender: Option[ParticipantId],
+                    timestamp: Instant
+)
+
 case class MessageId(value: UUID) extends MappedTo[UUID]
 object MessageId extends IdSupport[MessageId]

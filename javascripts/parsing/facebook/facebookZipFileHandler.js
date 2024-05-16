@@ -1,5 +1,5 @@
 var JSZip = require('jszip');
-var deIdentify = require('./deIdentify');
+var deIdentify = require('../shared/deIdentify');
 const zip = require("@zip.js/zip.js");
 
 async function facebookZipFileHandler(fileList) {
@@ -48,80 +48,13 @@ async function facebookZipFileHandler(fileList) {
                     return entry.getData(textWriter)
                 })
 
-                resolve([resolve(deIdentify(zipFiles, messagesRelativePath, donorName, Promise.all(textList)))]);
+                resolve([resolve(deIdentify(donorName, Promise.all(textList), allEntries))]);
             })
             .catch(function (e) {
                 reject(e);
             })
 
-
-
-
-
-
-
-        // I need to collect
-        // ProfileInfoPath:
-            // var profileInfoPath = zipFilesNames.find(name => name.includes("profile_information.json"));
-        // message.json or message_1.json with the according text
-        // if (validateContent("message.json", zipEntry) || validateContent("message_1.json", zipEntry)) {
-        //                         messagesRelativePath.push(relativePath);
-        //                     }
-
-        // extractDonorName
-
-        // then deidentify takes the zip files and all relevant paths at the moment
-        // but only to then create a textlist of those paths -> I can do this here immediately
-
-
-
-/*
-        let jszip = JSZip();
-
-        // when using jszip.loadAsync() it merges the zip files -> see documentation
-        let aggregatedZip = jszip
-
-        for (let i = 0; i < fileList.length; i++) {
-            aggregatedZip = jszip.loadAsync(fileList[i])
-        }
-
-
-        //jszip.loadAsync(file)
-        aggregatedZip
-            .then(function (zip) {
-                const zipFilesNames = Object.keys(zip.files);
-                console.log("aggregatedZip files length:", zipFilesNames.length)
-                var profileInfoPath = zipFilesNames.find(name => name.includes("profile_information.json"));
-                if (!profileInfoPath) reject(i18n.data('error-no-profile'));
-                zip.forEach(function (relativePath, zipEntry) {
-                    //TODO: Facebook added the '_1' to the json message file. We should figure out how we check all .json files
-                    // and just reject the files that do no parse, which in theory should not be any. This would potentially
-                    // be more future proof.
-                    if (validateContent("message.json", zipEntry) || validateContent("message_1.json", zipEntry)) {
-                        messagesRelativePath.push(relativePath);
-                    }
-                });
-                zipFiles = zip.files;
-                console.log("messagesRelativePath length:", messagesRelativePath.length)
-                if (messagesRelativePath.length != 0) return (profileInfoPath);
-                else reject(zip);
-            })
-            .then((profilePath) => {
-                console.log("original:", extractDonorName(zipFiles, profilePath))
-                return extractDonorName(zipFiles, profilePath);
-            })
-            .then((donorName) => {
-                //TODO: we now have an async within an async not needed but it works
-                resolve([resolve(deIdentify(zipFiles, messagesRelativePath, donorName, []))]);
-            })
-            .catch(function (e) {
-                reject(e);
-            })
-
- */
     });
-
-
 }
 
 function extractDonorName(zipFiles, profileInfoPath) {

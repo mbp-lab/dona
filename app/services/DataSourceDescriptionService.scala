@@ -62,6 +62,29 @@ object InMemoryDataSourceDescriptionService {
       ),
       logo = Some(messages("facebook.logo")),
       requiresAlias = false
+    ),
+    DataSourceDescription(
+      name = DonationDataSourceType.Instagram,
+      description = messages("instagram.description_html"),
+      parsingDetails = ParsingDetails(script = "", specificFileExtensionAccepted = Some(".zip")),
+      animation = Some(AnimatedImage(messages("instagram.instruction.gif"), 555, 270)),
+      illustration = None,
+      documentation = messages("instagram.external-documentation_html"),
+      dataDownloadSteps = List(
+        messages("instagram.donation-procedure.1"),
+        messages("instagram.donation-procedure.2"),
+        messages("instagram.donation-procedure.3"),
+        messages("instagram.donation-procedure.4"),
+        messages("instagram.donation-procedure.5"),
+        messages("instagram.donation-procedure.6"),
+        messages("instagram.donation-procedure.7"),
+        messages("instagram.donation-procedure.8"),
+        messages("instagram.donation-procedure.9"),
+        messages("instagram.donation-procedure.10"),
+        messages("instagram.donation-procedure.11")
+      ),
+      logo = Some(messages("instagram.logo")),
+      requiresAlias = false
     )
   )
 }

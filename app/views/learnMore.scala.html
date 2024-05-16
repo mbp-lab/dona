@@ -6,10 +6,16 @@
             <h3 class="headline">@messages("learn-more.data-storage.title")</h3>
             <p class="text-left paragraph">@Html(messages("learn-more.storage.body1_html"))</p>
             <p class="text-left paragraph">@Html(messages("learn-more.storage.body2_html"))</p>
-            <figure class="figure">
-                <img class="img-fluid" src="@routes.Assets.at(messages("learn-more.imagePath"))">
+            <figure class="figure w-100">
+                <img class="img-fluid w-100" src="@routes.Assets.at(messages("learn-more.imagePath.text"))">
                 <figcaption class="font-weight-bold font-italic figure-caption">
-                    <p class="paragraph" style="color: #666666">@messages("learn-more.image.caption")</p>
+                    <p class="paragraph" style="color: #666666">@messages("learn-more.image.text-messages.caption")</p>
+                </figcaption>
+            </figure>
+            <figure class="figure w-100">
+                <img class="img-fluid w-100" src="@routes.Assets.at(messages("learn-more.imagePath.voice"))">
+                <figcaption class="font-weight-bold font-italic figure-caption">
+                    <p class="paragraph" style="color: #666666">@messages("learn-more.image.voice-messages.caption")</p>
                 </figcaption>
             </figure>
             <h3 class="headline">@messages("learn-more.data-handling.title")</h3>

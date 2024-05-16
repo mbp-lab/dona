@@ -285,7 +285,6 @@ function deIdentification(parsedFiles, alias) {
         const systemName = i18nSupport.data("system")
 
         if (!(name in participantNameToRandomIds)) {
-            // TODO: I (Paul) modified this to not anonymize the system, but keep calling it system
             if (name === systemName) {
                 participantNameToRandomIds[name] = systemName;
             } else {

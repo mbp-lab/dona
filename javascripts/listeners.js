@@ -1,6 +1,7 @@
 const facebookZipFileHandler = require('./parsing/facebook/facebookZipFileHandler');
 const whatsappTxtFileHandler = require('./parsing/whatsapp/whatsappTxtFileHandler');
-const createChooseFChatsModal = require('./createChooseFChatsModal')
+const instagramZipFileHandler = require('./parsing/instagram/instagramZipFileHandler');
+const createChooseChatsModal = require('./createChooseChatsModal')
 
 
 
@@ -16,6 +17,23 @@ const whatsappZipFileHandler = require("./parsing/whatsapp/whatsappZipFileHandle
 
 
 function addListeners() {
+
+    // this is so that when a modal is open, clicking the back button will close the modal
+    if (window.history && window.history.pushState) {
+        $('.modal').on('show.bs.modal', function (e) {
+            window.history.pushState('openModal', null, './more');
+        });
+
+        $(window).on('popstate', function () {
+            $('.modal').modal('hide')
+        });
+
+        $('.modal').on('hide.bs.modal', function (e) {
+            if (window.history.state === "openModal") {
+                window.history.back()
+            }
+        });
+    }
 
     $("#btn-fb-download-finished").on("click", function (e) {
         e.preventDefault(); d
@@ -122,9 +140,10 @@ function handleUnsupportedBrowsers() {
 function setUpFileHandler() {
     let earlierSuccess = false
     let currentError = false
-    let currentErrorFW = {
+    let currentErrorFWI = {
         "Facebook": false,
-        "WhatsApp": false
+        "WhatsApp": false,
+        "Instagram": false,
     }
     const i18nSupport = $("#i18n-support");
     let donaForMEDonation = {
@@ -199,8 +218,10 @@ function setUpFileHandler() {
             }
 
 
-        } else {
+        } else if (dataSource == "Facebook") {
             handler = facebookZipFileHandler(files);
+        } else {
+            handler = instagramZipFileHandler(files);
         }
 
 
@@ -299,22 +320,27 @@ function setUpFileHandler() {
 
                 if (dataSource === "WhatsApp") {
                     renderUserIDMapping(deIdentifiedJson.chatsToShowMapping, deIdentifiedJson.participantNameToRandomIds, contactsPerConv, i18nSupport.data('system'), i18nSupport.data('donor'), i18nSupport.data('friend-initial'), i18nSupport.data('chat-initial-w'), i18nSupport.data('only-you'), i18nSupport.data('and-more-contacts'), i18nSupport.data('chat'), dataSource)
-                } else {
-                    // in this case it is Facebook!
+                } else if (dataSource === "Facebook") {
                     renderUserIDMapping(deIdentifiedJson.chatsToShowMappingParticipants, deIdentifiedJson.participantNameToRandomIds, contactsPerConv, i18nSupport.data('system'), i18nSupport.data('donor'), i18nSupport.data('friend-initial'), i18nSupport.data('chat-initial-f'), i18nSupport.data('only-you'), i18nSupport.data('and-more-contacts'), i18nSupport.data('chat'), dataSource)
 
                     // for facebook also fill information for the chat selection modal
-                    // ToDo: move this to its own function
                     $("#openChooseFacebookChatsModalButton").on("click", function () {
-                        createChooseFChatsModal(deIdentifiedJson.allParticipantsNamesToRandomIds, deIdentifiedJson.allWordCounts)
+                        createChooseChatsModal(deIdentifiedJson.allParticipantsNamesToRandomIds, deIdentifiedJson.allWordCounts, dataSource)
                         $('#chooseFacebookChatsModal').modal('show')
-
                     })
 
+                } else {
+                    // this is Instagram then
+                    renderUserIDMapping(deIdentifiedJson.chatsToShowMappingParticipants, deIdentifiedJson.participantNameToRandomIds, contactsPerConv, i18nSupport.data('system'), i18nSupport.data('donor'), i18nSupport.data('friend-initial'), i18nSupport.data('chat-initial-i'), i18nSupport.data('only-you'), i18nSupport.data('and-more-contacts'), i18nSupport.data('chat'), dataSource)
+                    $("#openChooseInstagramChatsModalButton").on("click", function () {
+                        createChooseChatsModal(deIdentifiedJson.allParticipantsNamesToRandomIds, deIdentifiedJson.allWordCounts, dataSource)
+                        $('#chooseInstagramChatsModal').modal('show')
+                    })
                 }
                 return transformJson(deIdentifiedJson.deIdentifiedJsonContents, donorId, dataSource, deIdentifiedJson.participantNameToRandomIds);
             })
             .then((transformedJson) => {
+
                 // if there are already conversations of the chosen dataSource, then first filter the old ones out
                 donaForMEDonation.conversations = donaForMEDonation.conversations.filter((conv) => conv["donation_data_source_type"] !== dataSource)
 
@@ -357,6 +383,7 @@ function setUpFileHandler() {
                 let inputJson = $("#inputJson")
                 if (inputJson[0].value === "") {
                     inputJson.attr('value', JSON.stringify(donaForMEDonation));
+
                 } else {
                     let inputObjFiltered = JSON.parse(inputJson[0].value)
                     let inputObjConvFiltered = inputObjFiltered.conversations
@@ -367,12 +394,13 @@ function setUpFileHandler() {
                     inputObjFiltered.conversations = inputObjConvFiltered.filter((conv) => conv["donation_data_source_type"] !== dataSource)
                         .concat(dataSourceConv)
                     inputJson.attr('value', JSON.stringify(inputObjFiltered));
+
                 }
 
                 // show success messages
                 $(".show-on-anonymisation-success" + "-" + dataSource).removeClass('d-none');
-                //console.log(currentErrorFW)
-                if (!currentErrorFW["Facebook"] && !currentErrorFW["WhatsApp"]) {
+                //console.log(currentErrorFWI)
+                if (!currentErrorFWI["Facebook"] && !currentErrorFWI["WhatsApp"] && !currentErrorFWI["Instagram"]) {
                     $('#submit-de-identified').prop('disabled', false);
                     $('#stillAnErrorSomewhere').addClass('d-none')
                 }
@@ -437,18 +465,6 @@ function setUpFileHandler() {
         let endDateMs = new Date(endDate).getTime()
         endDateMs = endDateMs + 86340000 // standard is at 00:00, add 23:59h so that the whole day of the end day is regarded
 
-        /*
-        console.log("Start:", startDate)
-        console.log("End:", endDate)
-        console.log("StartMs:", startDateMs)
-        console.log("EndMs:", endDateMs)
-        console.log("startDateMs > possibleLatestDate", startDateMs > possibleLatestDate)
-        console.log("endDateMs < possibleEarliestDate", endDateMs < possibleEarliestDate)
-        console.log("startDateMs >= endDateMs", startDateMs >= endDateMs)
-        console.log("error?", startDateMs > possibleLatestDate || endDateMs < possibleEarliestDate || startDateMs >= endDateMs)
-
-         */
-
         // remove all current notifications
         messageService.hideErrorShowSuccess(dataSource)
 
@@ -458,7 +474,7 @@ function setUpFileHandler() {
             $('#submit-de-identified').prop('disabled', true);
             $('#stillAnErrorSomewhere').removeClass('d-none')
             currentError = true;
-            currentErrorFW[dataSource] = true
+            currentErrorFWI[dataSource] = true
             return;
         } // in case the dates don't make sense - error
         else if (startDateMs > possibleLatestDate || endDateMs < possibleEarliestDate || startDateMs >= endDateMs) {
@@ -466,7 +482,7 @@ function setUpFileHandler() {
             $('#submit-de-identified').prop('disabled', true);
             $('#stillAnErrorSomewhere').removeClass('d-none')
             currentError = true;
-            currentErrorFW[dataSource] = true
+            currentErrorFWI[dataSource] = true
             return;
         } // in this case at least x months of data have to be selected
         else if (possibleLatestDate - possibleEarliestDate >= 1.577e+10) { // ToDo: Put this in config! 6 months in ms
@@ -478,7 +494,7 @@ function setUpFileHandler() {
                 $('#submit-de-identified').prop('disabled', true);
                 $('#stillAnErrorSomewhere').removeClass('d-none')
                 currentError = true;
-                currentErrorFW[dataSource] = true
+                currentErrorFWI[dataSource] = true
                 return;
             }
         }
@@ -492,7 +508,11 @@ function setUpFileHandler() {
         let dataSourceConv = inputObjConvAllData.filter((conv) => conv["donation_data_source_type"] === dataSource)
         // filter the messages
         dataSourceConv.forEach(conv => {
+            // only leave messages that are in the timespan
             conv.messages = conv.messages.filter((message) =>
+                message.timestamp_ms >= startDateMs && message.timestamp_ms <= endDateMs)
+            // only leave audio messages that are in the timespan
+            conv.messages_audio = conv.messages_audio.filter((message) =>
                 message.timestamp_ms >= startDateMs && message.timestamp_ms <= endDateMs)
         })
         // create the new conversations object
@@ -503,7 +523,7 @@ function setUpFileHandler() {
         // show success
         messageService.hideErrorShowSuccess(dataSource)
         currentError = false;
-        currentErrorFW[dataSource] = false
+        currentErrorFWI[dataSource] = false
 
         // check if there is at least one message in the timespan that was selected
         let allConvEmpty = true
@@ -518,18 +538,18 @@ function setUpFileHandler() {
             $('#submit-de-identified').prop('disabled', true);
             $('#stillAnErrorSomewhere').removeClass('d-none')
             currentError = true
-            currentErrorFW[dataSource] = true
+            currentErrorFWI[dataSource] = true
             return;
         } else {
             // show success
             messageService.hideErrorShowSuccess(dataSource)
             $(".show-on-anonymisation-success").removeClass('d-none');
-            if (!currentErrorFW["Facebook"] && !currentErrorFW["WhatsApp"]) {
+            if (!currentErrorFWI["Facebook"] && !currentErrorFWI["WhatsApp"] && !currentErrorFWI["Instagram"]) {
                 $('#stillAnErrorSomewhere').addClass('d-none')
                 $('#submit-de-identified').prop('disabled', false);
             }
             currentError = false
-            currentErrorFW[dataSource] = false
+            currentErrorFWI[dataSource] = false
         }
 
         // assign the filtered data to the inputJson

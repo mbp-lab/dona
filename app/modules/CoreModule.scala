@@ -15,6 +15,7 @@ final class CoreModule extends AbstractModule {
     bind(classOf[ConversationParticipantRepository]).to(classOf[SlickConversationParticipantRepository])
     bind(classOf[ConversationRepository]).to(classOf[SlickConversationRepository])
     bind(classOf[MessageRepository]).to(classOf[SlickMessageRepository])
+    bind(classOf[MessageAudioRepository]).to(classOf[SlickMessageAudioRepository])
     bind(new TypeLiteral[DonationService] {}).to(classOf[IdVerifyingDonationService])
     bind(new TypeLiteral[DonationRepository] {}).to(classOf[SlickDonationRepository])
     bind(new TypeLiteral[Random] {}).toInstance(new Random())

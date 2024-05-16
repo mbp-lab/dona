@@ -34,6 +34,13 @@
                     </div>
                 </div>
             }
+            @if(dataSource == "Instagram") {
+                <div class="alert alert-info">
+                    <div class="top col-md text-center">
+                    @messages("feedback.instagram.info")
+                    </div>
+                </div>
+            }
             <div id="@{
                 dataSource
             }container">
@@ -55,8 +62,7 @@
             </div>
         </div>
 
-        @footer(nextLink = Some(routes.FeedbackSurveyController.goToFeedback(donorId).toString), nextCustomText=Some(messages("feedback.toRaffleButton")))()
-
+        @footer(nextLink = Some("/"), nextCustomText=Some(messages("feedback.finishButton")))()
 
     </div >
     @* modal for mobile alert to better use phone sideways *@
@@ -88,6 +94,7 @@
         friendInitial: "@messages("donation.anonymisation.friendInitial")",
         chatInitialW: "@messages("donation.anonymisation.chatInitialW")",
         chatInitialF: "@messages("donation.anonymisation.chatInitialF")",
+        chatInitialI: "@messages("donation.anonymisation.chatInitialI")",
         chat: "@messages("donation.friendsMapping.chat")",
         systemName: "@messages("donation.anonymisation.system")",
         reminder: "@messages("feedback.reminder")",

@@ -12,16 +12,15 @@
 .bgImage {
     width: 100%;
     background-size: cover;
-    background-attachment: fixed;
     -o-background-size: cover;
     -moz-background-size: cover;
     -webkit-background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-image: url("/assets/images/backgroud3_4_compressed.jpg");
 }
 
-@media (min-device-width: 400px) {
+@media (min-device-width: 700px) {
     .bgImage {
         width: 100%;
         background-size: cover;
@@ -35,7 +34,46 @@
     }
 }
 
+.background-image::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background-image: url("/assets/images/backgroud3_4_compressed.jpg");
+    background-size: cover;
+    background-position: center;
+    pointer-events: none;
+    /* Make sure clicks go through the pseudo-element */
+}
+
+@media (min-device-width: 700px) {
+    .background-image::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        background-image: url("/assets/images/background_compressed.jpg");
+        background-size: cover;
+        background-position: center;
+        pointer-events: none;
+        /* Make sure clicks go through the pseudo-element */
+    }
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    /* Your content styles go here */
+}
+
 .main-container {
+    position: relative;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -366,6 +404,7 @@
 
 
 .footer-forward-button {
+    word-break: break-all;
     font-weight: 800;
     font-size: 24px;
     width: 100%;
@@ -379,6 +418,7 @@
 
 @media (min-width: 576px) {
     .footer-forward-button {
+        word-break: break-all;
         font-weight: 800;
         font-size: 24px;
         width: 275px;
@@ -396,6 +436,7 @@
     font-weight: 800;
     font-size: 24px;
     width: 100%;
+    word-break: break-all;
     padding: 10px 20px 10px 20px;
     border-radius: 16px;
     background: #35b1a6;
@@ -406,6 +447,7 @@
 
 @media (min-width: 576px) {
     .footer-forward-button-margin {
+        word-break: break-all;
         margin-left: 8px;
         font-weight: 800;
         font-size: 24px;
@@ -423,6 +465,7 @@
 
 @media (min-width: 576px) {
     .report-problem-button-footer {
+        word-break: break-all;
         min-width: 190px !important;
         font-weight: 800 !important;
         font-size: 12px !important;
@@ -435,6 +478,7 @@
 }
 
 .report-problem-button-footer {
+    word-break: break-all;
     min-width: 100px !important;
     font-weight: 800 !important;
     font-size: 10px !important;
@@ -451,6 +495,7 @@
 }
 
 .report-problem-button-header {
+    word-break: break-all;
     font-weight: 800 !important;
     font-size: 12px !important;
     padding: 10px 20px 10px 20px !important;
@@ -466,6 +511,7 @@
 }
 
 .modal-forward-button {
+    word-break: break-all;
     font-weight: 800;
     font-size: 24px;
     min-width: 213px;
@@ -484,6 +530,7 @@
 
 
 .footer-backward-button {
+    word-break: break-all;
     font-weight: 800;
     font-size: 24px;
     width: 100%;
@@ -497,6 +544,7 @@
 
 @media (min-width: 576px) {
     .footer-backward-button {
+        word-break: break-all;
         font-weight: 800;
         font-size: 24px;
         width: 275px;
@@ -624,6 +672,7 @@
 /* donation page */
 
 .donate-collapse-button {
+    word-break: break-all;
     font-weight: 800;
     font-size: 24px;
     min-width: 213px;
@@ -751,6 +800,7 @@
 /* consent dialog */
 
 .consent-button {
+    word-break: break-all;
     font-size: 18px;
     font-weight: normal;
     width: 150px;
