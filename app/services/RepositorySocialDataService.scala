@@ -2,7 +2,7 @@ package services
 import com.google.inject.Inject
 import models.api.SocialData
 import models.domain.{DonationStatus, ExternalDonorId, SocialDataDonation}
-import persistence.{ConversationParticipantRepository, ConversationRepository, DonationRepository, DonationService, MessageAudioRepository, MessageRepository, PostRepository}
+import persistence.{ConversationParticipantRepository, ConversationRepository, DonationRepository, DonationService, MessageAudioRepository, MessageRepository, PostRepository, GroupPostRepository, CommentRepository, GroupCommentRepository, ReactionRepository}
 import scalaz.{EitherT, OptionT}
 import scalaz.Scalaz._
 
@@ -14,7 +14,12 @@ final class RepositorySocialDataService @Inject()(
                                                    messageRepository: MessageRepository,
                                                    messageAudioRepository: MessageAudioRepository,
                                                    participantRepository: ConversationParticipantRepository,
-                                                   postRepository: PostRepository
+                                                   postRepository: PostRepository,
+                                                   groupPostRepository: GroupPostRepository,
+                                                   commentRepository: CommentRepository,
+                                                   groupCommentRepository: GroupCommentRepository,
+                                                   reactionRepository: ReactionRepository
+
 )(implicit ec: ExecutionContext)
     extends SocialDataService {
 
@@ -23,7 +28,7 @@ final class RepositorySocialDataService @Inject()(
     for {
       donation <- OptionT(donationRepository.getByDonor(externalDonorId))
         .toRight(s"No donation for donor ID $externalDonorId present.")
-      SocialDataDonation(internalDonorId, conversations, messages, messagesAudio, participants, posts) = SocialDataTransformer(
+      SocialDataDonation(internalDonorId, conversations, messages, messagesAudio, participants, posts, groupPosts, comments, groupComments, reactions ) = SocialDataTransformer(
         donation.id,
         socialData
       )
@@ -33,6 +38,10 @@ final class RepositorySocialDataService @Inject()(
       _ <- EitherT.rightT(messageAudioRepository.insertBatch(messagesAudio))
       _ <- EitherT.rightT(participantRepository.insertBatch(participants))
       _ <- EitherT.rightT(postRepository.insertBatch(posts))
+      _ <- EitherT.rightT(groupPostRepository.insertBatch(groupPosts))
+      _ <- EitherT.rightT(commentRepository.insertBatch(comments))
+      _ <- EitherT.rightT(groupCommentRepository.insertBatch(groupComments))
+      _ <- EitherT.rightT(reactionRepository.insertBatch(reactions))
       _ <- EitherT.rightT(donationRepository.update(newDonation))
     } yield ()
   }

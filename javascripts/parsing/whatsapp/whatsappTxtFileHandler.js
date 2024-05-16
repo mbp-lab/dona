@@ -265,9 +265,16 @@ function deIdentification(parsedFiles, alias) {
 
              */
 
+            // this is so that everything can be processed in the same way
+            let deIdentifiedPosts = []
+            let deIdentifiedGroupPosts = []
+            let deIdentifiedComments = []
+            let deIdentifiedGroupComments = []
+            let deIdentifiedReactions = []
 
             let result = {
                 messages_deIdentifiedJsonContents: deIdentifiedJsonContents,
+                deIdentifiedPosts, deIdentifiedGroupPosts, deIdentifiedComments, deIdentifiedGroupComments, deIdentifiedReactions,
                 participantNameToRandomIds: participantNameToRandomIds,
                 chatsToShowMapping: deIdentifiedJsonContents.map(chat => chat.participants)
             }

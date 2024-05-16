@@ -476,9 +476,9 @@ function processReactions(reactionList, dataSource) {
         if (dataSource === "Facebook") {
             jsonContent.forEach((reaction) => {
                 if (reaction.data && reaction.data[0]?.reaction?.reaction) {
-                    reaction.type = reaction.data[0]?.reaction?.reaction
+                    reaction.reaction_type = reaction.data[0]?.reaction?.reaction
                 } else {
-                    reaction.type = "unknown"
+                    reaction.reaction_type = "unknown"
                 }
 
                 delete reaction.data
@@ -501,10 +501,10 @@ function processReactions(reactionList, dataSource) {
                 jsonContent[key].forEach(reaction => {
 
                     if (reaction.string_list_data && reaction.string_list_data.length > 0) {
-                        reaction.type = reaction.string_list_data[0].value
+                        reaction.reaction_type = reaction.string_list_data[0].value
                         reaction.timestamp = reaction.string_list_data[0].timestamp
                     } else {
-                        reaction.type = "unknown"
+                        reaction.reaction_type = "unknown"
                         reaction.timestamp = -1
                     }
 

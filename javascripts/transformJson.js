@@ -5,7 +5,15 @@ function transformJson(messages_deIdentifiedJsonContents, deIdentifiedPosts, deI
     // ToDo: also transform post, comment, reaction stuff
 
     const posts = deIdentifiedPosts.map((post) => generatePost(post, dataSource))
-    console.log(posts)
+    const groupPosts = deIdentifiedGroupPosts.map((groupPost) => generateGroupPost(groupPost, dataSource))
+    const comments = deIdentifiedComments.map((comment) => generateComment(comment, dataSource))
+    const groupComments = deIdentifiedGroupComments.map((groupComment) => generateGroupComment(groupComment, dataSource))
+    const reactions = deIdentifiedReactions.map((reaction) => generateReaction(reaction, dataSource))
+    console.log("posts", posts)
+    console.log("groupPosts", groupPosts)
+    console.log("comments", comments)
+    console.log("groupComments", groupComments)
+    console.log("reactions", reactions)
 
     const conversations = messages_deIdentifiedJsonContents.map((jsonContent) => generateConversation(jsonContent, dataSource));
     return Promise.all(conversations).then((res) => {
@@ -13,6 +21,10 @@ function transformJson(messages_deIdentifiedJsonContents, deIdentifiedPosts, deI
             'donor_id': donorId,
             'result': res,
             'posts': posts,
+            "group_posts": groupPosts,
+            "comments": comments,
+            "group_comments": groupComments,
+            "reactions": reactions
         };
         return transformedJson;
     });
@@ -101,6 +113,38 @@ function generatePost(post, dataSource) {
     post["timestamp_ms"] = post.timestamp
     delete post.timestamp
     return post
+}
+
+function generateGroupPost(post, dataSource) {
+    post["group_post_id"] = uuid();
+    post["donation_data_source_type"] = dataSource;
+    post["timestamp_ms"] = post.timestamp
+    delete post.timestamp
+    return post
+}
+
+function generateComment(comment, dataSource) {
+    comment["comment_id"] = uuid();
+    comment["donation_data_source_type"] = dataSource;
+    comment["timestamp_ms"] = comment.timestamp
+    delete comment.timestamp
+    return comment
+}
+
+function generateGroupComment(comment, dataSource) {
+    comment["group_comment_id"] = uuid();
+    comment["donation_data_source_type"] = dataSource;
+    comment["timestamp_ms"] = comment.timestamp
+    delete comment.timestamp
+    return comment
+}
+
+function generateReaction(reaction, dataSource) {
+    reaction["reaction_id"] = uuid();
+    reaction["donation_data_source_type"] = dataSource;
+    reaction["timestamp_ms"] = reaction.timestamp
+    delete reaction.timestamp
+    return reaction
 }
 
 module.exports = transformJson;

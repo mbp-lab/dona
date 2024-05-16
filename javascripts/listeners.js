@@ -147,7 +147,11 @@ function setUpFileHandler() {
     let donaForMEDonation = {
         "donor_id": i18nSupport.data('donor'),
         "conversations": [],
-        "posts": []
+        "posts": [],
+        "group_posts": [],
+        "comments": [],
+        "group_comments": [],
+        "reactions": []
     };
     //let currentFiles = [] // this would be for file removing functionality
     let possibleEarliestDate = 0
@@ -287,9 +291,13 @@ function setUpFileHandler() {
 
                 console.log("transformedJson:", transformedJson)
 
-                // if there are already conversations of the chosen dataSource, then first filter the old ones out
+                // if there is already data of the chosen dataSource, then first filter the old ones out
                 donaForMEDonation.conversations = donaForMEDonation.conversations.filter((conv) => conv["donation_data_source_type"] !== dataSource)
                 donaForMEDonation.posts = donaForMEDonation.posts.filter((post) => post["donation_data_source_type"] !== dataSource)
+                donaForMEDonation.group_posts = donaForMEDonation.group_posts.filter((post) => post["donation_data_source_type"] !== dataSource)
+                donaForMEDonation.comments = donaForMEDonation.comments.filter((comment) => comment["donation_data_source_type"] !== dataSource)
+                donaForMEDonation.group_comments = donaForMEDonation.group_comments.filter((comment) => comment["donation_data_source_type"] !== dataSource)
+                donaForMEDonation.reactions = donaForMEDonation.reactions.filter((reaction) => reaction["donation_data_source_type"] !== dataSource)
 
                 // get earliest and latest date of all conversations
                 let earliestDate = transformedJson.result[0].earliestDate
@@ -306,6 +314,10 @@ function setUpFileHandler() {
                 })
 
                 donaForMEDonation.posts = donaForMEDonation.posts.concat(transformedJson.posts);
+                donaForMEDonation.group_posts = donaForMEDonation.group_posts.concat(transformedJson.group_posts);
+                donaForMEDonation.comments = donaForMEDonation.comments.concat(transformedJson.comments);
+                donaForMEDonation.group_comments = donaForMEDonation.group_comments.concat(transformedJson.group_comments);
+                donaForMEDonation.reactions = donaForMEDonation.reactions.concat(transformedJson.reactions);
 
 
                 console.log("donaForMEDonation:", donaForMEDonation)

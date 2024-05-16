@@ -7,10 +7,10 @@ case class SocialData(
   donorId: String,
   conversations: List[Conversation],
   posts: Option[List[Post]] = None,
-  comments: Option[String] = None,
-  groupPosts: Option[String] = None,
-  groupComments: Option[String] = None,
-  reactions: Option[String] = None
+  comments: Option[List[Comment]] = None,
+  groupPosts: Option[List[GroupPost]] = None,
+  groupComments: Option[List[GroupComment]] = None,
+  reactions: Option[List[Reaction]] = None
 )
 
 object SocialData {

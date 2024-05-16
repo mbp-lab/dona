@@ -2,7 +2,7 @@ package services
 
 import java.time.Instant
 
-import models.api.{SocialData => ApiSocialData, Conversation => ApiConversation, Post => ApiPost}
+import models.api.{SocialData => ApiSocialData, Conversation => ApiConversation, Post => ApiPost, GroupPost => ApiGroupPost, Comment => ApiComment, GroupComment => ApiGroupComment, Reaction => ApiReaction}
 import models.domain._
 
 object SocialDataTransformer extends ((DonationId, ApiSocialData) => SocialDataDonation) {
@@ -96,12 +96,64 @@ object SocialDataTransformer extends ((DonationId, ApiSocialData) => SocialDataD
       )
     }
 
+    def transformGroupPost(groupPost: ApiGroupPost) = {
+      import groupPost._
+      GroupPost(
+        GroupPostId.generate,
+        donationId,
+        donationDataSourceType,
+        wordCount,
+        mediaCount,
+        Instant.ofEpochMilli(timestampMs)
+      )
+    }
+
+    def transformComment(comment: ApiComment) = {
+      import comment._
+      Comment(
+        CommentId.generate,
+        donationId,
+        donationDataSourceType,
+        wordCount,
+        mediaCount,
+        Instant.ofEpochMilli(timestampMs)
+      )
+    }
+
+    def transformGroupComment(groupComment: ApiGroupComment) = {
+      import groupComment._
+      GroupComment(
+        GroupCommentId.generate,
+        donationId,
+        donationDataSourceType,
+        wordCount,
+        mediaCount,
+        Instant.ofEpochMilli(timestampMs)
+      )
+    }
+
+    def transformReaction(reaction: ApiReaction) = {
+      import reaction._
+      Reaction(
+        ReactionId.generate,
+        donationId,
+        donationDataSourceType,
+        reactionType,
+        Instant.ofEpochMilli(timestampMs)
+      )
+    }
+
     val conversations = socialData.conversations.map(conversation => transformConversation(conversation))
     val messages = socialData.conversations.flatMap(transformConversationMessages)
     val messagesAudio = socialData.conversations.flatMap(transformConversationMessagesAudio)
     val participants = socialData.conversations.flatMap(transformConversationParticipants)
     val posts = socialData.posts.map(_.map(post => transformPost(post)))
+    val groupPosts = socialData.groupPosts.map(_.map(groupPosts => transformGroupPost(groupPosts)))
+    val comments = socialData.comments.map(_.map(comment => transformComment(comment)))
+    val groupComments = socialData.groupComments.map(_.map(groupComment => transformGroupComment(groupComment)))
+    val reactions = socialData.reactions.map(_.map(reaction => transformReaction(reaction)))
 
-    SocialDataDonation(donorId, conversations, messages, messagesAudio, participants, posts)
+
+    SocialDataDonation(donorId, conversations, messages, messagesAudio, participants, posts, groupPosts, comments, groupComments, reactions)
   }
 }
