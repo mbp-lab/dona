@@ -78,6 +78,7 @@ final class SocialDataDonationController @Inject()(
   def consentToStudy: Action[AnyContent] = Action.async { implicit request: Request[AnyContent] =>
     val isolocaleString = messagesApi.preferred(request).lang.locale.getLanguage
     for {
+      // toDO: here the donorId is being generated! so there could be an input donorId here
       donorId <- donationService.beginOnlineConsentDonation()
       link = surveyConfig.createDonorLink(ExternalDonorId(donorId.toString), isolocaleString).toString
     } yield {

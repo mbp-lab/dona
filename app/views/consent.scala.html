@@ -52,6 +52,7 @@
             <div class="d-flex justify-content-end align-items-center">
                 <button type="button" class="btn footer-backward-button consent-button" data-dismiss="modal">@messages("consent.buttons.close.caption")</button>
 
+                
                 @helper.form(routes.SocialDataDonationController.consentToStudy(), '_feedbackTooltip -> "true", 'class -> "text-right") {
                 <div align="center">
                     @helper.CSRF.formField

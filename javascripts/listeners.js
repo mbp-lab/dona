@@ -177,6 +177,7 @@ function setUpFileHandler() {
             return;
         }
 
+        // toDo: DONOR ID !!
         const donorId = $("#donor_id").val();
 
         messageService.hide(dataSource)
