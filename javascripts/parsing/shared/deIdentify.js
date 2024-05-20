@@ -5,6 +5,14 @@ const musicMetadata = require('music-metadata-browser');
 const {json} = require("mocha/lib/reporters");
 const zip = require("@zip.js/zip.js");
 
+// decode function from stackoverflow
+// this is just so that names are shown using the correct symbols
+function decode(s) {
+    let d = new TextDecoder;
+    let a = s.split('').map(r => r.charCodeAt());
+    return d.decode(new Uint8Array(a));
+}
+
 async function deIdentify(donorName, textListPromise, postListPromise, commentListPromise, reactionListPromise, groupPostListPromise, groupCommentListPromise,  allEntries, dataSource) {
 
     const i18n = $("#i18n-support");
@@ -12,14 +20,6 @@ async function deIdentify(donorName, textListPromise, postListPromise, commentLi
     let i = 1;
     participantNameToRandomIds[donorName] = i18n.data("donor");
     let messages_deIdentifiedJsonContents = [];
-
-    // decode function from stackoverflow
-    // this is just so that names are shown using the correct symbols
-    function decode(s) {
-        let d = new TextDecoder;
-        let a = s.split('').map(r => r.charCodeAt());
-        return d.decode(new Uint8Array(a));
-    }
 
     function getDeIdentifiedId(name) {
         let decodedName = decode(name)
@@ -59,19 +59,10 @@ async function deIdentify(donorName, textListPromise, postListPromise, commentLi
 
     // deal with posts, group posts, comments, group comments, reactions
         let deIdentifiedPosts = processPosts(postList, dataSource)
-        console.log("1:", deIdentifiedPosts)
-
         let deIdentifiedGroupPosts = processGroupPosts(groupPostList)
-        console.log(deIdentifiedGroupPosts)
-
         let deIdentifiedComments = processComments(commentList, dataSource)
-        console.log(deIdentifiedComments)
-
         let deIdentifiedGroupComments = processGroupComments(groupCommentList)
-        console.log(deIdentifiedGroupComments)
-
         let deIdentifiedReactions = processReactions(reactionList, dataSource)
-        console.log(deIdentifiedReactions)
 
 
 
@@ -362,7 +353,6 @@ function processComments(commentList, dataSource) {
     let result = []
     commentList.forEach((elem) => {
         let jsonContent = JSON.parse(elem);
-        console.log("jsonContent comments", jsonContent)
 
         if (dataSource === "Facebook") {
             // first get all entries that are actually about group posts
@@ -471,7 +461,6 @@ function processReactions(reactionList, dataSource) {
     let result = []
     reactionList.forEach((elem) => {
         let jsonContent = JSON.parse(elem);
-        console.log("jsonContent reactions", jsonContent)
 
         if (dataSource === "Facebook") {
             jsonContent.forEach((reaction) => {
@@ -487,7 +476,6 @@ function processReactions(reactionList, dataSource) {
                 result.push(reaction)
             })
         } else if (dataSource === "Instagram") {
-            console.log("processReactions:", jsonContent)
 
             let availableKeys = Object.keys(jsonContent)
             let relevantKeys = []
