@@ -1,5 +1,5 @@
+// import { formInputDataForBreaksInConvPlot } from './utils/formInputDataForBreaksInConvPlot.js';
 const formInputDataForBreaksInConvPlot = require("./utils/formInputDataForBreaksInConvPlot");
-
 
 function breaksInConvPlot(wordsPerConv, listOfConversations, plotId) {
 
@@ -22,16 +22,16 @@ function breaksInConvPlot(wordsPerConv, listOfConversations, plotId) {
             name: "Download (.svg)",
             icon: Plotly.Icons.camera,
             click: (im) => {
-                Plotly.downloadImage(im, {format: "svg"})
+                Plotly.downloadImage(im, { format: "svg" })
             }
         },
-            {
-                name: "Download (.png)",
-                icon: Plotly.Icons.camera,
-                click: (im) => {
-                    Plotly.downloadImage(im, {format: "png"})
-                }
-            }],
+        {
+            name: "Download (.png)",
+            icon: Plotly.Icons.camera,
+            click: (im) => {
+                Plotly.downloadImage(im, { format: "png" })
+            }
+        }],
         displaylogo: false
     }
 
@@ -63,7 +63,7 @@ function breaksInConvPlot(wordsPerConv, listOfConversations, plotId) {
             {
                 active: 0,
                 buttons: [],
-                pad: {'r': 10, 't': 10},
+                pad: { 'r': 10, 't': 10 },
                 x: 0,
                 xanchor: 'left',
                 y: 1.4,
@@ -75,7 +75,7 @@ function breaksInConvPlot(wordsPerConv, listOfConversations, plotId) {
                 direction: 'left',
                 type: 'buttons',
                 showactive: false,
-                pad: {t: 0, r: 10},
+                pad: { t: 0, r: 10 },
                 buttons: [
                     {
                         method: "relayout",
@@ -122,7 +122,7 @@ function breaksInConvPlot(wordsPerConv, listOfConversations, plotId) {
                 y: plotInputData.y,
                 mode: 'lines+markers',
                 name: days,
-                marker: {size: 12},
+                marker: { size: 12 },
                 visible: i === 0,
             })
 
@@ -141,5 +141,6 @@ function breaksInConvPlot(wordsPerConv, listOfConversations, plotId) {
 
 }
 
+// export { breaksInConvPlot };
 module.exports = breaksInConvPlot;
 

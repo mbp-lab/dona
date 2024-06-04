@@ -1,7 +1,9 @@
+// import { formInputDataForWordsPlotSync } from './utils/formInputDataForWordsPlotSync';
+// import { _ } from 'lodash';
+// import { isMobile } from '../utils';
 const formInputDataForWordsPlotSync = require("./utils/formInputDataForWordsPlotSync");
 const _ = require('lodash');
-const {isMobile} = require("../utils");
-
+const { isMobile } = require("../utils.js");
 
 function sentReceivedDailyPerConversation(dataSlidingWindow, plotId, listOfConversations, slidingWindowMean) {
 
@@ -27,16 +29,16 @@ function sentReceivedDailyPerConversation(dataSlidingWindow, plotId, listOfConve
             name: "Download (.svg)",
             icon: Plotly.Icons.camera,
             click: (im) => {
-                Plotly.downloadImage(im, {format: "svg"})
+                Plotly.downloadImage(im, { format: "svg" })
             }
         },
-            {
-                name: "Download (.png)",
-                icon: Plotly.Icons.camera,
-                click: (im) => {
-                    Plotly.downloadImage(im, {format: "png"})
-                }
-            }],
+        {
+            name: "Download (.png)",
+            icon: Plotly.Icons.camera,
+            click: (im) => {
+                Plotly.downloadImage(im, { format: "png" })
+            }
+        }],
         displaylogo: false
     }
 
@@ -132,7 +134,7 @@ function sentReceivedDailyPerConversation(dataSlidingWindow, plotId, listOfConve
             {
                 active: 0,
                 buttons: [],
-                pad: {'r': 10, 't': 10},
+                pad: { 'r': 10, 't': 10 },
                 x: 0.03,
                 xanchor: 'left',
                 y: 1.60,
@@ -144,7 +146,7 @@ function sentReceivedDailyPerConversation(dataSlidingWindow, plotId, listOfConve
                 direction: 'left',
                 type: 'buttons',
                 showactive: false,
-                pad: {t: 0, r: 10},
+                pad: { t: 0, r: 10 },
                 buttons: [
                     {
                         method: "relayout",
@@ -200,7 +202,7 @@ function sentReceivedDailyPerConversation(dataSlidingWindow, plotId, listOfConve
                 y: plotInputData.yAxisSentMessages,
                 mode: 'lines+markers',
                 name: sent,
-                marker: {size: 4}, //, color: "white"},
+                marker: { size: 4 }, //, color: "white"},
                 visible: i === 0,
                 showlegend: true,
             };
@@ -211,7 +213,7 @@ function sentReceivedDailyPerConversation(dataSlidingWindow, plotId, listOfConve
                 y: plotInputData.yAxisReceivedMessages,
                 mode: 'lines+markers',
                 name: received,
-                marker: {size: 4}, //, color: "orange"},
+                marker: { size: 4 }, //, color: "orange"},
                 visible: i === 0,
                 showlegend: true,
             };
@@ -257,5 +259,5 @@ function sentReceivedDailyPerConversation(dataSlidingWindow, plotId, listOfConve
 
 }
 
+// export { sentReceivedDailyPerConversation };
 module.exports = sentReceivedDailyPerConversation;
-

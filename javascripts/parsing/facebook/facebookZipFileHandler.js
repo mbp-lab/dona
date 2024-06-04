@@ -1,6 +1,11 @@
-var JSZip = require('jszip');
+// import { JSZip } from 'jszip';
+// import { deIdentify } from '../shared/deIdentify';
+// import { zip } from '@zip.js/zip.js';
+
+// var JSZip = require('jszip');
 var deIdentify = require('../shared/deIdentify');
 const zip = require("@zip.js/zip.js");
+
 
 async function facebookZipFileHandler(fileList) {
 
@@ -21,7 +26,7 @@ async function facebookZipFileHandler(fileList) {
     }
 
 
-    return new Promise( (resolve, reject) => {
+    return new Promise((resolve, reject) => {
 
         // then check if profileInfo is there and extract the donor name
         let profileInfoEntry = allEntries.find(entry => entry.filename.includes("profile_information.json"))
@@ -95,4 +100,5 @@ function validateContentEntry(contentPattern, entry) {
     return false;
 };
 
+// export { facebookZipFileHandler };
 module.exports = facebookZipFileHandler

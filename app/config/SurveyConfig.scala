@@ -11,7 +11,7 @@ case class SurveyConfig(baseUrl: Uri, surveyEnabled: Boolean = true) {
     if (surveyEnabled) {
       baseUrl.withQuery(("lang" -> iso3localeString) +: ("UID" -> donorId.toString) +: baseUrl.query())
     } else {
-      routes.SocialDataDonationController.showDataDonationPage().url
+      routes.SocialDataDonationController.showDataDonationPage.url
     }
   }
 }

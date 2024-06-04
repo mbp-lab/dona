@@ -6,11 +6,12 @@ import config.FeedbackConfig
 import models.api._
 import models.domain.DonationDataSourceType
 import models.domain.DonationDataSourceType.DonationDataSourceType
-import org.scalatest.{FreeSpec, Matchers}
+import org.scalatest.freespec.AnyFreeSpec
+import org.scalatest.matchers.should.Matchers
 
 import scala.concurrent.duration._
 
-final class MessageAnalysisServiceTest extends FreeSpec with Matchers {
+final class MessageAnalysisServiceTest extends AnyFreeSpec with Matchers {
 
   import MessageAnalysisServiceTest._
 
@@ -52,11 +53,9 @@ final class MessageAnalysisServiceTest extends FreeSpec with Matchers {
     }
   }
 
-
   private def createService(responseTimeCutoff: Duration = 1.day, maxSampleSize: Int = 1000) =
     new MessageAnalysisService(new FeedbackConfig(responseTimeCutoff, maxSampleSize))
 }
-
 
 object MessageAnalysisServiceTest {
   case class TestCase(
@@ -103,7 +102,6 @@ object MessageAnalysisServiceTest {
       ),
     )
   }
-
 
   lazy val singleConvoMultipleMonths: TestCase = {
     val conversation = createConversation(
@@ -153,61 +151,60 @@ object MessageAnalysisServiceTest {
   }
 
 
-    lazy val multipleConvos: TestCase = {
-      val firstConversation = createConversation(DonationDataSourceType.Facebook, "Chat F1", (2017, 1, donorName))
-      val secondConversation =
-        createConversation(DonationDataSourceType.Facebook, "Chat F1", (2017, 1, "someone else"), (2017, 2, donorName))
-      val socialData =
-        SocialData(
-          donorName,
-          List(firstConversation, secondConversation)
-        )
-      TestCase(
-        "containing two conversations from different sources",
-        socialData,
-        Map(
-          DonationDataSourceType.Facebook -> (
-            List(List(SentReceivedPoint(2017, 1, 15, 0)), List(SentReceivedPoint(2017, 1, 0 ,15), SentReceivedPoint(2017, 2, 15, 0))), //sentReceivedPerMonthPerConversation -> wordCounts
+  lazy val multipleConvos: TestCase = {
+    val firstConversation = createConversation(DonationDataSourceType.Facebook, "Chat F1", (2017, 1, donorName))
+    val secondConversation =
+      createConversation(DonationDataSourceType.Facebook, "Chat F1", (2017, 1, "someone else"), (2017, 2, donorName))
+    val socialData =
+      SocialData(
+        donorName,
+        List(firstConversation, secondConversation)
+      )
+    TestCase(
+      "containing two conversations from different sources",
+      socialData,
+      Map(
+        DonationDataSourceType.Facebook -> (
+          List(List(SentReceivedPoint(2017, 1, 15, 0)), List(SentReceivedPoint(2017, 1, 0 ,15), SentReceivedPoint(2017, 2, 15, 0))), //sentReceivedPerMonthPerConversation -> wordCounts
+          List(
+            DailySentReceivedPoint(2017, 1, 1, 15, 15, getEpochSeconds(2017, 1, 1, 12, 30)),
+            DailySentReceivedPoint(2017, 2, 1, 15, 0, getEpochSeconds(2017, 2, 1, 12, 30)),
+          ), // dailyWordsGraphData
+          List(
             List(
-              DailySentReceivedPoint(2017, 1, 1, 15, 15, getEpochSeconds(2017, 1, 1, 12, 30)),
+              DailySentReceivedPoint(2017, 1, 1, 15, 0, getEpochSeconds(2017, 1, 1, 12, 30)),
+            ),
+            List(
+              DailySentReceivedPoint(2017, 1, 1, 0, 15, getEpochSeconds(2017, 1, 1, 12, 30)),
               DailySentReceivedPoint(2017, 2, 1, 15, 0, getEpochSeconds(2017, 2, 1, 12, 30)),
-            ), // dailyWordsGraphData
+            )
+          ), //dailyWordsGraphDataPerConversation
+          List(
             List(
-              List(
-                DailySentReceivedPoint(2017, 1, 1, 15, 0, getEpochSeconds(2017, 1, 1, 12, 30)),
-              ),
-              List(
-                DailySentReceivedPoint(2017, 1, 1, 0, 15, getEpochSeconds(2017, 1, 1, 12, 30)),
-                DailySentReceivedPoint(2017, 2, 1, 15, 0, getEpochSeconds(2017, 2, 1, 12, 30)),
-              )
-            ), //dailyWordsGraphDataPerConversation
+              DailyHourPoint(2017, 1, 1, 12, 0, 15, getEpochSeconds(2017, 1, 1, 12, 0)),
+            ),
             List(
-              List(
-                DailyHourPoint(2017, 1, 1, 12, 0, 15, getEpochSeconds(2017, 1, 1, 12, 0)),
-              ),
-              List(
-                DailyHourPoint(2017, 2, 1, 12, 0, 15, getEpochSeconds(2017, 2, 1, 12, 0)),
-              )
-            ), // dailyWordCountSentHoursPerConversation
-            List(
-              List(),
-              List(DailyHourPoint(2017, 1, 1, 12, 0, 15, getEpochSeconds(2017, 1, 1, 12, 0)))
-            ), // dailyWordCountReceivedHoursPerConversation
-            List(
-              AnswerTimePoint(
-                (LocalDateTime.of(2017, 2, 1, 12, 0).toInstant(ZoneOffset.UTC).toEpochMilli - LocalDateTime.of(2017, 1, 1, 12, 0).toInstant(ZoneOffset.UTC).toEpochMilli).toInt,
-                isDonor = true,
-                LocalDateTime.of(2017, 2, 1, 12, 0).toInstant(ZoneOffset.UTC).toEpochMilli)
-            ), // answerTimes
-            BasicStatistics(2, 1, 30, 15, 2, 1, 1, 0), // average
-            List(List(), List("someone else")) // conversationsFriends
-          )
+              DailyHourPoint(2017, 2, 1, 12, 0, 15, getEpochSeconds(2017, 2, 1, 12, 0)),
+            )
+          ), // dailyWordCountSentHoursPerConversation
+          List(
+            List(),
+            List(DailyHourPoint(2017, 1, 1, 12, 0, 15, getEpochSeconds(2017, 1, 1, 12, 0)))
+          ), // dailyWordCountReceivedHoursPerConversation
+          List(
+            AnswerTimePoint(
+              (LocalDateTime.of(2017, 2, 1, 12, 0).toInstant(ZoneOffset.UTC).toEpochMilli - LocalDateTime.of(2017, 1, 1, 12, 0).toInstant(ZoneOffset.UTC).toEpochMilli).toInt,
+              isDonor = true,
+              LocalDateTime.of(2017, 2, 1, 12, 0).toInstant(ZoneOffset.UTC).toEpochMilli)
+          ), // answerTimes
+          BasicStatistics(2, 1, 30, 15, 2, 1, 1, 0), // average
+          List(List(), List("someone else")) // conversationsFriends
         )
-
       )
 
-    }
+    )
 
+  }
 
   private def createConversation(
                                   donationDataSourceType: DonationDataSourceType,

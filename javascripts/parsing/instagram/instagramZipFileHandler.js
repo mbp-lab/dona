@@ -1,3 +1,5 @@
+// import { zip } from '@zip.js/zip.js';
+// import { deIdentify } from '../shared/deIdentify';
 const zip = require("@zip.js/zip.js");
 const deIdentify = require("../shared/deIdentify");
 
@@ -20,7 +22,7 @@ async function instagramZipFileHandler(fileList) {
     }
 
 
-    return new Promise( (resolve, reject) => {
+    return new Promise((resolve, reject) => {
 
         // then check if profileInfo is there and extract the donor name
         let profileInfoEntry = allEntries.find(entry => entry.filename.includes("personal_information.json"))
@@ -73,4 +75,5 @@ function validateContentEntry(contentPattern, entry) {
     return false;
 };
 
+// export { instagramZipFileHandler };
 module.exports = instagramZipFileHandler

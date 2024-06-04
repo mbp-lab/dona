@@ -1,8 +1,11 @@
+// import { sortGraphDataPointsSync } from './utils/sortGraphDataPointsSync.js';
+// import { _ } from 'lodash.js';
+// import { sortYearMonthKeys } from './utils/sortYearMonthKeys.js';
+// import { isMobile } from '../utils.js';
 const sortGraphDataPointsSync = require("./utils/sortGraphDataPointsSync");
 const _ = require("lodash");
 const sortYearMonthKeys = require("./utils/sortYearMonthKeys");
-const {isMobile} = require("../utils");
-
+const { isMobile } = require("../utils.js");
 
 function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
 
@@ -43,16 +46,16 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
             name: "Download (.svg)",
             icon: Plotly.Icons.camera,
             click: (im) => {
-                Plotly.downloadImage(im, {format: "svg"})
+                Plotly.downloadImage(im, { format: "svg" })
             }
         },
-            {
-                name: "Download (.png)",
-                icon: Plotly.Icons.camera,
-                click: (im) => {
-                    Plotly.downloadImage(im, {format: "png"})
-                }
-            }],
+        {
+            name: "Download (.png)",
+            icon: Plotly.Icons.camera,
+            click: (im) => {
+                Plotly.downloadImage(im, { format: "png" })
+            }
+        }],
         displaylogo: false
     }
 
@@ -84,7 +87,7 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
                 showactive: false,
                 direction: 'left',
                 type: 'buttons',
-                pad: {t: 127, r: 10},
+                pad: { t: 127, r: 10 },
                 buttons: [
                     {
                         method: "animate",
@@ -93,8 +96,8 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
                             {
                                 mode: 'immediate',
                                 fromcurrent: true,
-                                transition: {duration: 300, easing: 'linear'},
-                                frame: {duration: 300, redraw: false}
+                                transition: { duration: 300, easing: 'linear' },
+                                frame: { duration: 300, redraw: false }
                             }
                         ],
                         label: "Start"
@@ -103,8 +106,8 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
                         method: 'animate',
                         args: [[null], {
                             mode: 'immediate',
-                            transition: {duration: 0},
-                            frame: {duration: 0, redraw: false}
+                            transition: { duration: 0 },
+                            frame: { duration: 0, redraw: false }
                         }],
                         label: 'Pause'
                     }
@@ -302,8 +305,8 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
             label: name,
             args: [[name], {
                 mode: "immediate",
-                transition: {duration: 300},
-                frame: {duration: 300, redraw: false}
+                transition: { duration: 300 },
+                frame: { duration: 300, redraw: false }
             }]
         })
     })
@@ -318,19 +321,19 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
     }
 
     layout["sliders"] = [{
-        pad: {l: 130, t: 95},
+        pad: { l: 130, t: 95 },
         currentvalue: {
             visible: true,
             prefix: yearMonth,
             xanchor: 'right',
-            font: {size: 20, color: 'black'}
+            font: { size: 20, color: 'black' }
         },
         steps: sliderSteps
     }]
 
 
     let x = [FIRST, SECOND, THIRD, FOURTH]
-    let initialY = [0,0,0,0]
+    let initialY = [0, 0, 0, 0]
 
 
     plotContainer.html("");
@@ -363,9 +366,10 @@ function animatedDayPartsActivityPlot(dataSent, dataReceived, plotId) {
 
         startAnimation(null, 'afterall')
     });
-    
+
 
 }
 
+// export { animatedDayPartsActivityPlot };
 module.exports = animatedDayPartsActivityPlot;
 

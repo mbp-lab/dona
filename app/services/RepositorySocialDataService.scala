@@ -1,11 +1,11 @@
 package services
+
+import cats.data.{EitherT, OptionT}
+import cats.implicits._
 import com.google.inject.Inject
 import models.api.SocialData
 import models.domain.{DonationStatus, ExternalDonorId, SocialDataDonation}
-import persistence.{ConversationParticipantRepository, ConversationRepository, DonationRepository, DonationService, MessageAudioRepository, MessageRepository}
-import scalaz.{EitherT, OptionT}
-import scalaz.Scalaz._
-
+import persistence.{ConversationParticipantRepository, ConversationRepository, DonationRepository, MessageAudioRepository, MessageRepository}
 import scala.concurrent.{ExecutionContext, Future}
 
 final class RepositorySocialDataService @Inject()(
@@ -14,8 +14,8 @@ final class RepositorySocialDataService @Inject()(
                                                    messageRepository: MessageRepository,
                                                    messageAudioRepository: MessageAudioRepository,
                                                    participantRepository: ConversationParticipantRepository
-)(implicit ec: ExecutionContext)
-    extends SocialDataService {
+                                                 )(implicit ec: ExecutionContext)
+  extends SocialDataService {
 
   override def saveData(socialData: SocialData): EitherT[Future, String, Unit] = {
     val externalDonorId = ExternalDonorId(socialData.donorId)
@@ -27,11 +27,11 @@ final class RepositorySocialDataService @Inject()(
         socialData
       )
       newDonation = donation.copy(donorId = Some(internalDonorId), status = DonationStatus.Complete)
-      _ <- EitherT.rightT(conversationRepository.insertBatch(conversations))
-      _ <- EitherT.rightT(messageRepository.insertBatch(messages))
-      _ <- EitherT.rightT(messageAudioRepository.insertBatch(messagesAudio))
-      _ <- EitherT.rightT(participantRepository.insertBatch(participants))
-      _ <- EitherT.rightT(donationRepository.update(newDonation))
+      _ <- EitherT.right(conversationRepository.insertBatch(conversations))
+      _ <- EitherT.right(messageRepository.insertBatch(messages))
+      _ <- EitherT.right(messageAudioRepository.insertBatch(messagesAudio))
+      _ <- EitherT.right(participantRepository.insertBatch(participants))
+      _ <- EitherT.right(donationRepository.update(newDonation))
     } yield ()
   }
 }

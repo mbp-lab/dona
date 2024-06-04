@@ -25,7 +25,7 @@ def pushCacheImage = { cacheImage, registries ->
 
 def buildFunction = { imageName, imageVersion, registries ->
 
-    def cacheImageVersion = '1'
+    def cacheImageVersion = '3'
     def cacheImage = "${imageName}-cache:${cacheImageVersion}" // local image only - needs to be pushed to a registry later
     buildCacheImage(cacheImage, registries)
     pushCacheImage(cacheImage, registries)

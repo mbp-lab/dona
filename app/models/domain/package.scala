@@ -11,23 +11,23 @@ package object domain {
     */
   object EnumFormat {
 
-    implicit def format[E <: Enumeration](enum: E): Format[E#Value] = {
-      Format(reads(enum), writes)
+    implicit def format(en: Enumeration): Format[en.Value] = {
+      Format(reads(en), writes(en))
     }
 
-    def reads[E <: Enumeration](enum: E): Reads[E#Value] = {
+    def reads(en: Enumeration): Reads[en.Value] = {
       case JsString(s) =>
         try {
-          JsSuccess(enum.withName(s))
+          JsSuccess(en.withName(s))
         } catch {
           case _: NoSuchElementException =>
             JsError(
-              s"Enumeration expected of type: '${enum.getClass}', but it does not appear to contain the value: '$s'"
+              s"Enumeration expected of type: '${en.getClass}', but it does not appear to contain the value: '$s'"
             )
         }
       case _ => JsError("String value expected")
     }
 
-    implicit def writes[E <: Enumeration]: Writes[E#Value] = (v: E#Value) => JsString(v.toString)
+    implicit def writes(en: Enumeration): Writes[en.Value] = (v: en.Value) => JsString(v.toString)
   }
 }

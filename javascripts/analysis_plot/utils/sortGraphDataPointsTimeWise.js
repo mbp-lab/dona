@@ -31,4 +31,5 @@ function sortGraphDataPointsTimeWise(graphDataPoints, hasDate, hasHourAndMinute)
 }
 
 
+// export { sortGraphDataPointsTimeWise };
 module.exports = sortGraphDataPointsTimeWise;

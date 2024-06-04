@@ -22,10 +22,10 @@ function showResultsInTable(deIdentifiedJsonList, dataSource) {
 function generateMessageList(deIdentifiedJsonList) {
     const i18nSupport = $("#i18n-support");
     // did you know `flatMap` and `flat(ten)` are only supported on Firefox 62+? T_T
-    return deIdentifiedJsonList.map( conversation => {
+    return deIdentifiedJsonList.map(conversation => {
         const participants = conversation.participants.map(pt => pt.name);
         const threadType = conversation.thread_type;
-        return conversation.messages.map( message => {
+        return conversation.messages.map(message => {
             var result = JSON.parse(JSON.stringify(message));
             result.participants = participants;
             result.isGroup = threadType == "RegularGroup" ? i18nSupport.data("yes") : i18nSupport.data("no");
@@ -95,4 +95,5 @@ function addNewMessage(participants, sender, wordCount, lengthSeconds, timestamp
 };
 
 
+// export { showResultsInTable };
 module.exports = showResultsInTable;

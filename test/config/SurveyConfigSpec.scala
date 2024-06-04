@@ -2,9 +2,10 @@ package config
 
 import akka.http.scaladsl.model.Uri
 import models.domain.ExternalDonorId
-import org.scalatest.{FreeSpec, Matchers}
+import org.scalatest.freespec.AnyFreeSpec
+import org.scalatest.matchers.should.Matchers
 
-final class SurveyConfigSpec extends FreeSpec with Matchers {
+final class SurveyConfigSpec extends AnyFreeSpec with Matchers {
   "Generating a donor's URL" - {
     "for a base URL already without a query parameter" - {
       val url = Uri("http://survey-host.com/survey")

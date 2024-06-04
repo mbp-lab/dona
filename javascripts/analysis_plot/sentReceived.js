@@ -1,3 +1,5 @@
+// import { sortGraphDataPoints } from './utils/sortGraphDataPointsTimeWise';
+// import { formInputDataForMessagesPlot } from './utils/formInputDataForMessagesPlot';
 const sortGraphDataPoints = require('./utils/sortGraphDataPointsTimeWise');
 const formInputDataForMessagesPlot = require('./utils/formInputDataForMessagesPlot');
 
@@ -23,16 +25,16 @@ function sentReceived(data, plotId) {
             name: "Download (.svg)",
             icon: Plotly.Icons.camera,
             click: (im) => {
-                Plotly.downloadImage(im, {format: "svg"})
+                Plotly.downloadImage(im, { format: "svg" })
             }
         },
-            {
-                name: "Download (.png)",
-                icon: Plotly.Icons.camera,
-                click: (im) => {
-                    Plotly.downloadImage(im, {format: "png"})
-                }
-            }],
+        {
+            name: "Download (.png)",
+            icon: Plotly.Icons.camera,
+            click: (im) => {
+                Plotly.downloadImage(im, { format: "png" })
+            }
+        }],
         displaylogo: false
     }
 
@@ -62,7 +64,7 @@ function sentReceived(data, plotId) {
                 y: plotInputData.yAxisSentMessages,
                 mode: 'lines+markers',
                 name: sent,
-                marker: {size: 12}
+                marker: { size: 12 }
             };
 
             const receivedMessagesTrace = {
@@ -70,7 +72,7 @@ function sentReceived(data, plotId) {
                 y: plotInputData.yAxisReceivedMessages,
                 mode: 'lines+markers',
                 name: received,
-                marker: {size: 12}
+                marker: { size: 12 }
             };
 
             const data = [sentMessagesTrace, receivedMessagesTrace];
@@ -81,4 +83,5 @@ function sentReceived(data, plotId) {
         .catch((err) => console.log(err));
 }
 
+// export { sentReceived };
 module.exports = sentReceived;

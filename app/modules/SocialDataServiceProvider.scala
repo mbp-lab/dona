@@ -1,10 +1,10 @@
 package modules
 
+import cats.data.EitherT
+import cats.implicits._
 import com.google.inject.{Inject, Injector, Provider}
 import models.api.SocialData
 import org.slf4j.LoggerFactory
-import scalaz.EitherT
-import scalaz.Scalaz._
 import services.{FeatureFlagService, Features, RepositorySocialDataService, SocialDataService}
 
 import scala.concurrent.{ExecutionContext, Future}
@@ -20,8 +20,8 @@ final class SocialDataServiceProvider @Inject()(isFeatureEnabled: FeatureFlagSer
       injector.getInstance(classOf[RepositorySocialDataService])
     else
       (_: SocialData) =>
-        EitherT.rightT[Future, String, Unit] {
+        EitherT {
           logger.warn("Social data storage has been disabled. No data will be saved.")
-          Future.unit
-      }
+          Future.successful(Right((): Unit))
+        }
 }

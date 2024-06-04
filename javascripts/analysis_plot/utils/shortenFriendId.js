@@ -8,4 +8,5 @@ let shortenFriendId = (friend, friendsInitial) => {
     return friendsInitial + friend.substring(numberStart, friend.length)
 }
 
+// export { shortenFriendId };
 module.exports = shortenFriendId;

@@ -1,7 +1,9 @@
+// import { formInputDataForDailyActivityPlot } from './utils/formInputDataForDailyActivityPlot.js';
+// import { zScoreCalc } from './utils/zScoreCalcDailyActivity.js';
+// import { isMobile } from '../utils';
 const formInputDataForDailyActivityPlot = require("./utils/formInputDataForDailyActivityPlot");
 const zScoreCalc = require("./utils/zScoreCalcDailyActivity");
-const {isMobile} = require("../utils");
-
+const { isMobile } = require("../utils.js");
 
 function dailyActivityTimes(dataSent, dataReceived, listOfConversations, plotId) {
 
@@ -29,16 +31,16 @@ function dailyActivityTimes(dataSent, dataReceived, listOfConversations, plotId)
             name: "Download (.svg)",
             icon: Plotly.Icons.camera,
             click: (im) => {
-                Plotly.downloadImage(im, {format: "svg"})
+                Plotly.downloadImage(im, { format: "svg" })
             }
         },
-            {
-                name: "Download (.png)",
-                icon: Plotly.Icons.camera,
-                click: (im) => {
-                    Plotly.downloadImage(im, {format: "png"})
-                }
-            }],
+        {
+            name: "Download (.png)",
+            icon: Plotly.Icons.camera,
+            click: (im) => {
+                Plotly.downloadImage(im, { format: "png" })
+            }
+        }],
         displaylogo: false
     }
 
@@ -86,7 +88,7 @@ function dailyActivityTimes(dataSent, dataReceived, listOfConversations, plotId)
             {
                 active: 0,
                 buttons: [],
-                pad: {'r': 10, 't': 10},
+                pad: { 'r': 10, 't': 10 },
                 x: 0.05,
                 xanchor: 'left',
                 y: 1.25,
@@ -98,7 +100,7 @@ function dailyActivityTimes(dataSent, dataReceived, listOfConversations, plotId)
                 direction: 'left',
                 type: 'buttons',
                 showactive: false,
-                pad: {t: 0, r: 10},
+                pad: { t: 0, r: 10 },
                 buttons: [
                     {
                         method: "relayout",
@@ -247,5 +249,5 @@ function dailyActivityTimes(dataSent, dataReceived, listOfConversations, plotId)
 
 }
 
+// export { dailyActivityTimes };
 module.exports = dailyActivityTimes;
-

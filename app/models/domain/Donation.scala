@@ -3,9 +3,10 @@ package models.domain
 import java.util.UUID
 
 import play.api.libs.json.Format
-import slick.lifted.MappedTo
-
+import slick.jdbc.JdbcType
+import slick.jdbc.PostgresProfile.api._
 import scala.util.Random
+// import models.domain.Conversation.ParticipantId
 
 case class Donation(
   id: DonationId,
@@ -13,6 +14,9 @@ case class Donation(
   donorId: Option[DonorId],
   status: DonationStatus,
 )
+object Donation {
+  def tupled = Donation.apply.tupled
+}
 
 object DonationDataSourceType extends Enumeration(1) {
   type DonationDataSourceType = Value
@@ -43,13 +47,26 @@ object DonationStatus {
   }
 }
 
-case class DonorId(value: UUID) extends MappedTo[UUID] {
+case class DonorId(value: UUID) {
   def asParticipant = ParticipantId(value)
 }
-object DonorId extends IdSupport[DonorId]
 
-case class DonationId(value: UUID) extends MappedTo[UUID]
-object DonationId extends IdSupport[DonationId]
+object DonorId extends IdSupport[DonorId]{
+  override def apply(uuid: UUID): DonorId = DonorId(uuid)
+  implicit val donorIdColumnType: JdbcType[DonorId] = MappedColumnType.base[DonorId, UUID](
+    donorId => donorId.value,
+    uuid => DonorId(uuid)
+  )
+}
+
+case class DonationId(value: UUID)
+object DonationId extends IdSupport[DonationId]{
+  override def apply(uuid: UUID): DonationId = DonationId(uuid)
+  implicit val donationIdColumnType: JdbcType[DonationId] = MappedColumnType.base[DonationId, UUID](
+    donationId => donationId.value,
+    uuid => DonationId(uuid)
+  )
+}
 
 case class ExternalDonorId(id: String) {
   override def toString: String = id

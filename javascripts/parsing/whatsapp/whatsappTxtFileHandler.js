@@ -1,8 +1,14 @@
-const uuid = require('uuid/v4');
+// import { uuid } from 'uuid';
+// import { countWords } from '../../stringWordCount';
+// import { makeArrayOfMessages, parseMessages } from './whatsappParser.js';
+// import { _ } from 'lodash';
+// import { messageService } from '../../messageService';
+
+// const uuid = require('uuid/v4');
 const countWords = require('../../stringWordCount');
 const { makeArrayOfMessages, parseMessages } = require('./whatsappParser.js');
 const _ = require("lodash");
-const messageService = require("../../messageService");
+// const messageService = require("../../messageService");
 
 function whatsappTxtFilesHandler(filelist) {
     const i18nSupport = $('#i18n-support'); // TODO: This file should not be allowed to access jquery

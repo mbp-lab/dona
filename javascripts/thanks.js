@@ -1,18 +1,31 @@
-const sentReceived = require('./analysis_plot/sentReceived');
+// // import { sentReceived } from './analysis_plot/sentReceived.js';
+// import { sentReceivedDailyPerConversation } from './analysis_plot/sentReceivedDailyPerConversation.js';
+// import { dailyActivityTimes } from './analysis_plot/dailyActivityTimes.js';
+// import { animatedPolarPlot } from './analysis_plot/animatedPolarPlot.js';
+// import { animatedHorizontalBarChart } from './analysis_plot/animatedHorizontalBarChart.js';
+// // import { animatedHorizontalBarChartOverall } from './analysis_plot/animatedHorizontalBarChartOverall.js';
+// import { animatedDayPartsActivityPlot } from './analysis_plot/animatedDayPartsActivityPlot.js';
+// import { dayPartsActivityOverallPlot } from './analysis_plot/dayPartsActivityOverallPlot.js';
+// import { responseTimeBarChart } from './analysis_plot/responseTimeBarChart.js';
+// import { animatedResponseTimeBarChart } from './analysis_plot/animatedResponseTimeBarChart.js';
+// // import { breaksInConvPlot } from './analysis_plot/breaksInConvPlot.js';
+// import { createListOfConversations } from './analysis_plot/utils/createListOfConversations.js';
+// import { horizontalBarChartOverall } from './analysis_plot/horizontalBarChartOverall.js';
+// import { isMobile } from './utils.js';
+// const sentReceived = require('./analysis_plot/sentReceived');
 const sentReceivedDailyPerConversation = require('./analysis_plot/sentReceivedDailyPerConversation')
 const dailyActivityTimes = require('./analysis_plot/dailyActivityTimes')
 const animatedPolarPlot = require('./analysis_plot/animatedPolarPlot')
 const animatedHorizontalBarChart = require('./analysis_plot/animatedHorizontalBarChart')
-const animatedHorizontalBarChartOverall = require('./analysis_plot/animatedHorizontalBarChartOverall')
+// const animatedHorizontalBarChartOverall = require('./analysis_plot/animatedHorizontalBarChartOverall')
 const animatedDayPartsActivityPlot = require("./analysis_plot/animatedDayPartsActivityPlot");
 const dayPartsActivityOverallPlot = require("./analysis_plot/dayPartsActivityOverallPlot");
 const responseTimeBarChart = require('./analysis_plot/responseTimeBarChart');
 const animatedResponseTimeBarChart = require('./analysis_plot/animatedResponseTimeBarChart')
-const breaksInConvPlot = require("./analysis_plot/breaksInConvPlot");
+// const breaksInConvPlot = require("./analysis_plot/breaksInConvPlot");
 const createListOfConversations = require("./analysis_plot/utils/createListOfConversations");
 const horizontalBarChartOverall = require("./analysis_plot/horizontalBarChartOverall");
-const {isMobile} = require("./utils");
-
+const { isMobile } = require("./utils");
 
 $(document).ready(function () {
 
@@ -157,7 +170,7 @@ $(document).ready(function () {
 });
 
 function alertIfMobile() {
-    if(isMobile()) {
+    if (isMobile()) {
         $('#mobileAlertModal').modal("show")
     }
 }

@@ -9,7 +9,8 @@
 
                 <h3 class="data-protection-headline mt-2">@messages("consent.title")</h3>
                 <div class="flex-row-reverse flex-grow-1 d-flex">
-                <a href="@routes.Assets.at(messages("informedConsent.pdf"))" target="_blank" class="btn report-problem-button-footer bg-secondary">@messages("consent.pdf")</a>
+                    <a href="@routes.Assets.at(messages(" informedConsent.pdf"))" target="_blank"
+                        class="btn report-problem-button-footer bg-secondary">@messages("consent.pdf")</a>
                 </div>
             </div>
         </div>
@@ -42,7 +43,7 @@
             <h4 class="text-justify data-protection-headline">@messages("consent.data-purpose.title")</h4>
             <p class="text-justify data-protection-paragraph">@messages("consent.data-purpose.body")
             </p>
-            
+
 
             <p class=" text-justify data-protection-paragraph">
                 <strong>
@@ -50,12 +51,16 @@
                 </strong>
             </p>
             <div class="d-flex justify-content-end align-items-center">
-                <button type="button" class="btn footer-backward-button consent-button" data-dismiss="modal">@messages("consent.buttons.close.caption")</button>
+                <button type="button" class="btn footer-backward-button consent-button"
+                    data-dismiss="modal">@messages("consent.buttons.close.caption")</button>
 
-                @helper.form(routes.SocialDataDonationController.consentToStudy(), '_feedbackTooltip -> "true", 'class -> "text-right") {
+                @helper.form(routes.SocialDataDonationController.consentToStudy, Symbol("_feedbackTooltip") -> "true",
+                Symbol("class") ->
+                "text-right") {
                 <div align="center">
                     @helper.CSRF.formField
-                    <input type="submit" value="@messages("consent.buttons.agree.caption")" class="btn footer-forward-button consent-button"></input>
+                    <input type="submit" value="@messages(" consent.buttons.agree.caption")"
+                        class="btn footer-forward-button consent-button"></input>
                 </div>
                 }
             </div>

@@ -22,4 +22,5 @@ function ZScoreCalcDailyActivity(wordCounts, zScoreLimit) {
 }
 
 
+// export { ZScoreCalcDailyActivity };
 module.exports = ZScoreCalcDailyActivity;

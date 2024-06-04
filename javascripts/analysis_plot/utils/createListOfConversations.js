@@ -1,3 +1,4 @@
+// import { shortenFriendId } from './shortenFriendId';
 const shortenFriendId = require("./shortenFriendId");
 
 function createListOfConversations(conversationFriends, chat, chatInitial, chatWith, friendsInitial, systemName) {
@@ -32,10 +33,10 @@ function createListOfConversations(conversationFriends, chat, chatInitial, chatW
             }
         }
 
-        listOfConversations[i] = chat + " " + chatInitial + (i+1)
+        listOfConversations[i] = chat + " " + chatInitial + (i + 1)
     }
     return listOfConversations
 }
 
-
+// export { createListOfConversations };
 module.exports = createListOfConversations;

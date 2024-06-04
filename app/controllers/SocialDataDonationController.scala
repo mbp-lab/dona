@@ -13,7 +13,8 @@ import play.api.i18n.{I18nSupport, Lang, Messages}
 import play.api.libs.json._
 import play.api.mvc._
 import play.filters.csrf.CSRF
-import scalaz.{-\/, \/-}
+import cats.data.EitherT
+import cats.implicits._
 import services._
 
 import scala.concurrent.ExecutionContext.Implicits.global
@@ -88,7 +89,7 @@ final class SocialDataDonationController @Inject()(
 
   def showDataDonationPage: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
     request.session.get(GeneratedDonorIdKey) match {
-      case None => Redirect(routes.SocialDataDonationController.landing())
+      case None => Redirect(routes.SocialDataDonationController.landing)
       case Some(donorId) =>
 
         logger.info(s"""{"status": "completed-survey"}""")
@@ -101,7 +102,7 @@ final class SocialDataDonationController @Inject()(
     errorMessage: String = "An error occurred while trying to receive your de-identified data. Please try again."
   ): Result = {
     logger.error(s"ERROR: $errorMessage")
-    Redirect(routes.SocialDataDonationController.showDataDonationPage()).flashing("errorMessage" -> errorMessage)
+    Redirect(routes.SocialDataDonationController.showDataDonationPage).flashing("errorMessage" -> errorMessage)
   }
 
   def postData: Action[AnyContent] = Action.async { implicit request: Request[AnyContent] =>
@@ -153,11 +154,11 @@ final class SocialDataDonationController @Inject()(
 
       def saveData(socialData: SocialData): Future[Result] = {
 
-        socialDataService.saveData(socialData).run.map {
-          case -\/(error) =>
+        socialDataService.saveData(socialData).value.map {
+          case Left(error) =>
             logger.error(error)
             failDonationProcess(donationType)
-          case \/-(_) =>
+          case Right(_) =>
             val filteredConversations = socialData.conversations.filter((c) => c.selected)
             val filteredSocialData = SocialData(socialData.donorId, filteredConversations)
             val messageAnalysisOut = messageAnalysisService.produceGraphData(filteredSocialData)

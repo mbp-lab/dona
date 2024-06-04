@@ -1,8 +1,13 @@
+// import { sortGraphDataPoints } from './utils/sortGraphDataPointsTimeWise.js';
+// import { _ } from 'lodash.js';
+// import { zScoreCalc } from './utils/zScoreCalcPolarPlot.js';
+// import { sortYearMonthKeys } from './utils/sortYearMonthKeys.js';
+// import { isMobile } from '../utils.js';
 const sortGraphDataPoints = require('./utils/sortGraphDataPointsTimeWise');
 const _ = require("lodash");
 const zScoreCalc = require("./utils/zScoreCalcPolarPlot");
 const sortYearMonthKeys = require("./utils/sortYearMonthKeys");
-const {isMobile} = require("../utils");
+const { isMobile } = require("../utils.js");
 
 function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plotId) {
 
@@ -32,16 +37,16 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
             name: "Download (.svg)",
             icon: Plotly.Icons.camera,
             click: (im) => {
-                Plotly.downloadImage(im, {format: "svg"})
+                Plotly.downloadImage(im, { format: "svg" })
             }
         },
-            {
-                name: "Download (.png)",
-                icon: Plotly.Icons.camera,
-                click: (im) => {
-                    Plotly.downloadImage(im, {format: "png"})
-                }
-            }],
+        {
+            name: "Download (.png)",
+            icon: Plotly.Icons.camera,
+            click: (im) => {
+                Plotly.downloadImage(im, { format: "png" })
+            }
+        }],
         displaylogo: false
     }
 
@@ -51,7 +56,7 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
         showlegend: true,
         legend: {
             bgcolor: "#13223C",
-            font: {color: "white"},
+            font: { color: "white" },
             x: 0.9,
             y: 1.2,
         },
@@ -103,7 +108,7 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
                 showactive: false,
                 direction: 'left',
                 type: 'buttons',
-                pad: {t: 0, r: 10},
+                pad: { t: 0, r: 10 },
                 buttons: [
                     {
                         method: "relayout",
@@ -124,7 +129,7 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
                 showactive: false,
                 direction: 'left',
                 type: 'buttons',
-                pad: {t: 127, r: 10},
+                pad: { t: 127, r: 10 },
                 buttons: [
                     {
                         method: "animate",
@@ -133,8 +138,8 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
                             {
                                 mode: 'immediate',
                                 fromcurrent: true,
-                                transition: {duration: 300, easing: 'linear'},
-                                frame: {duration: 300, redraw: true}
+                                transition: { duration: 300, easing: 'linear' },
+                                frame: { duration: 300, redraw: true }
                             }
                         ],
                         label: "Start"
@@ -143,8 +148,8 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
                         method: 'animate',
                         args: [[null], {
                             mode: 'immediate',
-                            transition: {duration: 0},
-                            frame: {duration: 0, redraw: true}
+                            transition: { duration: 0 },
+                            frame: { duration: 0, redraw: true }
                         }],
                         label: 'Pause'
                     }
@@ -293,8 +298,8 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
                     label: name,
                     args: [[name], {
                         mode: "immediate",
-                        transition: {duration: 300},
-                        frame: {duration: 300, redraw: true}
+                        transition: { duration: 300 },
+                        frame: { duration: 300, redraw: true }
                     }]
                 })
 
@@ -392,18 +397,18 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
 
 
             layout["sliders"] = [{
-                pad: {l: 130, t: 95},
+                pad: { l: 130, t: 95 },
                 currentvalue: {
                     visible: true,
                     prefix: yearMonth,
                     xanchor: 'right',
-                    font: {size: 20, color: 'black'}
+                    font: { size: 20, color: 'black' }
                 },
                 steps: sliderSteps
             }]
 
             plotContainer.html("");
-            Plotly.newPlot(plotId, {data: traces, layout: layout, frames: frames, config: config},).then(() => {
+            Plotly.newPlot(plotId, { data: traces, layout: layout, frames: frames, config: config },).then(() => {
                 startAnimation(null, 'afterall')
             });
 
@@ -411,5 +416,6 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
 
 }
 
+// export { animatedPolarPlot };
 module.exports = animatedPolarPlot;
 

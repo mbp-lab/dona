@@ -2,7 +2,7 @@ package persistence
 
 import com.google.inject.Inject
 import models.domain.DonationDataSourceType.DonationDataSourceType
-import models.domain.{Conversation, ConversationId, DonationDataSourceType, DonationId, ParticipantId}
+import models.domain.{Conversation, ConversationId, DonationDataSourceType, DonationId}
 import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfigProvider}
 import slick.jdbc.JdbcProfile
 
@@ -20,7 +20,7 @@ final class SlickConversationRepository @Inject()(protected val dbConfigProvider
     db.run(Conversations ++= conversations).map(_ => ())
   }
 
-  implicit private val mappedColumnType =
+  implicit private val mappedColumnType: BaseColumnType[DonationDataSourceType] =
     MappedColumnType.base[DonationDataSourceType, Int](_.id, DonationDataSourceType.apply)
 
   private class ConversationsTable(tag: Tag) extends Table[Conversation](tag, "conversations") {
@@ -31,7 +31,6 @@ final class SlickConversationRepository @Inject()(protected val dbConfigProvider
     def conversationPseudonym = column[String]("conversation_pseudonym")
 
     override def * =
-      (id, donationId, isGroupConversation, dataSourceType, conversationPseudonym) <> ((Conversation.apply _).tupled, Conversation.unapply)
-      // (id, donationId, isGroupConversation, dataSourceType) <> ((Conversation.apply _).tupled, Conversation.unapply)
+      (id, donationId, isGroupConversation, dataSourceType, conversationPseudonym) <> (Conversation.tupled, Conversation.unapply)
   }
 }

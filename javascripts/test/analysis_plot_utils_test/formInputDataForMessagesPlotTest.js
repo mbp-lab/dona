@@ -1,22 +1,31 @@
-const expect = require('chai').expect;
+// import { expect } from 'chai';
+// import { formInputDataForMessagesPlot } from '../../analysis_plot/utils/formInputDataForMessagesPlot.js';
+// const expect = require('chai').expect;
 const formInputDataForMessagesPlot = require('../../analysis_plot/utils/formInputDataForMessagesPlot');
 
+describe('Forming input data for message numbers plot', function () {
+    let expect;
 
-describe('Forming input data for message numbers plot', function() {
+    before(async function () {
+        const chai = await import('chai');
+        expect = chai.expect;
+    });
+
     const validSortedGraphDataPoints = [
         {
             month: 3,
             year: 2018,
             sentCount: 10,
-            receivedCount:1
+            receivedCount: 1
         },
         {
             month: 3,
             year: 2019,
             sentCount: 12,
-            receivedCount:1
+            receivedCount: 1
         }
     ];
+
     it('should provide a JSON with x and y data', function () {
         return formInputDataForMessagesPlot(validSortedGraphDataPoints, false).then((output) => {
             expect(output).to.deep.equal({
@@ -26,5 +35,4 @@ describe('Forming input data for message numbers plot', function() {
             });
         });
     });
-
 });

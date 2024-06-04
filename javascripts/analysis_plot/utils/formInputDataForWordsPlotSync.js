@@ -35,4 +35,5 @@ function formInputDataForWordsPlotSync(sortedGraphDataPoints, hasDate) {
 }
 
 
+// export { formInputDataForWordsPlotSync };
 module.exports = formInputDataForWordsPlotSync;

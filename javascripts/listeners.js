@@ -1,20 +1,30 @@
+// import facebookZipFileHandler from './parsing/facebook/facebookZipFileHandler.js';
+// import whatsappTxtFileHandler from './parsing/whatsapp/whatsappTxtFileHandler.js';
+// import instagramZipFileHandler from './parsing/instagram/instagramZipFileHandler.js';
+// import createChooseChatsModal from './createChooseChatsModal.js';
+
+
+// import transformJson from './transformJson.js';
+// import progressBar from './progressBar.js';
+// import renderTable from './showResultsInTable.js';
+// import renderUserIDMapping from './showUserIdMapping.js';
+// import hammerJs from 'hammerjs';
+// import messageService from './messageService.js';
+// import whatsappZipFileHandler from './parsing/whatsapp/whatsappZipFileHandler.js';
 const facebookZipFileHandler = require('./parsing/facebook/facebookZipFileHandler');
 const whatsappTxtFileHandler = require('./parsing/whatsapp/whatsappTxtFileHandler');
 const instagramZipFileHandler = require('./parsing/instagram/instagramZipFileHandler');
-const createChooseChatsModal = require('./createChooseChatsModal')
+const createChooseChatsModal = require('./createChooseChatsModal');
 
 
 
 const transformJson = require('./transformJson');
 const progressBar = require('./progressBar')
 const renderTable = require('./showResultsInTable');
-const renderUserIDMapping = require('./showUserIdMapping')
+const renderUserIDMapping = require('./showUserIdMapping');
 const hammerJs = require('hammerjs');
 const messageService = require('./messageService');
-const deidentifyNamesWithStars = require("./deidentifyNamesWithStars");
-const JSZip = require("jszip");
-const whatsappZipFileHandler = require("./parsing/whatsapp/whatsappZipFileHandler");
-
+const whatsappZipFileHandler = require('./parsing/whatsapp/whatsappZipFileHandler');
 
 function addListeners() {
 
@@ -558,4 +568,5 @@ function setUpFileHandler() {
 
 }
 
-module.exports = addListeners
+// export { addListeners };
+module.exports = addListeners;

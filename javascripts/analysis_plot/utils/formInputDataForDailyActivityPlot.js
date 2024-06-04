@@ -53,4 +53,5 @@ function formInputDataForDailyActivityPlot(sortedGraphDataPoints) {
 }
 
 
+// export { formInputDataForDailyActivityPlot };
 module.exports = formInputDataForDailyActivityPlot;

@@ -1,7 +1,9 @@
+// import deidentifyNamesWithStars from "./deidentifyNamesWithStars";
+// import showUserIdMapping from "./showUserIdMapping";
 const deidentifyNamesWithStars = require("./deidentifyNamesWithStars");
 const showUserIdMapping = require("./showUserIdMapping");
 
-const i18nSupport= $("#i18n-support");
+const i18nSupport = $("#i18n-support");
 
 function createChooseChatsModal(allParticipantsNamesToRandomIds, allWordCounts, dataSource) {
 
@@ -17,7 +19,7 @@ function createChooseChatsModal(allParticipantsNamesToRandomIds, allWordCounts, 
             // get deidentified names for all chats
             let mappingsPerChat = deidentifyNamesWithStars(allParticipantsNamesToRandomIds, conversations.map(conv => {
                 let result = []
-                conv.participants.forEach(p => result.push({name: p}))
+                conv.participants.forEach(p => result.push({ name: p }))
                 return result
             }), i18nSupport.data('friend-initial'), i18nSupport.data('system'), i18nSupport.data('donor'), dataSource)
 
@@ -33,7 +35,7 @@ function createChooseChatsModal(allParticipantsNamesToRandomIds, allWordCounts, 
             })
 
             // sort by the wordCount
-            combinedConvAndMappingsAndWordCount.sort((a,b) => b.wordCount - a.wordCount)
+            combinedConvAndMappingsAndWordCount.sort((a, b) => b.wordCount - a.wordCount)
 
             combinedConvAndMappingsAndWordCount.forEach((obj) => {
                 chatSelectionModalBody.append(createCheckBoxElem(obj.conv, obj.mappings))
@@ -94,13 +96,13 @@ const createCheckBoxElem = (conv, names) => {
 
 const createNamesElem = (names) => {
 
-   // take care of empty names
+    // take care of empty names
 
-   // create <p> elem for names
+    // create <p> elem for names
     let namesString = ""
 
     names.forEach((n, index) => {
-        if (index == names.length-1) {
+        if (index == names.length - 1) {
             namesString += n
         } else {
             namesString += (n + ", &nbsp;")
@@ -155,7 +157,7 @@ const onClickCheckbox = (convId, allParticipantsNamesToRandomIds, dataSource) =>
     let chatsToShowMappingParticipants = []
     let allMappings = conversations.map((conv) => {
         let result = []
-        conv.participants.forEach(p => result.push({name: p}))
+        conv.participants.forEach(p => result.push({ name: p }))
         if (conv.selected) {
             chatsToShowMappingParticipants.push(result)
         }
@@ -163,7 +165,7 @@ const onClickCheckbox = (convId, allParticipantsNamesToRandomIds, dataSource) =>
     })
 
     // re-render userIdMapping
-    showUserIdMapping(chatsToShowMappingParticipants, allParticipantsNamesToRandomIds, allMappings, i18nSupport.data('system'), i18nSupport.data('donor'), i18nSupport.data('friend-initial'), i18nSupport.data('chat-initial-f'), i18nSupport.data('only-you'), i18nSupport.data('and-more-contacts'), i18nSupport.data('chat'),  dataSource)
+    showUserIdMapping(chatsToShowMappingParticipants, allParticipantsNamesToRandomIds, allMappings, i18nSupport.data('system'), i18nSupport.data('donor'), i18nSupport.data('friend-initial'), i18nSupport.data('chat-initial-f'), i18nSupport.data('only-you'), i18nSupport.data('and-more-contacts'), i18nSupport.data('chat'), dataSource)
 
     // Check if now there is only 1 or 10 selected chats - if so, disable the correct checkboxes
     // if there is only 1 chat selected, disable this ones checkbox
@@ -188,5 +190,5 @@ const onClickCheckbox = (convId, allParticipantsNamesToRandomIds, dataSource) =>
 
 }
 
-
+// export { createChooseChatsModal };
 module.exports = createChooseChatsModal;

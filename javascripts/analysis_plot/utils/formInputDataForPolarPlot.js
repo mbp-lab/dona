@@ -1,3 +1,4 @@
+// import { shortenFriendId } from './shortenFriendId';
 const shortenFriendId = require("./shortenFriendId");
 
 function formInputDataForPolarPlot(sortedGraphDataPoints, allFriends, yearToExclude, monthToExclude, monthsBefore) {
@@ -68,7 +69,7 @@ function formInputDataForPolarPlot(sortedGraphDataPoints, allFriends, yearToExcl
                     return false
                 } else if (isInBetweenYears) { // if it is between earliest and year to exclude -> then it is in range
                     return true
-                } else if(earliestEqualsExcludedYear) { // if earliest year equals excluded year
+                } else if (earliestEqualsExcludedYear) { // if earliest year equals excluded year
                     return (obj.month < monthToExclude) && (obj.month >= earliestMonth) // month needs to be in between
                 } else if (obj.year === yearToExclude) { // if year is the year to exclude, then month needs to be smaller
                     return obj.month < monthToExclude
@@ -192,4 +193,5 @@ function formInputDataForPolarPlot(sortedGraphDataPoints, allFriends, yearToExcl
 }
 
 
+// export { formInputDataForPolarPlot };
 module.exports = formInputDataForPolarPlot;

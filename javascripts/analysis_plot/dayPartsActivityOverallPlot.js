@@ -1,5 +1,7 @@
+// import { _ } from 'lodash';
+// import { isMobile } from '../utils';
 const _ = require("lodash");
-const {isMobile} = require("../utils");
+const { isMobile } = require("../utils.js");
 
 
 function dayPartsActivityOverallPlot(dataSent, dataReceived, plotId) {
@@ -36,16 +38,16 @@ function dayPartsActivityOverallPlot(dataSent, dataReceived, plotId) {
             name: "Download (.svg)",
             icon: Plotly.Icons.camera,
             click: (im) => {
-                Plotly.downloadImage(im, {format: "svg"})
+                Plotly.downloadImage(im, { format: "svg" })
             }
         },
-            {
-                name: "Download (.png)",
-                icon: Plotly.Icons.camera,
-                click: (im) => {
-                    Plotly.downloadImage(im, {format: "png"})
-                }
-            }],
+        {
+            name: "Download (.png)",
+            icon: Plotly.Icons.camera,
+            click: (im) => {
+                Plotly.downloadImage(im, { format: "png" })
+            }
+        }],
         displaylogo: false
     }
 
@@ -176,5 +178,6 @@ function dayPartsActivityOverallPlot(dataSent, dataReceived, plotId) {
 
 }
 
+// export { dayPartsActivityOverallPlot };
 module.exports = dayPartsActivityOverallPlot;
 

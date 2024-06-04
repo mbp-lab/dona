@@ -1,9 +1,16 @@
+// import { validateMessage } from './validateMessage';
+// import { wordCount } from '../../stringWordCount';
+// import { isVoiceMessage } from './isVoiceMessage';
+// import { musicMetadata } from 'music-metadata-browser';
+// import { json } from 'mocha/lib/reporters';
+// import { zip } from '@zip.js/zip.js';
 var validateMessage = require('./validateMessage');
 var wordCount = require('../../stringWordCount')
 const isVoiceMessage = require("./isVoiceMessage");
 const musicMetadata = require('music-metadata-browser');
-const {json} = require("mocha/lib/reporters");
+// const { json } = require("mocha/lib/reporters");
 const zip = require("@zip.js/zip.js");
+
 
 async function deIdentify(donorName, dataPromise, allEntries) {
     //console.log("deIdentify:", zipFiles)
@@ -25,7 +32,7 @@ async function deIdentify(donorName, dataPromise, allEntries) {
         let decodedName = decode(name)
         if (!(decodedName in participantNameToRandomIds)) {
             var friendLabel = i18n.data("friend");
-            if(!friendLabel) {
+            if (!friendLabel) {
                 friendLabel = "contact"
             }
             participantNameToRandomIds[decodedName] = friendLabel + i;
@@ -76,7 +83,7 @@ async function deIdentify(donorName, dataPromise, allEntries) {
                         // metadata has all the metadata found in the blob or file
                         message.sender_name = getDeIdentifiedId(message.sender_name);
 
-                        message.length_seconds =  parseInt(metadata.format.duration);
+                        message.length_seconds = parseInt(metadata.format.duration);
 
                         delete message.content;
                         delete message.type;
@@ -84,7 +91,7 @@ async function deIdentify(donorName, dataPromise, allEntries) {
                             delete message.users;
                         delete message.audio_files
                     } catch (e) {
-                       console.log("error from catch clause (the audio file is being stored with a length of -1):", e)
+                        console.log("error from catch clause (the audio file is being stored with a length of -1):", e)
                         // some voice messages aren't stored -> still count them
                         console.log("error occured for this message:", message)
                         message.sender_name = getDeIdentifiedId(message.sender_name);
@@ -163,7 +170,7 @@ async function deIdentify(donorName, dataPromise, allEntries) {
             return false
         } else if (wordCountObj.participants.length <= 2) {
             // in this case its not a group chat
-            let valueToCompare = wordCountObj.wordCountDonor/wordCountObj.wordCount
+            let valueToCompare = wordCountObj.wordCountDonor / wordCountObj.wordCount
             if (valueToCompare <= 0.1 || valueToCompare >= 0.9) {
                 return false
             } else {
@@ -171,7 +178,7 @@ async function deIdentify(donorName, dataPromise, allEntries) {
             }
         } else {
             // in this case it is a group chat
-            let valueToCompare = wordCountObj.wordCountDonor/(wordCountObj.wordCount/wordCountObj.participants.length)
+            let valueToCompare = wordCountObj.wordCountDonor / (wordCountObj.wordCount / wordCountObj.participants.length)
             if (valueToCompare <= 0.1 || valueToCompare >= 0.9) {
                 return false
             } else {
@@ -220,4 +227,5 @@ async function deIdentify(donorName, dataPromise, allEntries) {
     return result;
 };
 
+// export { deIdentify };
 module.exports = deIdentify

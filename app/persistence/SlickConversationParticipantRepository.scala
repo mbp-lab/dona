@@ -27,6 +27,6 @@ final class SlickConversationParticipantRepository @Inject()(protected val dbCon
     def participantPseudonym = column[String]("participant_pseudonym")
 
     override def * =
-      (id, conversationId, participantId, participantPseudonym) <> ((ConversationParticipant.apply _).tupled, ConversationParticipant.unapply)
+      (id, conversationId, participantId, participantPseudonym) <> (ConversationParticipant.tupled, ConversationParticipant.unapply)
   }
 }

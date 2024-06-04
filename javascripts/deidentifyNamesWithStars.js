@@ -47,7 +47,7 @@ function deidentifyNamesWithStars(userIdMapping, chatsToShowMapping, friendIniti
         }
     }
 
-        // show more symbols of user names for facebook - as here there are a lot more contacts and only
+    // show more symbols of user names for facebook - as here there are a lot more contacts and only
     // a few of those are shown -> making it easier for people to identify their contacts
     else {
         for (let i = 0; i < names.length; i++) {
@@ -147,4 +147,5 @@ function deidentifyNamesWithStars(userIdMapping, chatsToShowMapping, friendIniti
     return resultMappingsPerChat
 }
 
+// export { deidentifyNamesWithStars };
 module.exports = deidentifyNamesWithStars;

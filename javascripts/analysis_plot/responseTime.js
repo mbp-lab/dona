@@ -109,4 +109,5 @@ function responseTime(data, plotId) {
     })
 }
 
+// export { responseTime };
 module.exports = responseTime;

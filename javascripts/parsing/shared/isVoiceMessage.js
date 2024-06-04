@@ -7,4 +7,5 @@ function isVoiceMessage(message) {
     else return false;
 }
 
+// export { isVoiceMessage };
 module.exports = isVoiceMessage

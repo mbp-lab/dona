@@ -10,7 +10,7 @@ import scala.concurrent.{ExecutionContext, Future}
 
 class SlickDonationRepository @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)(
   implicit ec: ExecutionContext
-) extends HasDatabaseConfigProvider[JdbcProfile with DonationStatusSupport]
+) extends HasDatabaseConfigProvider[JdbcProfile & DonationStatusSupport]
     with DonationRepository {
   import profile.api._
   import profile.statusTypeMapper
@@ -46,7 +46,7 @@ class SlickDonationRepository @Inject()(protected val dbConfigProvider: Database
     def status = column[DonationStatus]("status")
 
     override def * =
-      (id, externalDonorId, donorId, status) <> ((Donation.apply _).tupled, Donation.unapply)
+      (id, externalDonorId, donorId, status) <> (Donation.tupled, Donation.unapply)
   }
 
 }

@@ -1,4 +1,7 @@
-const uuid = require('uuid/v4');
+// import { uuid } from 'uuid/v4';
+// import { uuid } from 'uuid';
+// const uuid = require('uuid/v4');
+const { v4: uuidv4 } = require('uuid');
 
 function transformJson(deIdentifiedJsonContents, donorId, dataSource, randomIdMappings) {
     const conversations = deIdentifiedJsonContents.map((jsonContent, index) => generateConversation(jsonContent, dataSource, randomIdMappings, index));
@@ -23,7 +26,7 @@ function generateConversation(jsonContent, dataSource, randomIdMappings, index) 
         dataSourceString = "W";
     }
 
-    conversation["conversation_id"] = uuid();
+    conversation["conversation_id"] = uuidv4();
     conversation["is_group_conversation"] = translateIfGroupConversation(jsonContent["participants"]);
     conversation["participants"] = transformParticipants(jsonContent["participants"]);
 
@@ -91,4 +94,5 @@ function transformMessages(messages) {
     return { transformedMessages, transformedMessagesAudio, earliestDate, latestDate };
 };
 
+// export { transformJson };
 module.exports = transformJson;

@@ -16,11 +16,12 @@ final class SlickMessageAudioRepository @Inject()(protected val dbConfigProvider
   import profile.api._
 
   private val Messages = TableQuery[MessagesAudioTable]
+  
   override def insertBatch(message: Seq[MessageAudio]): Future[Unit] = {
     db.run(Messages ++= message).map(_ => ())
   }
 
-  implicit val timeConversion = MappedColumnType.base[Instant, Timestamp](
+  implicit val timeConversion: BaseColumnType[Instant] = MappedColumnType.base[Instant, Timestamp](
     Timestamp.from,
     _.toInstant
   )
@@ -32,6 +33,6 @@ final class SlickMessageAudioRepository @Inject()(protected val dbConfigProvider
     def sender = column[Option[ParticipantId]]("sender_id")
     def timestamp = column[Instant]("datetime")
 
-    override def * = (id, conversationId, lengthSeconds, sender, timestamp) <> ((MessageAudio.apply _).tupled, MessageAudio.unapply)
+    override def * = (id, conversationId, lengthSeconds, sender, timestamp) <> (MessageAudio.tupled, MessageAudio.unapply)
   }
 }

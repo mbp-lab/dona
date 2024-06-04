@@ -1,26 +1,27 @@
 package controllers
 
 import akka.http.scaladsl.model.Uri
+import cats.data.EitherT
+import cats.implicits._
 import config.{FeedbackConfig, SurveyConfig}
 import models.api.{Conversation, ConversationMessage, ConversationMessageAudio, SocialData}
 import models.domain.{DonationDataSourceType, ExternalDonorId}
-import org.mockito.Mockito._
+import org.mockito.ArgumentMatchers.{any, eq => isEqual}
+import org.mockito.Mockito.{when => mockWhen, verify}
+import org.scalatestplus.mockito.MockitoSugar
 import org.scalatestplus.play._
-import org.specs2.mock._
 import persistence.DonationService
 import play.api.mvc.Result
 import play.api.test.CSRFTokenHelper._
 import play.api.test.Helpers._
 import play.api.test._
-import scalaz.EitherT
-import scalaz.Scalaz._
 import services.{Feature, FeatureFlagService, InMemoryDataSourceDescriptionService, MessageAnalysisService, SocialDataService}
 
 import scala.concurrent.ExecutionContext.Implicits.global
-import scala.concurrent.duration._
 import scala.concurrent.Future
+import scala.concurrent.duration._
 
-class SocialDataDonationControllerSpec extends PlaySpec with Mockito {
+class SocialDataDonationControllerSpec extends PlaySpec with MockitoSugar {
 
   private val fakeDonorId = "dummy-id"
   private val fakeSurveyUrl = Uri("https://survey.com/survey")
@@ -29,10 +30,10 @@ class SocialDataDonationControllerSpec extends PlaySpec with Mockito {
 
     "render the index page from a new instance of controller" in {
       val (controller, _, _) = systemUnderTest()
-      val home = controller.landing().apply(FakeRequest(GET, "/").withCSRFToken)
+      val home = controller.landing.apply(FakeRequest(GET, "/").withCSRFToken)
 
-      status(home) mustBe OK
-      contentType(home) mustBe Some("text/html")
+      status(home).mustBe(OK)
+      contentType(home).mustBe(Some("text/html"))
     }
     //TODO: would be better to have a check for the most important elements
     // (eg. Call to action button, cookie banner, Data privacy policy etc...)
@@ -50,9 +51,9 @@ class SocialDataDonationControllerSpec extends PlaySpec with Mockito {
         if (setSession) baseFakeRequest.withSession("GeneratedDonorId" -> fakeDonorId)
         else baseFakeRequest
 
-      val request = maybeSessionRequest.withFormUrlEncodedBody(body: _*)
+      val request = maybeSessionRequest.withFormUrlEncodedBody(body*)
 
-      controller.postData().apply(request)
+      controller.postData.apply(request)
     }
 
     "redirect to the thank you page with a valid JSON body and save the social data" in {
@@ -92,7 +93,7 @@ class SocialDataDonationControllerSpec extends PlaySpec with Mockito {
 
       val upload = postRequestFacebook(controller, setSession = true, "inputJson" -> validJsonString)
 
-      status(upload) mustBe OK
+      status(upload).mustBe(OK)
 
       verify(sender).saveData(
         SocialData(
@@ -122,8 +123,8 @@ class SocialDataDonationControllerSpec extends PlaySpec with Mockito {
 
       val upload = postRequestFacebook(controller, setSession = true, "inputJson" -> invalidJsonString)
 
-      status(upload) mustBe SEE_OTHER
-      redirectLocation(upload) mustBe Some("/data-donation")
+      status(upload).mustBe(SEE_OTHER)
+      redirectLocation(upload).mustBe(Some("/data-donation"))
     }
 
     "render Unauthorized if the POST request doesn't have a session value" in {
@@ -131,7 +132,7 @@ class SocialDataDonationControllerSpec extends PlaySpec with Mockito {
 
       val upload = postRequestFacebook(controller, setSession = false, "inputJson" -> "{}")
 
-      status(upload) mustBe UNAUTHORIZED
+      status(upload).mustBe(UNAUTHORIZED)
     }
   }
 
@@ -142,9 +143,9 @@ class SocialDataDonationControllerSpec extends PlaySpec with Mockito {
 
       val result = controller.consentToStudy()(fakeRequest)
 
-      status(result) mustBe SEE_OTHER
-      redirectLocation(result) mustBe Some("/data-donation")
-      session(result).get("GeneratedDonorId") mustBe Some(fakeDonorId)
+      status(result).mustBe(SEE_OTHER)
+      redirectLocation(result).mustBe(Some("/data-donation"))
+      session(result).get("GeneratedDonorId").mustBe(Some(fakeDonorId))
     }
 
     "redirect to the external survey page with a donor ID in the session if survey integration is turned on" in {
@@ -153,11 +154,11 @@ class SocialDataDonationControllerSpec extends PlaySpec with Mockito {
 
       val result = controller.consentToStudy()(fakeRequest)
 
-      status(result) mustBe SEE_OTHER
-      redirectLocation(result) mustBe Some(
+      status(result).mustBe(SEE_OTHER)
+      redirectLocation(result).mustBe(Some(
         SurveyConfig(fakeSurveyUrl).createDonorLink(ExternalDonorId(fakeDonorId), "en").toString
-      )
-      session(result).get("GeneratedDonorId") mustBe Some(fakeDonorId)
+      ))
+      session(result).get("GeneratedDonorId").mustBe(Some(fakeDonorId))
     }
   }
 
@@ -167,10 +168,10 @@ class SocialDataDonationControllerSpec extends PlaySpec with Mockito {
     DonationService
   ) = {
     val mockSocialDataService = mock[SocialDataService]
-    mockSocialDataService.saveData(any[SocialData]).returns(EitherT.rightT(Future.unit))
+    mockWhen(mockSocialDataService.saveData(any[SocialData])).thenReturn(EitherT[Future, String, Unit](Future.successful(Right(()))))
 
     val mockService = mock[DonationService]
-    mockService.beginOnlineConsentDonation().returns(Future.successful { ExternalDonorId(fakeDonorId) })
+    mockWhen(mockService.beginOnlineConsentDonation()).thenReturn(Future.successful { ExternalDonorId(fakeDonorId) })
 
     val controller =
       new SocialDataDonationController(

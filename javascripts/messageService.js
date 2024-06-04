@@ -9,14 +9,15 @@ let messageService = {
         $("#success-" + dataSource).removeClass('d-none');
         $("#success-" + dataSource).html(message);
     },
-   "hide": function(dataSource) {
-     $("#error-" + dataSource).addClass('d-none');
-     $("#success-" + dataSource).addClass('d-none');
-   },
-    "hideErrorShowSuccess": function(dataSource) {
+    "hide": function (dataSource) {
+        $("#error-" + dataSource).addClass('d-none');
+        $("#success-" + dataSource).addClass('d-none');
+    },
+    "hideErrorShowSuccess": function (dataSource) {
         $("#success-" + dataSource).removeClass('d-none');
         $("#error-" + dataSource).addClass('d-none');
     }
 }
 
-module.exports = messageService
+// export { messageService };
+module.exports = messageService;

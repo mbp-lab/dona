@@ -1,5 +1,5 @@
 function setupClick() {
-    $("#consent-to-cookies-btn").click(function() {
+    $("#consent-to-cookies-btn").click(function () {
         document.cookie = "accepted_cookies=true;"
         $(".cookiealert").fadeOut();
     })
@@ -18,4 +18,5 @@ function onLoad() {
     showAcceptanceFormIfNeeded();
 }
 
+// export { onLoad };
 module.exports = onLoad;

@@ -1,5 +1,7 @@
+// import { _ } from 'lodash';
+// import { isMobile } from '../utils';
 const _ = require("lodash");
-const {isMobile} = require("../utils");
+const { isMobile } = require("../utils.js");
 
 
 function responseTimeBarChart(responseTimes, plotId, isOnlyOneOrLessConv) {
@@ -65,16 +67,16 @@ function responseTimeBarChart(responseTimes, plotId, isOnlyOneOrLessConv) {
             name: "Download (.svg)",
             icon: Plotly.Icons.camera,
             click: (im) => {
-                Plotly.downloadImage(im, {format: "svg"})
+                Plotly.downloadImage(im, { format: "svg" })
             }
         },
-            {
-                name: "Download (.png)",
-                icon: Plotly.Icons.camera,
-                click: (im) => {
-                    Plotly.downloadImage(im, {format: "png"})
-                }
-            }],
+        {
+            name: "Download (.png)",
+            icon: Plotly.Icons.camera,
+            click: (im) => {
+                Plotly.downloadImage(im, { format: "png" })
+            }
+        }],
         displaylogo: false
     }
 
@@ -87,7 +89,7 @@ function responseTimeBarChart(responseTimes, plotId, isOnlyOneOrLessConv) {
             y: 1.2
         },
         hovermode: 'x',
-        xaxis:{
+        xaxis: {
             title: xAxis,
             fixedrange: true
         }
@@ -209,5 +211,6 @@ function responseTimeBarChart(responseTimes, plotId, isOnlyOneOrLessConv) {
 
 }
 
+// export { responseTimeBarChart };
 module.exports = responseTimeBarChart;
 

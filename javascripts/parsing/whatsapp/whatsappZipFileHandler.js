@@ -1,4 +1,6 @@
+// import { JSZip } from 'jszip';
 var JSZip = require('jszip');
+
 
 function whatsappZipFileHandler(file) {
     return new Promise((resolve, reject) => {
@@ -11,17 +13,17 @@ function whatsappZipFileHandler(file) {
                     zip.files[filename]
                         .async('blob')
                         .then((fileData) => {
-                    if (filename.slice(-4) == ".txt") {
-                        return new File([fileData], filename)
-                    } else {
-                        return null
-                    }
-                })))
+                            if (filename.slice(-4) == ".txt") {
+                                return new File([fileData], filename)
+                            } else {
+                                return null
+                            }
+                        })))
 
                 resolve(Promise.all(allPromises))
             })
 
-        })
+    })
 
 }
 

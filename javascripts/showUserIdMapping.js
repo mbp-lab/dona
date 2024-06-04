@@ -1,4 +1,5 @@
-const deidentifyNamesWithStars = require("./deidentifyNamesWithStars");
+// import { deidentifyNamesWithStars } from './deidentifyNamesWithStars.js';
+const deidentifyNamesWithStars = require('./deidentifyNamesWithStars.js');
 
 function showUserIdMapping(chatsToShowMapping, userIdMapping, idsPerConv, systemName, donor, friendInitial, chatInitialFOrW, onlyYouInConv, andMoreContacts, chat, dataSource) {
 
@@ -27,7 +28,7 @@ function showUserIdMapping(chatsToShowMapping, userIdMapping, idsPerConv, system
             $("#display-userIDMapping-" + dataSource + "-donorLeftSide").append("" +
                 "<p class='mapping-item' style='font-weight: bold'>"
                 + donorName
-                + "</p>" )
+                + "</p>")
             $("#display-userIDMapping-" + dataSource + "-donorRightSide").append("<p class='mapping-item' style='font-weight: bold;'>&rarr; " + donor + "</p>")
 
             // display grouped other mappings
@@ -43,19 +44,19 @@ function showUserIdMapping(chatsToShowMapping, userIdMapping, idsPerConv, system
                     $("#display-userIDMapping-" + dataSource + i + "-leftSide").append("" +
                         "<p class='mapping-item' style='font-weight: bold'>"
                         + onlyYouInConv
-                        + "</p>" )
+                        + "</p>")
                 }
                 for (let j = 0; j < resultMappingsPerChat[i].length; j++) {
                     if (j >= 4) {
-                        $("#display-userIDMapping-" + dataSource + i + "-leftSide").append("<p class='mapping-item text-right' style='font-weight: bold'>..." + andMoreContacts.replace("{0}", (resultMappingsPerChat[i].length-j)) + "</p>")
+                        $("#display-userIDMapping-" + dataSource + i + "-leftSide").append("<p class='mapping-item text-right' style='font-weight: bold'>..." + andMoreContacts.replace("{0}", (resultMappingsPerChat[i].length - j)) + "</p>")
                         break;
                     }
                     $("#display-userIDMapping-" + dataSource + i + "-leftSide").append("" +
                         "<p class='mapping-item text-right' style='font-weight: bold'>"
                         + resultMappingsPerChat[i][j].name
-                        + "</p>" )
+                        + "</p>")
                 }
-                $("#display-userIDMapping-" + dataSource + i + "-rightSide").append("<p class='mapping-item text-left' style='font-weight: bold;'>&rarr; " + chat + " " + chatInitialFOrW + (i+1) + "</p>")
+                $("#display-userIDMapping-" + dataSource + i + "-rightSide").append("<p class='mapping-item text-left' style='font-weight: bold;'>&rarr; " + chat + " " + chatInitialFOrW + (i + 1) + "</p>")
 
             }
 
@@ -69,4 +70,5 @@ function clearPreviousRenderedMappings(dataSource) {
     });
 }
 
+// export { showUserIdMapping };
 module.exports = showUserIdMapping;

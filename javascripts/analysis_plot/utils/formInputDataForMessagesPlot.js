@@ -25,14 +25,14 @@ function formInputDataForMessagesPlot(sortedGraphDataPoints, hasDate) {
     const ySentMessages = sortedGraphDataPoints.map(point => point.sentCount);
     const yReceivedMessages = sortedGraphDataPoints.map(point => point.receivedCount);
     return new Promise((resolve) => {
-       const plotInputData = {
-        xAxis: x,
-        yAxisSentMessages: ySentMessages,
-        yAxisReceivedMessages: yReceivedMessages
-       }
-       resolve(plotInputData);
+        const plotInputData = {
+            xAxis: x,
+            yAxisSentMessages: ySentMessages,
+            yAxisReceivedMessages: yReceivedMessages
+        }
+        resolve(plotInputData);
     });
 }
 
-
+// export { formInputDataForMessagesPlot };
 module.exports = formInputDataForMessagesPlot;

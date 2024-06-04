@@ -1,4 +1,5 @@
-const {isMobile} = require("../utils");
+// import { isMobile } from '../utils';
+const { isMobile } = require("../utils.js");
 
 function horizontalBarChartOverall(sentWordsTotal, receivedWordsTotal, plotId) {
 
@@ -30,16 +31,16 @@ function horizontalBarChartOverall(sentWordsTotal, receivedWordsTotal, plotId) {
             name: "Download (.svg)",
             icon: Plotly.Icons.camera,
             click: (im) => {
-                Plotly.downloadImage(im, {format: "svg"})
+                Plotly.downloadImage(im, { format: "svg" })
             }
         },
-            {
-                name: "Download (.png)",
-                icon: Plotly.Icons.camera,
-                click: (im) => {
-                    Plotly.downloadImage(im, {format: "png"})
-                }
-            }],
+        {
+            name: "Download (.png)",
+            icon: Plotly.Icons.camera,
+            click: (im) => {
+                Plotly.downloadImage(im, { format: "png" })
+            }
+        }],
         displaylogo: false
     }
 
@@ -96,5 +97,6 @@ function horizontalBarChartOverall(sentWordsTotal, receivedWordsTotal, plotId) {
 
 }
 
+// export { horizontalBarChartOverall };
 module.exports = horizontalBarChartOverall;
 

@@ -7,4 +7,5 @@ function validateMessage(message) {
     else return false;
 }
 
+// export { validateMessage };
 module.exports = validateMessage

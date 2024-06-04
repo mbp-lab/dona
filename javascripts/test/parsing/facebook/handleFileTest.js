@@ -1,19 +1,36 @@
-const fs = require('fs');
-const chai = require('chai');
-const chaiAsPromised = require('chai-as-promised');
-const jsdom = require('jsdom');
-//const handleFile = require('../../../parsing/facebook/facebookZipFileHandler');
+// import * as chai from 'chai';
+// import chaiAsPromised from 'chai-as-promised';
+// import { JSDOM } from 'jsdom';
+// import $ from 'jquery';
 
-chai.use(chaiAsPromised);
-const expect = require('chai').expect;
-const assert = require('chai').assert;
+// chai.use(chaiAsPromised);
 
-const { JSDOM } = jsdom;
-const { document } = (new JSDOM('')).window;
-global.document = document;
-const window = document.defaultView;
-global.window = window;
-global.$ = require('jquery');
+// const { document } = (new JSDOM('')).window;
+// const window = document.defaultView;
+// global.document = document;
+// global.window = window;
+// global.$ = $;
+// const fs = require('fs');
+// const chai = require('chai');
+let expect;
+let assert;
+let chaiAsPromised;
+
+before(async function () {
+    const chai = await import('chai');
+    chaiAsPromised = await import('chai-as-promised');
+    chai.use(chaiAsPromised.default);
+    expect = chai.expect;
+    assert = chai.assert;
+
+    const jsdom = require('jsdom');
+    const { JSDOM } = jsdom;
+    const { document } = (new JSDOM('')).window;
+    global.document = document;
+    const window = document.defaultView;
+    global.window = window;
+    global.$ = require('jquery');
+});
 
 // this test is not working anymore with the zipjs library - because it uses client specific modules
 /*

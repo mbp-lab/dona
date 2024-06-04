@@ -1,28 +1,30 @@
 {
   "name": "hc-rp-sdk-js",
   "version": "0.0.1",
+  "type": "commonjs",
   "scripts": {
     "lint": "eslint test",
     "test": "mocha --recursive javascripts/test"
   },
   "devDependencies": {
-    "babel-eslint": "^9.0.0",
-    "chai": "^4.2.0",
-    "chai-as-promised": "^7.1.1",
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb-base": "^13.2.0",
-    "eslint-plugin-import": "^2.18.2",
-    "jquery": "^3.5.1",
-    "jsdom": "^12.2.0",
-    "jszip": "^3.2.2",
-    "mocha": "^8.1.3",
-    "uuid": "^3.3.2"
-  },
-  "dependencies": {
-    "@zip.js/zip.js": "^2.7.31",
-    "gifffer": "^1.5.1",
+    "@babel/eslint-parser": "^7.24.5",
+    "chai": "^5.1.1",
+    "chai-as-promised": "^7.1.2",
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.29.1",
+    "jquery": "^3.7.1",
+    "jsdom": "^24.0.0",
+    "jszip": "^3.10.1",
+    "mocha": "^10.4.0",
+    "package-json": "^10.0.0",
+    "uuid": "^9.0.1",
     "hammerjs": "^2.0.8",
     "lodash": "^4.17.21",
-    "music-metadata-browser": "^2.5.10"
+    "music-metadata-browser": "^2.5.10",
+    "@zip.js/zip.js": "^2.7.45"
+  },
+  "dependencies": {
+    "giffer": "^2.0.16"
   }
 }

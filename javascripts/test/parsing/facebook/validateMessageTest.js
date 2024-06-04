@@ -1,7 +1,14 @@
+// import { validateMessage as messageValidation } from '../../../parsing/shared/validateMessage.js';
+// import { expect } from 'chai';
 const messageValidation = require('../../../parsing/shared/validateMessage.js');
-const expect = require('chai').expect;
 
-describe('Validating ', function() {
+describe('Validating ', function () {
+    let expect;
+
+    before(async function () {
+        const chai = await import('chai');
+        expect = chai.expect;
+    });
     const validMessage = {
         'sender_name': "Bleh Blah",
         'content': "This is some content",

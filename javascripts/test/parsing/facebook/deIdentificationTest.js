@@ -1,6 +1,14 @@
-const expect = require('chai').expect;
+// import { JSDOM } from 'jsdom';
+// import $ from 'jquery';
+// const { document } = (new JSDOM('')).window;
+// const window = document.defaultView;
+// global.document = document;
+// global.window = window;
+// global.$ = $;
+
+// const expect = require('chai').expect;
 //const handleFile = require('../../../parsing/facebook/facebookZipFileHandler');
-const fs = require('fs');
+// const fs = require('fs');
 const jsdom = require('jsdom');
 
 const { JSDOM } = jsdom;
