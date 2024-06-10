@@ -110,7 +110,7 @@ function transformMessages(messages) {
 function generatePost(post, dataSource) {
     post["post_id"] = uuid();
     post["donation_data_source_type"] = dataSource;
-    post["timestamp_ms"] = post.timestamp
+    post["timestamp_ms"] = post.timestamp * 1000
     delete post.timestamp
     return post
 }
@@ -118,7 +118,7 @@ function generatePost(post, dataSource) {
 function generateGroupPost(post, dataSource) {
     post["group_post_id"] = uuid();
     post["donation_data_source_type"] = dataSource;
-    post["timestamp_ms"] = post.timestamp
+    post["timestamp_ms"] = post.timestamp * 1000
     delete post.timestamp
     return post
 }
@@ -126,7 +126,7 @@ function generateGroupPost(post, dataSource) {
 function generateComment(comment, dataSource) {
     comment["comment_id"] = uuid();
     comment["donation_data_source_type"] = dataSource;
-    comment["timestamp_ms"] = comment.timestamp
+    comment["timestamp_ms"] = comment.timestamp * 1000
     delete comment.timestamp
     return comment
 }
@@ -134,7 +134,7 @@ function generateComment(comment, dataSource) {
 function generateGroupComment(comment, dataSource) {
     comment["group_comment_id"] = uuid();
     comment["donation_data_source_type"] = dataSource;
-    comment["timestamp_ms"] = comment.timestamp
+    comment["timestamp_ms"] = comment.timestamp * 1000
     delete comment.timestamp
     return comment
 }
@@ -142,7 +142,7 @@ function generateGroupComment(comment, dataSource) {
 function generateReaction(reaction, dataSource) {
     reaction["reaction_id"] = uuid();
     reaction["donation_data_source_type"] = dataSource;
-    reaction["timestamp_ms"] = reaction.timestamp
+    reaction["timestamp_ms"] = reaction.timestamp * 1000
     delete reaction.timestamp
     return reaction
 }

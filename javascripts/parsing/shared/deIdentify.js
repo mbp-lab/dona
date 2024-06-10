@@ -239,10 +239,17 @@ async function processMessages(jsonContent, getDeIdentifiedId, allEntries) {
 // per post that is: timestamp, number of media elements, number of words of text
 function processPosts(postList, dataSource) {
     let result = []
+    console.log("postList:", postList)
     postList.forEach((elem) => {
         let jsonContent = JSON.parse(elem);
+        if (jsonContent !== null && typeof jsonContent === 'object') {
+            const keys = Object.keys(jsonContent);
+            if (keys.length === 1) {
+                jsonContent = jsonContent[keys[0]];
+            }
+        }
+        console.log("jsonContent:", jsonContent)
         jsonContent.forEach((post) => {
-
             if (dataSource === "Facebook") {
                 if (post.data[0]?.post) {
                     post.word_count = wordCount(post.data[0]?.post)
