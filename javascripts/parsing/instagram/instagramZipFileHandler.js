@@ -38,11 +38,10 @@ async function instagramZipFileHandler(fileList) {
                 let commentsEntries = []
                 let reactionsEntries = []
 
-                // toDo: maybe also add group posts and comments ???
                 allEntries.forEach((entry) => {
                     if (validateContentEntry("message.json", entry) || validateContentEntry("message_1.json", entry)) {
                         messagesEntries.push(entry);
-                    } else if ((validateContentEntry("/posts_1.json", entry) || validateContentEntry("/posts.json", entry))) {
+                    } else if (!validateContentEntry("past_instagram_insights/posts.json", entry) && (validateContentEntry("/posts_1.json", entry) || validateContentEntry("/posts.json", entry))) {
                         postsEntries.push(entry)
                     } else if (validateContentEntry("post_comments_1.json", entry) || validateContentEntry("post_comments.json", entry)) {
                         commentsEntries.push(entry)
@@ -57,6 +56,7 @@ async function instagramZipFileHandler(fileList) {
                 // get the contents of the entries
                 let textList = createContentListFromEntries(messagesEntries)
                 let postList = createContentListFromEntries(postsEntries)
+                console.log("postEntries:", postsEntries)
                 let commentList = createContentListFromEntries(commentsEntries)
                 let reactionList = createContentListFromEntries(reactionsEntries)
 

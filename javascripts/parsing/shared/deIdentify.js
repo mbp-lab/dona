@@ -271,6 +271,9 @@ function processPosts(postList, dataSource) {
                 result.push(post)
             } else if (dataSource === "Instagram") {
 
+                console.log("post:", post)
+
+
                 // the post has a overall title if there is more than one media element
                 // otherwise it has only the title on the single media element
                 if (post.title) {
