@@ -17,7 +17,7 @@ landing.why.col2.body_html=Die Ergebnisse dieser Studie werden zu dem übergeord
 
 
 landing.why.col3.title=Sie bleiben anonym
-landing.why.col3.body_html=Wir werden Sie bitten, <strong><a href="/learn-more">anonyme Chat-Metadaten</a></strong> (Wortanzahl bei Textnachrichten, Länge in Sekunden bei Sprachnachrichten, Zeitstempel der Nachricht und Pseudonyme der Chat-TeilnehmerInnen). Wir haben keinen Zugang zu Namen, Nachrichtentexten, Inhalten von Sprachnachrichten oder anderen Inhalten.
+landing.why.col3.body_html=Wir werden Sie bitten, <strong><a href="/learn-more">anonyme Chat-Metadaten</a></strong> (Wortanzahl bei Textnachrichten, Länge in Sekunden bei Sprachnachrichten, Zeitstempel der Nachricht und Pseudonyme der Chat-Teilnehmenden). Wir haben keinen Zugang zu Namen, Nachrichtentexten, Inhalten von Sprachnachrichten oder anderen Inhalten.
 
 
 landing.contact.body_html=Auf dieser Webseite erläutern wir Ihnen den Hintergrund und Ablauf der Online-Studie damit Sie entscheiden können, ob Sie teilnehmen möchten. Sollten Sie noch Fragen haben, so wenden Sie sich bitte an die Versuchsleiterin (Prof. Dr. Hanna Drimalla, AG Multimodal Behavior Processing, Technische Fakultät, Universität Bielefeld, <a href="mailto:drimalla@techfak.uni-bielefeld.de">drimalla@techfak.uni-bielefeld.de</a>, Tel. +49 521 106-12043).
@@ -52,7 +52,7 @@ learn-more.imagePath.voice=images/dataAnonymizationExample-voice-German.svg
 
 
 
-learn-more.storage.body1_html=<strong><em>Datenspende: </strong></em>Wenn Sie Ihre Interaktionsdaten spenden, extrahieren wir Metadaten (z.B. Länge und Zeitstempel der Nachricht sowie Pseudonyme der Gesprächsteilnehmer) und keine eigentlichen Inhalte (z.B. Nachrichtentext, Medien oder Name der UnterhaltungsteilnehmerInnen). Ihre Online-Interaktions-Daten werden bereits auf Ihrem Rechner anonymisiert. Wir sehen also niemals Ihre Nachrichten. Bevor wir Ihre anonymisierten Nachrichten speichern, können Sie diese begutachten. So können Sie sich davon überzeugen, dass diese ausreichend anonymisiert sind.
+learn-more.storage.body1_html=<strong><em>Datenspende: </strong></em>Wenn Sie Ihre Interaktionsdaten spenden, extrahieren wir Metadaten (z.B. Länge und Zeitstempel der Nachricht sowie Pseudonyme der Gesprächsteilnehmenden) und keine eigentlichen Inhalte (z.B. Nachrichtentext, Medien oder Name der Unterhaltungsteilnehmenden). Ihre Online-Interaktions-Daten werden bereits auf Ihrem Rechner anonymisiert. Wir sehen also niemals Ihre Nachrichten. Bevor wir Ihre anonymisierten Nachrichten speichern, können Sie diese begutachten. So können Sie sich davon überzeugen, dass diese ausreichend anonymisiert sind.
 learn-more.storage.body2_html=<strong><em>Fragebögen: </strong></em>Sie füllen zunächst Fragebögen zu Ihren demographischen Informationen, Ihrem Wohlbefinden und Lebensereignissen aus. Danach können Sie die Datenspende durchführen und erhalten Feedback, gefolgt von einem Fragebogen zu Ihren Chats. Die Erhebung von Fragebogendaten findet ebenfalls komplett anonym auf der Plattform <a target="_blank" href="https://www.limesurvey.org/de/hilfe/faq/39-datenschutz%20und%20datenschutzpolitik">LimeSurvey</a> statt.
 
 learn-more.data-handling.title=Was passiert später mit meinen Daten?
@@ -69,7 +69,7 @@ learn-more.image.voice-messages.caption=Beispiel der Anonymisierung einer Sprach
 
 
 instructions.about.title=Wie erhalte ich meine Daten?
-instructions.about.body_html=Bevor Sie an der Studie teilnehmen, fordern Sie bitte Ihre Daten direkt von Facebook und/oder WhatsApp und/oder Instagram an. Sie können Daten von jeder dieser Plattformen spenden. Falls Sie nur Daten von einer Plattform spenden möchten, wählen Sie bitte die Plattform, die für Sie wichtiger ist. <b>Bitte sehen Sie sich die entsprechenden Anleitungen genau an, da sie wichtige Informationen für die weiteren Schritte enthalten.</b>
+instructions.about.body_html=Bevor Sie an der Studie teilnehmen, fordern Sie bitte Ihre Daten direkt von WhatsApp und/oder Facebook und/oder Instagram an. Sie können Daten von jeder dieser Plattformen spenden. Falls Sie nur Daten von einer Plattform spenden möchten, wählen Sie bitte die Plattform, die für Sie wichtiger ist. <b>Bitte sehen Sie sich die entsprechenden Anleitungen genau an, da sie wichtige Informationen für die weiteren Schritte enthalten.</b>
 instructions.datasource.title_format =Anleitung zum Erhalten von %s-Daten
 instructions.download-procedure.title=Übersicht über den Download & Datenspende Prozess:
 instructions.continue.body=Wenn Sie anhand dieser Anleitung Ihre Daten erhalten haben, können Sie jetzt mit der Einverständniserklärung und dem  Fragebogen beginnen. Im Anschluss können Sie dann Ihre Daten spenden.
@@ -95,7 +95,7 @@ consent.pdf=Download PDF
 
 consent.about.title=Information zur Studie
 consent.about.body1=Same variable name twice?
-consent.about.body1=Ziel der Studie ist es, die soziale Interaktionsdynamiken von Menschen anhand ihrer Social Media Nachrichten zu erfassen. Die Studie findet komplett online und anonym statt. Die Studie beinhaltet die Datenspende Ihrer anonymisierten Online-Nachrichten sowie ein paar Fragebögen. Nachdem Sie Ihre Online-Interaktionsdaten heruntergeladen haben, dauert die Studie nur 20 Minuten.
+consent.about.body1=Ziel der Studie ist es, die soziale Interaktionsdynamiken von Menschen anhand ihrer Social Media Nachrichten zu erfassen. Die Studie findet komplett online und anonym statt. Die Studie beinhaltet die Datenspende Ihrer anonymisierten Online-Nachrichten sowie ein paar Fragebögen. Nachdem Sie Ihre Online-Interaktionsdaten heruntergeladen haben, dauert die Studie nur 30 Minuten.
 consent.about.body2_html=Mit Ihrer Einwilligung bestätigen Sie, dass Sie die vorherige Informationswebseite zum Zweck, Ablauf und Umfang der Online-Studie gelesen und verstanden haben.
 
 
@@ -123,7 +123,7 @@ consent.data-purpose.title=Verwendung der anonymisierten Daten
 consent.data-purpose.body=Die Ergebnisse und Daten dieser Studie werden als wissenschaftliche Publikation veröffentlicht. Dies geschieht in anonymisierter Form, d. h. ohne dass die Daten einer spezifischen Person zugeordnet werden können. Die vollständig anonymisierten Daten dieser Studie werden online in einem Forschungsdaten-Repositorium gespeichert und qualifizierten Wissenschaftlern auf Antrag zugänglich gemacht.
 
 
-consent.confirmation=Hiermit versichere ich, dass ich die oben beschriebenen Teilnehmerinformationen verstanden habe und mit den genannten Teilnahmebedingungen einverstanden bin.
+consent.confirmation=Hiermit versichere ich, dass ich die oben beschriebenen Informationen für Teilnehmende verstanden habe und mit den genannten Teilnahmebedingungen einverstanden bin.
 
 
 consent.buttons.agree.caption=Einverstanden
@@ -231,7 +231,7 @@ donation.errors.no-messages-time-period=In dem ausgewählten Zeitraum befinden s
 donation.errors.dates-no-sense=Der ausgewählte Zeitraum ist ungültig. Bitte überprüfen Sie die Richtigkeit der ausgewählten Daten.
 donation.errors.dates-not-enough-months=Bitte wählen Sie zum Spenden Ihrer Daten einen Zeitraum von mindestens 6 Monaten innerhalb des Zeitraums Ihrer Spende aus.
 donation.errors.somewhereError=Es gibt einen Fehler. Bitte überprüfen Sie Ihre Datenspende.
-donation.errors.emptyOrJustOnePerson=Alle Ihre Chats sollten mindestens 100 Nachrichten und mindestens einen Kontakt (der nicht Sie selbst sind) enthalten.
+donation.errors.emptyOrJustOnePerson=Alle Ihre Chats sollten mindestens 100 Nachrichten (ohne Sprachnachrichten) und mindestens einen Kontakt (der nicht Sie selbst sind) enthalten.
 
 
 donation.submit=Senden
@@ -296,9 +296,9 @@ feedback.toRaffleButton=Für die Gutscheinverlosung anmelden
 
 # plots more about titles
 
-feedback.moreAbout.interactionIntensity.title=Mehr über Ihre Interaktionsintensität
-feedback.moreAbout.dailyActivityTimes.title=Mehr über Ihre Täglichen Aktivitätszeiten
-feedback.moreAbout.responseTimes.title=Mehr über Ihre Antwortzeiten
+feedback.moreAbout.interactionIntensity.title=Mehr über Ihre <br>Interaktionsintensität
+feedback.moreAbout.dailyActivityTimes.title=Mehr über Ihre <br>Täglichen <br>Aktivitätszeiten
+feedback.moreAbout.responseTimes.title=Mehr über Ihre <br>Antwortzeiten
 
 
 # plot descriptions
@@ -486,7 +486,7 @@ reportProblem.title=Problembericht und Empfehlungen
 reportProblem.body=Falls während Ihrer Nutzung unserer Anwendung ein Problem auftritt oder Sie sonstige Empfehlungen und Rückmeldungen für uns haben, nutzen Sie bitte den Knopf "Problem melden" oben rechts auf der Seite. Wir arbeiten kontinuierlich an der Verbesserung der Anwendung.<br> Vielen Dank!
 
 
-data-storage.body1_html=<em>Datenspende: </em>Bei der Datenspende Ihrer Social-Media-Daten erfassen wir ausschließlich Metadaten (e.g. Nachrichtenlänge, Nachrichtenzeitpunkt und Pseudonyme der UnterhaltungsteilnehmerInnen) und keine Inhalte (z.B. Nachrichtentext, Medien oder Name der UnterhaltungsteilnehmerInnen). Ihre Online-Interaktions-Daten werden bereits auf Ihrem Rechner anonymisiert. Wir sehen also niemals Ihre Nachrichten. Bevor wir Ihre anonymisierten Nachrichten speichern, können Sie diese begutachten. So können Sie sich davon überzeugen, dass diese ausreichend anonymisiert sind.
+data-storage.body1_html=<em>Datenspende: </em>Bei der Datenspende Ihrer Social-Media-Daten erfassen wir ausschließlich Metadaten (e.g. Nachrichtenlänge, Nachrichtenzeitpunkt und Pseudonyme der Unterhaltungsteilnehmenden) und keine Inhalte (z.B. Nachrichtentext, Medien oder Name der Unterhaltungsteilnehmenden). Ihre Online-Interaktions-Daten werden bereits auf Ihrem Rechner anonymisiert. Wir sehen also niemals Ihre Nachrichten. Bevor wir Ihre anonymisierten Nachrichten speichern, können Sie diese begutachten. So können Sie sich davon überzeugen, dass diese ausreichend anonymisiert sind.
 data-storage.body2_html=<em>Fragebögen: </em>Sie füllen zunächst Fragebögen zu Ihren demographischen Informationen, Ihrem Wohlbefinden und Lebensereignissen aus. Danach können Sie die Datenspende durchführen und erhalten Feedback, gefolgt von einem Fragebogen zu Ihren Chats. Die Erhebung von Fragebogendaten findet ebenfalls komplett anonym auf der Plattform <a target="_blank" href="https://www.limesurvey.org/de/hilfe/faq/39-datenschutz%20und%20datenschutzpolitik">LimeSurvey</a> statt.
 
 
@@ -514,24 +514,24 @@ actions.next=Vor
 whatsapp.instructions.p1.title=Was für ein Gerät soll ich benutzen?
 whatsapp.instructions.p1.body=Sie benötigen Ihr Smartphone, auf dem Sie WhatsApp nutzen. Bitte stellen Sie sicher, dass Sie die Daten auf einem Gerät speichern, auf das außer Ihnen niemand Zugriff hat.
 whatsapp.instructions.p2.title=Welche Chats soll ich auswählen?
-whatsapp.instructions.p2.body=Von Zeit zu Zeit besprechen die meisten Menschen wichtige Angelegenheiten mit Anderen und wir brauchen Menschen, auf deren Hilfe wir uns verlassen können. Das können Familienangehörige, Freunde oder Menschen sein, die Ihnen wirklich geholfen haben - <b>was uns interessiert, sind die Chats mit den Menschen, mit denen Sie am ehesten über wirklich wichtige Angelegenheiten in Ihrem Leben sprechen.</b> <br><br><b>Bitte wählen Sie 5-7 Chats mit Menschen aus, mit denen Sie wichtige Dinge in Ihrem Leben besprechen (auch Gruppenchats sind möglich).</b>
+whatsapp.instructions.p2.body=Von Zeit zu Zeit besprechen die meisten Menschen wichtige Angelegenheiten mit Anderen und wir brauchen Menschen, auf deren Hilfe wir uns verlassen können. Das können Familienangehörige, Freund*innen oder Menschen sein, die Ihnen wirklich geholfen haben - <b>was uns interessiert, sind die Chats mit den Menschen, mit denen Sie am ehesten über wirklich wichtige Angelegenheiten in Ihrem Leben sprechen.</b> <br><br><b>Bitte wählen Sie 5-7 Chats mit Menschen aus, mit denen Sie wichtige Dinge in Ihrem Leben besprechen (auch Gruppenchats sind möglich).</b>
 whatsapp.instructions.p3.title=Wie kann ich meine Daten von meinem Gerät wieder löschen?
 whatsapp.instructions.p3.body=Wir empfehlen Ihnen ausdrücklich, Ihre Originaldaten (Chatdateien) nach Abschluss der Spende von Ihrem Gerät und aus Ihrem E-Mail-System (Posteingang und gesendete E-Mails) zu löschen. Beachten Sie, dass das einfache Löschen der Dateien möglicherweise nicht ausreicht, um die Daten dauerhaft von Ihrem Gerät zu entfernen. Weitere Informationen zum dauerhaften Löschen von Dateien finden Sie auf <a target="_blank" href="https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Daten-sichern-verschluesseln-und-loeschen/Daten-endgueltig-loeschen/daten-endgueltig-loeschen.html">der Seite des Bundesamt für Sicherheit in der Informationstechnik</a> und <a target="_blank" href="https://www.datenschutz.org/daten-loeschen/"> Datenschutz.org</a>.
 
 
-whatsapp.description_html=<i>Hinweis: Die Chat-Exportfunktion wird nicht von allen WhatsApp-Versionen unterstützt! <strong>Das Exportieren und Speichern von WhatsApp-Daten funktioniert nicht mit der WhatsApp Web-Version. Außerdem kann es bei verschiedenen Android-Versionen sein, dass die Daten nicht lokal auf Ihrem Gerät gespeichert werden können.</i></strong> <br><br>Von Zeit zu Zeit besprechen die meisten Menschen wichtige Angelegenheiten mit anderen, und wir brauchen Menschen, auf deren Hilfe wir uns verlassen können. Das können Familienangehörige, Freunde oder Menschen sein, die Ihnen wirklich geholfen haben - was uns interessiert, sind diejenigen, mit denen Sie am ehesten über wirklich wichtige Angelegenheiten in Ihrem Leben sprechen. <br><br>Bitte wählen Sie <strong>5</strong> Chats mit Menschen aus, mit denen Sie wichtige Dinge in Ihrem Leben besprechen (auch Gruppenchats sind möglich). Bitte denken Sie daran, dass die Chats nur nacheinander heruntergeladen werden können. Eine Mehrfachauswahl von Chats wird derzeit nicht unterstützt.
+whatsapp.description_html=<i>Hinweis: Die Chat-Exportfunktion wird nicht von allen WhatsApp-Versionen unterstützt! <strong>Das Exportieren und Speichern von WhatsApp-Daten funktioniert nicht mit der WhatsApp Web-Version. Außerdem kann es bei verschiedenen Android-Versionen sein, dass die Daten nicht lokal auf Ihrem Gerät gespeichert werden können.</i></strong> <br><br>Von Zeit zu Zeit besprechen die meisten Menschen wichtige Angelegenheiten mit anderen, und wir brauchen Menschen, auf deren Hilfe wir uns verlassen können. Das können Familienangehörige, Freund*innen oder Menschen sein, die Ihnen wirklich geholfen haben - was uns interessiert, sind diejenigen, mit denen Sie am ehesten über wirklich wichtige Angelegenheiten in Ihrem Leben sprechen. <br><br>Bitte wählen Sie <strong>5</strong> Chats mit Menschen aus, mit denen Sie wichtige Dinge in Ihrem Leben besprechen (auch Gruppenchats sind möglich). Bitte denken Sie daran, dass die Chats nur nacheinander heruntergeladen werden können. Eine Mehrfachauswahl von Chats wird derzeit nicht unterstützt.
 whatsapp.external-documentation_html=Die offizielle Dokumentation zum Herunterladen Ihrer Daten können Sie für <a target="_blank" href="https://faq.whatsapp.com/618575946635920/?cms_platform=iphone&helpref=platform_switcher" target="_blank">iOS</a> und <a target="_blank" href="https://faq.whatsapp.com/de/android/23756533" target="_blank">Android</a> hier finden.
 
 
 #Download and Donation procedure: whatsapp
 
 whatsapp.donation-procedure.1=Öffnen Sie WhatsApp auf Ihrem Smartphone.
-whatsapp.donation-procedure.2=Überlegen Sie, welche fünf Chats für Sie besonders wichtig sind (z.B. Partner/in, beste/r Freund/in o.ä.).
+whatsapp.donation-procedure.2=Überlegen Sie, welche fünf Chats für Sie besonders wichtig sind (z.B. Partner*in, beste/r Freund*in o.ä.).
 whatsapp.donation-procedure.3=Wählen Sie einen der Chats aus und öffnen Sie diesen.
 whatsapp.donation-procedure.4=Klicken Sie oben in der Mitte auf den Namen des Kontakts.
 whatsapp.donation-procedure.5=Scrollen Sie runter und klicken Sie auf „Chat exportieren“. Ein Fenster öffnet sich. Wählen Sie "OHNE MEDIEN".
-whatsapp.donation-procedure.6=Wählen Sie "Mail" (Briefumschlag) aus und senden Sie die Mail mit der angehangenen Chat-Datei an sich selbst. Bitte (ver)senden Sie nur von/an einen sicheren Maildienst (z.B. Uni-Mailadresse). Alternativ können Sie die Dateien auch via Bluetooth oder Airdrop an Ihren Computer senden.
-whatsapp.donation-procedure.7=Laden Sie die Chatdatei aus der E-mail auf Ihrem Computer herunter.
+whatsapp.donation-procedure.6=Wenn Sie an Ihrem Smartphone teilnehmen möchten, speichern Sie die Daten nun lokal bzw. so, dass Sie von Ihrem Smartphone aus darauf zugreifen können. Alternativ können Sie an Ihrem Computer teilnehmen. Dafür können Sie zum Beispiel Bluetooth oder Airdrop benutzen oder die Chats per Mail an sich selbst schicken. Bitte senden Sie nur von/an einen sicheren Maildienst (z.B. Uni-Mailadresse).
+whatsapp.donation-procedure.7=Falls Sie sich für die Teilnahme am Computer entschieden und sich die Chats per E-Mail geschickt haben, laden Sie die Chatdatei aus der E-Mail auf Ihren Computer herunter.
 whatsapp.donation-procedure.8=Wiederholen Sie die Schritte 3-7 für alle Chats.
 whatsapp.instruction.gif=whatsapp_ger.mp4
 whatsapp.instruction.gifiOS=whatsapp_ger_iOS.mp4
