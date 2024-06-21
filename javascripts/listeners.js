@@ -281,15 +281,9 @@ function setUpFileHandler() {
                     })
                 }
 
-                console.log("from listeners.js: result:", result)
-
-                console.log("result.messages_deIdentifiedJsonContents:", result.messages_deIdentifiedJsonContents)
-
                 return transformJson(result.messages_deIdentifiedJsonContents, result.deIdentifiedPosts, result.deIdentifiedGroupPosts, result.deIdentifiedComments, result.deIdentifiedGroupComments, result.deIdentifiedReactions, donorId, dataSource);
             })
             .then((transformedJson) => {
-
-                console.log("transformedJson:", transformedJson)
 
                 // if there is already data of the chosen dataSource, then first filter the old ones out
                 donaForMEDonation.conversations = donaForMEDonation.conversations.filter((conv) => conv["donation_data_source_type"] !== dataSource)
@@ -319,8 +313,6 @@ function setUpFileHandler() {
                 donaForMEDonation.group_comments = donaForMEDonation.group_comments.concat(transformedJson.group_comments);
                 donaForMEDonation.reactions = donaForMEDonation.reactions.concat(transformedJson.reactions);
 
-
-                console.log("donaForMEDonation:", donaForMEDonation)
 
                 possibleEarliestDate = earliestDate
                 possibleLatestDate = latestDate
@@ -460,8 +452,10 @@ function setUpFileHandler() {
         let inputObjConvAllData = inputObjAllData.conversations
         let inputObjFiltered = JSON.parse($("#inputJson")[0].value)
         let inputObjConvFiltered = inputObjFiltered.conversations
+
         // filter the conversations to only get the dataSource that is concerned
         let dataSourceConv = inputObjConvAllData.filter((conv) => conv["donation_data_source_type"] === dataSource)
+
         // filter the messages
         dataSourceConv.forEach(conv => {
             // only leave messages that are in the timespan
@@ -475,6 +469,40 @@ function setUpFileHandler() {
         inputObjFiltered.conversations = inputObjConvFiltered.filter((conv) => conv["donation_data_source_type"] !== dataSource)
             .concat(dataSourceConv)
 
+        // filtering for posts
+        let inputObjPostsFiltered = inputObjFiltered.posts
+        let dataSourcePosts = inputObjAllData.posts.filter(obj => obj["donation_data_source_type"] === dataSource)
+        dataSourcePosts = dataSourcePosts.filter((obj) => obj.timestamp_ms >= startDateMs && obj.timestamp_ms <= endDateMs)
+        inputObjFiltered.posts = inputObjPostsFiltered.filter((obj) => obj["donation_data_source_type"] !== dataSource)
+            .concat(dataSourcePosts)
+
+        // filtering for groupPosts
+        let inputObjGroupPostsFiltered = inputObjFiltered.group_posts
+        let dataSourceGroupPosts = inputObjAllData.group_posts.filter(obj => obj["donation_data_source_type"] === dataSource)
+        dataSourceGroupPosts = dataSourceGroupPosts.filter((obj) => obj.timestamp_ms >= startDateMs && obj.timestamp_ms <= endDateMs)
+        inputObjFiltered.group_posts = inputObjGroupPostsFiltered.filter((obj) => obj["donation_data_source_type"] !== dataSource)
+            .concat(dataSourceGroupPosts)
+
+        // filtering for comments
+        let inputObjCommentsFiltered = inputObjFiltered.comments
+        let dataSourceComments = inputObjAllData.comments.filter(obj => obj["donation_data_source_type"] === dataSource)
+        dataSourceComments = dataSourceComments.filter((obj) => obj.timestamp_ms >= startDateMs && obj.timestamp_ms <= endDateMs)
+        inputObjFiltered.group_posts = inputObjCommentsFiltered.filter((obj) => obj["donation_data_source_type"] !== dataSource)
+            .concat(dataSourceComments)
+
+        // filtering for group comments
+        let inputObjGroupCommentsFiltered = inputObjFiltered.group_comments
+        let dataSourceGroupComments = inputObjAllData.group_comments.filter(obj => obj["donation_data_source_type"] === dataSource)
+        dataSourceGroupComments = dataSourceGroupComments.filter((obj) => obj.timestamp_ms >= startDateMs && obj.timestamp_ms <= endDateMs)
+        inputObjFiltered.group_comments = inputObjGroupCommentsFiltered.filter((obj) => obj["donation_data_source_type"] !== dataSource)
+            .concat(dataSourceGroupComments)
+
+        // filtering for reactions
+        let inputObjReactionsFiltered = inputObjFiltered.reactions
+        let dataSourceReactions = inputObjAllData.reactions.filter(obj => obj["donation_data_source_type"] === dataSource)
+        dataSourceReactions = dataSourceReactions.filter((obj) => obj.timestamp_ms >= startDateMs && obj.timestamp_ms <= endDateMs)
+        inputObjFiltered.reactions = inputObjReactionsFiltered.filter((obj) => obj["donation_data_source_type"] !== dataSource)
+            .concat(dataSourceReactions)
 
         // show success
         messageService.hideErrorShowSuccess(dataSource)
