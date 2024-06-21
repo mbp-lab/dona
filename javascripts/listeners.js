@@ -487,7 +487,7 @@ function setUpFileHandler() {
         let inputObjCommentsFiltered = inputObjFiltered.comments
         let dataSourceComments = inputObjAllData.comments.filter(obj => obj["donation_data_source_type"] === dataSource)
         dataSourceComments = dataSourceComments.filter((obj) => obj.timestamp_ms >= startDateMs && obj.timestamp_ms <= endDateMs)
-        inputObjFiltered.group_posts = inputObjCommentsFiltered.filter((obj) => obj["donation_data_source_type"] !== dataSource)
+        inputObjFiltered.comments = inputObjCommentsFiltered.filter((obj) => obj["donation_data_source_type"] !== dataSource)
             .concat(dataSourceComments)
 
         // filtering for group comments
