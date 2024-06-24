@@ -17,6 +17,7 @@ The following need to be set up in the environment to run the application
 * `DONOR_SURVEY_ENABLED` Whether the user should be forwarded to an external survey or not
 * `DONOR_SURVEY_LINK` The link to the external survey
 * `SOCIAL_DATA_INGESTION_ENABLED` Toggle if data is stored or not
+* `DONOR_ID_INPUT_METHOD` automatically or manually to either get an donorId generated or to input your own donorId
 
 Below is detailed how these variables can be easily set depending on the
 environemnt you are running in. 

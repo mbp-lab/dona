@@ -35,6 +35,11 @@ function addListeners() {
         });
     }
 
+    $("#donationIdInput").on("change", (e) => {
+        let donorIdInput = e.target.value
+        $("#donorIdInputValue").attr('value', donorIdInput);
+    })
+
     $("#btn-fb-download-finished").on("click", function (e) {
         e.preventDefault();d
         $(".enable-after-fb-download").attr("disabled", false);

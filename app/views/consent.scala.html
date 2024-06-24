@@ -1,4 +1,4 @@
-@()(implicit request: RequestHeader, messages: Messages)
+@(donorIdMethod: String)(implicit request: RequestHeader, messages: Messages)
 
 
 <div class="modal-dialog modal-xl modalMaxWidth">
@@ -42,13 +42,25 @@
             <h4 class="text-justify data-protection-headline">@messages("consent.data-purpose.title")</h4>
             <p class="text-justify data-protection-paragraph">@messages("consent.data-purpose.body")
             </p>
-            
+
 
             <p class=" text-justify data-protection-paragraph">
                 <strong>
                     @messages("consent.confirmation")
                 </strong>
             </p>
+            <p class="text-justify data-protection-paragraph">
+                @if(donorIdMethod == "automatically") {
+                } else {
+                    <div>
+                        <strong class="data-protection-paragraph">
+                            Please enter the donation id you have been provided:
+                        </strong>
+                        <input type="text" id="donationIdInput" class="selectorsAndInputs" name="donationIdInput">
+                    </div>
+                }
+            </p>
+
             <div class="d-flex justify-content-end align-items-center">
                 <button type="button" class="btn footer-backward-button consent-button" data-dismiss="modal">@messages("consent.buttons.close.caption")</button>
 
@@ -56,6 +68,7 @@
                 @helper.form(routes.SocialDataDonationController.consentToStudy(), '_feedbackTooltip -> "true", 'class -> "text-right") {
                 <div align="center">
                     @helper.CSRF.formField
+                    <input type='hidden' name='donorIdInputValue' id='donorIdInputValue' />
                     <input type="submit" value="@messages("consent.buttons.agree.caption")" class="btn footer-forward-button consent-button"></input>
                 </div>
                 }

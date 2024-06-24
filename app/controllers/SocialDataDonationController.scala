@@ -24,6 +24,7 @@ final class SocialDataDonationController @Inject()(
   socialDataService: SocialDataService,
   donationService: DonationService,
   surveyConfig: SurveyConfig,
+  config: play.api.Configuration,
   cc: ControllerComponents,
   messageAnalysisService: MessageAnalysisService,
   dataSourceDescriptionService: DataSourceDescriptionService
@@ -64,26 +65,41 @@ final class SocialDataDonationController @Inject()(
     Ok(views.html.impressum()).withSession(request.session)
   }
 
+  /*
   def donationInfo: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
+    // get the donorIdMethod param
+    val donorIdMethod = config.get[String]("donorId-input-method.value")
+    Ok(views.html.donationInformation(donorIdMethod)).withSession(request.session)
 
-    Ok(views.html.donationInformation()).withSession(request.session)
   }
+  */
 
   def instructions: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
 
-    Ok(views.html.instructions(dataSourceDescriptionService.listAll)).withSession(request.session)
+    // get the donorIdMethod param
+    val donorIdMethod = config.get[String]("donorId-input-method.value")
+    logger.info(donorIdMethod)
+    Ok(views.html.instructions(dataSourceDescriptionService.listAll, donorIdMethod)).withSession(request.session)
 
   }
 
   def consentToStudy: Action[AnyContent] = Action.async { implicit request: Request[AnyContent] =>
+    //toDo : get donor id from session here if there is one (or pass it as a parameter)
+
+    // Extract donorIdInputValue from the form submission
+    val donorIdInputValue = request.body.asFormUrlEncoded.flatMap(_.get("donorIdInputValue").flatMap(_.headOption)).getOrElse("")
+
+    logger.info(request.session.toString())
     val isolocaleString = messagesApi.preferred(request).lang.locale.getLanguage
-    for {
-      // toDO: here the donorId is being generated! so there could be an input donorId here
-      donorId <- donationService.beginOnlineConsentDonation()
-      link = surveyConfig.createDonorLink(ExternalDonorId(donorId.toString), isolocaleString).toString
-    } yield {
-      logger.info(s"""{"status": "consent-given"}""")
-      Redirect(link).withSession(request.session + (GeneratedDonorIdKey -> donorId.toString))
+
+    donationService.beginOnlineConsentDonation(donorIdInputValue).map {
+      case Right(donorId) =>
+        val link = surveyConfig.createDonorLink(ExternalDonorId(donorId.toString), isolocaleString).toString
+        logger.info(s"""{"status": "consent-given"}""")
+        Redirect(link).withSession(request.session + (GeneratedDonorIdKey -> donorId.toString))
+      case Left(errorMessage) =>
+        logger.error(s"ERROR: $errorMessage")
+        Redirect(routes.SocialDataDonationController.instructions()).flashing("errorMessage" -> errorMessage)
     }
   }
 
@@ -117,6 +133,7 @@ final class SocialDataDonationController @Inject()(
     val donor = messages("donation.anonymisation.donor")
 
     def formWithoutErrors(donorId: String)(socialFormData: SocialFormData): Future[Result] = {
+      logger.info(donorId)
 
       def replaceDonorStringWithDonorId(inputJson: String) = {
         /* On the donation page the citizen's name is replaced with "donor". We need to replace this with the donorid
@@ -126,7 +143,6 @@ final class SocialDataDonationController @Inject()(
       }
 
       def validateInput(inputJson: String): Either[String, SocialData] = {
-        logger.error(inputJson)
         val parseError = "Error parsing social data from client."
         try {
           Json
@@ -180,6 +196,7 @@ final class SocialDataDonationController @Inject()(
 
     request.session.get(GeneratedDonorIdKey) match {
       case Some(donorId) =>
+        logger.info(donorId)
         socialDataForm.bindFromRequest().fold(formWithErrors(donorId), formWithoutErrors(donorId))
       case None =>
         logger.info(s"""{"status": "something-went-wrong"}""")
