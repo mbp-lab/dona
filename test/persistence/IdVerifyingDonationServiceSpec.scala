@@ -17,7 +17,7 @@ final class IdVerifyingDonationServiceSpec extends AsyncFreeSpec with Mockito {
       val (service, repository) = systemUnderTest()
       repository.insert(any[Donation]).returns(Future.successful { Right(()) })
 
-      service.beginOnlineConsentDonation("").flatMap { eitherId =>
+      service.beginOnlineConsentDonation("", "default").flatMap { eitherId =>
         eitherId match {
           case Right(id) =>
             repository.insert(Donation(any[DonationId], id, None, DonationStatus.Pending)).map { _ =>
@@ -49,7 +49,7 @@ final class IdVerifyingDonationServiceSpec extends AsyncFreeSpec with Mockito {
       }
       val (service, _) = systemUnderTest(Some(repository))
 
-      service.beginOnlineConsentDonation("").map { id =>
+      service.beginOnlineConsentDonation("", "default").map { id =>
         id shouldBe last
       }
     }

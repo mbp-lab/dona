@@ -170,7 +170,7 @@ class SocialDataDonationControllerSpec @Inject()(config: Configuration) extends 
     mockSocialDataService.saveData(any[SocialData]).returns(EitherT.rightT(Future.unit))
 
     val mockService = mock[DonationService]
-    mockService.beginOnlineConsentDonation("").returns(Future.successful(Right(ExternalDonorId(fakeDonorId))))
+    mockService.beginOnlineConsentDonation("", "default").returns(Future.successful(Right(ExternalDonorId(fakeDonorId))))
 
     val controller =
       new SocialDataDonationController(

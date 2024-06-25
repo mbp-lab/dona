@@ -92,7 +92,9 @@ final class SocialDataDonationController @Inject()(
     logger.info(request.session.toString())
     val isolocaleString = messagesApi.preferred(request).lang.locale.getLanguage
 
-    donationService.beginOnlineConsentDonation(donorIdInputValue).map {
+    // get the donorIdMethod param
+    val donorIdMethod = config.get[String]("donorId-input-method.value")
+    donationService.beginOnlineConsentDonation(donorIdInputValue, donorIdMethod).map {
       case Right(donorId) =>
         val link = surveyConfig.createDonorLink(ExternalDonorId(donorId.toString), isolocaleString).toString
         logger.info(s"""{"status": "consent-given"}""")
@@ -108,8 +110,10 @@ final class SocialDataDonationController @Inject()(
       case None => Redirect(routes.SocialDataDonationController.landing())
       case Some(donorId) =>
 
+        // get the donorIdMethod param
+        val donorIdMethod = config.get[String]("donorId-input-method.value")
         logger.info(s"""{"status": "completed-survey"}""")
-        Ok(views.html.anonymisation(socialDataForm, donorId.toString, dataSourceDescriptionService.listAll)).withSession(request.session + (GeneratedDonorIdKey -> donorId.toString))
+        Ok(views.html.anonymisation(socialDataForm, donorId.toString, dataSourceDescriptionService.listAll, donorIdMethod)).withSession(request.session + (GeneratedDonorIdKey -> donorId.toString))
     }
   }
 
@@ -125,7 +129,9 @@ final class SocialDataDonationController @Inject()(
     val donationType = Multiple
     def formWithErrors(donorId: String)(formWithErrors: Form[SocialFormData]): Future[Result] = Future.successful {
       BadRequest {
-        views.html.anonymisation(formWithErrors, donorId, dataSourceDescriptionService.listAll)
+        // get the donorIdMethod param
+        val donorIdMethod = config.get[String]("donorId-input-method.value")
+        views.html.anonymisation(formWithErrors, donorId, dataSourceDescriptionService.listAll, donorIdMethod)
       }
     }
 

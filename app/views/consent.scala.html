@@ -49,29 +49,22 @@
                     @messages("consent.confirmation")
                 </strong>
             </p>
-            <p class="text-justify data-protection-paragraph">
-                @if(donorIdMethod == "automatically") {
-                } else {
-                    <div>
-                        <strong class="data-protection-paragraph">
-                            Please enter the donation id you have been provided:
-                        </strong>
-                        <input type="text" id="donationIdInput" class="selectorsAndInputs" name="donationIdInput">
-                    </div>
-                }
-            </p>
 
             <div class="d-flex justify-content-end align-items-center">
                 <button type="button" class="btn footer-backward-button consent-button" data-dismiss="modal">@messages("consent.buttons.close.caption")</button>
 
-                
-                @helper.form(routes.SocialDataDonationController.consentToStudy(), '_feedbackTooltip -> "true", 'class -> "text-right") {
-                <div align="center">
-                    @helper.CSRF.formField
-                    <input type='hidden' name='donorIdInputValue' id='donorIdInputValue' />
-                    <input type="submit" value="@messages("consent.buttons.agree.caption")" class="btn footer-forward-button consent-button"></input>
-                </div>
-                }
+                @if(donorIdMethod == "default" || donorIdMethod == "showid" ) {
+                    @helper.form(routes.SocialDataDonationController.consentToStudy(), '_feedbackTooltip -> "true", 'class -> "text-right") {
+                        <div align="center">
+                            @helper.CSRF.formField
+                            <input type="submit" value="@messages("consent.buttons.agree.caption")" class="btn footer-forward-button consent-button"></input>
+                        </div>
+                    }
+                } else {
+                        <div align="center">
+                            <input type="submit" value="@messages("consent.buttons.agree.caption")" class="btn footer-forward-button consent-button" data-dismiss="modal" data-toggle="modal" data-target="#donorIdInput-dialog" ></input>
+                        </div>
+                    }
             </div>
         </div>
     </div>

@@ -10,10 +10,11 @@ final class IdVerifyingDonationService @Inject()(dao: DonationRepository, genera
   implicit ec: ExecutionContext
 ) extends DonationService {
 
-  override def beginOnlineConsentDonation(donorIdInputValue: String): Future[Either[String, ExternalDonorId]] = {
+  override def beginOnlineConsentDonation(donorIdInputValue: String, donorIdMethod: String): Future[Either[String, ExternalDonorId]] = {
 
     var id = generateDonorId()
-    if (donorIdInputValue.nonEmpty) {
+    // only overwrite the generated ID if there is a value and the method was set to manually
+    if (donorIdInputValue.nonEmpty && donorIdMethod == "manually" ) {
       // If donorIdInputValue is not empty, use it
       id = ExternalDonorId(donorIdInputValue)
     }
