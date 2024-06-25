@@ -5,7 +5,7 @@
         <div class="modal-header bgmain">
             <div class="flex-grow-1 flex-column">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h3 class="data-protection-headline mt-2">ToDo: ID Input Title</h3>
+                <h3 class="data-protection-headline mt-2">@messages("donorIdInput.title")</h3>
             </div>
         </div>
         <div class="modal-body">
@@ -13,7 +13,7 @@
                 @if(donorIdMethod == "manually") {
                     <div>
                         <strong class="data-protection-paragraph">
-                            ToDo: Please enter the donation ID you have been provided:
+                            @messages("donorIdInput.body")
                         </strong>
                         <input type="text" id="donationIdInput" class="selectorsAndInputs" name="donationIdInput">
                     </div>
@@ -28,7 +28,7 @@
                     <div align="center">
                         @helper.CSRF.formField
                         <input type='hidden' name='donorIdInputValue' id='donorIdInputValue' />
-                        <input type="submit" value="@messages("feedback.nextButton")" class="btn footer-forward-button consent-button"></input>
+                        <input type="submit" value="@messages("donorIdInput.nextButton")" class="btn footer-forward-button consent-button"></input>
                     </div>
                 }
             </div>

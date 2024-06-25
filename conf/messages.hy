@@ -42,6 +42,12 @@ instructions.about.body_html=Մասնակցելուց առաջ խնդրում ե
 instructions.datasource.title_format =Ներբեռնելու հրահանգներ %s հարթակի համար
 instructions.download-procedure.title=Ներբեռնման հրահանգներ
 instructions.continue.body=Ձեր հաղորդագրությունները ներբեռնելուց հետո, հաջորդ քայլով կարող եք տալ Ձեր համաձայնությունն ու սկսել մասնակցությունը։ Այնուհետև կարող եք տվյալները վերբեռնել, անանուն դարձնել ու նվիրաբերել։
+
+donorIdInput.title=ToDo: ID-Input
+donorIdInput.body=ToDo: Please enter your ID to continue:
+donorIdInput.nextButton=ToDo: Continue
+donorId.remember=ToDo: Please note your ID:
+
 # Donation info page
 
 donation-info.title=Տվյալների տրամադրման կարգը
