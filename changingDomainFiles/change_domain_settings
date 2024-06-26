@@ -1,0 +1,6 @@
+PREFIX_FILE=
+PREVIOUS_PREFIX_FILE=
+NGINX_CONF=
+URL_SAVE_LOCATION=
+# If the variable below is empty, certbot will keep the certificate also for old domain prefixes
+REMOVE_OLD_PREFIXES_FROM_CERT=
