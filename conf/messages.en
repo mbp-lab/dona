@@ -78,6 +78,7 @@ donorIdInput.title=ID-Input
 donorIdInput.body=Please enter your ID to continue:
 donorIdInput.nextButton=Continue
 donorId.remember=Please note your ID:
+donorId.yourid=Your ID:
 
 # Donation info page
 

@@ -11,6 +11,14 @@
 }
 
 @mainNew("Dona - ForMe")() {
+    <script>
+            $(document).ready(function(){
+                $("#yourDonorId-dialog").modal('show');
+            });
+    </script>
+    @if(donorIdMethod == "showid") {
+        @yourDonorIdModal()
+    }
     <hr class="m-0 d-block d-md-none" />
     <input type="hidden" id="donor_id" value="@{
         donorId
@@ -58,8 +66,8 @@
         >
         </div>
         @if(donorIdMethod == "showid" || donorIdMethod == "manually") {
-            <div class="headline text-center mb-3">
-                @messages("donorId.remember")
+            <div class="text-center mb-3">
+                @messages("donorId.yourid")
                 @{
                     donorId
                 }
@@ -319,59 +327,22 @@
 
 }
 
-@populateDataSourceList(dataSourceDescription: DataSourceDescription) = {
-
-    <div class="card">
-
-        <label class="card-header donation-file-selector btn btn-link w-100" >
-            <input id="@{
-                dataSourceDescription.name.toString
-            }"
-            multiple
-            type="file"
-            class="donation-file-selector d-none"
-                @if(dataSourceDescription.requiresAlias) {
-                    data-requires-alias="true"
-                }
-                @if(dataSourceDescription.parsingDetails.specificFileExtensionAccepted.isDefined) {
-                    accept="@{
-                        dataSourceDescription.parsingDetails.specificFileExtensionAccepted
-                    }"
-            }
-            />
-            <span id="@{
-                dataSourceDescription.name.toString
-            }SelectText">
-                @if(dataSourceDescription.logo.isDefined) {
-                    <img class="logo mr-3" src="@{
-                        dataSourceDescription.logo
-                    }">
-                }
-                <span>@{
-                    dataSourceDescription.name.toString
-                }</span>
-            </span>
-
-            <input id="@{
-                dataSourceDescription.name
-            }AliasInput"
-            type="text"
-            minlength="0"
-            maxlength="100"
-            size="12"
-                @if(dataSourceDescription.requiresAlias) {
-                    placeholder="@messages("donation.alias")"
-                    class="ml-5 mbt-2 w-25"
-                    data-toggle="tooltip"
-                    data-placement="auto"
-                    title="@messages("donation.errors.no-alias")"
-                } else {
-                    placeholder="@messages("donation.alias-not-required")"
-                    disabled="true"
-                    class="ml-5 mbt-2 w-25 disabled-input"
-                    }
-            >
-        </label>
+@yourDonorIdModal() = {
+    <div class="modal" id="yourDonorId-dialog"  role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-xl modalMaxWidth">
+        <div class="modal-content">
+            <div class="modal-header bgmain">
+                <div class="flex-grow-1 flex-column">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="data-protection-headline mt-2">@messages("donorId.remember")</h3><h3 class="data-protection-headline mt-2">@{donorId}</h3>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex justify-content-end align-items-center mt-4">
+                    <button class="btn footer-forward-button consent-button" data-dismiss="modal">@messages("donorIdInput.nextButton")</button>
+                </div>
+            </div>
+        </div>
     </div>
-
+    </div>
 }

@@ -80,7 +80,7 @@ donorIdInput.title=ID-Eingabe
 donorIdInput.body=Bitte geben Sie Ihre ID ein, um fortzufahren:
 donorIdInput.nextButton=Weiter
 donorId.remember=Bitte notieren Sie sich Ihre ID:
-
+donorId.yourid=Ihre ID:
 
 # Donation info page
 
