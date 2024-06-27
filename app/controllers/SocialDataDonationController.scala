@@ -83,6 +83,14 @@ final class SocialDataDonationController @Inject()(
 
   }
 
+  def yourDonorID: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
+    request.session.get(GeneratedDonorIdKey) match {
+      case None => Redirect(routes.SocialDataDonationController.landing())
+      case Some(donorId) =>
+        Ok(views.html.yourDonorID(donorId.toString)).withSession(request.session + (GeneratedDonorIdKey -> donorId.toString))
+    }
+  }
+
   def consentToStudy: Action[AnyContent] = Action.async { implicit request: Request[AnyContent] =>
     //toDo : get donor id from session here if there is one (or pass it as a parameter)
 
@@ -92,13 +100,19 @@ final class SocialDataDonationController @Inject()(
     logger.info(request.session.toString())
     val isolocaleString = messagesApi.preferred(request).lang.locale.getLanguage
 
+    // todo: here make a if else o donorIdMethod - if showID - redirect to a new page that shows the ID and has a continue button
+
     // get the donorIdMethod param
     val donorIdMethod = config.get[String]("donorId-input-method.value")
     donationService.beginOnlineConsentDonation(donorIdInputValue, donorIdMethod).map {
       case Right(donorId) =>
-        val link = surveyConfig.createDonorLink(ExternalDonorId(donorId.toString), isolocaleString).toString
-        logger.info(s"""{"status": "consent-given"}""")
-        Redirect(link).withSession(request.session + (GeneratedDonorIdKey -> donorId.toString))
+        if (donorIdMethod == "showid") {
+          Redirect(routes.SocialDataDonationController.yourDonorID()).withSession(request.session + (GeneratedDonorIdKey -> donorId.toString))
+        } else {
+          val link = surveyConfig.createDonorLink(ExternalDonorId(donorId.toString), isolocaleString).toString
+          logger.info(s"""{"status": "consent-given"}""")
+          Redirect(link).withSession(request.session + (GeneratedDonorIdKey -> donorId.toString))
+        }
       case Left(errorMessage) =>
         logger.error(s"ERROR: $errorMessage")
         Redirect(routes.SocialDataDonationController.instructions()).flashing("errorMessage" -> errorMessage)
@@ -114,6 +128,18 @@ final class SocialDataDonationController @Inject()(
         val donorIdMethod = config.get[String]("donorId-input-method.value")
         logger.info(s"""{"status": "completed-survey"}""")
         Ok(views.html.anonymisation(socialDataForm, donorId.toString, dataSourceDescriptionService.listAll, donorIdMethod)).withSession(request.session + (GeneratedDonorIdKey -> donorId.toString))
+    }
+  }
+
+  def redirectToFirstSurvey: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
+    request.session.get(GeneratedDonorIdKey) match {
+      case None => Redirect(routes.SocialDataDonationController.landing())
+      case Some(donorId) =>
+        val isolocaleString = messagesApi.preferred(request).lang.locale.getLanguage
+        val link = surveyConfig.createDonorLink(ExternalDonorId(donorId.toString), isolocaleString).toString
+        logger.info(s"""{"status": "consent-given"}""")
+        Redirect(link).withSession(request.session + (GeneratedDonorIdKey -> donorId.toString))
+
     }
   }
 
