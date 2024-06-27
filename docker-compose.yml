@@ -6,7 +6,7 @@ services:
     links:
       - postgres
     ports:
-      - "9003:9000"
+      - "9000:9000"
     environment:
       - "APPLICATION_SECRET=${APPLICATION_SECRET}"
       - "DATABASE_HOST=postgres"
@@ -14,14 +14,14 @@ services:
       - "DATABASE_NAME=kalinka"
       - "DATABASE_USER=${DATABASE_USER}"
       - "DATABASE_PASSWORD=${DATABASE_PASSWORD}"
-      - "KALINKA_HOST=dev.mbp.tf.uni-bielefeld.de"
+      - "KALINKA_HOST=dona.tf.uni-bielefeld.de"
       - "SOCIAL_DATA_SOURCE_ID=1234566"
       - "SOCIAL_DATA_INGESTION_ENABLED=on"
       - "DONOR_SURVEY_ENABLED=on"
       - "DONOR_SURVEY_LINK=https://survey.mbp.tf.uni-bielefeld.de/index.php?r=survey/index&sid=287913"
       - "FEEDBACK_SURVEY_LINK=https://survey.mbp.tf.uni-bielefeld.de/index.php?r=survey/&sid=551679&newtest=Y"
       - "SECURE_COOKIE=false"
-      - "DONOR_ID_INPUT_METHOD=showid"
+      - "DONOR_ID_INPUT_METHOD=default"
   postgres:
     restart: unless-stopped
     environment:
@@ -30,8 +30,9 @@ services:
       POSTGRES_DB: "kalinka"
     image: postgres:12
     volumes:
-      - showid_feature_data:/var/lib/postgresql/data
+      - newDonorIdFeature_data:/var/lib/postgresql/data
     ports:
-      - "5558:5432"
+      - "5555:5432"
 volumes:
-  showid_feature_data:
+  newDonorIdFeature_data:
+
