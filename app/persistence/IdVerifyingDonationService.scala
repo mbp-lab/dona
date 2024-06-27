@@ -4,8 +4,6 @@ import com.google.inject.Inject
 import models.domain._
 
 import scala.concurrent.{ExecutionContext, Future}
-import org.slf4j.LoggerFactory
-import play.api.mvc.AbstractController
 
 
 final class IdVerifyingDonationService @Inject()(dao: DonationRepository, generateDonorId: () => ExternalDonorId)(
@@ -14,10 +12,9 @@ final class IdVerifyingDonationService @Inject()(dao: DonationRepository, genera
 
   override def beginOnlineConsentDonation(donorIdInputValue: String, donorIdMethod: String): Future[Either[String, ExternalDonorId]] = {
 
-    val logger = LoggerFactory.getLogger(classOf[AbstractController])
+
     // only overwrite the generated ID if there is a value and the method was set to manually
     if (donorIdInputValue.nonEmpty && donorIdMethod == "manually" ) {
-      logger.info(s"Inserting above")
       // If donorIdInputValue is not empty, use it
       var id = ExternalDonorId(donorIdInputValue)
       dao
@@ -35,12 +32,8 @@ final class IdVerifyingDonationService @Inject()(dao: DonationRepository, genera
       dao
         .insert(Donation(DonationId.generate, id, None, DonationStatus.Pending))
         .flatMap {
-          case Right(_) =>
-            logger.info(s"Insert operation successful for ID: $id")
-            Future.successful(Right(id))
-          case Left(_: DuplicateDonorIdFailure) =>
-            logger.warn(s"DuplicateDonorIdFailure for ID: $id")
-            beginOnlineConsentDonation(donorIdInputValue: String, donorIdMethod: String)
+          case Right(_) => Future.successful(Right(id))
+          case Left(_: DuplicateDonorIdFailure) => beginOnlineConsentDonation(donorIdInputValue: String, donorIdMethod: String)
         }
     }
 
