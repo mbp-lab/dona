@@ -58,7 +58,9 @@ object InMemoryDataSourceDescriptionService {
         messages("facebook.donation-procedure.7"),
         messages("facebook.donation-procedure.8"),
         messages("facebook.donation-procedure.9"),
-        messages("facebook.donation-procedure.10")
+        messages("facebook.donation-procedure.10"),
+        messages("facebook.donation-procedure.11"),
+        messages("facebook.donation-procedure.12")
       ),
       logo = Some(messages("facebook.logo")),
       requiresAlias = false

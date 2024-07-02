@@ -526,13 +526,13 @@ whatsapp.external-documentation_html=Die offizielle Dokumentation zum Herunterla
 #Download and Donation procedure: whatsapp
 
 whatsapp.donation-procedure.1=Öffnen Sie WhatsApp auf Ihrem Smartphone.
-whatsapp.donation-procedure.2=Überlegen Sie, welche fünf Chats für Sie besonders wichtig sind (z.B. Partner*in, beste/r Freund*in o.ä.).
+whatsapp.donation-procedure.2=Überlegen Sie, welche Chats für Sie besonders wichtig sind (z.B. Partner*in, beste/r Freund*in o.ä.). Überlegen Sie sich mindestens fünf Chats.
 whatsapp.donation-procedure.3=Wählen Sie einen der Chats aus und öffnen Sie diesen.
-whatsapp.donation-procedure.4=Klicken Sie oben in der Mitte auf den Namen des Kontakts.
-whatsapp.donation-procedure.5=Scrollen Sie runter und klicken Sie auf „Chat exportieren“. Ein Fenster öffnet sich. Wählen Sie "OHNE MEDIEN".
+whatsapp.donation-procedure.4=4.Tippen Sie auf "Weitere Optionen" (drei Punkte auf der rechten Seite) > "Mehr" > "Chat exportieren“.
+whatsapp.donation-procedure.5=Ein Fenster öffnet sich. Wählen Sie "Ohne Medien".
 whatsapp.donation-procedure.6=Wenn Sie an Ihrem Smartphone teilnehmen möchten, speichern Sie die Daten nun lokal bzw. so, dass Sie von Ihrem Smartphone aus darauf zugreifen können. Alternativ können Sie an Ihrem Computer teilnehmen. Dafür können Sie zum Beispiel Bluetooth oder Airdrop benutzen oder die Chats per Mail an sich selbst schicken. Bitte senden Sie nur von/an einen sicheren Maildienst (z.B. Uni-Mailadresse).
 whatsapp.donation-procedure.7=Falls Sie sich für die Teilnahme am Computer entschieden und sich die Chats per E-Mail geschickt haben, laden Sie die Chatdatei aus der E-Mail auf Ihren Computer herunter.
-whatsapp.donation-procedure.8=Wiederholen Sie die Schritte 3-7 für alle Chats.
+whatsapp.donation-procedure.8=Wiederholen Sie die Schritte 3 bis 7 für alle Chats, die Sie als besonders wichtig für Sie ausgewählt haben. Die Mehrfachauswahl von Chats wird derzeit von WhatsApp nicht unterstützt; daher können Chats nur nacheinander heruntergeladen werden.
 whatsapp.instruction.gif=whatsapp_ger.mp4
 whatsapp.instruction.gifiOS=whatsapp_ger_iOS.mp4
 whatsapp.instruction.gifAndroid=whatsapp_ger_android.mp4
@@ -558,15 +558,17 @@ facebook.external-documentation_html=Die offizielle Dokumentation zum Herunterla
 #Download and Donation procedure: Facebook
 
 facebook.donation-procedure.1=Öffnen Sie Facebook und melden Sie sich an.
-facebook.donation-procedure.2=Klicken Sie in der oberen rechten Ecke auf die Schaltfläche "Dein Profil" und wählen Sie "Einstellungen & Privatsphäre", dann "Einstellungen".
-facebook.donation-procedure.3=Klicken Sie dann auf der linken Seite auf "Meta Kontenübersicht".
+facebook.donation-procedure.2=Klicken Sie in der oberen rechten Ecke auf "Konto" (Ihr Profilbild) und wählen Sie "Einstellungen & Privatsphäre", dann "Einstellungen".
+facebook.donation-procedure.3=Klicken Sie dann auf der linken Seite auf "Kontenübersicht".
 facebook.donation-procedure.4=Klicken Sie auf "Deine Informationen und Berechtigungen" und dann auf "Deine Informationen herunterladen". Es erscheint dann ein Pop-up Fenster.
-facebook.donation-procedure.5=Klicken Sie auf “Informationen herunterladen oder übertragen” und wählen Sie nur Ihr Facebook-Profil aus. (Falls ihr Instagram-Profil ebenfalls auftaucht, wählen Sie es ab.) Drücken Sie auf "Weiter" und danach auf “Bestimmte Arten von Informationen”.
-facebook.donation-procedure.6=Wählen Sie "Nachrichten" unter "Deine Aktivitäten auf Facebook" und "Profilinformationen" unter "Personenbezogene Informationen". Klicken Sie anschließend auf "Weiter" und dann "Auf Gerät herunterladen".
-facebook.donation-procedure.7=Wählen Sie einen Datumsbereich: Wir empfehlen Ihnen, die <b>Daten für mindestens 1 Jahr anzufordern</b>, aber auch eine kürzere Zeitspanne ist möglich. Dazu können Sie auf "Zeitraum" klicken, bei "Selbstdefiniert" auf "Bearbeiten" und anschließend das gewünschte Start- und Enddatum wählen. Drücken Sie dann auf "Speichern".
-facebook.donation-procedure.8=Ändern Sie dann das Format von "HTML" zu "JSON". Ändern Sie die Medienqualität von “Mittel” zu “Niedrig”.
-facebook.donation-procedure.9=Klicken Sie auf "Anfrage absenden". Sobald die Datei zum Download bereit ist, erhalten Sie eine Benachrichtigung von Facebook. Dies kann eine Weile dauern (bis zu 48 Stunden).
-facebook.donation-procedure.10=Scrollen Sie zurück nach oben und klicken Sie auf die Registerkarte "Verfügbare Dateien". Dort sollten Sie die gewünschte Datei sehen. Sie können sie herunterladen, sobald sie bereitsteht.
+facebook.donation-procedure.5=Klicken Sie auf "Informationen herunterladen oder übertragen". Wenn mehrere Konten angezeigt werden, wählen Sie die Profile aus, von denen Sie Informationen herunterladen möchten, und klicken Sie auf "Weiter".
+facebook.donation-procedure.6=Sie werden dann gefragt, welche Informationen Sie herunterladen möchten. Im Interesse der Datensparsamkeit wählen Sie "Bestimmte Arten von Informationen".
+facebook.donation-procedure.7=Wählen Sie unter "Deine Aktivitäten auf Facebook" die Option „Nachrichten“ und  unter "Personenbezogene Informationen" die Option „Profilinformationen“. 
+facebook.donation-procedure.8=Klicken Sie anschließend auf "Weiter" und dann "Auf Gerät herunterladen".
+facebook.donation-procedure.9=Wählen Sie einen Datumsbereich: Wir empfehlen Ihnen, die <b>Daten für mindestens 1 Jahr anzufordern</b>, aber auch eine kürzere Zeitspanne ist möglich. Dazu können Sie auf "Zeitraum" klicken, bei "Selbstdefiniert" auf "Bearbeiten" und anschließend das gewünschte Start- und Enddatum wählen. Drücken Sie dann auf "Speichern".
+facebook.donation-procedure.10=Ändern Sie dann das Format von "HTML" zu "JSON" und die Medienqualität von “Mittel” zu “Niedrig”.
+facebook.donation-procedure.11=Klicken Sie auf "Anfrage absenden". Sobald die Datei zum Download bereit ist, erhalten Sie eine Benachrichtigung von Facebook. Dies kann eine Weile dauern (bis zu 48 Stunden).
+facebook.donation-procedure.12=Scrollen Sie zurück nach oben und klicken Sie auf die Registerkarte "Verfügbare Dateien". Dort sollten Sie die gewünschte Datei sehen. Sie können sie herunterladen, sobald sie bereitsteht.
 facebook.instruction.gif=facebook_ger.mp4
 facebook.logo=f-logo.svg
 
@@ -592,9 +594,9 @@ instagram.donation-procedure.4=Klicken Sie auf “Informationen herunterladen od
 instagram.donation-procedure.5=Klicken Sie auf “Einige deiner Informationen”.
 instagram.donation-procedure.6=Wählen Sie “Nachrichten” (unter “Deine Aktivitäten auf Instagram”) und “Personenbezogene Informationen” (unter “Personenbezogene Informationen”).
 instagram.donation-procedure.7=Klicken Sie auf "Weiter".
-instagram.donation-procedure.8=Wählen Sie einen Datumsbereich: Wir empfehlen Ihnen, die <b>Daten für 1 Jahr anzufordern</b>, aber auch eine kürzere Zeitspanne ist möglich.
+instagram.donation-procedure.8=Wählen Sie einen Datumsbereich: Wir empfehlen Ihnen, die <b>Daten für mindestens 1 Jahr anzufordern</b>, aber auch eine kürzere Zeitspanne ist möglich.
 instagram.donation-procedure.9=Ändern Sie dann das Format von HTML zu JSON. Ändern Sie die Medienqualität von “Mittel” zu “Niedrig”.
-instagram.donation-procedure.10=Klicken Sie auf "Anfrage absenden". Sobald die Datei zum Download bereit ist, erhalten Sie eine Benachrichtigung von Instagram. Dies kann einen Moment dauern.
+instagram.donation-procedure.10=Klicken Sie auf "Dateien erstellen". Sobald die Datei zum Herunterladen bereit ist, erhalten Sie normalerweise eine Benachrichtigung von Instagram, aber manchmal werden Nutzer nicht benachrichtigt. Das Bereitstellen der Datei kann bis zu mehreren Tagen dauern.
 instagram.donation-procedure.11=Scrollen Sie zurück nach oben und klicken Sie auf die Registerkarte "Verfügbare Dateien". Dort sollten Sie die gewünschte Datei sehen. Sie können sie herunterladen, sobald sie bereitsteht.
 
 instagram.instruction.gif=instagram_ger.mp4
