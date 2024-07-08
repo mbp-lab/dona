@@ -23,8 +23,24 @@ function animatedPolarPlot(dataMonthlyPerConversation, listOfConversations, plot
             "zoom2d",
             "select2d",
             "lasso2d",
-            "toggleHover"
+            "toggleHover",
+            "toImage"
         ],
+        modeBarButtonsToAdd: [{
+            name: "Download (.svg)",
+            icon: Plotly.Icons.camera,
+            click: (im) => {
+                Plotly.downloadImage(im, {format: "svg"})
+            }
+        },
+            {
+                name: "Download (.png)",
+                icon: Plotly.Icons.camera,
+                click: (im) => {
+                    Plotly.downloadImage(im, {format: "png"})
+                }
+            }],
+        displaylogo: false
     }
 
     let layout = {

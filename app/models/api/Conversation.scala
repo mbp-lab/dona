@@ -9,6 +9,7 @@ case class Conversation(
   conversationId: String,
   participants: List[String],
   messages: List[ConversationMessage],
+  messagesAudio: List[ConversationMessageAudio],
   donationDataSourceType: DonationDataSourceType,
   selected: Boolean
 )

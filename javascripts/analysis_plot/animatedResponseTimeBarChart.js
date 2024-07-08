@@ -61,8 +61,24 @@ function animatedResponseTimeBarChart(responseTimes, plotId) {
             "hoverCompareCartesian",
             "toggleSpikelines",
             "autoScale2d",
-            "resetScale2d"
+            "resetScale2d",
+            "toImage"
         ],
+        modeBarButtonsToAdd: [{
+            name: "Download (.svg)",
+            icon: Plotly.Icons.camera,
+            click: (im) => {
+                Plotly.downloadImage(im, {format: "svg"})
+            }
+        },
+            {
+                name: "Download (.png)",
+                icon: Plotly.Icons.camera,
+                click: (im) => {
+                    Plotly.downloadImage(im, {format: "png"})
+                }
+            }],
+        displaylogo: false
     }
 
     let layout = {

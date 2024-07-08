@@ -21,7 +21,23 @@ function sentReceivedDailyPerConversation(dataSlidingWindow, plotId, listOfConve
             "lasso2d",
             "hoverClosestCartesian",
             "hoverCompareCartesian",
+            "toImage"
         ],
+        modeBarButtonsToAdd: [{
+            name: "Download (.svg)",
+            icon: Plotly.Icons.camera,
+            click: (im) => {
+                Plotly.downloadImage(im, {format: "svg"})
+            }
+        },
+            {
+                name: "Download (.png)",
+                icon: Plotly.Icons.camera,
+                click: (im) => {
+                    Plotly.downloadImage(im, {format: "png"})
+                }
+            }],
+        displaylogo: false
     }
 
     const layout = {

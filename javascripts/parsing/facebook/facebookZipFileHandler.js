@@ -1,40 +1,59 @@
 var JSZip = require('jszip');
-var deIdentify = require('./deIdentify');
+var deIdentify = require('../shared/deIdentify');
+const zip = require("@zip.js/zip.js");
 
-function facebookZipFileHandler(fileList) {
-    const file = fileList[0];
+async function facebookZipFileHandler(fileList) {
+
     const i18n = $("#i18n-support");
+
 
     var messagesRelativePath = [];
     var zipFiles = {};
-    return new Promise((resolve, reject) => {
-        JSZip.loadAsync(file)
-            .then(function (zip) {
-                const zipFilesNames = Object.keys(zip.files);
-                var profileInfoPath = zipFilesNames.find(name => name.includes("profile_information.json"));
-                if (!profileInfoPath) reject(i18n.data('error-no-profile'));
-                zip.forEach(function (relativePath, zipEntry) {
-                    //TODO: Facebook added the '_1' to the json message file. We should figure out how we check all .json files
-                    // and just reject the files that do no parse, which in theory should not be any. This would potentially
-                    // be more future proof.
-                    if (validateContent("message.json", zipEntry) || validateContent("message_1.json", zipEntry)) {
-                       messagesRelativePath.push(relativePath);
-                    }
-                });
-                zipFiles = zip.files;
-                if (messagesRelativePath.length != 0) return (profileInfoPath);
-                else reject(zip);
-            })
-            .then((profilePath) => {
-                return extractDonorName(zipFiles, profilePath);
-            })
+
+    // first get all entries in the zip file
+    let allEntries = []
+    for (let i = 0; i < fileList.length; i++) {
+        const zipFileReader = new zip.BlobReader(fileList[i]);
+        const zipReader = new zip.ZipReader(zipFileReader);
+
+        allEntries = allEntries.concat(await zipReader.getEntries())
+        await zipReader.close();
+    }
+
+
+    return new Promise( (resolve, reject) => {
+
+        // then check if profileInfo is there and extract the donor name
+        let profileInfoEntry = allEntries.find(entry => entry.filename.includes("profile_information.json"))
+        if (profileInfoEntry === undefined) {
+            reject(i18n.data('error-no-profile'))
+        }
+
+        extractDonorNameFromEntry(profileInfoEntry)
             .then((donorName) => {
-                //TODO: we now have an async within an async not needed but it works
-                resolve([resolve(deIdentify(zipFiles, messagesRelativePath, donorName))]);
+                // get all messageEntries
+                let messagesEntries = []
+                allEntries.forEach((entry) => {
+                    if (validateContentEntry("message.json", entry) || validateContentEntry("message_1.json", entry)) {
+                        messagesEntries.push(entry);
+                    }
+                })
+
+                // if there is no messages then reject
+                if (messagesEntries.length < 1) reject("error");
+
+                // get the contents of the messageEntries
+                let textList = messagesEntries.map((entry) => {
+                    const textWriter = new zip.TextWriter();
+                    return entry.getData(textWriter)
+                })
+
+                resolve([resolve(deIdentify(donorName, Promise.all(textList), allEntries))]);
             })
             .catch(function (e) {
                 reject(e);
             })
+
     });
 }
 
@@ -51,8 +70,28 @@ function extractDonorName(zipFiles, profileInfoPath) {
         });
 }
 
+
+// new - it works!
+function extractDonorNameFromEntry(entry) {
+    const textWriter = new zip.TextWriter();
+    return entry.getData(textWriter).then((profileFileText) => {
+        return new Promise((resolve, reject) => {
+            const profileJson = JSON.parse(profileFileText);
+            // find appropriate profile key: it could be "profile" or "profile_v2", or "profile_v3", ...
+            let profileKey = Object.keys(profileJson).filter((profile) => /profile/.test(profile));
+            if (profileJson[profileKey].name.full_name) resolve(profileJson[profileKey].name.full_name);
+            else reject(profileInfoPath);
+        });
+    });
+}
+
 function validateContent(contentPattern, zipEntry) {
     if (zipEntry.name.trim().indexOf(contentPattern) >= 0) return true;
+    return false;
+};
+
+function validateContentEntry(contentPattern, entry) {
+    if (entry.filename.trim().indexOf(contentPattern) >= 0) return true;
     return false;
 };
 

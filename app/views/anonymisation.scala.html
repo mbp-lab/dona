@@ -1,6 +1,6 @@
 @import models.domain.DataSourceDescription
 
-@(form: Form[SocialDataForm.SocialFormData], donorId: String, dataSourceDescriptions: List[DataSourceDescription])(implicit request: RequestHeader, messages: Messages)
+@(form: Form[SocialDataForm.SocialFormData], donorId: String, dataSourceDescriptions: List[DataSourceDescription], donorIdMethod: String)(implicit request: RequestHeader, messages: Messages)
 
 @displayJsonParseError(maybeErrorString: Option[String]) = @{
     maybeErrorString match {
@@ -29,6 +29,7 @@
         data-friend-initial="@messages("donation.anonymisation.friendInitial")"
         data-chat-initial-w="@messages("donation.anonymisation.chatInitialW")"
         data-chat-initial-f="@messages("donation.anonymisation.chatInitialF")"
+        data-chat-initial-i="@messages("donation.anonymisation.chatInitialI")"
         data-only-you="@messages("donation.friendsMapping.onlyYouInConv")"
         data-and-more-contacts="@messages("donation.friendsMapping.moreFriends")"
         data-chat="@messages("donation.friendsMapping.chat")"
@@ -37,9 +38,11 @@
         data-sender="@messages("donation.preview-data.sender")"
         data-receiver="@messages("donation.preview-data.receiver")"
         data-word-count="@messages("donation.preview-data.word-count")"
+        data-length-seconds="@messages("donation.preview-data.length-seconds")"
         data-timestamp="@messages("donation.preview-data.timestamp")"
         data-message="@messages("donation.preview-data.message")"
         data-group-conversation="@messages("donation.preview-data.group-conversation")"
+        data-voice-message="@messages("donation.preview-data.voice-message")"
         data-previous="@messages("actions.previous")"
         data-next="@messages("actions.next")"
         data-yes="@messages("yes")"
@@ -54,6 +57,14 @@
         data-error-not-enough-months="@messages("donation.errors.dates-not-enough-months")"
         >
         </div>
+        @if(donorIdMethod == "showid" || donorIdMethod == "manually") {
+            <div class="text-center mb-3">
+                @messages("donorId.yourid")
+                @{
+                    donorId
+                }
+            </div>
+        }
         <div class=" w-100" id="anonymizationTextHeadlines">
             <div class="headline text-center mb-3">@messages("donation.select-data.title")</div>
             <p class="paragraph"> @messages("donation.select-data.body1") </p>
@@ -74,7 +85,12 @@
 
                 <!-- Modal for choosing facebook chats to show feedback for -->
             <div class="modal fade" id="chooseFacebookChatsModal" role="dialog">
-            @anonymisation_facebookChatSelectionModal()
+            @anonymisation_chatSelectionModal("Facebook")
+            </div>
+
+                <!-- Modal for choosing instagram chats to show feedback for -->
+            <div class="modal fade" id="chooseInstagramChatsModal" role="dialog">
+            @anonymisation_chatSelectionModal("Instagram")
             </div>
             </div>
         <div class="mt-5 w-100 d-none" align="center" id="spinner-submit-div">
@@ -249,8 +265,10 @@
                         <div class="container-fluid show-on-anonymisation-success-@{dataSourceDescription.name.toString} alert-info" style="border-radius: 16px;">
                             @if(dataSourceDescription.name.toString == "Facebook") {
                                 <p style="color: darkblue;">@Html(messages("donation.friendsMapping.subtitle.facebook"))</p>
-                            } else {
+                            } @if(dataSourceDescription.name.toString == "WhatsApp") {
                                 <p style="color: darkblue;">@Html(messages("donation.friendsMapping.subtitle.whatsapp"))</p>
+                            } @if(dataSourceDescription.name.toString == "Instagram") {
+                            <p style="color: darkblue;">@Html(messages("donation.friendsMapping.subtitle.instagram"))</p>
                             }
 
                             @if(dataSourceDescription.name.toString == "Facebook") {
@@ -264,6 +282,11 @@
                                     @Html("<span id=\"display-userIDMapping-" + dataSourceDescription.name.toString + "\"></span>")
                                 @if(dataSourceDescription.name.toString == "Facebook") {
                                     <button class="btn btn-outline text-center selectorsAndInputs" id="openChooseFacebookChatsModalButton">
+                                        <h5 class="mb-3"><i><b>@messages("donation.anonymisation.chatSelection.clickHereToSelect")</b></i></h5>
+                                    </button>
+                                }
+                                @if(dataSourceDescription.name.toString == "Instagram") {
+                                    <button class="btn btn-outline text-center selectorsAndInputs" id="openChooseInstagramChatsModalButton">
                                         <h5 class="mb-3"><i><b>@messages("donation.anonymisation.chatSelection.clickHereToSelect")</b></i></h5>
                                     </button>
                                 }
@@ -293,62 +316,5 @@
         </div>
     </div>
 
-
-}
-
-@populateDataSourceList(dataSourceDescription: DataSourceDescription) = {
-
-    <div class="card">
-
-        <label class="card-header donation-file-selector btn btn-link w-100" >
-            <input id="@{
-                dataSourceDescription.name.toString
-            }"
-            multiple
-            type="file"
-            class="donation-file-selector d-none"
-                @if(dataSourceDescription.requiresAlias) {
-                    data-requires-alias="true"
-                }
-                @if(dataSourceDescription.parsingDetails.specificFileExtensionAccepted.isDefined) {
-                    accept="@{
-                        dataSourceDescription.parsingDetails.specificFileExtensionAccepted
-                    }"
-            }
-            />
-            <span id="@{
-                dataSourceDescription.name.toString
-            }SelectText">
-                @if(dataSourceDescription.logo.isDefined) {
-                    <img class="logo mr-3" src="@{
-                        dataSourceDescription.logo
-                    }">
-                }
-                <span>@{
-                    dataSourceDescription.name.toString
-                }</span>
-            </span>
-
-            <input id="@{
-                dataSourceDescription.name
-            }AliasInput"
-            type="text"
-            minlength="0"
-            maxlength="100"
-            size="12"
-                @if(dataSourceDescription.requiresAlias) {
-                    placeholder="@messages("donation.alias")"
-                    class="ml-5 mbt-2 w-25"
-                    data-toggle="tooltip"
-                    data-placement="auto"
-                    title="@messages("donation.errors.no-alias")"
-                } else {
-                    placeholder="@messages("donation.alias-not-required")"
-                    disabled="true"
-                    class="ml-5 mbt-2 w-25 disabled-input"
-                    }
-            >
-        </label>
-    </div>
 
 }

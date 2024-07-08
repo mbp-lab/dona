@@ -31,7 +31,6 @@ final class FeedbackSurveyController @Inject()(
   def goToFeedback(donorId: String): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
     val isolocaleString = messagesApi.preferred(request).lang.locale.getLanguage
     val link = feedbackSurveyConfig.createFeedbackLink(donorId, isolocaleString).toString
-
     Redirect(link)
   }
 

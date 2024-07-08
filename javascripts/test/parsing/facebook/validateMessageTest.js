@@ -1,4 +1,4 @@
-const messageValidation = require('../../../parsing/facebook/validateMessage.js');
+const messageValidation = require('../../../parsing/shared/validateMessage.js');
 const expect = require('chai').expect;
 
 describe('Validating ', function() {

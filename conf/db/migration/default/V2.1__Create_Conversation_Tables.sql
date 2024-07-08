@@ -37,7 +37,8 @@ CREATE TABLE data_sources (
 
 INSERT INTO data_sources (id, name) VALUES
 (1, 'Facebook'),
-(2, 'WhatsApp');
+(2, 'WhatsApp'),
+(3, 'Instagram');
 
 CREATE TABLE conversations (
     id                      uuid            PRIMARY KEY,
@@ -49,8 +50,7 @@ CREATE TABLE conversations (
 CREATE TABLE conversation_participants (
     id                      uuid            PRIMARY KEY,
     conversation_id         uuid            NOT NULL REFERENCES conversations(id),
-    participant_id          uuid            NOT NULL,
-    participant_pseudonym   VARCHAR(1024)   NOT NULL
+    participant_id          uuid            NOT NULL
 );
 
 CREATE TABLE messages(
@@ -59,4 +59,12 @@ CREATE TABLE messages(
     sender_id               uuid            NOT NULL,
     datetime                TIMESTAMP       NOT NULL,
     word_count              INTEGER         NOT NULL
+);
+
+CREATE TABLE messages_audio(
+                         id                      uuid            PRIMARY KEY,
+                         conversation_id         uuid            NOT NULL REFERENCES conversations(id),
+                         sender_id               uuid            NOT NULL,
+                         datetime                TIMESTAMP       NOT NULL,
+                         length_seconds          INTEGER
 );

@@ -14,13 +14,14 @@ services:
       - "DATABASE_NAME=kalinka"
       - "DATABASE_USER=${DATABASE_USER}"
       - "DATABASE_PASSWORD=${DATABASE_PASSWORD}"
-      - "KALINKA_HOST=dev.mbp.tf.uni-bielefeld.de"
+      - "KALINKA_HOST=study-demo.dona.tf.uni-bielefeld.de"
       - "SOCIAL_DATA_SOURCE_ID=1234566"
       - "SOCIAL_DATA_INGESTION_ENABLED=on"
       - "DONOR_SURVEY_ENABLED=on"
       - "DONOR_SURVEY_LINK=https://survey.mbp.tf.uni-bielefeld.de/index.php?r=survey/index&sid=823816"
       - "FEEDBACK_SURVEY_LINK=https://survey.mbp.tf.uni-bielefeld.de/index.php?r=survey/index&sid=694135"
       - "SECURE_COOKIE=false"
+      - "DONOR_ID_INPUT_METHOD=default"
   postgres:
     restart: unless-stopped
     environment:
@@ -29,8 +30,8 @@ services:
       POSTGRES_DB: "kalinka"
     image: postgres:12
     volumes:
-      - project03demo_dona_data:/var/lib/postgresql/data
+      - project03_study_demo_data:/var/lib/postgresql/data
     ports:
       - "5561:5432"
 volumes:
-  project03demo_dona_data:
+  project03_study_demo_data:

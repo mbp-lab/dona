@@ -43,14 +43,6 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
       .map { case (dataSourceType, originalConversations) =>
         var conversations = originalConversations
 
-        // println(socialData)
-        // TODO ! The information for which chats feedback should be shown should be passed with the socialData!!!
-        /*
-        if (dataSourceType == DonationDataSourceType.Facebook) {
-          // for now: only produce graphData for 7 facebook chats with most words exchanged
-          conversations = produceFilteredConversations(conversations, 7, socialData.donorId).reverse
-        }
-        */
 
         val sentReceivedMessagesMonthly = produceSentReceivedMessagedMonthly(socialData.donorId, conversations)
         //val sentReceivedWords = produceSentReceivedWordsGraphData(socialData.donorId, conversations)

@@ -128,6 +128,8 @@ function checkOneSidedThreshold(data) {
             // in this case its not a group chat
             let valueToCompare = wordCountObj.wordCountDonor/wordCountObj.wordCount
             if (valueToCompare <= 0.1 || valueToCompare >= 0.9) {
+                //console.log(wordCountObj.wordCountDonor)
+                //console.log(wordCountObj.wordCount)
                 rejectionReason = true
                 return;
             }
@@ -135,6 +137,9 @@ function checkOneSidedThreshold(data) {
             // in this case it is a group chat
             let valueToCompare = wordCountObj.wordCountDonor/(wordCountObj.wordCount/wordCountObj.participants.length)
             if (valueToCompare <= 0.1 || valueToCompare >= 0.9) {
+                //console.log(wordCountObj.wordCountDonor)
+                //console.log(wordCountObj.wordCount)
+                //console.log(wordCountObj.participants.length)
                 rejectionReason = true
                 return;
             }
@@ -266,14 +271,13 @@ function deIdentification(parsedFiles, alias) {
             }
 
             return result;
-        })
+        });
 
     function getDeIdentifiedId(name) {
         const i18nSupport = $('#i18n-support'); // TODO: This file should not be allowed to access jquery
         const systemName = i18nSupport.data("system")
 
         if (!(name in participantNameToRandomIds)) {
-            // TODO: I (Paul) modified this to not anonymize the system, but keep calling it system
             if (name === systemName) {
                 participantNameToRandomIds[name] = systemName;
             } else {

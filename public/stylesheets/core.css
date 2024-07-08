@@ -12,16 +12,15 @@
 .bgImage {
     width: 100%;
     background-size: cover;
-    background-attachment: fixed;
     -o-background-size:cover;
     -moz-background-size:cover;
     -webkit-background-size:cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-image: url("/assets/images/backgroud3_4_compressed.jpg");
 }
 
-@media (min-device-width: 400px) {
+@media (min-device-width: 700px) {
     .bgImage {
         width: 100%;
         background-size: cover;
@@ -35,7 +34,44 @@
     }
 }
 
+.background-image::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background-image: url("/assets/images/backgroud3_4_compressed.jpg");
+    background-size: cover;
+    background-position: center;
+    pointer-events: none; /* Make sure clicks go through the pseudo-element */
+}
+
+@media (min-device-width: 700px) {
+    .background-image::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        background-image: url("/assets/images/background_compressed.jpg");
+        background-size: cover;
+        background-position: center;
+        pointer-events: none; /* Make sure clicks go through the pseudo-element */
+    }
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    /* Your content styles go here */
+}
+
 .main-container {
+    position: relative;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -97,15 +133,37 @@
 }
 
 .headline {
-    font-size: 36px;
+    font-size: 28px;
     color: #666666;
     margin-top: 10px;
+    word-break: break-word;
 }
 
-.headline0 {
-    font-size: 42px;
-    color: #666666;
+@media (min-width: 576px) {
+    .headline {
+        font-size: 36px;
+        color: #666666;
+        margin-top: 10px;
+        word-break: break-word;
+    }
 }
+
+
+.headline0 {
+    font-size: 30px;
+    color: #666666;
+    word-break: break-word;
+}
+@media (min-width: 576px) {
+    .headline0 {
+        font-size: 42px;
+        color: #666666;
+        word-break: break-word;
+    }
+}
+
+
+
 
 .headline2 {
     font-size: 28px;
@@ -245,6 +303,11 @@
     font-weight: 900;
 }
 
+.highlighted-text {
+    color: #36b3a8;
+    font-weight: 900;
+}
+
 .landing-column-image {
     height: 170px;
     margin-bottom: 1rem;
@@ -262,10 +325,21 @@
 }
 
 
+
 .landing-header-headline {
-    font-size: 48px;
+    font-size: 32px;
     font-weight: 800;
+    word-break: break-word;
 }
+
+@media (min-width: 576px) {
+    .landing-header-headline {
+        font-size: 48px;
+        font-weight: 800;
+        word-break: break-word;
+    }
+}
+
 
 .landing-header-text {
     color: white;
@@ -275,6 +349,8 @@
     padding-right: 20px;
     margin-top: 1em;
 }
+
+
 
 /* data protection */
 
@@ -325,6 +401,7 @@
 
 
 .footer-forward-button {
+    word-break: break-all;
     font-weight: 800;
     font-size: 24px;
     width: 100%;
@@ -338,6 +415,7 @@
 
 @media (min-width: 576px) {
     .footer-forward-button {
+        word-break: break-all;
         font-weight: 800;
         font-size: 24px;
         width: 275px;
@@ -355,6 +433,7 @@
     font-weight: 800;
     font-size: 24px;
     width: 100%;
+    word-break: break-all;
     padding: 10px 20px 10px 20px;
     border-radius: 16px;
     background: #35b1a6;
@@ -365,6 +444,7 @@
 
 @media (min-width: 576px) {
     .footer-forward-button-margin {
+        word-break: break-all;
         margin-left: 8px;
         font-weight: 800;
         font-size: 24px;
@@ -382,6 +462,7 @@
 
 @media (min-width: 576px) {
     .report-problem-button-footer {
+        word-break: break-all;
         min-width: 190px !important;
         font-weight: 800 !important;
         font-size: 12px !important;
@@ -394,6 +475,7 @@
 }
 
 .report-problem-button-footer {
+    word-break: break-all;
     min-width: 100px !important;
     font-weight: 800 !important;
     font-size: 10px !important;
@@ -410,6 +492,7 @@
 }
 
 .report-problem-button-header {
+    word-break: break-all;
     font-weight: 800 !important;
     font-size: 12px !important;
     padding: 10px 20px 10px 20px !important;
@@ -425,6 +508,7 @@
 }
 
 .modal-forward-button {
+    word-break: break-all;
     font-weight: 800;
     font-size: 24px;
     min-width: 213px;
@@ -443,6 +527,7 @@
 
 
 .footer-backward-button {
+    word-break: break-all;
     font-weight: 800;
     font-size: 24px;
     width: 100%;
@@ -456,6 +541,7 @@
 
 @media (min-width: 576px) {
     .footer-backward-button {
+        word-break: break-all;
         font-weight: 800;
         font-size: 24px;
         width: 275px;
@@ -583,6 +669,7 @@
 /* donation page */
 
 .donate-collapse-button {
+    word-break: break-all;
     font-weight: 800;
     font-size: 24px;
     min-width: 213px;
@@ -614,7 +701,7 @@
 }
 
 .message-card-heading {
-    font-weight: 400px;
+    font-weight: 400;
     font-size: 18px;
     margin-top: 0.25em;
     margin-bottom: 0.25em;
@@ -709,6 +796,7 @@
 /* consent dialog */
 
 .consent-button {
+    word-break: break-all;
     font-size: 18px;
     font-weight: normal;
     width: 150px;
