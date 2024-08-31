@@ -22,6 +22,7 @@ final class InMemoryDataSourceDescriptionService() extends DataSourceDescription
 object InMemoryDataSourceDescriptionService {
 
   private def dataDownloadInstructions(implicit messages: Messages) = List(
+    /*
     DataSourceDescription(
       name = DonationDataSourceType.WhatsApp,
       description = messages("whatsapp.description_html"),
@@ -41,6 +42,7 @@ object InMemoryDataSourceDescriptionService {
       ),
       logo = Some(messages("whatsapp.logo"))
     ),
+    */
     DataSourceDescription(
       name = DonationDataSourceType.Facebook,
       description = messages("facebook.description_html"),
