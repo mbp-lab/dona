@@ -20,20 +20,47 @@ function addListeners() {
 
     // this is so that when a modal is open, clicking the back button will close the modal
     if (window.history && window.history.pushState) {
+
         $('.modal').on('show.bs.modal', function (e) {
-            window.history.pushState('openModal', null, './more');
+           window.history.pushState('openModal', null, './more');
         });
 
+        let pushedState = false;
+
         $(window).on('popstate', function () {
-            $('.modal').modal('hide')
+            if (!pushedState) {
+                $('.modal:visible').each(function() {
+                    if (this.id === 'donorIdInput-dialog') {
+                        window.history.pushState('donorIdInput', null, './donorIdInput');
+                        pushedState = true;
+                    }
+                });
+                $('.modal:not(#donorIdInput-dialog)').modal('hide');
+            } else {
+                $('.modal').modal('hide');
+                pushedState = false;
+            }
         });
 
         $('.modal').on('hide.bs.modal', function (e) {
             if (window.history.state === "openModal") {
                 window.history.back()
+            } else if (window.history.state === "donorIdInput") {
+                window.history.back()
             }
         });
     }
+
+    $('#openDonorIdInput').click(function(e) {
+        e.preventDefault();
+        $('#consent-dialog').modal('hide');
+        $('#donorIdInput-dialog').modal('show');
+    });
+
+    $("#donationIdInput").on("change", (e) => {
+        let donorIdInput = e.target.value
+        $("#donorIdInputValue").attr('value', donorIdInput);
+    })
 
     $("#btn-fb-download-finished").on("click", function (e) {
         e.preventDefault();d
@@ -180,6 +207,7 @@ function setUpFileHandler() {
             return;
         }
 
+        // toDo: DONOR ID !!
         const donorId = $("#donor_id").val();
 
         messageService.hide(dataSource)
