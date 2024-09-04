@@ -6,7 +6,7 @@ services:
     links:
       - postgres
     ports:
-      - "9009:9000"
+      - "9010:9000"
     environment:
       - "APPLICATION_SECRET=${APPLICATION_SECRET}"
       - "DATABASE_HOST=postgres"
