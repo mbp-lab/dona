@@ -14,7 +14,7 @@ services:
       - "DATABASE_NAME=kalinka"
       - "DATABASE_USER=${DATABASE_USER}"
       - "DATABASE_PASSWORD=${DATABASE_PASSWORD}"
-      - "KALINKA_HOST=dev.mbp.tf.uni-bielefeld.de"
+      - "KALINKA_HOST=dona.tf.uni-bielefeld.de"
       - "SOCIAL_DATA_SOURCE_ID=1234566"
       - "SOCIAL_DATA_INGESTION_ENABLED=on"
       - "DONOR_SURVEY_ENABLED=on"
@@ -30,8 +30,8 @@ services:
       POSTGRES_DB: "kalinka"
     image: postgres:12
     volumes:
-      - test_pre_deployment_posts:/var/lib/postgresql/data
+      - project05:/var/lib/postgresql/data
     ports:
-      - "5560:5432"
+      - "5565:5432"
 volumes:
-  test_pre_deployment_posts:
+  project05:
