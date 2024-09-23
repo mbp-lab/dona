@@ -101,7 +101,7 @@ async function deIdentify(donorName, textListPromise, postListPromise, commentLi
         } else {
             // in this case it is a group chat
             let valueToCompare = wordCountObj.wordCountDonor/(wordCountObj.wordCount/wordCountObj.participants.length)
-            if (valueToCompare <= 0.1 || valueToCompare >= 0.9) {
+            if (valueToCompare <= 0.1) {
                 return false
             } else {
                 return true
