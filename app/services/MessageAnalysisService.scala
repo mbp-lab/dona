@@ -124,7 +124,7 @@ class MessageAnalysisService @Inject()(config: FeedbackConfig) {
         !((conv.wordCountDonor.toFloat/conv.wordCount <= 0.1) || (conv.wordCountDonor.toFloat/conv.wordCount >= 0.9))
       } else {
         val toCompare = conv.wordCountDonor.toFloat/(conv.wordCount.toFloat/conv.conversation.participants.length)
-        !((toCompare <= 0.1) || (toCompare >= 0.9))
+        !((toCompare <= 0.1))
       }
     }))
 

@@ -68,6 +68,7 @@ async function deIdentify(donorName, textListPromise, postListPromise, commentLi
 
     // find seven chats with highest wordcount - so only they will be displayed for friendsmapping
     // TODO: seven should be in some config file
+    // first get all wordCounts per chat and the wordCountDonor per chat
     let allWordCounts = messages_deIdentifiedJsonContents.map((conv, index) => {
         return {
             deIdentifiedJsonContentsIndex: index,
@@ -100,7 +101,7 @@ async function deIdentify(donorName, textListPromise, postListPromise, commentLi
         } else {
             // in this case it is a group chat
             let valueToCompare = wordCountObj.wordCountDonor/(wordCountObj.wordCount/wordCountObj.participants.length)
-            if (valueToCompare <= 0.1 || valueToCompare >= 0.9) {
+            if (valueToCompare <= 0.1) {
                 return false
             } else {
                 return true
@@ -239,7 +240,7 @@ async function processMessages(jsonContent, getDeIdentifiedId, allEntries) {
 // per post that is: timestamp, number of media elements, number of words of text
 function processPosts(postList, dataSource) {
     let result = []
-    console.log("postList:", postList)
+
     postList.forEach((elem) => {
         let jsonContent = JSON.parse(elem);
         if (jsonContent !== null && typeof jsonContent === 'object') {
@@ -248,7 +249,7 @@ function processPosts(postList, dataSource) {
                 jsonContent = jsonContent[keys[0]];
             }
         }
-        console.log("jsonContent:", jsonContent)
+
         jsonContent.forEach((post) => {
             if (dataSource === "Facebook") {
                 if (post.data[0]?.post) {
@@ -270,8 +271,6 @@ function processPosts(postList, dataSource) {
 
                 result.push(post)
             } else if (dataSource === "Instagram") {
-
-                console.log("post:", post)
 
 
                 // the post has a overall title if there is more than one media element

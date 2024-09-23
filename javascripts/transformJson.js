@@ -9,11 +9,7 @@ function transformJson(messages_deIdentifiedJsonContents, deIdentifiedPosts, deI
     const comments = deIdentifiedComments.map((comment) => generateComment(comment, dataSource))
     const groupComments = deIdentifiedGroupComments.map((groupComment) => generateGroupComment(groupComment, dataSource))
     const reactions = deIdentifiedReactions.map((reaction) => generateReaction(reaction, dataSource))
-    console.log("posts", posts)
-    console.log("groupPosts", groupPosts)
-    console.log("comments", comments)
-    console.log("groupComments", groupComments)
-    console.log("reactions", reactions)
+
 
     const conversations = messages_deIdentifiedJsonContents.map((jsonContent) => generateConversation(jsonContent, dataSource));
     return Promise.all(conversations).then((res) => {
