@@ -172,7 +172,7 @@ async function deIdentify(donorName, dataPromise, allEntries) {
         } else {
             // in this case it is a group chat
             let valueToCompare = wordCountObj.wordCountDonor/(wordCountObj.wordCount/wordCountObj.participants.length)
-            if (valueToCompare <= 0.1 || valueToCompare >= 0.9) {
+            if (valueToCompare <= 0.1) {
                 return false
             } else {
                 return true
@@ -187,6 +187,8 @@ async function deIdentify(donorName, dataPromise, allEntries) {
     } else {
         chatsToShowFeedbackFor = filteredWordCounts.sort((a, b) => b.wordCount - a.wordCount).slice(0, 7)
     }
+
+    console.log("chatsToShowFeedbackFor:", chatsToShowFeedbackFor)
 
 
     let participantsToShow = []

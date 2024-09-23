@@ -128,25 +128,18 @@ function checkOneSidedThreshold(data) {
             // in this case its not a group chat
             let valueToCompare = wordCountObj.wordCountDonor / wordCountObj.wordCount
             if (valueToCompare <= 0.1 || valueToCompare >= 0.9) {
-                //console.log(wordCountObj.wordCountDonor)
-                //console.log(wordCountObj.wordCount)
                 rejectionReason = true
                 return;
             }
         } else {
             // in this case it is a group chat
-            let valueToCompare = wordCountObj.wordCountDonor / (wordCountObj.wordCount / wordCountObj.participants.length)
-            if (valueToCompare <= 0.1 || valueToCompare >= 0.9) {
-                //console.log(wordCountObj.wordCountDonor)
-                //console.log(wordCountObj.wordCount)
-                //console.log(wordCountObj.participants.length)
+            let valueToCompare = wordCountObj.wordCountDonor/(wordCountObj.wordCount/wordCountObj.participants.length)
+            if (valueToCompare <= 0.1) {
                 rejectionReason = true
                 return;
             }
         }
     })
-
-    console.log(rejectionReason)
 }
 
 function askUserForUsername(possibilities) {
@@ -200,21 +193,12 @@ function deIdentification(parsedFiles, alias) {
 
     return Promise.all(parsedFiles)
         .then(textList => {
-            //let textList = parsed.map((obj) => obj.texts)
-            //let contacts = parsed.map((obj) => obj.contacts)
-            console.log(textList);
-            //console.log(contacts)
             textList.forEach(lines => {
                 const jsonContent = { "participants": [], "messages": [], thread_type: "Regular" };
                 var eachFileParticipants = new Set();
                 const i18nSupport = $('#i18n-support'); // TODO: This file should not be allowed to access jquery
                 participantNameToRandomIds[alias] = i18nSupport.data('donor');
                 const messages = lines.map(line => {
-                    // console.log("=== Start ===");
-                    // console.log(line);
-                    // console.log(line.message);
-                    // console.log(line.message.includes(systemMessage));
-                    // console.log("=== End ===");
                     if (!line.message.includes(systemMessage)) {
                         const participant = getDeIdentifiedId(line.author);
                         eachFileParticipants.add(participant);
@@ -252,23 +236,6 @@ function deIdentification(parsedFiles, alias) {
 
                 deIdentifiedJsonContents.push(jsonContent);
             });
-
-
-            /*
-            let allParticipants = deIdentifiedJsonContents.map(conv => {
-              let helper = []
-              conv.participants.forEach(p => helper.push(p.name))
-              return helper
-            })
-            console.log(allParticipants)
-            console.log(_.intersection(...allParticipants))
-            let possibleUserNames = _.intersection(...allParticipants)
-            if (possibleUserNames.length === 1) {
-              //participantNameToRandomIds[]
-              participantNameToRandomIds[alias] = i18nSupport.data('donor');
-            }
-
-             */
 
 
             let result = {
