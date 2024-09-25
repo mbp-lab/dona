@@ -6,8 +6,6 @@ const {json} = require("mocha/lib/reporters");
 const zip = require("@zip.js/zip.js");
 
 async function deIdentify(donorName, dataPromise, allEntries) {
-    //console.log("deIdentify:", zipFiles)
-    //console.log("messagesRelativePath:", messagesRelativePath)
     const i18n = $("#i18n-support");
     let participantNameToRandomIds = {};
     let i = 1;
@@ -45,10 +43,6 @@ async function deIdentify(donorName, dataPromise, allEntries) {
             jsonContents[jsonContent.thread_path] = jsonContent
         }
     })
-
-
-    //console.log("data:", data)
-    //console.log("textList", textList)
 
     let deIdentifiedJsonContentsNew = await Promise.all(Object.values(jsonContents).map(async jsonContent => {
         delete jsonContent.thread_path;
@@ -172,7 +166,7 @@ async function deIdentify(donorName, dataPromise, allEntries) {
         } else {
             // in this case it is a group chat
             let valueToCompare = wordCountObj.wordCountDonor/(wordCountObj.wordCount/wordCountObj.participants.length)
-            if (valueToCompare <= 0.1 || valueToCompare >= 0.9) {
+            if (valueToCompare <= 0.1) {
                 return false
             } else {
                 return true
@@ -187,7 +181,6 @@ async function deIdentify(donorName, dataPromise, allEntries) {
     } else {
         chatsToShowFeedbackFor = filteredWordCounts.sort((a, b) => b.wordCount - a.wordCount).slice(0, 7)
     }
-
 
     let participantsToShow = []
     chatsToShowFeedbackFor.forEach(obj => {
