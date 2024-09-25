@@ -30,8 +30,8 @@ services:
       POSTGRES_DB: "kalinka"
     image: postgres:12
     volumes:
-      - dona_newYorkDemo_wAudio_data:/var/lib/postgresql/data
+      - dona_newYorkDemo_wAudio1_data:/var/lib/postgresql/data
     ports:
       - "5562:5432"
 volumes:
-  dona_newYorkDemo_wAudio_data:
+  dona_newYorkDemo_wAudio1_data:
